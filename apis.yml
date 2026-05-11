@@ -1,0 +1,78 @@
+aid: bitrix24
+name: Bitrix24
+description: >-
+  Bitrix24 is an all-in-one collaboration and business management suite
+  that combines CRM, tasks and projects, contact center, telephony,
+  documents, websites, and HR tooling in a single platform delivered as
+  SaaS or self-hosted. The Bitrix24 REST API exposes more than a thousand
+  methods across CRM, tasks, telephony, calendar, disk, and user
+  management, callable via inbound webhooks or OAuth 2.0 marketplace
+  applications. API endpoints live under each tenant at
+  https://{installation}.bitrix24.com/rest/.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - CRM
+  - Collaboration
+  - Project Management
+  - Tasks
+  - Telephony
+  - Contact Center
+  - Document Management
+  - HR
+  - Business Suite
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/bitrix24/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: bitrix24:rest-api
+    name: Bitrix24 REST API
+    description: >-
+      Tenant-scoped REST API for managing CRM entities, deals, leads,
+      tasks, calendars, telephony, disk files, users, and marketplace
+      apps. Each request targets the customer's portal URL of the form
+      https://{portal}.bitrix24.com/rest/ and authenticates via an
+      inbound webhook secret or an OAuth 2.0 access token.
+    humanURL: https://apidocs.bitrix24.com/
+    baseURL: https://{installation}.bitrix24.com/rest/
+    tags:
+      - CRM
+      - Tasks
+      - Telephony
+      - Calendar
+      - Disk
+      - Webhooks
+      - OAuth
+    properties:
+      - type: Documentation
+        url: https://apidocs.bitrix24.com/
+      - type: Authentication
+        url: https://apidocs.bitrix24.com/settings/how-to-call-rest-api/authorization.html
+      - type: Webhooks
+        url: https://apidocs.bitrix24.com/local-integrations/local-webhooks.html
+      - type: REST API 3.0 Overview
+        url: https://apidocs.bitrix24.com/api-reference/rest-v3/index.html
+
+common:
+  - type: Website
+    url: https://www.bitrix24.com
+  - type: Developer Portal
+    url: https://apidocs.bitrix24.com
+  - type: Documentation
+    url: https://apidocs.bitrix24.com
+  - type: Pricing
+    url: https://www.bitrix24.com/prices/
+  - type: Sign Up
+    url: https://www.bitrix24.com/create.php
+  - type: Training
+    url: https://training.bitrix24.com
+  - type: GitHub Organization
+    url: https://github.com/bitrix24
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bitrix24
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
