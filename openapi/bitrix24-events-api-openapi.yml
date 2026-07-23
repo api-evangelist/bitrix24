@@ -1,0 +1,639 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Events API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Events
+paths:
+  /event.bind:
+    post:
+      summary: Register a new event handler event.bind
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.bind` registers a new event handler. The method works only in the context of [application](../../settings/app-installation/index.md) authorization. It can operate both under a user with portal administration rights and under a regular user. The method for a user without administrator rights is available with limitations: 1. Offline events are not available; attempting to set them will raise an exception.'
+      operationId: event_bind
+      tags:
+      - Events
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/events/event-bind.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event:
+                  type: string
+                  description: '| Event name ||'
+                handler:
+                  type: string
+                  description: '| Link to the event handler ||'
+                auth_type:
+                  type: integer
+                  description: '| User ID under which the event handler is authorized. By default, the authorization of the user whose actions triggered the event will be used ||'
+                event_type:
+                  type: string
+                  description: '| Values: `online\|offline`. By default, `event_type=online`, and the method''s behavior does not change. If `event_type=offline` is called, the method works with offline events ||'
+                auth_connector:
+                  type: string
+                  description: '| Source key. This parameter is intended for offline events. It allows excluding false event triggers ||'
+                options:
+                  type: string
+                  description: '| Additional settings for the registered event, if any ||'
+              required:
+              - event
+              - handler
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                event:
+                  type: string
+                  description: '| Event name ||'
+                handler:
+                  type: string
+                  description: '| Link to the event handler ||'
+                auth_type:
+                  type: integer
+                  description: '| User ID under which the event handler is authorized. By default, the authorization of the user whose actions triggered the event will be used ||'
+                event_type:
+                  type: string
+                  description: '| Values: `online\|offline`. By default, `event_type=online`, and the method''s behavior does not change. If `event_type=offline` is called, the method works with offline events ||'
+                auth_connector:
+                  type: string
+                  description: '| Source key. This parameter is intended for offline events. It allows excluding false event triggers ||'
+                options:
+                  type: string
+                  description: '| Additional settings for the registered event, if any ||'
+              required:
+              - event
+              - handler
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+  /event.get:
+    post:
+      summary: Get a List of Registered Event Handlers event.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `event.get` method allows you to retrieve a list of registered event handlers. The method works only in the context of authorizing the [application](../../settings/app-installation/index.md). No parameters.
+      operationId: event_get
+      tags:
+      - Events
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/events/event-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| Root element of the response ||'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| Root element of the response ||'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+  /event.offline.clear:
+    post:
+      summary: Clear records in the offline event queue event.offline.clear
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.clear` clears records in the offline event queue. The availability of offline events can be checked through the method [feature.get](../common/system/feature-get.md). The method works only in the context of application authorization [application](../../settings/app-installation/index.md).
+      operationId: event_offline_clear
+      tags:
+      - Events
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/events/event-offline-clear.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                process_id:
+                  type: string
+                  description: '| Identifier of the process that handles the records ||'
+                id:
+                  type: array
+                  items: {}
+                  description: '| Array of identifiers of the records to be cleared. By default, all records marked with the provided `process_id` will be cleared ||'
+                message_id:
+                  type: array
+                  items: {}
+                  description: '| Array of values of the `MESSAGE_ID` field of the records to be cleared. Ignored if the `id` parameter is specified. By default, all records marked with the provided `process_id` will be cleared ||'
+              required:
+              - process_id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                process_id:
+                  type: string
+                  description: '| Identifier of the process that handles the records ||'
+                id:
+                  type: array
+                  items: {}
+                  description: '| Array of identifiers of the records to be cleared. By default, all records marked with the provided `process_id` will be cleared ||'
+                message_id:
+                  type: array
+                  items: {}
+                  description: '| Array of values of the `MESSAGE_ID` field of the records to be cleared. Ignored if the `id` parameter is specified. By default, all records marked with the provided `process_id` will be cleared ||'
+              required:
+              - process_id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+  /event.offline.error:
+    post:
+      summary: Register Errors for Processing Offline Events event.offline.error
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.error` saves a record in the database with an error mark when using offline events. The availability of offline events can be checked through the method [feature.get](../common/system/feature-get.md). The method works only in the context of authorizing the [application](../../settings/app-installation/index.md).
+      operationId: event_offline_error
+      tags:
+      - Events
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/events/event-offline-error.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                process_id:
+                  type: string
+                  description: '| Identifier of the process that is handling the records ||'
+                message_id:
+                  type: array
+                  items: {}
+                  description: '| Array of values for the `MESSAGE_ID` field of the records to be marked as erroneous ||'
+              required:
+              - process_id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                process_id:
+                  type: string
+                  description: '| Identifier of the process that is handling the records ||'
+                message_id:
+                  type: array
+                  items: {}
+                  description: '| Array of values for the `MESSAGE_ID` field of the records to be marked as erroneous ||'
+              required:
+              - process_id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+  /event.offline.get:
+    post:
+      summary: Get a List of Offline Events with event.offline.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.get` returns the first queued offline events to the application according to the filter settings. The availability of offline events can be checked using the [feature.get](../common/system/feature-get.md) method. This method works only in the context of [application](../../settings/app-installation/index.md) authorization.
+      operationId: event_offline_get
+      tags:
+      - Events
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/events/event-offline-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: array
+                  items: {}
+                  description: '| Record filter. By default, all records are returned without filtering. Filtering is supported by fields: `ID`, `TIMESTAMP_X`, `EVENT_NAME`, `MESSAGE_ID` with standard operations like `=`, `>`, `<`, `<=`, and so on.'
+                order:
+                  type: array
+                  items: {}
+                  description: '| Record sorting. Sorting is supported by the same fields as in the filter, and an array of the form `[field=>ASC|DESC]` is accepted. By default — [TIMESTAMP_X:ASC] ||'
+                limit:
+                  type: integer
+                  description: '| Number of records to select. Default is 50 ||'
+                clear:
+                  type: integer
+                  description: '| Values: `0|1` — whether to delete the selected records. Default is `1` ||'
+                process_id:
+                  type: string
+                  description: '| Process identifier. Used if you need to re-select any unprocessed records from the current process ||'
+                auth_connector:
+                  type: string
+                  description: '| Source key. Used if the `auth_connector` value was specified in the event.bind method ||'
+                error:
+                  type: integer
+                  description: '| Values: `0|1` — whether to return erroneous records. Default is `0` ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: array
+                  items: {}
+                  description: '| Record filter. By default, all records are returned without filtering. Filtering is supported by fields: `ID`, `TIMESTAMP_X`, `EVENT_NAME`, `MESSAGE_ID` with standard operations like `=`, `>`, `<`, `<=`, and so on.'
+                order:
+                  type: array
+                  items: {}
+                  description: '| Record sorting. Sorting is supported by the same fields as in the filter, and an array of the form `[field=>ASC|DESC]` is accepted. By default — [TIMESTAMP_X:ASC] ||'
+                limit:
+                  type: integer
+                  description: '| Number of records to select. Default is 50 ||'
+                clear:
+                  type: integer
+                  description: '| Values: `0|1` — whether to delete the selected records. Default is `1` ||'
+                process_id:
+                  type: string
+                  description: '| Process identifier. Used if you need to re-select any unprocessed records from the current process ||'
+                auth_connector:
+                  type: string
+                  description: '| Source key. Used if the `auth_connector` value was specified in the event.bind method ||'
+                error:
+                  type: integer
+                  description: '| Values: `0|1` — whether to return erroneous records. Default is `0` ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+  /event.offline.list:
+    post:
+      summary: Get a list of offline events event.offline.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.list` is used to read the current queue without making changes to its state, unlike [event.offline.get](./event-offline-get.md). The availability of offline events can be checked through the [feature.get](../common/system/feature-get.md) method. The method works only in the context of application authorization [application](../../settings/app-installation/index.md).
+      operationId: event_offline_list
+      tags:
+      - Events
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/events/event-offline-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: array
+                  items: {}
+                  description: '| Record filter. By default, all records are returned without filtering. Filtering is supported by the fields: `ID`, `TIMESTAMP_X`, `EVENT_NAME`, `MESSAGE_ID`, `PROCESS_ID`, `ERROR` with standard operations like `=`, `>`, `<`, `<=`, and so on ||'
+                order:
+                  type: array
+                  items: {}
+                  description: '| Record sorting. Sorting is supported by the same fields as in the filter, and an array of the form `[field=>ASC|DESC]` is accepted. By default — `[ID:ASC]` ||'
+                start:
+                  type: integer
+                  description: '| This parameter is used to manage pagination.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: array
+                  items: {}
+                  description: '| Record filter. By default, all records are returned without filtering. Filtering is supported by the fields: `ID`, `TIMESTAMP_X`, `EVENT_NAME`, `MESSAGE_ID`, `PROCESS_ID`, `ERROR` with standard operations like `=`, `>`, `<`, `<=`, and so on ||'
+                order:
+                  type: array
+                  items: {}
+                  description: '| Record sorting. Sorting is supported by the same fields as in the filter, and an array of the form `[field=>ASC|DESC]` is accepted. By default — `[ID:ASC]` ||'
+                start:
+                  type: integer
+                  description: '| This parameter is used to manage pagination.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+  /event.unbind:
+    post:
+      summary: Unbind Registered Event Handler event.unbind
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `event.unbind` method cancels a registered event handler. This method works only in the context of [application](../../settings/app-installation/index.md) authorization and only when authorized under a user with administrative rights to the account.
+      operationId: event_unbind
+      tags:
+      - Events
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/events/event-unbind.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event:
+                  type: string
+                  description: '| Event name ||'
+                handler:
+                  type: string
+                  description: '| Link to the event handler ||'
+                auth_type:
+                  type: integer
+                  description: '| User identifier under which the event handler is authorized.'
+                event_type:
+                  type: string
+                  description: '| Values: `online\|offline`. By default, `event_type=online`, and the method''s behavior remains unchanged. If `event_type=offline` is called, the method works with offline events ||'
+              required:
+              - event
+              - handler
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                event:
+                  type: string
+                  description: '| Event name ||'
+                handler:
+                  type: string
+                  description: '| Link to the event handler ||'
+                auth_type:
+                  type: integer
+                  description: '| User identifier under which the event handler is authorized.'
+                event_type:
+                  type: string
+                  description: '| Values: `online\|offline`. By default, `event_type=online`, and the method''s behavior remains unchanged. If `event_type=offline` is called, the method works with offline events ||'
+              required:
+              - event
+              - handler
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+  /events:
+    post:
+      summary: Get a list of available events
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `events` method returns a comprehensive list of available events. The method works only in the context of authorizing the [application](../../settings/app-installation/index.md).
+      operationId: events
+      tags:
+      - Events
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/events/events.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SCOPE:
+                  type: string
+                  description: '| The method will return events belonging to the specified permission ||'
+                FULL:
+                  type: boolean
+                  description: '| The method will return the complete list of events. This parameter will be ignored if the `SCOPE` parameter is provided ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SCOPE:
+                  type: string
+                  description: '| The method will return events belonging to the specified permission ||'
+                FULL:
+                  type: boolean
+                  description: '| The method will return the complete list of events. This parameter will be ignored if the `SCOPE` parameter is provided ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

@@ -1,0 +1,2308 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Document Generator API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Document Generator
+paths:
+  /documentgenerator.document.add:
+    post:
+      summary: Create a New Document Based on a Template documentgenerator.document.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.document.add` creates a new document based on a template.
+      operationId: documentgenerator_document_add
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/document-generator-document-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                templateId:
+                  type: integer
+                  description: '| Template identifier.'
+                providerClassName:
+                  type: string
+                  description: '| Data provider class.'
+                value:
+                  type: string
+                  description: '| External identifier of the object for which the document is being generated.'
+                values:
+                  type: object
+                  description: '| Field values of the document in the format `{"FieldCode":"Value"}` ||'
+                stampsEnabled:
+                  type: integer
+                  description: '| Seal and signature mode:'
+                fields:
+                  type: object
+                  description: '| Description of how to interpret and format values from `values` (detailed description).'
+                TYPE:
+                  type: string
+                  description: '| Field type.'
+                FORMAT:
+                  type: object
+                  description: '| Formatting parameters for the field type.'
+                PROVIDER:
+                  type: string
+                  description: '| Provider class ||'
+                TITLE:
+                  type: string
+                  description: '| Field title ||'
+              required:
+              - templateId
+              - value
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                templateId:
+                  type: integer
+                  description: '| Template identifier.'
+                providerClassName:
+                  type: string
+                  description: '| Data provider class.'
+                value:
+                  type: string
+                  description: '| External identifier of the object for which the document is being generated.'
+                values:
+                  type: object
+                  description: '| Field values of the document in the format `{"FieldCode":"Value"}` ||'
+                stampsEnabled:
+                  type: integer
+                  description: '| Seal and signature mode:'
+                fields:
+                  type: object
+                  description: '| Description of how to interpret and format values from `values` (detailed description).'
+                TYPE:
+                  type: string
+                  description: '| Field type.'
+                FORMAT:
+                  type: object
+                  description: '| Formatting parameters for the field type.'
+                PROVIDER:
+                  type: string
+                  description: '| Provider class ||'
+                TITLE:
+                  type: string
+                  description: '| Field title ||'
+              required:
+              - templateId
+              - value
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.document.delete:
+    post:
+      summary: Delete document documentgenerator.document.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.document.delete` removes a document by its identifier.
+      operationId: documentgenerator_document_delete
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/document-generator-document-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.document.enablepublicurl:
+    post:
+      summary: Enable or disable public link for document documentgenerator.document.enablepublicurl
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.document.enablepublicurl` enables or disables the public link for a document.
+      operationId: documentgenerator_document_enablepublicurl
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/document-generator-document-enable-public-url.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+                status:
+                  type: integer
+                  description: '| Status of the public link:'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+                status:
+                  type: integer
+                  description: '| Status of the public link:'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.document.get:
+    post:
+      summary: Get Document by ID documentgenerator.document.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.document.get` returns information about a document by its ID.
+      operationId: documentgenerator_document_get
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/document-generator-document-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document ID.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document ID.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.document.getfields:
+    post:
+      summary: Get the list of fields for the document documentgenerator.document.getfields
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.document.getfields` returns the fields of the document, along with their current and base values.
+      operationId: documentgenerator_document_getfields
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/document-generator-document-get-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+                values:
+                  type: object
+                  description: '| Optional parameter.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+                values:
+                  type: object
+                  description: '| Optional parameter.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.document.list:
+    post:
+      summary: Get the List of Documents documentgenerator.document.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.document.list` returns a list of documents based on the filter.
+      operationId: documentgenerator_document_list
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/document-generator-document-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array containing the list of fields to return.'
+                order:
+                  type: object
+                  description: '| An object for sorting documents in the format `{"field_1":"value_1", ... "field_N":"value_N"}`.'
+                filter:
+                  type: object
+                  description: '| An object for filtering documents in the format `{"field_1":"value_1", ... "field_N":"value_N"}`.'
+                start:
+                  type: integer
+                  description: '| This parameter is used for pagination control.'
+                id:
+                  type: integer
+                  description: '| Document identifier ||'
+                title:
+                  type: string
+                  description: '| Document title ||'
+                number:
+                  type: string
+                  description: '| Document number ||'
+                templateId:
+                  type: integer
+                  description: '| Template identifier ||'
+                provider:
+                  type: string
+                  description: '| Provider class ||'
+                value:
+                  type: string
+                  description: '| External identifier of the object ||'
+                fileId:
+                  type: integer
+                  description: '| Identifier of the document''s DOCX file ||'
+                imageId:
+                  type: integer
+                  description: '| Identifier of the document''s image file ||'
+                pdfId:
+                  type: integer
+                  description: '| Identifier of the document''s PDF file ||'
+                createTime:
+                  type: string
+                  format: date-time
+                  description: '| Document creation time ||'
+                updateTime:
+                  type: string
+                  format: date-time
+                  description: '| Document update time ||'
+                values:
+                  type: object
+                  description: '| Document field values ||'
+                createdBy:
+                  type: integer
+                  description: '| Identifier of the user who created the document ||'
+                updatedBy:
+                  type: integer
+                  description: '| Identifier of the user who updated the document ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array containing the list of fields to return.'
+                order:
+                  type: object
+                  description: '| An object for sorting documents in the format `{"field_1":"value_1", ... "field_N":"value_N"}`.'
+                filter:
+                  type: object
+                  description: '| An object for filtering documents in the format `{"field_1":"value_1", ... "field_N":"value_N"}`.'
+                start:
+                  type: integer
+                  description: '| This parameter is used for pagination control.'
+                id:
+                  type: integer
+                  description: '| Document identifier ||'
+                title:
+                  type: string
+                  description: '| Document title ||'
+                number:
+                  type: string
+                  description: '| Document number ||'
+                templateId:
+                  type: integer
+                  description: '| Template identifier ||'
+                provider:
+                  type: string
+                  description: '| Provider class ||'
+                value:
+                  type: string
+                  description: '| External identifier of the object ||'
+                fileId:
+                  type: integer
+                  description: '| Identifier of the document''s DOCX file ||'
+                imageId:
+                  type: integer
+                  description: '| Identifier of the document''s image file ||'
+                pdfId:
+                  type: integer
+                  description: '| Identifier of the document''s PDF file ||'
+                createTime:
+                  type: string
+                  format: date-time
+                  description: '| Document creation time ||'
+                updateTime:
+                  type: string
+                  format: date-time
+                  description: '| Document update time ||'
+                values:
+                  type: object
+                  description: '| Document field values ||'
+                createdBy:
+                  type: integer
+                  description: '| Identifier of the user who created the document ||'
+                updatedBy:
+                  type: integer
+                  description: '| Identifier of the user who updated the document ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.document.update:
+    post:
+      summary: Update Existing Document documentgenerator.document.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.document.update` updates a document with new field values.
+      operationId: documentgenerator_document_update
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/document-generator-document-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+                values:
+                  type: object
+                  description: '| Field values of the document in the format `{"FieldCode":"Value"}` ||'
+                stampsEnabled:
+                  type: integer
+                  description: '| Stamp and signature mode:'
+                fields:
+                  type: object
+                  description: '| Description of how to interpret and format values from `values` (detailed description).'
+                TYPE:
+                  type: string
+                  description: '| Field type.'
+                FORMAT:
+                  type: object
+                  description: '| Formatting parameters for the field type.'
+                PROVIDER:
+                  type: string
+                  description: '| Provider class ||'
+                TITLE:
+                  type: string
+                  description: '| Field title ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+                values:
+                  type: object
+                  description: '| Field values of the document in the format `{"FieldCode":"Value"}` ||'
+                stampsEnabled:
+                  type: integer
+                  description: '| Stamp and signature mode:'
+                fields:
+                  type: object
+                  description: '| Description of how to interpret and format values from `values` (detailed description).'
+                TYPE:
+                  type: string
+                  description: '| Field type.'
+                FORMAT:
+                  type: object
+                  description: '| Formatting parameters for the field type.'
+                PROVIDER:
+                  type: string
+                  description: '| Provider class ||'
+                TITLE:
+                  type: string
+                  description: '| Field title ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.numerator.add:
+    post:
+      summary: 'Add Document Generator Numerator: documentgenerator.numerator.add'
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.numerator.add` creates a document numerator.
+      operationId: documentgenerator_numerator_add
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/numerators/document-generator-numerator-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Set of numerator parameters (detailed description) ||'
+                name:
+                  type: string
+                  description: '| Name of the numerator ||'
+                template:
+                  type: string
+                  description: '| Number template with the placeholder `{NUMBER}`.'
+                settings:
+                  type: object
+                  description: '| Settings for the numerator generators (detailed description) ||'
+                Bitrix_Main_Numerator_Generator_SequentNumberGenerator:
+                  type: object
+                  description: '| Settings for sequential numbering (detailed description) ||'
+                start:
+                  type: integer
+                  description: '| Initial counter value.'
+                step:
+                  type: integer
+                  description: '| Counter increment step.'
+                length:
+                  type: integer
+                  description: '| Minimum length of the number.'
+                padString:
+                  type: string
+                  description: '| Padding character on the left when `length > 0`.'
+                periodicBy:
+                  type: string
+                  description: '| Counter reset period:'
+                timezone:
+                  type: string
+                  description: '| Timezone identifier for periodic reset, e.g., `Europe/Berlin` ||'
+                isDirectNumeration:
+                  type: boolean
+                  description: '| Direct numbering flag.'
+              required:
+              - fields
+              - name
+              - template
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Set of numerator parameters (detailed description) ||'
+                name:
+                  type: string
+                  description: '| Name of the numerator ||'
+                template:
+                  type: string
+                  description: '| Number template with the placeholder `{NUMBER}`.'
+                settings:
+                  type: object
+                  description: '| Settings for the numerator generators (detailed description) ||'
+                Bitrix_Main_Numerator_Generator_SequentNumberGenerator:
+                  type: object
+                  description: '| Settings for sequential numbering (detailed description) ||'
+                start:
+                  type: integer
+                  description: '| Initial counter value.'
+                step:
+                  type: integer
+                  description: '| Counter increment step.'
+                length:
+                  type: integer
+                  description: '| Minimum length of the number.'
+                padString:
+                  type: string
+                  description: '| Padding character on the left when `length > 0`.'
+                periodicBy:
+                  type: string
+                  description: '| Counter reset period:'
+                timezone:
+                  type: string
+                  description: '| Timezone identifier for periodic reset, e.g., `Europe/Berlin` ||'
+                isDirectNumeration:
+                  type: boolean
+                  description: '| Direct numbering flag.'
+              required:
+              - fields
+              - name
+              - template
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.numerator.delete:
+    post:
+      summary: Delete the documentgenerator.numerator.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.numerator.delete` removes a numerator by its identifier. You can only delete a numerator that was created using the `documentgenerator.numerator.add` method.
+      operationId: documentgenerator_numerator_delete
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/numerators/document-generator-numerator-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the numerator.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the numerator.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.numerator.get:
+    post:
+      summary: Get Numerator by ID documentgenerator.numerator.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.numerator.get` returns the numerator data by its ID.
+      operationId: documentgenerator_numerator_get
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/numerators/document-generator-numerator-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| The identifier of the numerator.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| The identifier of the numerator.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.numerator.list:
+    post:
+      summary: Get the List of Numerators documentgenerator.numerator.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.numerator.list` returns a list of numerators for the document generator. It retrieves all numerators available in the current Bitrix24, including [CRM numerators](../../crm/document-generator/numerator/index.md).
+      operationId: documentgenerator_numerator_list
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/numerators/document-generator-numerator-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                start:
+                  type: integer
+                  description: '| This parameter is used for managing pagination.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                start:
+                  type: integer
+                  description: '| This parameter is used for managing pagination.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.numerator.update:
+    post:
+      summary: Update the documentgenerator.numerator.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.numerator.update` updates the numerator by its identifier. You can only update a numerator that was created through the REST method `documentgenerator.numerator.add`.
+      operationId: documentgenerator_numerator_update
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/numerators/document-generator-numerator-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the numerator.'
+                fields:
+                  type: object
+                  description: '| Set of fields to update (detailed description) ||'
+                name:
+                  type: string
+                  description: '| New name of the numerator ||'
+                template:
+                  type: string
+                  description: '| New number template with the placeholder `{NUMBER}`.'
+                settings:
+                  type: object
+                  description: '| Updated generator settings (detailed description) ||'
+                Bitrix_Main_Numerator_Generator_SequentNumberGenerator:
+                  type: object
+                  description: '| Settings for sequential numbering (detailed description) ||'
+                start:
+                  type: integer
+                  description: '| Initial counter value. Default is `1` ||'
+                step:
+                  type: integer
+                  description: '| Counter increment step. Default is `1` ||'
+                length:
+                  type: integer
+                  description: '| Minimum length of the number. Default is `0` ||'
+                padString:
+                  type: string
+                  description: '| Padding character on the left when `length > 0`. Default is `0` ||'
+                periodicBy:
+                  type: string
+                  description: '| Counter reset period:'
+                timezone:
+                  type: string
+                  description: '| Timezone identifier for periodic reset, e.g., `Europe/Berlin` ||'
+                isDirectNumeration:
+                  type: boolean
+                  description: '| Direct numbering flag.'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the numerator.'
+                fields:
+                  type: object
+                  description: '| Set of fields to update (detailed description) ||'
+                name:
+                  type: string
+                  description: '| New name of the numerator ||'
+                template:
+                  type: string
+                  description: '| New number template with the placeholder `{NUMBER}`.'
+                settings:
+                  type: object
+                  description: '| Updated generator settings (detailed description) ||'
+                Bitrix_Main_Numerator_Generator_SequentNumberGenerator:
+                  type: object
+                  description: '| Settings for sequential numbering (detailed description) ||'
+                start:
+                  type: integer
+                  description: '| Initial counter value. Default is `1` ||'
+                step:
+                  type: integer
+                  description: '| Counter increment step. Default is `1` ||'
+                length:
+                  type: integer
+                  description: '| Minimum length of the number. Default is `0` ||'
+                padString:
+                  type: string
+                  description: '| Padding character on the left when `length > 0`. Default is `0` ||'
+                periodicBy:
+                  type: string
+                  description: '| Counter reset period:'
+                timezone:
+                  type: string
+                  description: '| Timezone identifier for periodic reset, e.g., `Europe/Berlin` ||'
+                isDirectNumeration:
+                  type: boolean
+                  description: '| Direct numbering flag.'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.region.add:
+    post:
+      summary: Add Region documentgenerator.region.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.region.add` adds a new custom region.
+      operationId: documentgenerator_region_add
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/region/document-generator-region-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Region parameters (detailed description) ||'
+                title:
+                  type: string
+                  description: '| Region name ||'
+                languageId:
+                  type: string
+                  description: '| Language identifier for the region, e.g., `de` ||'
+                formatDate:
+                  type: string
+                  description: '| Date format ||'
+                formatDatetime:
+                  type: string
+                  description: '| Date and time format ||'
+                formatName:
+                  type: string
+                  description: '| Full name template, e.g., `#LAST_NAME# #NAME# #SECOND_NAME#`.'
+                phrases:
+                  type: object
+                  description: '| Set of localized phrases for the region in the format `code: text`.'
+              required:
+              - fields
+              - title
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Region parameters (detailed description) ||'
+                title:
+                  type: string
+                  description: '| Region name ||'
+                languageId:
+                  type: string
+                  description: '| Language identifier for the region, e.g., `de` ||'
+                formatDate:
+                  type: string
+                  description: '| Date format ||'
+                formatDatetime:
+                  type: string
+                  description: '| Date and time format ||'
+                formatName:
+                  type: string
+                  description: '| Full name template, e.g., `#LAST_NAME# #NAME# #SECOND_NAME#`.'
+                phrases:
+                  type: object
+                  description: '| Set of localized phrases for the region in the format `code: text`.'
+              required:
+              - fields
+              - title
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.region.delete:
+    post:
+      summary: Delete Region documentgenerator.region.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.region.delete` removes a custom region by its identifier.
+      operationId: documentgenerator_region_delete
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/region/document-generator-region-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the custom region.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the custom region.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.region.get:
+    post:
+      summary: Get Region by ID documentgenerator.region.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.region.get` returns region data based on the identifier or code.
+      operationId: documentgenerator_region_get
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/region/document-generator-region-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: '| Identifier of the custom region or code of a pre-installed region, for example, `de`.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: '| Identifier of the custom region or code of a pre-installed region, for example, `de`.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.region.list:
+    post:
+      summary: Get the List of Regions documentgenerator.region.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.region.list` returns a list of pre-installed and custom regions.
+      operationId: documentgenerator_region_list
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/region/document-generator-region-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.region.update:
+    post:
+      summary: Update Region documentgenerator.region.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.region.update` updates a user-defined region by its identifier.
+      operationId: documentgenerator_region_update
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/region/document-generator-region-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the user-defined region.'
+                fields:
+                  type: object
+                  description: '| Parameters for updating (detailed description) ||'
+                title:
+                  type: string
+                  description: '| New name of the region ||'
+                languageId:
+                  type: string
+                  description: '| Identifier of the region''s language, for example `de` ||'
+                formatDate:
+                  type: string
+                  description: '| Date format ||'
+                formatDatetime:
+                  type: string
+                  description: '| Date and time format ||'
+                formatName:
+                  type: string
+                  description: '| Full name template, for example `#LAST_NAME# #NAME# #SECOND_NAME#`.'
+                phrases:
+                  type: object
+                  description: '| Set of region phrases in the format `code: text`.'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the user-defined region.'
+                fields:
+                  type: object
+                  description: '| Parameters for updating (detailed description) ||'
+                title:
+                  type: string
+                  description: '| New name of the region ||'
+                languageId:
+                  type: string
+                  description: '| Identifier of the region''s language, for example `de` ||'
+                formatDate:
+                  type: string
+                  description: '| Date format ||'
+                formatDatetime:
+                  type: string
+                  description: '| Date and time format ||'
+                formatName:
+                  type: string
+                  description: '| Full name template, for example `#LAST_NAME# #NAME# #SECOND_NAME#`.'
+                phrases:
+                  type: object
+                  description: '| Set of region phrases in the format `code: text`.'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.role.add:
+    post:
+      summary: Add Role documentgenerator.role.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.role.add` adds a new role.
+      operationId: documentgenerator_role_add
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/role/document-generator-role-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Role fields (detailed description) ||'
+                name:
+                  type: string
+                  description: '| Role name ||'
+                code:
+                  type: string
+                  description: '| Symbolic role code ||'
+                permissions:
+                  type: object
+                  description: '| Role permissions (detailed description).'
+                SETTINGS:
+                  type: object
+                  description: '| Permissions for settings (detailed description) ||'
+                TEMPLATES:
+                  type: object
+                  description: '| Permissions for templates (detailed description) ||'
+                DOCUMENTS:
+                  type: object
+                  description: '| Permissions for documents (detailed description) ||'
+                MODIFY:
+                  type: string
+                  description: '| Access level to settings. Possible values:'
+                VIEW:
+                  type: string
+                  description: '| Access level for viewing documents. Possible values:'
+              required:
+              - fields
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Role fields (detailed description) ||'
+                name:
+                  type: string
+                  description: '| Role name ||'
+                code:
+                  type: string
+                  description: '| Symbolic role code ||'
+                permissions:
+                  type: object
+                  description: '| Role permissions (detailed description).'
+                SETTINGS:
+                  type: object
+                  description: '| Permissions for settings (detailed description) ||'
+                TEMPLATES:
+                  type: object
+                  description: '| Permissions for templates (detailed description) ||'
+                DOCUMENTS:
+                  type: object
+                  description: '| Permissions for documents (detailed description) ||'
+                MODIFY:
+                  type: string
+                  description: '| Access level to settings. Possible values:'
+                VIEW:
+                  type: string
+                  description: '| Access level for viewing documents. Possible values:'
+              required:
+              - fields
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.role.delete:
+    post:
+      summary: Delete Role documentgenerator.role.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.role.delete` removes a role by its identifier.
+      operationId: documentgenerator_role_delete
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/role/document-generator-role-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Role identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Role identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.role.fillaccesses:
+    post:
+      summary: Bind Users to Roles documentgenerator.role.fillaccesses
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.role.fillaccesses` completely overwrites the mapping of roles to access codes. The method fully overwrites the settings.
+      operationId: documentgenerator_role_fillaccesses
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/role/document-generator-role-fill-accesses.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accesses:
+                  type: array
+                  items: {}
+                  description: '| An array of role bindings to access codes (detailed description) ||'
+                roleId:
+                  type: integer
+                  description: '| Role identifier.'
+                accessCode:
+                  type: string
+                  description: '| Access code for a user, group, or department.'
+              required:
+              - roleId
+              - accessCode
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                accesses:
+                  type: array
+                  items: {}
+                  description: '| An array of role bindings to access codes (detailed description) ||'
+                roleId:
+                  type: integer
+                  description: '| Role identifier.'
+                accessCode:
+                  type: string
+                  description: '| Access code for a user, group, or department.'
+              required:
+              - roleId
+              - accessCode
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.role.get:
+    post:
+      summary: Get Role by ID documentgenerator.role.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.role.get` returns information about the role and its access permissions.
+      operationId: documentgenerator_role_get
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/role/document-generator-role-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Role identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Role identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.role.list:
+    post:
+      summary: Get a List of Roles documentgenerator.role.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.role.list` returns a list of roles without detailing permissions.
+      operationId: documentgenerator_role_list
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/role/document-generator-role-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                start:
+                  type: integer
+                  description: '| This parameter is used to control pagination.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                start:
+                  type: integer
+                  description: '| This parameter is used to control pagination.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.role.update:
+    post:
+      summary: Change Role documentgenerator.role.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.role.update` updates a role by its identifier.
+      operationId: documentgenerator_role_update
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/role/document-generator-role-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Role identifier.'
+                fields:
+                  type: object
+                  description: '| Set of fields to update (detailed description) ||'
+                name:
+                  type: string
+                  description: '| New role name ||'
+                code:
+                  type: string
+                  description: '| New symbolic code for the role ||'
+                permissions:
+                  type: object
+                  description: '| New set of role permissions (detailed description).'
+                SETTINGS:
+                  type: object
+                  description: '| Permissions for settings (detailed description) ||'
+                TEMPLATES:
+                  type: object
+                  description: '| Permissions for templates (detailed description) ||'
+                DOCUMENTS:
+                  type: object
+                  description: '| Permissions for documents (detailed description) ||'
+                MODIFY:
+                  type: string
+                  description: '| Access level to settings. Possible values:'
+                VIEW:
+                  type: string
+                  description: '| Access level to view documents. Possible values:'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Role identifier.'
+                fields:
+                  type: object
+                  description: '| Set of fields to update (detailed description) ||'
+                name:
+                  type: string
+                  description: '| New role name ||'
+                code:
+                  type: string
+                  description: '| New symbolic code for the role ||'
+                permissions:
+                  type: object
+                  description: '| New set of role permissions (detailed description).'
+                SETTINGS:
+                  type: object
+                  description: '| Permissions for settings (detailed description) ||'
+                TEMPLATES:
+                  type: object
+                  description: '| Permissions for templates (detailed description) ||'
+                DOCUMENTS:
+                  type: object
+                  description: '| Permissions for documents (detailed description) ||'
+                MODIFY:
+                  type: string
+                  description: '| Access level to settings. Possible values:'
+                VIEW:
+                  type: string
+                  description: '| Access level to view documents. Possible values:'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.template.add:
+    post:
+      summary: Upload Template documentgenerator.template.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.template.add` adds a new document template.
+      operationId: documentgenerator_template_add
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/templates/document-generator-template-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Set of template fields (detailed description) ||'
+                name:
+                  type: string
+                  description: '| Template name ||'
+                fileId:
+                  type: integer
+                  description: '| Identifier of the previously uploaded template file from Drive.'
+                file:
+                  type: string
+                  description: '| Template file, if it needs to be uploaded. Used instead of the `fileId` parameter.'
+                numeratorId:
+                  type: integer
+                  description: '| Identifier of the numerator.'
+                region:
+                  type: string
+                  description: '| Template region, for example, `de` ||'
+                code:
+                  type: string
+                  description: '| Symbolic code of the template ||'
+                users:
+                  type: array
+                  items: {}
+                  description: '| Users who will have access to the template.'
+                active:
+                  type: string
+                  maxLength: 1
+                  description: '| Template activity. Possible values:'
+                withStamps:
+                  type: string
+                  maxLength: 1
+                  description: '| Include stamps and signatures. Possible values:'
+                sort:
+                  type: integer
+                  description: '| Sort index ||'
+              required:
+              - fields
+              - name
+              - fileId
+              - file
+              - numeratorId
+              - region
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Set of template fields (detailed description) ||'
+                name:
+                  type: string
+                  description: '| Template name ||'
+                fileId:
+                  type: integer
+                  description: '| Identifier of the previously uploaded template file from Drive.'
+                file:
+                  type: string
+                  description: '| Template file, if it needs to be uploaded. Used instead of the `fileId` parameter.'
+                numeratorId:
+                  type: integer
+                  description: '| Identifier of the numerator.'
+                region:
+                  type: string
+                  description: '| Template region, for example, `de` ||'
+                code:
+                  type: string
+                  description: '| Symbolic code of the template ||'
+                users:
+                  type: array
+                  items: {}
+                  description: '| Users who will have access to the template.'
+                active:
+                  type: string
+                  maxLength: 1
+                  description: '| Template activity. Possible values:'
+                withStamps:
+                  type: string
+                  maxLength: 1
+                  description: '| Include stamps and signatures. Possible values:'
+                sort:
+                  type: integer
+                  description: '| Sort index ||'
+              required:
+              - fields
+              - name
+              - fileId
+              - file
+              - numeratorId
+              - region
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.template.delete:
+    post:
+      summary: Delete Template documentgenerator.template.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.template.delete` removes a template. 1. If there are documents in the system associated with the specified template, the template is marked as deleted to preserve the document associations. You can retrieve a list of templates marked as deleted using the method [documentgenerator.template.list](./document-generator-template-list.md) with a filter for the parameter `isDeleted = "Y"`. 2. If the template has no associated documents, the record for the template is completely removed.
+      operationId: documentgenerator_template_delete
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/templates/document-generator-template-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the template.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the template.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.template.get:
+    post:
+      summary: Get Template by ID documentgenerator.template.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.template.get` returns information about a template by its ID.
+      operationId: documentgenerator_template_get
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/templates/document-generator-template-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Template ID.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Template ID.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.template.getfields:
+    post:
+      summary: Get the List of Fields for documentgenerator.template.getfields
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.template.getfields` returns the detail form of the template fields.
+      operationId: documentgenerator_template_getfields
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/templates/document-generator-template-get-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the template.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the template.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.template.list:
+    post:
+      summary: Get a List of documentgenerator.template.list Templates
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.template.list` returns a list of templates based on the filter.
+      operationId: documentgenerator_template_list
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/templates/document-generator-template-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of fields to return. Default is `["*"]`.'
+                order:
+                  type: object
+                  description: '| An object for sorting templates in the format `{"field_1":"value_1", ... "field_N":"value_N"}`.'
+                filter:
+                  type: object
+                  description: '| An object for filtering templates in the format `{"field_1":"value_1", ... "field_N":"value_N"}`.'
+                start:
+                  type: integer
+                  description: '| This parameter is used to manage pagination.'
+                id:
+                  type: integer
+                  description: '| Template identifier ||'
+                active:
+                  type: string
+                  maxLength: 1
+                  description: '| Template activity. Possible values:'
+                name:
+                  type: string
+                  description: '| Template name ||'
+                code:
+                  type: string
+                  description: '| Template symbolic code ||'
+                region:
+                  type: string
+                  description: '| Template region ||'
+                sort:
+                  type: integer
+                  description: '| Sort index ||'
+                createTime:
+                  type: string
+                  format: date-time
+                  description: '| Creation date and time ||'
+                updateTime:
+                  type: string
+                  format: date-time
+                  description: '| Update date and time ||'
+                numeratorId:
+                  type: integer
+                  description: '| Identifier of the numerator ||'
+                withStamps:
+                  type: string
+                  maxLength: 1
+                  description: '| Use of stamps and signatures. Possible values:'
+                users:
+                  type: array
+                  items: {}
+                  description: '| Access codes for the template. Only for `select` ||'
+                providers:
+                  type: array
+                  items: {}
+                  description: '| Data providers for the template. Only for `select` ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of fields to return. Default is `["*"]`.'
+                order:
+                  type: object
+                  description: '| An object for sorting templates in the format `{"field_1":"value_1", ... "field_N":"value_N"}`.'
+                filter:
+                  type: object
+                  description: '| An object for filtering templates in the format `{"field_1":"value_1", ... "field_N":"value_N"}`.'
+                start:
+                  type: integer
+                  description: '| This parameter is used to manage pagination.'
+                id:
+                  type: integer
+                  description: '| Template identifier ||'
+                active:
+                  type: string
+                  maxLength: 1
+                  description: '| Template activity. Possible values:'
+                name:
+                  type: string
+                  description: '| Template name ||'
+                code:
+                  type: string
+                  description: '| Template symbolic code ||'
+                region:
+                  type: string
+                  description: '| Template region ||'
+                sort:
+                  type: integer
+                  description: '| Sort index ||'
+                createTime:
+                  type: string
+                  format: date-time
+                  description: '| Creation date and time ||'
+                updateTime:
+                  type: string
+                  format: date-time
+                  description: '| Update date and time ||'
+                numeratorId:
+                  type: integer
+                  description: '| Identifier of the numerator ||'
+                withStamps:
+                  type: string
+                  maxLength: 1
+                  description: '| Use of stamps and signatures. Possible values:'
+                users:
+                  type: array
+                  items: {}
+                  description: '| Access codes for the template. Only for `select` ||'
+                providers:
+                  type: array
+                  items: {}
+                  description: '| Data providers for the template. Only for `select` ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+  /documentgenerator.template.update:
+    post:
+      summary: Update Template documentgenerator.template.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `documentgenerator.template.update` updates an existing template.
+      operationId: documentgenerator_template_update
+      tags:
+      - Document Generator
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/document-generator/templates/document-generator-template-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Template identifier.'
+                fields:
+                  type: object
+                  description: '| Template fields to update (detailed description) ||'
+                name:
+                  type: string
+                  description: '| Template name ||'
+                file:
+                  type: string
+                  description: '| New template file. It can be passed in three ways:'
+                numeratorId:
+                  type: integer
+                  description: '| Identifier of the numerator ||'
+                region:
+                  type: string
+                  description: '| Template region, for example `de` ||'
+                code:
+                  type: string
+                  description: '| Symbolic code of the template ||'
+                users:
+                  type: array
+                  items: {}
+                  description: '| Users who will have access to the template.'
+                providers:
+                  type: array
+                  items: {}
+                  description: '| List of data providers ||'
+                active:
+                  type: string
+                  maxLength: 1
+                  description: '| Activity status. Possible values:'
+                withStamps:
+                  type: string
+                  maxLength: 1
+                  description: '| Include stamps and signatures. Possible values:'
+                sort:
+                  type: integer
+                  description: '| Sort index ||'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Template identifier.'
+                fields:
+                  type: object
+                  description: '| Template fields to update (detailed description) ||'
+                name:
+                  type: string
+                  description: '| Template name ||'
+                file:
+                  type: string
+                  description: '| New template file. It can be passed in three ways:'
+                numeratorId:
+                  type: integer
+                  description: '| Identifier of the numerator ||'
+                region:
+                  type: string
+                  description: '| Template region, for example `de` ||'
+                code:
+                  type: string
+                  description: '| Symbolic code of the template ||'
+                users:
+                  type: array
+                  items: {}
+                  description: '| Users who will have access to the template.'
+                providers:
+                  type: array
+                  items: {}
+                  description: '| List of data providers ||'
+                active:
+                  type: string
+                  maxLength: 1
+                  description: '| Activity status. Possible values:'
+                withStamps:
+                  type: string
+                  maxLength: 1
+                  description: '| Include stamps and signatures. Possible values:'
+                sort:
+                  type: integer
+                  description: '| Sort index ||'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - documentgenerator
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

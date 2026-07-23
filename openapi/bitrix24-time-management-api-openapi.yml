@@ -1,0 +1,964 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Time Management API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Time Management
+paths:
+  /timeman.close:
+    post:
+      summary: Close Current Day timeman.close
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.close` ends the current workday.
+      operationId: timeman_close
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/base/timeman-close.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+                TIME:
+                  type: string
+                  format: date-time
+                  description: '| The end time and date of the workday in the ATOM (ISO-8601) format, for example, `2025-02-12T15:52:01+00:00`. The date must match the start date of the workday.'
+                REPORT:
+                  type: string
+                  description: '| Reason for changing the workday.'
+                LAT:
+                  type: number
+                  format: double
+                  description: '| Geographic latitude of the end of the workday ||'
+                LON:
+                  type: number
+                  format: double
+                  description: '| Geographic longitude of the end of the workday ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+                TIME:
+                  type: string
+                  format: date-time
+                  description: '| The end time and date of the workday in the ATOM (ISO-8601) format, for example, `2025-02-12T15:52:01+00:00`. The date must match the start date of the workday.'
+                REPORT:
+                  type: string
+                  description: '| Reason for changing the workday.'
+                LAT:
+                  type: number
+                  format: double
+                  description: '| Geographic latitude of the end of the workday ||'
+                LON:
+                  type: number
+                  format: double
+                  description: '| Geographic longitude of the end of the workday ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.networkrange.check:
+    post:
+      summary: Check IP Address timeman.networkrange.check
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.networkrange.check` checks whether an IP address falls within the ranges of the office network. For the method to work correctly, at least one range must be set.
+      operationId: timeman_networkrange_check
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/networkrange/timeman-networkrange-check.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IP:
+                  type: string
+                  description: '| The IP address to check. For example, `10.10.255.25`.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IP:
+                  type: string
+                  description: '| The IP address to check. For example, `10.10.255.25`.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.networkrange.get:
+    post:
+      summary: Get Network Address Ranges timeman.networkrange.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.networkrange.get` retrieves the ranges of network addresses for the office network.
+      operationId: timeman_networkrange_get
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/networkrange/timeman-networkrange-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.networkrange.set:
+    post:
+      summary: Set Network Address Ranges timeman.networkrange.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.networkrange.set` sets the network address ranges for the office network.
+      operationId: timeman_networkrange_set
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/networkrange/timeman-networkrange-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                RANGES:
+                  type: string
+                  description: '| Network address ranges in the form of a list of objects. Each object contains a description of the network address range.'
+              required:
+              - RANGES
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                RANGES:
+                  type: string
+                  description: '| Network address ranges in the form of a list of objects. Each object contains a description of the network address range.'
+              required:
+              - RANGES
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.open:
+    post:
+      summary: Start a New Workday timeman.open
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.open` starts a new workday or continues the workday after a break or completion.
+      operationId: timeman_open
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/base/timeman-open.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+                TIME:
+                  type: string
+                  format: date-time
+                  description: '| The start date and time of the workday in the ATOM (ISO-8601) format, for example, `2025-02-12T15:52:01+00:00`. The date must match the current calendar date.'
+                REPORT:
+                  type: string
+                  description: '| Reason for changing the workday.'
+                LAT:
+                  type: number
+                  format: double
+                  description: '| Geographic latitude of the start of the workday ||'
+                LON:
+                  type: number
+                  format: double
+                  description: '| Geographic longitude of the start of the workday ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+                TIME:
+                  type: string
+                  format: date-time
+                  description: '| The start date and time of the workday in the ATOM (ISO-8601) format, for example, `2025-02-12T15:52:01+00:00`. The date must match the current calendar date.'
+                REPORT:
+                  type: string
+                  description: '| Reason for changing the workday.'
+                LAT:
+                  type: number
+                  format: double
+                  description: '| Geographic latitude of the start of the workday ||'
+                LON:
+                  type: number
+                  format: double
+                  description: '| Geographic longitude of the start of the workday ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.pause:
+    post:
+      summary: Pause the current workday timeman.pause
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.pause` pauses the current workday. If the workday is completed, the method will resume it and add the time that has passed since completion to the duration.
+      operationId: timeman_pause
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/base/timeman-pause.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.schedule.get:
+    post:
+      summary: Get Work Schedule timeman.schedule.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.schedule.get` retrieves the work schedule by its identifier. If no schedule exists with the specified identifier, it will return an empty array.
+      operationId: timeman_schedule_get
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/schedule/timeman-schedule-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the schedule.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the schedule.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.settings:
+    post:
+      summary: Get User Work Time Settings timeman.settings
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.settings` retrieves the user's work time settings.
+      operationId: timeman_settings
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/base/timeman-settings.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.status:
+    post:
+      summary: Get information about the current workday timeman.status
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.status` retrieves information about the current workday.
+      operationId: timeman_status
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/base/timeman-status.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.timecontrol.report.add:
+    post:
+      summary: Add Absence Report timeman.timecontrol.report.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.report.add` sends an absence report and adds it to the calendar. By default, a user can only send a report for themselves. A portal administrator can send a report for anyone—this requires specifying the user ID in the `USER_ID` parameter.
+      operationId: timeman_timecontrol_report_add
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/timecontrol/timeman-timecontrol-report-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                REPORT_ID:
+                  type: string
+                  description: \| ID*
+                USER_ID:
+                  type: integer
+                  description: '| User identifier. Can only be specified by an administrator.'
+                TEXT:
+                  type: string
+                  description: '| Report text ||'
+                TYPE:
+                  type: string
+                  description: '| Report type:'
+                CALENDAR:
+                  type: string
+                  description: '| Add event to calendar:'
+              required:
+              - REPORT_ID
+              - TEXT
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                REPORT_ID:
+                  type: string
+                  description: \| ID*
+                USER_ID:
+                  type: integer
+                  description: '| User identifier. Can only be specified by an administrator.'
+                TEXT:
+                  type: string
+                  description: '| Report text ||'
+                TYPE:
+                  type: string
+                  description: '| Report type:'
+                CALENDAR:
+                  type: string
+                  description: '| Add event to calendar:'
+              required:
+              - REPORT_ID
+              - TEXT
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.timecontrol.reports.get:
+    post:
+      summary: Get Report on Identified Absences timeman.timecontrol.reports.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.reports.get` retrieves a report on identified absences.
+      operationId: timeman_timecontrol_reports_get
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/timecontrol/timeman-timecontrol-reports-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User ID for whom the reports are requested.'
+                MONTH:
+                  type: integer
+                  description: '| Month number ||'
+                YEAR:
+                  type: integer
+                  description: '| Year ||'
+                IDLE_MINUTES:
+                  type: integer
+                  description: '| Maximum time of absence at the workplace that is not counted as absence.'
+                WORKDAY_HOURS:
+                  type: integer
+                  description: '| Duration of the workday in hours.'
+              required:
+              - USER_ID
+              - MONTH
+              - YEAR
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User ID for whom the reports are requested.'
+                MONTH:
+                  type: integer
+                  description: '| Month number ||'
+                YEAR:
+                  type: integer
+                  description: '| Year ||'
+                IDLE_MINUTES:
+                  type: integer
+                  description: '| Maximum time of absence at the workplace that is not counted as absence.'
+                WORKDAY_HOURS:
+                  type: integer
+                  description: '| Duration of the workday in hours.'
+              required:
+              - USER_ID
+              - MONTH
+              - YEAR
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.timecontrol.reports.settings.get:
+    post:
+      summary: Get Report Settings timeman.timecontrol.reports.settings.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.reports.settings.get` retrieves report settings for building the report interface of the time control tool.
+      operationId: timeman_timecontrol_reports_settings_get
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/timecontrol/timeman-timecontrol-reports-settings-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.timecontrol.reports.users.get:
+    post:
+      summary: Get the list of users for the timeman.timecontrol.reports.users.get
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.reports.users.get` retrieves the list of users in the department. The data returned by the method depends on the role: - an employee will receive only their own data,'
+      operationId: timeman_timecontrol_reports_users_get
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/timecontrol/timeman-timecontrol-reports-users-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DEPARTMENT_ID:
+                  type: integer
+                  description: '| The identifier of the department. This parameter should only be specified by a manager or administrator.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DEPARTMENT_ID:
+                  type: integer
+                  description: '| The identifier of the department. This parameter should only be specified by a manager or administrator.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.timecontrol.settings.get:
+    post:
+      summary: Get Time Control Settings timeman.timecontrol.settings.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.settings.get` retrieves the settings of the time control module.
+      operationId: timeman_timecontrol_settings_get
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/timecontrol/timeman-timecontrol-settings-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+  /timeman.timecontrol.settings.set:
+    post:
+      summary: Set Time Control Settings timeman.timecontrol.settings.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.settings.set` sets the configurations for the time control module. Data collection for time control begins once the corresponding registration settings are activated. It is not possible to retrieve data for the period prior to activation — the system does not retain historical information retrospectively.
+      operationId: timeman_timecontrol_settings_set
+      tags:
+      - Time Management
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/timeman/timecontrol/timeman-timecontrol-settings-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ACTIVE:
+                  type: boolean
+                  description: '| Activate the time control module. Possible values:'
+                MINIMUM_IDLE_FOR_REPORT:
+                  type: integer
+                  description: '| Minimum idle time in minutes after which a report is required ||'
+                REGISTER_OFFLINE:
+                  type: boolean
+                  description: '| Register offline status ||'
+                REGISTER_IDLE:
+                  type: boolean
+                  description: '| Register idle status ||'
+                REGISTER_DESKTOP:
+                  type: boolean
+                  description: '| Register desktop application status ||'
+                REPORT_REQUEST_TYPE:
+                  type: string
+                  description: '| Type of report requests. Possible values:'
+                REPORT_REQUEST_USERS:
+                  type: array
+                  items: {}
+                  description: '| Array of user IDs for whom report requests are required.'
+                REPORT_SIMPLE_TYPE:
+                  type: string
+                  description: '| Type of simple report. Possible values:'
+                REPORT_SIMPLE_USERS:
+                  type: array
+                  items: {}
+                  description: '| Array of user IDs with access to the simple report.'
+                REPORT_FULL_TYPE:
+                  type: string
+                  description: '| Type of full report. Possible values:'
+                REPORT_FULL_USERS:
+                  type: array
+                  items: {}
+                  description: '| Array of user IDs with access to the full report.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ACTIVE:
+                  type: boolean
+                  description: '| Activate the time control module. Possible values:'
+                MINIMUM_IDLE_FOR_REPORT:
+                  type: integer
+                  description: '| Minimum idle time in minutes after which a report is required ||'
+                REGISTER_OFFLINE:
+                  type: boolean
+                  description: '| Register offline status ||'
+                REGISTER_IDLE:
+                  type: boolean
+                  description: '| Register idle status ||'
+                REGISTER_DESKTOP:
+                  type: boolean
+                  description: '| Register desktop application status ||'
+                REPORT_REQUEST_TYPE:
+                  type: string
+                  description: '| Type of report requests. Possible values:'
+                REPORT_REQUEST_USERS:
+                  type: array
+                  items: {}
+                  description: '| Array of user IDs for whom report requests are required.'
+                REPORT_SIMPLE_TYPE:
+                  type: string
+                  description: '| Type of simple report. Possible values:'
+                REPORT_SIMPLE_USERS:
+                  type: array
+                  items: {}
+                  description: '| Array of user IDs with access to the simple report.'
+                REPORT_FULL_TYPE:
+                  type: string
+                  description: '| Type of full report. Possible values:'
+                REPORT_FULL_USERS:
+                  type: array
+                  items: {}
+                  description: '| Array of user IDs with access to the full report.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - timeman
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

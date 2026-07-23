@@ -1,0 +1,2161 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Telephony API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Telephony
+paths:
+  /telephony.call.attachTranscription:
+    post:
+      summary: Add Transcription to Call with telephony.call.attachTranscription
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.call.attachTranscription` adds a transcription of the conversation to a completed call.
+      operationId: telephony_call_attachTranscription
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/telephony-call-attach-transcription.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CALL_ID:
+                  type: string
+                  description: '| Identifier of the call from the method telephony.externalCall.register ||'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of transcription utterances ||'
+                COST:
+                  type: number
+                  format: double
+                  description: '| Cost of the transcription.'
+                COST_CURRENCY:
+                  type: string
+                  description: '| Currency of the transcription cost. Used only with `COST`.'
+                SIDE:
+                  type: string
+                  description: '| Participant of the conversation.'
+                START_TIME:
+                  type: integer
+                  description: '| Start time of the utterance in seconds from the beginning of the call.'
+                STOP_TIME:
+                  type: integer
+                  description: '| End time of the utterance in seconds from the beginning of the call.'
+                MESSAGE:
+                  type: string
+                  description: '| Text of the utterance ||'
+              required:
+              - CALL_ID
+              - MESSAGES
+              - SIDE
+              - START_TIME
+              - STOP_TIME
+              - MESSAGE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CALL_ID:
+                  type: string
+                  description: '| Identifier of the call from the method telephony.externalCall.register ||'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of transcription utterances ||'
+                COST:
+                  type: number
+                  format: double
+                  description: '| Cost of the transcription.'
+                COST_CURRENCY:
+                  type: string
+                  description: '| Currency of the transcription cost. Used only with `COST`.'
+                SIDE:
+                  type: string
+                  description: '| Participant of the conversation.'
+                START_TIME:
+                  type: integer
+                  description: '| Start time of the utterance in seconds from the beginning of the call.'
+                STOP_TIME:
+                  type: integer
+                  description: '| End time of the utterance in seconds from the beginning of the call.'
+                MESSAGE:
+                  type: string
+                  description: '| Text of the utterance ||'
+              required:
+              - CALL_ID
+              - MESSAGES
+              - SIDE
+              - START_TIME
+              - STOP_TIME
+              - MESSAGE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /telephony.externalCall.attachRecord:
+    post:
+      summary: Attach a Record to a Completed Call telephony.externalCall.attachRecord
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.attachRecord` attaches a record to a completed call and to the CRM activity of the call. Call this method after [telephony.externalCall.finish](./telephony-external-call-finish.md) when the record is ready.
+      operationId: telephony_externalCall_attachRecord
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/telephony-external-call-attach-record.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CALL_ID:
+                  type: string
+                  description: '| The identifier of the call from the method telephony.externalCall.register.'
+                RECORD_URL:
+                  type: string
+                  description: '| The URL of the record on an external server. If this parameter is provided, Bitrix24 will download the file from the link.'
+                FILENAME:
+                  type: string
+                  description: '| The name of the record file.'
+                FILE_CONTENT:
+                  type: string
+                  description: '| The file in Base64 encoding. ||'
+              required:
+              - CALL_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CALL_ID:
+                  type: string
+                  description: '| The identifier of the call from the method telephony.externalCall.register.'
+                RECORD_URL:
+                  type: string
+                  description: '| The URL of the record on an external server. If this parameter is provided, Bitrix24 will download the file from the link.'
+                FILENAME:
+                  type: string
+                  description: '| The name of the record file.'
+                FILE_CONTENT:
+                  type: string
+                  description: '| The file in Base64 encoding. ||'
+              required:
+              - CALL_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /telephony.externalCall.finish:
+    post:
+      summary: Finish Call and Log It in Telephony Statistics telephony.externalCall.finish
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.finish` ends an external call, saves it in the statistics, and logs it in the CRM activity. The method works only in the context of the [application](../../settings/app-installation/index.md)
+      operationId: telephony_externalCall_finish
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/telephony-external-call-finish.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CALL_ID:
+                  type: string
+                  description: '| The identifier of the call from the method telephony.externalCall.register ||'
+                USER_ID:
+                  type: integer
+                  description: '| The identifier of the user who ends the call.'
+                USER_PHONE_INNER:
+                  type: string
+                  description: '| The internal number of the user.'
+                DURATION:
+                  type: integer
+                  description: '| The duration of the call in seconds.'
+                COST:
+                  type: number
+                  format: double
+                  description: '| The cost of the call.'
+                COST_CURRENCY:
+                  type: string
+                  description: '| The currency of the call cost.'
+                STATUS_CODE:
+                  type: string
+                  description: '| The result code of the call.'
+                FAILED_REASON:
+                  type: string
+                  description: '| Text reason for the failed call.'
+                RECORD_URL:
+                  type: string
+                  description: '| URL of the call recording.'
+                VOTE:
+                  type: integer
+                  description: '| Rating of the call.'
+                ADD_TO_CHAT:
+                  type: integer
+                  description: '| Add a message about the call to the employee''s chat.'
+              required:
+              - CALL_ID
+              - USER_ID
+              - USER_PHONE_INNER
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CALL_ID:
+                  type: string
+                  description: '| The identifier of the call from the method telephony.externalCall.register ||'
+                USER_ID:
+                  type: integer
+                  description: '| The identifier of the user who ends the call.'
+                USER_PHONE_INNER:
+                  type: string
+                  description: '| The internal number of the user.'
+                DURATION:
+                  type: integer
+                  description: '| The duration of the call in seconds.'
+                COST:
+                  type: number
+                  format: double
+                  description: '| The cost of the call.'
+                COST_CURRENCY:
+                  type: string
+                  description: '| The currency of the call cost.'
+                STATUS_CODE:
+                  type: string
+                  description: '| The result code of the call.'
+                FAILED_REASON:
+                  type: string
+                  description: '| Text reason for the failed call.'
+                RECORD_URL:
+                  type: string
+                  description: '| URL of the call recording.'
+                VOTE:
+                  type: integer
+                  description: '| Rating of the call.'
+                ADD_TO_CHAT:
+                  type: integer
+                  description: '| Add a message about the call to the employee''s chat.'
+              required:
+              - CALL_ID
+              - USER_ID
+              - USER_PHONE_INNER
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /telephony.externalCall.hide:
+    post:
+      summary: Hide Call Card for User telephony.externalCall.hide
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.hide` hides the call card for a user or a list of users.
+      operationId: telephony_externalCall_hide
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/telephony-external-call-hide.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CALL_ID:
+                  type: string
+                  description: '| Identifier of the call from the method telephony.externalCall.register. ||'
+                USER_ID:
+                  type: string
+                  description: '| Identifier of the user or an array of user identifiers.'
+              required:
+              - CALL_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CALL_ID:
+                  type: string
+                  description: '| Identifier of the call from the method telephony.externalCall.register. ||'
+                USER_ID:
+                  type: string
+                  description: '| Identifier of the user or an array of user identifiers.'
+              required:
+              - CALL_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /telephony.externalCall.register:
+    post:
+      summary: Register an External Call in Bitrix24 telephony.externalCall.register
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.register` registers an external call in Bitrix24. To create a CRM activity for the call, you must also call the method [telephony.externalCall.finish](./telephony-external-call-finish.md). The method works only in the context of an [application](../../settings/app-installation/index.md).
+      operationId: telephony_externalCall_register
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/telephony-external-call-register.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| The identifier of the user for whom the call is registered.'
+                USER_PHONE_INNER:
+                  type: string
+                  description: '| The internal number of the user.'
+                PHONE_NUMBER:
+                  type: string
+                  description: '| The client''s phone number. ||'
+                TYPE:
+                  type: integer
+                  description: '| The type of call.'
+                CALL_START_DATE:
+                  type: string
+                  description: '| The date and time the call started in ISO-8601 format with timezone indication, for example, `2026-03-07T10:20:30+03:00`.'
+                CRM_CREATE:
+                  type: integer
+                  description: '| Automatic creation of a CRM object if no suitable object is found by the number.'
+                CRM_SOURCE:
+                  type: string
+                  description: '| The identifier of the CRM source (the value of the `STATUS_ID` field).'
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| The type of CRM object to associate with the call.'
+                CRM_ENTITY_ID:
+                  type: integer
+                  description: '| The identifier of the CRM object from `CRM_ENTITY_TYPE`.'
+                SHOW:
+                  type: integer
+                  description: '| Show the call detail form after registration.'
+                ADD_TO_CHAT:
+                  type: integer
+                  description: '| Add a message about the call to the employee''s chat.'
+                CALL_LIST_ID:
+                  type: integer
+                  description: '| The identifier of the call list to which the call is linked.'
+                LINE_NUMBER:
+                  type: string
+                  description: '| The number of the external line.'
+                EXTERNAL_CALL_ID:
+                  type: string
+                  description: '| The external identifier of the call on the side of the PBX/integration.'
+              required:
+              - USER_ID
+              - USER_PHONE_INNER
+              - PHONE_NUMBER
+              - TYPE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| The identifier of the user for whom the call is registered.'
+                USER_PHONE_INNER:
+                  type: string
+                  description: '| The internal number of the user.'
+                PHONE_NUMBER:
+                  type: string
+                  description: '| The client''s phone number. ||'
+                TYPE:
+                  type: integer
+                  description: '| The type of call.'
+                CALL_START_DATE:
+                  type: string
+                  description: '| The date and time the call started in ISO-8601 format with timezone indication, for example, `2026-03-07T10:20:30+03:00`.'
+                CRM_CREATE:
+                  type: integer
+                  description: '| Automatic creation of a CRM object if no suitable object is found by the number.'
+                CRM_SOURCE:
+                  type: string
+                  description: '| The identifier of the CRM source (the value of the `STATUS_ID` field).'
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| The type of CRM object to associate with the call.'
+                CRM_ENTITY_ID:
+                  type: integer
+                  description: '| The identifier of the CRM object from `CRM_ENTITY_TYPE`.'
+                SHOW:
+                  type: integer
+                  description: '| Show the call detail form after registration.'
+                ADD_TO_CHAT:
+                  type: integer
+                  description: '| Add a message about the call to the employee''s chat.'
+                CALL_LIST_ID:
+                  type: integer
+                  description: '| The identifier of the call list to which the call is linked.'
+                LINE_NUMBER:
+                  type: string
+                  description: '| The number of the external line.'
+                EXTERNAL_CALL_ID:
+                  type: string
+                  description: '| The external identifier of the call on the side of the PBX/integration.'
+              required:
+              - USER_ID
+              - USER_PHONE_INNER
+              - PHONE_NUMBER
+              - TYPE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /telephony.externalCall.searchCrmEntities:
+    post:
+      summary: Find a Client in CRM by Phone Number telephony.externalCall.searchCrmEntities
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.searchCrmEntities` returns CRM entities based on the client's phone number and the details of the responsible employee.
+      operationId: telephony_externalCall_searchCrmEntities
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/telephony-external-call-search-crm-entities.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                PHONE_NUMBER:
+                  type: string
+                  description: '| The client''s phone number ||'
+              required:
+              - PHONE_NUMBER
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                PHONE_NUMBER:
+                  type: string
+                  description: '| The client''s phone number ||'
+              required:
+              - PHONE_NUMBER
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /telephony.externalCall.show:
+    post:
+      summary: Show Call Card to User telephony.externalCall.show
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.show` displays the call card to a user or a list of users.
+      operationId: telephony_externalCall_show
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/telephony-external-call-show.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CALL_ID:
+                  type: string
+                  description: '| Identifier of the call from the method telephony.externalCall.register ||'
+                USER_ID:
+                  type: string
+                  description: '| Identifier of the user or an array of user identifiers.'
+              required:
+              - CALL_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CALL_ID:
+                  type: string
+                  description: '| Identifier of the call from the method telephony.externalCall.register ||'
+                USER_ID:
+                  type: string
+                  description: '| Identifier of the user or an array of user identifiers.'
+              required:
+              - CALL_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /telephony.externalLine.add:
+    post:
+      summary: Add External Line telephony.externalLine.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalLine.add` adds an external line to the application. The method works only in the context of the [application](../../settings/app-installation/index.md).
+      operationId: telephony_externalLine_add
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/telephony-external-line-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NUMBER:
+                  type: string
+                  description: '| External line number ||'
+                NAME:
+                  type: string
+                  description: '| Name of the external line ||'
+                CRM_AUTO_CREATE:
+                  type: string
+                  description: '| Auto-creation of a CRM object for outgoing calls.'
+              required:
+              - NUMBER
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NUMBER:
+                  type: string
+                  description: '| External line number ||'
+                NAME:
+                  type: string
+                  description: '| Name of the external line ||'
+                CRM_AUTO_CREATE:
+                  type: string
+                  description: '| Auto-creation of a CRM object for outgoing calls.'
+              required:
+              - NUMBER
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /telephony.externalLine.delete:
+    post:
+      summary: Delete External Line telephony.externalLine.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalLine.delete` removes an external line from the application. The method works only in the context of the [application](../../settings/app-installation/index.md).
+      operationId: telephony_externalLine_delete
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/telephony-external-line-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NUMBER:
+                  type: string
+                  description: '| The number of the external line.'
+              required:
+              - NUMBER
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NUMBER:
+                  type: string
+                  description: '| The number of the external line.'
+              required:
+              - NUMBER
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /telephony.externalLine.get:
+    post:
+      summary: Get a List of External Lines with telephony.externalLine.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalLine.get` returns a list of external lines for the application. The method works only in the context of the [application](../../settings/app-installation/index.md).
+      operationId: telephony_externalLine_get
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/telephony-external-line-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /telephony.externalLine.update:
+    post:
+      summary: Update External Line telephony.externalLine.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalLine.update` modifies the parameters of the application's external line. This method works only in the context of the [application](../../settings/app-installation/index.md).
+      operationId: telephony_externalLine_update
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/telephony-external-line-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NUMBER:
+                  type: string
+                  description: '| The number of the external line.'
+                NAME:
+                  type: string
+                  description: '| The new name of the external line. ||'
+                CRM_AUTO_CREATE:
+                  type: string
+                  description: '| Auto-creation of a CRM object for outgoing calls.'
+              required:
+              - NUMBER
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NUMBER:
+                  type: string
+                  description: '| The number of the external line.'
+                NAME:
+                  type: string
+                  description: '| The new name of the external line. ||'
+                CRM_AUTO_CREATE:
+                  type: string
+                  description: '| Auto-creation of a CRM object for outgoing calls.'
+              required:
+              - NUMBER
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.callback.start:
+    post:
+      summary: Start a Callback with voximplant.callback.start
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.callback.start` initiates a callback between an employee and a client.
+      operationId: voximplant_callback_start
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/voximplant-callback-start.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FROM_LINE:
+                  type: string
+                  description: '| Identifier of the outgoing line from which the callback is initiated.'
+                TO_NUMBER:
+                  type: string
+                  description: '| The client''s number to call. ||'
+                TEXT_TO_PRONOUNCE:
+                  type: string
+                  description: '| The text that the system will pronounce to the employee before connecting with the client. ||'
+                VOICE:
+                  type: string
+                  description: '| Identifier of the voice for speech synthesis.'
+              required:
+              - FROM_LINE
+              - TO_NUMBER
+              - TEXT_TO_PRONOUNCE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                FROM_LINE:
+                  type: string
+                  description: '| Identifier of the outgoing line from which the callback is initiated.'
+                TO_NUMBER:
+                  type: string
+                  description: '| The client''s number to call. ||'
+                TEXT_TO_PRONOUNCE:
+                  type: string
+                  description: '| The text that the system will pronounce to the employee before connecting with the client. ||'
+                VOICE:
+                  type: string
+                  description: '| Identifier of the voice for speech synthesis.'
+              required:
+              - FROM_LINE
+              - TO_NUMBER
+              - TEXT_TO_PRONOUNCE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.infocall.startwithsound:
+    post:
+      summary: Make an Auto-Call with MP3 Playback using voximplant.infocall.startwithsound
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.infocall.startwithsound` initiates an auto-call and plays an MP3 file from a URL.
+      operationId: voximplant_infocall_startwithsound
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/voximplant-infocall-start-with-sound.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FROM_LINE:
+                  type: string
+                  description: '| Identifier of the outgoing line from which the call is initiated.'
+                TO_NUMBER:
+                  type: string
+                  description: '| The number to which the call should be made. ||'
+                URL:
+                  type: string
+                  description: '| Link to the MP3 file that should be played during the call. ||'
+              required:
+              - FROM_LINE
+              - TO_NUMBER
+              - URL
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                FROM_LINE:
+                  type: string
+                  description: '| Identifier of the outgoing line from which the call is initiated.'
+                TO_NUMBER:
+                  type: string
+                  description: '| The number to which the call should be made. ||'
+                URL:
+                  type: string
+                  description: '| Link to the MP3 file that should be played during the call. ||'
+              required:
+              - FROM_LINE
+              - TO_NUMBER
+              - URL
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.infocall.startwithtext:
+    post:
+      summary: Initiate an Auto-Call with the Voice Automation Rule voximplant.infocall.startwithtext
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.infocall.startwithtext` initiates an auto-call and plays the specified text to the recipient using speech synthesis.
+      operationId: voximplant_infocall_startwithtext
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/voximplant-infocall-start-with-text.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FROM_LINE:
+                  type: string
+                  description: '| Identifier of the outgoing line from which the call is initiated.'
+                TO_NUMBER:
+                  type: string
+                  description: '| The number to which the call should be made. ||'
+                TEXT_TO_PRONOUNCE:
+                  type: string
+                  description: '| The text that will be spoken to the recipient. ||'
+                VOICE:
+                  type: string
+                  description: '| Identifier of the voice for speech synthesis.'
+              required:
+              - FROM_LINE
+              - TO_NUMBER
+              - TEXT_TO_PRONOUNCE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                FROM_LINE:
+                  type: string
+                  description: '| Identifier of the outgoing line from which the call is initiated.'
+                TO_NUMBER:
+                  type: string
+                  description: '| The number to which the call should be made. ||'
+                TEXT_TO_PRONOUNCE:
+                  type: string
+                  description: '| The text that will be spoken to the recipient. ||'
+                VOICE:
+                  type: string
+                  description: '| Identifier of the voice for speech synthesis.'
+              required:
+              - FROM_LINE
+              - TO_NUMBER
+              - TEXT_TO_PRONOUNCE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.line.get:
+    post:
+      summary: Get a List of Outgoing Lines voximplant.line.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.line.get` returns a list of available outgoing lines.
+      operationId: voximplant_line_get
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/lines/voximplant-line-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.line.outgoing.get:
+    post:
+      summary: Get Line for Outgoing Calls voximplant.line.outgoing.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.line.outgoing.get` returns the identifier of the current default outgoing line.
+      operationId: voximplant_line_outgoing_get
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/lines/voximplant-line-outgoing-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.line.outgoing.set:
+    post:
+      summary: Set Outgoing Line voximplant.line.outgoing.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.line.outgoing.set` sets the default outgoing line.
+      operationId: voximplant_line_outgoing_set
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/lines/voximplant-line-outgoing-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                LINE_ID:
+                  type: string
+                  description: '| Line identifier.'
+              required:
+              - LINE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                LINE_ID:
+                  type: string
+                  description: '| Line identifier.'
+              required:
+              - LINE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.line.outgoing.sip.set:
+    post:
+      summary: Set Outgoing SIP Line voximplant.line.outgoing.sip.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.line.outgoing.sip.set` sets the SIP line as the default outgoing line.
+      operationId: voximplant_line_outgoing_sip_set
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/lines/voximplant-line-outgoing-sip-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONFIG_ID:
+                  type: integer
+                  description: '| Identifier of the SIP line configuration.'
+              required:
+              - CONFIG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONFIG_ID:
+                  type: integer
+                  description: '| Identifier of the SIP line configuration.'
+              required:
+              - CONFIG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.sip.add:
+    post:
+      summary: Create SIP Line voximplant.sip.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.sip.add` creates a new SIP line associated with an application.
+      operationId: voximplant_sip_add
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/sip/voximplant-sip-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SERVER:
+                  type: string
+                  description: '| Address of the SIP registration server ||'
+                LOGIN:
+                  type: string
+                  description: '| Login for connecting to the server ||'
+                PASSWORD:
+                  type: string
+                  description: '| Password for connecting to the server. Maximum length — 100 characters.'
+                TYPE:
+                  type: string
+                  description: '| Type of PBX.'
+                TITLE:
+                  type: string
+                  description: '| Name of the connection.'
+              required:
+              - SERVER
+              - LOGIN
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SERVER:
+                  type: string
+                  description: '| Address of the SIP registration server ||'
+                LOGIN:
+                  type: string
+                  description: '| Login for connecting to the server ||'
+                PASSWORD:
+                  type: string
+                  description: '| Password for connecting to the server. Maximum length — 100 characters.'
+                TYPE:
+                  type: string
+                  description: '| Type of PBX.'
+                TITLE:
+                  type: string
+                  description: '| Name of the connection.'
+              required:
+              - SERVER
+              - LOGIN
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.sip.connector.status:
+    post:
+      summary: Get the Status of the SIP Connector voximplant.sip.connector.status
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.sip.connector.status` returns the current status of the SIP connector.
+      operationId: voximplant_sip_connector_status
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/sip/voximplant-sip-connector-status.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.sip.delete:
+    post:
+      summary: Delete SIP Line voximplant.sip.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.sip.delete` removes an existing SIP line created by the current application.
+      operationId: voximplant_sip_delete
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/sip/voximplant-sip-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONFIG_ID:
+                  type: integer
+                  description: '| Identifier of the SIP line configuration.'
+              required:
+              - CONFIG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONFIG_ID:
+                  type: integer
+                  description: '| Identifier of the SIP line configuration.'
+              required:
+              - CONFIG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.sip.get:
+    post:
+      summary: Get SIP Lines of the Application voximplant.sip.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.sip.get` returns a list of SIP lines created by the current application.
+      operationId: voximplant_sip_get
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/sip/voximplant-sip-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FILTER:
+                  type: object
+                  description: '| Object for filtering in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                SORT:
+                  type: string
+                  description: '| Sorting field.'
+                ORDER:
+                  type: string
+                  description: '| Sorting direction.'
+                start:
+                  type: integer
+                  description: '| Pagination parameter.'
+                ID:
+                  type: integer
+                  description: '| Internal identifier of the SIP line record.'
+                TYPE:
+                  type: string
+                  description: '| Type of PBX.'
+                TITLE:
+                  type: string
+                  description: '| Connection name. ||'
+                CONFIG_ID:
+                  type: integer
+                  description: '| Identifier of the SIP line configuration. ||'
+                REG_ID:
+                  type: integer
+                  description: '| Identifier of the SIP registration.'
+                APP_ID:
+                  type: string
+                  description: '| Application identifier.'
+                SERVER:
+                  type: string
+                  description: '| Address of the SIP registration server. ||'
+                LOGIN:
+                  type: string
+                  description: '| Login for connecting to the server. ||'
+                PASSWORD:
+                  type: string
+                  description: '| Password for connecting to the server. ||'
+                INCOMING_SERVER:
+                  type: string
+                  description: '| Address of the server for incoming calls.'
+                INCOMING_LOGIN:
+                  type: string
+                  description: '| Login for incoming calls.'
+                INCOMING_PASSWORD:
+                  type: string
+                  description: '| Password for incoming calls.'
+                AUTH_USER:
+                  type: string
+                  description: '| Username for authentication. ||'
+                OUTBOUND_PROXY:
+                  type: string
+                  description: '| Address of the SIP proxy for outgoing connection to the operator or PBX. ||'
+                DETECT_LINE_NUMBER:
+                  type: string
+                  description: '| Indicator for line number detection.'
+                LINE_DETECT_HEADER_ORDER:
+                  type: string
+                  description: '| Order of headers for line number detection. ||'
+                REGISTRATION_STATUS_CODE:
+                  type: integer
+                  description: '| SIP registration status code. ||'
+                REGISTRATION_ERROR_MESSAGE:
+                  type: string
+                  description: '| SIP registration error message. ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                FILTER:
+                  type: object
+                  description: '| Object for filtering in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                SORT:
+                  type: string
+                  description: '| Sorting field.'
+                ORDER:
+                  type: string
+                  description: '| Sorting direction.'
+                start:
+                  type: integer
+                  description: '| Pagination parameter.'
+                ID:
+                  type: integer
+                  description: '| Internal identifier of the SIP line record.'
+                TYPE:
+                  type: string
+                  description: '| Type of PBX.'
+                TITLE:
+                  type: string
+                  description: '| Connection name. ||'
+                CONFIG_ID:
+                  type: integer
+                  description: '| Identifier of the SIP line configuration. ||'
+                REG_ID:
+                  type: integer
+                  description: '| Identifier of the SIP registration.'
+                APP_ID:
+                  type: string
+                  description: '| Application identifier.'
+                SERVER:
+                  type: string
+                  description: '| Address of the SIP registration server. ||'
+                LOGIN:
+                  type: string
+                  description: '| Login for connecting to the server. ||'
+                PASSWORD:
+                  type: string
+                  description: '| Password for connecting to the server. ||'
+                INCOMING_SERVER:
+                  type: string
+                  description: '| Address of the server for incoming calls.'
+                INCOMING_LOGIN:
+                  type: string
+                  description: '| Login for incoming calls.'
+                INCOMING_PASSWORD:
+                  type: string
+                  description: '| Password for incoming calls.'
+                AUTH_USER:
+                  type: string
+                  description: '| Username for authentication. ||'
+                OUTBOUND_PROXY:
+                  type: string
+                  description: '| Address of the SIP proxy for outgoing connection to the operator or PBX. ||'
+                DETECT_LINE_NUMBER:
+                  type: string
+                  description: '| Indicator for line number detection.'
+                LINE_DETECT_HEADER_ORDER:
+                  type: string
+                  description: '| Order of headers for line number detection. ||'
+                REGISTRATION_STATUS_CODE:
+                  type: integer
+                  description: '| SIP registration status code. ||'
+                REGISTRATION_ERROR_MESSAGE:
+                  type: string
+                  description: '| SIP registration error message. ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.sip.status:
+    post:
+      summary: Get SIP Registration Status voximplant.sip.status
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.sip.status` returns the current SIP registration status for the cloud PBX.
+      operationId: voximplant_sip_status
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/sip/voximplant-sip-status.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                REG_ID:
+                  type: integer
+                  description: '| Identifier of the SIP registration.'
+              required:
+              - REG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                REG_ID:
+                  type: integer
+                  description: '| Identifier of the SIP registration.'
+              required:
+              - REG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.sip.update:
+    post:
+      summary: Update SIP Line voximplant.sip.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.sip.update` updates an existing SIP line created by the current application.
+      operationId: voximplant_sip_update
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/sip/voximplant-sip-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONFIG_ID:
+                  type: integer
+                  description: '| Identifier of the SIP line configuration.'
+                TITLE:
+                  type: string
+                  description: '| New name for the connection. ||'
+                SERVER:
+                  type: string
+                  description: '| New SIP registration server address. ||'
+                LOGIN:
+                  type: string
+                  description: '| New login for connecting to the server. ||'
+                PASSWORD:
+                  type: string
+                  description: '| New password for connecting to the server. Maximum length is 100 characters. ||'
+              required:
+              - CONFIG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONFIG_ID:
+                  type: integer
+                  description: '| Identifier of the SIP line configuration.'
+                TITLE:
+                  type: string
+                  description: '| New name for the connection. ||'
+                SERVER:
+                  type: string
+                  description: '| New SIP registration server address. ||'
+                LOGIN:
+                  type: string
+                  description: '| New login for connecting to the server. ||'
+                PASSWORD:
+                  type: string
+                  description: '| New password for connecting to the server. Maximum length is 100 characters. ||'
+              required:
+              - CONFIG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.statistic.get:
+    post:
+      summary: Get Call History List voximplant.statistic.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.statistic.get` returns a list of calls from telephony statistics.
+      operationId: voximplant_statistic_get
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/voximplant-statistic-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FILTER:
+                  type: object
+                  description: '| An object for filtering in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                SORT:
+                  type: string
+                  description: '| Sorting field.'
+                ORDER:
+                  type: string
+                  description: '| Sorting direction.'
+                start:
+                  type: integer
+                  description: '| Pagination parameter.'
+                ID:
+                  type: integer
+                  description: '| Internal identifier of the statistics record ||'
+                CALL_ID:
+                  type: string
+                  description: '| Call identifier ||'
+                EXTERNAL_CALL_ID:
+                  type: string
+                  description: '| Call identifier on the external PBX/integration side ||'
+                CALL_CATEGORY:
+                  type: string
+                  description: '| Call category ||'
+                PORTAL_USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+                PORTAL_NUMBER:
+                  type: string
+                  description: '| Line number through which the call was made ||'
+                PHONE_NUMBER:
+                  type: string
+                  description: '| Subscriber number ||'
+                CALL_TYPE:
+                  type: integer
+                  description: '| Type of call.'
+                CALL_DURATION:
+                  type: integer
+                  description: '| Duration of the call in seconds ||'
+                CALL_START_DATE:
+                  type: string
+                  format: date-time
+                  description: '| Date and time of the call start in ISO-8601 format with timezone indication ||'
+                CALL_LOG:
+                  type: string
+                  description: '| Call log URL ||'
+                CALL_RECORD_URL:
+                  type: string
+                  description: '| Call recording URL ||'
+                CALL_VOTE:
+                  type: integer
+                  description: '| Call rating.'
+                COST:
+                  type: number
+                  format: double
+                  description: '| Cost of the call ||'
+                COST_CURRENCY:
+                  type: string
+                  description: '| Currency of the call cost ||'
+                CALL_FAILED_CODE:
+                  type: string
+                  description: '| Call result code.'
+                CALL_FAILED_REASON:
+                  type: string
+                  description: '| Text of the reason/result of the call ||'
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| Type of CRM entity.'
+                CRM_ENTITY_ID:
+                  type: integer
+                  description: '| Identifier of the CRM entity from `CRM_ENTITY_TYPE` ||'
+                CRM_ACTIVITY_ID:
+                  type: integer
+                  description: '| Identifier of the CRM activity for the call ||'
+                REST_APP_ID:
+                  type: integer
+                  description: '| Application identifier ||'
+                REST_APP_NAME:
+                  type: string
+                  description: '| Application name ||'
+                TRANSCRIPT_ID:
+                  type: integer
+                  description: '| Identifier of the call transcript ||'
+                TRANSCRIPT_PENDING:
+                  type: string
+                  description: '| Indicator of pending transcription.'
+                SESSION_ID:
+                  type: integer
+                  description: '| Session identifier on the telephony side ||'
+                REDIAL_ATTEMPT:
+                  type: integer
+                  description: '| Number of redial attempts (for callback scenarios) ||'
+                COMMENT:
+                  type: string
+                  description: '| Comment on the call ||'
+                RECORD_DURATION:
+                  type: integer
+                  description: '| Duration of the call recording file ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                FILTER:
+                  type: object
+                  description: '| An object for filtering in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                SORT:
+                  type: string
+                  description: '| Sorting field.'
+                ORDER:
+                  type: string
+                  description: '| Sorting direction.'
+                start:
+                  type: integer
+                  description: '| Pagination parameter.'
+                ID:
+                  type: integer
+                  description: '| Internal identifier of the statistics record ||'
+                CALL_ID:
+                  type: string
+                  description: '| Call identifier ||'
+                EXTERNAL_CALL_ID:
+                  type: string
+                  description: '| Call identifier on the external PBX/integration side ||'
+                CALL_CATEGORY:
+                  type: string
+                  description: '| Call category ||'
+                PORTAL_USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+                PORTAL_NUMBER:
+                  type: string
+                  description: '| Line number through which the call was made ||'
+                PHONE_NUMBER:
+                  type: string
+                  description: '| Subscriber number ||'
+                CALL_TYPE:
+                  type: integer
+                  description: '| Type of call.'
+                CALL_DURATION:
+                  type: integer
+                  description: '| Duration of the call in seconds ||'
+                CALL_START_DATE:
+                  type: string
+                  format: date-time
+                  description: '| Date and time of the call start in ISO-8601 format with timezone indication ||'
+                CALL_LOG:
+                  type: string
+                  description: '| Call log URL ||'
+                CALL_RECORD_URL:
+                  type: string
+                  description: '| Call recording URL ||'
+                CALL_VOTE:
+                  type: integer
+                  description: '| Call rating.'
+                COST:
+                  type: number
+                  format: double
+                  description: '| Cost of the call ||'
+                COST_CURRENCY:
+                  type: string
+                  description: '| Currency of the call cost ||'
+                CALL_FAILED_CODE:
+                  type: string
+                  description: '| Call result code.'
+                CALL_FAILED_REASON:
+                  type: string
+                  description: '| Text of the reason/result of the call ||'
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| Type of CRM entity.'
+                CRM_ENTITY_ID:
+                  type: integer
+                  description: '| Identifier of the CRM entity from `CRM_ENTITY_TYPE` ||'
+                CRM_ACTIVITY_ID:
+                  type: integer
+                  description: '| Identifier of the CRM activity for the call ||'
+                REST_APP_ID:
+                  type: integer
+                  description: '| Application identifier ||'
+                REST_APP_NAME:
+                  type: string
+                  description: '| Application name ||'
+                TRANSCRIPT_ID:
+                  type: integer
+                  description: '| Identifier of the call transcript ||'
+                TRANSCRIPT_PENDING:
+                  type: string
+                  description: '| Indicator of pending transcription.'
+                SESSION_ID:
+                  type: integer
+                  description: '| Session identifier on the telephony side ||'
+                REDIAL_ATTEMPT:
+                  type: integer
+                  description: '| Number of redial attempts (for callback scenarios) ||'
+                COMMENT:
+                  type: string
+                  description: '| Comment on the call ||'
+                RECORD_DURATION:
+                  type: integer
+                  description: '| Duration of the call recording file ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.tts.voices.get:
+    post:
+      summary: Get a List of Available Voices for Text-to-Speech voximplant.tts.voices.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.tts.voices.get` returns a list of available voices for text-to-speech synthesis.
+      operationId: voximplant_tts_voices_get
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/voximplant-tts-voices-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.url.get:
+    post:
+      summary: Get Links for Navigation in the Telephony Pages voximplant.url.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.url.get` returns links for navigation in the telephony pages.
+      operationId: voximplant_url_get
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/voximplant-url-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.user.activatePhone:
+    post:
+      summary: Activate User SIP Device voximplant.user.activatePhone
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.user.activatePhone` sets a flag indicating the presence of a SIP device for an employee.
+      operationId: voximplant_user_activatePhone
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/users/voximplant-user-activate-phone.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+              required:
+              - USER_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+              required:
+              - USER_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+  /voximplant.user.deactivatePhone:
+    post:
+      summary: Deactivate the employee's SIP phone presence with voximplant.user.deactivatePhone
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Some data may be missing here — we will complete it shortly. - The required parameters are not specified - Examples are missing
+      operationId: voximplant_user_deactivatePhone
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/users/voximplant-user-deactivate-phone.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Parameter:
+                  type: string
+                  description: / Type | Description ||
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                Parameter:
+                  type: string
+                  description: / Type | Description ||
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+  /voximplant.user.get:
+    post:
+      summary: Get User Settings voximplant.user.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.user.get` returns user settings. For applications, calling the method requires [administrator confirmation](../../../scopes/confirmation.md).
+      operationId: voximplant_user_get
+      tags:
+      - Telephony
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/telephony/voximplant/users/voximplant-user-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: string
+                  description: '| User ID or an array of user IDs.'
+              required:
+              - USER_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: string
+                  description: '| User ID or an array of user IDs.'
+              required:
+              - USER_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - telephony
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

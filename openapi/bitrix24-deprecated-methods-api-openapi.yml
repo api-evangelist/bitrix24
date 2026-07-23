@@ -1,0 +1,1959 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Deprecated Methods API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Deprecated Methods
+paths:
+  /rpa.comment.add:
+    post:
+      summary: Create a New Comment in the Timeline rpa.comment.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method creates a new comment in the timeline of the item with the identifier `itemId` for the process with the identifier `typeId`.
+      operationId: rpa_comment_add
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/comment/rpa-comment-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                itemId:
+                  type: integer
+                  description: '| Identifier of the item ||'
+                fields:
+                  type: object
+                  description: '| Object describing the fields of the comment ||'
+                description:
+                  type: string
+                  description: '| Description of the entry. HTML and BB-code formatting can be used ||'
+                files:
+                  type: array
+                  items: {}
+                  description: '| Array of attached files. Each element is an array containing the name and content encoded in base64 ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                itemId:
+                  type: integer
+                  description: '| Identifier of the item ||'
+                fields:
+                  type: object
+                  description: '| Object describing the fields of the comment ||'
+                description:
+                  type: string
+                  description: '| Description of the entry. HTML and BB-code formatting can be used ||'
+                files:
+                  type: array
+                  items: {}
+                  description: '| Array of attached files. Each element is an array containing the name and content encoded in base64 ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.comment.delete:
+    post:
+      summary: Delete Comment rpa.comment.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method deletes a comment with the identifier `id`. It only allows the deletion of comments that were added by the same user.
+      operationId: rpa_comment_delete
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/comment/rpa-comment-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Record identifier ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Record identifier ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.comment.update:
+    post:
+      summary: Update Timeline Entry rpa.comment.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the timeline entry with the identifier `id`. It only updates the `title` and `description` fields. The method allows changes only to comments that were added by the same user.
+      operationId: rpa_comment_update
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/comment/rpa-comment-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the comment ||'
+                fields:
+                  type: object
+                  description: '| An object describing the fields of the comment ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the comment ||'
+                fields:
+                  type: object
+                  description: '| An object describing the fields of the comment ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.fields.getSettings:
+    post:
+      summary: Get the Complete Set of Field Visibility Settings rpa.fields.getSettings
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method retrieves the complete set of field visibility settings for the stage with the identifier `stageId` in the process with the identifier `typeId`.
+      operationId: rpa_fields_getSettings
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/fields/rpa-fields-get-settings.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                stageId:
+                  type: integer
+                  description: '| Identifier of the stage.'
+              required:
+              - typeId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                stageId:
+                  type: integer
+                  description: '| Identifier of the stage.'
+              required:
+              - typeId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.fields.setSettings:
+    post:
+      summary: Set Full Visibility Settings for rpa.fields.setSettings
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method sets the full visibility settings for fields at the stage with the identifier `stageId` of the process with the identifier `typeId`.
+      operationId: rpa_fields_setSettings
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/fields/rpa-fields-set-settings.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: number
+                  description: '| Identifier of the process ||'
+                stageId:
+                  type: number
+                  description: '| Identifier of the stage.'
+                fields:
+                  type: object
+                  description: '| Array with field visibility settings.'
+              required:
+              - typeId
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: number
+                  description: '| Identifier of the process ||'
+                stageId:
+                  type: number
+                  description: '| Identifier of the stage.'
+                fields:
+                  type: object
+                  description: '| Array with field visibility settings.'
+              required:
+              - typeId
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.fields.setVisibilitySettings:
+    post:
+      summary: Change Field Visibility Settings rpa.fields.setVisibilitySettings
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the `visibility` settings of `fields` for the process with the identifier `typeId` at the stage with the identifier `stageId`. Other settings remain unchanged. The method should be used when you need to change the visibility settings for only one type.
+      operationId: rpa_fields_setVisibilitySettings
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/fields/rpa-fields-set-visibility-settings.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                visibility:
+                  type: string
+                  description: '| Identifier of the visibility for which the settings are being changed ||'
+                stageId:
+                  type: integer
+                  description: '| Identifier of the stage.'
+                fields:
+                  type: array
+                  items: {}
+                  description: '| Array of fields for which the settings need to be changed ||'
+              required:
+              - typeId
+              - visibility
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                visibility:
+                  type: string
+                  description: '| Identifier of the visibility for which the settings are being changed ||'
+                stageId:
+                  type: integer
+                  description: '| Identifier of the stage.'
+                fields:
+                  type: array
+                  items: {}
+                  description: '| Array of fields for which the settings need to be changed ||'
+              required:
+              - typeId
+              - visibility
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.item.add:
+    post:
+      summary: Add Process Element rpa.item.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method adds a new process element with the identifier `typeId`. To upload a file, you need to pass an array as the value of the custom field, where the first element is the file name and the second is the base64 encoded content of the file.
+      operationId: rpa_item_add
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/item/rpa-item-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                fields:
+                  type: array
+                  items: {}
+                  description: '| Values of the custom fields of the element. All other fields will be ignored ||'
+              required:
+              - typeId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                fields:
+                  type: array
+                  items: {}
+                  description: '| Values of the custom fields of the element. All other fields will be ignored ||'
+              required:
+              - typeId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.item.delete:
+    post:
+      summary: Delete Element rpa.item.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method deletes an element.
+      operationId: rpa_item_delete
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/item/rpa-item-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Process identifier ||'
+                id:
+                  type: integer
+                  description: '| Element identifier ||'
+              required:
+              - typeId
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Process identifier ||'
+                id:
+                  type: integer
+                  description: '| Element identifier ||'
+              required:
+              - typeId
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.item.get:
+    post:
+      summary: Get Information About the rpa.item.get Element
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves information about the element with the identifier `id` of the process with the identifier `typeId`.
+      operationId: rpa_item_get
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/item/rpa-item-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                id:
+                  type: integer
+                  description: '| Identifier of the element ||'
+                Name:
+                  type: string
+                  description: '| Description ||'
+                stageId:
+                  type: string
+                  description: '| Identifier of the stage the element is currently in ||'
+                previousStageId:
+                  type: string
+                  description: '| Identifier of the previous stage of the element ||'
+                name:
+                  type: string
+                  description: '| Name of the element ||'
+                createdBy:
+                  type: string
+                  description: '| Identifier of the user who created the element ||'
+                updatedBy:
+                  type: string
+                  description: '| Identifier of the user who modified the element ||'
+                movedBy:
+                  type: string
+                  description: '| Identifier of the user who changed the stage of the element ||'
+                createdTime:
+                  type: string
+                  description: '| Time the element was created ||'
+                updatedTime:
+                  type: string
+                  description: '| Time the element was modified ||'
+                movedTime:
+                  type: string
+                  description: '| Time the stage of the element was changed ||'
+                detailUrl:
+                  type: string
+                  description: '| Link to the detail form of the element ||'
+                tasksCounter:
+                  type: string
+                  description: '| Number of tasks associated with the element for the user ||'
+                tasksFaces:
+                  type: string
+                  description: '| Information for rendering the sequence of responsible parties during approval:'
+                users:
+                  type: string
+                  description: '| Aggregated information about all users related to the element. A list where the key is the user identifier:'
+                UF_RPA_...:
+                  type: string
+                  description: '| Values of custom fields.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                id:
+                  type: integer
+                  description: '| Identifier of the element ||'
+                Name:
+                  type: string
+                  description: '| Description ||'
+                stageId:
+                  type: string
+                  description: '| Identifier of the stage the element is currently in ||'
+                previousStageId:
+                  type: string
+                  description: '| Identifier of the previous stage of the element ||'
+                name:
+                  type: string
+                  description: '| Name of the element ||'
+                createdBy:
+                  type: string
+                  description: '| Identifier of the user who created the element ||'
+                updatedBy:
+                  type: string
+                  description: '| Identifier of the user who modified the element ||'
+                movedBy:
+                  type: string
+                  description: '| Identifier of the user who changed the stage of the element ||'
+                createdTime:
+                  type: string
+                  description: '| Time the element was created ||'
+                updatedTime:
+                  type: string
+                  description: '| Time the element was modified ||'
+                movedTime:
+                  type: string
+                  description: '| Time the stage of the element was changed ||'
+                detailUrl:
+                  type: string
+                  description: '| Link to the detail form of the element ||'
+                tasksCounter:
+                  type: string
+                  description: '| Number of tasks associated with the element for the user ||'
+                tasksFaces:
+                  type: string
+                  description: '| Information for rendering the sequence of responsible parties during approval:'
+                users:
+                  type: string
+                  description: '| Aggregated information about all users related to the element. A list where the key is the user identifier:'
+                UF_RPA_...:
+                  type: string
+                  description: '| Values of custom fields.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.item.getTasks:
+    post:
+      summary: Get Data on Current Tasks of the Element rpa.item.getTasks
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves data on the current tasks of the element with the identifier `id` for the process with the identifier `typeId`.
+      operationId: rpa_item_getTasks
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/item/rpa-item-get-tasks.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                id:
+                  type: integer
+                  description: '| Identifier of the element ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                id:
+                  type: integer
+                  description: '| Identifier of the element ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.item.list:
+    post:
+      summary: Retrieve an Array of Process Elements rpa.item.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart Processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves a list of process elements with the identifier `typeId`.
+      operationId: rpa_item_list
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/item/rpa-item-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                order:
+                  type: number
+                  description: '| List for sorting, where the key is the field and the value is `ASC` or `DESC` ||'
+                filter:
+                  type: number
+                  description: '| List for filtering.'
+                start:
+                  type: number
+                  description: '| Offset for pagination. ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                order:
+                  type: number
+                  description: '| List for sorting, where the key is the field and the value is `ASC` or `DESC` ||'
+                filter:
+                  type: number
+                  description: '| List for filtering.'
+                start:
+                  type: number
+                  description: '| Offset for pagination. ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.item.update:
+    post:
+      summary: Update Process Element rpa.item.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method updates the element with the identifier `id` in the process with the identifier `typeId`.
+      operationId: rpa_item_update
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/item/rpa-item-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Process identifier ||'
+                id:
+                  type: integer
+                  description: '| Element identifier ||'
+                fields:
+                  type: object
+                  description: '| Object containing values for custom fields of the element ||'
+              required:
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Process identifier ||'
+                id:
+                  type: integer
+                  description: '| Element identifier ||'
+                fields:
+                  type: object
+                  description: '| Object containing values for custom fields of the element ||'
+              required:
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.stage.add:
+    post:
+      summary: Create a New Stage rpa.stage.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method adds a new stage.
+      operationId: rpa_stage_add
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/stage/rpa-stage-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object with fields of the stage ||'
+              required:
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object with fields of the stage ||'
+              required:
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.stage.delete:
+    post:
+      summary: Delete Stage rpa.stage.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method deletes a stage. A process must always have one successful stage. It is not possible to delete a successful stage.
+      operationId: rpa_stage_delete
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/stage/rpa-stage-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: '| Identifier of the stage ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: '| Identifier of the stage ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.stage.get:
+    post:
+      summary: Get Information About Stage rpa.stage.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves information about a stage by its `id`.
+      operationId: rpa_stage_get
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/stage/rpa-stage-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: '| Identifier of the stage ||'
+                Name:
+                  type: string
+                  description: '| Description ||'
+                name:
+                  type: string
+                  description: '| Name of the stage ||'
+                code:
+                  type: string
+                  description: '| Symbolic code. Can be used as an external identifier ||'
+                color:
+                  type: string
+                  description: '| HEX color code of the stage, 6 characters ||'
+                sort:
+                  type: string
+                  description: '| Sorting index ||'
+                semantic:
+                  type: string
+                  description: '| Semantic code of the stage. Can be either `SUCCESS` or `FAIL` ||'
+                typeId:
+                  type: string
+                  description: '| Identifier of the process ||'
+                isFirst:
+                  type: string
+                  description: '| Computed field. Returns `true` if this is the first stage of the process ||'
+                isSuccess:
+                  type: string
+                  description: '| Computed field. Returns `true` if this stage is successful ||'
+                isFail:
+                  type: string
+                  description: '| Computed field. Returns `true` if this stage has failed ||'
+                tasks:
+                  type: string
+                  description: '| Array of tasks for the stage. Each entry has the following structure:'
+                robotsCount:
+                  type: string
+                  description: '| computed field. Number of robots at the stage ||'
+                possibleNextStages:
+                  type: string
+                  description: '| array of identifiers of stages to which the item can be moved. Not used ||'
+                permissions:
+                  type: string
+                  description: '| set of permissions for the kanban:'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: '| Identifier of the stage ||'
+                Name:
+                  type: string
+                  description: '| Description ||'
+                name:
+                  type: string
+                  description: '| Name of the stage ||'
+                code:
+                  type: string
+                  description: '| Symbolic code. Can be used as an external identifier ||'
+                color:
+                  type: string
+                  description: '| HEX color code of the stage, 6 characters ||'
+                sort:
+                  type: string
+                  description: '| Sorting index ||'
+                semantic:
+                  type: string
+                  description: '| Semantic code of the stage. Can be either `SUCCESS` or `FAIL` ||'
+                typeId:
+                  type: string
+                  description: '| Identifier of the process ||'
+                isFirst:
+                  type: string
+                  description: '| Computed field. Returns `true` if this is the first stage of the process ||'
+                isSuccess:
+                  type: string
+                  description: '| Computed field. Returns `true` if this stage is successful ||'
+                isFail:
+                  type: string
+                  description: '| Computed field. Returns `true` if this stage has failed ||'
+                tasks:
+                  type: string
+                  description: '| Array of tasks for the stage. Each entry has the following structure:'
+                robotsCount:
+                  type: string
+                  description: '| computed field. Number of robots at the stage ||'
+                possibleNextStages:
+                  type: string
+                  description: '| array of identifiers of stages to which the item can be moved. Not used ||'
+                permissions:
+                  type: string
+                  description: '| set of permissions for the kanban:'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.stage.listForType:
+    post:
+      summary: Get the List of Stages for the rpa.stage.listForType Process
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves a list of process stages, sorted in order with final stages at the end.
+      operationId: rpa_stage_listForType
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/stage/rpa-stage-list-for-type.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                start:
+                  type: integer
+                  description: '| This parameter is used for managing pagination.'
+              required:
+              - typeId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                start:
+                  type: integer
+                  description: '| This parameter is used for managing pagination.'
+              required:
+              - typeId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.stage.update:
+    post:
+      summary: Update Stage rpa.stage.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method updates the stage by `id`.
+      operationId: rpa_stage_update
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/stage/rpa-stage-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: '| Identifier of the stage ||'
+                fields:
+                  type: array
+                  items: {}
+                  description: '| Object with fields of the stage ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: '| Identifier of the stage ||'
+                fields:
+                  type: array
+                  items: {}
+                  description: '| Object with fields of the stage ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.task.addUser:
+    post:
+      summary: Add User to Existing Task rpa.task.addUser
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. The method `rpa.task.addUser` will add a user to an existing task.
+      operationId: rpa_task_addUser
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/task/rpa-task-add-user.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Process identifier ||'
+                stageId:
+                  type: integer
+                  description: '| Stage identifier ||'
+                userValue:
+                  type: string
+                  description: '| String with user in the format `First Last [user ID]` ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Process identifier ||'
+                stageId:
+                  type: integer
+                  description: '| Stage identifier ||'
+                userValue:
+                  type: string
+                  description: '| String with user in the format `First Last [user ID]` ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.task.delete:
+    post:
+      summary: Remove Automation Rule from Process rpa.task.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method removes the Automation rule named `robotName` from the process with the identifier `typeId` at the stage with the identifier `stageId`.
+      operationId: rpa_task_delete
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/task/rpa-task-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                stageId:
+                  type: integer
+                  description: '| Identifier of the stage ||'
+                robotName:
+                  type: string
+                  description: '| Name of the Automation rule ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                stageId:
+                  type: integer
+                  description: '| Identifier of the stage ||'
+                robotName:
+                  type: string
+                  description: '| Name of the Automation rule ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.task.do:
+    post:
+      summary: Execute the rpa.task.do Command
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method executes a task. The set of parameters depends on the task.
+      operationId: rpa_task_do
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/task/rpa-task-do.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.timeline.add:
+    post:
+      summary: Add a New Timeline Entry rpa.timeline.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method creates a new timeline entry for the `itemId` of the `typeId` process. This method allows modification of only the `title` and `description` fields.
+      operationId: rpa_timeline_add
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/timeline/rpa-timeline-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                itemId:
+                  type: integer
+                  description: '| Identifier of the item ||'
+                fields:
+                  type: object
+                  description: '| Object containing the fields of the entry ||'
+                title:
+                  type: string
+                  description: '| Title of the entry ||'
+                description:
+                  type: string
+                  description: '| Description of the entry. HTML tags can be used ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                itemId:
+                  type: integer
+                  description: '| Identifier of the item ||'
+                fields:
+                  type: object
+                  description: '| Object containing the fields of the entry ||'
+                title:
+                  type: string
+                  description: '| Title of the entry ||'
+                description:
+                  type: string
+                  description: '| Description of the entry. HTML tags can be used ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.timeline.delete:
+    post:
+      summary: Delete Timeline Record rpa.timeline.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method deletes a timeline record with the identifier `id`. The method only deletes records that were created by the same user and through the application.
+      operationId: rpa_timeline_delete
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/timeline/rpa-timeline-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the record ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the record ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.timeline.listForItem:
+    post:
+      summary: Get the Timeline Records List for the rpa.timeline.listForItem Element
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves a list of timeline records for the `itemId` of the `typeId` process. The records are sorted in descending order by creation date, meaning the newest entries appear at the top of the list.
+      operationId: rpa_timeline_listForItem
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/timeline/rpa-timeline-list-for-item.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                itemId:
+                  type: integer
+                  description: '| Identifier of the element ||'
+                start:
+                  type: integer
+                  description: '| This parameter is used for pagination.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                typeId:
+                  type: integer
+                  description: '| Identifier of the process ||'
+                itemId:
+                  type: integer
+                  description: '| Identifier of the element ||'
+                start:
+                  type: integer
+                  description: '| This parameter is used for pagination.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.timeline.update:
+    post:
+      summary: Update Timeline Entry rpa.timeline.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the timeline entry with the identifier `id`. The method only updates the `title` and `description` fields, and only for entries created by the same user and through the application.
+      operationId: rpa_timeline_update
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/timeline/rpa-timeline-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the entry ||'
+                fields:
+                  type: object
+                  description: '| Object containing the fields of the entry ||'
+                title:
+                  type: string
+                  description: '| Title of the entry ||'
+                description:
+                  type: string
+                  description: '| Description of the entry. HTML tags can be used ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the entry ||'
+                fields:
+                  type: object
+                  description: '| Object containing the fields of the entry ||'
+                title:
+                  type: string
+                  description: '| Title of the entry ||'
+                description:
+                  type: string
+                  description: '| Description of the entry. HTML tags can be used ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.timeline.updateIsFixed:
+    post:
+      summary: Update the Attachment Flag of rpa.timeline.updateIsFixed
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the attachment flag of a record.
+      operationId: rpa_timeline_updateIsFixed
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/timeline/rpa-timeline-update-is-fixed.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the record ||'
+                isFixed:
+                  type: string
+                  description: '| Attachment flag of the record. Possible values:'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the record ||'
+                isFixed:
+                  type: string
+                  description: '| Attachment flag of the record. Possible values:'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.type.add:
+    post:
+      summary: Create Process rpa.type.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method creates a new process.
+      operationId: rpa_type_add
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/type/rpa-type-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: array
+                  items: {}
+                  description: '| A list of process fields. The list of possible fields is described below ||'
+                title:
+                  type: string
+                  description: '| The name of the process ||'
+                image:
+                  type: string
+                  description: '| The image of the process from the list ||'
+                settings:
+                  type: array
+                  items: {}
+                  description: '| A list of arbitrary settings for the process ||'
+                permissions:
+                  type: array
+                  items: {}
+                  description: '| A list of objects. Each object describes access permissions for this process ||'
+              required:
+              - fields
+              - title
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: array
+                  items: {}
+                  description: '| A list of process fields. The list of possible fields is described below ||'
+                title:
+                  type: string
+                  description: '| The name of the process ||'
+                image:
+                  type: string
+                  description: '| The image of the process from the list ||'
+                settings:
+                  type: array
+                  items: {}
+                  description: '| A list of arbitrary settings for the process ||'
+                permissions:
+                  type: array
+                  items: {}
+                  description: '| A list of objects. Each object describes access permissions for this process ||'
+              required:
+              - fields
+              - title
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.type.delete:
+    post:
+      summary: Delete Process rpa.type.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method deletes a process.
+      operationId: rpa_type_delete
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/type/rpa-type-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: '| Process identifier ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: '| Process identifier ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.type.get:
+    post:
+      summary: Get Process Information by ID rpa.type.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves information about a process by its `id`.
+      operationId: rpa_type_get
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/type/rpa-type-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: '| Process identifier ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: '| Process identifier ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.type.list:
+    post:
+      summary: Retrieve a List of Processes with Their Fields rpa.type.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. The method will return an array of processes with their fields.
+      operationId: rpa_type_list
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/type/rpa-type-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| Array of fields to output. By default, all fields are returned. ||'
+                order:
+                  type: object
+                  description: '| List for sorting, where the key is the field and the value is `ASC` or `DESC`. ||'
+                filter:
+                  type: object
+                  description: '| List for filtering. ||'
+                start:
+                  type: integer
+                  description: '| This parameter is used to manage pagination.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| Array of fields to output. By default, all fields are returned. ||'
+                order:
+                  type: object
+                  description: '| List for sorting, where the key is the field and the value is `ASC` or `DESC`. ||'
+                filter:
+                  type: object
+                  description: '| List for filtering. ||'
+                start:
+                  type: integer
+                  description: '| This parameter is used to manage pagination.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+  /rpa.type.update:
+    post:
+      summary: Update the process rpa.type.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the process by its `id`.
+      operationId: rpa_type_update
+      tags:
+      - Deprecated Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/outdated/rpa/type/rpa-type-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: '| Identifier of the process ||'
+                fields:
+                  type: array
+                  items: {}
+                  description: '| List of process fields. Fully analogous to the set from the rpa.type.add method ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: '| Identifier of the process ||'
+                fields:
+                  type: array
+                  items: {}
+                  description: '| List of process fields. Fully analogous to the set from the rpa.type.add method ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - rpa
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

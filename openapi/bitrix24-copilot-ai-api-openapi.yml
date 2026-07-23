@@ -1,0 +1,384 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector CoPilot / AI API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: CoPilot / AI
+paths:
+  /ai.engine.list:
+    post:
+      summary: Get the List of Services ai.engine.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `ai.engine.list` returns a list of registered AI services.
+      operationId: ai_engine_list
+      tags:
+      - CoPilot / AI
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/ai/ai-engine-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: array
+                  items: {}
+                  description: '| An array in the following format:'
+                limit:
+                  type: integer
+                  description: '| Maximum number of elements in the response ||'
+                ID:
+                  type: integer
+                  description: '| Service identifier ||'
+                APP_CODE:
+                  type: string
+                  description: '| Application code to which the service belongs.'
+                NAME:
+                  type: string
+                  description: '| Service name ||'
+                CODE:
+                  type: string
+                  description: '| Symbolic code of the service ||'
+                CATEGORY:
+                  type: string
+                  description: '| Service category ||'
+                COMPLETIONS_URL:
+                  type: string
+                  description: '| Service endpoint URL ||'
+                DATE_CREATE:
+                  type: string
+                  format: date-time
+                  description: '| Date and time of service creation in ISO 8601 format, e.g., 2026-03-20T09:50:00+03:00 ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: array
+                  items: {}
+                  description: '| An array in the following format:'
+                limit:
+                  type: integer
+                  description: '| Maximum number of elements in the response ||'
+                ID:
+                  type: integer
+                  description: '| Service identifier ||'
+                APP_CODE:
+                  type: string
+                  description: '| Application code to which the service belongs.'
+                NAME:
+                  type: string
+                  description: '| Service name ||'
+                CODE:
+                  type: string
+                  description: '| Symbolic code of the service ||'
+                CATEGORY:
+                  type: string
+                  description: '| Service category ||'
+                COMPLETIONS_URL:
+                  type: string
+                  description: '| Service endpoint URL ||'
+                DATE_CREATE:
+                  type: string
+                  format: date-time
+                  description: '| Date and time of service creation in ISO 8601 format, e.g., 2026-03-20T09:50:00+03:00 ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - ai_admin
+  /ai.engine.register:
+    post:
+      summary: Register the Service ai.engine.register
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `ai.engine.register` registers a custom AI service.
+      operationId: ai_engine_register
+      tags:
+      - CoPilot / AI
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/ai/ai-engine-register.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the service that will be displayed in the interface ||'
+                code:
+                  type: string
+                  description: '| A unique code for the service.'
+                category:
+                  type: string
+                  description: '| The category of the service.'
+                completions_url:
+                  type: string
+                  description: '| The URL endpoint of the handler, which must respond with HTTP status `200` during registration verification (detailed description) ||'
+                settings:
+                  type: object
+                  description: '| Additional settings for the service (detailed description) ||'
+                code_alias:
+                  type: string
+                  description: '| The alias of the model.'
+                model_context_type:
+                  type: string
+                  description: '| The method of calculating context.'
+                model_context_limit:
+                  type: integer
+                  description: '| The context limit.'
+              required:
+              - name
+              - code
+              - category
+              - completions_url
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the service that will be displayed in the interface ||'
+                code:
+                  type: string
+                  description: '| A unique code for the service.'
+                category:
+                  type: string
+                  description: '| The category of the service.'
+                completions_url:
+                  type: string
+                  description: '| The URL endpoint of the handler, which must respond with HTTP status `200` during registration verification (detailed description) ||'
+                settings:
+                  type: object
+                  description: '| Additional settings for the service (detailed description) ||'
+                code_alias:
+                  type: string
+                  description: '| The alias of the model.'
+                model_context_type:
+                  type: string
+                  description: '| The method of calculating context.'
+                model_context_limit:
+                  type: integer
+                  description: '| The context limit.'
+              required:
+              - name
+              - code
+              - category
+              - completions_url
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - ai_admin
+  /ai.engine.unregister:
+    post:
+      summary: Remove the ai.engine.unregister Service
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `ai.engine.unregister` removes a registered AI service.
+      operationId: ai_engine_unregister
+      tags:
+      - CoPilot / AI
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/ai/ai-engine-unregister.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: '| Character code of the service to be removed ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: '| Character code of the service to be removed ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - ai_admin
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

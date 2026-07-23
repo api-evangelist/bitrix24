@@ -1,0 +1,823 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Widgets API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Widgets
+paths:
+  /BX24.placement.bindEvent:
+    post:
+      summary: Set Up an Event Handler for the Interface BX24.placement.bindEvent
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `BX24.placement.bindEvent` sets an event handler for the interface. The event must be registered on the calling side; otherwise, nothing will happen.
+      operationId: BX24_placement_bindEvent
+      tags:
+      - Widgets
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/widgets/ui-interaction/bx24-placement-bind-event.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event:
+                  type: string
+                  description: '| The name of the event to which the handler subscribes ||'
+                callback:
+                  type: string
+                  description: '| The callback function.'
+              required:
+              - event
+              - callback
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                event:
+                  type: string
+                  description: '| The name of the event to which the handler subscribes ||'
+                callback:
+                  type: string
+                  description: '| The callback function.'
+              required:
+              - event
+              - callback
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - placement
+  /BX24.placement.call:
+    post:
+      summary: Call the Registered Interface Command BX24.placement.call
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `BX24.placement.call` invokes a registered interface command.
+      operationId: BX24_placement_call
+      tags:
+      - Widgets
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/widgets/ui-interaction/bx24-placement-call.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                  description: '| The command to be invoked ||'
+                parameters:
+                  type: object
+                  description: '| Parameters to be passed ||'
+                callback:
+                  type: string
+                  description: '| Callback function ||'
+              required:
+              - command
+              - callback
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                  description: '| The command to be invoked ||'
+                parameters:
+                  type: object
+                  description: '| Parameters to be passed ||'
+                callback:
+                  type: string
+                  description: '| Callback function ||'
+              required:
+              - command
+              - callback
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - placement
+  /BX24.placement.getInterface:
+    post:
+      summary: Get Information About the JS Interface of the Current Placement BX24.placement.getInterface
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `BX24.placement.getInterface` allows you to retrieve information about the JS interface of the current placement: a list of available commands and events.'
+      operationId: BX24_placement_getInterface
+      tags:
+      - Widgets
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/widgets/ui-interaction/bx24-placement-get-interface.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                callback:
+                  type: string
+                  description: '| Callback function.'
+              required:
+              - callback
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                callback:
+                  type: string
+                  description: '| Callback function.'
+              required:
+              - callback
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - placement
+  /BX24.placement.info:
+    post:
+      summary: Get Information About the Call Context of BX24.placement.info
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `BX24.placement.info` retrieves information about the context of the embedding handler call. No parameters.
+      operationId: BX24_placement_info
+      tags:
+      - Widgets
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/widgets/ui-interaction/bx24-placement-info.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - placement
+  /placement.bind:
+    post:
+      summary: Set Up the Widget Handler placement.bind
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `placement.bind` adds a handler for the widget placement. It can be called at any time during the application's operation; however, it is often more convenient to register your widgets during the [application installation](../../settings/app-installation/index.md). It is important to note that until the application installation is complete, the widgets you register will not be available to regular users in the Bitrix24 interface—they will only be visible to users with administrative rights.
+      operationId: placement_bind
+      tags:
+      - Widgets
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/widgets/placement-bind.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                PLACEMENT:
+                  type: string
+                  description: '| Identifier for the required widget placement location ||'
+                HANDLER:
+                  type: string
+                  description: '| URL of the widget placement handler ||'
+                TITLE:
+                  type: string
+                  description: '| Name of the widget in the interface. Depending on the specific placement location, this may be the name of a tab in a form, a menu item, etc. ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the widget in the interface. Not used in practice ||'
+                GROUP_NAME:
+                  type: string
+                  description: '| Allows grouping UI elements for multiple handlers of the same widget type. For example, several dropdown items in the top button of the CRM card. Supported only by certain types of widgets ||'
+                LANG_ALL:
+                  type: object
+                  description: '| Array of parameters `TITLE`, `DESCRIPTION`, and `GROUP_NAME` for specified languages. Users who have selected one of these languages in the Bitrix24 interface will see localized versions of `TITLE`, `DESCRIPTION`, and `GROUP_NAME`:'
+                OPTIONS:
+                  type: object
+                  description: '| Additional display parameters for the widget. Specific values depend on the widget placement location. Currently used in widgets for messengers, in the widget `PAGE_BACKGROUND_WORKER`, and in the widget CRM_XXX_DETAIL_ACTIVITY'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the Bitrix24 user for whom the registered widget will be available. Possible values can be obtained using the user.get method.'
+              required:
+              - PLACEMENT
+              - HANDLER
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                PLACEMENT:
+                  type: string
+                  description: '| Identifier for the required widget placement location ||'
+                HANDLER:
+                  type: string
+                  description: '| URL of the widget placement handler ||'
+                TITLE:
+                  type: string
+                  description: '| Name of the widget in the interface. Depending on the specific placement location, this may be the name of a tab in a form, a menu item, etc. ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the widget in the interface. Not used in practice ||'
+                GROUP_NAME:
+                  type: string
+                  description: '| Allows grouping UI elements for multiple handlers of the same widget type. For example, several dropdown items in the top button of the CRM card. Supported only by certain types of widgets ||'
+                LANG_ALL:
+                  type: object
+                  description: '| Array of parameters `TITLE`, `DESCRIPTION`, and `GROUP_NAME` for specified languages. Users who have selected one of these languages in the Bitrix24 interface will see localized versions of `TITLE`, `DESCRIPTION`, and `GROUP_NAME`:'
+                OPTIONS:
+                  type: object
+                  description: '| Additional display parameters for the widget. Specific values depend on the widget placement location. Currently used in widgets for messengers, in the widget `PAGE_BACKGROUND_WORKER`, and in the widget CRM_XXX_DETAIL_ACTIVITY'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the Bitrix24 user for whom the registered widget will be available. Possible values can be obtained using the user.get method.'
+              required:
+              - PLACEMENT
+              - HANDLER
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+  /placement.get:
+    post:
+      summary: Get a List of Registered Placement Handlers placement.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `placement.get` retrieves a list of registered widget placement handlers.
+      operationId: placement_get
+      tags:
+      - Widgets
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/widgets/placement-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+  /placement.list:
+    post:
+      summary: Get a List of Available Application Embed Locations placement.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `placement.list` returns a list of available embed locations for the application. The method works only in the context of the [application](../../settings/app-installation/index.md).
+      operationId: placement_list
+      tags:
+      - Widgets
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/widgets/placement-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SCOPE:
+                  type: string
+                  description: '| Limits the list of embed locations to a specific application scope.'
+                FULL:
+                  type: boolean
+                  description: '| Flag to retrieve the full list of embed locations.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SCOPE:
+                  type: string
+                  description: '| Limits the list of embed locations to a specific application scope.'
+                FULL:
+                  type: boolean
+                  description: '| Flag to retrieve the full list of embed locations.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - placement
+  /placement.unbind:
+    post:
+      summary: Remove Registered Automation Rule Handler placement.unbind
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `placement.unbind` removes the registered Automation rule handler. The method works only in the context of the [application](../../settings/app-installation/index.md).
+      operationId: placement_unbind
+      tags:
+      - Widgets
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/widgets/placement-unbind.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                HANDLER:
+                  type: string
+                  description: '| URL of the Automation rule handler.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the Bitrix24 user for whom the handler was registered.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                HANDLER:
+                  type: string
+                  description: '| URL of the Automation rule handler.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the Bitrix24 user for whom the handler was registered.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - placement
+  /userfieldtype.add:
+    post:
+      summary: Register a New User Field Type userfieldtype.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userfieldtype.add` registers a new type of user fields. After registering the type, create a user field using the [userfieldconfig.add](../../crm/universal/userfieldconfig/userfieldconfig-add.md) method. When opening a card with a user type field, an array `PLACEMENT_OPTIONS` containing data about the field and entity is passed to the application handler.
+      operationId: userfieldtype_add
+      tags:
+      - Widgets
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/widgets/user-field/userfieldtype-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_TYPE_ID:
+                  type: string
+                  description: '| String code of the type |'
+                HANDLER:
+                  type: string
+                  description: '| Address of the user type handler |'
+                TITLE:
+                  type: string
+                  description: '| Text title of the type. Will be displayed in the administrative interface for user field settings | ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Text description of the type. Will be displayed in the administrative interface for user field settings | ||'
+                OPTIONS:
+                  type: array
+                  items: {}
+                  description: '| Additional settings. Currently, one key is available: `height` — specifies the height of the user field in pixels. Any positive value will apply.'
+              required:
+              - USER_TYPE_ID
+              - HANDLER
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_TYPE_ID:
+                  type: string
+                  description: '| String code of the type |'
+                HANDLER:
+                  type: string
+                  description: '| Address of the user type handler |'
+                TITLE:
+                  type: string
+                  description: '| Text title of the type. Will be displayed in the administrative interface for user field settings | ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Text description of the type. Will be displayed in the administrative interface for user field settings | ||'
+                OPTIONS:
+                  type: array
+                  items: {}
+                  description: '| Additional settings. Currently, one key is available: `height` — specifies the height of the user field in pixels. Any positive value will apply.'
+              required:
+              - USER_TYPE_ID
+              - HANDLER
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - depending on the placement
+  /userfieldtype.delete:
+    post:
+      summary: Delete Registered User Field Type userfieldtype.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userfieldtype.delete` removes a user field type registered by the application. It returns _true_ or an error with a description of the reason.
+      operationId: userfieldtype_delete
+      tags:
+      - Widgets
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/widgets/user-field/userfieldtype-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_TYPE_ID:
+                  type: string
+                  description: '| String code of the type |'
+              required:
+              - USER_TYPE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_TYPE_ID:
+                  type: string
+                  description: '| String code of the type |'
+              required:
+              - USER_TYPE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - depending on the integration point
+  /userfieldtype.list:
+    post:
+      summary: Get a list of registered user field types userfieldtype.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method retrieves a list of user field types registered by the application. It returns a list of field types with pagination. No parameters.
+      operationId: userfieldtype_list
+      tags:
+      - Widgets
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/widgets/user-field/userfieldtype-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| Root element of the response ||'
+                total:
+                  type: integer
+                  description: '| Number of processed records ||'
+                time:
+                  type: string
+                  description: '| Information about the execution time of the request ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| Root element of the response ||'
+                total:
+                  type: integer
+                  description: '| Number of processed records ||'
+                time:
+                  type: string
+                  description: '| Information about the execution time of the request ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - depending on the embedding location
+  /userfieldtype.update:
+    post:
+      summary: Change settings for user field type userfieldtype.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userfieldtype.update` modifies the settings of a user field type registered by the application. It returns _true_ or an error with a description of the reason.
+      operationId: userfieldtype_update
+      tags:
+      - Widgets
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/widgets/user-field/userfieldtype-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_TYPE_ID:
+                  type: string
+                  description: '| String code of the type |'
+                HANDLER:
+                  type: string
+                  description: '| Address of the user type handler |'
+                TITLE:
+                  type: string
+                  description: '| Text name of the type. Will be displayed in the administrative interface for user field settings | ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Text description of the type. Will be displayed in the administrative interface for user field settings | ||'
+                OPTIONS:
+                  type: array
+                  items: {}
+                  description: '| Additional settings. Currently, one key is available: `height` — specifies the height of the user field in pixels. Any positive value will apply.'
+              required:
+              - USER_TYPE_ID
+              - HANDLER
+              - TITLE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_TYPE_ID:
+                  type: string
+                  description: '| String code of the type |'
+                HANDLER:
+                  type: string
+                  description: '| Address of the user type handler |'
+                TITLE:
+                  type: string
+                  description: '| Text name of the type. Will be displayed in the administrative interface for user field settings | ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Text description of the type. Will be displayed in the administrative interface for user field settings | ||'
+                OPTIONS:
+                  type: array
+                  items: {}
+                  description: '| Additional settings. Currently, one key is available: `height` — specifies the height of the user field in pixels. Any positive value will apply.'
+              required:
+              - USER_TYPE_ID
+              - HANDLER
+              - TITLE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - depending on the embedding location
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

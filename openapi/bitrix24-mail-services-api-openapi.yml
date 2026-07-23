@@ -1,0 +1,499 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Mail Services API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Mail Services
+paths:
+  /mailservice.add:
+    post:
+      summary: Create Mail Service mailservice.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `mailservice.add` creates a mail service for the current Bitrix24.
+      operationId: mailservice_add
+      tags:
+      - Mail Services
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mailservice/mailservice-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Name of the mail service ||'
+                ACTIVE:
+                  type: string
+                  description: '| Service activity status. Allowed values:'
+                SERVER:
+                  type: string
+                  description: '| IMAP server address. Stored in lowercase in the database ||'
+                PORT:
+                  type: integer
+                  description: '| IMAP server port ||'
+                ENCRYPTION:
+                  type: string
+                  description: '| Secure connection status. Allowed values:'
+                LINK:
+                  type: string
+                  description: '| Web interface address of the mail service ||'
+                ICON:
+                  type: string
+                  description: 'Bitrix24 type: file'
+                SORT:
+                  type: integer
+                  description: '| Sort index. Default value: `100` ||'
+              required:
+              - NAME
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Name of the mail service ||'
+                ACTIVE:
+                  type: string
+                  description: '| Service activity status. Allowed values:'
+                SERVER:
+                  type: string
+                  description: '| IMAP server address. Stored in lowercase in the database ||'
+                PORT:
+                  type: integer
+                  description: '| IMAP server port ||'
+                ENCRYPTION:
+                  type: string
+                  description: '| Secure connection status. Allowed values:'
+                LINK:
+                  type: string
+                  description: '| Web interface address of the mail service ||'
+                ICON:
+                  type: string
+                  description: 'Bitrix24 type: file'
+                SORT:
+                  type: integer
+                  description: '| Sort index. Default value: `100` ||'
+              required:
+              - NAME
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mailservice
+  /mailservice.delete:
+    post:
+      summary: Delete Mail Service mailservice.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `mailservice.delete` removes a mail service by its identifier.
+      operationId: mailservice_delete
+      tags:
+      - Mail Services
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mailservice/mailservice-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the mail service.'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the mail service.'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mailservice
+  /mailservice.fields:
+    post:
+      summary: Get Mail Service Fields mailservice.fields
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `mailservice.fields` returns localized names of the mail service fields.
+      operationId: mailservice_fields
+      tags:
+      - Mail Services
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mailservice/mailservice-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mailservice
+  /mailservice.get:
+    post:
+      summary: Get the mailservice.get method
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `mailservice.get` method returns the parameters of the mail service by its identifier.
+      operationId: mailservice_get
+      tags:
+      - Mail Services
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mailservice/mailservice-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the mail service.'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the mail service.'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mailservice
+  /mailservice.list:
+    post:
+      summary: Get the list of mail services mailservice.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `mailservice.list` returns a list of active mail services.
+      operationId: mailservice_list
+      tags:
+      - Mail Services
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mailservice/mailservice-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mailservice
+  /mailservice.update:
+    post:
+      summary: Update Mail Service mailservice.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `mailservice.update` modifies the parameters of an existing mail service.
+      operationId: mailservice_update
+      tags:
+      - Mail Services
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mailservice/mailservice-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the mail service.'
+                ACTIVE:
+                  type: string
+                  description: '| Service activity status. Acceptable values:'
+                NAME:
+                  type: string
+                  description: '| Name of the service ||'
+                SERVER:
+                  type: string
+                  description: '| IMAP server address. Stored in lowercase in the database. ||'
+                PORT:
+                  type: integer
+                  description: '| IMAP server port ||'
+                ENCRYPTION:
+                  type: string
+                  description: '| Secure connection status. Acceptable values:'
+                LINK:
+                  type: string
+                  description: '| Web interface address of the service ||'
+                ICON:
+                  type: string
+                  description: 'Bitrix24 type: file'
+                SORT:
+                  type: integer
+                  description: '| Sort index ||'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the mail service.'
+                ACTIVE:
+                  type: string
+                  description: '| Service activity status. Acceptable values:'
+                NAME:
+                  type: string
+                  description: '| Name of the service ||'
+                SERVER:
+                  type: string
+                  description: '| IMAP server address. Stored in lowercase in the database. ||'
+                PORT:
+                  type: integer
+                  description: '| IMAP server port ||'
+                ENCRYPTION:
+                  type: string
+                  description: '| Secure connection status. Acceptable values:'
+                LINK:
+                  type: string
+                  description: '| Web interface address of the service ||'
+                ICON:
+                  type: string
+                  description: 'Bitrix24 type: file'
+                SORT:
+                  type: integer
+                  description: '| Sort index ||'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mailservice
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

@@ -1,0 +1,318 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector User Consent API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: User Consent
+paths:
+  /userconsent.agreement.list:
+    post:
+      summary: Get the list of agreements userconsent.agreement.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userconsent.agreement.list` returns a list of agreements.
+      operationId: userconsent_agreement_list
+      tags:
+      - User Consent
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/user-consent/user-consent-agreement-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - userconsent
+  /userconsent.agreement.text:
+    post:
+      summary: Get the text of the agreement userconsent.agreement.text
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userconsent.agreement.text` returns the text of the agreement.
+      operationId: userconsent_agreement_text
+      tags:
+      - User Consent
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/user-consent/user-consent-agreement-text.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the agreement.'
+                replace:
+                  type: object
+                  description: '| Array of replacements for text substitution. Available keys:'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the agreement.'
+                replace:
+                  type: object
+                  description: '| Array of replacements for text substitution. Available keys:'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - userconsent
+  /userconsent.consent.add:
+    post:
+      summary: Save the User Consent userconsent.consent.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userconsent.consent.add` saves the user's consent.
+      operationId: userconsent_consent_add
+      tags:
+      - User Consent
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/user-consent/user-consent-consent-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                AGREEMENT_ID:
+                  type: integer
+                  description: '| Agreement identifier.'
+                IP:
+                  type: string
+                  description: '| User''s IP address ||'
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+                URL:
+                  type: string
+                  description: '| URL of the page where consent was obtained ||'
+                ORIGIN_ID:
+                  type: string
+                  description: '| Identifier of the source, for example, `my_contact_form` ||'
+                ORIGINATOR_ID:
+                  type: string
+                  description: '| Identifier of the element in the source, for example, e-mail ||'
+              required:
+              - AGREEMENT_ID
+              - IP
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AGREEMENT_ID:
+                  type: integer
+                  description: '| Agreement identifier.'
+                IP:
+                  type: string
+                  description: '| User''s IP address ||'
+                USER_ID:
+                  type: integer
+                  description: '| User identifier.'
+                URL:
+                  type: string
+                  description: '| URL of the page where consent was obtained ||'
+                ORIGIN_ID:
+                  type: string
+                  description: '| Identifier of the source, for example, `my_contact_form` ||'
+                ORIGINATOR_ID:
+                  type: string
+                  description: '| Identifier of the element in the source, for example, e-mail ||'
+              required:
+              - AGREEMENT_ID
+              - IP
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - userconsent
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

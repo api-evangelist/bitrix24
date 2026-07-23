@@ -1,0 +1,3387 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Open Lines API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Open Lines
+paths:
+  /imconnector.activate:
+    post:
+      summary: Activate Connector imconnector.activate
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.activate` activates or deactivates the connector on the specified open line. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: imconnector_activate
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/imconnector/imconnector-activate.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| The string code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| The identifier of the open line.'
+                ACTIVE:
+                  type: string
+                  description: '| Activation flag. Any non-empty value enables the connector, while an empty value or `0` disables it.'
+              required:
+              - CONNECTOR
+              - LINE
+              - ACTIVE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| The string code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| The identifier of the open line.'
+                ACTIVE:
+                  type: string
+                  description: '| Activation flag. Any non-empty value enables the connector, while an empty value or `0` disables it.'
+              required:
+              - CONNECTOR
+              - LINE
+              - ACTIVE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imconnector.chat.name.set:
+    post:
+      summary: Set a New Chat Name imconnector.chat.name.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.chat.name.set` sets a new name for the chat. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: imconnector_chat_name_set
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/imconnector/imconnector-chat-name-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| The string code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| Identifier of the Open Channel'
+                CHAT_ID:
+                  type: string
+                  description: '| Identifier of the chat in the external system ||'
+                NAME:
+                  type: string
+                  description: '| New name for the chat ||'
+                USER_ID:
+                  type: string
+                  description: '| User identifier. This parameter is mandatory only for connectors without group chats from the external side. For such a connector, the `CHAT_GROUP` parameter in the imconnector.register method must be set to `N` ||'
+              required:
+              - CONNECTOR
+              - LINE
+              - CHAT_ID
+              - NAME
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| The string code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| Identifier of the Open Channel'
+                CHAT_ID:
+                  type: string
+                  description: '| Identifier of the chat in the external system ||'
+                NAME:
+                  type: string
+                  description: '| New name for the chat ||'
+                USER_ID:
+                  type: string
+                  description: '| User identifier. This parameter is mandatory only for connectors without group chats from the external side. For such a connector, the `CHAT_GROUP` parameter in the imconnector.register method must be set to `N` ||'
+              required:
+              - CONNECTOR
+              - LINE
+              - CHAT_ID
+              - NAME
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imconnector
+  /imconnector.connector.data.set:
+    post:
+      summary: Set Connector Settings imconnector.connector.data.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.connector.data.set` sets the channel settings in an external system for a custom connector and the specified open line. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: imconnector_connector_data_set
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/imconnector/imconnector-connector-data-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| String code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| Identifier of the open line.'
+                DATA:
+                  type: object
+                  description: '| Object containing the channel settings in the external system. The method does not support setting or modifying a single field separately: settings are written and overwritten through this object as a whole.'
+                ID:
+                  type: string
+                  description: '| Identifier of the channel in the external system, for example `channel-123`.'
+                URL:
+                  type: string
+                  description: '| Full link to the chat or channel in the external system ||'
+                URL_IM:
+                  type: string
+                  description: '| Full link to the chat in the operator interface format. If there is no separate link for the operator, use the value of `URL` ||'
+                NAME:
+                  type: string
+                  description: '| Name of the channel for display in the interface ||'
+              required:
+              - CONNECTOR
+              - LINE
+              - DATA
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| String code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| Identifier of the open line.'
+                DATA:
+                  type: object
+                  description: '| Object containing the channel settings in the external system. The method does not support setting or modifying a single field separately: settings are written and overwritten through this object as a whole.'
+                ID:
+                  type: string
+                  description: '| Identifier of the channel in the external system, for example `channel-123`.'
+                URL:
+                  type: string
+                  description: '| Full link to the chat or channel in the external system ||'
+                URL_IM:
+                  type: string
+                  description: '| Full link to the chat in the operator interface format. If there is no separate link for the operator, use the value of `URL` ||'
+                NAME:
+                  type: string
+                  description: '| Name of the channel for display in the interface ||'
+              required:
+              - CONNECTOR
+              - LINE
+              - DATA
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imconnector.delete.messages:
+    post:
+      summary: Delete Sent Messages imconnector.delete.messages
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.delete.messages` removes messages from an open line that were sent by an external system. The method works only in the context of an [application](../../../settings/app-installation/index.md). The method parameters use values from the external system: user ID, message ID, and chat or channel ID.'
+      operationId: imconnector_delete_messages
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/imconnector/imconnector-delete-messages.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| String code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| Identifier of the open line.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of messages to delete. Each element of the array is a message object with three required blocks: `user`, `message`, `chat`. The structure of the object is described in detail below ||'
+                user:
+                  type: object
+                  description: '| User data from the external system.'
+                message:
+                  type: object
+                  description: '| Message data from the external system.'
+                chat:
+                  type: object
+                  description: '| Chat or channel data from the external system.'
+                id:
+                  type: string
+                  description: '| User ID in the external system.'
+              required:
+              - CONNECTOR
+              - LINE
+              - MESSAGES
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| String code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| Identifier of the open line.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of messages to delete. Each element of the array is a message object with three required blocks: `user`, `message`, `chat`. The structure of the object is described in detail below ||'
+                user:
+                  type: object
+                  description: '| User data from the external system.'
+                message:
+                  type: object
+                  description: '| Message data from the external system.'
+                chat:
+                  type: object
+                  description: '| Chat or channel data from the external system.'
+                id:
+                  type: string
+                  description: '| User ID in the external system.'
+              required:
+              - CONNECTOR
+              - LINE
+              - MESSAGES
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imconnector.list:
+    post:
+      summary: Get the List of Connectors imconnector.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.list` returns a list of all connectors registered in Bitrix24. The method works only in the context of an [application](../../../settings/app-installation/index.md).
+      operationId: imconnector_list
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/imconnector/imconnector-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imconnector.register:
+    post:
+      summary: Register the Connector imconnector.register
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.register` registers a custom connector for Open Channels. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: imconnector_register
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/imconnector/imconnector-register.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Unique identifier for the connector. The method converts the value to lowercase. It is recommended to add a unique prefix at the beginning of the identifier to avoid conflicts with existing and future identifiers of other connectors. Use digits, lowercase letters, and the underscore `_` to form...'
+                NAME:
+                  type: string
+                  description: '| Name of the connector in the interface ||'
+                ICON:
+                  type: object
+                  description: '| Parameters for the main icon.'
+                PLACEMENT_HANDLER:
+                  type: string
+                  description: '| URL of the embedding handler for the connector settings. At this address, Bitrix24 opens the settings interface in a slider for the user. Read more about embedding interfaces in the article Widget Embedding Mechanism ||'
+                ICON_DISABLED:
+                  type: object
+                  description: '| Parameters for the inactive state icon.'
+                DEL_EXTERNAL_MESSAGES:
+                  type: boolean
+                  description: '| Allows deleting incoming messages. Default value is `true` ||'
+                EDIT_INTERNAL_MESSAGES:
+                  type: boolean
+                  description: '| Allows editing operator messages. Default value is `true` ||'
+                DEL_INTERNAL_MESSAGES:
+                  type: boolean
+                  description: '| Allows deleting operator messages. Default value is `true` ||'
+                NEWSLETTER:
+                  type: boolean
+                  description: '| Allows using the channel in CRM newsletters. Default value is `true` ||'
+                NEED_SYSTEM_MESSAGES:
+                  type: boolean
+                  description: '| Allows sending system messages to the channel. Default value is `true` ||'
+                NEED_SIGNATURE:
+                  type: boolean
+                  description: '| Adds the operator''s signature to messages. Default value is `true` ||'
+                CHAT_GROUP:
+                  type: boolean
+                  description: '| Indicates the chat processing mode of the connector: `true` — grouping by `chat.id` (group chat), `false` — by `user.id` (one-on-one chat). Default value is `false` ||'
+                DATA_IMAGE:
+                  type: string
+                  description: '| SVG icon in Data URI format: a string with the prefix `data:image/svg+xml,`, followed by the SVG content, usually URL-encoded ||'
+                COLOR:
+                  type: string
+                  description: '| Background color of the icon. Example: `#69acc0` ||'
+                SIZE:
+                  type: string
+                  description: '| Background size. Example: `90%` ||'
+                POSITION:
+                  type: string
+                  description: '| Background position. Example: `center` ||'
+              required:
+              - ID
+              - NAME
+              - ICON
+              - PLACEMENT_HANDLER
+              - DATA_IMAGE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Unique identifier for the connector. The method converts the value to lowercase. It is recommended to add a unique prefix at the beginning of the identifier to avoid conflicts with existing and future identifiers of other connectors. Use digits, lowercase letters, and the underscore `_` to form...'
+                NAME:
+                  type: string
+                  description: '| Name of the connector in the interface ||'
+                ICON:
+                  type: object
+                  description: '| Parameters for the main icon.'
+                PLACEMENT_HANDLER:
+                  type: string
+                  description: '| URL of the embedding handler for the connector settings. At this address, Bitrix24 opens the settings interface in a slider for the user. Read more about embedding interfaces in the article Widget Embedding Mechanism ||'
+                ICON_DISABLED:
+                  type: object
+                  description: '| Parameters for the inactive state icon.'
+                DEL_EXTERNAL_MESSAGES:
+                  type: boolean
+                  description: '| Allows deleting incoming messages. Default value is `true` ||'
+                EDIT_INTERNAL_MESSAGES:
+                  type: boolean
+                  description: '| Allows editing operator messages. Default value is `true` ||'
+                DEL_INTERNAL_MESSAGES:
+                  type: boolean
+                  description: '| Allows deleting operator messages. Default value is `true` ||'
+                NEWSLETTER:
+                  type: boolean
+                  description: '| Allows using the channel in CRM newsletters. Default value is `true` ||'
+                NEED_SYSTEM_MESSAGES:
+                  type: boolean
+                  description: '| Allows sending system messages to the channel. Default value is `true` ||'
+                NEED_SIGNATURE:
+                  type: boolean
+                  description: '| Adds the operator''s signature to messages. Default value is `true` ||'
+                CHAT_GROUP:
+                  type: boolean
+                  description: '| Indicates the chat processing mode of the connector: `true` — grouping by `chat.id` (group chat), `false` — by `user.id` (one-on-one chat). Default value is `false` ||'
+                DATA_IMAGE:
+                  type: string
+                  description: '| SVG icon in Data URI format: a string with the prefix `data:image/svg+xml,`, followed by the SVG content, usually URL-encoded ||'
+                COLOR:
+                  type: string
+                  description: '| Background color of the icon. Example: `#69acc0` ||'
+                SIZE:
+                  type: string
+                  description: '| Background size. Example: `90%` ||'
+                POSITION:
+                  type: string
+                  description: '| Background position. Example: `center` ||'
+              required:
+              - ID
+              - NAME
+              - ICON
+              - PLACEMENT_HANDLER
+              - DATA_IMAGE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imconnector.send.messages:
+    post:
+      summary: Send Messages to Bitrix24 imconnector.send.messages
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.send.messages` accepts messages from an external system and forwards them to an open line in Bitrix24 via a custom connector. The method parameters utilize values from the external system: user ID, chat ID, chat link, and its name in the application that registered the connector. Upon execution, the method returns the chat ID and the open line dialog ID created in Bitrix24.'
+      operationId: imconnector_send_messages
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/imconnector/imconnector-send-messages.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| The string code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| The ID of the open line.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| An array of messages. Each element of the array represents a single message in the object format with three required blocks: `user`, `message`, `chat`.'
+                user:
+                  type: object
+                  description: '| User data from the external system.'
+                message:
+                  type: object
+                  description: '| Message data from the external system.'
+                chat:
+                  type: object
+                  description: '| Chat data from the external system.'
+                id:
+                  type: string
+                  description: '| User ID in the external system. The value is generated on the side of the external system ||'
+                last_name:
+                  type: string
+                  description: '| User''s last name ||'
+                name:
+                  type: string
+                  description: '| User''s first name ||'
+                picture:
+                  type: object
+                  description: '| User''s avatar. Pass it as an object with the `url` field, for example, `{"url":"https://example.com/u42.png"}`. The link must be public ||'
+                url:
+                  type: string
+                  description: '| Link to the user''s profile in the external system ||'
+                gender:
+                  type: string
+                  description: '| User''s gender. Supported values are `male` and `female` ||'
+                email:
+                  type: string
+                  description: '| User''s email ||'
+                phone:
+                  type: string
+                  description: '| User''s phone ||'
+                skip_phone_validate:
+                  type: string
+                  description: '| Disables phone validation before saving in CRM. Acceptable value is `Y`. If validation should be performed, do not pass this parameter ||'
+                date:
+                  type: integer
+                  description: '| Message time in Unix Timestamp in seconds ||'
+                text:
+                  type: string
+                  description: '| Message text. You must pass either the `text` or `files` element.'
+                files:
+                  type: array
+                  items: {}
+                  description: '| An array of files. Each file is passed as an array of the form `array(''url'' => ''File link'', ''name'' => ''File name'')`. The `url` link must be accessible from Bitrix24.'
+                disable_crm:
+                  type: string
+                  description: '| Disables the CRM tracker for the message. Acceptable value is `Y`. If the CRM tracker should work, do not pass this parameter ||'
+                user_id:
+                  type: integer
+                  description: '| The ID of the manager in Bitrix24. If you pass `user_id`, the message will be sent on behalf of this manager ||'
+              required:
+              - CONNECTOR
+              - LINE
+              - MESSAGES
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| The string code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| The ID of the open line.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| An array of messages. Each element of the array represents a single message in the object format with three required blocks: `user`, `message`, `chat`.'
+                user:
+                  type: object
+                  description: '| User data from the external system.'
+                message:
+                  type: object
+                  description: '| Message data from the external system.'
+                chat:
+                  type: object
+                  description: '| Chat data from the external system.'
+                id:
+                  type: string
+                  description: '| User ID in the external system. The value is generated on the side of the external system ||'
+                last_name:
+                  type: string
+                  description: '| User''s last name ||'
+                name:
+                  type: string
+                  description: '| User''s first name ||'
+                picture:
+                  type: object
+                  description: '| User''s avatar. Pass it as an object with the `url` field, for example, `{"url":"https://example.com/u42.png"}`. The link must be public ||'
+                url:
+                  type: string
+                  description: '| Link to the user''s profile in the external system ||'
+                gender:
+                  type: string
+                  description: '| User''s gender. Supported values are `male` and `female` ||'
+                email:
+                  type: string
+                  description: '| User''s email ||'
+                phone:
+                  type: string
+                  description: '| User''s phone ||'
+                skip_phone_validate:
+                  type: string
+                  description: '| Disables phone validation before saving in CRM. Acceptable value is `Y`. If validation should be performed, do not pass this parameter ||'
+                date:
+                  type: integer
+                  description: '| Message time in Unix Timestamp in seconds ||'
+                text:
+                  type: string
+                  description: '| Message text. You must pass either the `text` or `files` element.'
+                files:
+                  type: array
+                  items: {}
+                  description: '| An array of files. Each file is passed as an array of the form `array(''url'' => ''File link'', ''name'' => ''File name'')`. The `url` link must be accessible from Bitrix24.'
+                disable_crm:
+                  type: string
+                  description: '| Disables the CRM tracker for the message. Acceptable value is `Y`. If the CRM tracker should work, do not pass this parameter ||'
+                user_id:
+                  type: integer
+                  description: '| The ID of the manager in Bitrix24. If you pass `user_id`, the message will be sent on behalf of this manager ||'
+              required:
+              - CONNECTOR
+              - LINE
+              - MESSAGES
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imconnector.send.status.delivery:
+    post:
+      summary: Update Status "Delivered" imconnector.send.status.delivery
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.send.status.delivery` confirms in Bitrix24 that an outgoing message from an open line has been successfully delivered to an external system. This method does not resend the message; it only records the delivery result. In the current implementation of open lines, when processing the "delivered" status, the message is also marked as "read." The method is not applicable for incoming messages from an external system to an open line.
+      operationId: imconnector_send_status_delivery
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/imconnector/imconnector-send-status-delivery.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| String code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| Identifier of the open line.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of delivery statuses. Each element of the array is an object with blocks `im`, `message`, `chat`.'
+                im:
+                  type: object
+                  description: '| Internal identifiers of the message in Bitrix24 (detailed description) ||'
+                message:
+                  type: object
+                  description: '| Message data in the external system (detailed description) ||'
+                chat:
+                  type: object
+                  description: '| Chat data in the external system (detailed description) ||'
+                chat_id:
+                  type: integer
+                  description: '| Identifier of the open line chat in Bitrix24 for the outgoing message ||'
+                message_id:
+                  type: integer
+                  description: '| Identifier of the message in Bitrix24 for which the delivery status needs to be set ||'
+                id:
+                  type: array
+                  items: {}
+                  description: '| Array of external message identifiers for which the delivery status is being sent. Even for a single message, pass an array, e.g., `["ext-msg-1007"]` ||'
+                date:
+                  type: integer
+                  description: '| Delivery time of the message in Unix Timestamp in seconds ||'
+              required:
+              - CONNECTOR
+              - LINE
+              - MESSAGES
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| String code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| Identifier of the open line.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of delivery statuses. Each element of the array is an object with blocks `im`, `message`, `chat`.'
+                im:
+                  type: object
+                  description: '| Internal identifiers of the message in Bitrix24 (detailed description) ||'
+                message:
+                  type: object
+                  description: '| Message data in the external system (detailed description) ||'
+                chat:
+                  type: object
+                  description: '| Chat data in the external system (detailed description) ||'
+                chat_id:
+                  type: integer
+                  description: '| Identifier of the open line chat in Bitrix24 for the outgoing message ||'
+                message_id:
+                  type: integer
+                  description: '| Identifier of the message in Bitrix24 for which the delivery status needs to be set ||'
+                id:
+                  type: array
+                  items: {}
+                  description: '| Array of external message identifiers for which the delivery status is being sent. Even for a single message, pass an array, e.g., `["ext-msg-1007"]` ||'
+                date:
+                  type: integer
+                  description: '| Delivery time of the message in Unix Timestamp in seconds ||'
+              required:
+              - CONNECTOR
+              - LINE
+              - MESSAGES
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imconnector.send.status.reading:
+    post:
+      summary: Update Status to "Read" imconnector.send.status.reading
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. - The method is hidden because it is essentially useless; the onReceivedStatusReading handler is a stub that simply returns true; The method `imconnector.send.status.reading` confirms in Bitrix24 that an outgoing message from the open line has been read in an external system. The method does not resend the message but only records the read status. This method is not applicable for incoming messages from an external system to the open line.
+      operationId: imconnector_send_status_reading
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/imconnector/imconnector-send-status-reading.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| String code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| Identifier of the open line.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of read statuses. Each element of the array is an object with blocks `im`, `message`, `chat`'
+                im:
+                  type: object
+                  description: '| Internal message identifiers in Bitrix24 (detailed description) ||'
+                message:
+                  type: object
+                  description: '| Message data in the external system (detailed description) ||'
+                chat:
+                  type: object
+                  description: '| Chat data in the external system (detailed description) ||'
+                chat_id:
+                  type: integer
+                  description: '| Identifier of the open line chat in Bitrix24 for the outgoing message ||'
+                message_id:
+                  type: integer
+                  description: '| Identifier of the message in Bitrix24 for which the "read" status needs to be set ||'
+                id:
+                  type: array
+                  items: {}
+                  description: '| Array of external message identifiers for which the read status is being sent. Even for a single message, an array should be sent, for example, `["ext-msg-1007"]` ||'
+              required:
+              - CONNECTOR
+              - LINE
+              - MESSAGES
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| String code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| Identifier of the open line.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of read statuses. Each element of the array is an object with blocks `im`, `message`, `chat`'
+                im:
+                  type: object
+                  description: '| Internal message identifiers in Bitrix24 (detailed description) ||'
+                message:
+                  type: object
+                  description: '| Message data in the external system (detailed description) ||'
+                chat:
+                  type: object
+                  description: '| Chat data in the external system (detailed description) ||'
+                chat_id:
+                  type: integer
+                  description: '| Identifier of the open line chat in Bitrix24 for the outgoing message ||'
+                message_id:
+                  type: integer
+                  description: '| Identifier of the message in Bitrix24 for which the "read" status needs to be set ||'
+                id:
+                  type: array
+                  items: {}
+                  description: '| Array of external message identifiers for which the read status is being sent. Even for a single message, an array should be sent, for example, `["ext-msg-1007"]` ||'
+              required:
+              - CONNECTOR
+              - LINE
+              - MESSAGES
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imconnector.status:
+    post:
+      summary: Get the Status of the Connector imconnector.status
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.status` returns the current status of the connector for the specified open line. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: imconnector_status
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/imconnector/imconnector-status.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| The string code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: string
+                  description: '| The identifier of the open line ||'
+              required:
+              - CONNECTOR
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| The string code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: string
+                  description: '| The identifier of the open line ||'
+              required:
+              - CONNECTOR
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imconnector.unregister:
+    post:
+      summary: Unregister the Connector imconnector.unregister
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.unregister` removes a user connector. This method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: imconnector_unregister
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/imconnector/imconnector-unregister.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| The identifier of the connector that was provided during registration in imconnector.register ||'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| The identifier of the connector that was provided during registration in imconnector.register ||'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imconnector.update.messages:
+    post:
+      summary: Update Sent Messages with imconnector.update.messages
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.update.messages` updates the data of previously sent messages from an external system in an open line. The method works only in the context of an [application](../../../settings/app-installation/index.md). The method parameters use values from the external system: user ID, chat ID, chat link, and its name in the application that registered the connector.'
+      operationId: imconnector_update_messages
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/imconnector/imconnector-update-messages.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| String code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| Identifier of the open line.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of messages to update. Each element of the array is a single message in the object format with three required blocks: `user`, `message`, `chat`.'
+                user:
+                  type: object
+                  description: '| Data of the user from the external system.'
+                message:
+                  type: object
+                  description: '| Data of the message from the external system.'
+                chat:
+                  type: object
+                  description: '| Data of the chat from the external system.'
+                id:
+                  type: string
+                  description: '| User ID in the external system ||'
+                last_name:
+                  type: string
+                  description: '| User''s last name ||'
+                name:
+                  type: string
+                  description: '| User''s first name ||'
+                picture:
+                  type: object
+                  description: '| User''s avatar in the object format with a `url` field, for example `{"url":"https://example.com/u42.png"}` ||'
+                url:
+                  type: string
+                  description: '| Link to the user''s profile in the external system ||'
+                gender:
+                  type: string
+                  description: '| User''s gender. Supported values are `male` and `female` ||'
+                email:
+                  type: string
+                  description: '| User''s email ||'
+                phone:
+                  type: string
+                  description: '| User''s phone ||'
+                skip_phone_validate:
+                  type: string
+                  description: '| Disables phone validation before saving in CRM. Acceptable value is `Y`. If validation should be performed, do not pass this parameter ||'
+                date:
+                  type: integer
+                  description: '| Message time in Unix Timestamp in seconds ||'
+                text:
+                  type: string
+                  description: '| New text of the message. Pass either `text` or `files`'
+                files:
+                  type: array
+                  items: {}
+                  description: '| Array of files. Each file is passed as an array like `array(''url'' => ''File link'', ''name'' => ''File name'')` ||'
+                disable_crm:
+                  type: string
+                  description: '| Disables the CRM tracker for the message. Acceptable value is `Y` ||'
+                user_id:
+                  type: integer
+                  description: '| ID of the manager in Bitrix24. If `user_id` is passed, the message will be updated on behalf of this manager ||'
+              required:
+              - CONNECTOR
+              - LINE
+              - MESSAGES
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONNECTOR:
+                  type: string
+                  description: '| String code of the connector specified in the `ID` parameter when calling imconnector.register ||'
+                LINE:
+                  type: integer
+                  description: '| Identifier of the open line.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of messages to update. Each element of the array is a single message in the object format with three required blocks: `user`, `message`, `chat`.'
+                user:
+                  type: object
+                  description: '| Data of the user from the external system.'
+                message:
+                  type: object
+                  description: '| Data of the message from the external system.'
+                chat:
+                  type: object
+                  description: '| Data of the chat from the external system.'
+                id:
+                  type: string
+                  description: '| User ID in the external system ||'
+                last_name:
+                  type: string
+                  description: '| User''s last name ||'
+                name:
+                  type: string
+                  description: '| User''s first name ||'
+                picture:
+                  type: object
+                  description: '| User''s avatar in the object format with a `url` field, for example `{"url":"https://example.com/u42.png"}` ||'
+                url:
+                  type: string
+                  description: '| Link to the user''s profile in the external system ||'
+                gender:
+                  type: string
+                  description: '| User''s gender. Supported values are `male` and `female` ||'
+                email:
+                  type: string
+                  description: '| User''s email ||'
+                phone:
+                  type: string
+                  description: '| User''s phone ||'
+                skip_phone_validate:
+                  type: string
+                  description: '| Disables phone validation before saving in CRM. Acceptable value is `Y`. If validation should be performed, do not pass this parameter ||'
+                date:
+                  type: integer
+                  description: '| Message time in Unix Timestamp in seconds ||'
+                text:
+                  type: string
+                  description: '| New text of the message. Pass either `text` or `files`'
+                files:
+                  type: array
+                  items: {}
+                  description: '| Array of files. Each file is passed as an array like `array(''url'' => ''File link'', ''name'' => ''File name'')` ||'
+                disable_crm:
+                  type: string
+                  description: '| Disables the CRM tracker for the message. Acceptable value is `Y` ||'
+                user_id:
+                  type: integer
+                  description: '| ID of the manager in Bitrix24. If `user_id` is passed, the message will be updated on behalf of this manager ||'
+              required:
+              - CONNECTOR
+              - LINE
+              - MESSAGES
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.bot.session.finish:
+    post:
+      summary: Finish Dialog imopenlines.bot.session.finish
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.bot.session.finish` ends the current dialog of the open line on behalf of the application's chat-bot.
+      operationId: imopenlines_bot_session_finish
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/chat-bots/imopenlines-bot-session-finish.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat whose dialog needs to be finished.'
+                CLIENT_ID:
+                  type: string
+                  description: '| This parameter is required only for webhooks.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat whose dialog needs to be finished.'
+                CLIENT_ID:
+                  type: string
+                  description: '| This parameter is required only for webhooks.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.bot.session.message.send:
+    post:
+      summary: Send an Automatic Message in the imopenlines.bot.session.message.send Dialog
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.bot.session.message.send` sends an automatic message from the application chatbot to the open line dialog.
+      operationId: imopenlines_bot_session_message_send
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/chat-bots/imopenlines-bot-session-message-send.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| The identifier of the chat to which the method sends the message.'
+                NAME:
+                  type: string
+                  description: '| The code for the auto-response type.'
+                MESSAGE:
+                  type: string
+                  description: '| The message text for the `NAME=DEFAULT` mode. By default, an empty string is used.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| The identifier of the chat to which the method sends the message.'
+                NAME:
+                  type: string
+                  description: '| The code for the auto-response type.'
+                MESSAGE:
+                  type: string
+                  description: '| The message text for the `NAME=DEFAULT` mode. By default, an empty string is used.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.bot.session.operator:
+    post:
+      summary: Switch Dialog to Free Operator imopenlines.bot.session.operator
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.bot.session.operator` switches the dialog from the chatbot to a free operator in the open line.
+      operationId: imopenlines_bot_session_operator
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/chat-bots/imopenlines-bot-session-operator.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| The identifier of the chat to be passed to the free operator.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| The identifier of the chat to be passed to the free operator.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.bot.session.transfer:
+    post:
+      summary: Transfer a Dialogue to an Operator or Queue using imopenlines.bot.session.transfer
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.bot.session.transfer` transfers a dialogue from the chat bot in an open line to a specified operator or queue.
+      operationId: imopenlines_bot_session_transfer
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/chat-bots/imopenlines-bot-session-transfer.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| The identifier of the chat whose dialogue needs to be transferred.'
+                USER_ID:
+                  type: integer
+                  description: '| The identifier of the employee to whom the dialogue should be transferred.'
+                QUEUE_ID:
+                  type: integer
+                  description: '| The identifier of the queue to which the dialogue should be transferred.'
+                TRANSFER_ID:
+                  type: string
+                  description: \|`integer` | Universal transfer destination parameter.
+                LEAVE:
+                  type: boolean
+                  description: '| Flag indicating the presence of the chat bot in the dialogue after the transfer.'
+                CLIENT_ID:
+                  type: string
+                  description: '| This parameter is mandatory only for webhooks.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| The identifier of the chat whose dialogue needs to be transferred.'
+                USER_ID:
+                  type: integer
+                  description: '| The identifier of the employee to whom the dialogue should be transferred.'
+                QUEUE_ID:
+                  type: integer
+                  description: '| The identifier of the queue to which the dialogue should be transferred.'
+                TRANSFER_ID:
+                  type: string
+                  description: \|`integer` | Universal transfer destination parameter.
+                LEAVE:
+                  type: boolean
+                  description: '| Flag indicating the presence of the chat bot in the dialogue after the transfer.'
+                CLIENT_ID:
+                  type: string
+                  description: '| This parameter is mandatory only for webhooks.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.config.add:
+    post:
+      summary: Add Open Channel imopenlines.config.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.config.add` adds a new open channel. To allow users to write to the open channel, set the connector settings using the method [imconnector.connector.data.set](../imconnector/imconnector-connector-data-set.md).
+      operationId: imopenlines_config_add
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/imopenlines-config-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                PARAMS:
+                  type: object
+                  description: '| Object with open channel settings (detailed description) ||'
+                LINE_NAME:
+                  type: string
+                  description: '| Name of the open channel ||'
+                ACTIVE:
+                  type: string
+                  maxLength: 1
+                  description: '| Channel activity. Possible values:'
+                QUEUE_TYPE:
+                  type: string
+                  description: '| Request distribution mode. Possible values:'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                PARAMS:
+                  type: object
+                  description: '| Object with open channel settings (detailed description) ||'
+                LINE_NAME:
+                  type: string
+                  description: '| Name of the open channel ||'
+                ACTIVE:
+                  type: string
+                  maxLength: 1
+                  description: '| Channel activity. Possible values:'
+                QUEUE_TYPE:
+                  type: string
+                  description: '| Request distribution mode. Possible values:'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.config.delete:
+    post:
+      summary: Delete Open Channel imopenlines.config.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.config.delete` removes an open channel.
+      operationId: imopenlines_config_delete
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/imopenlines-config-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONFIG_ID:
+                  type: integer
+                  description: '| Identifier of the open channel.'
+              required:
+              - CONFIG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONFIG_ID:
+                  type: integer
+                  description: '| Identifier of the open channel.'
+              required:
+              - CONFIG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.config.get:
+    post:
+      summary: Get Open Line by ID imopenlines.config.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.config.get` retrieves the settings of an open line by its ID.
+      operationId: imopenlines_config_get
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/imopenlines-config-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONFIG_ID:
+                  type: integer
+                  description: '| The ID of the open line.'
+                WITH_QUEUE:
+                  type: string
+                  maxLength: 1
+                  description: '| Return operator queue data. Possible values:'
+                SHOW_OFFLINE:
+                  type: string
+                  maxLength: 1
+                  description: '| Return offline operators in the queue. Possible values:'
+              required:
+              - CONFIG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONFIG_ID:
+                  type: integer
+                  description: '| The ID of the open line.'
+                WITH_QUEUE:
+                  type: string
+                  maxLength: 1
+                  description: '| Return operator queue data. Possible values:'
+                SHOW_OFFLINE:
+                  type: string
+                  maxLength: 1
+                  description: '| Return offline operators in the queue. Possible values:'
+              required:
+              - CONFIG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.config.list.get:
+    post:
+      summary: Get the List of Open Channels imopenlines.config.list.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.config.list.get` retrieves a list of open channels.
+      operationId: imopenlines_config_list_get
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/imopenlines-config-list-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                PARAMS:
+                  type: object
+                  description: '| Selection parameters (detailed description)'
+                OPTIONS:
+                  type: object
+                  description: '| Additional options (detailed description) ||'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array containing the list of fields to be selected.'
+                order:
+                  type: object
+                  description: '| An object for sorting the list of open channels in the format `{"field_1": "value_1", ... "field_N": "value_N"}`'
+                filter:
+                  type: object
+                  description: '| An object for filtering the list of open channels in the format `{"field_1": "value_1", ... "field_N": "value_N"}`'
+                limit:
+                  type: integer
+                  description: '| The number of items per page. Default: `50`. Maximum value: `200` ||'
+                offset:
+                  type: integer
+                  description: '| Offset for pagination. Default: `0` ||'
+                QUEUE:
+                  type: string
+                  maxLength: 1
+                  description: '| Return the operator queue. Possible values:'
+                CONFIG_QUEUE:
+                  type: string
+                  maxLength: 1
+                  description: '| Return the line queue. Each queue element contains `ENTITY_TYPE` and `ENTITY_ID`. Possible values:'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                PARAMS:
+                  type: object
+                  description: '| Selection parameters (detailed description)'
+                OPTIONS:
+                  type: object
+                  description: '| Additional options (detailed description) ||'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array containing the list of fields to be selected.'
+                order:
+                  type: object
+                  description: '| An object for sorting the list of open channels in the format `{"field_1": "value_1", ... "field_N": "value_N"}`'
+                filter:
+                  type: object
+                  description: '| An object for filtering the list of open channels in the format `{"field_1": "value_1", ... "field_N": "value_N"}`'
+                limit:
+                  type: integer
+                  description: '| The number of items per page. Default: `50`. Maximum value: `200` ||'
+                offset:
+                  type: integer
+                  description: '| Offset for pagination. Default: `0` ||'
+                QUEUE:
+                  type: string
+                  maxLength: 1
+                  description: '| Return the operator queue. Possible values:'
+                CONFIG_QUEUE:
+                  type: string
+                  maxLength: 1
+                  description: '| Return the line queue. Each queue element contains `ENTITY_TYPE` and `ENTITY_ID`. Possible values:'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.config.path.get:
+    post:
+      summary: Get Link to Public Page of Open Channels imopenlines.config.path.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.config.path.get` retrieves the link to the public page of open channels on the account.
+      operationId: imopenlines_config_path_get
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/imopenlines-config-path-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.config.update:
+    post:
+      summary: Update Open Channel imopenlines.config.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.config.update` updates an open channel.
+      operationId: imopenlines_config_update
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/imopenlines-config-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CONFIG_ID:
+                  type: integer
+                  description: '| Identifier of the open channel.'
+                PARAMS:
+                  type: object
+                  description: '| Object with settings for the update. The set of fields corresponds to the PARAMS parameter of the `imopenlines.config.add` method ||'
+              required:
+              - CONFIG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CONFIG_ID:
+                  type: integer
+                  description: '| Identifier of the open channel.'
+                PARAMS:
+                  type: object
+                  description: '| Object with settings for the update. The set of fields corresponds to the PARAMS parameter of the `imopenlines.config.add` method ||'
+              required:
+              - CONFIG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.crm.chat.get:
+    post:
+      summary: Get Chats for CRM Object imopenlines.crm.chat.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.chat.get` retrieves a list of chats associated with a CRM object.
+      operationId: imopenlines_crm_chat_get
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/chats/imopenlines-crm-chat-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| Type of the CRM object. Possible values:'
+                CRM_ENTITY:
+                  type: integer
+                  description: '| Identifier of the CRM object.'
+                ACTIVE_ONLY:
+                  type: string
+                  maxLength: 1
+                  description: '| Flag to return only active chats. Possible values:'
+              required:
+              - CRM_ENTITY_TYPE
+              - CRM_ENTITY
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| Type of the CRM object. Possible values:'
+                CRM_ENTITY:
+                  type: integer
+                  description: '| Identifier of the CRM object.'
+                ACTIVE_ONLY:
+                  type: string
+                  maxLength: 1
+                  description: '| Flag to return only active chats. Possible values:'
+              required:
+              - CRM_ENTITY_TYPE
+              - CRM_ENTITY
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.crm.chat.getLastId:
+    post:
+      summary: Get the Id of the Last Chat imopenlines.crm.chat.getLastId
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.chat.getLastId` retrieves the identifier of the last chat associated with the CRM entity.
+      operationId: imopenlines_crm_chat_getLastId
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/chats/imopenlines-crm-chat-get-last-id.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| Type of the CRM entity. Possible values:'
+                CRM_ENTITY:
+                  type: integer
+                  description: '| Identifier of the CRM entity.'
+              required:
+              - CRM_ENTITY_TYPE
+              - CRM_ENTITY
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| Type of the CRM entity. Possible values:'
+                CRM_ENTITY:
+                  type: integer
+                  description: '| Identifier of the CRM entity.'
+              required:
+              - CRM_ENTITY_TYPE
+              - CRM_ENTITY
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.crm.chat.user.add:
+    post:
+      summary: Add User to Existing Chat imopenlines.crm.chat.user.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.chat.user.add` adds a user to a chat associated with a CRM entity.
+      operationId: imopenlines_crm_chat_user_add
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/chats/imopenlines-crm-chat-user-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| Type of the CRM entity. Possible values:'
+                CRM_ENTITY:
+                  type: integer
+                  description: '| Identifier of the CRM entity.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user or bot to be added to the chat.'
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+              required:
+              - CRM_ENTITY_TYPE
+              - CRM_ENTITY
+              - USER_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| Type of the CRM entity. Possible values:'
+                CRM_ENTITY:
+                  type: integer
+                  description: '| Identifier of the CRM entity.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user or bot to be added to the chat.'
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+              required:
+              - CRM_ENTITY_TYPE
+              - CRM_ENTITY
+              - USER_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.crm.chat.user.delete:
+    post:
+      summary: Remove User from Chat imopenlines.crm.chat.user.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.chat.user.delete` removes a user from the chat associated with the CRM entity.
+      operationId: imopenlines_crm_chat_user_delete
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/chats/imopenlines-crm-chat-user-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| Type of the CRM entity. Possible values:'
+                CRM_ENTITY:
+                  type: integer
+                  description: '| Identifier of the CRM entity.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user or bot to be removed from the chat.'
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+              required:
+              - CRM_ENTITY_TYPE
+              - CRM_ENTITY
+              - USER_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| Type of the CRM entity. Possible values:'
+                CRM_ENTITY:
+                  type: integer
+                  description: '| Identifier of the CRM entity.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user or bot to be removed from the chat.'
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+              required:
+              - CRM_ENTITY_TYPE
+              - CRM_ENTITY
+              - USER_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.crm.lead.create:
+    post:
+      summary: Create a Lead Based on the Dialogue imopenlines.crm.lead.create
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.lead.create` creates a CRM lead based on the current chat in the Open Channels.
+      operationId: imopenlines_crm_lead_create
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-crm-lead-create.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the Open Channels chat.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the Open Channels chat.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.crm.message.add:
+    post:
+      summary: Send a Message to Open Channel imopenlines.crm.message.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.message.add` sends a message on behalf of an employee or bot in a chat linked to a CRM entity.
+      operationId: imopenlines_crm_message_add
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/messages/imopenlines-crm-message-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| Type of the CRM entity:'
+                CRM_ENTITY:
+                  type: integer
+                  description: '| Identifier of the CRM entity linked to the chat.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the message sender — user or bot, who must be a participant in the chat.'
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open channel chat linked to the CRM entity.'
+                MESSAGE:
+                  type: string
+                  description: '| The text of the message that will be displayed in the chat ||'
+              required:
+              - CRM_ENTITY_TYPE
+              - CRM_ENTITY
+              - USER_ID
+              - CHAT_ID
+              - MESSAGE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CRM_ENTITY_TYPE:
+                  type: string
+                  description: '| Type of the CRM entity:'
+                CRM_ENTITY:
+                  type: integer
+                  description: '| Identifier of the CRM entity linked to the chat.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the message sender — user or bot, who must be a participant in the chat.'
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open channel chat linked to the CRM entity.'
+                MESSAGE:
+                  type: string
+                  description: '| The text of the message that will be displayed in the chat ||'
+              required:
+              - CRM_ENTITY_TYPE
+              - CRM_ENTITY
+              - USER_ID
+              - CHAT_ID
+              - MESSAGE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.dialog.get:
+    post:
+      summary: Get Information About the Operator's Dialog imopenlines.dialog.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.dialog.get` returns data from the open line chat. You only need to provide one of the parameters.
+      operationId: imopenlines_dialog_get
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-dialog-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format `chat<ID>`, where `<ID>` is the identifier of the open line chat. ||'
+                SESSION_ID:
+                  type: integer
+                  description: '| Identifier of the session.'
+                USER_CODE:
+                  type: string
+                  description: '| String code of the user for the external system channel.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format `chat<ID>`, where `<ID>` is the identifier of the open line chat. ||'
+                SESSION_ID:
+                  type: integer
+                  description: '| Identifier of the session.'
+                USER_CODE:
+                  type: string
+                  description: '| String code of the user for the external system channel.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.message.quick.save:
+    post:
+      summary: Save Message as Quick Answer imopenlines.message.quick.save
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.message.quick.save` saves a message from the open line chat to the list of quick answers.
+      operationId: imopenlines_message_quick_save
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/messages/imopenlines-message-quick-save.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat from which the message needs to be saved.'
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the message to be added to quick answers.'
+              required:
+              - CHAT_ID
+              - MESSAGE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat from which the message needs to be saved.'
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the message to be added to quick answers.'
+              required:
+              - CHAT_ID
+              - MESSAGE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.message.session.start:
+    post:
+      summary: Start a New Dialogue Based on the Message imopenlines.message.session.start
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.message.session.start` initiates a new session and transfers the specified message into it.
+      operationId: imopenlines_message_session_start
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-message-session-start.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the message within the chat.'
+              required:
+              - CHAT_ID
+              - MESSAGE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the message within the chat.'
+              required:
+              - CHAT_ID
+              - MESSAGE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.network.join:
+    post:
+      summary: Connect an External Open Channel to the Account imopenlines.network.join
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.network.join` connects an external open channel from another Bitrix24 to the current Bitrix24.
+      operationId: imopenlines_network_join
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/imopenlines-network-join.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| The code of the open channel as a string of 32 characters.'
+              required:
+              - CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| The code of the open channel as a string of 32 characters.'
+              required:
+              - CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.network.message.add:
+    post:
+      summary: Send a message to a user on behalf of the Open Channel imopenlines.network.message.add
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.network.message.add` sends a message to a user on behalf of the open channel connected in Bitrix24 Network. Method operation limitations: 1. The method is unavailable during session authorization. It returns the error `WRONG_AUTH_TYPE` for session authorization.'
+      operationId: imopenlines_network_message_add
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/imopenlines-network-message-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Code of the open channel, a string of 32 characters, for example `ab515f5d85a8b844d484f6ea75a2e494` ||'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the message recipient, for example `2` ||'
+                MESSAGE:
+                  type: string
+                  description: '| Text of the message.'
+                ATTACH:
+                  type: object
+                  description: '| Attachment.'
+                KEYBOARD:
+                  type: object
+                  description: '| Keyboard.'
+                URL_PREVIEW:
+                  type: string
+                  maxLength: 1
+                  description: '| Link preview. Enabled `Y` by default.'
+              required:
+              - CODE
+              - USER_ID
+              - MESSAGE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Code of the open channel, a string of 32 characters, for example `ab515f5d85a8b844d484f6ea75a2e494` ||'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the message recipient, for example `2` ||'
+                MESSAGE:
+                  type: string
+                  description: '| Text of the message.'
+                ATTACH:
+                  type: object
+                  description: '| Attachment.'
+                KEYBOARD:
+                  type: object
+                  description: '| Keyboard.'
+                URL_PREVIEW:
+                  type: string
+                  maxLength: 1
+                  description: '| Link preview. Enabled `Y` by default.'
+              required:
+              - CODE
+              - USER_ID
+              - MESSAGE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.operator.another.finish:
+    post:
+      summary: Finish Another Operator's Dialog imopenlines.operator.another.finish
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.another.finish` ends a dialog in an open line, even if the dialog is assigned to another operator.
+      operationId: imopenlines_operator_another_finish
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/operators/imopenlines-operator-another-finish.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.operator.answer:
+    post:
+      summary: Take the dialog for yourself imopenlines.operator.answer
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.answer` assigns the dialog of the open line to the current operator.
+      operationId: imopenlines_operator_answer
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/operators/imopenlines-operator-answer.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.operator.finish:
+    post:
+      summary: Finish Your Dialogue imopenlines.operator.finish
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.finish` ends the open line dialogue on behalf of the current operator.
+      operationId: imopenlines_operator_finish
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/operators/imopenlines-operator-finish.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.operator.skip:
+    post:
+      summary: Skip Dialog imopenlines.operator.skip
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.skip` transfers the current dialog to the next operator in the queue.
+      operationId: imopenlines_operator_skip
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/operators/imopenlines-operator-skip.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.operator.spam:
+    post:
+      summary: Mark a conversation as "spam" imopenlines.operator.spam
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.spam` marks an open line conversation as spam and ends it.
+      operationId: imopenlines_operator_spam
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/operators/imopenlines-operator-spam.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.operator.transfer:
+    post:
+      summary: Transfer a dialog to another operator or to another line imopenlines.operator.transfer
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.transfer` transfers a dialog to another operator or to the queue of another open line.
+      operationId: imopenlines_operator_transfer
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/operators/imopenlines-operator-transfer.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+                TRANSFER_ID:
+                  type: string
+                  description: \|`integer` | Universal parameter for transferring the dialog.
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the operator to whom the dialog should be transferred.'
+                QUEUE_ID:
+                  type: integer
+                  description: '| Identifier of the line to which the dialog should be transferred.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+                TRANSFER_ID:
+                  type: string
+                  description: \|`integer` | Universal parameter for transferring the dialog.
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the operator to whom the dialog should be transferred.'
+                QUEUE_ID:
+                  type: integer
+                  description: '| Identifier of the line to which the dialog should be transferred.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.revision.get:
+    post:
+      summary: Get Information About API Revisions imopenlines.revision.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.revision.get` retrieves information about the API revisions of Open Channels.
+      operationId: imopenlines_revision_get
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/imopenlines-revision-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.session.head.vote:
+    post:
+      summary: Rate Employee Performance in the imopenlines.session.head.vote Dialog
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.head.vote` saves the manager's rating and comment for a completed dialog.
+      operationId: imopenlines_session_head_vote
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-session-head-vote.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SESSION_ID:
+                  type: integer
+                  description: '| Session identifier.'
+                RATING:
+                  type: integer
+                  description: '| Manager''s rating. Pass a value from `1` to `5` ||'
+                COMMENT:
+                  type: string
+                  description: '| Manager''s comment on the rating ||'
+              required:
+              - SESSION_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SESSION_ID:
+                  type: integer
+                  description: '| Session identifier.'
+                RATING:
+                  type: integer
+                  description: '| Manager''s rating. Pass a value from `1` to `5` ||'
+                COMMENT:
+                  type: string
+                  description: '| Manager''s comment on the rating ||'
+              required:
+              - SESSION_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.session.history.get:
+    post:
+      summary: Get Message History of the Dialogue imopenlines.session.history.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.history.get` returns the message history of an open line session.
+      operationId: imopenlines_session_history_get
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-session-history-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SESSION_ID:
+                  type: integer
+                  description: '| Identifier of the open line session.'
+                CHAT_ID:
+                  type: integer
+                  description: '| Numeric identifier of the open line chat without the `chat` prefix. For example, `1763`, not `chat1763`.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SESSION_ID:
+                  type: integer
+                  description: '| Identifier of the open line session.'
+                CHAT_ID:
+                  type: integer
+                  description: '| Numeric identifier of the open line chat without the `chat` prefix. For example, `1763`, not `chat1763`.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.session.intercept:
+    post:
+      summary: Take Over the Dialogue from the Current Operator imopenlines.session.intercept
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.intercept` transfers the current dialogue to the operator who calls the method.
+      operationId: imopenlines_session_intercept
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-session-intercept.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.session.join:
+    post:
+      summary: Join the Dialogue imopenlines.session.join
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.join` adds the current operator to an active dialogue in the Open Channels.
+      operationId: imopenlines_session_join
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-session-join.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the Open Channels chat.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the Open Channels chat.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.session.mode.pin:
+    post:
+      summary: Pin or Unpin a Dialog imopenlines.session.mode.pin
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.mode.pin` pins or unpins a dialog to the current operator.
+      operationId: imopenlines_session_mode_pin
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-session-mode-pin.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+                ACTIVATE:
+                  type: string
+                  description: '| Pinning flag:'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+                ACTIVATE:
+                  type: string
+                  description: '| Pinning flag:'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.session.mode.pinAll:
+    post:
+      summary: Pin All Available Dialogs to the Operator imopenlines.session.mode.pinAll
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.mode.pinAll` pins all available active dialogs to the current operator.
+      operationId: imopenlines_session_mode_pinAll
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-session-mode-pin-all.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.session.mode.silent:
+    post:
+      summary: Switch the dialog to silent mode imopenlines.session.mode.silent
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.mode.silent` enables or disables the silent messaging mode in the dialog. The development of this method has been halted, but it continues to function.
+      operationId: imopenlines_session_mode_silent
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-session-mode-silent.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+                ACTIVATE:
+                  type: string
+                  description: '| Activation flag. `Y` — enable silent mode, any other value disables it. By default, the mode is off ||'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the open line chat.'
+                ACTIVATE:
+                  type: string
+                  description: '| Activation flag. `Y` — enable silent mode, any other value disables it. By default, the mode is off ||'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.session.mode.unpinAll:
+    post:
+      summary: Unpin All Operator Dialogs imopenlines.session.mode.unpinAll
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.mode.unpinAll` unpins all available pinned dialogs from the current operator.
+      operationId: imopenlines_session_mode_unpinAll
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-session-mode-unpin-all.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.session.open:
+    post:
+      summary: Get Chat by User Code imopenlines.session.open
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.open` returns the chat ID of the open line based on the user code `USER_CODE`.
+      operationId: imopenlines_session_open
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-session-open.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_CODE:
+                  type: string
+                  description: '| String code of the user for the external system channel.'
+              required:
+              - USER_CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_CODE:
+                  type: string
+                  description: '| String code of the user for the external system channel.'
+              required:
+              - USER_CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+  /imopenlines.session.start:
+    post:
+      summary: Start a New Dialogue imopenlines.session.start
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.start` initiates a new session in the current open line chat.
+      operationId: imopenlines_session_start
+      tags:
+      - Open Lines
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/imopenlines/openlines/sessions/imopenlines-session-start.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| The identifier of the open line chat.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| The identifier of the open line chat.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imopenlines
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

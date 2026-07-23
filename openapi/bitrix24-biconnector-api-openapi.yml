@@ -1,0 +1,1322 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: BIconnector
+paths:
+  /biconnector.connector.add:
+    post:
+      summary: Create Connector biconnector.connector.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.connector.add` creates a new connector that allows integrating external data sources into Bitrix24.
+      operationId: biconnector_connector_add
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/connector/biconnector-connector-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing data to create a new connector. The object format:'
+                title:
+                  type: string
+                  description: '| Connector name ||'
+                logo:
+                  type: string
+                  description: '| Connector logo. Can be provided as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||'
+                description:
+                  type: string
+                  description: '| Connector description ||'
+                urlCheck:
+                  type: string
+                  description: '| Connector endpoint for availability check, (detailed description) ||'
+                urlTableList:
+                  type: string
+                  description: '| Connector endpoint for retrieving the list of tables, (detailed description) ||'
+                urlTableDescription:
+                  type: string
+                  description: '| Connector endpoint for retrieving the description of a specific table, (detailed description) ||'
+                urlData:
+                  type: string
+                  description: '| Connector endpoint for retrieving data from the selected table, (detailed description) ||'
+                settings:
+                  type: array
+                  items: {}
+                  description: '| List of connection parameters, (detailed description) ||'
+                sort:
+                  type: integer
+                  description: '| Connector sorting parameter. Default value is `100` ||'
+              required:
+              - fields
+              - title
+              - logo
+              - urlCheck
+              - urlTableList
+              - urlTableDescription
+              - urlData
+              - settings
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing data to create a new connector. The object format:'
+                title:
+                  type: string
+                  description: '| Connector name ||'
+                logo:
+                  type: string
+                  description: '| Connector logo. Can be provided as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||'
+                description:
+                  type: string
+                  description: '| Connector description ||'
+                urlCheck:
+                  type: string
+                  description: '| Connector endpoint for availability check, (detailed description) ||'
+                urlTableList:
+                  type: string
+                  description: '| Connector endpoint for retrieving the list of tables, (detailed description) ||'
+                urlTableDescription:
+                  type: string
+                  description: '| Connector endpoint for retrieving the description of a specific table, (detailed description) ||'
+                urlData:
+                  type: string
+                  description: '| Connector endpoint for retrieving data from the selected table, (detailed description) ||'
+                settings:
+                  type: array
+                  items: {}
+                  description: '| List of connection parameters, (detailed description) ||'
+                sort:
+                  type: integer
+                  description: '| Connector sorting parameter. Default value is `100` ||'
+              required:
+              - fields
+              - title
+              - logo
+              - urlCheck
+              - urlTableList
+              - urlTableDescription
+              - urlData
+              - settings
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.connector.delete:
+    post:
+      summary: Delete Connector biconnector.connector.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.connector.delete` removes an existing connector. A connector can be deleted if it has no sources.
+      operationId: biconnector_connector_delete
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/connector/biconnector-connector-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the connector, can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the connector, can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.connector.fields:
+    post:
+      summary: Get Connector Fields biconnector.connector.fields
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.connector.fields` returns a description of the connector fields. A table with the description of standard fields can be found in the article [Connector: Overview of Methods](./index.md#fields).'
+      operationId: biconnector_connector_fields
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/connector/biconnector-connector-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.connector.get:
+    post:
+      summary: Get Connector by ID biconnector.connector.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.connector.get` returns information about the connector by its identifier.
+      operationId: biconnector_connector_get
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/connector/biconnector-connector-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| The identifier of the connector, which can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| The identifier of the connector, which can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.connector.list:
+    post:
+      summary: Get the list of connectors biconnector.connector.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.connector.list` returns a list of connectors based on a filter. It is an implementation of the list method for connectors.
+      operationId: biconnector_connector_list
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/connector/biconnector-connector-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: string
+                  description: '| List of fields that must be filled in the connectors in the selection. By default, all fields are taken ||'
+                filter:
+                  type: object
+                  description: '| Filter for selecting connectors. Example format:'
+                order:
+                  type: object
+                  description: '| Sorting parameters. Example format:'
+                page:
+                  type: integer
+                  description: '| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: string
+                  description: '| List of fields that must be filled in the connectors in the selection. By default, all fields are taken ||'
+                filter:
+                  type: object
+                  description: '| Filter for selecting connectors. Example format:'
+                order:
+                  type: object
+                  description: '| Sorting parameters. Example format:'
+                page:
+                  type: integer
+                  description: '| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.connector.update:
+    post:
+      summary: Update the biconnector.connector.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.connector.update` updates an existing connector.
+      operationId: biconnector_connector_update
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/connector/biconnector-connector-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Connector identifier, can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||'
+                fields:
+                  type: object
+                  description: '| An object containing the updated data. The object format:'
+                title:
+                  type: string
+                  description: '| New connector name ||'
+                logo:
+                  type: string
+                  description: '| New connector logo. Can be passed as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||'
+                description:
+                  type: string
+                  description: '| New connector description ||'
+                urlCheck:
+                  type: string
+                  description: '| New endpoint for checking the connector''s availability, (detailed description) ||'
+                urlTableList:
+                  type: string
+                  description: '| New endpoint for obtaining the list of tables, (detailed description) ||'
+                urlTableDescription:
+                  type: string
+                  description: '| New endpoint for obtaining the description of a specific table, (detailed description) ||'
+                urlData:
+                  type: string
+                  description: '| New endpoint for obtaining data from the selected table, (detailed description)  ||'
+                settings:
+                  type: array
+                  items: {}
+                  description: '| New list of connection parameters, (detailed description) ||'
+                sort:
+                  type: integer
+                  description: '| New sorting parameter for the connector ||'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Connector identifier, can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||'
+                fields:
+                  type: object
+                  description: '| An object containing the updated data. The object format:'
+                title:
+                  type: string
+                  description: '| New connector name ||'
+                logo:
+                  type: string
+                  description: '| New connector logo. Can be passed as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||'
+                description:
+                  type: string
+                  description: '| New connector description ||'
+                urlCheck:
+                  type: string
+                  description: '| New endpoint for checking the connector''s availability, (detailed description) ||'
+                urlTableList:
+                  type: string
+                  description: '| New endpoint for obtaining the list of tables, (detailed description) ||'
+                urlTableDescription:
+                  type: string
+                  description: '| New endpoint for obtaining the description of a specific table, (detailed description) ||'
+                urlData:
+                  type: string
+                  description: '| New endpoint for obtaining data from the selected table, (detailed description)  ||'
+                settings:
+                  type: array
+                  items: {}
+                  description: '| New list of connection parameters, (detailed description) ||'
+                sort:
+                  type: integer
+                  description: '| New sorting parameter for the connector ||'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.dataset.add:
+    post:
+      summary: Create Dataset biconnector.dataset.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.add` creates a new dataset associated with a data source.
+      operationId: biconnector_dataset_add
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/dataset/biconnector-dataset-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing data to create a new dataset. The object format is:'
+                name:
+                  type: string
+                  description: '| The name of the dataset. The name must start with a letter and can only use lowercase Latin letters `a-z`, numbers, and the underscore `_`. The maximum length of the name is 230 characters. ||'
+                externalName:
+                  type: string
+                  description: '| The name of the dataset in the external source, in the application. ||'
+                externalCode:
+                  type: string
+                  description: '| A unique code for the dataset in the external source, used when retrieving data. ||'
+                sourceId:
+                  type: integer
+                  description: '| The identifier of the source, which can be obtained using the methods biconnector.source.list or biconnector.source.add. ||'
+                description:
+                  type: string
+                  description: '| Description of the dataset. ||'
+              required:
+              - fields
+              - name
+              - externalName
+              - externalCode
+              - sourceId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing data to create a new dataset. The object format is:'
+                name:
+                  type: string
+                  description: '| The name of the dataset. The name must start with a letter and can only use lowercase Latin letters `a-z`, numbers, and the underscore `_`. The maximum length of the name is 230 characters. ||'
+                externalName:
+                  type: string
+                  description: '| The name of the dataset in the external source, in the application. ||'
+                externalCode:
+                  type: string
+                  description: '| A unique code for the dataset in the external source, used when retrieving data. ||'
+                sourceId:
+                  type: integer
+                  description: '| The identifier of the source, which can be obtained using the methods biconnector.source.list or biconnector.source.add. ||'
+                description:
+                  type: string
+                  description: '| Description of the dataset. ||'
+              required:
+              - fields
+              - name
+              - externalName
+              - externalCode
+              - sourceId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.dataset.delete:
+    post:
+      summary: Delete dataset biconnector.dataset.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.delete` removes an existing dataset.
+      operationId: biconnector_dataset_delete
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/dataset/biconnector-dataset-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the dataset, can be obtained using the methods biconnector.dataset.list or biconnector.dataset.add ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the dataset, can be obtained using the methods biconnector.dataset.list or biconnector.dataset.add ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.dataset.fields:
+    post:
+      summary: Get Fields of the Dataset biconnector.dataset.fields
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.fields` returns a description of the dataset fields. A table with descriptions of standard fields can be found in the article [Datasets: Overview of Methods](./index.md#dataset).'
+      operationId: biconnector_dataset_fields
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/dataset/biconnector-dataset-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.dataset.fields.update:
+    post:
+      summary: Update Dataset Fields biconnector.dataset.fields.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.fields.update` updates the fields of an existing dataset.
+      operationId: biconnector_dataset_fields_update
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/dataset/biconnector-dataset-fields-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the dataset, can be obtained using the methods biconnector.dataset.list or biconnector.dataset.add ||'
+                add:
+                  type: object
+                  description: '| Object containing an array of fields to be added with the following structure:'
+                update:
+                  type: object
+                  description: '| Object containing an array of fields to be updated with the following structure:'
+                delete:
+                  type: string
+                  description: '| Object containing an array of field identifiers for deletion. Field identifiers can be obtained using the method biconnector.dataset.get ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the dataset, can be obtained using the methods biconnector.dataset.list or biconnector.dataset.add ||'
+                add:
+                  type: object
+                  description: '| Object containing an array of fields to be added with the following structure:'
+                update:
+                  type: object
+                  description: '| Object containing an array of fields to be updated with the following structure:'
+                delete:
+                  type: string
+                  description: '| Object containing an array of field identifiers for deletion. Field identifiers can be obtained using the method biconnector.dataset.get ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.dataset.get:
+    post:
+      summary: Get dataset by id biconnector.dataset.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.get` returns information about a dataset by its identifier.
+      operationId: biconnector_dataset_get
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/dataset/biconnector-dataset-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the dataset, which can be obtained using the methods biconnector.dataset.list and biconnector.dataset.add ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the dataset, which can be obtained using the methods biconnector.dataset.list and biconnector.dataset.add ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.dataset.list:
+    post:
+      summary: Get the list of datasets biconnector.dataset.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.list` returns a list of datasets based on a filter. It is an implementation of the listing method for datasets.
+      operationId: biconnector_dataset_list
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/dataset/biconnector-dataset-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: string
+                  description: '| A list of fields that must be populated in the datasets in the selection. By default, all fields are taken.'
+                filter:
+                  type: object
+                  description: '| Filter for selecting datasets. Example format:'
+                order:
+                  type: object
+                  description: '| Sorting parameters. Example format:'
+                page:
+                  type: integer
+                  description: '| Controls pagination. The page size of results is 50 records. To navigate through the results, pass the page number. ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: string
+                  description: '| A list of fields that must be populated in the datasets in the selection. By default, all fields are taken.'
+                filter:
+                  type: object
+                  description: '| Filter for selecting datasets. Example format:'
+                order:
+                  type: object
+                  description: '| Sorting parameters. Example format:'
+                page:
+                  type: integer
+                  description: '| Controls pagination. The page size of results is 50 records. To navigate through the results, pass the page number. ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.dataset.update:
+    post:
+      summary: Update Dataset biconnector.dataset.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.update` updates an existing dataset.
+      operationId: biconnector_dataset_update
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/dataset/biconnector-dataset-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the dataset, can be obtained using the methods biconnector.dataset.list and biconnector.dataset.add ||'
+                fields:
+                  type: object
+                  description: '| An object containing the updated data.'
+                description:
+                  type: string
+                  description: '| Description of the dataset ||'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the dataset, can be obtained using the methods biconnector.dataset.list and biconnector.dataset.add ||'
+                fields:
+                  type: object
+                  description: '| An object containing the updated data.'
+                description:
+                  type: string
+                  description: '| Description of the dataset ||'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.source.add:
+    post:
+      summary: Create Source biconnector.source.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.source.add` creates a new data source associated with the connector.
+      operationId: biconnector_source_add
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/source/biconnector-source-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing data to create a new source. The object format is:'
+                title:
+                  type: string
+                  description: '| Source name ||'
+                description:
+                  type: string
+                  description: '| Source description ||'
+                active:
+                  type: boolean
+                  description: '| Source activity.'
+                connectorId:
+                  type: integer
+                  description: '| Connector identifier, can be obtained using the methods biconnector.connector.list or biconnector.connector.add ||'
+                settings:
+                  type: object
+                  description: '| A list of parameters for authorization, passed as an object where the key is the `code` of the parameter.'
+              required:
+              - fields
+              - title
+              - connectorId
+              - settings
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing data to create a new source. The object format is:'
+                title:
+                  type: string
+                  description: '| Source name ||'
+                description:
+                  type: string
+                  description: '| Source description ||'
+                active:
+                  type: boolean
+                  description: '| Source activity.'
+                connectorId:
+                  type: integer
+                  description: '| Connector identifier, can be obtained using the methods biconnector.connector.list or biconnector.connector.add ||'
+                settings:
+                  type: object
+                  description: '| A list of parameters for authorization, passed as an object where the key is the `code` of the parameter.'
+              required:
+              - fields
+              - title
+              - connectorId
+              - settings
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.source.delete:
+    post:
+      summary: Delete source biconnector.source.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.source.delete` removes an existing connection. A connection can be deleted if it has no datasets.
+      operationId: biconnector_source_delete
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/source/biconnector-source-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the connection, can be obtained using the methods biconnector.source.list or biconnector.source.add ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the connection, can be obtained using the methods biconnector.source.list or biconnector.source.add ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.source.fields:
+    post:
+      summary: Get Source Fields of biconnector.source.fields
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.source.fields` returns a description of the source fields. A table with the description of standard fields can be found in the article [Sources: Overview of Methods](./index.md#fields).'
+      operationId: biconnector_source_fields
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/source/biconnector-source-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.source.get:
+    post:
+      summary: Get Source by ID biconnector.source.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.source.get` returns information about the source by its identifier.
+      operationId: biconnector_source_get
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/source/biconnector-source-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the source, which can be obtained using the methods biconnector.source.list and biconnector.source.add ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the source, which can be obtained using the methods biconnector.source.list and biconnector.source.add ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.source.list:
+    post:
+      summary: Get the list of sources biconnector.source.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.source.list` returns a list of sources based on a filter. It is an implementation of the list method for sources.
+      operationId: biconnector_source_list
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/source/biconnector-source-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: string
+                  description: '| List of fields that must be filled in the sources in the selection. By default, all fields are taken ||'
+                filter:
+                  type: object
+                  description: '| Filter for selecting sources. Example format:'
+                order:
+                  type: object
+                  description: '| Sorting parameters. Example format:'
+                page:
+                  type: integer
+                  description: '| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number  ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: string
+                  description: '| List of fields that must be filled in the sources in the selection. By default, all fields are taken ||'
+                filter:
+                  type: object
+                  description: '| Filter for selecting sources. Example format:'
+                order:
+                  type: object
+                  description: '| Sorting parameters. Example format:'
+                page:
+                  type: integer
+                  description: '| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number  ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.source.update:
+    post:
+      summary: Change source biconnector.source.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.source.update` updates an existing source.
+      operationId: biconnector_source_update
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/source/biconnector-source-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the source, can be obtained using the methods biconnector.source.list and biconnector.source.add ||'
+                fields:
+                  type: object
+                  description: '| Object containing the updated data.'
+                title:
+                  type: string
+                  description: '| New name of the source ||'
+                description:
+                  type: string
+                  description: '| New description of the source ||'
+                active:
+                  type: boolean
+                  description: '| Activity status of the source ||'
+                settings:
+                  type: object
+                  description: '| List of parameters for authorization, passed as an object where the key is the `code` of the parameter.'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the source, can be obtained using the methods biconnector.source.list and biconnector.source.add ||'
+                fields:
+                  type: object
+                  description: '| Object containing the updated data.'
+                title:
+                  type: string
+                  description: '| New name of the source ||'
+                description:
+                  type: string
+                  description: '| New description of the source ||'
+                active:
+                  type: boolean
+                  description: '| Activity status of the source ||'
+                settings:
+                  type: object
+                  description: '| List of parameters for authorization, passed as an object where the key is the `code` of the parameter.'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

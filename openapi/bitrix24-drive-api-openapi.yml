@@ -1,0 +1,2072 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Drive API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Drive
+paths:
+  /disk.attachedObject.get:
+    post:
+      summary: Get Information About Attached File disk.attachedObject.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.attachedObject.get` returns information about the attached file.
+      operationId: disk_attachedObject_get
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/attached-object/disk-attached-object-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file attachment record, which is the link connecting the disk file with other objects.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file attachment record, which is the link connecting the disk file with other objects.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.copyto:
+    post:
+      summary: Copy File to Specified Folder disk.file.copyto
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.copyto` copies a file to the specified folder.
+      operationId: disk_file_copyto
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-copy-to.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file ||'
+                targetFolderId:
+                  type: integer
+                  description: '| Identifier of the folder to which the file is copied ||'
+              required:
+              - id
+              - targetFolderId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file ||'
+                targetFolderId:
+                  type: integer
+                  description: '| Identifier of the folder to which the file is copied ||'
+              required:
+              - id
+              - targetFolderId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.delete:
+    post:
+      summary: Permanently Delete File disk.file.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.delete` permanently deletes a file. If you want to move the file to the trash, use the method [disk.file.markdeleted](./disk-file-mark-deleted.md).
+      operationId: disk_file_delete
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.get:
+    post:
+      summary: Get File Parameters disk.file.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.get` returns data about a file.
+      operationId: disk_file_get
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.getExternalLink:
+    post:
+      summary: Get Public Link for File disk.file.getExternalLink
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.getExternalLink` returns a public link to a file.
+      operationId: disk_file_getExternalLink
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-get-external-link.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.getVersions:
+    post:
+      summary: List of File Versions for disk.file.getVersions
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.getVersions` returns a list of file versions. Versions are returned in descending order of creation date.
+      operationId: disk_file_getVersions
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-get-versions.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file.'
+                filter:
+                  type: array
+                  items: {}
+                  description: '| An array in the following format:'
+                start:
+                  type: integer
+                  description: '| This parameter is used for managing pagination.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file.'
+                filter:
+                  type: array
+                  items: {}
+                  description: '| An array in the following format:'
+                start:
+                  type: integer
+                  description: '| This parameter is used for managing pagination.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.getfields:
+    post:
+      summary: Get Description of File Fields for disk.file.getfields
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.getfields` returns the description of file fields.
+      operationId: disk_file_getfields
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-get-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.markdeleted:
+    post:
+      summary: Move File to Trash disk.file.markdeleted
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.markdeleted` moves a file to the trash. Save the file ID after deletion so that it can be restored later using the [disk.file.restore](./disk-file-restore.md) method.
+      operationId: disk_file_markdeleted
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-mark-deleted.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| File identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| File identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.moveto:
+    post:
+      summary: Move File to Specified Folder disk.file.moveto
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.moveto` moves a file to the specified folder. You cannot move a file to a folder from a different storage.
+      operationId: disk_file_moveto
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-move-to.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file ||'
+                targetFolderId:
+                  type: integer
+                  description: '| Identifier of the folder to which the file should be moved ||'
+              required:
+              - id
+              - targetFolderId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file ||'
+                targetFolderId:
+                  type: integer
+                  description: '| Identifier of the folder to which the file should be moved ||'
+              required:
+              - id
+              - targetFolderId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.rename:
+    post:
+      summary: Rename File disk.file.rename
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.rename` renames a file.
+      operationId: disk_file_rename
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-rename.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| File identifier.'
+                newName:
+                  type: string
+                  description: '| New file name.'
+              required:
+              - id
+              - newName
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| File identifier.'
+                newName:
+                  type: string
+                  description: '| New file name.'
+              required:
+              - id
+              - newName
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.restore:
+    post:
+      summary: Restore File from Trash disk.file.restore
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.restore` restores a file from the trash.
+      operationId: disk_file_restore
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-restore.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file located in the trash.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file located in the trash.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.restoreFromVersion:
+    post:
+      summary: Restore a File from a Specific Version disk.file.restoreFromVersion
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.restoreFromVersion` restores a file from a specific version.
+      operationId: disk_file_restoreFromVersion
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-restore-from-version.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file.'
+                versionId:
+                  type: integer
+                  description: '| Identifier of the file version.'
+              required:
+              - id
+              - versionId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file.'
+                versionId:
+                  type: integer
+                  description: '| Identifier of the file version.'
+              required:
+              - id
+              - versionId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.uploadversion:
+    post:
+      summary: Upload a New Version of a File disk.file.uploadversion
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.uploadversion` uploads a new version of a file.
+      operationId: disk_file_uploadversion
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-upload-version.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| File identifier.'
+                fileContent:
+                  type: array
+                  items: {}
+                  description: '| An array containing the file name and a string in Base64 ||'
+              required:
+              - id
+              - fileContent
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| File identifier.'
+                fileContent:
+                  type: array
+                  items: {}
+                  description: '| An array containing the file name and a string in Base64 ||'
+              required:
+              - id
+              - fileContent
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.addsubfolder:
+    post:
+      summary: Create a Subfolder disk.folder.addsubfolder
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.addsubfolder` creates a subfolder.
+      operationId: disk_folder_addsubfolder
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-add-subfolder.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the parent folder.'
+                data:
+                  type: array
+                  items: {}
+                  description: '| An array with the field `NAME`, where `NAME` is the name of the subfolder ||'
+              required:
+              - id
+              - data
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the parent folder.'
+                data:
+                  type: array
+                  items: {}
+                  description: '| An array with the field `NAME`, where `NAME` is the name of the subfolder ||'
+              required:
+              - id
+              - data
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.copyto:
+    post:
+      summary: Copy a folder and all its contents to the specified folder disk.folder.copyto
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.copyto` copies a folder and all its contents to the specified folder.
+      operationId: disk_folder_copyto
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-copy-to.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the source folder to be copied.'
+                targetFolderId:
+                  type: integer
+                  description: '| Identifier of the target folder where the folder is copied ||'
+              required:
+              - id
+              - targetFolderId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the source folder to be copied.'
+                targetFolderId:
+                  type: integer
+                  description: '| Identifier of the target folder where the folder is copied ||'
+              required:
+              - id
+              - targetFolderId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.deletetree:
+    post:
+      summary: Permanently Delete a Folder and All Its Contents disk.folder.deletetree
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.deletetree` permanently deletes a folder and all its contents. If you want to move the folder to the trash, use the method [disk.folder.markdeleted](./disk-folder-mark-deleted.md).
+      operationId: disk_folder_deletetree
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-delete-tree.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.get:
+    post:
+      summary: Get Folder Parameters disk.folder.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.get` returns data about a folder.
+      operationId: disk_folder_get
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.getchildren:
+    post:
+      summary: Get a list of files and folders in the folder disk.folder.getchildren
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.getchildren` returns a list of files and folders located in the folder. Only those files and folders for which the user has "Read" access permission are returned.
+      operationId: disk_folder_getchildren
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-get-children.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+                filter:
+                  type: array
+                  items: {}
+                  description: '| Array format:'
+                order:
+                  type: array
+                  items: {}
+                  description: '| Array format:'
+                start:
+                  type: integer
+                  description: '| This parameter is used to control pagination.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+                filter:
+                  type: array
+                  items: {}
+                  description: '| Array format:'
+                order:
+                  type: array
+                  items: {}
+                  description: '| Array format:'
+                start:
+                  type: integer
+                  description: '| This parameter is used to control pagination.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.getexternallink:
+    post:
+      summary: Get Public Link for Folder disk.folder.getexternallink
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.getexternallink` returns a public link to the folder.
+      operationId: disk_folder_getexternallink
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-get-external-link.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.getfields:
+    post:
+      summary: Get Folder Field Descriptions disk.folder.getfields
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.getfields` returns the description of folder fields.
+      operationId: disk_folder_getfields
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-get-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.markdeleted:
+    post:
+      summary: Move Folder to Trash disk.folder.markdeleted
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.markdeleted` moves a folder to the trash. Save the folder ID after deletion so that it can be restored later using the method [disk.folder.restore](./disk-folder-restore.md)
+      operationId: disk_folder_markdeleted
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-mark-deleted.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.moveto:
+    post:
+      summary: Move a folder and all its contents to the specified folder disk.folder.moveto
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.moveto` moves a folder and all its contents to the specified folder.
+      operationId: disk_folder_moveto
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-move-to.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the source folder to be moved ||'
+                targetFolderId:
+                  type: integer
+                  description: '| Identifier of the target folder to which the folder is moved.'
+              required:
+              - id
+              - targetFolderId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the source folder to be moved ||'
+                targetFolderId:
+                  type: integer
+                  description: '| Identifier of the target folder to which the folder is moved.'
+              required:
+              - id
+              - targetFolderId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.rename:
+    post:
+      summary: Rename Folder disk.folder.rename
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.rename` renames a folder.
+      operationId: disk_folder_rename
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-rename.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+                newName:
+                  type: string
+                  description: '| New name of the folder ||'
+              required:
+              - id
+              - newName
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+                newName:
+                  type: string
+                  description: '| New name of the folder ||'
+              required:
+              - id
+              - newName
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.restore:
+    post:
+      summary: Restore Folder from Trash disk.folder.restore
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.restore` restores a folder from the trash.
+      operationId: disk_folder_restore
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-restore.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder located in the trash.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder located in the trash.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.sharetouser:
+    post:
+      summary: Assign Access Permissions to Folder disk.folder.sharetouser
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.sharetouser` assigns access permissions to a folder.
+      operationId: disk_folder_sharetouser
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-share-to-user.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+                userId:
+                  type: integer
+                  description: '| Identifier of the user to whom access is granted.'
+                taskName:
+                  type: string
+                  description: '| Level of access granted to the user. Possible values:'
+              required:
+              - id
+              - userId
+              - taskName
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder.'
+                userId:
+                  type: integer
+                  description: '| Identifier of the user to whom access is granted.'
+                taskName:
+                  type: string
+                  description: '| Level of access granted to the user. Possible values:'
+              required:
+              - id
+              - userId
+              - taskName
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.folder.uploadfile:
+    post:
+      summary: Upload a New File to the Specified Folder disk.folder.uploadfile
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.uploadfile` uploads a new file to the specified folder.
+      operationId: disk_folder_uploadfile
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/folder/disk-folder-upload-file.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder where the file needs to be uploaded.'
+                data:
+                  type: array
+                  items: {}
+                  description: '| An array with the field `NAME`, where `NAME` is the name of the file.'
+                fileContent:
+                  type: array
+                  items: {}
+                  description: '| An array containing the file name and a string with Base64.'
+                rights:
+                  type: array
+                  items: {}
+                  description: '| An array of access permissions for the uploaded file in the format `{"TASK_ID": 42, "ACCESS_CODE": "U35"}`, where'
+                generateUniqueName:
+                  type: boolean
+                  description: '| Generate a unique file name if a file with that name already exists. For example, file (1).docx.'
+              required:
+              - id
+              - data
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the folder where the file needs to be uploaded.'
+                data:
+                  type: array
+                  items: {}
+                  description: '| An array with the field `NAME`, where `NAME` is the name of the file.'
+                fileContent:
+                  type: array
+                  items: {}
+                  description: '| An array containing the file name and a string with Base64.'
+                rights:
+                  type: array
+                  items: {}
+                  description: '| An array of access permissions for the uploaded file in the format `{"TASK_ID": 42, "ACCESS_CODE": "U35"}`, where'
+                generateUniqueName:
+                  type: boolean
+                  description: '| Generate a unique file name if a file with that name already exists. For example, file (1).docx.'
+              required:
+              - id
+              - data
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.rights.getTasks:
+    post:
+      summary: Get a List of Available Access Levels disk.rights.getTasks
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.rights.getTasks` returns a list of available access levels. Use the obtained access level identifiers to set permissions on files during their upload. Specify the identifiers as the value of the `TASK_ID` parameter in the methods [disk.storage.uploadfile](../storage/disk-storage-upload-file.md) and [disk.folder.uploadfile](../folder/disk-folder-upload-file.md).
+      operationId: disk_rights_getTasks
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/rights/disk-rights-get-tasks.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.storage.addfolder:
+    post:
+      summary: Create a Folder in the Root of the Storage disk.storage.addfolder
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.addfolder` creates a folder in the root of the storage.
+      operationId: disk_storage_addfolder
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/storage/disk-storage-add-folder.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the storage.'
+                data:
+                  type: array
+                  items: {}
+                  description: '| Array with the field `NAME`, where `NAME` is the name of the new folder ||'
+                rights:
+                  type: array
+                  items: {}
+                  description: '| Array of access permissions for the folder in the format `{"TASK_ID": 42, "ACCESS_CODE": "U35"}`, where'
+              required:
+              - id
+              - data
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the storage.'
+                data:
+                  type: array
+                  items: {}
+                  description: '| Array with the field `NAME`, where `NAME` is the name of the new folder ||'
+                rights:
+                  type: array
+                  items: {}
+                  description: '| Array of access permissions for the folder in the format `{"TASK_ID": 42, "ACCESS_CODE": "U35"}`, where'
+              required:
+              - id
+              - data
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.storage.get:
+    post:
+      summary: Get Storage Description disk.storage.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.get` returns storage data.
+      operationId: disk_storage_get
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/storage/disk-storage-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Storage identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Storage identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.storage.getchildren:
+    post:
+      summary: Get a list of files and folders in the root of the storage disk.storage.getchildren
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.getchildren` returns a list of files and folders located in the root of the storage. Only those files and folders for which the user has "Read" access permission are returned.
+      operationId: disk_storage_getchildren
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/storage/disk-storage-get-children.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the storage.'
+                filter:
+                  type: array
+                  items: {}
+                  description: '| Array format:'
+                order:
+                  type: array
+                  items: {}
+                  description: '| Array format:'
+                start:
+                  type: integer
+                  description: '| This parameter is used to manage pagination.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the storage.'
+                filter:
+                  type: array
+                  items: {}
+                  description: '| Array format:'
+                order:
+                  type: array
+                  items: {}
+                  description: '| Array format:'
+                start:
+                  type: integer
+                  description: '| This parameter is used to manage pagination.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.storage.getfields:
+    post:
+      summary: Get Description of Storage Fields disk.storage.getfields
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.getfields` returns the description of storage fields.
+      operationId: disk_storage_getfields
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/storage/disk-storage-get-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.storage.getforapp:
+    post:
+      summary: Get Application Storage Description disk.storage.getforapp
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.getforapp` returns the description of the storage associated with the application. If the storage does not exist, it creates one. The method works only in the context of the [application](../../../settings/app-installation/index.md)
+      operationId: disk_storage_getforapp
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/storage/disk-storage-get-for-app.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.storage.getlist:
+    post:
+      summary: Get a List of Available Storages disk.storage.getlist
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.getlist` returns a list of available storages.
+      operationId: disk_storage_getlist
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/storage/disk-storage-get-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: array
+                  items: {}
+                  description: '| Array format:'
+                order:
+                  type: array
+                  items: {}
+                  description: '| Array format:'
+                start:
+                  type: integer
+                  description: '| This parameter is used to manage pagination.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: array
+                  items: {}
+                  description: '| Array format:'
+                order:
+                  type: array
+                  items: {}
+                  description: '| Array format:'
+                start:
+                  type: integer
+                  description: '| This parameter is used to manage pagination.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.storage.gettypes:
+    post:
+      summary: Get Storage Types disk.storage.gettypes
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.gettypes` returns a list of storage types.
+      operationId: disk_storage_gettypes
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/storage/disk-storage-get-types.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.storage.rename:
+    post:
+      summary: Rename Application Storage disk.storage.rename
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.rename` renames the application storage. The method works only in the context of the [application](../../../settings/app-installation/index.md)
+      operationId: disk_storage_rename
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/storage/disk-storage-rename.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the application storage.'
+                newName:
+                  type: string
+                  description: '| New name for the storage ||'
+              required:
+              - id
+              - newName
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the application storage.'
+                newName:
+                  type: string
+                  description: '| New name for the storage ||'
+              required:
+              - id
+              - newName
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.storage.uploadfile:
+    post:
+      summary: Upload a New File to the Root of the Storage disk.storage.uploadfile
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.uploadfile` uploads a new file to the root of the storage.
+      operationId: disk_storage_uploadfile
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/storage/disk-storage-upload-file.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the storage where the file needs to be uploaded.'
+                data:
+                  type: array
+                  items: {}
+                  description: '| An array with the field `NAME`, where `NAME` is the name of the file ||'
+                fileContent:
+                  type: array
+                  items: {}
+                  description: '| An array containing the file name and a string with Base64 ||'
+                rights:
+                  type: array
+                  items: {}
+                  description: '| An array of access permissions for the uploaded file in the format `{"TASK_ID": 42, "ACCESS_CODE": "U35"}`, where'
+                generateUniqueName:
+                  type: boolean
+                  description: '| Generate a unique file name if a file with that name already exists. For example, file (1).docx.'
+              required:
+              - id
+              - data
+              - fileContent
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the storage where the file needs to be uploaded.'
+                data:
+                  type: array
+                  items: {}
+                  description: '| An array with the field `NAME`, where `NAME` is the name of the file ||'
+                fileContent:
+                  type: array
+                  items: {}
+                  description: '| An array containing the file name and a string with Base64 ||'
+                rights:
+                  type: array
+                  items: {}
+                  description: '| An array of access permissions for the uploaded file in the format `{"TASK_ID": 42, "ACCESS_CODE": "U35"}`, where'
+                generateUniqueName:
+                  type: boolean
+                  description: '| Generate a unique file name if a file with that name already exists. For example, file (1).docx.'
+              required:
+              - id
+              - data
+              - fileContent
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.version.get:
+    post:
+      summary: Get File Version disk.version.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.version.get` returns the version of a file.
+      operationId: disk_version_get
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/version/disk-version-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file version.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the file version.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

@@ -1,0 +1,412 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Message Providers API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Message Providers
+paths:
+  /messageservice.message.status.update:
+    post:
+      summary: Update Message Delivery Status messageservice.message.status.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `messageservice.message.status.update` updates the delivery status of a message sent through a messaging provider. This method works only within the context of an [application](../../settings/app-installation/index.md).
+      operationId: messageservice_message_status_update
+      tags:
+      - Message Providers
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/messageservice/messageservice-message-status-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Provider code.'
+                MESSAGE_ID:
+                  type: string
+                  description: '| External identifier of the message, received by the application handler when the message was sent. ||'
+                STATUS:
+                  type: string
+                  description: '| New status of the message.'
+              required:
+              - CODE
+              - MESSAGE_ID
+              - STATUS
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Provider code.'
+                MESSAGE_ID:
+                  type: string
+                  description: '| External identifier of the message, received by the application handler when the message was sent. ||'
+                STATUS:
+                  type: string
+                  description: '| New status of the message.'
+              required:
+              - CODE
+              - MESSAGE_ID
+              - STATUS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - messageservice
+  /messageservice.sender.add:
+    post:
+      summary: Register an SMS Provider or Message Provider messageservice.sender.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `messageservice.sender.add` registers a new message provider. This method works only in the context of an [application](../../settings/app-installation/index.md).
+      operationId: messageservice_sender_add
+      tags:
+      - Message Providers
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/messageservice/messageservice-sender-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Provider code.'
+                TYPE:
+                  type: string
+                  description: '| Provider type.'
+                HANDLER:
+                  type: string
+                  description: '| Application handler URL that is called when sending a message.'
+              required:
+              - CODE
+              - TYPE
+              - HANDLER
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Provider code.'
+                TYPE:
+                  type: string
+                  description: '| Provider type.'
+                HANDLER:
+                  type: string
+                  description: '| Application handler URL that is called when sending a message.'
+              required:
+              - CODE
+              - TYPE
+              - HANDLER
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - messageservice
+  /messageservice.sender.delete:
+    post:
+      summary: Delete SMS Provider or Message Provider messageservice.sender.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `messageservice.sender.delete` removes a previously registered message provider for the current application. This method works only within the context of an [application](../../settings/app-installation/index.md).
+      operationId: messageservice_sender_delete
+      tags:
+      - Message Providers
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/messageservice/messageservice-sender-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Provider code.'
+              required:
+              - CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Provider code.'
+              required:
+              - CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - messageservice
+  /messageservice.sender.list:
+    post:
+      summary: Get a List of SMS Providers or Message Providers messageservice.sender.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `messageservice.sender.list` returns a list of provider codes registered with the current application. This method works only in the context of the [application](../../settings/app-installation/index.md).
+      operationId: messageservice_sender_list
+      tags:
+      - Message Providers
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/messageservice/messageservice-sender-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - messageservice
+  /messageservice.sender.update:
+    post:
+      summary: Update Message Provider messageservice.sender.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `messageservice.sender.update` updates the data of a registered message provider. This method works only in the context of an [application](../../settings/app-installation/index.md).
+      operationId: messageservice_sender_update
+      tags:
+      - Message Providers
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/messageservice/messageservice-sender-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| The code of the provider to be updated.'
+                HANDLER:
+                  type: string
+                  description: '| New application handler URL. ||'
+              required:
+              - CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| The code of the provider to be updated.'
+                HANDLER:
+                  type: string
+                  description: '| New application handler URL. ||'
+              required:
+              - CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - messageservice
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

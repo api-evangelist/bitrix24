@@ -1,0 +1,1098 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Data Storage API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Data Storage
+paths:
+  /entity.add:
+    post:
+      summary: Create a Data Storage entity.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.add` method creates a new data storage for the application. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: entity_add
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/entities/entity-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ACCESS:
+                  type: object
+                  description: '| Access permissions in the format `{"access_code":"permission_level"}`.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ACCESS:
+                  type: object
+                  description: '| Access permissions in the format `{"access_code":"permission_level"}`.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.delete:
+    post:
+      summary: Delete Data Store entity.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.delete` method removes the application's data store. This method only works in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: entity_delete
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/entities/entity-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.get:
+    post:
+      summary: Get Storage Parameters or List of Storages entity.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.get` method returns the parameters of the specified storage or a list of all storages of the application. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: entity_get
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/entities/entity-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ENTITY:
+                  type: string
+                  description: '| Identifier of the application''s data storage. Use the value specified when creating the storage.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ENTITY:
+                  type: string
+                  description: '| Identifier of the application''s data storage. Use the value specified when creating the storage.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.item.add:
+    post:
+      summary: Add Item to the Storage entity.item.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `entity.item.add` adds an item to the application's data storage. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: entity_item_add
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/items/entity-item-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Name of the storage item. ||'
+                PROPERTY_VALUES:
+                  type: object
+                  description: '| Property values of the item in the format `{"PROPERTY_CODE": value}`.'
+                SECTION:
+                  type: integer
+                  description: '| Identifier of the storage section. ||'
+                DATE_ACTIVE_FROM:
+                  type: string
+                  format: date-time
+                  description: '| Start date of the item''s activity. ||'
+                DATE_ACTIVE_TO:
+                  type: string
+                  format: date-time
+                  description: '| End date of the item''s activity. ||'
+                PREVIEW_PICTURE:
+                  type: string
+                  description: '| Preview image of the item. File format is described in the article How to Upload Files. ||'
+                DETAIL_PICTURE:
+                  type: string
+                  description: '| Detailed image of the item. File format is described in the article How to Upload Files. ||'
+                UF_:
+                  type: string
+                  description: '| Custom fields of the item `UF_*`.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Name of the storage item. ||'
+                PROPERTY_VALUES:
+                  type: object
+                  description: '| Property values of the item in the format `{"PROPERTY_CODE": value}`.'
+                SECTION:
+                  type: integer
+                  description: '| Identifier of the storage section. ||'
+                DATE_ACTIVE_FROM:
+                  type: string
+                  format: date-time
+                  description: '| Start date of the item''s activity. ||'
+                DATE_ACTIVE_TO:
+                  type: string
+                  format: date-time
+                  description: '| End date of the item''s activity. ||'
+                PREVIEW_PICTURE:
+                  type: string
+                  description: '| Preview image of the item. File format is described in the article How to Upload Files. ||'
+                DETAIL_PICTURE:
+                  type: string
+                  description: '| Detailed image of the item. File format is described in the article How to Upload Files. ||'
+                UF_:
+                  type: string
+                  description: '| Custom fields of the item `UF_*`.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.item.delete:
+    post:
+      summary: 'Delete Entity Storage Method: entity.item.delete'
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.item.delete` method removes an item from the application's data storage. This method works only within the context of an [application](../../../settings/app-installation/index.md).
+      operationId: entity_item_delete
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/items/entity-item-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.item.get:
+    post:
+      summary: 'Get a List of Storage Items: entity.item.get'
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.item.get` method retrieves a list of items from the application's data storage. This method works only in the context of an [application](../../../settings/app-installation/index.md).
+      operationId: entity_item_get
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/items/entity-item-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SORT:
+                  type: object
+                  description: '| Object format:'
+                FILTER:
+                  type: object
+                  description: '| Object format:'
+                start:
+                  type: integer
+                  description: '| Pagination parameter.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SORT:
+                  type: object
+                  description: '| Object format:'
+                FILTER:
+                  type: object
+                  description: '| Object format:'
+                start:
+                  type: integer
+                  description: '| Pagination parameter.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.item.property.add:
+    post:
+      summary: Add Property to Data Storage Elements entity.item.property.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `entity.item.property.add` adds a property to the elements of the application's data storage. The method works only in the context of the [application](../../../../settings/app-installation/index.md).
+      operationId: entity_item_property_add
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/items/properties/entity-item-property-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Name of the property ||'
+                TYPE:
+                  type: string
+                  description: '| Type of the property:'
+                SORT:
+                  type: integer
+                  description: '| Sorting index of the property ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Name of the property ||'
+                TYPE:
+                  type: string
+                  description: '| Type of the property:'
+                SORT:
+                  type: integer
+                  description: '| Sorting index of the property ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.item.property.delete:
+    post:
+      summary: Delete Property of Storage Elements entity.item.property.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `entity.item.property.delete` removes a property from the application's data storage elements. The method works only in the context of the [application](../../../../settings/app-installation/index.md).
+      operationId: entity_item_property_delete
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/items/properties/entity-item-property-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.item.property.get:
+    post:
+      summary: Get Properties of Storage Elements entity.item.property.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `entity.item.property.get` returns the properties of the application's data storage elements. The method works only in the context of the [application](../../../../settings/app-installation/index.md).
+      operationId: entity_item_property_get
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/items/properties/entity-item-property-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                PROPERTY:
+                  type: string
+                  description: '| Property code.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                PROPERTY:
+                  type: string
+                  description: '| Property code.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.item.property.update:
+    post:
+      summary: Update Property of Storage Elements entity.item.property.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `entity.item.property.update` modifies the property of elements in the application's data storage. The method works only in the context of the [application](../../../../settings/app-installation/index.md).
+      operationId: entity_item_property_update
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/items/properties/entity-item-property-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                PROPERTY_NEW:
+                  type: string
+                  description: '| New property code.'
+                NAME:
+                  type: string
+                  description: '| New property name. ||'
+                TYPE:
+                  type: string
+                  description: '| New property type:'
+                SORT:
+                  type: integer
+                  description: '| Property sort index. ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                PROPERTY_NEW:
+                  type: string
+                  description: '| New property code.'
+                NAME:
+                  type: string
+                  description: '| New property name. ||'
+                TYPE:
+                  type: string
+                  description: '| New property type:'
+                SORT:
+                  type: integer
+                  description: '| Property sort index. ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.item.update:
+    post:
+      summary: Update Entity Storage entity.item.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: entity_item_update
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/items/entity-item-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| New name of the storage item ||'
+                PROPERTY_VALUES:
+                  type: object
+                  description: '| Property values of the item in the format `{"PROPERTY_CODE": value}`.'
+                SECTION:
+                  type: integer
+                  description: '| Identifier of the storage section ||'
+                DATE_ACTIVE_FROM:
+                  type: string
+                  format: date-time
+                  description: '| Start date of the item''s activity ||'
+                DATE_ACTIVE_TO:
+                  type: string
+                  format: date-time
+                  description: '| End date of the item''s activity ||'
+                PREVIEW_PICTURE:
+                  type: string
+                  description: '| Preview image of the item. File format is described in the article How to Upload Files.'
+                DETAIL_PICTURE:
+                  type: string
+                  description: '| Detailed image of the item. File format is described in the article How to Upload Files.'
+                UF_:
+                  type: string
+                  description: '| Custom fields of the item `UF_*`.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| New name of the storage item ||'
+                PROPERTY_VALUES:
+                  type: object
+                  description: '| Property values of the item in the format `{"PROPERTY_CODE": value}`.'
+                SECTION:
+                  type: integer
+                  description: '| Identifier of the storage section ||'
+                DATE_ACTIVE_FROM:
+                  type: string
+                  format: date-time
+                  description: '| Start date of the item''s activity ||'
+                DATE_ACTIVE_TO:
+                  type: string
+                  format: date-time
+                  description: '| End date of the item''s activity ||'
+                PREVIEW_PICTURE:
+                  type: string
+                  description: '| Preview image of the item. File format is described in the article How to Upload Files.'
+                DETAIL_PICTURE:
+                  type: string
+                  description: '| Detailed image of the item. File format is described in the article How to Upload Files.'
+                UF_:
+                  type: string
+                  description: '| Custom fields of the item `UF_*`.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.rights:
+    post:
+      summary: Get or Modify Access Permissions for entity.rights
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.rights` method retrieves the current set of access permissions for the application's data storage or modifies it. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: entity_rights
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/entities/entity-rights.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ACCESS:
+                  type: object
+                  description: '| A new set of permissions in the format `{"access_code":"access_level"}`.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ACCESS:
+                  type: object
+                  description: '| A new set of permissions in the format `{"access_code":"access_level"}`.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.section.add:
+    post:
+      summary: Add Section to the entity.section.add Storage
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.section.add` method adds a section to the application's data storage. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: entity_section_add
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/sections/entity-section-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SECTION:
+                  type: integer
+                  description: '| Identifier of the parent section. ||'
+                ACTIVE:
+                  type: string
+                  description: '| Section activity flag:'
+                SORT:
+                  type: integer
+                  description: '| Section sorting index. ||'
+                CODE:
+                  type: string
+                  description: '| Symbolic code of the section. ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the section. ||'
+                PICTURE:
+                  type: string
+                  description: '| Section image. File format — as described in How to upload files. ||'
+                DETAIL_PICTURE:
+                  type: string
+                  description: '| Detailed image of the section. File format — as described in How to upload files. ||'
+                UF_:
+                  type: object
+                  description: '| Custom fields of the section `UF_*` in the format `{"UF_CODE": value}` ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SECTION:
+                  type: integer
+                  description: '| Identifier of the parent section. ||'
+                ACTIVE:
+                  type: string
+                  description: '| Section activity flag:'
+                SORT:
+                  type: integer
+                  description: '| Section sorting index. ||'
+                CODE:
+                  type: string
+                  description: '| Symbolic code of the section. ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the section. ||'
+                PICTURE:
+                  type: string
+                  description: '| Section image. File format — as described in How to upload files. ||'
+                DETAIL_PICTURE:
+                  type: string
+                  description: '| Detailed image of the section. File format — as described in How to upload files. ||'
+                UF_:
+                  type: object
+                  description: '| Custom fields of the section `UF_*` in the format `{"UF_CODE": value}` ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.section.delete:
+    post:
+      summary: Delete the entity.section.delete method
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.section.delete` method removes a section from the application's data storage. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: entity_section_delete
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/sections/entity-section-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.section.get:
+    post:
+      summary: Get a List of Sections with entity.section.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. The `entity.section.get` method retrieves a list of sections from the application's data storage. The method works only in the context of an [application](../../../settings/app-installation/index.md).
+      operationId: entity_section_get
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/sections/entity-section-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SORT:
+                  type: object
+                  description: '| Object format:'
+                FILTER:
+                  type: object
+                  description: '| Object format:'
+                start:
+                  type: integer
+                  description: '| Pagination parameter.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SORT:
+                  type: object
+                  description: '| Object format:'
+                FILTER:
+                  type: object
+                  description: '| Object format:'
+                start:
+                  type: integer
+                  description: '| Pagination parameter.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.section.update:
+    post:
+      summary: Update the entity.section.update method
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.section.update` method updates a section of the application's data storage. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: entity_section_update
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/sections/entity-section-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Name of the section. ||'
+                SECTION:
+                  type: integer
+                  description: '| Identifier of the parent section. ||'
+                ACTIVE:
+                  type: string
+                  description: '| Active flag for the section:'
+                SORT:
+                  type: integer
+                  description: '| Sorting index of the section. ||'
+                CODE:
+                  type: string
+                  description: '| Symbolic code of the section. ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the section. ||'
+                PICTURE:
+                  type: string
+                  description: '| Image of the section. File format — see the article How to upload files. ||'
+                DETAIL_PICTURE:
+                  type: string
+                  description: '| Detailed image of the section. File format — see the article How to upload files. ||'
+                UF_:
+                  type: object
+                  description: '| Custom fields of the section `UF_*` in the format `{"UF_CODE": value}` ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Name of the section. ||'
+                SECTION:
+                  type: integer
+                  description: '| Identifier of the parent section. ||'
+                ACTIVE:
+                  type: string
+                  description: '| Active flag for the section:'
+                SORT:
+                  type: integer
+                  description: '| Sorting index of the section. ||'
+                CODE:
+                  type: string
+                  description: '| Symbolic code of the section. ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the section. ||'
+                PICTURE:
+                  type: string
+                  description: '| Image of the section. File format — see the article How to upload files. ||'
+                DETAIL_PICTURE:
+                  type: string
+                  description: '| Detailed image of the section. File format — see the article How to upload files. ||'
+                UF_:
+                  type: object
+                  description: '| Custom fields of the section `UF_*` in the format `{"UF_CODE": value}` ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+  /entity.update:
+    post:
+      summary: Change Parameters of entity.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.update` method updates the parameters of the application's data storage. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: entity_update
+      tags:
+      - Data Storage
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/entity/entities/entity-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| New name for the storage. ||'
+                ENTITY_NEW:
+                  type: string
+                  description: '| New identifier for the storage.'
+                ACCESS:
+                  type: object
+                  description: '| New set of access permissions in the format `{"access_code":"permission_level"}`.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| New name for the storage. ||'
+                ENTITY_NEW:
+                  type: string
+                  description: '| New identifier for the storage.'
+                ACCESS:
+                  type: object
+                  description: '| New set of access permissions in the format `{"access_code":"permission_level"}`.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - entity
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

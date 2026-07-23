@@ -1,0 +1,854 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector News Feed API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: News Feed
+paths:
+  /log.blogcomment.add:
+    post:
+      summary: Add a comment to the message log.blogcomment.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogcomment.add` adds a comment to a News Feed message.
+      operationId: log_blogcomment_add
+      tags:
+      - News Feed
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/log/blogcomment/log-blogcomment-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                POST_ID:
+                  type: integer
+                  description: '| Identifier of the News Feed message.'
+                TEXT:
+                  type: string
+                  description: '| The text of the comment. It is considered during duplication checks and is saved in the `POST_TEXT` field ||'
+                FILES:
+                  type: array
+                  items: {}
+                  description: '| An array of files described according to the file handling rules. Files will be uploaded to the user''s Drive and linked to the comment ||'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user on behalf of whom the comment is published. Available only to administrators. By default, the current user initiating the method call is used.'
+              required:
+              - POST_ID
+              - TEXT
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                POST_ID:
+                  type: integer
+                  description: '| Identifier of the News Feed message.'
+                TEXT:
+                  type: string
+                  description: '| The text of the comment. It is considered during duplication checks and is saved in the `POST_TEXT` field ||'
+                FILES:
+                  type: array
+                  items: {}
+                  description: '| An array of files described according to the file handling rules. Files will be uploaded to the user''s Drive and linked to the comment ||'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user on behalf of whom the comment is published. Available only to administrators. By default, the current user initiating the method call is used.'
+              required:
+              - POST_ID
+              - TEXT
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - log
+  /log.blogcomment.delete:
+    post:
+      summary: Delete comment from log.blogcomment.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogcomment.delete` removes a comment from the News Feed.
+      operationId: log_blogcomment_delete
+      tags:
+      - News Feed
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/log/blogcomment/log-blogcomment-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                COMMENT_ID:
+                  type: integer
+                  description: '| The identifier of the comment. The value must be greater than `0`.'
+                USER_ID:
+                  type: integer
+                  description: '| The identifier of the user performing the deletion. Available only to administrators. By default, the current user who initiated the call is used.'
+              required:
+              - COMMENT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                COMMENT_ID:
+                  type: integer
+                  description: '| The identifier of the comment. The value must be greater than `0`.'
+                USER_ID:
+                  type: integer
+                  description: '| The identifier of the user performing the deletion. Available only to administrators. By default, the current user who initiated the call is used.'
+              required:
+              - COMMENT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - log
+  /log.blogcomment.user.get:
+    post:
+      summary: Get User Comments log.blogcomment.user.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogcomment.user.get` returns a list of comments on a News Feed post for the specified user and information about attached files.
+      operationId: log_blogcomment_user_get
+      tags:
+      - News Feed
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/log/blogcomment/log-blogcomment-user-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| The identifier of the user whose comments need to be retrieved. If the identifier is not specified, the method will return comments from the current user.'
+                FIRST_ID:
+                  type: integer
+                  description: '| The method will return comments with identifiers greater than the specified value. ||'
+                LAST_ID:
+                  type: integer
+                  description: '| The method will return comments with identifiers less than the specified value. ||'
+                LIMIT:
+                  type: integer
+                  description: '| The number of records in the response. The acceptable value is from `1` to `100`. By default, `100` comments are returned. ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| The identifier of the user whose comments need to be retrieved. If the identifier is not specified, the method will return comments from the current user.'
+                FIRST_ID:
+                  type: integer
+                  description: '| The method will return comments with identifiers greater than the specified value. ||'
+                LAST_ID:
+                  type: integer
+                  description: '| The method will return comments with identifiers less than the specified value. ||'
+                LIMIT:
+                  type: integer
+                  description: '| The number of records in the response. The acceptable value is from `1` to `100`. By default, `100` comments are returned. ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - log
+  /log.blogpost.add:
+    post:
+      summary: Add a Message to the News Feed log.blogpost.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.add` adds a message to the News Feed.
+      operationId: log_blogpost_add
+      tags:
+      - News Feed
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/log/log-blogpost-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                POST_MESSAGE:
+                  type: string
+                  description: '| Message text ||'
+                POST_TITLE:
+                  type: string
+                  description: '| Message title ||'
+                DEST:
+                  type: array
+                  items: {}
+                  description: '| List of recipients who will have permission to view the message.'
+                SPERM:
+                  type: array
+                  items: {}
+                  description: '| Deprecated equivalent of `DEST` ||'
+                FILES:
+                  type: array
+                  items: {}
+                  description: '| Array of files in the format described in working with files.'
+                IMPORTANT:
+                  type: string
+                  description: '| Indicator of an important message.'
+                IMPORTANT_DATE_END:
+                  type: string
+                  description: '| Date and time in ISO 8601 format until which the message will be considered important ||'
+                SITE_ID:
+                  type: string
+                  description: '| Site identifier.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user on behalf of whom the message is published. Available only to administrators.'
+                TAGS:
+                  type: string
+                  description: '| Message tags ||'
+                BACKGROUND_CODE:
+                  type: string
+                  description: '| Background code of the message ||'
+                PARSE_PREVIEW:
+                  type: string
+                  description: '| Automatic addition of a link preview from the message text.'
+                UF_BLOG_POST_FILE:
+                  type: array
+                  items: {}
+                  description: '| Alternative to `FILES`.'
+                UF_BLOG_POST_IMPRTNT:
+                  type: integer
+                  description: '| Indicator of an important message.'
+                UF_IMPRTANT_DATE_END:
+                  type: string
+                  format: date-time
+                  description: '| Expiration date of the important message.'
+                UF_BLOG_POST_URL_PRV:
+                  type: integer
+                  description: '| Link preview from the message text.'
+                UF_GRATITUDE:
+                  type: integer
+                  description: '| Data for the Gratitude functionality in the format:'
+                UF_BLOG_POST_VOTE:
+                  type: integer
+                  description: '| Survey data in the format:'
+              required:
+              - POST_MESSAGE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                POST_MESSAGE:
+                  type: string
+                  description: '| Message text ||'
+                POST_TITLE:
+                  type: string
+                  description: '| Message title ||'
+                DEST:
+                  type: array
+                  items: {}
+                  description: '| List of recipients who will have permission to view the message.'
+                SPERM:
+                  type: array
+                  items: {}
+                  description: '| Deprecated equivalent of `DEST` ||'
+                FILES:
+                  type: array
+                  items: {}
+                  description: '| Array of files in the format described in working with files.'
+                IMPORTANT:
+                  type: string
+                  description: '| Indicator of an important message.'
+                IMPORTANT_DATE_END:
+                  type: string
+                  description: '| Date and time in ISO 8601 format until which the message will be considered important ||'
+                SITE_ID:
+                  type: string
+                  description: '| Site identifier.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user on behalf of whom the message is published. Available only to administrators.'
+                TAGS:
+                  type: string
+                  description: '| Message tags ||'
+                BACKGROUND_CODE:
+                  type: string
+                  description: '| Background code of the message ||'
+                PARSE_PREVIEW:
+                  type: string
+                  description: '| Automatic addition of a link preview from the message text.'
+                UF_BLOG_POST_FILE:
+                  type: array
+                  items: {}
+                  description: '| Alternative to `FILES`.'
+                UF_BLOG_POST_IMPRTNT:
+                  type: integer
+                  description: '| Indicator of an important message.'
+                UF_IMPRTANT_DATE_END:
+                  type: string
+                  format: date-time
+                  description: '| Expiration date of the important message.'
+                UF_BLOG_POST_URL_PRV:
+                  type: integer
+                  description: '| Link preview from the message text.'
+                UF_GRATITUDE:
+                  type: integer
+                  description: '| Data for the Gratitude functionality in the format:'
+                UF_BLOG_POST_VOTE:
+                  type: integer
+                  description: '| Survey data in the format:'
+              required:
+              - POST_MESSAGE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - log
+  /log.blogpost.delete:
+    post:
+      summary: Delete News Feed Message log.blogpost.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.delete` removes a message from the News Feed.
+      operationId: log_blogpost_delete
+      tags:
+      - News Feed
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/log/log-blogpost-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                POST_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+              required:
+              - POST_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                POST_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+              required:
+              - POST_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - log
+  /log.blogpost.get:
+    post:
+      summary: Access Available User Messages from the News Feed log.blogpost.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.get` returns messages from the News Feed that are accessible to the current user.
+      operationId: log_blogpost_get
+      tags:
+      - News Feed
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/log/log-blogpost-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                POST_ID:
+                  type: integer
+                  description: '| Filter by message ID.'
+                LOG_RIGHTS:
+                  type: array
+                  items: {}
+                  description: '| Filter by recipients who have the right to view the message.'
+                start:
+                  type: integer
+                  description: '| This parameter is used for pagination control.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                POST_ID:
+                  type: integer
+                  description: '| Filter by message ID.'
+                LOG_RIGHTS:
+                  type: array
+                  items: {}
+                  description: '| Filter by recipients who have the right to view the message.'
+                start:
+                  type: integer
+                  description: '| This parameter is used for pagination control.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - log
+  /log.blogpost.getusers.important:
+    post:
+      summary: View Users Who Read an Important Message log.blogpost.getusers.important
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.getusers.important` returns an array of user IDs who have read an important message.
+      operationId: log_blogpost_getusers_important
+      tags:
+      - News Feed
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/log/log-blogpost-getusers-important.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                POST_ID:
+                  type: integer
+                  description: '| The identifier of the important message in the News Feed.'
+              required:
+              - POST_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                POST_ID:
+                  type: integer
+                  description: '| The identifier of the important message in the News Feed.'
+              required:
+              - POST_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - log
+  /log.blogpost.share:
+    post:
+      summary: Add Recipients to News Feed Message log.blogpost.share
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.share` adds new recipients to a news feed message.
+      operationId: log_blogpost_share
+      tags:
+      - News Feed
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/log/log-blogpost-share.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                POST_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+                DEST:
+                  type: array
+                  items: {}
+                  description: '| List of new recipients who will be granted access to view the message.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user on behalf of whom the message is edited. Available only to administrators.'
+              required:
+              - POST_ID
+              - DEST
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                POST_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+                DEST:
+                  type: array
+                  items: {}
+                  description: '| List of new recipients who will be granted access to view the message.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user on behalf of whom the message is edited. Available only to administrators.'
+              required:
+              - POST_ID
+              - DEST
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - log
+  /log.blogpost.update:
+    post:
+      summary: Update News Feed Message log.blogpost.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.update` updates a message in the News Feed.
+      operationId: log_blogpost_update
+      tags:
+      - News Feed
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/log/log-blogpost-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                POST_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+                POST_MESSAGE:
+                  type: string
+                  description: '| New text of the message. ||'
+                POST_TITLE:
+                  type: string
+                  description: '| New title of the message.'
+                DEST:
+                  type: array
+                  items: {}
+                  description: '| New list of recipients who will have the right to view the message.'
+                SPERM:
+                  type: array
+                  items: {}
+                  description: '| Deprecated equivalent of `DEST`. ||'
+                FILES:
+                  type: array
+                  items: {}
+                  description: '| Array of files in the format described in working with files.'
+                IMPORTANT:
+                  type: string
+                  description: '| Indicator of an important message.'
+                IMPORTANT_DATE_END:
+                  type: string
+                  description: '| Date and time in ISO 8601 format until which the message will be considered important. ||'
+                SITE_ID:
+                  type: string
+                  description: '| Identifier of the site. ||'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user on behalf of whom the message is edited. Available only to administrators.'
+                UF_BLOG_POST_FILE:
+                  type: array
+                  items: {}
+                  description: '| Alternative to `FILES`.'
+                UF_BLOG_POST_IMPRTNT:
+                  type: integer
+                  description: '| Indicator of an important message.'
+                UF_IMPRTANT_DATE_END:
+                  type: string
+                  format: date-time
+                  description: '| Expiration date of the important message.'
+                UF_BLOG_POST_URL_PRV:
+                  type: integer
+                  description: '| Preview link from the message text.'
+                UF_GRATITUDE:
+                  type: integer
+                  description: '| Data for the Gratitude functionality in the format:'
+                UF_BLOG_POST_VOTE:
+                  type: integer
+                  description: '| Survey data in the format:'
+              required:
+              - POST_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                POST_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+                POST_MESSAGE:
+                  type: string
+                  description: '| New text of the message. ||'
+                POST_TITLE:
+                  type: string
+                  description: '| New title of the message.'
+                DEST:
+                  type: array
+                  items: {}
+                  description: '| New list of recipients who will have the right to view the message.'
+                SPERM:
+                  type: array
+                  items: {}
+                  description: '| Deprecated equivalent of `DEST`. ||'
+                FILES:
+                  type: array
+                  items: {}
+                  description: '| Array of files in the format described in working with files.'
+                IMPORTANT:
+                  type: string
+                  description: '| Indicator of an important message.'
+                IMPORTANT_DATE_END:
+                  type: string
+                  description: '| Date and time in ISO 8601 format until which the message will be considered important. ||'
+                SITE_ID:
+                  type: string
+                  description: '| Identifier of the site. ||'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user on behalf of whom the message is edited. Available only to administrators.'
+                UF_BLOG_POST_FILE:
+                  type: array
+                  items: {}
+                  description: '| Alternative to `FILES`.'
+                UF_BLOG_POST_IMPRTNT:
+                  type: integer
+                  description: '| Indicator of an important message.'
+                UF_IMPRTANT_DATE_END:
+                  type: string
+                  format: date-time
+                  description: '| Expiration date of the important message.'
+                UF_BLOG_POST_URL_PRV:
+                  type: integer
+                  description: '| Preview link from the message text.'
+                UF_GRATITUDE:
+                  type: integer
+                  description: '| Data for the Gratitude functionality in the format:'
+                UF_BLOG_POST_VOTE:
+                  type: integer
+                  description: '| Survey data in the format:'
+              required:
+              - POST_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - log
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

@@ -1,0 +1,1792 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Business Processes API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Business Processes
+paths:
+  /bizproc.activity.add:
+    post:
+      summary: Add a New Action bizproc.activity.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a new action for use in workflows. The method works only in the context of an [application](../../../settings/app-installation/index.md). Each document generates its own set of field types. For example, in CRM, there is a field of type Address `UF:address`. To use this field type in your actions, specify the CRM document type in `DOCUMENT_TYPE` and describe the field properties in `PROPERTIES`.
+      operationId: bizproc_activity_add
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-activity/bizproc-activity-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Internal identifier of the action. It must be unique within the application.'
+                HANDLER:
+                  type: string
+                  description: '| URL to which the action will send data via the Bitrix24 queue server.'
+                AUTH_USER_ID:
+                  type: integer
+                  description: '| Identifier of the user whose token will be passed to the application ||'
+                USE_SUBSCRIPTION:
+                  type: boolean
+                  description: '| Should the action wait for a response from the application. Possible values:'
+                PROPERTIES:
+                  type: object
+                  description: '| Object with action parameters. Contains objects, each describing a parameter of the action.'
+                RETURN_PROPERTIES:
+                  type: object
+                  description: '| Object with additional results of the action. Contains objects, each describing a parameter of the action.'
+                DOCUMENT_TYPE:
+                  type: array
+                  items: {}
+                  description: '| Document type that will determine the data types for the `PROPERTIES` and `RETURN_PROPERTIES` parameters. Consists of three string-type elements:'
+                FILTER:
+                  type: object
+                  description: '| Object with rules to restrict the action by document type and edition.'
+                USE_PLACEMENT:
+                  type: boolean
+                  description: '| Allows opening additional settings for the action in the application slider. Possible values:'
+                PLACEMENT_HANDLER:
+                  type: string
+                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                Type:
+                  type: string
+                  description: '| Type of the parameter. Basic values:'
+                Options:
+                  type: array
+                  items: {}
+                  description: '| Array of values for the parameter of type list `''TYPE'': select''` like:'
+                Required:
+                  type: boolean
+                  description: '| Requirement of the parameter. Possible values:'
+                Multiple:
+                  type: boolean
+                  description: '| Multiplicity of the parameter. Possible values:'
+                Default:
+                  type: string
+                  description: '| Default value of the parameter ||'
+              required:
+              - CODE
+              - HANDLER
+              - PLACEMENT_HANDLER
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Internal identifier of the action. It must be unique within the application.'
+                HANDLER:
+                  type: string
+                  description: '| URL to which the action will send data via the Bitrix24 queue server.'
+                AUTH_USER_ID:
+                  type: integer
+                  description: '| Identifier of the user whose token will be passed to the application ||'
+                USE_SUBSCRIPTION:
+                  type: boolean
+                  description: '| Should the action wait for a response from the application. Possible values:'
+                PROPERTIES:
+                  type: object
+                  description: '| Object with action parameters. Contains objects, each describing a parameter of the action.'
+                RETURN_PROPERTIES:
+                  type: object
+                  description: '| Object with additional results of the action. Contains objects, each describing a parameter of the action.'
+                DOCUMENT_TYPE:
+                  type: array
+                  items: {}
+                  description: '| Document type that will determine the data types for the `PROPERTIES` and `RETURN_PROPERTIES` parameters. Consists of three string-type elements:'
+                FILTER:
+                  type: object
+                  description: '| Object with rules to restrict the action by document type and edition.'
+                USE_PLACEMENT:
+                  type: boolean
+                  description: '| Allows opening additional settings for the action in the application slider. Possible values:'
+                PLACEMENT_HANDLER:
+                  type: string
+                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                Type:
+                  type: string
+                  description: '| Type of the parameter. Basic values:'
+                Options:
+                  type: array
+                  items: {}
+                  description: '| Array of values for the parameter of type list `''TYPE'': select''` like:'
+                Required:
+                  type: boolean
+                  description: '| Requirement of the parameter. Possible values:'
+                Multiple:
+                  type: boolean
+                  description: '| Multiplicity of the parameter. Possible values:'
+                Default:
+                  type: string
+                  description: '| Default value of the parameter ||'
+              required:
+              - CODE
+              - HANDLER
+              - PLACEMENT_HANDLER
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.activity.delete:
+    post:
+      summary: Delete Action bizproc.activity.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes an action for workflows that was added by the application. It only works in the context of the [application](../../../settings/app-installation/index.md). When the application is deleted or updated, the associated actions are removed from the list of actions in the workflow designer. If the action is used in a workflow, it is blocked and can only be removed from the scheme. Upon reinstalling the application, the action becomes available again.
+      operationId: bizproc_activity_delete
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-activity/bizproc-activity-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Symbolic identifier of the application action ||'
+              required:
+              - CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Symbolic identifier of the application action ||'
+              required:
+              - CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.activity.list:
+    post:
+      summary: Get a List of Application Actions bizproc.activity.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method retrieves a list of actions set by the application. It only works in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: bizproc_activity_list
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-activity/bizproc-activity-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.activity.log:
+    post:
+      summary: Write Information to the Business Process Log bizproc.activity.log
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method logs information into the business process log. Event logging must be enabled in the business process template.
+      operationId: bizproc_activity_log
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-activity/bizproc-activity-log.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                EVENT_TOKEN:
+                  type: string
+                  description: '| A unique key required to send an event to the business process.'
+                LOG_MESSAGE:
+                  type: string
+                  description: '| Message to be logged ||'
+              required:
+              - EVENT_TOKEN
+              - LOG_MESSAGE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                EVENT_TOKEN:
+                  type: string
+                  description: '| A unique key required to send an event to the business process.'
+                LOG_MESSAGE:
+                  type: string
+                  description: '| Message to be logged ||'
+              required:
+              - EVENT_TOKEN
+              - LOG_MESSAGE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.activity.update:
+    post:
+      summary: Update Action bizproc.activity.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates a business process action added by the application. It works only in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: bizproc_activity_update
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-activity/bizproc-activity-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Internal identifier of the action ||'
+                FIELDS:
+                  type: object
+                  description: '| Object with fields of the business process action ||'
+                HANDLER:
+                  type: string
+                  description: '| URL to which the action will send data via the Bitrix24 queue server.'
+                AUTH_USER_ID:
+                  type: integer
+                  description: '| Identifier of the user whose token will be passed to the application ||'
+                USE_SUBSCRIPTION:
+                  type: boolean
+                  description: '| Should the action wait for a response from the application. Possible values:'
+                PROPERTIES:
+                  type: object
+                  description: '| Object with parameters of the action. Contains objects, each describing a parameter of the action.'
+                RETURN_PROPERTIES:
+                  type: object
+                  description: '| Object with additional results of the action. Contains objects, each describing a parameter of the action.'
+                DOCUMENT_TYPE:
+                  type: array
+                  items: {}
+                  description: '| Document type that will determine the data types for the `PROPERTIES` and `RETURN_PROPERTIES` parameters. Consists of three string-type elements:'
+                FILTER:
+                  type: object
+                  description: '| Object with rules for limiting the action by document type and edition.'
+                USE_PLACEMENT:
+                  type: boolean
+                  description: '| Allows opening additional settings for the action in the application slider. Possible values:'
+                PLACEMENT_HANDLER:
+                  type: string
+                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                Type:
+                  type: string
+                  description: '| Type of the parameter. Basic values:'
+                Options:
+                  type: array
+                  items: {}
+                  description: '| Array of values for the parameter of type list `''TYPE'': select''` like:'
+                Required:
+                  type: boolean
+                  description: '| Parameter requirement. Possible values:'
+                Multiple:
+                  type: boolean
+                  description: '| Parameter multiplicity. Possible values:'
+                Default:
+                  type: string
+                  description: '| Default value of the parameter ||'
+              required:
+              - CODE
+              - FIELDS
+              - HANDLER
+              - PLACEMENT_HANDLER
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Internal identifier of the action ||'
+                FIELDS:
+                  type: object
+                  description: '| Object with fields of the business process action ||'
+                HANDLER:
+                  type: string
+                  description: '| URL to which the action will send data via the Bitrix24 queue server.'
+                AUTH_USER_ID:
+                  type: integer
+                  description: '| Identifier of the user whose token will be passed to the application ||'
+                USE_SUBSCRIPTION:
+                  type: boolean
+                  description: '| Should the action wait for a response from the application. Possible values:'
+                PROPERTIES:
+                  type: object
+                  description: '| Object with parameters of the action. Contains objects, each describing a parameter of the action.'
+                RETURN_PROPERTIES:
+                  type: object
+                  description: '| Object with additional results of the action. Contains objects, each describing a parameter of the action.'
+                DOCUMENT_TYPE:
+                  type: array
+                  items: {}
+                  description: '| Document type that will determine the data types for the `PROPERTIES` and `RETURN_PROPERTIES` parameters. Consists of three string-type elements:'
+                FILTER:
+                  type: object
+                  description: '| Object with rules for limiting the action by document type and edition.'
+                USE_PLACEMENT:
+                  type: boolean
+                  description: '| Allows opening additional settings for the action in the application slider. Possible values:'
+                PLACEMENT_HANDLER:
+                  type: string
+                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                Type:
+                  type: string
+                  description: '| Type of the parameter. Basic values:'
+                Options:
+                  type: array
+                  items: {}
+                  description: '| Array of values for the parameter of type list `''TYPE'': select''` like:'
+                Required:
+                  type: boolean
+                  description: '| Parameter requirement. Possible values:'
+                Multiple:
+                  type: boolean
+                  description: '| Parameter multiplicity. Possible values:'
+                Default:
+                  type: string
+                  description: '| Default value of the parameter ||'
+              required:
+              - CODE
+              - FIELDS
+              - HANDLER
+              - PLACEMENT_HANDLER
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.event.send:
+    post:
+      summary: Return Parameters to Action or Automation Rule bizproc.event.send
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns the output parameters to the Automation rule or action that were specified during the registration or update of the Automation rule or action.
+      operationId: bizproc_event_send
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-robot/bizproc-event-send.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                EVENT_TOKEN:
+                  type: string
+                  description: '| A special token that is sent to the application handler when the action or Automation rule is executed. The value of this token is received by the handler in the input data array.'
+                RETURN_VALUES:
+                  type: object
+                  description: '| An array of returned values from the action or Automation rule. It specifies the values of properties that were registered as additional results `RETURN_PROPERTIES` by the methods:'
+                LOG_MESSAGE:
+                  type: string
+                  description: '| Text for the business process log.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                EVENT_TOKEN:
+                  type: string
+                  description: '| A special token that is sent to the application handler when the action or Automation rule is executed. The value of this token is received by the handler in the input data array.'
+                RETURN_VALUES:
+                  type: object
+                  description: '| An array of returned values from the action or Automation rule. It specifies the values of properties that were registered as additional results `RETURN_PROPERTIES` by the methods:'
+                LOG_MESSAGE:
+                  type: string
+                  description: '| Text for the business process log.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.robot.add:
+    post:
+      summary: Register a New Automation Rule bizproc.robot.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `bizproc.robot.add` registers a new Automation rule. It only works in the context of an [application](../../../settings/app-installation/index.md).
+      operationId: bizproc_robot_add
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-robot/bizproc-robot-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Internal identifier of the Automation rule. It must be unique within the application.'
+                HANDLER:
+                  type: string
+                  description: '| URL to which the Automation rule will send data via the Bitrix24 queue server.'
+                AUTH_USER_ID:
+                  type: integer
+                  description: '| Identifier of the user whose token will be passed to the application ||'
+                USE_SUBSCRIPTION:
+                  type: boolean
+                  description: '| Should the Automation rule wait for a response from the application? Possible values:'
+                PROPERTIES:
+                  type: object
+                  description: '| Object with parameters of the Automation rule. Contains objects, each describing a parameter of the Automation rule.'
+                RETURN_PROPERTIES:
+                  type: object
+                  description: '| Object with additional results of the Automation rule. Contains objects, each describing a parameter of the Automation rule.'
+                DOCUMENT_TYPE:
+                  type: array
+                  items: {}
+                  description: '| Document type that will determine the data types for the `PROPERTIES` and `RETURN_PROPERTIES` parameters. Consists of three string-type elements:'
+                FILTER:
+                  type: object
+                  description: '| Object with rules for restricting the Automation rule by document type and edition.'
+                USE_PLACEMENT:
+                  type: boolean
+                  description: '| Allows opening additional settings for the Automation rule in the application slider. Possible values:'
+                PLACEMENT_HANDLER:
+                  type: string
+                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                Type:
+                  type: string
+                  description: '| Type of the parameter. Basic values:'
+                Options:
+                  type: array
+                  items: {}
+                  description: '| Array of values for the parameter of type list `''TYPE'': select''` in the format:'
+                Required:
+                  type: boolean
+                  description: '| Parameter requirement. Possible values:'
+                Multiple:
+                  type: boolean
+                  description: '| Parameter multiplicity. Possible values:'
+                Default:
+                  type: string
+                  description: '| Default value of the parameter. For `Type = ''select''`, specify the key from `Options` ||'
+              required:
+              - CODE
+              - HANDLER
+              - PLACEMENT_HANDLER
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Internal identifier of the Automation rule. It must be unique within the application.'
+                HANDLER:
+                  type: string
+                  description: '| URL to which the Automation rule will send data via the Bitrix24 queue server.'
+                AUTH_USER_ID:
+                  type: integer
+                  description: '| Identifier of the user whose token will be passed to the application ||'
+                USE_SUBSCRIPTION:
+                  type: boolean
+                  description: '| Should the Automation rule wait for a response from the application? Possible values:'
+                PROPERTIES:
+                  type: object
+                  description: '| Object with parameters of the Automation rule. Contains objects, each describing a parameter of the Automation rule.'
+                RETURN_PROPERTIES:
+                  type: object
+                  description: '| Object with additional results of the Automation rule. Contains objects, each describing a parameter of the Automation rule.'
+                DOCUMENT_TYPE:
+                  type: array
+                  items: {}
+                  description: '| Document type that will determine the data types for the `PROPERTIES` and `RETURN_PROPERTIES` parameters. Consists of three string-type elements:'
+                FILTER:
+                  type: object
+                  description: '| Object with rules for restricting the Automation rule by document type and edition.'
+                USE_PLACEMENT:
+                  type: boolean
+                  description: '| Allows opening additional settings for the Automation rule in the application slider. Possible values:'
+                PLACEMENT_HANDLER:
+                  type: string
+                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                Type:
+                  type: string
+                  description: '| Type of the parameter. Basic values:'
+                Options:
+                  type: array
+                  items: {}
+                  description: '| Array of values for the parameter of type list `''TYPE'': select''` in the format:'
+                Required:
+                  type: boolean
+                  description: '| Parameter requirement. Possible values:'
+                Multiple:
+                  type: boolean
+                  description: '| Parameter multiplicity. Possible values:'
+                Default:
+                  type: string
+                  description: '| Default value of the parameter. For `Type = ''select''`, specify the key from `Options` ||'
+              required:
+              - CODE
+              - HANDLER
+              - PLACEMENT_HANDLER
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.robot.delete:
+    post:
+      summary: Delete Registered Robot bizproc.robot.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method removes a robot registered by the application. It only works in the context of the [application](../../../settings/app-installation/index.md). When the application is deleted or updated, the associated robots are removed from the list of robots. If the robot is in use, it is blocked and can only be removed from the workflow. Upon reinstalling the application, the robot becomes available again.
+      operationId: bizproc_robot_delete
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-robot/bizproc-robot-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Symbolic identifier of the application robot ||'
+              required:
+              - CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Symbolic identifier of the application robot ||'
+              required:
+              - CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.robot.list:
+    post:
+      summary: Get a list of registered application robots bizproc.robot.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method returns a list of robots registered by the application. It works only in the context of the [application](../../../settings/app-installation/index.md). No parameters.
+      operationId: bizproc_robot_list
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-robot/bizproc-robot-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: array
+                  items: {}
+                  description: '| List of application robot identifiers ||'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+                Code:
+                  type: string
+                  description: '| Error Message | Description ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: array
+                  items: {}
+                  description: '| List of application robot identifiers ||'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+                Code:
+                  type: string
+                  description: '| Error Message | Description ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.robot.update:
+    post:
+      summary: Update Fields of the Automation Rule bizproc.robot.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the fields of the Automation Rule registered by the application. It only works in the context of the [application](../../../settings/app-installation/index.md).
+      operationId: bizproc_robot_update
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-robot/bizproc-robot-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Internal identifier of the Automation Rule ||'
+                FIELDS:
+                  type: object
+                  description: '| Object with fields of the Automation Rule ||'
+                HANDLER:
+                  type: string
+                  description: '| URL to which the Automation Rule will send data via the Bitrix24 queue server.'
+                AUTH_USER_ID:
+                  type: integer
+                  description: '| Identifier of the user whose token will be passed to the application ||'
+                USE_SUBSCRIPTION:
+                  type: boolean
+                  description: '| Should the Automation Rule wait for a response from the application? Possible values:'
+                PROPERTIES:
+                  type: object
+                  description: '| Object with parameters of the Automation Rule. Contains objects, each describing a parameter of the Automation Rule.'
+                RETURN_PROPERTIES:
+                  type: object
+                  description: '| Object with additional results of the Automation Rule. Contains objects, each describing a parameter of the Automation Rule.'
+                DOCUMENT_TYPE:
+                  type: array
+                  items: {}
+                  description: '| Document type that will determine the data types for the `PROPERTIES` and `RETURN_PROPERTIES` parameters. Consists of three string-type elements:'
+                FILTER:
+                  type: object
+                  description: '| Object with rules for restricting the Automation Rule by document type and edition.'
+                USE_PLACEMENT:
+                  type: boolean
+                  description: '| Allows opening additional settings for the Automation Rule in the application slider. Possible values:'
+                PLACEMENT_HANDLER:
+                  type: string
+                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                Type:
+                  type: string
+                  description: '| Type of the parameter. Basic values:'
+                Options:
+                  type: array
+                  items: {}
+                  description: '| Array of values for the parameter of type list `''TYPE'': select''` like:'
+                Required:
+                  type: boolean
+                  description: '| Requirement of the parameter. Possible values:'
+                Multiple:
+                  type: boolean
+                  description: '| Multiplicity of the parameter. Possible values:'
+                Default:
+                  type: string
+                  description: '| Default value of the parameter ||'
+              required:
+              - CODE
+              - FIELDS
+              - HANDLER
+              - PLACEMENT_HANDLER
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Internal identifier of the Automation Rule ||'
+                FIELDS:
+                  type: object
+                  description: '| Object with fields of the Automation Rule ||'
+                HANDLER:
+                  type: string
+                  description: '| URL to which the Automation Rule will send data via the Bitrix24 queue server.'
+                AUTH_USER_ID:
+                  type: integer
+                  description: '| Identifier of the user whose token will be passed to the application ||'
+                USE_SUBSCRIPTION:
+                  type: boolean
+                  description: '| Should the Automation Rule wait for a response from the application? Possible values:'
+                PROPERTIES:
+                  type: object
+                  description: '| Object with parameters of the Automation Rule. Contains objects, each describing a parameter of the Automation Rule.'
+                RETURN_PROPERTIES:
+                  type: object
+                  description: '| Object with additional results of the Automation Rule. Contains objects, each describing a parameter of the Automation Rule.'
+                DOCUMENT_TYPE:
+                  type: array
+                  items: {}
+                  description: '| Document type that will determine the data types for the `PROPERTIES` and `RETURN_PROPERTIES` parameters. Consists of three string-type elements:'
+                FILTER:
+                  type: object
+                  description: '| Object with rules for restricting the Automation Rule by document type and edition.'
+                USE_PLACEMENT:
+                  type: boolean
+                  description: '| Allows opening additional settings for the Automation Rule in the application slider. Possible values:'
+                PLACEMENT_HANDLER:
+                  type: string
+                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                Type:
+                  type: string
+                  description: '| Type of the parameter. Basic values:'
+                Options:
+                  type: array
+                  items: {}
+                  description: '| Array of values for the parameter of type list `''TYPE'': select''` like:'
+                Required:
+                  type: boolean
+                  description: '| Requirement of the parameter. Possible values:'
+                Multiple:
+                  type: boolean
+                  description: '| Multiplicity of the parameter. Possible values:'
+                Default:
+                  type: string
+                  description: '| Default value of the parameter ||'
+              required:
+              - CODE
+              - FIELDS
+              - HANDLER
+              - PLACEMENT_HANDLER
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.task.complete:
+    post:
+      summary: Complete a business process task bizproc.task.complete
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method completes a business process task: - Document approval - Document acknowledgment'
+      operationId: bizproc_task_complete
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-task/bizproc-task-complete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                TASK_ID:
+                  type: integer
+                  description: '| Task identifier.'
+                COMMENT:
+                  type: string
+                  description: '| User comment.'
+                FIELDS:
+                  type: object
+                  description: '| An object describing fields for completing tasks with a request for additional information in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+              required:
+              - TASK_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                TASK_ID:
+                  type: integer
+                  description: '| Task identifier.'
+                COMMENT:
+                  type: string
+                  description: '| User comment.'
+                FIELDS:
+                  type: object
+                  description: '| An object describing fields for completing tasks with a request for additional information in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+              required:
+              - TASK_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.task.delegate:
+    post:
+      summary: Delegate a workflow task bizproc.task.delegate
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method delegates a workflow task. You can only delegate your own task. - [Actions: Tasks](https://helpdesk.bitrix24.com/open/11466058/)'
+      operationId: bizproc_task_delegate
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-task/bizproc-task-delegate.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                TASK_IDS:
+                  type: array
+                  items: {}
+                  description: '| List of task identifiers.'
+                FROM_USER_ID:
+                  type: integer
+                  description: '| Identifier of the user from whom the tasks will be delegated.'
+                TO_USER_ID:
+                  type: integer
+                  description: '| Identifier of the user to whom the tasks will be delegated.'
+              required:
+              - TASK_IDS
+              - FROM_USER_ID
+              - TO_USER_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                TASK_IDS:
+                  type: array
+                  items: {}
+                  description: '| List of task identifiers.'
+                FROM_USER_ID:
+                  type: integer
+                  description: '| Identifier of the user from whom the tasks will be delegated.'
+                TO_USER_ID:
+                  type: integer
+                  description: '| Identifier of the user to whom the tasks will be delegated.'
+              required:
+              - TASK_IDS
+              - FROM_USER_ID
+              - TO_USER_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.task.list:
+    post:
+      summary: Get a List of Workflow Tasks bizproc.task.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. The method `bizproc.task.list` retrieves a list of workflow tasks. A portal administrator can request all tasks or tasks of any user. A regular user can only request their own tasks or those of their subordinates. To request their own tasks, the `USER_ID` filter does not need to be specified.
+      operationId: bizproc_task_list
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-task/bizproc-task-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SELECT:
+                  type: array
+                  items: {}
+                  description: '| An array containing a list of fields to select.'
+                FILTER:
+                  type: object
+                  description: '| An object for filtering the list of tasks in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                ORDER:
+                  type: object
+                  description: '| An object for sorting the list of tasks in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                START:
+                  type: integer
+                  description: '| This parameter is used for managing pagination.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SELECT:
+                  type: array
+                  items: {}
+                  description: '| An array containing a list of fields to select.'
+                FILTER:
+                  type: object
+                  description: '| An object for filtering the list of tasks in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                ORDER:
+                  type: object
+                  description: '| An object for sorting the list of tasks in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                START:
+                  type: integer
+                  description: '| This parameter is used for managing pagination.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.workflow.instances:
+    post:
+      summary: Get a list of running workflows bizproc.workflow.instances
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves a list of running workflows. There is an old method `bizproc.workflow.instance.list` — an alias for the method `bizproc.workflow.instances`. It accepts the same parameters and returns the same results. Support for `bizproc.workflow.instance.list` is not guaranteed in the future, so we recommend using `bizproc.workflow.instances`.
+      operationId: bizproc_workflow_instances
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-workflow-instances.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SELECT:
+                  type: array
+                  items: {}
+                  description: '| An array containing the list of fields to select.'
+                FILTER:
+                  type: object
+                  description: '| An object for filtering the list of running workflows in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                ORDER:
+                  type: object
+                  description: '| An object for sorting the list of running workflows in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                start:
+                  type: integer
+                  description: '| This parameter is used for managing pagination.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SELECT:
+                  type: array
+                  items: {}
+                  description: '| An array containing the list of fields to select.'
+                FILTER:
+                  type: object
+                  description: '| An object for filtering the list of running workflows in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                ORDER:
+                  type: object
+                  description: '| An object for sorting the list of running workflows in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                start:
+                  type: integer
+                  description: '| This parameter is used for managing pagination.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.workflow.kill:
+    post:
+      summary: Delete Running Process bizproc.workflow.kill
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes the running workflow along with all process data.
+      operationId: bizproc_workflow_kill
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-workflow-kill.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the workflow ||'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the workflow ||'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.workflow.start:
+    post:
+      summary: Start Business Process bizproc.workflow.start
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `bizproc.workflow.start` initiates a new business process. You can only start a business process using REST on paid plans, demo licenses, and NFR licenses.
+      operationId: bizproc_workflow_start
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-workflow-start.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                TEMPLATE_ID:
+                  type: integer
+                  description: '| Identifier of the business process template ||'
+                DOCUMENT_ID:
+                  type: array
+                  items: {}
+                  description: '| Identifier of the document to start the business process in the format [`module`, `object`, `ELEMENT_ID`].'
+                PARAMETERS:
+                  type: object
+                  description: '| Values for the parameters of the business process template.'
+              required:
+              - TEMPLATE_ID
+              - DOCUMENT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                TEMPLATE_ID:
+                  type: integer
+                  description: '| Identifier of the business process template ||'
+                DOCUMENT_ID:
+                  type: array
+                  items: {}
+                  description: '| Identifier of the document to start the business process in the format [`module`, `object`, `ELEMENT_ID`].'
+                PARAMETERS:
+                  type: object
+                  description: '| Values for the parameters of the business process template.'
+              required:
+              - TEMPLATE_ID
+              - DOCUMENT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.workflow.template.add:
+    post:
+      summary: Add Business Process Template bizproc.workflow.template.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a business process template from a file. The business process template must be pre-configured. Export the completed template [to a file](https://helpdesk.bitrix24.com/open/8605753/) with the `.bpt` extension. The resulting file can be added as a template to the desired Bitrix24. The method works only in the context of an [application](../../../settings/app-installation/index.md). The system binds the new template to the application.
+      operationId: bizproc_workflow_template_add
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/template/bizproc-workflow-template-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DOCUMENT_TYPE:
+                  type: array
+                  items: {}
+                  description: '| Document type. Consists of three string-type elements. They define to which type of objects the new business process template should be attached.'
+                NAME:
+                  type: string
+                  description: '| Template name ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Template description ||'
+                TEMPLATE_DATA:
+                  type: string
+                  description: '| Content of the business process template file in `.bpt` format.'
+                AUTO_EXECUTE:
+                  type: integer
+                  description: '| Auto-execution settings for the template. Can have the value:'
+              required:
+              - DOCUMENT_TYPE
+              - NAME
+              - TEMPLATE_DATA
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DOCUMENT_TYPE:
+                  type: array
+                  items: {}
+                  description: '| Document type. Consists of three string-type elements. They define to which type of objects the new business process template should be attached.'
+                NAME:
+                  type: string
+                  description: '| Template name ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Template description ||'
+                TEMPLATE_DATA:
+                  type: string
+                  description: '| Content of the business process template file in `.bpt` format.'
+                AUTO_EXECUTE:
+                  type: integer
+                  description: '| Auto-execution settings for the template. Can have the value:'
+              required:
+              - DOCUMENT_TYPE
+              - NAME
+              - TEMPLATE_DATA
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.workflow.template.delete:
+    post:
+      summary: Delete Business Process Template bizproc.workflow.template.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a business process template. It allows you to remove templates that were created using the method [bizproc.workflow.template.add](./bizproc-workflow-template-add.md). These templates are tied to the application and can only be deleted in the context of the same [application](../../../settings/app-installation/index.md) in which they were created.
+      operationId: bizproc_workflow_template_delete
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/template/bizproc-workflow-template-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the business process template ||'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the business process template ||'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.workflow.template.list:
+    post:
+      summary: Get the list of templates bizproc.workflow.template.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves a list of business process templates.
+      operationId: bizproc_workflow_template_list
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/template/bizproc-workflow-template-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SELECT:
+                  type: array
+                  items: {}
+                  description: '| The array contains a list of fields to select.'
+                FILTER:
+                  type: object
+                  description: '| An object for filtering the list of business process templates in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                ORDER:
+                  type: object
+                  description: '| An object for sorting the list of launched business processes in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                start:
+                  type: integer
+                  description: '| This parameter is used for managing pagination.'
+                ID:
+                  type: integer
+                  description: '| Identifier of the business process template ||'
+                MODULE_ID:
+                  type: string
+                  description: '| Identifier of the module by document. Possible values:'
+                ENTITY:
+                  type: string
+                  description: '| Identifier of the object by document. Possible values:'
+                DOCUMENT_TYPE:
+                  type: integer
+                  description: '| Document type. Possible values:'
+                AUTO_EXECUTE:
+                  type: integer
+                  description: '| Auto-execute flag. Can take values:'
+                NAME:
+                  type: string
+                  description: '| Template name ||'
+                TEMPLATE:
+                  type: array
+                  items: {}
+                  description: '| Array with the description of the template''s action structure ||'
+                PARAMETERS:
+                  type: array
+                  items: {}
+                  description: '| Template parameters ||'
+                VARIABLES:
+                  type: array
+                  items: {}
+                  description: '| Template variables ||'
+                CONSTANTS:
+                  type: array
+                  items: {}
+                  description: '| Template constants ||'
+                MODIFIED:
+                  type: string
+                  format: date-time
+                  description: '| Date of last modification ||'
+                IS_MODIFIED:
+                  type: boolean
+                  description: '| Whether the template has been modified. Possible values:'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user who created or modified the template ||'
+                SYSTEM_CODE:
+                  type: string
+                  description: '| System code of the template.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SELECT:
+                  type: array
+                  items: {}
+                  description: '| The array contains a list of fields to select.'
+                FILTER:
+                  type: object
+                  description: '| An object for filtering the list of business process templates in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                ORDER:
+                  type: object
+                  description: '| An object for sorting the list of launched business processes in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                start:
+                  type: integer
+                  description: '| This parameter is used for managing pagination.'
+                ID:
+                  type: integer
+                  description: '| Identifier of the business process template ||'
+                MODULE_ID:
+                  type: string
+                  description: '| Identifier of the module by document. Possible values:'
+                ENTITY:
+                  type: string
+                  description: '| Identifier of the object by document. Possible values:'
+                DOCUMENT_TYPE:
+                  type: integer
+                  description: '| Document type. Possible values:'
+                AUTO_EXECUTE:
+                  type: integer
+                  description: '| Auto-execute flag. Can take values:'
+                NAME:
+                  type: string
+                  description: '| Template name ||'
+                TEMPLATE:
+                  type: array
+                  items: {}
+                  description: '| Array with the description of the template''s action structure ||'
+                PARAMETERS:
+                  type: array
+                  items: {}
+                  description: '| Template parameters ||'
+                VARIABLES:
+                  type: array
+                  items: {}
+                  description: '| Template variables ||'
+                CONSTANTS:
+                  type: array
+                  items: {}
+                  description: '| Template constants ||'
+                MODIFIED:
+                  type: string
+                  format: date-time
+                  description: '| Date of last modification ||'
+                IS_MODIFIED:
+                  type: boolean
+                  description: '| Whether the template has been modified. Possible values:'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user who created or modified the template ||'
+                SYSTEM_CODE:
+                  type: string
+                  description: '| System code of the template.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.workflow.template.update:
+    post:
+      summary: Update Business Process Template bizproc.workflow.template.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates a business process template. It allows you to update templates that were created using the [bizproc.workflow.template.add](./bizproc-workflow-template-add.md) method. These templates are tied to the application and can only be updated in the context of the same [application](../../../settings/app-installation/index.md) that created them.
+      operationId: bizproc_workflow_template_update
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/template/bizproc-workflow-template-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the template to be updated ||'
+                FIELDS:
+                  type: object
+                  description: '| Object with fields of the business process template.'
+                NAME:
+                  type: string
+                  description: '| Name of the template ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the template ||'
+                TEMPLATE_DATA:
+                  type: string
+                  description: '| Content of the file with the business process template in `.bpt` format.'
+                AUTO_EXECUTE:
+                  type: integer
+                  description: '| Auto-execution settings for the template. Can have the following values:'
+              required:
+              - ID
+              - FIELDS
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the template to be updated ||'
+                FIELDS:
+                  type: object
+                  description: '| Object with fields of the business process template.'
+                NAME:
+                  type: string
+                  description: '| Name of the template ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the template ||'
+                TEMPLATE_DATA:
+                  type: string
+                  description: '| Content of the file with the business process template in `.bpt` format.'
+                AUTO_EXECUTE:
+                  type: integer
+                  description: '| Auto-execution settings for the template. Can have the following values:'
+              required:
+              - ID
+              - FIELDS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+  /bizproc.workflow.terminate:
+    post:
+      summary: Stop Active Workflow bizproc.workflow.terminate
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method stops the specified workflow. All data related to the workflow will be preserved.
+      operationId: bizproc_workflow_terminate
+      tags:
+      - Business Processes
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-workflow-terminate.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the workflow to be stopped.'
+                STATUS:
+                  type: string
+                  description: '| Set the status text. ||'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the workflow to be stopped.'
+                STATUS:
+                  type: string
+                  description: '| Set the status text. ||'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - bizproc
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

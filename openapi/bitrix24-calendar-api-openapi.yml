@@ -1,0 +1,2278 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Calendar API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Calendar
+paths:
+  /calendar.accessibility.get:
+    post:
+      summary: Get User Availability from calendar.accessibility.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves the availability of users from the list.
+      operationId: calendar_accessibility_get
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-event/calendar-accessibility-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                users:
+                  type: array
+                  items: {}
+                  description: '| Array of user IDs ||'
+                from:
+                  type: string
+                  format: date
+                  description: '| Start date of the period for determining availability in the format `YYYY-MM-DD`.'
+                to:
+                  type: string
+                  format: date
+                  description: '| End date of the period for determining availability in the format `YYYY-MM-DD`.'
+              required:
+              - users
+              - from
+              - to
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                users:
+                  type: array
+                  items: {}
+                  description: '| Array of user IDs ||'
+                from:
+                  type: string
+                  format: date
+                  description: '| Start date of the period for determining availability in the format `YYYY-MM-DD`.'
+                to:
+                  type: string
+                  format: date
+                  description: '| End date of the period for determining availability in the format `YYYY-MM-DD`.'
+              required:
+              - users
+              - from
+              - to
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.event.add:
+    post:
+      summary: Add Event calendar.event.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a new event to the calendar.
+      operationId: calendar_event_add
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-event/calendar-event-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner.'
+                from_ts:
+                  type: integer
+                  description: '| Date and time in timestamp format. Can be used instead of the `from` parameter ||'
+                to_ts:
+                  type: integer
+                  description: '| Date and time in timestamp format. Can be used instead of the `to` parameter ||'
+                section:
+                  type: integer
+                  description: '| Calendar identifier.'
+                auto_detect_section:
+                  type: string
+                  description: '| Auto-detection mode for the section.'
+                name:
+                  type: string
+                  description: '| Event name ||'
+                skip_time:
+                  type: string
+                  description: '| Pass the date value without time in the `from` and `to` parameters. Possible values:'
+                timezone_from:
+                  type: string
+                  description: '| Timezone of the event start date and time. Default is the current user''s timezone.'
+                timezone_to:
+                  type: string
+                  description: '| Timezone of the event end date and time. Default value is the current user''s timezone.'
+                description:
+                  type: string
+                  description: '| Event description ||'
+                color:
+                  type: string
+                  description: '| Background color of the event.'
+                text_color:
+                  type: string
+                  description: '| Text color of the event.'
+                accessibility:
+                  type: string
+                  description: '| Availability during the event time:'
+                importance:
+                  type: string
+                  description: '| Event importance:'
+                private_event:
+                  type: string
+                  description: '| Mark indicating that the event is private. Possible values:'
+                rrule:
+                  type: object
+                  description: '| Recurrence of the event in the form of an object according to the iCalendar standard. The structure is described below'
+                is_meeting:
+                  type: string
+                  description: '| Indicator of a meeting with event participants. Possible values:'
+                location:
+                  type: string
+                  description: '| Venue ||'
+                remind:
+                  type: array
+                  items: {}
+                  description: '| Array of objects describing reminders for the event. The structure is described below ||'
+                attendees:
+                  type: array
+                  items: {}
+                  description: '| List of identifiers of event participants. This field is mandatory if `is_meeting` = `Y` ||'
+                host:
+                  type: integer
+                  description: '| Identifier of the event organizer. This field is mandatory if `is_meeting` = `Y` ||'
+                meeting:
+                  type: object
+                  description: '| Object with meeting parameters. The structure is described below ||'
+                crm_fields:
+                  type: array
+                  items: {}
+                  description: '| Array of CRM object identifiers to link to the event. To link objects, list their identifiers with prefixes:'
+                FREQ:
+                  type: string
+                  description: '| Recurrence frequency'
+                COUNT:
+                  type: integer
+                  description: '| Number of recurrences ||'
+                INTERVAL:
+                  type: integer
+                  description: '| Interval between recurrences ||'
+                UNTIL:
+                  type: string
+                  format: date
+                  description: '| End date of recurrences ||'
+                count:
+                  type: integer
+                  description: '| Numerical value of the time interval ||'
+                notify:
+                  type: boolean
+                  description: '| Flag for notification of confirmation or refusal by participants ||'
+                reinvite:
+                  type: boolean
+                  description: '| Flag for requesting re-confirmation of participation when editing the event ||'
+                allow_invite:
+                  type: boolean
+                  description: '| Flag for allowing participants to invite others to the event ||'
+                hide_guests:
+                  type: boolean
+                  description: '| Flag for hiding the list of participants ||'
+              required:
+              - type
+              - ownerId
+              - section
+              - name
+              - attendees
+              - host
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner.'
+                from_ts:
+                  type: integer
+                  description: '| Date and time in timestamp format. Can be used instead of the `from` parameter ||'
+                to_ts:
+                  type: integer
+                  description: '| Date and time in timestamp format. Can be used instead of the `to` parameter ||'
+                section:
+                  type: integer
+                  description: '| Calendar identifier.'
+                auto_detect_section:
+                  type: string
+                  description: '| Auto-detection mode for the section.'
+                name:
+                  type: string
+                  description: '| Event name ||'
+                skip_time:
+                  type: string
+                  description: '| Pass the date value without time in the `from` and `to` parameters. Possible values:'
+                timezone_from:
+                  type: string
+                  description: '| Timezone of the event start date and time. Default is the current user''s timezone.'
+                timezone_to:
+                  type: string
+                  description: '| Timezone of the event end date and time. Default value is the current user''s timezone.'
+                description:
+                  type: string
+                  description: '| Event description ||'
+                color:
+                  type: string
+                  description: '| Background color of the event.'
+                text_color:
+                  type: string
+                  description: '| Text color of the event.'
+                accessibility:
+                  type: string
+                  description: '| Availability during the event time:'
+                importance:
+                  type: string
+                  description: '| Event importance:'
+                private_event:
+                  type: string
+                  description: '| Mark indicating that the event is private. Possible values:'
+                rrule:
+                  type: object
+                  description: '| Recurrence of the event in the form of an object according to the iCalendar standard. The structure is described below'
+                is_meeting:
+                  type: string
+                  description: '| Indicator of a meeting with event participants. Possible values:'
+                location:
+                  type: string
+                  description: '| Venue ||'
+                remind:
+                  type: array
+                  items: {}
+                  description: '| Array of objects describing reminders for the event. The structure is described below ||'
+                attendees:
+                  type: array
+                  items: {}
+                  description: '| List of identifiers of event participants. This field is mandatory if `is_meeting` = `Y` ||'
+                host:
+                  type: integer
+                  description: '| Identifier of the event organizer. This field is mandatory if `is_meeting` = `Y` ||'
+                meeting:
+                  type: object
+                  description: '| Object with meeting parameters. The structure is described below ||'
+                crm_fields:
+                  type: array
+                  items: {}
+                  description: '| Array of CRM object identifiers to link to the event. To link objects, list their identifiers with prefixes:'
+                FREQ:
+                  type: string
+                  description: '| Recurrence frequency'
+                COUNT:
+                  type: integer
+                  description: '| Number of recurrences ||'
+                INTERVAL:
+                  type: integer
+                  description: '| Interval between recurrences ||'
+                UNTIL:
+                  type: string
+                  format: date
+                  description: '| End date of recurrences ||'
+                count:
+                  type: integer
+                  description: '| Numerical value of the time interval ||'
+                notify:
+                  type: boolean
+                  description: '| Flag for notification of confirmation or refusal by participants ||'
+                reinvite:
+                  type: boolean
+                  description: '| Flag for requesting re-confirmation of participation when editing the event ||'
+                allow_invite:
+                  type: boolean
+                  description: '| Flag for allowing participants to invite others to the event ||'
+                hide_guests:
+                  type: boolean
+                  description: '| Flag for hiding the list of participants ||'
+              required:
+              - type
+              - ownerId
+              - section
+              - name
+              - attendees
+              - host
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.event.delete:
+    post:
+      summary: Delete Event calendar.event.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes an event.
+      operationId: calendar_event_delete
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-event/calendar-event-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the event.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the event.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.event.get:
+    post:
+      summary: Get Calendar Events List calendar.event.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves a list of calendar events.
+      operationId: calendar_event_get
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-event/calendar-event-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner.'
+                from:
+                  type: string
+                  format: date
+                  description: '| Start date for the selection.'
+                to:
+                  type: string
+                  format: date
+                  description: '| End date for the selection.'
+                section:
+                  type: array
+                  items: {}
+                  description: '| Array of calendar identifiers ||'
+              required:
+              - type
+              - ownerId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner.'
+                from:
+                  type: string
+                  format: date
+                  description: '| Start date for the selection.'
+                to:
+                  type: string
+                  format: date
+                  description: '| End date for the selection.'
+                section:
+                  type: array
+                  items: {}
+                  description: '| Array of calendar identifiers ||'
+              required:
+              - type
+              - ownerId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.event.get.nearest:
+    post:
+      summary: Get a list of upcoming events calendar.event.get.nearest
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves a list of upcoming events.
+      operationId: calendar_event_get_nearest
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-event/calendar-event-get-nearest.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner.'
+                days:
+                  type: integer
+                  description: '| Number of days to retrieve. Default is `60` ||'
+                forCurrentUser:
+                  type: boolean
+                  description: '| Output the list of events for the current user. Default is `true` ||'
+                maxEventsCount:
+                  type: integer
+                  description: '| Maximum number of events to display ||'
+                detailUrl:
+                  type: string
+                  description: '| URL link to the calendar ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner.'
+                days:
+                  type: integer
+                  description: '| Number of days to retrieve. Default is `60` ||'
+                forCurrentUser:
+                  type: boolean
+                  description: '| Output the list of events for the current user. Default is `true` ||'
+                maxEventsCount:
+                  type: integer
+                  description: '| Maximum number of events to display ||'
+                detailUrl:
+                  type: string
+                  description: '| URL link to the calendar ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.event.getbyid:
+    post:
+      summary: Get Event by ID calendar.event.getbyid
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves information about a calendar event by its identifier.
+      operationId: calendar_event_getbyid
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-event/calendar-event-get-by-id.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the event.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the event.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.event.update:
+    post:
+      summary: Update Event calendar.event.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates an existing event.
+      operationId: calendar_event_update
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-event/calendar-event-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Event identifier.'
+                type:
+                  type: string
+                  description: '| Calendar type:'
+                ownerId:
+                  type: integer
+                  description: '| Calendar owner identifier.'
+                from_ts:
+                  type: integer
+                  description: '| Date and time in timestamp format. Can be used instead of the `from` parameter. ||'
+                to_ts:
+                  type: integer
+                  description: '| Date and time in timestamp format. Can be used instead of the `to` parameter. ||'
+                section:
+                  type: integer
+                  description: '| Calendar identifier. ||'
+                name:
+                  type: string
+                  description: '| Event name. ||'
+                skip_time:
+                  type: string
+                  description: '| Pass the date value without time in the `from` and `to` parameters. Possible values:'
+                timezone_from:
+                  type: string
+                  description: '| Timezone of the start date and time of the event. Default is the current user''s timezone.'
+                timezone_to:
+                  type: string
+                  description: '| Timezone of the end date and time of the event. Default value is the current user''s timezone.'
+                description:
+                  type: string
+                  description: '| Event description. ||'
+                color:
+                  type: string
+                  description: '| Background color of the event.'
+                text_color:
+                  type: string
+                  description: '| Text color of the event.'
+                accessibility:
+                  type: string
+                  description: '| Availability during the event time:'
+                importance:
+                  type: string
+                  description: '| Event importance:'
+                private_event:
+                  type: string
+                  description: '| Mark indicating that the event is private. Possible values:'
+                recurrence_mode:
+                  type: string
+                  description: '| Parameter for partial editing of a recurring event. Possible values:'
+                current_date_from:
+                  type: string
+                  format: date
+                  description: '| Date of the current event for partial editing of a recurring event.'
+                rrule:
+                  type: object
+                  description: '| Recurrence of the event in the form of an object according to the iCalendar standard. The structure is described below. ||'
+                is_meeting:
+                  type: string
+                  description: '| Indicator of a meeting with event participants. Possible values:'
+                location:
+                  type: string
+                  description: '| Location. ||'
+                remind:
+                  type: array
+                  items: {}
+                  description: '| Array of objects describing reminders for the event. The structure is described below. ||'
+                attendees:
+                  type: array
+                  items: {}
+                  description: '| List of participant identifiers for the event. This field is required if `is_meeting` = `Y`. ||'
+                host:
+                  type: string
+                  description: '| Identifier of the event organizer. This field is required if `is_meeting` = `Y`. ||'
+                meeting:
+                  type: object
+                  description: '| Object with meeting parameters. The structure is described below. ||'
+                crm_fields:
+                  type: array
+                  items: {}
+                  description: '| Array of CRM object identifiers to link to the event. To link objects, list their identifiers with prefixes:'
+                FREQ:
+                  type: string
+                  description: '| Recurrence frequency'
+                COUNT:
+                  type: integer
+                  description: '| Number of recurrences. ||'
+                INTERVAL:
+                  type: integer
+                  description: '| Interval between recurrences. ||'
+                UNTIL:
+                  type: string
+                  format: date
+                  description: '| End date of recurrences. ||'
+                count:
+                  type: integer
+                  description: '| Numerical value of the time interval. ||'
+                notify:
+                  type: boolean
+                  description: '| Flag for notification of confirmation or refusal from participants. ||'
+                reinvite:
+                  type: boolean
+                  description: '| Flag for requesting re-confirmation of participation when editing the event. ||'
+                allow_invite:
+                  type: boolean
+                  description: '| Flag allowing participants to invite others to the event. ||'
+                hide_guests:
+                  type: boolean
+                  description: '| Flag for hiding the list of participants. ||'
+              required:
+              - id
+              - type
+              - ownerId
+              - name
+              - attendees
+              - host
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Event identifier.'
+                type:
+                  type: string
+                  description: '| Calendar type:'
+                ownerId:
+                  type: integer
+                  description: '| Calendar owner identifier.'
+                from_ts:
+                  type: integer
+                  description: '| Date and time in timestamp format. Can be used instead of the `from` parameter. ||'
+                to_ts:
+                  type: integer
+                  description: '| Date and time in timestamp format. Can be used instead of the `to` parameter. ||'
+                section:
+                  type: integer
+                  description: '| Calendar identifier. ||'
+                name:
+                  type: string
+                  description: '| Event name. ||'
+                skip_time:
+                  type: string
+                  description: '| Pass the date value without time in the `from` and `to` parameters. Possible values:'
+                timezone_from:
+                  type: string
+                  description: '| Timezone of the start date and time of the event. Default is the current user''s timezone.'
+                timezone_to:
+                  type: string
+                  description: '| Timezone of the end date and time of the event. Default value is the current user''s timezone.'
+                description:
+                  type: string
+                  description: '| Event description. ||'
+                color:
+                  type: string
+                  description: '| Background color of the event.'
+                text_color:
+                  type: string
+                  description: '| Text color of the event.'
+                accessibility:
+                  type: string
+                  description: '| Availability during the event time:'
+                importance:
+                  type: string
+                  description: '| Event importance:'
+                private_event:
+                  type: string
+                  description: '| Mark indicating that the event is private. Possible values:'
+                recurrence_mode:
+                  type: string
+                  description: '| Parameter for partial editing of a recurring event. Possible values:'
+                current_date_from:
+                  type: string
+                  format: date
+                  description: '| Date of the current event for partial editing of a recurring event.'
+                rrule:
+                  type: object
+                  description: '| Recurrence of the event in the form of an object according to the iCalendar standard. The structure is described below. ||'
+                is_meeting:
+                  type: string
+                  description: '| Indicator of a meeting with event participants. Possible values:'
+                location:
+                  type: string
+                  description: '| Location. ||'
+                remind:
+                  type: array
+                  items: {}
+                  description: '| Array of objects describing reminders for the event. The structure is described below. ||'
+                attendees:
+                  type: array
+                  items: {}
+                  description: '| List of participant identifiers for the event. This field is required if `is_meeting` = `Y`. ||'
+                host:
+                  type: string
+                  description: '| Identifier of the event organizer. This field is required if `is_meeting` = `Y`. ||'
+                meeting:
+                  type: object
+                  description: '| Object with meeting parameters. The structure is described below. ||'
+                crm_fields:
+                  type: array
+                  items: {}
+                  description: '| Array of CRM object identifiers to link to the event. To link objects, list their identifiers with prefixes:'
+                FREQ:
+                  type: string
+                  description: '| Recurrence frequency'
+                COUNT:
+                  type: integer
+                  description: '| Number of recurrences. ||'
+                INTERVAL:
+                  type: integer
+                  description: '| Interval between recurrences. ||'
+                UNTIL:
+                  type: string
+                  format: date
+                  description: '| End date of recurrences. ||'
+                count:
+                  type: integer
+                  description: '| Numerical value of the time interval. ||'
+                notify:
+                  type: boolean
+                  description: '| Flag for notification of confirmation or refusal from participants. ||'
+                reinvite:
+                  type: boolean
+                  description: '| Flag for requesting re-confirmation of participation when editing the event. ||'
+                allow_invite:
+                  type: boolean
+                  description: '| Flag allowing participants to invite others to the event. ||'
+                hide_guests:
+                  type: boolean
+                  description: '| Flag for hiding the list of participants. ||'
+              required:
+              - id
+              - type
+              - ownerId
+              - name
+              - attendees
+              - host
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.meeting.status.get:
+    post:
+      summary: Get the participation status of the current user in the event calendar.meeting.status.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves the participation status of the current user in the event.
+      operationId: calendar_meeting_status_get
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-event/calendar-meeting-status-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                eventId:
+                  type: integer
+                  description: '| Event identifier.'
+              required:
+              - eventId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                eventId:
+                  type: integer
+                  description: '| Event identifier.'
+              required:
+              - eventId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.meeting.status.set:
+    post:
+      summary: Set Participation Status in Event for Current User calendar.meeting.status.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method sets the participation status in an event for the current user.
+      operationId: calendar_meeting_status_set
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-event/calendar-meeting-status-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                eventId:
+                  type: integer
+                  description: '| Event identifier.'
+                status:
+                  type: string
+                  description: '| Participation status in the event. Possible values:'
+              required:
+              - eventId
+              - status
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                eventId:
+                  type: integer
+                  description: '| Event identifier.'
+                status:
+                  type: string
+                  description: '| Participation status in the event. Possible values:'
+              required:
+              - eventId
+              - status
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.resource.add:
+    post:
+      summary: Add a new resource calendar.resource.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a new resource.
+      operationId: calendar_resource_add
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/resource/calendar-resource-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| Resource name ||'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| Resource name ||'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.resource.booking.list:
+    post:
+      summary: Get Resource Bookings by Filter calendar.resource.booking.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves resource bookings based on a filter.
+      operationId: calendar_resource_booking_list
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/resource/calendar-resource-booking-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: object
+                  description: '| Filter fields ||'
+                resourceTypeIdList:
+                  type: array
+                  items: {}
+                  description: '| List of resource identifiers.'
+                from:
+                  type: string
+                  format: date
+                  description: '| Start date of the period ||'
+                to:
+                  type: string
+                  format: date
+                  description: '| End date of the period ||'
+                resourceIdList:
+                  type: array
+                  items: {}
+                  description: '| List of resource booking identifiers from the custom field of type `resourcebooking` in leads or deals in CRM.'
+              required:
+              - filter
+              - resourceTypeIdList
+              - resourceIdList
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: object
+                  description: '| Filter fields ||'
+                resourceTypeIdList:
+                  type: array
+                  items: {}
+                  description: '| List of resource identifiers.'
+                from:
+                  type: string
+                  format: date
+                  description: '| Start date of the period ||'
+                to:
+                  type: string
+                  format: date
+                  description: '| End date of the period ||'
+                resourceIdList:
+                  type: array
+                  items: {}
+                  description: '| List of resource booking identifiers from the custom field of type `resourcebooking` in leads or deals in CRM.'
+              required:
+              - filter
+              - resourceTypeIdList
+              - resourceIdList
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.resource.delete:
+    post:
+      summary: Delete Resource calendar.resource.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a resource.
+      operationId: calendar_resource_delete
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/resource/calendar-resource-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                resourceId:
+                  type: string
+                  description: '| Resource identifier.'
+              required:
+              - resourceId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                resourceId:
+                  type: string
+                  description: '| Resource identifier.'
+              required:
+              - resourceId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.resource.list:
+    post:
+      summary: Get a list of all resources calendar.resource.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method retrieves a list of all resources. No parameters.
+      operationId: calendar_resource_list
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/resource/calendar-resource-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: array
+                  items: {}
+                  description: '| Array of objects. Each object contains a description of the resource ||'
+                ID:
+                  type: string
+                  description: '| Resource identifier ||'
+                NAME:
+                  type: string
+                  description: '| Resource name ||'
+                CREATED_BY:
+                  type: string
+                  description: '| Identifier of the user who created the resource ||'
+                Code:
+                  type: string
+                  description: '| Error Message | Description ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: array
+                  items: {}
+                  description: '| Array of objects. Each object contains a description of the resource ||'
+                ID:
+                  type: string
+                  description: '| Resource identifier ||'
+                NAME:
+                  type: string
+                  description: '| Resource name ||'
+                CREATED_BY:
+                  type: string
+                  description: '| Identifier of the user who created the resource ||'
+                Code:
+                  type: string
+                  description: '| Error Message | Description ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.resource.update:
+    post:
+      summary: Update resource calendar.resource.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates a resource.
+      operationId: calendar_resource_update
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/resource/calendar-resource-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                resourceId:
+                  type: integer
+                  description: '| Resource identifier.'
+                name:
+                  type: string
+                  description: '| New name of the resource ||'
+              required:
+              - resourceId
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                resourceId:
+                  type: integer
+                  description: '| Resource identifier.'
+                name:
+                  type: string
+                  description: '| New name of the resource ||'
+              required:
+              - resourceId
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.section.add:
+    post:
+      summary: Add Calendar calendar.section.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a new calendar. The system will add a new calendar only for the user who executes the method. An administrator can create calendars for other users.
+      operationId: calendar_section_add
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-section-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type. Possible values:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner.'
+                name:
+                  type: string
+                  description: '| Calendar name ||'
+                description:
+                  type: string
+                  description: '| Calendar description ||'
+                color:
+                  type: string
+                  description: '| Calendar color ||'
+                text_color:
+                  type: string
+                  description: '| Text color in the calendar ||'
+                export:
+                  type: object
+                  description: '| Object export parameters for the calendar'
+                ALLOW:
+                  type: boolean
+                  description: '| Allow calendar export. Possible values:'
+                SET:
+                  type: string
+                  description: '| Period for export. Possible values:'
+              required:
+              - type
+              - ownerId
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type. Possible values:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner.'
+                name:
+                  type: string
+                  description: '| Calendar name ||'
+                description:
+                  type: string
+                  description: '| Calendar description ||'
+                color:
+                  type: string
+                  description: '| Calendar color ||'
+                text_color:
+                  type: string
+                  description: '| Text color in the calendar ||'
+                export:
+                  type: object
+                  description: '| Object export parameters for the calendar'
+                ALLOW:
+                  type: boolean
+                  description: '| Allow calendar export. Possible values:'
+                SET:
+                  type: string
+                  description: '| Period for export. Possible values:'
+              required:
+              - type
+              - ownerId
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.section.delete:
+    post:
+      summary: Delete Calendar calendar.section.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a calendar.
+      operationId: calendar_section_delete
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-section-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner ||'
+                id:
+                  type: integer
+                  description: '| Identifier of the calendar ||'
+              required:
+              - type
+              - ownerId
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner ||'
+                id:
+                  type: integer
+                  description: '| Identifier of the calendar ||'
+              required:
+              - type
+              - ownerId
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.section.get:
+    post:
+      summary: Get Calendar List calendar.section.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves a list of calendars.
+      operationId: calendar_section_get
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-section-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner.'
+              required:
+              - type
+              - ownerId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner.'
+              required:
+              - type
+              - ownerId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.section.update:
+    post:
+      summary: Update Calendar calendar.section.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the calendar.
+      operationId: calendar_section_update
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-section-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type. Possible values:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner ||'
+                id:
+                  type: string
+                  description: '| Identifier of the calendar ||'
+                name:
+                  type: string
+                  description: '| Calendar name ||'
+                description:
+                  type: string
+                  description: '| Calendar description ||'
+                color:
+                  type: string
+                  description: '| Calendar color ||'
+                text_color:
+                  type: string
+                  description: '| Text color in the calendar ||'
+                export:
+                  type: object
+                  description: '| Object export parameters for the calendar'
+                ALLOW:
+                  type: boolean
+                  description: '| Allow calendar export ||'
+                SET:
+                  type: string
+                  description: '| Period for which to perform the export. Possible values:'
+              required:
+              - type
+              - ownerId
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Calendar type. Possible values:'
+                ownerId:
+                  type: integer
+                  description: '| Identifier of the calendar owner ||'
+                id:
+                  type: string
+                  description: '| Identifier of the calendar ||'
+                name:
+                  type: string
+                  description: '| Calendar name ||'
+                description:
+                  type: string
+                  description: '| Calendar description ||'
+                color:
+                  type: string
+                  description: '| Calendar color ||'
+                text_color:
+                  type: string
+                  description: '| Text color in the calendar ||'
+                export:
+                  type: object
+                  description: '| Object export parameters for the calendar'
+                ALLOW:
+                  type: boolean
+                  description: '| Allow calendar export ||'
+                SET:
+                  type: string
+                  description: '| Period for which to perform the export. Possible values:'
+              required:
+              - type
+              - ownerId
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.settings.get:
+    post:
+      summary: Get main calendar settings calendar.settings.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves the main calendar settings. Only an administrator of the account can modify the main settings. No parameters.
+      operationId: calendar_settings_get
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-settings-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| Root element of the response ||'
+                work_time_start:
+                  type: string
+                  description: '| Start time of the workday ||'
+                work_time_end:
+                  type: string
+                  description: '| End time of the workday ||'
+                year_holidays:
+                  type: string
+                  description: '| List of holidays ||'
+                week_holidays:
+                  type: array
+                  items: {}
+                  description: '| Array of weekend days ||'
+                week_start:
+                  type: string
+                  description: '| Day the week starts ||'
+                user_name_template:
+                  type: string
+                  description: '| User name template ||'
+                sync_by_push:
+                  type: boolean
+                  description: '| Flag for automatic calendar synchronization via subscription. Push events from Google/Office365 ||'
+                user_show_login:
+                  type: boolean
+                  description: '| Flag for displaying user login ||'
+                path_to_user:
+                  type: string
+                  description: '| Template link to user profile ||'
+                path_to_user_calendar:
+                  type: string
+                  description: '| Template link to view user calendar ||'
+                path_to_group:
+                  type: string
+                  description: '| Template link to view workgroup ||'
+                path_to_group_calendar:
+                  type: string
+                  description: '| Template link to view group calendar ||'
+                path_to_vr:
+                  type: string
+                  description: '| Template link to video conference room ||'
+                path_to_rm:
+                  type: string
+                  description: '| Template link to meeting room ||'
+                rm_iblock_type:
+                  type: string
+                  description: '| Type of infoblock for booking meeting and video conference rooms ||'
+                rm_iblock_id:
+                  type: string
+                  description: '| Identifier of the infoblock for booking meeting rooms ||'
+                dep_manager_sub:
+                  type: boolean
+                  description: '| Flag allowing managers to view subordinates'' calendars ||'
+                denied_superpose_types:
+                  type: array
+                  items: {}
+                  description: '| List of calendar types that cannot be added to favorites ||'
+                pathes_for_sites:
+                  type: boolean
+                  description: '| Sets link templates common for all sites ||'
+                forum_id:
+                  type: string
+                  description: '| Identifier of the forum for comments ||'
+                rm_for_sites:
+                  type: boolean
+                  description: '| Sets meeting room parameters common for all sites ||'
+                path_to_type_company_calendar:
+                  type: string
+                  description: '| Template link to view company calendars ||'
+                path_to_type_location:
+                  type: string
+                  description: '| Template link to view meeting room bookings ||'
+                path_to_type_open_event:
+                  type: string
+                  description: '| Template link to view open event calendar ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| Root element of the response ||'
+                work_time_start:
+                  type: string
+                  description: '| Start time of the workday ||'
+                work_time_end:
+                  type: string
+                  description: '| End time of the workday ||'
+                year_holidays:
+                  type: string
+                  description: '| List of holidays ||'
+                week_holidays:
+                  type: array
+                  items: {}
+                  description: '| Array of weekend days ||'
+                week_start:
+                  type: string
+                  description: '| Day the week starts ||'
+                user_name_template:
+                  type: string
+                  description: '| User name template ||'
+                sync_by_push:
+                  type: boolean
+                  description: '| Flag for automatic calendar synchronization via subscription. Push events from Google/Office365 ||'
+                user_show_login:
+                  type: boolean
+                  description: '| Flag for displaying user login ||'
+                path_to_user:
+                  type: string
+                  description: '| Template link to user profile ||'
+                path_to_user_calendar:
+                  type: string
+                  description: '| Template link to view user calendar ||'
+                path_to_group:
+                  type: string
+                  description: '| Template link to view workgroup ||'
+                path_to_group_calendar:
+                  type: string
+                  description: '| Template link to view group calendar ||'
+                path_to_vr:
+                  type: string
+                  description: '| Template link to video conference room ||'
+                path_to_rm:
+                  type: string
+                  description: '| Template link to meeting room ||'
+                rm_iblock_type:
+                  type: string
+                  description: '| Type of infoblock for booking meeting and video conference rooms ||'
+                rm_iblock_id:
+                  type: string
+                  description: '| Identifier of the infoblock for booking meeting rooms ||'
+                dep_manager_sub:
+                  type: boolean
+                  description: '| Flag allowing managers to view subordinates'' calendars ||'
+                denied_superpose_types:
+                  type: array
+                  items: {}
+                  description: '| List of calendar types that cannot be added to favorites ||'
+                pathes_for_sites:
+                  type: boolean
+                  description: '| Sets link templates common for all sites ||'
+                forum_id:
+                  type: string
+                  description: '| Identifier of the forum for comments ||'
+                rm_for_sites:
+                  type: boolean
+                  description: '| Sets meeting room parameters common for all sites ||'
+                path_to_type_company_calendar:
+                  type: string
+                  description: '| Template link to view company calendars ||'
+                path_to_type_location:
+                  type: string
+                  description: '| Template link to view meeting room bookings ||'
+                path_to_type_open_event:
+                  type: string
+                  description: '| Template link to view open event calendar ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.user.settings.get:
+    post:
+      summary: Get User Calendar Settings calendar.user.settings.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves user calendar settings. No parameters.
+      operationId: calendar_user_settings_get
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-user-settings-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| Root element of the response ||'
+                view:
+                  type: string
+                  description: '| Standard view for the calendar. Possible values:'
+                meetSection:
+                  type: string
+                  description: '| Calendar for invitations ||'
+                crmSection:
+                  type: string
+                  description: '| Calendar for CRM ||'
+                showDeclined:
+                  type: boolean
+                  description: '| Show events where the user declined to participate ||'
+                denyBusyInvitation:
+                  type: boolean
+                  description: '| Prevent inviting to an event if the time is busy ||'
+                collapseOffHours:
+                  type: string
+                  description: '| Hide non-working hours in the calendar in weekly and daily views. Possible values:'
+                showWeekNumbers:
+                  type: string
+                  description: '| Show week numbers. Possible values:'
+                showTasks:
+                  type: string
+                  description: '| Display tasks in the calendar. Possible values:'
+                syncTasks:
+                  type: string
+                  description: '| Synchronize task calendar. Possible values:'
+                showCompletedTasks:
+                  type: string
+                  description: '| Display completed tasks. Possible values:'
+                lastUsedSection:
+                  type: string
+                  description: '| Identifier of the calendar used when creating events if the calendar identifier is not provided in the parameters.'
+                sendFromEmail:
+                  type: string
+                  description: '| E-mail for sending mail invitations ||'
+                defaultSections:
+                  type: object
+                  description: '| Settings for preset calendars.'
+                syncPeriodPast:
+                  type: string
+                  description: '| Number of months for synchronization in the past period ||'
+                syncPeriodFuture:
+                  type: string
+                  description: '| Number of months for synchronization in the future period ||'
+                defaultReminders:
+                  type: object
+                  description: '| Object with standard settings for event reminders ||'
+                timezoneName:
+                  type: string
+                  description: '| Calendar timezone ||'
+                timezoneOffsetUTC:
+                  type: integer
+                  description: '| Timezone offset relative to UTC in seconds ||'
+                timezoneDefaultName:
+                  type: string
+                  description: '| If the `timezoneName` parameter is not set, the timezone from the `timezoneOffsetUTC` parameter will be specified here ||'
+                work_time_start:
+                  type: string
+                  description: '| Start time of the workday ||'
+                work_time_end:
+                  type: string
+                  description: '| End time of the workday ||'
+                fullDay:
+                  type: array
+                  items: {}
+                  description: '| Array of standard reminder settings for all-day events ||'
+                withTime:
+                  type: array
+                  items: {}
+                  description: '| Array of standard reminder settings for events with specified time ||'
+                type:
+                  type: string
+                  description: '| Time type of the reminder. Possible values:'
+                count:
+                  type: integer
+                  description: '| Numeric value of the time interval ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| Root element of the response ||'
+                view:
+                  type: string
+                  description: '| Standard view for the calendar. Possible values:'
+                meetSection:
+                  type: string
+                  description: '| Calendar for invitations ||'
+                crmSection:
+                  type: string
+                  description: '| Calendar for CRM ||'
+                showDeclined:
+                  type: boolean
+                  description: '| Show events where the user declined to participate ||'
+                denyBusyInvitation:
+                  type: boolean
+                  description: '| Prevent inviting to an event if the time is busy ||'
+                collapseOffHours:
+                  type: string
+                  description: '| Hide non-working hours in the calendar in weekly and daily views. Possible values:'
+                showWeekNumbers:
+                  type: string
+                  description: '| Show week numbers. Possible values:'
+                showTasks:
+                  type: string
+                  description: '| Display tasks in the calendar. Possible values:'
+                syncTasks:
+                  type: string
+                  description: '| Synchronize task calendar. Possible values:'
+                showCompletedTasks:
+                  type: string
+                  description: '| Display completed tasks. Possible values:'
+                lastUsedSection:
+                  type: string
+                  description: '| Identifier of the calendar used when creating events if the calendar identifier is not provided in the parameters.'
+                sendFromEmail:
+                  type: string
+                  description: '| E-mail for sending mail invitations ||'
+                defaultSections:
+                  type: object
+                  description: '| Settings for preset calendars.'
+                syncPeriodPast:
+                  type: string
+                  description: '| Number of months for synchronization in the past period ||'
+                syncPeriodFuture:
+                  type: string
+                  description: '| Number of months for synchronization in the future period ||'
+                defaultReminders:
+                  type: object
+                  description: '| Object with standard settings for event reminders ||'
+                timezoneName:
+                  type: string
+                  description: '| Calendar timezone ||'
+                timezoneOffsetUTC:
+                  type: integer
+                  description: '| Timezone offset relative to UTC in seconds ||'
+                timezoneDefaultName:
+                  type: string
+                  description: '| If the `timezoneName` parameter is not set, the timezone from the `timezoneOffsetUTC` parameter will be specified here ||'
+                work_time_start:
+                  type: string
+                  description: '| Start time of the workday ||'
+                work_time_end:
+                  type: string
+                  description: '| End time of the workday ||'
+                fullDay:
+                  type: array
+                  items: {}
+                  description: '| Array of standard reminder settings for all-day events ||'
+                withTime:
+                  type: array
+                  items: {}
+                  description: '| Array of standard reminder settings for events with specified time ||'
+                type:
+                  type: string
+                  description: '| Time type of the reminder. Possible values:'
+                count:
+                  type: integer
+                  description: '| Numeric value of the time interval ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+  /calendar.user.settings.set:
+    post:
+      summary: Set User Calendar Settings calendar.user.settings.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method sets user calendar settings for the current user.
+      operationId: calendar_user_settings_set
+      tags:
+      - Calendar
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/calendar/calendar-user-settings-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                settings:
+                  type: object
+                  description: '| An object with values for user calendar settings ||'
+                view:
+                  type: string
+                  description: '| Default view for the calendar. Possible values:'
+                meetSection:
+                  type: string
+                  description: '| Calendar for invitations ||'
+                crmSection:
+                  type: string
+                  description: '| Calendar for CRM ||'
+                showDeclined:
+                  type: boolean
+                  description: '| Show events that the user declined to participate in ||'
+                denyBusyInvitation:
+                  type: boolean
+                  description: '| Prevent inviting to an event if the time is busy ||'
+                collapseOffHours:
+                  type: string
+                  description: '| Hide non-working hours in the calendar in weekly and daily views. Possible values:'
+                showWeekNumbers:
+                  type: string
+                  description: '| Show week numbers. Possible values:'
+                showTasks:
+                  type: string
+                  description: '| Display tasks in the calendar. Possible values:'
+                syncTasks:
+                  type: string
+                  description: '| Synchronize task calendar. Possible values:'
+                showCompletedTasks:
+                  type: string
+                  description: '| Display completed tasks. Possible values:'
+                lastUsedSection:
+                  type: string
+                  description: '| Identifier of the calendar used when creating events if the calendar identifier is not provided in the parameters.'
+                sendFromEmail:
+                  type: string
+                  description: '| E-mail for sending mail invitations ||'
+                defaultSections:
+                  type: object
+                  description: '| Settings for preset calendars.'
+                syncPeriodPast:
+                  type: string
+                  description: '| Number of months for synchronization in the past period ||'
+                syncPeriodFuture:
+                  type: string
+                  description: '| Number of months for synchronization in the future period ||'
+                defaultReminders:
+                  type: object
+                  description: '| An object with standard event reminder settings ||'
+                fullDay:
+                  type: array
+                  items: {}
+                  description: '| Array of standard reminder settings for all-day events ||'
+                withTime:
+                  type: array
+                  items: {}
+                  description: '| Array of standard reminder settings for timed events ||'
+                type:
+                  type: string
+                  description: '| Time type of reminder. Possible values:'
+                count:
+                  type: integer
+                  description: '| Numeric value of the time interval ||'
+              required:
+              - settings
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                settings:
+                  type: object
+                  description: '| An object with values for user calendar settings ||'
+                view:
+                  type: string
+                  description: '| Default view for the calendar. Possible values:'
+                meetSection:
+                  type: string
+                  description: '| Calendar for invitations ||'
+                crmSection:
+                  type: string
+                  description: '| Calendar for CRM ||'
+                showDeclined:
+                  type: boolean
+                  description: '| Show events that the user declined to participate in ||'
+                denyBusyInvitation:
+                  type: boolean
+                  description: '| Prevent inviting to an event if the time is busy ||'
+                collapseOffHours:
+                  type: string
+                  description: '| Hide non-working hours in the calendar in weekly and daily views. Possible values:'
+                showWeekNumbers:
+                  type: string
+                  description: '| Show week numbers. Possible values:'
+                showTasks:
+                  type: string
+                  description: '| Display tasks in the calendar. Possible values:'
+                syncTasks:
+                  type: string
+                  description: '| Synchronize task calendar. Possible values:'
+                showCompletedTasks:
+                  type: string
+                  description: '| Display completed tasks. Possible values:'
+                lastUsedSection:
+                  type: string
+                  description: '| Identifier of the calendar used when creating events if the calendar identifier is not provided in the parameters.'
+                sendFromEmail:
+                  type: string
+                  description: '| E-mail for sending mail invitations ||'
+                defaultSections:
+                  type: object
+                  description: '| Settings for preset calendars.'
+                syncPeriodPast:
+                  type: string
+                  description: '| Number of months for synchronization in the past period ||'
+                syncPeriodFuture:
+                  type: string
+                  description: '| Number of months for synchronization in the future period ||'
+                defaultReminders:
+                  type: object
+                  description: '| An object with standard event reminder settings ||'
+                fullDay:
+                  type: array
+                  items: {}
+                  description: '| Array of standard reminder settings for all-day events ||'
+                withTime:
+                  type: array
+                  items: {}
+                  description: '| Array of standard reminder settings for timed events ||'
+                type:
+                  type: string
+                  description: '| Time type of reminder. Possible values:'
+                count:
+                  type: integer
+                  description: '| Numeric value of the time interval ||'
+              required:
+              - settings
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - calendar
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

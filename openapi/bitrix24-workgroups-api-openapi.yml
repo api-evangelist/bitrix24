@@ -1,0 +1,2906 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Workgroups API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Workgroups
+paths:
+  /feature.access:
+    post:
+      summary: Check the access permissions of the current user sonet_group.feature.access
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.feature.access` checks whether the current user has access to operations within the group or project functionality.
+      operationId: feature_access
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/sonet-group-feature-access.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GROUP_ID:
+                  type: integer
+                  description: '| Identifier of the group or project.'
+                FEATURE:
+                  type: string
+                  description: '| Symbolic code of the group functionality.'
+                OPERATION:
+                  type: string
+                  description: '| Symbolic code of the operation within the functionality.'
+              required:
+              - GROUP_ID
+              - FEATURE
+              - OPERATION
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                GROUP_ID:
+                  type: integer
+                  description: '| Identifier of the group or project.'
+                FEATURE:
+                  type: string
+                  description: '| Symbolic code of the group functionality.'
+                OPERATION:
+                  type: string
+                  description: '| Symbolic code of the operation within the functionality.'
+              required:
+              - GROUP_ID
+              - FEATURE
+              - OPERATION
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sonet
+  /socialnetwork.api.workgroup.get:
+    post:
+      summary: Retrieve Data on Workgroup socialnetwork.api.workgroup.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `socialnetwork.api.workgroup.get` returns information about a workgroup, project, scrum, or collaboration based on the identifier. An administrator can retrieve information about any group on the account, even if it is secret and they are not a member.
+      operationId: socialnetwork_api_workgroup_get
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/socialnetwork-api-workgroup-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                params:
+                  type: object
+                  description: '| Request parameters for retrieving the group. More details below ||'
+                groupId:
+                  type: integer
+                  description: '| Group identifier. The value for this field can be obtained using the method sonet_group.get ||'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of additional fields to retrieve, returned in `result`. More details below ||'
+                mode:
+                  type: string
+                  description: '| Request mode. Can only take the value `mobile`, which allows retrieving additional data in the array `result[ADDITIONAL_DATA]` ||'
+                ACTIONS:
+                  type: string
+                  description: '| Operations available to the current user on the group ||'
+                AVATAR:
+                  type: string
+                  description: '| URL of the group''s compressed user avatar ||'
+                AVATAR_DATA:
+                  type: string
+                  description: '| Information about the group''s avatar ||'
+                AVATAR_TYPES:
+                  type: string
+                  description: '| Types of avatars for groups ||'
+                COUNTERS:
+                  type: string
+                  description: '| Number of unaccepted requests and invitations to join the group ||'
+                DATE_CREATE:
+                  type: string
+                  description: '| Date and time of group creation in a more readable format ||'
+                DEPARTMENTS:
+                  type: string
+                  description: '| Departments of employees added to the group ||'
+                EFFICIENCY:
+                  type: string
+                  description: '| Group efficiency ||'
+                FEATURES:
+                  type: string
+                  description: '| Available tools in the group specified in the advanced group settings ||'
+                GROUP_MEMBERS_LIST:
+                  type: string
+                  description: '| List of active group members, invited users, and users awaiting confirmation to join the group ||'
+                LIST_OF_MEMBERS:
+                  type: string
+                  description: '| List of group members with their information ||'
+                LIST_OF_MEMBERS_AWAITING_INVITE:
+                  type: string
+                  description: '| Users awaiting confirmation to join the group ||'
+                OWNER_DATA:
+                  type: string
+                  description: '| Data about the group owner ||'
+                PIN:
+                  type: string
+                  description: '| Whether the group is pinned for the current user on the groups and projects page. Returned as `result[IS_PIN]` ||'
+                PRIVACY_TYPE:
+                  type: string
+                  description: '| Group privacy level. Returned as `result[PRIVACY_CODE]` ||'
+                SUBJECT_DATA:
+                  type: string
+                  description: '| Information about the group''s subject specified in the advanced group settings ||'
+                TAGS:
+                  type: string
+                  description: '| Group tags specified in the advanced group settings ||'
+                USER_DATA:
+                  type: string
+                  description: '| Data about the current user''s role in the group ||'
+              required:
+              - params
+              - groupId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                params:
+                  type: object
+                  description: '| Request parameters for retrieving the group. More details below ||'
+                groupId:
+                  type: integer
+                  description: '| Group identifier. The value for this field can be obtained using the method sonet_group.get ||'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of additional fields to retrieve, returned in `result`. More details below ||'
+                mode:
+                  type: string
+                  description: '| Request mode. Can only take the value `mobile`, which allows retrieving additional data in the array `result[ADDITIONAL_DATA]` ||'
+                ACTIONS:
+                  type: string
+                  description: '| Operations available to the current user on the group ||'
+                AVATAR:
+                  type: string
+                  description: '| URL of the group''s compressed user avatar ||'
+                AVATAR_DATA:
+                  type: string
+                  description: '| Information about the group''s avatar ||'
+                AVATAR_TYPES:
+                  type: string
+                  description: '| Types of avatars for groups ||'
+                COUNTERS:
+                  type: string
+                  description: '| Number of unaccepted requests and invitations to join the group ||'
+                DATE_CREATE:
+                  type: string
+                  description: '| Date and time of group creation in a more readable format ||'
+                DEPARTMENTS:
+                  type: string
+                  description: '| Departments of employees added to the group ||'
+                EFFICIENCY:
+                  type: string
+                  description: '| Group efficiency ||'
+                FEATURES:
+                  type: string
+                  description: '| Available tools in the group specified in the advanced group settings ||'
+                GROUP_MEMBERS_LIST:
+                  type: string
+                  description: '| List of active group members, invited users, and users awaiting confirmation to join the group ||'
+                LIST_OF_MEMBERS:
+                  type: string
+                  description: '| List of group members with their information ||'
+                LIST_OF_MEMBERS_AWAITING_INVITE:
+                  type: string
+                  description: '| Users awaiting confirmation to join the group ||'
+                OWNER_DATA:
+                  type: string
+                  description: '| Data about the group owner ||'
+                PIN:
+                  type: string
+                  description: '| Whether the group is pinned for the current user on the groups and projects page. Returned as `result[IS_PIN]` ||'
+                PRIVACY_TYPE:
+                  type: string
+                  description: '| Group privacy level. Returned as `result[PRIVACY_CODE]` ||'
+                SUBJECT_DATA:
+                  type: string
+                  description: '| Information about the group''s subject specified in the advanced group settings ||'
+                TAGS:
+                  type: string
+                  description: '| Group tags specified in the advanced group settings ||'
+                USER_DATA:
+                  type: string
+                  description: '| Data about the current user''s role in the group ||'
+              required:
+              - params
+              - groupId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - socialnetwork
+  /socialnetwork.api.workgroup.list:
+    post:
+      summary: Get a List of Workgroups socialnetwork.api.workgroup.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `socialnetwork.api.workgroup.list` returns a list of workgroups, projects, scrums, and collaborations based on the current user's permissions.
+      operationId: socialnetwork_api_workgroup_list
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/socialnetwork-api-workgroup-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: object
+                  description: '| An object for filtering in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array containing the list of fields to select.'
+                order:
+                  type: object
+                  description: '| A sorting object in the format `{"field_1": "order_1", ..., "field_N": "order_N"}`.'
+                params:
+                  type: object
+                  description: '| Additional request parameters ||'
+                start:
+                  type: integer
+                  description: '| Pagination parameter.'
+                ID:
+                  type: integer
+                  description: '| Group identifier ||'
+                NAME:
+                  type: string
+                  description: '| Group name ||'
+                OWNER_ID:
+                  type: integer
+                  description: '| Owner identifier ||'
+                ACTIVE:
+                  type: string
+                  description: '| Group activity status: `Y` or `N` ||'
+                VISIBLE:
+                  type: string
+                  description: '| Group visibility in the general list: `Y` or `N` ||'
+                OPENED:
+                  type: string
+                  description: '| Is the group open for free membership: `Y` or `N` ||'
+                CLOSED:
+                  type: string
+                  description: '| Is the group archived: `Y` or `N` ||'
+                PROJECT:
+                  type: string
+                  description: '| Object type: `Y` — project, `N` — group ||'
+                SUBJECT_ID:
+                  type: integer
+                  description: '| Group subject identifier ||'
+                SITE_ID:
+                  type: string
+                  description: '| Group site identifier ||'
+                DATE_CREATE:
+                  type: string
+                  format: date-time
+                  description: '| Group creation date ||'
+                DATE_UPDATE:
+                  type: string
+                  format: date-time
+                  description: '| Group modification date ||'
+                DATE_ACTIVITY:
+                  type: string
+                  format: date-time
+                  description: '| Last activity date ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Group description ||'
+                KEYWORDS:
+                  type: string
+                  description: '| Group keywords ||'
+                LANDING:
+                  type: string
+                  description: '| Group for publication status ||'
+                IMAGE_ID:
+                  type: integer
+                  description: '| User avatar identifier ||'
+                AVATAR_TYPE:
+                  type: string
+                  description: '| System avatar type ||'
+                NUMBER_OF_MEMBERS:
+                  type: integer
+                  description: '| Number of participants ||'
+                NUMBER_OF_MODERATORS:
+                  type: integer
+                  description: '| Number of moderators ||'
+                INITIATE_PERMS:
+                  type: string
+                  description: '| Permissions to invite participants ||'
+                PROJECT_DATE_START:
+                  type: string
+                  format: date-time
+                  description: '| Project start date ||'
+                PROJECT_DATE_FINISH:
+                  type: string
+                  format: date-time
+                  description: '| Project end date ||'
+                SCRUM_OWNER_ID:
+                  type: integer
+                  description: '| Scrum owner identifier ||'
+                SCRUM_MASTER_ID:
+                  type: integer
+                  description: '| Scrum master identifier ||'
+                SCRUM_SPRINT_DURATION:
+                  type: integer
+                  description: '| Sprint duration in seconds ||'
+                SCRUM_TASK_RESPONSIBLE:
+                  type: string
+                  description: '| Default executor in scrum ||'
+                TYPE:
+                  type: string
+                  description: '| Group type: `group`, `project`, `scrum`, `collab` ||'
+                AVATAR:
+                  type: string
+                  description: '| Avatar URL ||'
+                IS_ADMIN:
+                  type: string
+                  description: '| Disable permission check.'
+                siteId:
+                  type: string
+                  description: '| Identifier of the site to be used in the automatic filter `SITE_ID` for regular users.'
+                mode:
+                  type: string
+                  description: '| Response mode.'
+                features:
+                  type: array
+                  items: {}
+                  description: '| List of group tool codes to consider when forming `additionalData` in `mobile` mode ||'
+                mandatoryFeatures:
+                  type: array
+                  items: {}
+                  description: '| List of tool codes that should always be included in `additionalData` in `mobile` mode ||'
+                shouldSelectDialogId:
+                  type: string
+                  description: '| Whether to add a field with the chat identifier `dialogId` to the list item.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: object
+                  description: '| An object for filtering in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array containing the list of fields to select.'
+                order:
+                  type: object
+                  description: '| A sorting object in the format `{"field_1": "order_1", ..., "field_N": "order_N"}`.'
+                params:
+                  type: object
+                  description: '| Additional request parameters ||'
+                start:
+                  type: integer
+                  description: '| Pagination parameter.'
+                ID:
+                  type: integer
+                  description: '| Group identifier ||'
+                NAME:
+                  type: string
+                  description: '| Group name ||'
+                OWNER_ID:
+                  type: integer
+                  description: '| Owner identifier ||'
+                ACTIVE:
+                  type: string
+                  description: '| Group activity status: `Y` or `N` ||'
+                VISIBLE:
+                  type: string
+                  description: '| Group visibility in the general list: `Y` or `N` ||'
+                OPENED:
+                  type: string
+                  description: '| Is the group open for free membership: `Y` or `N` ||'
+                CLOSED:
+                  type: string
+                  description: '| Is the group archived: `Y` or `N` ||'
+                PROJECT:
+                  type: string
+                  description: '| Object type: `Y` — project, `N` — group ||'
+                SUBJECT_ID:
+                  type: integer
+                  description: '| Group subject identifier ||'
+                SITE_ID:
+                  type: string
+                  description: '| Group site identifier ||'
+                DATE_CREATE:
+                  type: string
+                  format: date-time
+                  description: '| Group creation date ||'
+                DATE_UPDATE:
+                  type: string
+                  format: date-time
+                  description: '| Group modification date ||'
+                DATE_ACTIVITY:
+                  type: string
+                  format: date-time
+                  description: '| Last activity date ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Group description ||'
+                KEYWORDS:
+                  type: string
+                  description: '| Group keywords ||'
+                LANDING:
+                  type: string
+                  description: '| Group for publication status ||'
+                IMAGE_ID:
+                  type: integer
+                  description: '| User avatar identifier ||'
+                AVATAR_TYPE:
+                  type: string
+                  description: '| System avatar type ||'
+                NUMBER_OF_MEMBERS:
+                  type: integer
+                  description: '| Number of participants ||'
+                NUMBER_OF_MODERATORS:
+                  type: integer
+                  description: '| Number of moderators ||'
+                INITIATE_PERMS:
+                  type: string
+                  description: '| Permissions to invite participants ||'
+                PROJECT_DATE_START:
+                  type: string
+                  format: date-time
+                  description: '| Project start date ||'
+                PROJECT_DATE_FINISH:
+                  type: string
+                  format: date-time
+                  description: '| Project end date ||'
+                SCRUM_OWNER_ID:
+                  type: integer
+                  description: '| Scrum owner identifier ||'
+                SCRUM_MASTER_ID:
+                  type: integer
+                  description: '| Scrum master identifier ||'
+                SCRUM_SPRINT_DURATION:
+                  type: integer
+                  description: '| Sprint duration in seconds ||'
+                SCRUM_TASK_RESPONSIBLE:
+                  type: string
+                  description: '| Default executor in scrum ||'
+                TYPE:
+                  type: string
+                  description: '| Group type: `group`, `project`, `scrum`, `collab` ||'
+                AVATAR:
+                  type: string
+                  description: '| Avatar URL ||'
+                IS_ADMIN:
+                  type: string
+                  description: '| Disable permission check.'
+                siteId:
+                  type: string
+                  description: '| Identifier of the site to be used in the automatic filter `SITE_ID` for regular users.'
+                mode:
+                  type: string
+                  description: '| Response mode.'
+                features:
+                  type: array
+                  items: {}
+                  description: '| List of group tool codes to consider when forming `additionalData` in `mobile` mode ||'
+                mandatoryFeatures:
+                  type: array
+                  items: {}
+                  description: '| List of tool codes that should always be included in `additionalData` in `mobile` mode ||'
+                shouldSelectDialogId:
+                  type: string
+                  description: '| Whether to add a field with the chat identifier `dialogId` to the list item.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - socialnetwork
+  /tasks.api.scrum.backlog.add:
+    post:
+      summary: Add backlog in Scrum tasks.api.scrum.backlog.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.backlog.add` adds a backlog in Scrum. It may be necessary to create a backlog during import after creating the Scrum.
+      operationId: tasks_api_scrum_backlog_add
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/backlog/tasks-api-scrum-backlog-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing records about the group and user (detailed description provided below) in the following structure:'
+                groupId:
+                  type: integer
+                  description: '| The identifier of the group for which the backlog is created.'
+                createdBy:
+                  type: integer
+                  description: '| The identifier of the user who will create the backlog ||'
+                modifiedBy:
+                  type: integer
+                  description: '| The identifier of the user who will modify the backlog ||'
+              required:
+              - fields
+              - groupId
+              - createdBy
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing records about the group and user (detailed description provided below) in the following structure:'
+                groupId:
+                  type: integer
+                  description: '| The identifier of the group for which the backlog is created.'
+                createdBy:
+                  type: integer
+                  description: '| The identifier of the user who will create the backlog ||'
+                modifiedBy:
+                  type: integer
+                  description: '| The identifier of the user who will modify the backlog ||'
+              required:
+              - fields
+              - groupId
+              - createdBy
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.backlog.delete:
+    post:
+      summary: Delete backlog tasks.api.scrum.backlog.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.backlog.delete` removes the backlog. In normal circumstances, there is no need to delete the backlog. When the backlog is deleted, *Bitrix24* will automatically recreate it when the planning page in Scrum tasks is opened. The method is used if the backlog was mistakenly added to a group or project that is not Scrum.
+      operationId: tasks_api_scrum_backlog_delete
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/backlog/tasks-api-scrum-backlog-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Backlog identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Backlog identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.backlog.get:
+    post:
+      summary: Get Backlog Fields by Scrum ID tasks.api.scrum.backlog.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.backlog.get` returns the values of backlog fields by Scrum `id`. You may need to obtain the `id` of the backlog to add or move a task to the backlog.
+      operationId: tasks_api_scrum_backlog_get
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/backlog/tasks-api-scrum-backlog-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the group.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the group.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.backlog.getFields:
+    post:
+      summary: Get a list of available backlog fields tasks.api.scrum.backlog.getFields
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.backlog.getFields` returns the available backlog fields. Without parameters.
+      operationId: tasks_api_scrum_backlog_getFields
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/backlog/tasks-api-scrum-backlog-get-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                groupId:
+                  type: integer
+                  description: '| Identifier of the group for which the backlog was created ||'
+                createdBy:
+                  type: integer
+                  description: '| Identifier of the user who created the backlog ||'
+                modifiedBy:
+                  type: integer
+                  description: '| Identifier of the user who modified the backlog ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                groupId:
+                  type: integer
+                  description: '| Identifier of the group for which the backlog was created ||'
+                createdBy:
+                  type: integer
+                  description: '| Identifier of the user who created the backlog ||'
+                modifiedBy:
+                  type: integer
+                  description: '| Identifier of the user who modified the backlog ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.backlog.update:
+    post:
+      summary: Update backlog tasks.api.scrum.backlog.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the backlog.
+      operationId: tasks_api_scrum_backlog_update
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/backlog/tasks-api-scrum-backlog-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Backlog identifier.'
+                fields:
+                  type: object
+                  description: '| An object containing records about the group and user (detailed description provided below) in the following structure:'
+                groupId:
+                  type: integer
+                  description: '| Identifier of the group to which the backlog belongs.'
+                createdBy:
+                  type: integer
+                  description: '| Identifier of the user who will create the backlog ||'
+                modifiedBy:
+                  type: integer
+                  description: '| Identifier of the user who will modify the backlog ||'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Backlog identifier.'
+                fields:
+                  type: object
+                  description: '| An object containing records about the group and user (detailed description provided below) in the following structure:'
+                groupId:
+                  type: integer
+                  description: '| Identifier of the group to which the backlog belongs.'
+                createdBy:
+                  type: integer
+                  description: '| Identifier of the user who will create the backlog ||'
+                modifiedBy:
+                  type: integer
+                  description: '| Identifier of the user who will modify the backlog ||'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.epic.add:
+    post:
+      summary: Add Epic in Scrum tasks.api.scrum.epic.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds an epic to Scrum.
+      operationId: tasks_api_scrum_epic_add
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/epic/tasks-api-scrum-epic-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Field values (detailed description provided below) for adding a new epic in the form of a structure:'
+                name:
+                  type: string
+                  description: '| Epic name ||'
+                description:
+                  type: string
+                  description: '| Epic description ||'
+                groupId:
+                  type: integer
+                  description: '| Identifier of the group (scrum) to which the epic belongs ||'
+                color:
+                  type: string
+                  description: '| Epic color ||'
+                files:
+                  type: array
+                  items: {}
+                  description: '| Array of files associated with the epic.'
+                createdBy:
+                  type: integer
+                  description: '| Created by ||'
+                modifiedBy:
+                  type: integer
+                  description: '| Modified by ||'
+              required:
+              - fields
+              - name
+              - groupId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Field values (detailed description provided below) for adding a new epic in the form of a structure:'
+                name:
+                  type: string
+                  description: '| Epic name ||'
+                description:
+                  type: string
+                  description: '| Epic description ||'
+                groupId:
+                  type: integer
+                  description: '| Identifier of the group (scrum) to which the epic belongs ||'
+                color:
+                  type: string
+                  description: '| Epic color ||'
+                files:
+                  type: array
+                  items: {}
+                  description: '| Array of files associated with the epic.'
+                createdBy:
+                  type: integer
+                  description: '| Created by ||'
+                modifiedBy:
+                  type: integer
+                  description: '| Modified by ||'
+              required:
+              - fields
+              - name
+              - groupId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.epic.delete:
+    post:
+      summary: Delete Epic tasks.api.scrum.epic.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes an epic.
+      operationId: tasks_api_scrum_epic_delete
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/epic/tasks-api-scrum-epic-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the epic.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the epic.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.epic.get:
+    post:
+      summary: Get Epic Fields by Its Identifier tasks.api.scrum.epic.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. - The structure of the parameter files relates to the Drive module, so it is not described here. A link should be made when the structure description appears in the documentation. The method retrieves the values of the epic fields by its identifier `id`.
+      operationId: tasks_api_scrum_epic_get
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/epic/tasks-api-scrum-epic-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Epic identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Epic identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.epic.getFields:
+    post:
+      summary: Get a list of available fields for epic tasks.api.scrum.epic.getFields
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.epic.getFields` returns the available fields for an epic. No parameters.
+      operationId: tasks_api_scrum_epic_getFields
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/epic/tasks-api-scrum-epic-get-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Field:
+                  type: string
+                  description: '`type` | Description ||'
+                name:
+                  type: string
+                  description: '`string` | Epic name ||'
+                description:
+                  type: string
+                  description: '`string` | Epic description ||'
+                groupId:
+                  type: string
+                  description: '`integer` | Identifier of the group (scrum) to which the epic belongs ||'
+                color:
+                  type: string
+                  description: '`string` | Epic color ||'
+                files:
+                  type: string
+                  description: '`array` | Array of files attached to the epic ||'
+                createdBy:
+                  type: string
+                  description: '`integer` | Created by ||'
+                modifiedBy:
+                  type: string
+                  description: '`integer` | Modified by ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                Field:
+                  type: string
+                  description: '`type` | Description ||'
+                name:
+                  type: string
+                  description: '`string` | Epic name ||'
+                description:
+                  type: string
+                  description: '`string` | Epic description ||'
+                groupId:
+                  type: string
+                  description: '`integer` | Identifier of the group (scrum) to which the epic belongs ||'
+                color:
+                  type: string
+                  description: '`string` | Epic color ||'
+                files:
+                  type: string
+                  description: '`array` | Array of files attached to the epic ||'
+                createdBy:
+                  type: string
+                  description: '`integer` | Created by ||'
+                modifiedBy:
+                  type: string
+                  description: '`integer` | Modified by ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.epic.list:
+    post:
+      summary: Get a List of Epics tasks.api.scrum.epic.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns a list of epics.
+      operationId: tasks_api_scrum_epic_list
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/epic/tasks-api-scrum-epic-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order:
+                  type: array
+                  items: {}
+                  description: '| An array for sorting the result in the format `{''sort_field'': ''sort_direction'' [, ...]}`.'
+                filter:
+                  type: array
+                  items: {}
+                  description: '| An array in the format `{''filter_field'': ''filter_value'' [, ...]}`.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of record fields that will be returned by the method.'
+                start:
+                  type: integer
+                  description: '| The page number of the output. Works for HTTPS requests.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                order:
+                  type: array
+                  items: {}
+                  description: '| An array for sorting the result in the format `{''sort_field'': ''sort_direction'' [, ...]}`.'
+                filter:
+                  type: array
+                  items: {}
+                  description: '| An array in the format `{''filter_field'': ''filter_value'' [, ...]}`.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of record fields that will be returned by the method.'
+                start:
+                  type: integer
+                  description: '| The page number of the output. Works for HTTPS requests.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.epic.update:
+    post:
+      summary: Update Epic in Scrum tasks.api.scrum.epic.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates an epic in Scrum.
+      operationId: tasks_api_scrum_epic_update
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/epic/tasks-api-scrum-epic-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Epic identifier.'
+                fields:
+                  type: array
+                  items: {}
+                  description: '| Field values (detailed description provided below) for adding a new epic in the form of a structure:'
+                name:
+                  type: string
+                  description: '| Epic name ||'
+                description:
+                  type: string
+                  description: '| Epic description ||'
+                groupId:
+                  type: integer
+                  description: '| Group identifier (Scrum) to which the epic belongs ||'
+                color:
+                  type: string
+                  description: '| Epic color ||'
+                files:
+                  type: array
+                  items: {}
+                  description: '| Array of files associated with the epic.'
+              required:
+              - id
+              - fields
+              - name
+              - groupId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Epic identifier.'
+                fields:
+                  type: array
+                  items: {}
+                  description: '| Field values (detailed description provided below) for adding a new epic in the form of a structure:'
+                name:
+                  type: string
+                  description: '| Epic name ||'
+                description:
+                  type: string
+                  description: '| Epic description ||'
+                groupId:
+                  type: integer
+                  description: '| Group identifier (Scrum) to which the epic belongs ||'
+                color:
+                  type: string
+                  description: '| Epic color ||'
+                files:
+                  type: array
+                  items: {}
+                  description: '| Array of files associated with the epic.'
+              required:
+              - id
+              - fields
+              - name
+              - groupId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.kanban.addStage:
+    post:
+      summary: Create a Scrum Kanban Stage tasks.api.scrum.kanban.addStage
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method creates a Scrum Kanban stage. A Scrum Kanban must include stages of type new `NEW` and final `FINISH`. Use this method only for active sprints, meaning with the field `"status": "active"`.'
+      operationId: tasks_api_scrum_kanban_addStage
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-add-stage.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Fields corresponding to the available list of fields tasks.api.scrum.kanban.getFields (detailed description provided below) ||'
+                sprintId:
+                  type: integer
+                  description: '| Sprint identifier. You can obtain the identifier using the method tasks.api.scrum.sprint.list ||'
+                name:
+                  type: string
+                  description: '| Name of the Kanban stage ||'
+                type:
+                  type: string
+                  description: '| Type of the Kanban stage. Possible values: `NEW`, `WORK`, `FINISH` ||'
+                sort:
+                  type: integer
+                  description: '| Sort order. The field value must be a multiple of `100` ||'
+                color:
+                  type: string
+                  description: '| Color of the Kanban stage ||'
+              required:
+              - fields
+              - sprintId
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Fields corresponding to the available list of fields tasks.api.scrum.kanban.getFields (detailed description provided below) ||'
+                sprintId:
+                  type: integer
+                  description: '| Sprint identifier. You can obtain the identifier using the method tasks.api.scrum.sprint.list ||'
+                name:
+                  type: string
+                  description: '| Name of the Kanban stage ||'
+                type:
+                  type: string
+                  description: '| Type of the Kanban stage. Possible values: `NEW`, `WORK`, `FINISH` ||'
+                sort:
+                  type: integer
+                  description: '| Sort order. The field value must be a multiple of `100` ||'
+                color:
+                  type: string
+                  description: '| Color of the Kanban stage ||'
+              required:
+              - fields
+              - sprintId
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.kanban.addTask:
+    post:
+      summary: Add Task to Scrum Kanban tasks.api.scrum.kanban.addTask
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a task to the Scrum kanban.
+      operationId: tasks_api_scrum_kanban_addTask
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-add-task.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sprintId:
+                  type: integer
+                  description: '| Identifier of the sprint. You can obtain the identifier using the method tasks.api.scrum.sprint.list ||'
+                taskId:
+                  type: integer
+                  description: '| Identifier of the task. You can obtain the identifier using the method tasks.task.list ||'
+                stageId:
+                  type: integer
+                  description: '| Identifier of the stage. You can obtain the identifier using the method tasks.api.scrum.kanban.getStages ||'
+              required:
+              - sprintId
+              - taskId
+              - stageId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                sprintId:
+                  type: integer
+                  description: '| Identifier of the sprint. You can obtain the identifier using the method tasks.api.scrum.sprint.list ||'
+                taskId:
+                  type: integer
+                  description: '| Identifier of the task. You can obtain the identifier using the method tasks.task.list ||'
+                stageId:
+                  type: integer
+                  description: '| Identifier of the stage. You can obtain the identifier using the method tasks.api.scrum.kanban.getStages ||'
+              required:
+              - sprintId
+              - taskId
+              - stageId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.kanban.deleteStage:
+    post:
+      summary: Delete Stage tasks.api.scrum.kanban.deleteStage
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a stage. The stage will not be deleted if it contains tasks.
+      operationId: tasks_api_scrum_kanban_deleteStage
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-delete-stage.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                stageId:
+                  type: integer
+                  description: '| Identifier of the stage. You can obtain the identifier using the method tasks.api.scrum.kanban.getStages ||'
+              required:
+              - stageId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                stageId:
+                  type: integer
+                  description: '| Identifier of the stage. You can obtain the identifier using the method tasks.api.scrum.kanban.getStages ||'
+              required:
+              - stageId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.kanban.deleteTask:
+    post:
+      summary: Delete Task from Scrum Kanban tasks.api.scrum.kanban.deleteTask
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method removes a task from the Scrum kanban. The task will remain in the sprint on the planning page. The method will not move the task to the [backlog](../backlog/index.md).
+      operationId: tasks_api_scrum_kanban_deleteTask
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-delete-task.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sprintId:
+                  type: integer
+                  description: '| Sprint identifier. You can obtain the identifier using the tasks.api.scrum.sprint.list method ||'
+                taskId:
+                  type: integer
+                  description: '| Task identifier. You can obtain the identifier using the tasks.task.list method ||'
+              required:
+              - sprintId
+              - taskId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                sprintId:
+                  type: integer
+                  description: '| Sprint identifier. You can obtain the identifier using the tasks.api.scrum.sprint.list method ||'
+                taskId:
+                  type: integer
+                  description: '| Task identifier. You can obtain the identifier using the tasks.task.list method ||'
+              required:
+              - sprintId
+              - taskId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.kanban.getFields:
+    post:
+      summary: Get a list of available fields for the kanban stage tasks.api.scrum.kanban.getFields
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method returns the available fields for the kanban stage. No parameters.
+      operationId: tasks_api_scrum_kanban_getFields
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-get-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.kanban.getStages:
+    post:
+      summary: Get Kanban Stages by Sprint ID tasks.api.scrum.kanban.getStages
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method returns the Kanban stages by the sprint ID.
+      operationId: tasks_api_scrum_kanban_getStages
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-get-stages.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sprintId:
+                  type: integer
+                  description: '| The identifier of the sprint. You can obtain the identifier using the method tasks.api.scrum.sprint.list ||'
+              required:
+              - sprintId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                sprintId:
+                  type: integer
+                  description: '| The identifier of the sprint. You can obtain the identifier using the method tasks.api.scrum.sprint.list ||'
+              required:
+              - sprintId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.kanban.updateStage:
+    post:
+      summary: Update Scrum Kanban Stage tasks.api.scrum.kanban.updateStage
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method changes the stage of the Scrum Kanban.
+      operationId: tasks_api_scrum_kanban_updateStage
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-update-stage.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                stageId:
+                  type: integer
+                  description: '| Identifier of the stage. You can obtain the identifier using the method tasks.api.scrum.kanban.getStages ||'
+                fields:
+                  type: object
+                  description: '| Fields corresponding to the available list of fields tasks.api.scrum.kanban.getFields (detailed description provided below) ||'
+                sprintId:
+                  type: integer
+                  description: '| Identifier of the sprint. You can obtain the identifier using the method tasks.api.scrum.sprint.list ||'
+                name:
+                  type: string
+                  description: '| Name of the kanban stage ||'
+                type:
+                  type: string
+                  description: '| Type of the kanban stage. Possible values: `NEW`, `WORK`, `FINISH` ||'
+                sort:
+                  type: integer
+                  description: '| Sort order. The value of the field must be a multiple of `100` ||'
+                color:
+                  type: string
+                  description: '| Color of the kanban stage ||'
+              required:
+              - stageId
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                stageId:
+                  type: integer
+                  description: '| Identifier of the stage. You can obtain the identifier using the method tasks.api.scrum.kanban.getStages ||'
+                fields:
+                  type: object
+                  description: '| Fields corresponding to the available list of fields tasks.api.scrum.kanban.getFields (detailed description provided below) ||'
+                sprintId:
+                  type: integer
+                  description: '| Identifier of the sprint. You can obtain the identifier using the method tasks.api.scrum.sprint.list ||'
+                name:
+                  type: string
+                  description: '| Name of the kanban stage ||'
+                type:
+                  type: string
+                  description: '| Type of the kanban stage. Possible values: `NEW`, `WORK`, `FINISH` ||'
+                sort:
+                  type: integer
+                  description: '| Sort order. The value of the field must be a multiple of `100` ||'
+                color:
+                  type: string
+                  description: '| Color of the kanban stage ||'
+              required:
+              - stageId
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.sprint.add:
+    post:
+      summary: Add Sprint in Scrum tasks.api.scrum.sprint.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.add` adds a sprint to Scrum.
+      operationId: tasks_api_scrum_sprint_add
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Object containing sprint data ||'
+                groupId:
+                  type: integer
+                  description: '| Identifier of the group (Scrum) to which the sprint belongs.'
+                name:
+                  type: string
+                  description: '| Name of the sprint ||'
+                sort:
+                  type: integer
+                  description: '| Sorting ||'
+                dateStart:
+                  type: string
+                  description: '| Start date of the sprint. Available formats: `ISO 8601`, `timestamp` ||'
+                dateEnd:
+                  type: string
+                  description: '| End date of the sprint. Available formats: `ISO 8601`, `timestamp` ||'
+                status:
+                  type: string
+                  description: '| Status of the sprint. Available values: `active`, `planned`, `completed` ||'
+              required:
+              - fields
+              - groupId
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Object containing sprint data ||'
+                groupId:
+                  type: integer
+                  description: '| Identifier of the group (Scrum) to which the sprint belongs.'
+                name:
+                  type: string
+                  description: '| Name of the sprint ||'
+                sort:
+                  type: integer
+                  description: '| Sorting ||'
+                dateStart:
+                  type: string
+                  description: '| Start date of the sprint. Available formats: `ISO 8601`, `timestamp` ||'
+                dateEnd:
+                  type: string
+                  description: '| End date of the sprint. Available formats: `ISO 8601`, `timestamp` ||'
+                status:
+                  type: string
+                  description: '| Status of the sprint. Available values: `active`, `planned`, `completed` ||'
+              required:
+              - fields
+              - groupId
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.sprint.complete:
+    post:
+      summary: Complete the active sprint of the selected Scrum tasks.api.scrum.sprint.complete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.complete` completes the active sprint of the selected Scrum. When the sprint is completed, unfinished tasks are moved to the backlog.
+      operationId: tasks_api_scrum_sprint_complete
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-complete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the group with the active sprint ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the group with the active sprint ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.sprint.delete:
+    post:
+      summary: Delete Sprint tasks.api.scrum.sprint.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.delete` deletes a sprint. When a sprint with tasks is deleted, the tasks will be moved to the backlog.
+      operationId: tasks_api_scrum_sprint_delete
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Sprint identifier ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Sprint identifier ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.sprint.get:
+    post:
+      summary: Get Sprint Fields by Its Identifier tasks.api.scrum.sprint.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.get` returns the values of the sprint fields by its identifier.
+      operationId: tasks_api_scrum_sprint_get
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sprintId:
+                  type: integer
+                  description: '| The identifier of the sprint.'
+              required:
+              - sprintId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                sprintId:
+                  type: integer
+                  description: '| The identifier of the sprint.'
+              required:
+              - sprintId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.sprint.getFields:
+    post:
+      summary: Get a list of available fields for the sprint tasks.api.scrum.sprint.getFields
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.getFields` returns the available fields for the sprint. No parameters.
+      operationId: tasks_api_scrum_sprint_getFields
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-get-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                groupId:
+                  type: integer
+                  description: '| Identifier of the group (Scrum) to which the sprint belongs ||'
+                name:
+                  type: string
+                  description: '| Name of the sprint ||'
+                sort:
+                  type: integer
+                  description: '| Sorting ||'
+                createdBy:
+                  type: integer
+                  description: '| Identifier of the user who created the sprint ||'
+                modifiedBy:
+                  type: integer
+                  description: '| Identifier of the user who modified the sprint ||'
+                dateStart:
+                  type: string
+                  description: '| Start date of the sprint in `ISO 8601` format ||'
+                dateEnd:
+                  type: string
+                  description: '| End date of the sprint in `ISO 8601` format ||'
+                status:
+                  type: string
+                  description: '| Status of the sprint ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                groupId:
+                  type: integer
+                  description: '| Identifier of the group (Scrum) to which the sprint belongs ||'
+                name:
+                  type: string
+                  description: '| Name of the sprint ||'
+                sort:
+                  type: integer
+                  description: '| Sorting ||'
+                createdBy:
+                  type: integer
+                  description: '| Identifier of the user who created the sprint ||'
+                modifiedBy:
+                  type: integer
+                  description: '| Identifier of the user who modified the sprint ||'
+                dateStart:
+                  type: string
+                  description: '| Start date of the sprint in `ISO 8601` format ||'
+                dateEnd:
+                  type: string
+                  description: '| End date of the sprint in `ISO 8601` format ||'
+                status:
+                  type: string
+                  description: '| Status of the sprint ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.sprint.list:
+    post:
+      summary: Get the list of sprints tasks.api.scrum.sprint.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.list` returns a list of sprints. This method is similar to other methods with filtering by list.
+      operationId: tasks_api_scrum_sprint_list
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order:
+                  type: object
+                  description: '| An object for sorting the result. The object format is `{''sorting_field'': ''sorting_direction'' [, ...]}`. Available fields are described in the table below.'
+                filter:
+                  type: object
+                  description: '| An object in the format `{''filter_field'': ''filter_value'' [, ...]}`. Available fields are described in the table below ||'
+                select:
+                  type: object
+                  description: '| An array of record fields that will be returned by the method. You can specify only the fields that are necessary.'
+                start:
+                  type: integer
+                  description: '| The page number of the output. Works for https requests ||'
+                ID:
+                  type: integer
+                  description: '| Sprint identifier ||'
+                GROUP_ID:
+                  type: integer
+                  description: '| Scrum identifier ||'
+                ENTITY_TYPE:
+                  type: string
+                  description: '| Entity type ||'
+                NAME:
+                  type: string
+                  description: '| Name ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                CREATED_BY:
+                  type: integer
+                  description: '| Created by ||'
+                MODIFIED_BY:
+                  type: integer
+                  description: '| Modified by ||'
+                DATE_START:
+                  type: string
+                  description: '| Start date ||'
+                DATE_END:
+                  type: string
+                  description: '| End date ||'
+                STATUS:
+                  type: string
+                  description: '| Status ||'
+                INFO:
+                  type: object
+                  description: '| Information ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                order:
+                  type: object
+                  description: '| An object for sorting the result. The object format is `{''sorting_field'': ''sorting_direction'' [, ...]}`. Available fields are described in the table below.'
+                filter:
+                  type: object
+                  description: '| An object in the format `{''filter_field'': ''filter_value'' [, ...]}`. Available fields are described in the table below ||'
+                select:
+                  type: object
+                  description: '| An array of record fields that will be returned by the method. You can specify only the fields that are necessary.'
+                start:
+                  type: integer
+                  description: '| The page number of the output. Works for https requests ||'
+                ID:
+                  type: integer
+                  description: '| Sprint identifier ||'
+                GROUP_ID:
+                  type: integer
+                  description: '| Scrum identifier ||'
+                ENTITY_TYPE:
+                  type: string
+                  description: '| Entity type ||'
+                NAME:
+                  type: string
+                  description: '| Name ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                CREATED_BY:
+                  type: integer
+                  description: '| Created by ||'
+                MODIFIED_BY:
+                  type: integer
+                  description: '| Modified by ||'
+                DATE_START:
+                  type: string
+                  description: '| Start date ||'
+                DATE_END:
+                  type: string
+                  description: '| End date ||'
+                STATUS:
+                  type: string
+                  description: '| Status ||'
+                INFO:
+                  type: object
+                  description: '| Information ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.sprint.start:
+    post:
+      summary: Start Sprint tasks.api.scrum.sprint.start
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.start` initiates a sprint. Only a planned sprint can be started. When starting a sprint, the columns of the active sprint and Automation rules will be carried over from the previous completed sprint, if one exists.
+      operationId: tasks_api_scrum_sprint_start
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-start.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Sprint identifier ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Sprint identifier ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.sprint.update:
+    post:
+      summary: Update Sprint tasks.api.scrum.sprint.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.update` updates a sprint.
+      operationId: tasks_api_scrum_sprint_update
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Sprint identifier ||'
+                fields:
+                  type: object
+                  description: '| Object containing sprint data ||'
+                groupId:
+                  type: integer
+                  description: '| Identifier of the group (Scrum) to which the sprint belongs.'
+                name:
+                  type: string
+                  description: '| Sprint name ||'
+                sort:
+                  type: integer
+                  description: '| Sorting ||'
+                dateStart:
+                  type: string
+                  description: '| Sprint start date. Available formats: `ISO 8601`, `timestamp` ||'
+                dateEnd:
+                  type: string
+                  description: '| Sprint end date. Available formats: `ISO 8601`, `timestamp` ||'
+                status:
+                  type: string
+                  description: '| Sprint status. Available values: `active`, `planned`, `completed` ||'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Sprint identifier ||'
+                fields:
+                  type: object
+                  description: '| Object containing sprint data ||'
+                groupId:
+                  type: integer
+                  description: '| Identifier of the group (Scrum) to which the sprint belongs.'
+                name:
+                  type: string
+                  description: '| Sprint name ||'
+                sort:
+                  type: integer
+                  description: '| Sorting ||'
+                dateStart:
+                  type: string
+                  description: '| Sprint start date. Available formats: `ISO 8601`, `timestamp` ||'
+                dateEnd:
+                  type: string
+                  description: '| Sprint end date. Available formats: `ISO 8601`, `timestamp` ||'
+                status:
+                  type: string
+                  description: '| Sprint status. Available values: `active`, `planned`, `completed` ||'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.task.get:
+    post:
+      summary: Get Scrum Task Fields by ID tasks.api.scrum.task.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves the values of the Scrum task fields by its identifier `id`.
+      operationId: tasks_api_scrum_task_get
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/task/tasks-api-scrum-task-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Task identifier ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Task identifier ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.task.getFields:
+    post:
+      summary: Get Scrum Task Fields tasks.api.scrum.task.getFields
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves the available fields of a Scrum task. No parameters.
+      operationId: tasks_api_scrum_task_getFields
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/task/tasks-api-scrum-task-get-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /tasks.api.scrum.task.update:
+    post:
+      summary: Create or Update a Scrum Task tasks.api.scrum.task.update
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method creates or updates a Scrum task. You will be able to: - create a task in Scrum - move a task from another project'
+      operationId: tasks_api_scrum_task_update
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/task/tasks-api-scrum-task-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Task identifier ||'
+                fields:
+                  type: object
+                  description: '| An object containing records about the Scrum task (detailed description provided below) in the following structure:'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Task identifier ||'
+                fields:
+                  type: object
+                  description: '| An object containing records about the Scrum task (detailed description provided below) in the following structure:'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - task
+  /user.add:
+    post:
+      summary: Add Users to Group sonet_group.user.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.add` adds users to a workgroup or project without an invitation and confirmation.
+      operationId: user_add
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/members/sonet-group-user-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GROUP_ID:
+                  type: integer
+                  description: '| Identifier of the workgroup or project.'
+                USER_ID:
+                  type: string
+                  description: '| User identifier.'
+              required:
+              - GROUP_ID
+              - USER_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                GROUP_ID:
+                  type: integer
+                  description: '| Identifier of the workgroup or project.'
+                USER_ID:
+                  type: string
+                  description: '| User identifier.'
+              required:
+              - GROUP_ID
+              - USER_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sonet
+  /user.delete:
+    post:
+      summary: Remove users from group sonet_group.user.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.delete` removes participants from a workgroup or project.
+      operationId: user_delete
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/members/sonet-group-user-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GROUP_ID:
+                  type: integer
+                  description: '| Identifier of the workgroup or project.'
+                USER_ID:
+                  type: string
+                  description: '| Identifier of the participant.'
+              required:
+              - GROUP_ID
+              - USER_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                GROUP_ID:
+                  type: integer
+                  description: '| Identifier of the workgroup or project.'
+                USER_ID:
+                  type: string
+                  description: '| Identifier of the participant.'
+              required:
+              - GROUP_ID
+              - USER_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sonet
+  /user.get:
+    post:
+      summary: Get the list of group participants sonet_group.user.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.get` returns a list of active participants in a workgroup or project.
+      operationId: user_get
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/members/sonet-group-user-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the workgroup or project.'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the workgroup or project.'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sonet
+  /user.groups:
+    post:
+      summary: Get the list of groups for the current user sonet_group.user.groups
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.groups` returns the groups and projects that the current user is a member of.
+      operationId: user_groups
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/sonet-group-user-groups.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sonet
+  /user.invite:
+    post:
+      summary: Invite users to group sonet_group.user.invite
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.invite` sends invitations to users in a workgroup or project.
+      operationId: user_invite
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/members/sonet-group-user-invite.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GROUP_ID:
+                  type: integer
+                  description: '| Identifier of the workgroup or project.'
+                USER_ID:
+                  type: string
+                  description: '| User identifier.'
+                MESSAGE:
+                  type: string
+                  description: '| Invitation text. ||'
+              required:
+              - GROUP_ID
+              - USER_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                GROUP_ID:
+                  type: integer
+                  description: '| Identifier of the workgroup or project.'
+                USER_ID:
+                  type: string
+                  description: '| User identifier.'
+                MESSAGE:
+                  type: string
+                  description: '| Invitation text. ||'
+              required:
+              - GROUP_ID
+              - USER_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sonet
+  /user.request:
+    post:
+      summary: Send a request to join the group sonet_group.user.request
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.request` sends a request from the current user to join a workgroup or project.
+      operationId: user_request
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/members/sonet-group-user-request.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GROUP_ID:
+                  type: integer
+                  description: '| Identifier of the workgroup or project.'
+                MESSAGE:
+                  type: string
+                  description: '| Text of the request to join. ||'
+              required:
+              - GROUP_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                GROUP_ID:
+                  type: integer
+                  description: '| Identifier of the workgroup or project.'
+                MESSAGE:
+                  type: string
+                  description: '| Text of the request to join. ||'
+              required:
+              - GROUP_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sonet
+  /user.update:
+    post:
+      summary: Change Role of Group Participants sonet_group.user.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.update` changes the role of participants in a workgroup or project. To change the owner, use the method [sonet_group.setowner](../sonet-group-setowner.md)
+      operationId: user_update
+      tags:
+      - Workgroups
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sonet-group/members/sonet-group-user-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GROUP_ID:
+                  type: integer
+                  description: '| Identifier of the workgroup or project.'
+                USER_ID:
+                  type: string
+                  description: '| Identifier of the participant.'
+                ROLE:
+                  type: string
+                  description: '| Code of the new participant role.'
+              required:
+              - GROUP_ID
+              - USER_ID
+              - ROLE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                GROUP_ID:
+                  type: integer
+                  description: '| Identifier of the workgroup or project.'
+                USER_ID:
+                  type: string
+                  description: '| Identifier of the participant.'
+                ROLE:
+                  type: string
+                  description: '| Code of the new participant role.'
+              required:
+              - GROUP_ID
+              - USER_ID
+              - ROLE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sonet
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

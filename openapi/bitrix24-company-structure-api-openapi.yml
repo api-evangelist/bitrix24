@@ -1,0 +1,470 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Company Structure API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Company Structure
+paths:
+  /department.add:
+    post:
+      summary: Create Department department.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `department.add` adds a new department to the company's structure.
+      operationId: department_add
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/department-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Department name ||'
+                SORT:
+                  type: integer
+                  description: '| Department sorting field ||'
+                PARENT:
+                  type: integer
+                  description: '| Identifier of the parent department ||'
+                UF_HEAD:
+                  type: integer
+                  description: '| Identifier of the user who will become the head of the department ||'
+              required:
+              - NAME
+              - PARENT
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Department name ||'
+                SORT:
+                  type: integer
+                  description: '| Department sorting field ||'
+                PARENT:
+                  type: integer
+                  description: '| Identifier of the parent department ||'
+                UF_HEAD:
+                  type: integer
+                  description: '| Identifier of the user who will become the head of the department ||'
+              required:
+              - NAME
+              - PARENT
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - department
+  /department.department.delete:
+    post:
+      summary: Delete department.department.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `department.delete` removes a department from the company structure.
+      operationId: department_department_delete
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/department-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the department ||'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the department ||'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - department
+  /department.fields:
+    post:
+      summary: Get a list of department field names department.fields
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `department.fields` returns a list and description of available department fields. No parameters.
+      operationId: department_fields
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/department-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| Root element of the response. Contains the list and description of fields ||'
+                time:
+                  type: string
+                  description: '| Information about the execution time of the request ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| Root element of the response. Contains the list and description of fields ||'
+                time:
+                  type: string
+                  description: '| Information about the execution time of the request ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - department
+  /department.get:
+    post:
+      summary: Get the list of departments department.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `department.get` method is designed to retrieve a list of departments.
+      operationId: department_get
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/department-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sort:
+                  type: string
+                  description: '| The name of the field to sort by. Sorting works on the following fields:'
+                order:
+                  type: string
+                  description: '| Sorting direction:'
+                ID:
+                  type: integer
+                  description: '| Filter by department identifier ||'
+                NAME:
+                  type: string
+                  description: '| Filter by department name. The full name of the department should be specified ||'
+                SORT:
+                  type: integer
+                  description: '| Filter by sorting field ||'
+                PARENT:
+                  type: integer
+                  description: '| Filter by parent department identifier ||'
+                UF_HEAD:
+                  type: integer
+                  description: '| Filter by department head identifier ||'
+                START:
+                  type: integer
+                  description: '| This parameter is used for pagination control.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                sort:
+                  type: string
+                  description: '| The name of the field to sort by. Sorting works on the following fields:'
+                order:
+                  type: string
+                  description: '| Sorting direction:'
+                ID:
+                  type: integer
+                  description: '| Filter by department identifier ||'
+                NAME:
+                  type: string
+                  description: '| Filter by department name. The full name of the department should be specified ||'
+                SORT:
+                  type: integer
+                  description: '| Filter by sorting field ||'
+                PARENT:
+                  type: integer
+                  description: '| Filter by parent department identifier ||'
+                UF_HEAD:
+                  type: integer
+                  description: '| Filter by department head identifier ||'
+                START:
+                  type: integer
+                  description: '| This parameter is used for pagination control.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - department
+  /department.update:
+    post:
+      summary: Update Department department.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `department.update` modifies the department data in the company structure.
+      operationId: department_update
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/department-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the department ||'
+                NAME:
+                  type: string
+                  description: '| Name of the department ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting field of the department ||'
+                PARENT:
+                  type: integer
+                  description: '| Identifier of the parent department ||'
+                UF_HEAD:
+                  type: integer
+                  description: '| Identifier of the user who will be the head of the department ||'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the department ||'
+                NAME:
+                  type: string
+                  description: '| Name of the department ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting field of the department ||'
+                PARENT:
+                  type: integer
+                  description: '| Identifier of the parent department ||'
+                UF_HEAD:
+                  type: integer
+                  description: '| Identifier of the user who will be the head of the department ||'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - department
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

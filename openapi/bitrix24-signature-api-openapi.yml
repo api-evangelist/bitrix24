@@ -1,0 +1,572 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Signature API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Signature
+paths:
+  /sign.b2e.company.provider.list:
+    post:
+      summary: Get the List of Providers for sign.b2e.company.provider.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.company.provider.list` returns a list of signature providers for the selected company. The method works only in the context of application authorization [application](../../settings/app-installation/index.md).
+      operationId: sign_b2e_company_provider_list
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/sign-b2e-company-provider-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                companyUuid:
+                  type: string
+                  description: '| UUID of the company in HCM Link.'
+                companyCrmId:
+                  type: integer
+                  description: '| Identifier of the company in CRM, connected in the integration as "my company".'
+                language:
+                  type: string
+                  description: '| Language for localizing provider names.'
+                limit:
+                  type: integer
+                  description: '| Number of records per page.'
+                offset:
+                  type: integer
+                  description: '| Parameter for managing pagination.'
+              required:
+              - companyUuid
+              - companyCrmId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                companyUuid:
+                  type: string
+                  description: '| UUID of the company in HCM Link.'
+                companyCrmId:
+                  type: integer
+                  description: '| Identifier of the company in CRM, connected in the integration as "my company".'
+                language:
+                  type: string
+                  description: '| Language for localizing provider names.'
+                limit:
+                  type: integer
+                  description: '| Number of records per page.'
+                offset:
+                  type: integer
+                  description: '| Parameter for managing pagination.'
+              required:
+              - companyUuid
+              - companyCrmId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sign.b2e
+  /sign.b2e.document.get:
+    post:
+      summary: Get Document sign.b2e.document.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.document.get` returns information about the document and signing participants. The method works only in the context of application authorization [application](../../settings/app-installation/index.md).
+      operationId: sign_b2e_document_get
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/sign-b2e-document-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uid:
+                  type: string
+                  description: '| Unique identifier of the document ||'
+                language:
+                  type: string
+                  description: '| Language for localizing statuses in the response.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                uid:
+                  type: string
+                  description: '| Unique identifier of the document ||'
+                language:
+                  type: string
+                  description: '| Language for localizing statuses in the response.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sign.b2e
+  /sign.b2e.document.send:
+    post:
+      summary: Send Document for Signing sign.b2e.document.send
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.document.send` sends a document for signing on behalf of the company. This method works only in the context of application authorization [application](../../settings/app-installation/index.md).
+      operationId: sign_b2e_document_send
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/sign-b2e-document-send.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Parameters for sending the document for signing (detailed description) ||'
+                language:
+                  type: string
+                  description: '| Language for localizing statuses in the response.'
+                company:
+                  type: object
+                  description: '| The company on behalf of which the document is sent (detailed description) ||'
+                members:
+                  type: array
+                  items: {}
+                  description: '| List of signing participants. Must contain at least one participant with the role `signer` and one with the role `assignee` (detailed description) ||'
+                responsible:
+                  type: object
+                  description: '| Responsible person for the document (detailed description) ||'
+                companyProviderUid:
+                  type: string
+                  description: '| Identifier of the signing provider. You can get a list of available signing providers using the sign.b2e.company.provider.list method ||'
+                files:
+                  type: array
+                  items: {}
+                  description: '| File of the document being signed (detailed description) ||'
+                regionDocumentType:
+                  type: string
+                  description: '| Document type for the region (detailed description) ||'
+                externalSettings:
+                  type: object
+                  description: '| External parameters of the document (detailed description) ||'
+                uuid:
+                  type: string
+                  description: '| UUID of the company in HCM Link.'
+                crmId:
+                  type: integer
+                  description: '| Identifier of the company in CRM, connected in the integration as "my company" ||'
+                employeeCode:
+                  type: string
+                  description: '| Employee code in HCM Link.'
+                employeeId:
+                  type: integer
+                  description: '| Employee identifier in HCM Link.'
+                userId:
+                  type: integer
+                  description: '| User identifier in Bitrix24 ||'
+                role:
+                  type: string
+                  description: '| Role of the participant. Possible values:'
+                fileName:
+                  type: string
+                  description: '| File name. Must include the `.pdf` extension ||'
+                fileType:
+                  type: string
+                  description: '| MIME type of the file. Supported `application/pdf` ||'
+                fileContent:
+                  type: string
+                  description: '| Content of the file, encoded in Base64 ||'
+                externalId:
+                  type: string
+                  description: '| External identifier. Maximum length — 255 characters ||'
+                externalDateCreate:
+                  type: string
+                  description: '| Creation date of the external document in ISO 8601 format ||'
+              required:
+              - fields
+              - company
+              - members
+              - responsible
+              - companyProviderUid
+              - files
+              - regionDocumentType
+              - externalSettings
+              - uuid
+              - crmId
+              - employeeCode
+              - employeeId
+              - userId
+              - role
+              - fileName
+              - fileType
+              - fileContent
+              - externalId
+              - externalDateCreate
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Parameters for sending the document for signing (detailed description) ||'
+                language:
+                  type: string
+                  description: '| Language for localizing statuses in the response.'
+                company:
+                  type: object
+                  description: '| The company on behalf of which the document is sent (detailed description) ||'
+                members:
+                  type: array
+                  items: {}
+                  description: '| List of signing participants. Must contain at least one participant with the role `signer` and one with the role `assignee` (detailed description) ||'
+                responsible:
+                  type: object
+                  description: '| Responsible person for the document (detailed description) ||'
+                companyProviderUid:
+                  type: string
+                  description: '| Identifier of the signing provider. You can get a list of available signing providers using the sign.b2e.company.provider.list method ||'
+                files:
+                  type: array
+                  items: {}
+                  description: '| File of the document being signed (detailed description) ||'
+                regionDocumentType:
+                  type: string
+                  description: '| Document type for the region (detailed description) ||'
+                externalSettings:
+                  type: object
+                  description: '| External parameters of the document (detailed description) ||'
+                uuid:
+                  type: string
+                  description: '| UUID of the company in HCM Link.'
+                crmId:
+                  type: integer
+                  description: '| Identifier of the company in CRM, connected in the integration as "my company" ||'
+                employeeCode:
+                  type: string
+                  description: '| Employee code in HCM Link.'
+                employeeId:
+                  type: integer
+                  description: '| Employee identifier in HCM Link.'
+                userId:
+                  type: integer
+                  description: '| User identifier in Bitrix24 ||'
+                role:
+                  type: string
+                  description: '| Role of the participant. Possible values:'
+                fileName:
+                  type: string
+                  description: '| File name. Must include the `.pdf` extension ||'
+                fileType:
+                  type: string
+                  description: '| MIME type of the file. Supported `application/pdf` ||'
+                fileContent:
+                  type: string
+                  description: '| Content of the file, encoded in Base64 ||'
+                externalId:
+                  type: string
+                  description: '| External identifier. Maximum length — 255 characters ||'
+                externalDateCreate:
+                  type: string
+                  description: '| Creation date of the external document in ISO 8601 format ||'
+              required:
+              - fields
+              - company
+              - members
+              - responsible
+              - companyProviderUid
+              - files
+              - regionDocumentType
+              - externalSettings
+              - uuid
+              - crmId
+              - employeeCode
+              - employeeId
+              - userId
+              - role
+              - fileName
+              - fileType
+              - fileContent
+              - externalId
+              - externalDateCreate
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sign.b2e
+  /sign.b2e.mysafe.tail:
+    post:
+      summary: Get a list of signed documents in the company's safe sign.b2e.mysafe.tail
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.mysafe.tail` returns a list of signed documents in the company's safe. The method works only in the context of [application](../../settings/app-installation/index.md) authorization.
+      operationId: sign_b2e_mysafe_tail
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/sign-b2e-mysafe-tail.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  description: '| Number of records per page.'
+                offset:
+                  type: integer
+                  description: '| This parameter is used to manage pagination. It is similar to the standard start parameter.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  description: '| Number of records per page.'
+                offset:
+                  type: integer
+                  description: '| This parameter is used to manage pagination. It is similar to the standard start parameter.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sign.b2e
+  /sign.b2e.personal.tail:
+    post:
+      summary: Get a list of signed documents for the user sign.b2e.personal.tail
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.personal.tail` returns a list of signed documents for the user from the e-Signature for HR section. The method works only in the context of authorization of the [application](../../settings/app-installation/index.md).
+      operationId: sign_b2e_personal_tail
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/sign-b2e-personal-tail.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  description: '| Number of records per page.'
+                offset:
+                  type: integer
+                  description: '| This parameter is used for pagination control. It is similar to the standard parameter start.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  description: '| Number of records per page.'
+                offset:
+                  type: integer
+                  description: '| This parameter is used for pagination control. It is similar to the standard parameter start.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sign.b2e
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

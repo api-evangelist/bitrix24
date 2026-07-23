@@ -1,0 +1,995 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Polls API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Polls
+paths:
+  /vote.AttachedVote.download:
+    post:
+      summary: Download the voting report vote.AttachedVote.download
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.download` generates and provides a downloadable report for the vote in the specified format. Attention! This method is an exception to the general rule of working with the REST API. Unlike other methods, it returns not a `JSON` object, but the actual content of the file with HTTP headers that initiate the download in the browser. Due to this, the standard function `BX24.callMethod()` **cannot** process the response and will throw an error. To work with this method, a direct HTTP request must be made, as shown in the JS code example.
+      operationId: vote_AttachedVote_download
+      tags:
+      - Polls
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/vote/vote.attachedvote.download.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                moduleId:
+                  type: string
+                  description: '| The module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| The object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| The ID of the entity, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                moduleId:
+                  type: string
+                  description: '| The module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| The object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| The ID of the entity, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - vote
+  /vote.AttachedVote.get:
+    post:
+      summary: Get Data of Attached Vote vote.AttachedVote.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.get` returns data of the attached vote.
+      operationId: vote_AttachedVote_get
+      tags:
+      - Polls
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/vote/vote.attachedvote.get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| ID of the attached vote, can be equal to `voteId` from the results of vote.Integration.Im.send ||'
+                moduleId:
+                  type: string
+                  description: '| Module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| Object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| Element ID, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| Signed attachment ID, can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| ID of the attached vote, can be equal to `voteId` from the results of vote.Integration.Im.send ||'
+                moduleId:
+                  type: string
+                  description: '| Module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| Object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| Element ID, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| Signed attachment ID, can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - vote
+  /vote.AttachedVote.getAnswerVoted:
+    post:
+      summary: Get the list of users who voted for the answer vote.AttachedVote.getAnswerVoted
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.getAnswerVoted` returns a list of users who voted for the specified answer option.
+      operationId: vote_AttachedVote_getAnswerVoted
+      tags:
+      - Polls
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/vote/vote.attachedvote.getAnswerVoted.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                answerId:
+                  type: integer
+                  description: '| The ID of the answer, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                pageNavigation:
+                  type: object
+                  description: '| Pagination parameters, for example { size: 10, page: 1 } ||'
+                userForMobileFormat:
+                  type: boolean
+                  description: '| User data format for mobile devices. Default value: `false` ||'
+                moduleId:
+                  type: string
+                  description: '| The module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| The object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| The ID of the element, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - answerId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                answerId:
+                  type: integer
+                  description: '| The ID of the answer, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                pageNavigation:
+                  type: object
+                  description: '| Pagination parameters, for example { size: 10, page: 1 } ||'
+                userForMobileFormat:
+                  type: boolean
+                  description: '| User data format for mobile devices. Default value: `false` ||'
+                moduleId:
+                  type: string
+                  description: '| The module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| The object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| The ID of the element, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - answerId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - vote
+  /vote.AttachedVote.getMany:
+    post:
+      summary: Get Multiple Votes vote.AttachedVote.getMany
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.getMany` returns data for multiple votes based on the identifiers of the entities to which the vote is attached.
+      operationId: vote_AttachedVote_getMany
+      tags:
+      - Polls
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/vote/vote.attachedvote.getMany.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                moduleId:
+                  type: string
+                  description: '| Module identifier, possible values:'
+                entityType:
+                  type: string
+                  description: '| Object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| Array of entity identifiers, possible values:'
+              required:
+              - moduleId
+              - entityType
+              - entityId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                moduleId:
+                  type: string
+                  description: '| Module identifier, possible values:'
+                entityType:
+                  type: string
+                  description: '| Object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| Array of entity identifiers, possible values:'
+              required:
+              - moduleId
+              - entityType
+              - entityId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - vote
+  /vote.AttachedVote.getWithVoted:
+    post:
+      summary: Get Voting Data with Voter Information vote.AttachedVote.getWithVoted
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.getWithVoted` returns data for the attached vote along with information about the users who voted.
+      operationId: vote_AttachedVote_getWithVoted
+      tags:
+      - Polls
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/vote/vote.attachedvote.getWithVoted.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                pageSize:
+                  type: integer
+                  description: '| The number of records per page for the list of voters.'
+                userForMobileFormat:
+                  type: boolean
+                  description: '| User data format for mobile devices.'
+                moduleId:
+                  type: string
+                  description: '| The module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| The object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| The element ID, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                pageSize:
+                  type: integer
+                  description: '| The number of records per page for the list of voters.'
+                userForMobileFormat:
+                  type: boolean
+                  description: '| User data format for mobile devices.'
+                moduleId:
+                  type: string
+                  description: '| The module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| The object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| The element ID, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - vote
+  /vote.AttachedVote.recall:
+    post:
+      summary: Recall Your Vote vote.AttachedVote.recall
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.recall` allows a user to withdraw their vote in an active voting session. This method only works with votes where the option Allow Re-voting is enabled.
+      operationId: vote_AttachedVote_recall
+      tags:
+      - Polls
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/vote/vote.attachedvote.recall.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                moduleId:
+                  type: string
+                  description: '| The module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| The object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| The element ID, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| The signed attachment ID, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                moduleId:
+                  type: string
+                  description: '| The module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| The object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| The element ID, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| The signed attachment ID, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - vote
+  /vote.AttachedVote.resume:
+    post:
+      summary: Resume Voting vote.AttachedVote.resume
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.resume` resumes a stopped vote, allowing users to participate in it again.
+      operationId: vote_AttachedVote_resume
+      tags:
+      - Polls
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/vote/vote.attachedvote.resume.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                moduleId:
+                  type: string
+                  description: '| The module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| The object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| The ID of the entity, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                moduleId:
+                  type: string
+                  description: '| The module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| The object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| The ID of the entity, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - vote
+  /vote.AttachedVote.stop:
+    post:
+      summary: Stop voting vote.AttachedVote.stop
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.stop` halts an active vote, preventing further participation.
+      operationId: vote_AttachedVote_stop
+      tags:
+      - Polls
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/vote/vote.attachedvote.stop.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                moduleId:
+                  type: string
+                  description: '| The module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| The object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| The ID of the entity, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| The signed attachment ID, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                moduleId:
+                  type: string
+                  description: '| The module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| The object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| The ID of the entity, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| The signed attachment ID, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - vote
+  /vote.AttachedVote.vote:
+    post:
+      summary: Vote in the attached voting vote.AttachedVote.vote
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.vote` allows you to vote in an attached voting.
+      operationId: vote_AttachedVote_vote
+      tags:
+      - Polls
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/vote/vote.attachedvote.vote.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached voting, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                ballot:
+                  type: object
+                  description: '| Voting data in the format:'
+                moduleId:
+                  type: string
+                  description: '| Module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| Object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| Element ID, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| Signed identifier of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - ballot
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                attachId:
+                  type: integer
+                  description: '| The ID of the attached voting, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||'
+                ballot:
+                  type: object
+                  description: '| Voting data in the format:'
+                moduleId:
+                  type: string
+                  description: '| Module ID, possible values:'
+                entityType:
+                  type: string
+                  description: '| Object type, possible values:'
+                entityId:
+                  type: integer
+                  description: '| Element ID, possible values:'
+                signedAttachId:
+                  type: string
+                  description: '| Signed identifier of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||'
+              required:
+              - attachId
+              - ballot
+              - moduleId
+              - entityType
+              - entityId
+              - signedAttachId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - vote
+  /vote.Integration.Im.send:
+    post:
+      summary: Create and Send a Vote in Chat vote.Integration.Im.send
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.Integration.Im.send` creates and sends a vote to the specified chat in the messenger.
+      operationId: vote_Integration_Im_send
+      tags:
+      - Polls
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/vote/vote.integration.im.send.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                chatId:
+                  type: integer
+                  description: '| The identifier of the chat to which the vote is sent. It can be obtained using the methods im.chat.add, im.chat.get, im.recent.get, im.recent.list ||'
+                IM_MESSAGE_VOTE_DATA:
+                  type: object
+                  description: '| Vote data containing the question and answer options. The structure is described below ||'
+                templateId:
+                  type: string
+                  description: '| A unique identifier for the request, with no format requirements. The purpose of the identifier is to prevent duplication. If the request is sent again due to a network failure with the same `templateId`, the server will recognize this and create the vote only once ||'
+                QUESTIONS:
+                  type: array
+                  items: {}
+                  description: '| An array of vote questions, the structure is described below. Maximum 1 question ||'
+                ANONYMITY:
+                  type: integer
+                  description: '| Anonymity of the vote. Possible values:'
+                OPTIONS:
+                  type: integer
+                  description: '| Allow re-voting. Possible values:'
+                QUESTION:
+                  type: string
+                  description: '| The text of the question ||'
+                FIELD_TYPE:
+                  type: integer
+                  description: '| The type of field for the answer. Possible values:'
+                ANSWERS:
+                  type: array
+                  items: {}
+                  description: '| An array of answer options, the structure is described below. Minimum 2 options, maximum 10 ||'
+                MESSAGE:
+                  type: string
+                  description: '| The text of the answer option ||'
+              required:
+              - chatId
+              - IM_MESSAGE_VOTE_DATA
+              - QUESTIONS
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chatId:
+                  type: integer
+                  description: '| The identifier of the chat to which the vote is sent. It can be obtained using the methods im.chat.add, im.chat.get, im.recent.get, im.recent.list ||'
+                IM_MESSAGE_VOTE_DATA:
+                  type: object
+                  description: '| Vote data containing the question and answer options. The structure is described below ||'
+                templateId:
+                  type: string
+                  description: '| A unique identifier for the request, with no format requirements. The purpose of the identifier is to prevent duplication. If the request is sent again due to a network failure with the same `templateId`, the server will recognize this and create the vote only once ||'
+                QUESTIONS:
+                  type: array
+                  items: {}
+                  description: '| An array of vote questions, the structure is described below. Maximum 1 question ||'
+                ANONYMITY:
+                  type: integer
+                  description: '| Anonymity of the vote. Possible values:'
+                OPTIONS:
+                  type: integer
+                  description: '| Allow re-voting. Possible values:'
+                QUESTION:
+                  type: string
+                  description: '| The text of the question ||'
+                FIELD_TYPE:
+                  type: integer
+                  description: '| The type of field for the answer. Possible values:'
+                ANSWERS:
+                  type: array
+                  items: {}
+                  description: '| An array of answer options, the structure is described below. Minimum 2 options, maximum 10 ||'
+                MESSAGE:
+                  type: string
+                  description: '| The text of the answer option ||'
+              required:
+              - chatId
+              - IM_MESSAGE_VOTE_DATA
+              - QUESTIONS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - vote
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

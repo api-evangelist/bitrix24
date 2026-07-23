@@ -1,0 +1,1215 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Payment Systems API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Payment Systems
+paths:
+  /sale.paysystem.add:
+    post:
+      summary: Add Payment System sale.paysystem.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a payment system.
+      operationId: sale_paysystem_add
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/sale-pay-system-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Name of the payment system ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the payment system ||'
+                PERSON_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the payer type ||'
+                BX_REST_HANDLER:
+                  type: string
+                  description: '| Code of the REST handler specified when adding the handler using the sale.paysystem.handler.add method ||'
+                ACTIVE:
+                  type: string
+                  description: '| Indicator of the payment system''s activity. Possible values:'
+                SETTINGS:
+                  type: object
+                  description: '| List of handler settings values in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where `field` is the name of the setting and `value` is an object containing keys TYPE and VALUE (see description below).'
+                ENTITY_REGISTRY_TYPE:
+                  type: string
+                  description: '| Binding of the payment system:'
+                LOGOTYPE:
+                  type: string
+                  description: '| Logo of the payment system (image in Base64 format) ||'
+                NEW_WINDOW:
+                  type: string
+                  description: '| Flag for the "Open in new window" setting. Possible values:'
+                XML_ID:
+                  type: string
+                  description: '| External identifier of the payment system. Can be used as an additional parameter for filtering in sale.paysystem.list ||'
+                Name:
+                  type: string
+                  description: '| Description ||'
+                ORDER:
+                  type: string
+                  description: '| Parameters ||'
+                PROPERTY:
+                  type: string
+                  description: '| Invoice properties ||'
+                PAYMENT:
+                  type: string
+                  description: '| Payment ||'
+                USER:
+                  type: string
+                  description: '| User ||'
+                VALUE:
+                  type: string
+                  description: '| Arbitrary string value ||'
+              required:
+              - NAME
+              - PERSON_TYPE_ID
+              - BX_REST_HANDLER
+              - ENTITY_REGISTRY_TYPE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Name of the payment system ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the payment system ||'
+                PERSON_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the payer type ||'
+                BX_REST_HANDLER:
+                  type: string
+                  description: '| Code of the REST handler specified when adding the handler using the sale.paysystem.handler.add method ||'
+                ACTIVE:
+                  type: string
+                  description: '| Indicator of the payment system''s activity. Possible values:'
+                SETTINGS:
+                  type: object
+                  description: '| List of handler settings values in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where `field` is the name of the setting and `value` is an object containing keys TYPE and VALUE (see description below).'
+                ENTITY_REGISTRY_TYPE:
+                  type: string
+                  description: '| Binding of the payment system:'
+                LOGOTYPE:
+                  type: string
+                  description: '| Logo of the payment system (image in Base64 format) ||'
+                NEW_WINDOW:
+                  type: string
+                  description: '| Flag for the "Open in new window" setting. Possible values:'
+                XML_ID:
+                  type: string
+                  description: '| External identifier of the payment system. Can be used as an additional parameter for filtering in sale.paysystem.list ||'
+                Name:
+                  type: string
+                  description: '| Description ||'
+                ORDER:
+                  type: string
+                  description: '| Parameters ||'
+                PROPERTY:
+                  type: string
+                  description: '| Invoice properties ||'
+                PAYMENT:
+                  type: string
+                  description: '| Payment ||'
+                USER:
+                  type: string
+                  description: '| User ||'
+                VALUE:
+                  type: string
+                  description: '| Arbitrary string value ||'
+              required:
+              - NAME
+              - PERSON_TYPE_ID
+              - BX_REST_HANDLER
+              - ENTITY_REGISTRY_TYPE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.delete:
+    post:
+      summary: Delete Payment System sale.paysystem.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a payment system.
+      operationId: sale_paysystem_delete
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/sale-pay-system-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the payment system ||'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the payment system ||'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.handler.add:
+    post:
+      summary: Add REST Handler for Payment System sale.paysystem.handler.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so the assistant can use the official REST documentation. This method adds a REST handler for the payment system.
+      operationId: sale_paysystem_handler_add
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/sale-pay-system-handler-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Name of the REST handler ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting order. Default is `100` ||'
+                CODE:
+                  type: string
+                  description: '| Code of the REST handler. Must be unique among all handlers ||'
+                SETTINGS:
+                  type: object
+                  description: '| Handler settings (detailed description provided below) ||'
+                CODES:
+                  type: object
+                  description: '| List of handler parameters. Keys are parameter codes (`string`), values are parameter descriptions (detailed description provided below).'
+                FORM_DATA:
+                  type: object
+                  description: '| Form settings when using the operating mode in form ||'
+                CHECKOUT_DATA:
+                  type: object
+                  description: '| Settings for the Checkout mode (creating an order on the service side and redirecting the buyer to this page for payment) ||'
+                IFRAME_DATA:
+                  type: object
+                  description: '| Settings for the page displayed in the iframe on the seller''s site on the payment page ||'
+                CLIENT_TYPE:
+                  type: string
+                  description: '| Type of buyers that the handler can work with. Available values:'
+                CURRENCY:
+                  type: string
+                  description: '| List of currencies supported by the payment system. Default is empty ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the parameter ||'
+                GROUP:
+                  type: string
+                  description: '| Code of the group to which the parameter belongs ||'
+                DEFAULT:
+                  type: object
+                  description: '| Description of the default value (detailed description provided below)'
+                INPUT:
+                  type: object
+                  description: '| Object describing the input field. The structure of the object contains the `TYPE` parameter — the type of the field. Supported fields:'
+                PROVIDER_KEY:
+                  type: string
+                  description: '| Key of the provider from which the default value will be taken. Possible key values are listed below ||'
+                PROVIDER_VALUE:
+                  type: string
+                  description: '| Code of the value that will be taken from the provider. Possible key values are listed below ||'
+                Name:
+                  type: string
+                  description: '| Description ||'
+                ORDER:
+                  type: string
+                  description: '| Order ||'
+                PROPERTY:
+                  type: string
+                  description: '| Invoice properties ||'
+                PAYMENT:
+                  type: string
+                  description: '| Payment ||'
+                USER:
+                  type: string
+                  description: '| User ||'
+                VALUE:
+                  type: string
+                  description: '| Arbitrary string type value ||'
+              required:
+              - NAME
+              - CODE
+              - SETTINGS
+              - CODES
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NAME:
+                  type: string
+                  description: '| Name of the REST handler ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting order. Default is `100` ||'
+                CODE:
+                  type: string
+                  description: '| Code of the REST handler. Must be unique among all handlers ||'
+                SETTINGS:
+                  type: object
+                  description: '| Handler settings (detailed description provided below) ||'
+                CODES:
+                  type: object
+                  description: '| List of handler parameters. Keys are parameter codes (`string`), values are parameter descriptions (detailed description provided below).'
+                FORM_DATA:
+                  type: object
+                  description: '| Form settings when using the operating mode in form ||'
+                CHECKOUT_DATA:
+                  type: object
+                  description: '| Settings for the Checkout mode (creating an order on the service side and redirecting the buyer to this page for payment) ||'
+                IFRAME_DATA:
+                  type: object
+                  description: '| Settings for the page displayed in the iframe on the seller''s site on the payment page ||'
+                CLIENT_TYPE:
+                  type: string
+                  description: '| Type of buyers that the handler can work with. Available values:'
+                CURRENCY:
+                  type: string
+                  description: '| List of currencies supported by the payment system. Default is empty ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the parameter ||'
+                GROUP:
+                  type: string
+                  description: '| Code of the group to which the parameter belongs ||'
+                DEFAULT:
+                  type: object
+                  description: '| Description of the default value (detailed description provided below)'
+                INPUT:
+                  type: object
+                  description: '| Object describing the input field. The structure of the object contains the `TYPE` parameter — the type of the field. Supported fields:'
+                PROVIDER_KEY:
+                  type: string
+                  description: '| Key of the provider from which the default value will be taken. Possible key values are listed below ||'
+                PROVIDER_VALUE:
+                  type: string
+                  description: '| Code of the value that will be taken from the provider. Possible key values are listed below ||'
+                Name:
+                  type: string
+                  description: '| Description ||'
+                ORDER:
+                  type: string
+                  description: '| Order ||'
+                PROPERTY:
+                  type: string
+                  description: '| Invoice properties ||'
+                PAYMENT:
+                  type: string
+                  description: '| Payment ||'
+                USER:
+                  type: string
+                  description: '| User ||'
+                VALUE:
+                  type: string
+                  description: '| Arbitrary string type value ||'
+              required:
+              - NAME
+              - CODE
+              - SETTINGS
+              - CODES
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.handler.delete:
+    post:
+      summary: Delete the REST handler for the payment system sale.paysystem.handler.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method deletes the REST handler for the payment system.
+      operationId: sale_paysystem_handler_delete
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/sale-pay-system-handler-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the REST handler ||'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the REST handler ||'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.handler.list:
+    post:
+      summary: Get a List of REST Handlers for the Payment System sale.paysystem.handler.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns a list of REST handlers for the payment system. No parameters required.
+      operationId: sale_paysystem_handler_list
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/sale-pay-system-handler-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: string
+                  description: '| List of registered REST handlers for payment systems ||'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+                Code:
+                  type: string
+                  description: '| Description | Status ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: string
+                  description: '| List of registered REST handlers for payment systems ||'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+                Code:
+                  type: string
+                  description: '| Description | Status ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.handler.update:
+    post:
+      summary: Update REST Handler for Payment System sale.paysystem.handler.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the REST handler for the payment system.
+      operationId: sale_paysystem_handler_update
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/sale-pay-system-handler-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the REST handler ||'
+                FIELDS:
+                  type: object
+                  description: '| Set of values for updating (detailed description provided below) ||'
+                NAME:
+                  type: string
+                  description: '| Name of the handler ||'
+                CODE:
+                  type: string
+                  description: '| Unique code of the handler in the system ||'
+                SETTINGS:
+                  type: object
+                  description: '| Handler settings. The format is similar to that in sale.paysystem.handler.add ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+              required:
+              - ID
+              - FIELDS
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the REST handler ||'
+                FIELDS:
+                  type: object
+                  description: '| Set of values for updating (detailed description provided below) ||'
+                NAME:
+                  type: string
+                  description: '| Name of the handler ||'
+                CODE:
+                  type: string
+                  description: '| Unique code of the handler in the system ||'
+                SETTINGS:
+                  type: object
+                  description: '| Handler settings. The format is similar to that in sale.paysystem.handler.add ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+              required:
+              - ID
+              - FIELDS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.list:
+    post:
+      summary: Get a List of Payment Systems sale.paysystem.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method returns a list of payment systems.
+      operationId: sale_paysystem_list
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/sale-pay-system-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SELECT:
+                  type: array
+                  items: {}
+                  description: '| An array containing the list of fields to select (see fields of the `sale_paysystem` object).'
+                FILTER:
+                  type: object
+                  description: '| An object for filtering the selected payment systems in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                ORDER:
+                  type: object
+                  description: '| An object for sorting the selected payment systems in the format `{"field_1": "order_1", ... "field_N": "order_N"}`.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SELECT:
+                  type: array
+                  items: {}
+                  description: '| An array containing the list of fields to select (see fields of the `sale_paysystem` object).'
+                FILTER:
+                  type: object
+                  description: '| An object for filtering the selected payment systems in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                ORDER:
+                  type: object
+                  description: '| An object for sorting the selected payment systems in the format `{"field_1": "order_1", ... "field_N": "order_N"}`.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.pay.invoice:
+    post:
+      summary: Pay Invoice Through a Specific Payment System sale.paysystem.pay.invoice
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method is used to pay an invoice (legacy version) through a specific payment system. It is called after processing the response from the payment system.
+      operationId: sale_paysystem_pay_invoice
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/outdated/sale-pay-system-pay-invoice.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                INVOICE_ID:
+                  type: integer
+                  description: '| Identifier of the legacy invoice. The service crm.invoice.* is used to retrieve invoice information.'
+                PAY_SYSTEM_ID:
+                  type: string
+                  description: '| Identifier of the payment system'
+                BX_REST_HANDLER:
+                  type: string
+                  description: '| Symbolic identifier of the REST handler for the payment system.'
+              required:
+              - INVOICE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                INVOICE_ID:
+                  type: integer
+                  description: '| Identifier of the legacy invoice. The service crm.invoice.* is used to retrieve invoice information.'
+                PAY_SYSTEM_ID:
+                  type: string
+                  description: '| Identifier of the payment system'
+                BX_REST_HANDLER:
+                  type: string
+                  description: '| Symbolic identifier of the REST handler for the payment system.'
+              required:
+              - INVOICE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.pay.payment:
+    post:
+      summary: Pay for an Order via a Specific Payment System sale.paysystem.pay.payment
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method is used to pay for an order through a specific payment system. It is called after processing the response from the payment system. To perform the payment, there must be a payment associated with the specified payment system in the system.
+      operationId: sale_paysystem_pay_payment
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/sale-pay-system-pay-payment.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                PAYMENT_ID:
+                  type: string
+                  description: '| Payment identifier'
+                PAY_SYSTEM_ID:
+                  type: string
+                  description: '| Payment system identifier'
+              required:
+              - PAYMENT_ID
+              - PAY_SYSTEM_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                PAYMENT_ID:
+                  type: string
+                  description: '| Payment identifier'
+                PAY_SYSTEM_ID:
+                  type: string
+                  description: '| Payment system identifier'
+              required:
+              - PAYMENT_ID
+              - PAY_SYSTEM_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.settings.get:
+    post:
+      summary: Get Payment System Settings sale.paysystem.settings.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method returns the settings of the payment system. The structure of the settings is defined when adding the payment system handler in the method [sale.paysystem.handler.add](./sale-pay-system-handler-add.md) under the `CODES` key of the `SETTINGS` parameter.
+      operationId: sale_paysystem_settings_get
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/sale-pay-system-settings-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the payment system for which settings are to be retrieved'
+                PERSON_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the payer type for which settings are to be retrieved. To get default settings, pass `0`'
+              required:
+              - ID
+              - PERSON_TYPE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the payment system for which settings are to be retrieved'
+                PERSON_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the payer type for which settings are to be retrieved. To get default settings, pass `0`'
+              required:
+              - ID
+              - PERSON_TYPE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.settings.invoice.get:
+    post:
+      summary: Get Payment System Settings for a Specific Invoice sale.paysystem.settings.invoice.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method returns the payment system settings for a specific invoice (legacy version).
+      operationId: sale_paysystem_settings_invoice_get
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/outdated/sale-pay-system-settings-invoice-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                INVOICE_ID:
+                  type: integer
+                  description: '| Identifier of the legacy invoice. The service crm.invoice.* is used to retrieve information about invoices.'
+                PAY_SYSTEM_ID:
+                  type: string
+                  description: '| Identifier of the payment system'
+                BX_REST_HANDLER:
+                  type: string
+                  description: '| Symbolic identifier of the payment system handler'
+              required:
+              - INVOICE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                INVOICE_ID:
+                  type: integer
+                  description: '| Identifier of the legacy invoice. The service crm.invoice.* is used to retrieve information about invoices.'
+                PAY_SYSTEM_ID:
+                  type: string
+                  description: '| Identifier of the payment system'
+                BX_REST_HANDLER:
+                  type: string
+                  description: '| Symbolic identifier of the payment system handler'
+              required:
+              - INVOICE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.settings.payment.get:
+    post:
+      summary: Get Payment System Settings for a Specific Payment sale.paysystem.settings.payment.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method returns the payment system settings for a specific payment.
+      operationId: sale_paysystem_settings_payment_get
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/sale-pay-system-settings-payment-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                PAYMENT_ID:
+                  type: string
+                  description: '| Payment identifier'
+                PAY_SYSTEM_ID:
+                  type: string
+                  description: '| Payment system identifier'
+              required:
+              - PAYMENT_ID
+              - PAY_SYSTEM_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                PAYMENT_ID:
+                  type: string
+                  description: '| Payment identifier'
+                PAY_SYSTEM_ID:
+                  type: string
+                  description: '| Payment system identifier'
+              required:
+              - PAYMENT_ID
+              - PAY_SYSTEM_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.settings.update:
+    post:
+      summary: Update Payment System Settings sale.paysystem.settings.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the payment system settings. The structure of the settings is defined when adding the payment system handler in the method [sale.paysystem.handler.add](./sale-pay-system-handler-add.md) under the `CODES` key of the `SETTINGS` parameter.
+      operationId: sale_paysystem_settings_update
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/sale-pay-system-settings-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the payment system for which settings need to be retrieved'
+                PERSON_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the payer type for which settings need to be retrieved'
+                SETTINGS:
+                  type: object
+                  description: '| Settings to be updated. The keys are the names of the settings, and the values are objects whose structure is described below'
+                TYPE:
+                  type: string
+                  description: '| Source of the parameter value ||'
+                VALUE:
+                  type: string
+                  description: '| Parameter code at the source or parameter value (for `TYPE="VALUE"`) ||'
+              required:
+              - ID
+              - SETTINGS
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the payment system for which settings need to be retrieved'
+                PERSON_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the payer type for which settings need to be retrieved'
+                SETTINGS:
+                  type: object
+                  description: '| Settings to be updated. The keys are the names of the settings, and the values are objects whose structure is described below'
+                TYPE:
+                  type: string
+                  description: '| Source of the parameter value ||'
+                VALUE:
+                  type: string
+                  description: '| Parameter code at the source or parameter value (for `TYPE="VALUE"`) ||'
+              required:
+              - ID
+              - SETTINGS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+  /sale.paysystem.update:
+    post:
+      summary: Update Payment System sale.paysystem.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the payment system.
+      operationId: sale_paysystem_update
+      tags:
+      - Payment Systems
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/pay-system/sale-pay-system-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the payment system ||'
+                FIELDS:
+                  type: object
+                  description: '| Object containing new field values (detailed description provided below) ||'
+                NAME:
+                  type: string
+                  description: '| Name of the payment system ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the payment system ||'
+                PERSON_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the payer type ||'
+                BX_REST_HANDLER:
+                  type: string
+                  description: '| Code of the REST handler specified when adding the handler using the sale.paysystem.handler.add method ||'
+                ACTIVE:
+                  type: string
+                  description: '| Indicator of the payment system''s activity. Possible values:'
+                LOGOTYPE:
+                  type: string
+                  description: '| Logo of the payment system (image in Base64 format) ||'
+                NEW_WINDOW:
+                  type: string
+                  description: '| Flag for the "Open in new window" setting. Possible values:'
+                XML_ID:
+                  type: string
+                  description: '| External identifier of the payment system ||'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  description: '| Identifier of the payment system ||'
+                FIELDS:
+                  type: object
+                  description: '| Object containing new field values (detailed description provided below) ||'
+                NAME:
+                  type: string
+                  description: '| Name of the payment system ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the payment system ||'
+                PERSON_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the payer type ||'
+                BX_REST_HANDLER:
+                  type: string
+                  description: '| Code of the REST handler specified when adding the handler using the sale.paysystem.handler.add method ||'
+                ACTIVE:
+                  type: string
+                  description: '| Indicator of the payment system''s activity. Possible values:'
+                LOGOTYPE:
+                  type: string
+                  description: '| Logo of the payment system (image in Base64 format) ||'
+                NEW_WINDOW:
+                  type: string
+                  description: '| Flag for the "Open in new window" setting. Possible values:'
+                XML_ID:
+                  type: string
+                  description: '| External identifier of the payment system ||'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - pay_system
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

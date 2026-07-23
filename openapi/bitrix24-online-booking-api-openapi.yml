@@ -1,0 +1,2913 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Online Booking API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Online Booking
+paths:
+  /booking.v1.booking.add:
+    post:
+      summary: Add Booking booking.v1.booking.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.add` adds a new booking for a resource.
+      operationId: booking_v1_booking_add
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking/booking-v1-booking-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing field values for creating a booking (detailed description) ||'
+                resourceIds:
+                  type: array
+                  items: {}
+                  description: '| An array of resource IDs for the booking.'
+                name:
+                  type: string
+                  description: '| The name of the booking.'
+                description:
+                  type: string
+                  description: '| The description of the booking.'
+                datePeriod:
+                  type: object
+                  description: '| An object containing the booking time (detailed description) ||'
+                from:
+                  type: object
+                  description: '| The start time of the booking in the format `{"timestamp": "1723446900", "timezone": "Europe/Berlin"}`||'
+                to:
+                  type: object
+                  description: '| The end time of the booking in the format `{"timestamp": "1723447800", "timezone": "Europe/Berlin"}` ||'
+              required:
+              - fields
+              - resourceIds
+              - datePeriod
+              - from
+              - to
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing field values for creating a booking (detailed description) ||'
+                resourceIds:
+                  type: array
+                  items: {}
+                  description: '| An array of resource IDs for the booking.'
+                name:
+                  type: string
+                  description: '| The name of the booking.'
+                description:
+                  type: string
+                  description: '| The description of the booking.'
+                datePeriod:
+                  type: object
+                  description: '| An object containing the booking time (detailed description) ||'
+                from:
+                  type: object
+                  description: '| The start time of the booking in the format `{"timestamp": "1723446900", "timezone": "Europe/Berlin"}`||'
+                to:
+                  type: object
+                  description: '| The end time of the booking in the format `{"timestamp": "1723447800", "timezone": "Europe/Berlin"}` ||'
+              required:
+              - fields
+              - resourceIds
+              - datePeriod
+              - from
+              - to
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.booking.client.list:
+    post:
+      summary: Get the list of booking clients booking.v1.booking.client.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.client.list` returns a list of clients for the specified booking.
+      operationId: booking_v1_booking_client_list
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking/client/booking-v1-booking-client-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| Booking identifier.'
+              required:
+              - bookingId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| Booking identifier.'
+              required:
+              - bookingId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.booking.client.set:
+    post:
+      summary: Add Clients to Booking booking.v1.booking.client.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.client.set` sets clients for the specified booking.
+      operationId: booking_v1_booking_client_set
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking/client/booking-v1-booking-client-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| Booking identifier.'
+                clients:
+                  type: array
+                  items: {}
+                  description: '| An array of objects containing information about clients (detailed description) ||'
+                id:
+                  type: integer
+                  description: '| Client identifier, can be obtained using the method crm.item.list for contacts and companies ||'
+                type:
+                  type: object
+                  description: '| Client type in the format `{"module": "crm", "code": "CONTACT"}`.'
+              required:
+              - bookingId
+              - clients
+              - id
+              - type
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| Booking identifier.'
+                clients:
+                  type: array
+                  items: {}
+                  description: '| An array of objects containing information about clients (detailed description) ||'
+                id:
+                  type: integer
+                  description: '| Client identifier, can be obtained using the method crm.item.list for contacts and companies ||'
+                type:
+                  type: object
+                  description: '| Client type in the format `{"module": "crm", "code": "CONTACT"}`.'
+              required:
+              - bookingId
+              - clients
+              - id
+              - type
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.booking.client.unset:
+    post:
+      summary: Remove clients from booking booking.v1.booking.client.unset
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.client.unset` removes clients for the specified booking.
+      operationId: booking_v1_booking_client_unset
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking/client/booking-v1-booking-client-unset.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| Booking identifier.'
+              required:
+              - bookingId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| Booking identifier.'
+              required:
+              - bookingId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.booking.createfromwaitlist:
+    post:
+      summary: Create a Booking from the Waitlist booking.v1.booking.createfromwaitlist
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.createfromwaitlist` creates a booking based on an entry from the waitlist.
+      operationId: booking_v1_booking_createfromwaitlist
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking/booking-v1-booking-createfromwaitlist.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the entry in the waitlist.'
+                fields:
+                  type: object
+                  description: '| Object containing field values for creating a booking (detailed description) ||'
+                resourceIds:
+                  type: array
+                  items: {}
+                  description: '| Array of resource identifiers for the booking.'
+                name:
+                  type: string
+                  description: '| Name of the booking.'
+                description:
+                  type: string
+                  description: '| Description of the booking.'
+                datePeriod:
+                  type: object
+                  description: '| Object containing the booking time (detailed description) ||'
+                from:
+                  type: object
+                  description: '| Start time of the booking in the format `{"timestamp": "1723446900", "timezone": "Europe/Berlin"}`||'
+                to:
+                  type: object
+                  description: '| End time of the booking in the format `{"timestamp": "1723447800", "timezone": "Europe/Berlin"}` ||'
+              required:
+              - waitListId
+              - resourceIds
+              - datePeriod
+              - from
+              - to
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the entry in the waitlist.'
+                fields:
+                  type: object
+                  description: '| Object containing field values for creating a booking (detailed description) ||'
+                resourceIds:
+                  type: array
+                  items: {}
+                  description: '| Array of resource identifiers for the booking.'
+                name:
+                  type: string
+                  description: '| Name of the booking.'
+                description:
+                  type: string
+                  description: '| Description of the booking.'
+                datePeriod:
+                  type: object
+                  description: '| Object containing the booking time (detailed description) ||'
+                from:
+                  type: object
+                  description: '| Start time of the booking in the format `{"timestamp": "1723446900", "timezone": "Europe/Berlin"}`||'
+                to:
+                  type: object
+                  description: '| End time of the booking in the format `{"timestamp": "1723447800", "timezone": "Europe/Berlin"}` ||'
+              required:
+              - waitListId
+              - resourceIds
+              - datePeriod
+              - from
+              - to
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.booking.delete:
+    post:
+      summary: Delete Booking booking.v1.booking.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.delete` removes a booking.
+      operationId: booking_v1_booking_delete
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking/booking-v1-booking-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Booking identifier ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Booking identifier ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.booking.externalData.list:
+    post:
+      summary: Get Booking Connections booking.v1.booking.externalData.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.externalData.list` returns connections for the specified booking.
+      operationId: booking_v1_booking_externalData_list
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking/external-data/booking-v1-booking-externaldata-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| Booking identifier.'
+              required:
+              - bookingId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| Booking identifier.'
+              required:
+              - bookingId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.booking.externalData.set:
+    post:
+      summary: Set Connections for Booking booking.v1.booking.externalData.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.externalData.set` establishes connections for the specified booking.
+      operationId: booking_v1_booking_externalData_set
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking/external-data/booking-v1-booking-externaldata-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| Booking identifier.'
+                externalData:
+                  type: array
+                  items: {}
+                  description: '| Array of objects containing items for binding (detailed description) ||'
+                moduleId:
+                  type: string
+                  description: '| Module identifier, for example `crm` ||'
+                entityTypeId:
+                  type: string
+                  description: '| Object type ID, for example `DEAL` ||'
+                value:
+                  type: string
+                  description: '| Item ID, for example `1` ||'
+              required:
+              - bookingId
+              - externalData
+              - moduleId
+              - entityTypeId
+              - value
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| Booking identifier.'
+                externalData:
+                  type: array
+                  items: {}
+                  description: '| Array of objects containing items for binding (detailed description) ||'
+                moduleId:
+                  type: string
+                  description: '| Module identifier, for example `crm` ||'
+                entityTypeId:
+                  type: string
+                  description: '| Object type ID, for example `DEAL` ||'
+                value:
+                  type: string
+                  description: '| Item ID, for example `1` ||'
+              required:
+              - bookingId
+              - externalData
+              - moduleId
+              - entityTypeId
+              - value
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.booking.externalData.unset:
+    post:
+      summary: Remove connections for booking booking.v1.booking.externalData.unset
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.externalData.unset` removes connections for the specified booking.
+      operationId: booking_v1_booking_externalData_unset
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking/external-data/booking-v1-booking-externaldata-unset.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| Booking identifier.'
+              required:
+              - bookingId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| Booking identifier.'
+              required:
+              - bookingId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.booking.get:
+    post:
+      summary: Get Information About Booking booking.v1.booking.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.get` returns information about a booking by its identifier.
+      operationId: booking_v1_booking_get
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking/booking-v1-booking-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Booking identifier ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Booking identifier ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.booking.list:
+    post:
+      summary: Get the list of bookings booking.v1.booking.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.list` returns a list of bookings based on the filter. It is an implementation of the listing method for bookings.
+      operationId: booking_v1_booking_list
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking/booking-v1-booking-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FILTER:
+                  type: object
+                  description: '| Object for filtering the list of bookings, description of available fields below ||'
+                ORDER:
+                  type: object
+                  description: '| Object for sorting the list of bookings. The sorting direction can take the following values:'
+                within:
+                  type: object
+                  description: '| Object for filtering by booking time in the format `{"dateFrom": "0", "dateTo": "1739262600"}`, where'
+                client:
+                  type: object
+                  description: '| Object for filtering by client, accepts an array of `entities` objects with fields'
+                id:
+                  type: string
+                  description: '| Sort by identifier ||'
+                dateFrom:
+                  type: string
+                  description: '| Sort by start date ||'
+                dateTo:
+                  type: string
+                  description: '| Sort by end date ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                FILTER:
+                  type: object
+                  description: '| Object for filtering the list of bookings, description of available fields below ||'
+                ORDER:
+                  type: object
+                  description: '| Object for sorting the list of bookings. The sorting direction can take the following values:'
+                within:
+                  type: object
+                  description: '| Object for filtering by booking time in the format `{"dateFrom": "0", "dateTo": "1739262600"}`, where'
+                client:
+                  type: object
+                  description: '| Object for filtering by client, accepts an array of `entities` objects with fields'
+                id:
+                  type: string
+                  description: '| Sort by identifier ||'
+                dateFrom:
+                  type: string
+                  description: '| Sort by start date ||'
+                dateTo:
+                  type: string
+                  description: '| Sort by end date ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.booking.update:
+    post:
+      summary: Update Booking booking.v1.booking.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.update` updates the booking information.
+      operationId: booking_v1_booking_update
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking/booking-v1-booking-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Booking identifier ||'
+                fields:
+                  type: object
+                  description: '| Object containing field values for updating the booking (detailed description) ||'
+                resourceIds:
+                  type: array
+                  items: {}
+                  description: '| Array of resource identifiers.'
+                name:
+                  type: string
+                  description: '| Booking name ||'
+                description:
+                  type: string
+                  description: '| Booking description ||'
+                datePeriod:
+                  type: object
+                  description: '| Object containing the booking time (detailed description) ||'
+                from:
+                  type: object
+                  description: '| Start time of the booking in the format `{"timestamp": "1723446900", "timezone": "Europe/Berlin"}` ||'
+                to:
+                  type: object
+                  description: '| End time of the booking in the format `{"timestamp": "1723447800", "timezone": "Europe/Berlin"}` ||'
+              required:
+              - id
+              - fields
+              - from
+              - to
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Booking identifier ||'
+                fields:
+                  type: object
+                  description: '| Object containing field values for updating the booking (detailed description) ||'
+                resourceIds:
+                  type: array
+                  items: {}
+                  description: '| Array of resource identifiers.'
+                name:
+                  type: string
+                  description: '| Booking name ||'
+                description:
+                  type: string
+                  description: '| Booking description ||'
+                datePeriod:
+                  type: object
+                  description: '| Object containing the booking time (detailed description) ||'
+                from:
+                  type: object
+                  description: '| Start time of the booking in the format `{"timestamp": "1723446900", "timezone": "Europe/Berlin"}` ||'
+                to:
+                  type: object
+                  description: '| End time of the booking in the format `{"timestamp": "1723447800", "timezone": "Europe/Berlin"}` ||'
+              required:
+              - id
+              - fields
+              - from
+              - to
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.clienttype.list:
+    post:
+      summary: Get a list of client types booking.v1.clienttype.list
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.clienttype.list` returns a list of available client types. The method may not return a client type if no bookings have been created with it. By default, two client types are available: contact and company.'
+      operationId: booking_v1_clienttype_list
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/booking-v1-clienttype-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resource.add:
+    post:
+      summary: Add a New Resource booking.v1.resource.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.add` adds a new resource.
+      operationId: booking_v1_resource_add
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/booking-v1-resource-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing field values for creating a resource (detailed description) ||'
+                name:
+                  type: string
+                  description: '| The name of the resource ||'
+                description:
+                  type: string
+                  description: '| The description of the resource.'
+                typeId:
+                  type: integer
+                  description: '| The identifier of the resource type.'
+                isMain:
+                  type: string
+                  description: '| How to display the resource. Possible values:'
+                isInfoNotificationOn:
+                  type: string
+                  description: '| Message to the client about the booking. Possible values:'
+                templateTypeInfo:
+                  type: string
+                  description: '| The type of the booking notification message template. Possible values:'
+                isConfirmationNotificationOn:
+                  type: string
+                  description: '| Automatic confirmation of the booking. Possible values:'
+                templateTypeConfirmation:
+                  type: string
+                  description: '| The type of the confirmation message template. Possible values:'
+                isReminderNotificationOn:
+                  type: string
+                  description: '| Reminder about the booking. Possible values:'
+                templateTypeReminder:
+                  type: string
+                  description: '| The type of the reminder message template. Possible values: `base` ||'
+                isFeedbackNotificationOn:
+                  type: string
+                  description: '| Feedback request. Possible values:'
+                templateTypeFeedback:
+                  type: string
+                  description: '| The type of the feedback request message template. Possible values:'
+                isDelayedNotificationOn:
+                  type: string
+                  description: '| Reminder when the client is late. Possible values:'
+                templateTypeDelayed:
+                  type: string
+                  description: '| The type of the delay message template. Possible values:'
+                infoDelay:
+                  type: integer
+                  description: '| The delay after which the client receives a booking message. Specified in seconds.'
+                reminderDelay:
+                  type: integer
+                  description: '| The time before the booking when the client receives a reminder. Specified in seconds.'
+                delayedDelay:
+                  type: integer
+                  description: '| The time after which to send the client a message about being late. Specified in seconds.'
+                delayedCounterDelay:
+                  type: integer
+                  description: '| The time after which to enable the counter in the calendar. Specified in seconds.'
+                confirmationDelay:
+                  type: integer
+                  description: '| The time before the booking when the client receives the first confirmation message. Specified in seconds.'
+                confirmationRepetitions:
+                  type: integer
+                  description: '| The number of messages sent to the client for booking confirmation, excluding the first.'
+                confirmationRepetitionsInterval:
+                  type: integer
+                  description: '| The interval between confirmation messages. Specified in seconds.'
+                confirmationCounterDelay:
+                  type: integer
+                  description: '| The time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds.'
+              required:
+              - fields
+              - name
+              - typeId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing field values for creating a resource (detailed description) ||'
+                name:
+                  type: string
+                  description: '| The name of the resource ||'
+                description:
+                  type: string
+                  description: '| The description of the resource.'
+                typeId:
+                  type: integer
+                  description: '| The identifier of the resource type.'
+                isMain:
+                  type: string
+                  description: '| How to display the resource. Possible values:'
+                isInfoNotificationOn:
+                  type: string
+                  description: '| Message to the client about the booking. Possible values:'
+                templateTypeInfo:
+                  type: string
+                  description: '| The type of the booking notification message template. Possible values:'
+                isConfirmationNotificationOn:
+                  type: string
+                  description: '| Automatic confirmation of the booking. Possible values:'
+                templateTypeConfirmation:
+                  type: string
+                  description: '| The type of the confirmation message template. Possible values:'
+                isReminderNotificationOn:
+                  type: string
+                  description: '| Reminder about the booking. Possible values:'
+                templateTypeReminder:
+                  type: string
+                  description: '| The type of the reminder message template. Possible values: `base` ||'
+                isFeedbackNotificationOn:
+                  type: string
+                  description: '| Feedback request. Possible values:'
+                templateTypeFeedback:
+                  type: string
+                  description: '| The type of the feedback request message template. Possible values:'
+                isDelayedNotificationOn:
+                  type: string
+                  description: '| Reminder when the client is late. Possible values:'
+                templateTypeDelayed:
+                  type: string
+                  description: '| The type of the delay message template. Possible values:'
+                infoDelay:
+                  type: integer
+                  description: '| The delay after which the client receives a booking message. Specified in seconds.'
+                reminderDelay:
+                  type: integer
+                  description: '| The time before the booking when the client receives a reminder. Specified in seconds.'
+                delayedDelay:
+                  type: integer
+                  description: '| The time after which to send the client a message about being late. Specified in seconds.'
+                delayedCounterDelay:
+                  type: integer
+                  description: '| The time after which to enable the counter in the calendar. Specified in seconds.'
+                confirmationDelay:
+                  type: integer
+                  description: '| The time before the booking when the client receives the first confirmation message. Specified in seconds.'
+                confirmationRepetitions:
+                  type: integer
+                  description: '| The number of messages sent to the client for booking confirmation, excluding the first.'
+                confirmationRepetitionsInterval:
+                  type: integer
+                  description: '| The interval between confirmation messages. Specified in seconds.'
+                confirmationCounterDelay:
+                  type: integer
+                  description: '| The time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds.'
+              required:
+              - fields
+              - name
+              - typeId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resource.delete:
+    post:
+      summary: Delete Resource booking.v1.resource.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.delete` removes a resource.
+      operationId: booking_v1_resource_delete
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/booking-v1-resource-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Resource identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Resource identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resource.get:
+    post:
+      summary: Get resource booking.v1.resource.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.get` returns information about a resource by its identifier.
+      operationId: booking_v1_resource_get
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/booking-v1-resource-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Resource identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Resource identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resource.list:
+    post:
+      summary: Get the list of resources booking.v1.resource.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.list` returns a list of resources based on a filter. It is an implementation of the listing method for resources.
+      operationId: booking_v1_resource_list
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/booking-v1-resource-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FILTER:
+                  type: object
+                  description: '| Object for filtering the list of resources in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                ORDER:
+                  type: object
+                  description: '| Object for sorting the list of resources in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                searchQuery:
+                  type: string
+                  description: '| Search query. Searches by substring in the resource name ||'
+                isMain:
+                  type: string
+                  description: '| Filter by resource display setting. Possible values:'
+                typeId:
+                  type: integer
+                  description: '| Identifier of the resource type.'
+                name:
+                  type: string
+                  description: '| Name of the resource ||'
+                description:
+                  type: string
+                  description: '| Description of the resource ||'
+                id:
+                  type: string
+                  description: '| Sort by identifier ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                FILTER:
+                  type: object
+                  description: '| Object for filtering the list of resources in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                ORDER:
+                  type: object
+                  description: '| Object for sorting the list of resources in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                searchQuery:
+                  type: string
+                  description: '| Search query. Searches by substring in the resource name ||'
+                isMain:
+                  type: string
+                  description: '| Filter by resource display setting. Possible values:'
+                typeId:
+                  type: integer
+                  description: '| Identifier of the resource type.'
+                name:
+                  type: string
+                  description: '| Name of the resource ||'
+                description:
+                  type: string
+                  description: '| Description of the resource ||'
+                id:
+                  type: string
+                  description: '| Sort by identifier ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resource.slots.list:
+    post:
+      summary: Get Slot Settings for Resource booking.v1.resource.slots.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.slots.list` returns the configuration of time slots for the specified resource.
+      operationId: booking_v1_resource_slots_list
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/slots/booking-v1-resource-slots-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                resourceId:
+                  type: integer
+                  description: '| Resource identifier.'
+              required:
+              - resourceId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                resourceId:
+                  type: integer
+                  description: '| Resource identifier.'
+              required:
+              - resourceId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resource.slots.set:
+    post:
+      summary: Set Slots for Resource booking.v1.resource.slots.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.slots.set` allows you to set time slots for the specified resource.
+      operationId: booking_v1_resource_slots_set
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/slots/booking-v1-resource-slots-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                resourceId:
+                  type: integer
+                  description: '| Resource identifier.'
+                slots:
+                  type: array
+                  items: {}
+                  description: '| An array of objects containing field values for setting time slots (detailed description) ||'
+                from:
+                  type: integer
+                  description: '| The time from which slot booking is available during the day. Value in the range from 0 to 1440. For example, `540` means booking is available from 9:00 AM ||'
+                to:
+                  type: integer
+                  description: '| The end time of the slot in minutes. Value in the range from 0 to 1440, greater than or equal to the value of `from`. For example, `1080` means booking is available until 6:00 PM ||'
+                timezone:
+                  type: string
+                  description: '| The time zone relative to which the slot time is set ||'
+                weekDays:
+                  type: array
+                  items: {}
+                  description: '| An array of available weekdays for the slot. Possible values:'
+                slotSize:
+                  type: integer
+                  description: '| Duration of the slot in minutes ||'
+              required:
+              - resourceId
+              - slots
+              - from
+              - to
+              - timezone
+              - weekDays
+              - slotSize
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                resourceId:
+                  type: integer
+                  description: '| Resource identifier.'
+                slots:
+                  type: array
+                  items: {}
+                  description: '| An array of objects containing field values for setting time slots (detailed description) ||'
+                from:
+                  type: integer
+                  description: '| The time from which slot booking is available during the day. Value in the range from 0 to 1440. For example, `540` means booking is available from 9:00 AM ||'
+                to:
+                  type: integer
+                  description: '| The end time of the slot in minutes. Value in the range from 0 to 1440, greater than or equal to the value of `from`. For example, `1080` means booking is available until 6:00 PM ||'
+                timezone:
+                  type: string
+                  description: '| The time zone relative to which the slot time is set ||'
+                weekDays:
+                  type: array
+                  items: {}
+                  description: '| An array of available weekdays for the slot. Possible values:'
+                slotSize:
+                  type: integer
+                  description: '| Duration of the slot in minutes ||'
+              required:
+              - resourceId
+              - slots
+              - from
+              - to
+              - timezone
+              - weekDays
+              - slotSize
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resource.slots.unset:
+    post:
+      summary: Remove slots for resource booking.v1.resource.slots.unset
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.slots.unset` removes the time slot settings for the specified resource.
+      operationId: booking_v1_resource_slots_unset
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/slots/booking-v1-resource-slots-unset.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                resourceId:
+                  type: integer
+                  description: '| Resource identifier.'
+              required:
+              - resourceId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                resourceId:
+                  type: integer
+                  description: '| Resource identifier.'
+              required:
+              - resourceId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resource.update:
+    post:
+      summary: Update resource booking.v1.resource.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.update` updates an existing resource.
+      operationId: booking_v1_resource_update
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/booking-v1-resource-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Resource identifier.'
+                fields:
+                  type: object
+                  description: '| An object containing field values to update the resource (detailed description) ||'
+                name:
+                  type: string
+                  description: '| Resource name ||'
+                description:
+                  type: string
+                  description: '| Resource description ||'
+                typeId:
+                  type: integer
+                  description: '| Resource type identifier.'
+                isMain:
+                  type: string
+                  description: '| How to display the resource. Possible values:'
+                isInfoNotificationOn:
+                  type: string
+                  description: '| Message to the client about the booking. Possible values:'
+                templateTypeInfo:
+                  type: string
+                  description: '| Type of the booking message template. Possible values:'
+                isConfirmationNotificationOn:
+                  type: string
+                  description: '| Automatic booking confirmation. Possible values:'
+                templateTypeConfirmation:
+                  type: string
+                  description: '| Type of the confirmation message template. Possible values:'
+                isReminderNotificationOn:
+                  type: string
+                  description: '| Reminder about the booking. Possible values:'
+                templateTypeReminder:
+                  type: string
+                  description: '| Type of the reminder message template. Possible values: `base` ||'
+                isFeedbackNotificationOn:
+                  type: string
+                  description: '| Request for feedback. Possible values:'
+                templateTypeFeedback:
+                  type: string
+                  description: '| Type of the feedback request message template. Possible values:'
+                isDelayedNotificationOn:
+                  type: string
+                  description: '| Reminder when the client is late. Possible values:'
+                templateTypeDelayed:
+                  type: string
+                  description: '| Type of the delay message template. Possible values:'
+                infoDelay:
+                  type: integer
+                  description: '| Delay after which the client receives a booking message. Specified in seconds ||'
+                reminderDelay:
+                  type: integer
+                  description: '| Time before the booking when the client receives a reminder. Specified in seconds ||'
+                delayedDelay:
+                  type: integer
+                  description: '| Time after which to send a delay message to the client. Specified in seconds ||'
+                delayedCounterDelay:
+                  type: integer
+                  description: '| Time after which to enable the counter in the calendar. Specified in seconds ||'
+                confirmationDelay:
+                  type: integer
+                  description: '| Time before the booking when the client receives the first confirmation message. Specified in seconds ||'
+                confirmationRepetitions:
+                  type: integer
+                  description: '| Number of messages sent to the client for booking confirmation, excluding the first ||'
+                confirmationRepetitionsInterval:
+                  type: integer
+                  description: '| Interval between booking confirmation messages. Specified in seconds ||'
+                confirmationCounterDelay:
+                  type: integer
+                  description: '| Time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds ||'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Resource identifier.'
+                fields:
+                  type: object
+                  description: '| An object containing field values to update the resource (detailed description) ||'
+                name:
+                  type: string
+                  description: '| Resource name ||'
+                description:
+                  type: string
+                  description: '| Resource description ||'
+                typeId:
+                  type: integer
+                  description: '| Resource type identifier.'
+                isMain:
+                  type: string
+                  description: '| How to display the resource. Possible values:'
+                isInfoNotificationOn:
+                  type: string
+                  description: '| Message to the client about the booking. Possible values:'
+                templateTypeInfo:
+                  type: string
+                  description: '| Type of the booking message template. Possible values:'
+                isConfirmationNotificationOn:
+                  type: string
+                  description: '| Automatic booking confirmation. Possible values:'
+                templateTypeConfirmation:
+                  type: string
+                  description: '| Type of the confirmation message template. Possible values:'
+                isReminderNotificationOn:
+                  type: string
+                  description: '| Reminder about the booking. Possible values:'
+                templateTypeReminder:
+                  type: string
+                  description: '| Type of the reminder message template. Possible values: `base` ||'
+                isFeedbackNotificationOn:
+                  type: string
+                  description: '| Request for feedback. Possible values:'
+                templateTypeFeedback:
+                  type: string
+                  description: '| Type of the feedback request message template. Possible values:'
+                isDelayedNotificationOn:
+                  type: string
+                  description: '| Reminder when the client is late. Possible values:'
+                templateTypeDelayed:
+                  type: string
+                  description: '| Type of the delay message template. Possible values:'
+                infoDelay:
+                  type: integer
+                  description: '| Delay after which the client receives a booking message. Specified in seconds ||'
+                reminderDelay:
+                  type: integer
+                  description: '| Time before the booking when the client receives a reminder. Specified in seconds ||'
+                delayedDelay:
+                  type: integer
+                  description: '| Time after which to send a delay message to the client. Specified in seconds ||'
+                delayedCounterDelay:
+                  type: integer
+                  description: '| Time after which to enable the counter in the calendar. Specified in seconds ||'
+                confirmationDelay:
+                  type: integer
+                  description: '| Time before the booking when the client receives the first confirmation message. Specified in seconds ||'
+                confirmationRepetitions:
+                  type: integer
+                  description: '| Number of messages sent to the client for booking confirmation, excluding the first ||'
+                confirmationRepetitionsInterval:
+                  type: integer
+                  description: '| Interval between booking confirmation messages. Specified in seconds ||'
+                confirmationCounterDelay:
+                  type: integer
+                  description: '| Time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds ||'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resourceType.add:
+    post:
+      summary: Add a New Resource Type booking.v1.resourceType.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resourceType.add` adds a new resource type.
+      operationId: booking_v1_resourceType_add
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/resource-type/booking-v1-resourcetype-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing field values for creating a resource type (detailed description) ||'
+                name:
+                  type: string
+                  description: '| The name of the resource type ||'
+                code:
+                  type: string
+                  description: '| A unique code for the resource type ||'
+                isInfoNotificationOn:
+                  type: string
+                  description: '| Message to the client about the booking. Possible values:'
+                templateTypeInfo:
+                  type: string
+                  description: '| The type of message template for the booking. Possible values:'
+                isConfirmationNotificationOn:
+                  type: string
+                  description: '| Automatic confirmation of the booking. Possible values:'
+                templateTypeConfirmation:
+                  type: string
+                  description: '| The type of message template for booking confirmation. Possible values:'
+                isReminderNotificationOn:
+                  type: string
+                  description: '| Reminder about the booking. Possible values:'
+                templateTypeReminder:
+                  type: string
+                  description: '| The type of message template for reminders. Possible values: `base` ||'
+                isFeedbackNotificationOn:
+                  type: string
+                  description: '| Request for feedback. Possible values:'
+                templateTypeFeedback:
+                  type: string
+                  description: '| The type of message template for feedback requests. Possible values:'
+                isDelayedNotificationOn:
+                  type: string
+                  description: '| Reminder when the client is late. Possible values:'
+                templateTypeDelayed:
+                  type: string
+                  description: '| The type of message template for delays. Possible values:'
+                infoDelay:
+                  type: integer
+                  description: '| Delay after which the client receives a booking message. Specified in seconds.'
+                reminderDelay:
+                  type: integer
+                  description: '| Time before the booking when the client receives a reminder. Specified in seconds.'
+                delayedDelay:
+                  type: integer
+                  description: '| Time after which to send a message about the delay to the client. Specified in seconds.'
+                delayedCounterDelay:
+                  type: integer
+                  description: '| Time after which to enable the counter in the calendar. Specified in seconds.'
+                confirmationDelay:
+                  type: integer
+                  description: '| Time before the booking when the client receives the first confirmation message. Specified in seconds.'
+                confirmationRepetitions:
+                  type: integer
+                  description: '| The number of messages sent to the client for booking confirmation, excluding the first.'
+                confirmationRepetitionsInterval:
+                  type: integer
+                  description: '| Interval between confirmation messages. Specified in seconds.'
+                confirmationCounterDelay:
+                  type: integer
+                  description: '| Time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds.'
+              required:
+              - fields
+              - name
+              - code
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing field values for creating a resource type (detailed description) ||'
+                name:
+                  type: string
+                  description: '| The name of the resource type ||'
+                code:
+                  type: string
+                  description: '| A unique code for the resource type ||'
+                isInfoNotificationOn:
+                  type: string
+                  description: '| Message to the client about the booking. Possible values:'
+                templateTypeInfo:
+                  type: string
+                  description: '| The type of message template for the booking. Possible values:'
+                isConfirmationNotificationOn:
+                  type: string
+                  description: '| Automatic confirmation of the booking. Possible values:'
+                templateTypeConfirmation:
+                  type: string
+                  description: '| The type of message template for booking confirmation. Possible values:'
+                isReminderNotificationOn:
+                  type: string
+                  description: '| Reminder about the booking. Possible values:'
+                templateTypeReminder:
+                  type: string
+                  description: '| The type of message template for reminders. Possible values: `base` ||'
+                isFeedbackNotificationOn:
+                  type: string
+                  description: '| Request for feedback. Possible values:'
+                templateTypeFeedback:
+                  type: string
+                  description: '| The type of message template for feedback requests. Possible values:'
+                isDelayedNotificationOn:
+                  type: string
+                  description: '| Reminder when the client is late. Possible values:'
+                templateTypeDelayed:
+                  type: string
+                  description: '| The type of message template for delays. Possible values:'
+                infoDelay:
+                  type: integer
+                  description: '| Delay after which the client receives a booking message. Specified in seconds.'
+                reminderDelay:
+                  type: integer
+                  description: '| Time before the booking when the client receives a reminder. Specified in seconds.'
+                delayedDelay:
+                  type: integer
+                  description: '| Time after which to send a message about the delay to the client. Specified in seconds.'
+                delayedCounterDelay:
+                  type: integer
+                  description: '| Time after which to enable the counter in the calendar. Specified in seconds.'
+                confirmationDelay:
+                  type: integer
+                  description: '| Time before the booking when the client receives the first confirmation message. Specified in seconds.'
+                confirmationRepetitions:
+                  type: integer
+                  description: '| The number of messages sent to the client for booking confirmation, excluding the first.'
+                confirmationRepetitionsInterval:
+                  type: integer
+                  description: '| Interval between confirmation messages. Specified in seconds.'
+                confirmationCounterDelay:
+                  type: integer
+                  description: '| Time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds.'
+              required:
+              - fields
+              - name
+              - code
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resourceType.delete:
+    post:
+      summary: Delete Resource Type booking.v1.resourceType.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resourceType.delete` removes a resource type.
+      operationId: booking_v1_resourceType_delete
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/resource-type/booking-v1-resourcetype-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the resource type.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the resource type.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resourceType.get:
+    post:
+      summary: Get Resource Type booking.v1.resourceType.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resourceType.get` returns information about the resource type by its identifier.
+      operationId: booking_v1_resourceType_get
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/resource-type/booking-v1-resourcetype-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the resource type.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the resource type.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resourceType.list:
+    post:
+      summary: Get a list of resource types booking.v1.resourceType.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resourceType.list` returns a list of resource types based on a filter. It is an implementation of the list method for resource types.
+      operationId: booking_v1_resourceType_list
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/resource-type/booking-v1-resourcetype-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FILTER:
+                  type: object
+                  description: '| An object for filtering the list of resource types in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                ORDER:
+                  type: object
+                  description: '| An object for sorting the list of resource types in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                searchQuery:
+                  type: string
+                  description: '| Search query. Searches for a substring in the resource type name ||'
+                moduleId:
+                  type: string
+                  description: '| Resource type module ||'
+                name:
+                  type: string
+                  description: '| Resource type name ||'
+                code:
+                  type: string
+                  description: '| Resource type code ||'
+                id:
+                  type: string
+                  description: '| Sort by identifier ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                FILTER:
+                  type: object
+                  description: '| An object for filtering the list of resource types in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                ORDER:
+                  type: object
+                  description: '| An object for sorting the list of resource types in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                searchQuery:
+                  type: string
+                  description: '| Search query. Searches for a substring in the resource type name ||'
+                moduleId:
+                  type: string
+                  description: '| Resource type module ||'
+                name:
+                  type: string
+                  description: '| Resource type name ||'
+                code:
+                  type: string
+                  description: '| Resource type code ||'
+                id:
+                  type: string
+                  description: '| Sort by identifier ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.resourceType.update:
+    post:
+      summary: Update Resource Type booking.v1.resourceType.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.resourceType.update` updates information about an existing resource type.
+      operationId: booking_v1_resourceType_update
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/resource/resource-type/booking-v1-resourcetype-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the resource type.'
+                fields:
+                  type: object
+                  description: '| An object containing field values to update the resource type (detailed description) ||'
+                name:
+                  type: string
+                  description: '| Name of the resource type ||'
+                code:
+                  type: string
+                  description: '| Code of the resource type ||'
+                isInfoNotificationOn:
+                  type: string
+                  description: '| Message to the client about the booking. Possible values:'
+                templateTypeInfo:
+                  type: string
+                  description: '| Type of the booking message template. Possible values:'
+                isConfirmationNotificationOn:
+                  type: string
+                  description: '| Automatic booking confirmation. Possible values:'
+                templateTypeConfirmation:
+                  type: string
+                  description: '| Type of the confirmation message template. Possible values:'
+                isReminderNotificationOn:
+                  type: string
+                  description: '| Reminder about the booking. Possible values:'
+                templateTypeReminder:
+                  type: string
+                  description: '| Type of the reminder message template. Possible values: `base` ||'
+                isFeedbackNotificationOn:
+                  type: string
+                  description: '| Request for feedback. Possible values:'
+                templateTypeFeedback:
+                  type: string
+                  description: '| Type of the feedback request message template. Possible values:'
+                isDelayedNotificationOn:
+                  type: string
+                  description: '| Reminder when the client is late. Possible values:'
+                templateTypeDelayed:
+                  type: string
+                  description: '| Type of the delay message template. Possible values:'
+                infoDelay:
+                  type: integer
+                  description: '| Delay after which the client receives a booking message. Specified in seconds ||'
+                reminderDelay:
+                  type: integer
+                  description: '| Time before the booking when the client receives a reminder. Specified in seconds ||'
+                delayedDelay:
+                  type: integer
+                  description: '| Time after which to send a delay message to the client. Specified in seconds ||'
+                delayedCounterDelay:
+                  type: integer
+                  description: '| Time after which to enable the counter in the calendar. Specified in seconds ||'
+                confirmationDelay:
+                  type: integer
+                  description: '| Time before the booking when the client receives the first confirmation message. Specified in seconds ||'
+                confirmationRepetitions:
+                  type: integer
+                  description: '| Number of messages sent to the client for booking confirmation, excluding the first one ||'
+                confirmationRepetitionsInterval:
+                  type: integer
+                  description: '| Interval between booking confirmation messages. Specified in seconds ||'
+                confirmationCounterDelay:
+                  type: integer
+                  description: '| Time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds ||'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the resource type.'
+                fields:
+                  type: object
+                  description: '| An object containing field values to update the resource type (detailed description) ||'
+                name:
+                  type: string
+                  description: '| Name of the resource type ||'
+                code:
+                  type: string
+                  description: '| Code of the resource type ||'
+                isInfoNotificationOn:
+                  type: string
+                  description: '| Message to the client about the booking. Possible values:'
+                templateTypeInfo:
+                  type: string
+                  description: '| Type of the booking message template. Possible values:'
+                isConfirmationNotificationOn:
+                  type: string
+                  description: '| Automatic booking confirmation. Possible values:'
+                templateTypeConfirmation:
+                  type: string
+                  description: '| Type of the confirmation message template. Possible values:'
+                isReminderNotificationOn:
+                  type: string
+                  description: '| Reminder about the booking. Possible values:'
+                templateTypeReminder:
+                  type: string
+                  description: '| Type of the reminder message template. Possible values: `base` ||'
+                isFeedbackNotificationOn:
+                  type: string
+                  description: '| Request for feedback. Possible values:'
+                templateTypeFeedback:
+                  type: string
+                  description: '| Type of the feedback request message template. Possible values:'
+                isDelayedNotificationOn:
+                  type: string
+                  description: '| Reminder when the client is late. Possible values:'
+                templateTypeDelayed:
+                  type: string
+                  description: '| Type of the delay message template. Possible values:'
+                infoDelay:
+                  type: integer
+                  description: '| Delay after which the client receives a booking message. Specified in seconds ||'
+                reminderDelay:
+                  type: integer
+                  description: '| Time before the booking when the client receives a reminder. Specified in seconds ||'
+                delayedDelay:
+                  type: integer
+                  description: '| Time after which to send a delay message to the client. Specified in seconds ||'
+                delayedCounterDelay:
+                  type: integer
+                  description: '| Time after which to enable the counter in the calendar. Specified in seconds ||'
+                confirmationDelay:
+                  type: integer
+                  description: '| Time before the booking when the client receives the first confirmation message. Specified in seconds ||'
+                confirmationRepetitions:
+                  type: integer
+                  description: '| Number of messages sent to the client for booking confirmation, excluding the first one ||'
+                confirmationRepetitionsInterval:
+                  type: integer
+                  description: '| Interval between booking confirmation messages. Specified in seconds ||'
+                confirmationCounterDelay:
+                  type: integer
+                  description: '| Time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds ||'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.waitList.externalData.list:
+    post:
+      summary: Get External Data Links for Waitlist Entry booking.v1.waitList.externalData.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.waitList.externalData.list` returns links for the specified entry in the waitlist.
+      operationId: booking_v1_waitList_externalData_list
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/external-data/booking-v1-waitlist-externaldata-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the waitlist entry.'
+              required:
+              - waitListId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the waitlist entry.'
+              required:
+              - waitListId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.waitlist.add:
+    post:
+      summary: Add to waitlist booking.v1.waitlist.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.add` adds an entry to the waitlist.
+      operationId: booking_v1_waitlist_add
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/booking-v1-waitlist-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing field values for creating an entry in the waitlist (detailed description) ||'
+                note:
+                  type: string
+                  description: '| Note for the waitlist entry.'
+              required:
+              - fields
+              - note
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing field values for creating an entry in the waitlist (detailed description) ||'
+                note:
+                  type: string
+                  description: '| Note for the waitlist entry.'
+              required:
+              - fields
+              - note
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.waitlist.client.list:
+    post:
+      summary: Get the list of clients for the waitlist booking.v1.waitlist.client.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.client.list` returns a list of clients for the specified entry in the waitlist.
+      operationId: booking_v1_waitlist_client_list
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/client/booking-v1-waitlist-client-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the entry in the waitlist.'
+              required:
+              - waitListId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the entry in the waitlist.'
+              required:
+              - waitListId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.waitlist.client.set:
+    post:
+      summary: Add Clients to the Waitlist Record in booking.v1.waitlist.client.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.client.set` sets clients for the specified record in the waitlist.
+      operationId: booking_v1_waitlist_client_set
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/client/booking-v1-waitlist-client-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the waitlist record.'
+                clients:
+                  type: array
+                  items: {}
+                  description: '| Array of objects containing information about clients (detailed description) ||'
+                id:
+                  type: integer
+                  description: '| Client identifier, can be obtained using the method crm.item.list for contacts and companies ||'
+                type:
+                  type: object
+                  description: '| Client type in the format `{"module": "crm", "code": "CONTACT"}`.'
+              required:
+              - waitListId
+              - clients
+              - id
+              - type
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the waitlist record.'
+                clients:
+                  type: array
+                  items: {}
+                  description: '| Array of objects containing information about clients (detailed description) ||'
+                id:
+                  type: integer
+                  description: '| Client identifier, can be obtained using the method crm.item.list for contacts and companies ||'
+                type:
+                  type: object
+                  description: '| Client type in the format `{"module": "crm", "code": "CONTACT"}`.'
+              required:
+              - waitListId
+              - clients
+              - id
+              - type
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.waitlist.client.unset:
+    post:
+      summary: Remove clients from the waitlist entry booking.v1.waitlist.client.unset
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.client.unset` removes clients for the specified entry in the waitlist.
+      operationId: booking_v1_waitlist_client_unset
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/client/booking-v1-waitlist-client-unset.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the waitlist entry.'
+              required:
+              - waitListId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the waitlist entry.'
+              required:
+              - waitListId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.waitlist.createfrombooking:
+    post:
+      summary: Create a waitlist entry from booking using booking.v1.waitlist.createfrombooking
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.createfrombooking` creates a waitlist entry based on an existing booking.
+      operationId: booking_v1_waitlist_createfrombooking
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/booking-v1-waitlist-createfrombooking.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| The identifier of the booking from which the waitlist entry is created.'
+              required:
+              - bookingId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: integer
+                  description: '| The identifier of the booking from which the waitlist entry is created.'
+              required:
+              - bookingId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.waitlist.delete:
+    post:
+      summary: Delete Entry from the Waitlist booking.v1.waitlist.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.delete` removes an entry from the waitlist.
+      operationId: booking_v1_waitlist_delete
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/booking-v1-waitlist-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the entry in the waitlist ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the entry in the waitlist ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.waitlist.externalData.set:
+    post:
+      summary: Set Connections for Recording in the Waitlist booking.v1.waitlist.externalData.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.externalData.set` establishes connections for the specified entry in the waitlist.
+      operationId: booking_v1_waitlist_externalData_set
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/external-data/booking-v1-waitlist-externaldata-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the waitlist entry.'
+                externalData:
+                  type: array
+                  items: {}
+                  description: '| Array of objects containing objects for binding (detailed description) ||'
+                moduleId:
+                  type: string
+                  description: '| Module identifier, for example `crm` ||'
+                entityTypeId:
+                  type: string
+                  description: '| Object type ID, for example `DEAL` ||'
+                value:
+                  type: string
+                  description: '| Element ID, for example `1` ||'
+              required:
+              - waitListId
+              - externalData
+              - moduleId
+              - entityTypeId
+              - value
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the waitlist entry.'
+                externalData:
+                  type: array
+                  items: {}
+                  description: '| Array of objects containing objects for binding (detailed description) ||'
+                moduleId:
+                  type: string
+                  description: '| Module identifier, for example `crm` ||'
+                entityTypeId:
+                  type: string
+                  description: '| Object type ID, for example `DEAL` ||'
+                value:
+                  type: string
+                  description: '| Element ID, for example `1` ||'
+              required:
+              - waitListId
+              - externalData
+              - moduleId
+              - entityTypeId
+              - value
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.waitlist.externalData.unset:
+    post:
+      summary: Remove connections for the waitlist record booking.v1.waitlist.externalData.unset
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.externalData.unset` removes connections for the specified record in the waitlist.
+      operationId: booking_v1_waitlist_externalData_unset
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/external-data/booking-v1-waitlist-externaldata-unset.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the waitlist record.'
+              required:
+              - waitListId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the waitlist record.'
+              required:
+              - waitListId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.waitlist.get:
+    post:
+      summary: Get a Record from the Waitlist booking.v1.waitlist.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.get` returns information about a waitlist record by its identifier.
+      operationId: booking_v1_waitlist_get
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/booking-v1-waitlist-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the waitlist record. Can be obtained from the methods booking.v1.waitlist.add and booking.v1.waitlist.list ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the waitlist record. Can be obtained from the methods booking.v1.waitlist.add and booking.v1.waitlist.list ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.waitlist.list:
+    post:
+      summary: Get a list of records from the waitlist booking.v1.waitlist.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.list` returns a list of records from the waitlist based on the filter.
+      operationId: booking_v1_waitlist_list
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/booking-v1-waitlist-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: object
+                  description: '| An object for filtering waitlist records.'
+                from:
+                  type: string
+                  description: '| Start date of the filtering period in the format `dd.mm.yyyy`, inclusive ||'
+                to:
+                  type: string
+                  description: '| End date of the filtering period in the format `dd.mm.yyyy`, exclusive ||'
+              required:
+              - from
+              - to
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: object
+                  description: '| An object for filtering waitlist records.'
+                from:
+                  type: string
+                  description: '| Start date of the filtering period in the format `dd.mm.yyyy`, inclusive ||'
+                to:
+                  type: string
+                  description: '| End date of the filtering period in the format `dd.mm.yyyy`, exclusive ||'
+              required:
+              - from
+              - to
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+  /booking.v1.waitlist.update:
+    post:
+      summary: Update a record in the waitlist booking.v1.waitlist.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.update` updates the information of a record in the waitlist.
+      operationId: booking_v1_waitlist_update
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/booking-v1-waitlist-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the waitlist record ||'
+                fields:
+                  type: object
+                  description: '| Object containing field values to update the waitlist record (detailed description) ||'
+                note:
+                  type: string
+                  description: '| Note for the waitlist record ||'
+              required:
+              - id
+              - fields
+              - note
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the waitlist record ||'
+                fields:
+                  type: object
+                  description: '| Object containing field values to update the waitlist record (detailed description) ||'
+                note:
+                  type: string
+                  description: '| Note for the waitlist record ||'
+              required:
+              - id
+              - fields
+              - note
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

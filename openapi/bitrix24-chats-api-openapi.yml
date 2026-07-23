@@ -1,0 +1,4114 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Chats API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Chats
+paths:
+  /im.chat.add:
+    post:
+      summary: Create Chat im.chat.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.chat.add` creates a new chat.
+      operationId: im_chat_add
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/im-chat-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USERS:
+                  type: array
+                  items: {}
+                  description: '| An array of user IDs to be added to the chat.'
+                TYPE:
+                  type: string
+                  description: '| Type of chat:'
+                TITLE:
+                  type: string
+                  description: '| Title of the chat.'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the chat ||'
+                COLOR:
+                  type: string
+                  description: '| Color of the chat. Possible values:'
+                MESSAGE:
+                  type: string
+                  description: '| The first message in the chat ||'
+                AVATAR:
+                  type: string
+                  description: '| Avatar of the chat in base64 string format.'
+                ENTITY_TYPE:
+                  type: string
+                  description: '| Type of object to link the chat with external context.'
+                ENTITY_ID:
+                  type: string
+                  description: '| Identifier of the object within `ENTITY_TYPE`.'
+                COPILOT_MAIN_ROLE:
+                  type: string
+                  description: '| Code of the main role for BitrixGPT.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USERS:
+                  type: array
+                  items: {}
+                  description: '| An array of user IDs to be added to the chat.'
+                TYPE:
+                  type: string
+                  description: '| Type of chat:'
+                TITLE:
+                  type: string
+                  description: '| Title of the chat.'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the chat ||'
+                COLOR:
+                  type: string
+                  description: '| Color of the chat. Possible values:'
+                MESSAGE:
+                  type: string
+                  description: '| The first message in the chat ||'
+                AVATAR:
+                  type: string
+                  description: '| Avatar of the chat in base64 string format.'
+                ENTITY_TYPE:
+                  type: string
+                  description: '| Type of object to link the chat with external context.'
+                ENTITY_ID:
+                  type: string
+                  description: '| Identifier of the object within `ENTITY_TYPE`.'
+                COPILOT_MAIN_ROLE:
+                  type: string
+                  description: '| Code of the main role for BitrixGPT.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.chat.get:
+    post:
+      summary: Get Chat ID im.chat.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.chat.get` retrieves the chat ID.
+      operationId: im_chat_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/im-chat-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ENTITY_TYPE:
+                  type: string
+                  description: '| The type of object for linking the chat to an external context. Passed as a string.'
+                ENTITY_ID:
+                  type: string
+                  description: '| Identifier of the object within `ENTITY_TYPE`.'
+              required:
+              - ENTITY_TYPE
+              - ENTITY_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ENTITY_TYPE:
+                  type: string
+                  description: '| The type of object for linking the chat to an external context. Passed as a string.'
+                ENTITY_ID:
+                  type: string
+                  description: '| Identifier of the object within `ENTITY_TYPE`.'
+              required:
+              - ENTITY_TYPE
+              - ENTITY_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.chat.leave:
+    post:
+      summary: Leave Chat im.chat.leave
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.chat.leave` removes the current user from the chat.
+      operationId: im_chat_leave
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/chat-users/im-chat-leave.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.chat.mute:
+    post:
+      summary: Disable Notifications from Chat im.chat.mute
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.chat.mute` disables or enables notifications in the specified chat.
+      operationId: im_chat_mute
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/special-operations/im-chat-mute.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| The identifier of the chat. You can obtain the identifier using the im.chat.get method ||'
+                DIALOG_ID:
+                  type: string
+                  description: '| The chat identifier in the format:'
+                MUTE:
+                  type: string
+                  description: '| Notification control:'
+              required:
+              - CHAT_ID
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| The identifier of the chat. You can obtain the identifier using the im.chat.get method ||'
+                DIALOG_ID:
+                  type: string
+                  description: '| The chat identifier in the format:'
+                MUTE:
+                  type: string
+                  description: '| Notification control:'
+              required:
+              - CHAT_ID
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.chat.setOwner:
+    post:
+      summary: Change Chat Owner im.chat.setOwner
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.chat.setOwner` changes the owner of the chat.
+      operationId: im_chat_setOwner
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/chat-update/im-chat-set-owner.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the new chat owner.'
+              required:
+              - CHAT_ID
+              - USER_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the new chat owner.'
+              required:
+              - CHAT_ID
+              - USER_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.chat.updateAvatar:
+    post:
+      summary: Update Chat Avatar im.chat.updateAvatar
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.chat.updateAvatar` updates the chat avatar.
+      operationId: im_chat_updateAvatar
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/chat-update/im-chat-update-avatar.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+                AVATAR:
+                  type: string
+                  description: '| Image in Base64 format.'
+              required:
+              - CHAT_ID
+              - AVATAR
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+                AVATAR:
+                  type: string
+                  description: '| Image in Base64 format.'
+              required:
+              - CHAT_ID
+              - AVATAR
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.chat.updateColor:
+    post:
+      summary: Change Chat Color im.chat.updateColor
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.chat.updateColor` updates the chat color for the mobile application.
+      operationId: im_chat_updateColor
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/chat-update/im-chat-update-color.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+                COLOR:
+                  type: string
+                  description: '| Chat color for the mobile application. Possible values:'
+              required:
+              - CHAT_ID
+              - COLOR
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+                COLOR:
+                  type: string
+                  description: '| Chat color for the mobile application. Possible values:'
+              required:
+              - CHAT_ID
+              - COLOR
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.chat.updateTitle:
+    post:
+      summary: Update Chat Title im.chat.updateTitle
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.chat.updateTitle` updates the chat title.
+      operationId: im_chat_updateTitle
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/chat-update/im-chat-update-title.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Chat identifier.'
+                TITLE:
+                  type: string
+                  description: '| Chat title.'
+              required:
+              - CHAT_ID
+              - TITLE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Chat identifier.'
+                TITLE:
+                  type: string
+                  description: '| Chat title.'
+              required:
+              - CHAT_ID
+              - TITLE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.chat.user.add:
+    post:
+      summary: Invite Participants to Chat im.chat.user.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.chat.user.add` adds users to a chat.
+      operationId: im_chat_user_add
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/chat-users/im-chat-user-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+                USERS:
+                  type: array
+                  items: {}
+                  description: '| Array of user identifiers to be added to the chat.'
+                HIDE_HISTORY:
+                  type: string
+                  description: '| Hide chat history for added users:'
+              required:
+              - CHAT_ID
+              - USERS
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+                USERS:
+                  type: array
+                  items: {}
+                  description: '| Array of user identifiers to be added to the chat.'
+                HIDE_HISTORY:
+                  type: string
+                  description: '| Hide chat history for added users:'
+              required:
+              - CHAT_ID
+              - USERS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.chat.user.delete:
+    post:
+      summary: Exclude Participants from Chat im.chat.user.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.chat.user.delete` removes a user from the chat.
+      operationId: im_chat_user_delete
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/chat-users/im-chat-user-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user to be excluded from the chat.'
+              required:
+              - CHAT_ID
+              - USER_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user to be excluded from the chat.'
+              required:
+              - CHAT_ID
+              - USER_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.chat.user.list:
+    post:
+      summary: Get Chat Participant IDs im.chat.user.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.chat.user.list` returns a list of chat participant IDs.
+      operationId: im_chat_user_list
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/chat-users/im-chat-user-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+              required:
+              - CHAT_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+              required:
+              - CHAT_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.counters.get:
+    post:
+      summary: Get Counters im.counters.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.counters.get` retrieves the counters for unread messages and notifications for the current user.
+      operationId: im_counters_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/im-counters-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.department.colleagues.list:
+    post:
+      summary: Get the List of Colleagues for the Current User im.department.colleagues.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.department.colleagues.list` retrieves the list of colleagues for the current user. For a manager, the method will return a list of subordinates and all supervisors.
+      operationId: im_department_colleagues_list
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/departments/im-department-colleagues-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_DATA:
+                  type: string
+                  description: '| Return detailed user data.'
+                OFFSET:
+                  type: integer
+                  description: '| Offset for user selection ||'
+                LIMIT:
+                  type: integer
+                  description: '| Number of items in the selection. Default is `10`. Maximum value is `50` ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_DATA:
+                  type: string
+                  description: '| Return detailed user data.'
+                OFFSET:
+                  type: integer
+                  description: '| Offset for user selection ||'
+                LIMIT:
+                  type: integer
+                  description: '| Number of items in the selection. Default is `10`. Maximum value is `50` ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.department.employees.get:
+    post:
+      summary: Get a List of Employees from Departments im.department.employees.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.department.employees.get` retrieves a list of employees from the specified departments.
+      operationId: im_department_employees_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/departments/im-department-employees-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: array
+                  items: {}
+                  description: '| An array of department IDs. You can pass a string with a JSON array of IDs.'
+                USER_DATA:
+                  type: string
+                  description: '| Return detailed user data.'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: array
+                  items: {}
+                  description: '| An array of department IDs. You can pass a string with a JSON array of IDs.'
+                USER_DATA:
+                  type: string
+                  description: '| Return detailed user data.'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.department.get:
+    post:
+      summary: Get Information About the Department im.department.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.department.get` retrieves data about departments by their `ID` identifiers.
+      operationId: im_department_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/departments/im-department-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: array
+                  items: {}
+                  description: '| An array of department identifiers. You can pass a string with a JSON array of identifiers.'
+                USER_DATA:
+                  type: string
+                  description: '| Return data about the department head.'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: array
+                  items: {}
+                  description: '| An array of department identifiers. You can pass a string with a JSON array of identifiers.'
+                USER_DATA:
+                  type: string
+                  description: '| Return data about the department head.'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.department.managers.get:
+    post:
+      summary: Get a List of Department Managers im.department.managers.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.department.managers.get` retrieves a list of managers for the specified departments.
+      operationId: im_department_managers_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/departments/im-department-managers-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: array
+                  items: {}
+                  description: '| An array of department identifiers. You can pass a string with a JSON array of identifiers.'
+                USER_DATA:
+                  type: string
+                  description: '| Return detailed user data.'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: array
+                  items: {}
+                  description: '| An array of department identifiers. You can pass a string with a JSON array of identifiers.'
+                USER_DATA:
+                  type: string
+                  description: '| Return detailed user data.'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.dialog.get:
+    post:
+      summary: Get Chat Data im.dialog.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.dialog.get` retrieves information about a chat.
+      operationId: im_dialog_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/im-dialog-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Chat identifier in the format:'
+              required:
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Chat identifier in the format:'
+              required:
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.dialog.messages.get:
+    post:
+      summary: Get the List of Recent Messages im.dialog.messages.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.dialog.messages.get` retrieves messages from the specified dialog, including system messages. It does not support standard pagination due to the potential large volume of data. Messages can only be retrieved without participating in the chat for Open Line chats via the method [imopenlines.session.history.get](../../imopenlines/openlines/sessions/imopenlines-session-history-get.md).
+      operationId: im_dialog_messages_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/messages/im-dialog-messages-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                LAST_ID:
+                  type: integer
+                  description: '| Identifier of the message older than which messages need to be loaded. The method will return messages with identifiers less than the specified one. ||'
+                FIRST_ID:
+                  type: integer
+                  description: '| Identifier of the message newer than which messages need to be loaded. The method will return messages with identifiers greater than the specified one.'
+                LIMIT:
+                  type: integer
+                  description: '| Limit on the number of messages in the response. If `LAST_ID` and `FIRST_ID` are not provided, the method will return the last N messages of the dialog specified in `LIMIT`.'
+              required:
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                LAST_ID:
+                  type: integer
+                  description: '| Identifier of the message older than which messages need to be loaded. The method will return messages with identifiers less than the specified one. ||'
+                FIRST_ID:
+                  type: integer
+                  description: '| Identifier of the message newer than which messages need to be loaded. The method will return messages with identifiers greater than the specified one.'
+                LIMIT:
+                  type: integer
+                  description: '| Limit on the number of messages in the response. If `LAST_ID` and `FIRST_ID` are not provided, the method will return the last N messages of the dialog specified in `LIMIT`.'
+              required:
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.dialog.messages.search:
+    post:
+      summary: Find Message in Chat im.dialog.messages.search
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.dialog.messages.search` performs a search for messages in the chat.
+      operationId: im_dialog_messages_search
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/messages/im-dialog-messages-search.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SEARCH_MESSAGE:
+                  type: string
+                  description: '| Search string for the message text.'
+                DATE_FROM:
+                  type: string
+                  format: date-time
+                  description: '| Start of the search period in ISO 8601 format (RFC3339) ||'
+                DATE_TO:
+                  type: string
+                  format: date-time
+                  description: '| End of the search period in ISO 8601 format (RFC3339) ||'
+                DATE:
+                  type: string
+                  format: date-time
+                  description: '| Search for messages on a specific date in ISO 8601 format (RFC3339).'
+                ORDER:
+                  type: object
+                  description: '| Sorting parameters.'
+                LIMIT:
+                  type: integer
+                  description: '| Number of messages returned.'
+                LAST_ID:
+                  type: integer
+                  description: '| Identifier of the last message from the previous selection for pagination ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SEARCH_MESSAGE:
+                  type: string
+                  description: '| Search string for the message text.'
+                DATE_FROM:
+                  type: string
+                  format: date-time
+                  description: '| Start of the search period in ISO 8601 format (RFC3339) ||'
+                DATE_TO:
+                  type: string
+                  format: date-time
+                  description: '| End of the search period in ISO 8601 format (RFC3339) ||'
+                DATE:
+                  type: string
+                  format: date-time
+                  description: '| Search for messages on a specific date in ISO 8601 format (RFC3339).'
+                ORDER:
+                  type: object
+                  description: '| Sorting parameters.'
+                LIMIT:
+                  type: integer
+                  description: '| Number of messages returned.'
+                LAST_ID:
+                  type: integer
+                  description: '| Identifier of the last message from the previous selection for pagination ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.dialog.read:
+    post:
+      summary: Set the "read" flag for messages im.dialog.read
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.dialog.read` sets the "read" flag for dialog messages up to and including the specified message.
+      operationId: im_dialog_read
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/messages/im-dialog-read.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the last read message. If not provided, the method sets the read flag for all unread messages ||'
+              required:
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the last read message. If not provided, the method sets the read flag for all unread messages ||'
+              required:
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.dialog.read.all:
+    post:
+      summary: Set the "read" flag for all chats im.dialog.read.all
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.dialog.read.all` sets the "read" flag for all chats of the current user.
+      operationId: im_dialog_read_all
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/special-operations/im-dialog-read-all.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.dialog.unread:
+    post:
+      summary: Set the "unread" flag for messages im.dialog.unread
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.dialog.unread` sets the "unread" flag for messages in a dialog starting from the specified message.
+      operationId: im_dialog_unread
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/messages/im-dialog-unread.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the first unread message ||'
+              required:
+              - DIALOG_ID
+              - MESSAGE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the first unread message ||'
+              required:
+              - DIALOG_ID
+              - MESSAGE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.dialog.users.list:
+    post:
+      summary: Get the List of Participants im.dialog.users.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.dialog.users.list` returns detailed information about the participants in the dialog with pagination support.
+      operationId: im_dialog_users_list
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/chat-users/im-dialog-users-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                SKIP_EXTERNAL:
+                  type: string
+                  description: '| Exclude system users:'
+                SKIP_EXTERNAL_EXCEPT_TYPES:
+                  type: string
+                  description: '| A list of types of system users to keep in the selection, separated by commas.'
+                LIMIT:
+                  type: integer
+                  description: '| Number of items per page. Default: `50`. Maximum value: `200` ||'
+                LAST_ID:
+                  type: integer
+                  description: '| Identifier of the last user from the selection `LIMIT`.'
+                OFFSET:
+                  type: integer
+                  description: '| Offset for pagination. Default: `0` ||'
+              required:
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                SKIP_EXTERNAL:
+                  type: string
+                  description: '| Exclude system users:'
+                SKIP_EXTERNAL_EXCEPT_TYPES:
+                  type: string
+                  description: '| A list of types of system users to keep in the selection, separated by commas.'
+                LIMIT:
+                  type: integer
+                  description: '| Number of items per page. Default: `50`. Maximum value: `200` ||'
+                LAST_ID:
+                  type: integer
+                  description: '| Identifier of the last user from the selection `LIMIT`.'
+                OFFSET:
+                  type: integer
+                  description: '| Offset for pagination. Default: `0` ||'
+              required:
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.dialog.writing:
+    post:
+      summary: Send "User is typing" indicator im.dialog.writing
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.dialog.writing` sends a "User is typing" indicator to the chat.
+      operationId: im_dialog_writing
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/messages/im-dialog-writing.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+              required:
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+              required:
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.disk.file.commit:
+    post:
+      summary: Add File to Chat im.disk.file.commit
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.disk.file.commit` adds a file to a chat. To add a file, specify: - one of the chat identifier parameters — `CHAT_ID` or `DIALOG_ID`'
+      operationId: im_disk_file_commit
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/files/im-disk-file-commit.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format:'
+                FILE_ID:
+                  type: integer
+                  description: '| Identifier of the file on Drive. An array can be passed.'
+                UPLOAD_ID:
+                  type: integer
+                  description: '| Identifier of the file on Drive. An array can be passed.'
+                MESSAGE:
+                  type: string
+                  description: '| Text message with the file ||'
+                SILENT_MODE:
+                  type: string
+                  description: '| Parameter for Open Channels chat'
+                AS_FILE:
+                  type: string
+                  description: '| Send as a file. Only for `UPLOAD_ID`.'
+              required:
+              - CHAT_ID
+              - DIALOG_ID
+              - FILE_ID
+              - UPLOAD_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format:'
+                FILE_ID:
+                  type: integer
+                  description: '| Identifier of the file on Drive. An array can be passed.'
+                UPLOAD_ID:
+                  type: integer
+                  description: '| Identifier of the file on Drive. An array can be passed.'
+                MESSAGE:
+                  type: string
+                  description: '| Text message with the file ||'
+                SILENT_MODE:
+                  type: string
+                  description: '| Parameter for Open Channels chat'
+                AS_FILE:
+                  type: string
+                  description: '| Send as a file. Only for `UPLOAD_ID`.'
+              required:
+              - CHAT_ID
+              - DIALOG_ID
+              - FILE_ID
+              - UPLOAD_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.disk.file.delete:
+    post:
+      summary: Delete File from Chat Folder im.disk.file.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.disk.file.delete` removes a file from the chat folder. Only the user—who is a participant in the chat and sent the file—can delete it. Other chat participants cannot delete the file. After deletion, the text *Message deleted* is displayed in the chat instead of the file.
+      operationId: im_disk_file_delete
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/files/im-disk-file-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat ||'
+                FILE_ID:
+                  type: integer
+                  description: '| Identifier of the file ||'
+              required:
+              - CHAT_ID
+              - FILE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat ||'
+                FILE_ID:
+                  type: integer
+                  description: '| Identifier of the file ||'
+              required:
+              - CHAT_ID
+              - FILE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.disk.file.save:
+    post:
+      summary: Save File to Your Drive im.disk.file.save
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.disk.file.save` saves a file from the chat to the user's personal Drive. The file is saved in the *Saved Files* folder. If the folder does not exist, the system will create it automatically.
+      operationId: im_disk_file_save
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/files/im-disk-file-save.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FILE_ID:
+                  type: integer
+                  description: '| File identifier ||'
+              required:
+              - FILE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                FILE_ID:
+                  type: integer
+                  description: '| File identifier ||'
+              required:
+              - FILE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.disk.folder.get:
+    post:
+      summary: Get Chat File Storage Folder im.disk.folder.get
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.disk.folder.get` retrieves the identifier of the folder where chat files are stored. The identifier from the response can be used in Drive methods: - [disk.folder.uploadfile](../../disk/folder/disk-folder-upload-file.md) to upload a file to the chat folder'
+      operationId: im_disk_folder_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/files/im-disk-folder-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat. Required if `DIALOG_ID` is not provided ||'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format `chatXXX`, where `XXX` is the identifier. Required if `CHAT_ID` is not provided ||'
+              required:
+              - CHAT_ID
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CHAT_ID:
+                  type: integer
+                  description: '| Identifier of the chat. Required if `DIALOG_ID` is not provided ||'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format `chatXXX`, where `XXX` is the identifier. Required if `CHAT_ID` is not provided ||'
+              required:
+              - CHAT_ID
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.message.add:
+    post:
+      summary: Send Message im.message.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.message.add` sends a message to a chat.
+      operationId: im_message_add
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/messages/im-message-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                MESSAGE:
+                  type: string
+                  description: '| The text of the message. Required if `ATTACH` is not provided.'
+                ATTACH:
+                  type: object
+                KEYBOARD:
+                  type: object
+                MENU:
+                  type: object
+                SYSTEM:
+                  type: string
+                  description: '| Indicator of a system message.'
+                URL_PREVIEW:
+                  type: string
+                  description: '| Conversion of links into rich links.'
+                REPLY_ID:
+                  type: integer
+                  description: '| Identifier of the message to which the reply is sent. The message for the reply must be in the same chat.'
+              required:
+              - DIALOG_ID
+              - MESSAGE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                MESSAGE:
+                  type: string
+                  description: '| The text of the message. Required if `ATTACH` is not provided.'
+                ATTACH:
+                  type: object
+                KEYBOARD:
+                  type: object
+                MENU:
+                  type: object
+                SYSTEM:
+                  type: string
+                  description: '| Indicator of a system message.'
+                URL_PREVIEW:
+                  type: string
+                  description: '| Conversion of links into rich links.'
+                REPLY_ID:
+                  type: integer
+                  description: '| Identifier of the message to which the reply is sent. The message for the reply must be in the same chat.'
+              required:
+              - DIALOG_ID
+              - MESSAGE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.message.command:
+    post:
+      summary: Execute the chat-bot command im.message.command
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.message.command` executes a chat-bot command in the context of a message.
+      operationId: im_message_command
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/messages/im-message-command.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                MESSAGE_ID:
+                  type: integer
+                  description: '| The identifier of the message in the context of which the command is executed.'
+                BOT_ID:
+                  type: integer
+                  description: '| The identifier of the bot.'
+                COMMAND:
+                  type: string
+                  description: '| The bot command.'
+                COMMAND_PARAMS:
+                  type: string
+                  description: '| Command parameter ||'
+              required:
+              - MESSAGE_ID
+              - BOT_ID
+              - COMMAND
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                MESSAGE_ID:
+                  type: integer
+                  description: '| The identifier of the message in the context of which the command is executed.'
+                BOT_ID:
+                  type: integer
+                  description: '| The identifier of the bot.'
+                COMMAND:
+                  type: string
+                  description: '| The bot command.'
+                COMMAND_PARAMS:
+                  type: string
+                  description: '| Command parameter ||'
+              required:
+              - MESSAGE_ID
+              - BOT_ID
+              - COMMAND
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.message.delete:
+    post:
+      summary: Delete Message im.message.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.message.delete` removes a message.
+      operationId: im_message_delete
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/messages/im-message-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+              required:
+              - MESSAGE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+              required:
+              - MESSAGE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.message.like:
+    post:
+      summary: Change Status to "Like" im.message.like
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.message.like` sets or removes the "Like" mark for a message.
+      operationId: im_message_like
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/messages/im-message-like.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+                ACTION:
+                  type: string
+                  description: '| Action for reacting to the message.'
+              required:
+              - MESSAGE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+                ACTION:
+                  type: string
+                  description: '| Action for reacting to the message.'
+              required:
+              - MESSAGE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.message.share:
+    post:
+      summary: Create an Object Based on the Message im.message.share
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.message.share` creates an object based on a message.
+      operationId: im_message_share
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/messages/im-message-share.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                TYPE:
+                  type: string
+                  description: '| Type of the object being created.'
+              required:
+              - MESSAGE_ID
+              - DIALOG_ID
+              - TYPE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                TYPE:
+                  type: string
+                  description: '| Type of the object being created.'
+              required:
+              - MESSAGE_ID
+              - DIALOG_ID
+              - TYPE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.message.update:
+    post:
+      summary: Update Message im.message.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.message.update` modifies the text and parameters of an already sent message.
+      operationId: im_message_update
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/messages/im-message-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+                MESSAGE:
+                  type: string
+                  description: '| New text of the message. If an empty value is provided, the message will be deleted.'
+                ATTACH:
+                  type: object
+                KEYBOARD:
+                  type: object
+                MENU:
+                  type: object
+                URL_PREVIEW:
+                  type: string
+                  description: '| Conversion of links into rich links.'
+                IS_EDITED:
+                  type: string
+                  description: '| Flag for marking "edited":'
+              required:
+              - MESSAGE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                MESSAGE_ID:
+                  type: integer
+                  description: '| Identifier of the message.'
+                MESSAGE:
+                  type: string
+                  description: '| New text of the message. If an empty value is provided, the message will be deleted.'
+                ATTACH:
+                  type: object
+                KEYBOARD:
+                  type: object
+                MENU:
+                  type: object
+                URL_PREVIEW:
+                  type: string
+                  description: '| Conversion of links into rich links.'
+                IS_EDITED:
+                  type: string
+                  description: '| Flag for marking "edited":'
+              required:
+              - MESSAGE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.notify:
+    post:
+      summary: Send Notification im.notify
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `im.notify` method sends a notification to a user. The method is only available when called through the application.
+      operationId: im_notify
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/notifications/im-notify.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| The identifier of the user receiving the notification.'
+                TYPE:
+                  type: string
+                  description: '| The type of notification.'
+                MESSAGE:
+                  type: string
+                  description: '| The text of the notification. The method trims whitespace from the ends of the string before sending. ||'
+                MESSAGE_OUT:
+                  type: string
+                  description: '| The text of the notification for external channels, such as email. ||'
+                TAG:
+                  type: string
+                  description: '| A unique tag for the notification within the application. When adding a notification with an existing tag, other notifications will be removed. Pass it with `CLIENT_ID` when calling via webhook. ||'
+                SUB_TAG:
+                  type: string
+                  description: '| An additional notification tag without uniqueness checks. Pass it with `CLIENT_ID` when calling via webhook. ||'
+                ATTACH:
+                  type: object
+              required:
+              - USER_ID
+              - MESSAGE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| The identifier of the user receiving the notification.'
+                TYPE:
+                  type: string
+                  description: '| The type of notification.'
+                MESSAGE:
+                  type: string
+                  description: '| The text of the notification. The method trims whitespace from the ends of the string before sending. ||'
+                MESSAGE_OUT:
+                  type: string
+                  description: '| The text of the notification for external channels, such as email. ||'
+                TAG:
+                  type: string
+                  description: '| A unique tag for the notification within the application. When adding a notification with an existing tag, other notifications will be removed. Pass it with `CLIENT_ID` when calling via webhook. ||'
+                SUB_TAG:
+                  type: string
+                  description: '| An additional notification tag without uniqueness checks. Pass it with `CLIENT_ID` when calling via webhook. ||'
+                ATTACH:
+                  type: object
+              required:
+              - USER_ID
+              - MESSAGE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.notify.answer:
+    post:
+      summary: Responding to Notifications with Quick Response im.notify.answer
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.notify.answer` sends a text quick response to a notification.
+      operationId: im_notify_answer
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/notifications/im-notify-answer.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NOTIFY_ID:
+                  type: integer
+                  description: '| The identifier of the notification that supports a quick response.'
+                ANSWER_TEXT:
+                  type: string
+                  description: '| The text of the quick response. ||'
+              required:
+              - NOTIFY_ID
+              - ANSWER_TEXT
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NOTIFY_ID:
+                  type: integer
+                  description: '| The identifier of the notification that supports a quick response.'
+                ANSWER_TEXT:
+                  type: string
+                  description: '| The text of the quick response. ||'
+              required:
+              - NOTIFY_ID
+              - ANSWER_TEXT
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.notify.confirm:
+    post:
+      summary: Interacting with Notification Buttons im.notify.confirm
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.notify.confirm` sends the selected value of the notification button.
+      operationId: im_notify_confirm
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/notifications/im-notify-confirm.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NOTIFY_ID:
+                  type: integer
+                  description: '| Identifier of the notification with buttons.'
+                NOTIFY_VALUE:
+                  type: string
+                  description: '| Value of the selected button. ||'
+              required:
+              - NOTIFY_ID
+              - NOTIFY_VALUE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                NOTIFY_ID:
+                  type: integer
+                  description: '| Identifier of the notification with buttons.'
+                NOTIFY_VALUE:
+                  type: string
+                  description: '| Value of the selected button. ||'
+              required:
+              - NOTIFY_ID
+              - NOTIFY_VALUE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.notify.delete:
+    post:
+      summary: Delete Notification im.notify.delete
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.notify.delete` removes a notification by `ID` or by tags `TAG` and `SUB_TAG`. You must provide one of three parameters: `ID`, `TAG`, or `SUB_TAG`.'
+      operationId: im_notify_delete
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/notifications/im-notify-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the notification to be deleted ||'
+                TAG:
+                  type: string
+                  description: '| Unique tag of the notification within the application. Only notifications from the current application are deleted ||'
+                SUB_TAG:
+                  type: string
+                  description: '| Additional tag of the notification. Only notifications from the current application are deleted ||'
+                CLIENT_ID:
+                  type: string
+                  description: '| This parameter is required only for webhooks. Pass the same `CLIENT_ID` that was specified during the chat bot registration ||'
+              required:
+              - ID
+              - TAG
+              - SUB_TAG
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| Identifier of the notification to be deleted ||'
+                TAG:
+                  type: string
+                  description: '| Unique tag of the notification within the application. Only notifications from the current application are deleted ||'
+                SUB_TAG:
+                  type: string
+                  description: '| Additional tag of the notification. Only notifications from the current application are deleted ||'
+                CLIENT_ID:
+                  type: string
+                  description: '| This parameter is required only for webhooks. Pass the same `CLIENT_ID` that was specified during the chat bot registration ||'
+              required:
+              - ID
+              - TAG
+              - SUB_TAG
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.notify.get:
+    post:
+      summary: Get Notifications im.notify.get
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.notify.get` returns a list of user notifications in parts. The next part is requested using `LAST_ID` and `LAST_TYPE`. Notification sorting: first by descending creation date, then by descending identifiers.'
+      operationId: im_notify_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/notifications/im-notify-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                LAST_ID:
+                  type: integer
+                  description: '| Identifier of the last notification from the previous page to load the next one. Typically taken from the `id` field of the last element in the `notifications` array in the response of the previous selection step or in the response of im.notify.history.search'
+                LAST_TYPE:
+                  type: integer
+                  description: '| Technical pagination cursor.'
+                LIMIT:
+                  type: integer
+                  description: '| Number of notifications per page. Default value is `50`. Maximum value is `50` ||'
+                CONVERT_TEXT:
+                  type: string
+                  description: '| Convert notification text. Value `Y` enables conversion, any other value disables it ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                LAST_ID:
+                  type: integer
+                  description: '| Identifier of the last notification from the previous page to load the next one. Typically taken from the `id` field of the last element in the `notifications` array in the response of the previous selection step or in the response of im.notify.history.search'
+                LAST_TYPE:
+                  type: integer
+                  description: '| Technical pagination cursor.'
+                LIMIT:
+                  type: integer
+                  description: '| Number of notifications per page. Default value is `50`. Maximum value is `50` ||'
+                CONVERT_TEXT:
+                  type: string
+                  description: '| Convert notification text. Value `Y` enables conversion, any other value disables it ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.notify.history.search:
+    post:
+      summary: Searching Notification History im.notify.history.search
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.notify.history.search` performs a search through the user's notification history. Notifications are sorted first by descending creation date, then by descending identifiers.
+      operationId: im_notify_history_search
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/notifications/im-notify-history-search.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SEARCH_TEXT:
+                  type: string
+                  description: '| Search text. If `SEARCH_TYPE` and `SEARCH_DATE` are not specified, the string length must be at least `3` characters ||'
+                SEARCH_TYPE:
+                  type: string
+                  description: '| Filter by notification type in the format `MODULE` or ```MODULE|EVENT```. Ready values can be obtained using the method im.notify.schema.get ||'
+                SEARCH_TYPES:
+                  type: array
+                  items: {}
+                  description: '| Array of filters by notification types in the format `MODULE` or ```MODULE|EVENT``` ||'
+                SEARCH_DATE:
+                  type: string
+                  description: '| Date filter in ISO 8601 format (RFC3339) ||'
+                SEARCH_DATE_FROM:
+                  type: string
+                  description: '| Start of the date range in ISO 8601 format (RFC3339). Used together with `SEARCH_DATE_TO` ||'
+                SEARCH_DATE_TO:
+                  type: string
+                  description: '| End of the date range in ISO 8601 format (RFC3339). Used together with `SEARCH_DATE_FROM` ||'
+                SEARCH_AUTHORS:
+                  type: array
+                  items: {}
+                  description: '| Array of notification author identifiers for filtering ||'
+                LAST_ID:
+                  type: integer
+                  description: '| Identifier of the last notification from the previous page to load the next one. Usually taken from the `id` field of the last element in the `notifications` array in the response of the previous search step or in the response of im.notify.get ||'
+                LIMIT:
+                  type: integer
+                  description: '| Number of notifications per page. Default value is `50`. Maximum value is `50` ||'
+                CONVERT_TEXT:
+                  type: string
+                  description: '| Convert notification text. Value `Y` enables conversion, any other value disables it ||'
+                GROUP_TAG:
+                  type: string
+                  description: '| Group tag for notifications for additional filtering ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SEARCH_TEXT:
+                  type: string
+                  description: '| Search text. If `SEARCH_TYPE` and `SEARCH_DATE` are not specified, the string length must be at least `3` characters ||'
+                SEARCH_TYPE:
+                  type: string
+                  description: '| Filter by notification type in the format `MODULE` or ```MODULE|EVENT```. Ready values can be obtained using the method im.notify.schema.get ||'
+                SEARCH_TYPES:
+                  type: array
+                  items: {}
+                  description: '| Array of filters by notification types in the format `MODULE` or ```MODULE|EVENT``` ||'
+                SEARCH_DATE:
+                  type: string
+                  description: '| Date filter in ISO 8601 format (RFC3339) ||'
+                SEARCH_DATE_FROM:
+                  type: string
+                  description: '| Start of the date range in ISO 8601 format (RFC3339). Used together with `SEARCH_DATE_TO` ||'
+                SEARCH_DATE_TO:
+                  type: string
+                  description: '| End of the date range in ISO 8601 format (RFC3339). Used together with `SEARCH_DATE_FROM` ||'
+                SEARCH_AUTHORS:
+                  type: array
+                  items: {}
+                  description: '| Array of notification author identifiers for filtering ||'
+                LAST_ID:
+                  type: integer
+                  description: '| Identifier of the last notification from the previous page to load the next one. Usually taken from the `id` field of the last element in the `notifications` array in the response of the previous search step or in the response of im.notify.get ||'
+                LIMIT:
+                  type: integer
+                  description: '| Number of notifications per page. Default value is `50`. Maximum value is `50` ||'
+                CONVERT_TEXT:
+                  type: string
+                  description: '| Convert notification text. Value `Y` enables conversion, any other value disables it ||'
+                GROUP_TAG:
+                  type: string
+                  description: '| Group tag for notifications for additional filtering ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.notify.personal.add:
+    post:
+      summary: Send Personal Notification im.notify.personal.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.notify.personal.add` sends a personal notification on behalf of the current user. The method is only available when called through an application.
+      operationId: im_notify_personal_add
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/notifications/im-notify-personal-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user receiving the notification.'
+                MESSAGE:
+                  type: string
+                  description: '| The text of the notification. The method trims whitespace from the edges of the string before sending. Supports BB codes — see more in the Message Formatting section ||'
+                MESSAGE_OUT:
+                  type: string
+                  description: '| The text of the notification for external channels, such as email. If not provided, an empty value is sent ||'
+                TAG:
+                  type: string
+                  description: '| A unique tag for the notification within the application. When adding a notification with an existing tag, other notifications will be removed. Pass with `CLIENT_ID` when calling via webhook ||'
+                SUB_TAG:
+                  type: string
+                  description: '| An additional tag for the notification without uniqueness checks. Pass with `CLIENT_ID` when calling via webhook ||'
+                ATTACH:
+                  type: object
+              required:
+              - USER_ID
+              - MESSAGE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user receiving the notification.'
+                MESSAGE:
+                  type: string
+                  description: '| The text of the notification. The method trims whitespace from the edges of the string before sending. Supports BB codes — see more in the Message Formatting section ||'
+                MESSAGE_OUT:
+                  type: string
+                  description: '| The text of the notification for external channels, such as email. If not provided, an empty value is sent ||'
+                TAG:
+                  type: string
+                  description: '| A unique tag for the notification within the application. When adding a notification with an existing tag, other notifications will be removed. Pass with `CLIENT_ID` when calling via webhook ||'
+                SUB_TAG:
+                  type: string
+                  description: '| An additional tag for the notification without uniqueness checks. Pass with `CLIENT_ID` when calling via webhook ||'
+                ATTACH:
+                  type: object
+              required:
+              - USER_ID
+              - MESSAGE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.notify.read:
+    post:
+      summary: Read or Mark Notification as Unread im.notify.read
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.notify.read` marks a notification or all notifications as read or unread based on the specified parameters.
+      operationId: im_notify_read
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/notifications/im-notify-read.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| The identifier of the notification. When `ID >= 0`, the status is changed; if `ID` is absent, the method will return `true` without any changes ||'
+                ACTION:
+                  type: string
+                  description: '| Action on the notifications:'
+                ONLY_CURRENT:
+                  type: string
+                  description: '| The value `Y` changes only the notification with the specified `ID`. Any other value changes notifications whose identifiers are equal to or greater than this `ID` ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| The identifier of the notification. When `ID >= 0`, the status is changed; if `ID` is absent, the method will return `true` without any changes ||'
+                ACTION:
+                  type: string
+                  description: '| Action on the notifications:'
+                ONLY_CURRENT:
+                  type: string
+                  description: '| The value `Y` changes only the notification with the specified `ID`. Any other value changes notifications whose identifiers are equal to or greater than this `ID` ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.notify.read.all:
+    post:
+      summary: Read All Notifications im.notify.read.all
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.notify.read.all` marks all notifications of the current user as read.
+      operationId: im_notify_read_all
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/notifications/im-notify-read-all.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.notify.read.list:
+    post:
+      summary: Read the list of notifications im.notify.read.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.notify.read.list` marks a list of notifications as read or unread.
+      operationId: im_notify_read_list
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/notifications/im-notify-read-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IDS:
+                  type: array
+                  items: {}
+                  description: '| An array of notification identifiers. If any value in the array is `<= 0`, processing stops at that element ||'
+                ACTION:
+                  type: string
+                  description: '| Action on the notifications:'
+              required:
+              - IDS
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IDS:
+                  type: array
+                  items: {}
+                  description: '| An array of notification identifiers. If any value in the array is `<= 0`, processing stops at that element ||'
+                ACTION:
+                  type: string
+                  description: '| Action on the notifications:'
+              required:
+              - IDS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.notify.schema.get:
+    post:
+      summary: Get Notification Type Schema im.notify.schema.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.notify.schema.get` returns the schema of available notification types by modules.
+      operationId: im_notify_schema_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/notifications/im-notify-schema-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.notify.system.add:
+    post:
+      summary: Send System Notification im.notify.system.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.notify.system.add` sends a system notification to a user. The method is only available when called through an application.
+      operationId: im_notify_system_add
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/notifications/im-notify-system-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user receiving the notification.'
+                MESSAGE:
+                  type: string
+                  description: '| The text of the notification. The method trims whitespace from the edges of the string before sending. Supports BB codes — see more in the Message Formatting section. ||'
+                MESSAGE_OUT:
+                  type: string
+                  description: '| The text of the notification for external channels, such as email. ||'
+                TAG:
+                  type: string
+                  description: '| A unique tag for the notification within the application. When adding a notification with an existing tag, other notifications will be removed. Pass with `CLIENT_ID` when calling via webhook. ||'
+                SUB_TAG:
+                  type: string
+                  description: '| An additional notification tag without uniqueness checks. Pass with `CLIENT_ID` when calling via webhook. ||'
+                ATTACH:
+                  type: object
+              required:
+              - USER_ID
+              - MESSAGE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                USER_ID:
+                  type: integer
+                  description: '| Identifier of the user receiving the notification.'
+                MESSAGE:
+                  type: string
+                  description: '| The text of the notification. The method trims whitespace from the edges of the string before sending. Supports BB codes — see more in the Message Formatting section. ||'
+                MESSAGE_OUT:
+                  type: string
+                  description: '| The text of the notification for external channels, such as email. ||'
+                TAG:
+                  type: string
+                  description: '| A unique tag for the notification within the application. When adding a notification with an existing tag, other notifications will be removed. Pass with `CLIENT_ID` when calling via webhook. ||'
+                SUB_TAG:
+                  type: string
+                  description: '| An additional notification tag without uniqueness checks. Pass with `CLIENT_ID` when calling via webhook. ||'
+                ATTACH:
+                  type: object
+              required:
+              - USER_ID
+              - MESSAGE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.recent:
+    post:
+      summary: Pin a Chat at the Top of the im.recent List
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.recent.pin` pins or unpins a conversation at the top of the user's chat list.
+      operationId: im_recent
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/special-operations/im-recent-pin.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                PIN:
+                  type: string
+                  description: '| Pin or unpin the conversation:'
+              required:
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                PIN:
+                  type: string
+                  description: '| Pin or unpin the conversation:'
+              required:
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.recent.get:
+    post:
+      summary: Get a Shortened List of Recent Chats im.recent.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.recent.get` retrieves a list of the user's recent chats.
+      operationId: im_recent_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/im-recent-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SKIP_OPENLINES:
+                  type: string
+                  description: '| Skip chats from Open Channels.'
+                SKIP_CHAT:
+                  type: string
+                  description: '| Skip group chats.'
+                SKIP_DIALOG:
+                  type: string
+                  description: '| Skip one-on-one dialogs.'
+                LAST_UPDATE:
+                  type: string
+                  format: date-time
+                  description: '| Retrieve data from the specified date in ATOM (ISO-8601) format ||'
+                ONLY_OPENLINES:
+                  type: string
+                  description: '| Select only chats from Open Channels.'
+                LAST_SYNC_DATE:
+                  type: string
+                  format: date-time
+                  description: '| Date of the previous retrieval in ATOM (ISO-8601) format to load changes that occurred in the list since the specified date.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SKIP_OPENLINES:
+                  type: string
+                  description: '| Skip chats from Open Channels.'
+                SKIP_CHAT:
+                  type: string
+                  description: '| Skip group chats.'
+                SKIP_DIALOG:
+                  type: string
+                  description: '| Skip one-on-one dialogs.'
+                LAST_UPDATE:
+                  type: string
+                  format: date-time
+                  description: '| Retrieve data from the specified date in ATOM (ISO-8601) format ||'
+                ONLY_OPENLINES:
+                  type: string
+                  description: '| Select only chats from Open Channels.'
+                LAST_SYNC_DATE:
+                  type: string
+                  format: date-time
+                  description: '| Date of the previous retrieval in ATOM (ISO-8601) format to load changes that occurred in the list since the specified date.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.recent.hide:
+    post:
+      summary: Remove Chat from the Recent List im.recent.hide
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.recent.hide` removes a dialog from the list of recent chats for the current user. You can retrieve the list of recent chats using the [im.recent.get](../im-recent-get.md) method.
+      operationId: im_recent_hide
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/special-operations/im-recent-hide.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+              required:
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+              required:
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.recent.list:
+    post:
+      summary: Get the List of Chats im.recent.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.recent.list` retrieves a list of the user's recent conversations with pagination support.
+      operationId: im_recent_list
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/im-recent-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SKIP_OPENLINES:
+                  type: string
+                  description: '| Skip open channel chats.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SKIP_OPENLINES:
+                  type: string
+                  description: '| Skip open channel chats.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.recent.unread:
+    post:
+      summary: Set or Remove the "Read" Flag for the Chat im.recent.unread
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.recent.unread` sets or removes the "read" flag for the chat.
+      operationId: im_recent_unread
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/special-operations/im-recent-unread.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                ACTION:
+                  type: string
+                  description: '| Action for the "read" flag:'
+              required:
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                ACTION:
+                  type: string
+                  description: '| Action for the "read" flag:'
+              required:
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.revision.get:
+    post:
+      summary: Get API Revisions im.revision.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.revision.get` returns the API revisions of the [IM module](../../settings/cloud-and-on-premise/on-premise/versions.md) for the current Bitrix24. Use the revision values to check the compatibility of the client with the Bitrix24 server, especially on on-premise accounts where the module version may differ from the current one.
+      operationId: im_revision_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/im-revision-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.search.chat.list:
+    post:
+      summary: Find Chats im.search.chat.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.search.chat.list` performs a search for chats that the current user has access to. The search is conducted based on the title, first name, and last name of chat participants. Results are sorted in descending order of identifiers.
+      operationId: im_search_chat_list
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/search/im-search-chat-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FIND:
+                  type: string
+                  description: '| Search phrase for querying indexed chat data. The minimum number of characters for a search is `3` ||'
+                FIND_LINES:
+                  type: string
+                  description: '| Search phrase for finding chats among Open Channels. The minimum number of characters for a search is `3` ||'
+                OFFSET:
+                  type: integer
+                  description: '| Offset for the chat sample. Default is `0` ||'
+                LIMIT:
+                  type: integer
+                  description: '| Number of items in the sample. Default is `10`. Maximum value is `50` ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                FIND:
+                  type: string
+                  description: '| Search phrase for querying indexed chat data. The minimum number of characters for a search is `3` ||'
+                FIND_LINES:
+                  type: string
+                  description: '| Search phrase for finding chats among Open Channels. The minimum number of characters for a search is `3` ||'
+                OFFSET:
+                  type: integer
+                  description: '| Offset for the chat sample. Default is `0` ||'
+                LIMIT:
+                  type: integer
+                  description: '| Number of items in the sample. Default is `10`. Maximum value is `50` ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.search.department.list:
+    post:
+      summary: Find Departments im.search.department.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.search.department.list` performs a search for departments by their full name.
+      operationId: im_search_department_list
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/search/im-search-department-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FIND:
+                  type: string
+                  description: '| Search phrase for finding the full name of the department (field full_name) ||'
+                USER_DATA:
+                  type: string
+                  description: '| Return the manager''s data in the field manager_user_data.'
+                OFFSET:
+                  type: integer
+                  description: '| Offset for the department selection. Default is `0` ||'
+                LIMIT:
+                  type: integer
+                  description: '| Number of items in the selection. Default is `10`. Maximum value is `50` ||'
+              required:
+              - FIND
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                FIND:
+                  type: string
+                  description: '| Search phrase for finding the full name of the department (field full_name) ||'
+                USER_DATA:
+                  type: string
+                  description: '| Return the manager''s data in the field manager_user_data.'
+                OFFSET:
+                  type: integer
+                  description: '| Offset for the department selection. Default is `0` ||'
+                LIMIT:
+                  type: integer
+                  description: '| Number of items in the selection. Default is `10`. Maximum value is `50` ||'
+              required:
+              - FIND
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.search.last.add:
+    post:
+      summary: Add Entry to Search History im.search.last.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.search.last.add` adds a dialog to the last search history. This method was designed for the previous version of the chat. In the current M1 chat version, it works, but the results are not displayed in the interface.
+      operationId: im_search_last_add
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/search/im-search-last-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier for the message object: user or chat.'
+              required:
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier for the message object: user or chat.'
+              required:
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.search.last.delete:
+    post:
+      summary: Delete Record from Search History im.search.last.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.search.last.delete` removes a dialog from the last search history. This method was designed for the previous version of the chat. In the current version of the chat M1, it works, but the results are not displayed in the interface.
+      operationId: im_search_last_delete
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/search/im-search-last-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier for the message object: user or chat.'
+              required:
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier for the message object: user or chat.'
+              required:
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.search.last.get:
+    post:
+      summary: Get Search History im.search.last.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.search.last.get` returns a list of dialogs from the history of the last search. This method was designed for the previous version of the chat. In the current M1 chat version, it works, but the results are not displayed in the interface.
+      operationId: im_search_last_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/search/im-search-last-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SKIP_OPENLINES:
+                  type: string
+                  description: '| Skip Open Channels chats.'
+                SKIP_CHAT:
+                  type: string
+                  description: '| Skip group chats.'
+                SKIP_DIALOG:
+                  type: string
+                  description: '| Skip personal dialogs.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                SKIP_OPENLINES:
+                  type: string
+                  description: '| Skip Open Channels chats.'
+                SKIP_CHAT:
+                  type: string
+                  description: '| Skip group chats.'
+                SKIP_DIALOG:
+                  type: string
+                  description: '| Skip personal dialogs.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.search.user.list:
+    post:
+      summary: Find Users im.search.user.list
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.search.user.list` allows you to search for users by first name, last name, job title, and department.
+      operationId: im_search_user_list
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/search/im-search-user-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FIND:
+                  type: string
+                  description: '| Search phrase. The minimum number of characters for the search is `3` ||'
+                BUSINESS:
+                  type: string
+                  description: '| Search only among business users.'
+                OFFSET:
+                  type: integer
+                  description: '| Offset for the user selection. Default is `0` ||'
+                LIMIT:
+                  type: integer
+                  description: '| Number of items in the selection. Default is `10`. Maximum value is `50` ||'
+              required:
+              - FIND
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                FIND:
+                  type: string
+                  description: '| Search phrase. The minimum number of characters for the search is `3` ||'
+                BUSINESS:
+                  type: string
+                  description: '| Search only among business users.'
+                OFFSET:
+                  type: integer
+                  description: '| Offset for the user selection. Default is `0` ||'
+                LIMIT:
+                  type: integer
+                  description: '| Number of items in the selection. Default is `10`. Maximum value is `50` ||'
+              required:
+              - FIND
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.user.get:
+    post:
+      summary: Get User Data im.user.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.user.get` retrieves data about the current user or a user by `ID`.
+      operationId: im_user_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/users/im-user-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| User identifier. If not provided, the method will return data for the current user.'
+                AVATAR_HR:
+                  type: string
+                  description: '| Parameter to request the `avatar_hr` field with the high-resolution avatar URL. Acceptable values: `Y` or `N`, default is `N`.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                  description: '| User identifier. If not provided, the method will return data for the current user.'
+                AVATAR_HR:
+                  type: string
+                  description: '| Parameter to request the `avatar_hr` field with the high-resolution avatar URL. Acceptable values: `Y` or `N`, default is `N`.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.user.list.get:
+    post:
+      summary: Get User Data with im.user.list.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.user.list.get` returns data about users based on a list of identifiers. If the current user is an extranet user, the method will return data only for users from their extranet groups. User identifiers outside these groups will be skipped without error.
+      operationId: im_user_list_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/users/im-user-list-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: array
+                  items: {}
+                AVATAR_HR:
+                  type: string
+                  description: '| Parameter to request the `avatar_hr` field with the high-resolution avatar URL. Acceptable values: `Y` or `N`, default is `N`.'
+                RESULT_TYPE:
+                  type: string
+                  description: '| Format of the `result`. The value `array` will return a standard array of user objects, any other value will return an object with user identifier keys ||'
+              required:
+              - ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: array
+                  items: {}
+                AVATAR_HR:
+                  type: string
+                  description: '| Parameter to request the `avatar_hr` field with the high-resolution avatar URL. Acceptable values: `Y` or `N`, default is `N`.'
+                RESULT_TYPE:
+                  type: string
+                  description: '| Format of the `result`. The value `array` will return a standard array of user objects, any other value will return an object with user identifier keys ||'
+              required:
+              - ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.user.status.get:
+    post:
+      summary: Get User Status im.user.status.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.user.status.get` returns the status of the current user. The method returns the status that was set using the [im.user.status.set](./im-user-status-set.md) method.
+      operationId: im_user_status_get
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/users/im-user-status-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.user.status.idle.end:
+    post:
+      summary: Disable Automatic Status "Away" im.user.status.idle.end
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.user.status.idle.end` disables the automatic "Away" status for the current user. This method was designed for the previous version of the chat. In the current version of the chat M1, it works, but the results are not displayed in the interface. - [Bitrix24 Chat: New Messenger](https://helpdesk.bitrix24.com/open/25661218/)'
+      operationId: im_user_status_idle_end
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/users/im-user-status-idle-end.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.user.status.idle.start:
+    post:
+      summary: Enable Automatic Status "Away" im.user.status.idle.start
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.user.status.idle.start` enables the automatic status "Away" for the current user. This method was designed for the previous version of the chat. In the current M1 chat version, it works, but the results are not displayed in the interface. - [Bitrix24 Chat: New Messenger](https://helpdesk.bitrix24.com/open/25661218/)'
+      operationId: im_user_status_idle_start
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/users/im-user-status-idle-start.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                AGO:
+                  type: integer
+                  description: '| How many minutes ago to set the "Away" status. If the parameter is not provided, `10` is used. The minimum value is `1` ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AGO:
+                  type: integer
+                  description: '| How many minutes ago to set the "Away" status. If the parameter is not provided, `10` is used. The minimum value is `1` ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /im.user.status.set:
+    post:
+      summary: Set User Status im.user.status.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.user.status.set` sets the current user's status. To check the current status, use the method [im.user.status.get](./im-user-status-get.md).
+      operationId: im_user_status_set
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/users/im-user-status-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                STATUS:
+                  type: string
+                  description: '| The new status of the user. The value is case-sensitive and must be provided in lowercase.'
+              required:
+              - STATUS
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                STATUS:
+                  type: string
+                  description: '| The new status of the user. The value is case-sensitive and must be provided in lowercase.'
+              required:
+              - STATUS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
+  /imbot.app.register:
+    post:
+      summary: Register a Chat Application imbot.app.register
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.app.register` registers a chat application. Applications are divided into two types: [JS command and IFRAME application](../chat-apps.md).'
+      operationId: imbot_app_register
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/outdated/create-app/imbot-app-register.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Name:
+                  type: string
+                  description: '| Example | Description ||'
+                BOT_ID:
+                  type: string
+                  description: '| `62` | Identifier of the bot that owns the chat application ||'
+                CODE:
+                  type: string
+                  description: '| `''echo''` | Code of the chat application ||'
+                JS_METHOD:
+                  type: string
+                  description: '| `''SEND''` | Options for `JS_METHOD`:'
+                JS_PARAM:
+                  type: string
+                  description: '| `''/help''` | ||'
+                ICON_FILE:
+                  type: string
+                  description: '| `''/* base64 image */''` | Icon in base64.'
+                CONTEXT:
+                  type: string
+                  description: '| `''BOT''` | Context of the application.'
+                EXTRANET_SUPPORT:
+                  type: string
+                  description: '| `''N''` | Is the command available to extranet users, default is N ||'
+                LIVECHAT_SUPPORT:
+                  type: string
+                  description: '| `''N''` | Online chat support ||'
+                IFRAME_POPUP:
+                  type: string
+                  description: '| `''N''` | The iframe will open with the ability to move within the messenger, switching between dialogs will not close such a window. ||'
+                LANG:
+                  type: string
+                  description: '| `Array(...)` | Array of translations, it is advisable to specify at least for DE and EN ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                Name:
+                  type: string
+                  description: '| Example | Description ||'
+                BOT_ID:
+                  type: string
+                  description: '| `62` | Identifier of the bot that owns the chat application ||'
+                CODE:
+                  type: string
+                  description: '| `''echo''` | Code of the chat application ||'
+                JS_METHOD:
+                  type: string
+                  description: '| `''SEND''` | Options for `JS_METHOD`:'
+                JS_PARAM:
+                  type: string
+                  description: '| `''/help''` | ||'
+                ICON_FILE:
+                  type: string
+                  description: '| `''/* base64 image */''` | Icon in base64.'
+                CONTEXT:
+                  type: string
+                  description: '| `''BOT''` | Context of the application.'
+                EXTRANET_SUPPORT:
+                  type: string
+                  description: '| `''N''` | Is the command available to extranet users, default is N ||'
+                LIVECHAT_SUPPORT:
+                  type: string
+                  description: '| `''N''` | Online chat support ||'
+                IFRAME_POPUP:
+                  type: string
+                  description: '| `''N''` | The iframe will open with the ability to move within the messenger, switching between dialogs will not close such a window. ||'
+                LANG:
+                  type: string
+                  description: '| `Array(...)` | Array of translations, it is advisable to specify at least for DE and EN ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imbot
+  /imbot.app.unregister:
+    post:
+      summary: Unregister Chat Application imbot.app.unregister
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.app.unregister` removes the application from the chat.
+      operationId: imbot_app_unregister
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/outdated/create-app/imbot-app-unregister.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Name:
+                  type: string
+                  description: '| Example | Description ||'
+                APP_ID:
+                  type: string
+                  description: '| `13` | Identifier of the application to be removed ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                Name:
+                  type: string
+                  description: '| Example | Description ||'
+                APP_ID:
+                  type: string
+                  description: '| `13` | Identifier of the application to be removed ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imbot
+  /imbot.app.update:
+    post:
+      summary: Update Application Data in Chat imbot.app.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.app.update` updates application data in the chat. The required fields are the application ID and one of the necessary fields for editing. If both JS and IFRAME methods are specified in one command, only JS will be used.
+      operationId: imbot_app_update
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/outdated/create-app/imbot-app-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Name:
+                  type: string
+                  description: '| Example | Description ||'
+                APP_ID:
+                  type: string
+                  description: '| `13` | Chat identifier ||'
+                IFRAME:
+                  type: string
+                  description: '| `''https://marta.bitrix.com/iframe/echo.php''` | URL of the frame ||'
+                IFRAME_WIDTH:
+                  type: string
+                  description: '| `''350''` | Desired width of the frame. Minimum value - 250px ||'
+                IFRAME_HEIGHT:
+                  type: string
+                  description: '| `''150''` | Desired height of the frame. Minimum value - 50px ||'
+                JS_METHOD:
+                  type: string
+                  description: '| `''SEND''` | ||'
+                JS_PARAM:
+                  type: string
+                  description: '| `''/help''` | ||'
+                HASH:
+                  type: string
+                  description: '| `''register''` | Token for accessing your frame, 32 characters ||'
+                ICON_FILE:
+                  type: string
+                  description: '| `''/* base64 image */''` | Icon of your application - base64 ||'
+                CONTEXT:
+                  type: string
+                  description: '| `''BOT''` | Application context ||'
+                EXTRANET_SUPPORT:
+                  type: string
+                  description: '| `''N''` | Is the command available to extranet users, default N ||'
+                LIVECHAT_SUPPORT:
+                  type: string
+                  description: '| `''N''` | Online chat support ||'
+                IFRAME_POPUP:
+                  type: string
+                  description: '| `''N''` | iframe will open with the ability to move within the messenger, switching between dialogs will not close such a window ||'
+                LANG:
+                  type: string
+                  description: '| `Array(...)` | Array of translations, it is advisable to specify at least for DE and EN ||'
+              required:
+              - APP_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                Name:
+                  type: string
+                  description: '| Example | Description ||'
+                APP_ID:
+                  type: string
+                  description: '| `13` | Chat identifier ||'
+                IFRAME:
+                  type: string
+                  description: '| `''https://marta.bitrix.com/iframe/echo.php''` | URL of the frame ||'
+                IFRAME_WIDTH:
+                  type: string
+                  description: '| `''350''` | Desired width of the frame. Minimum value - 250px ||'
+                IFRAME_HEIGHT:
+                  type: string
+                  description: '| `''150''` | Desired height of the frame. Minimum value - 50px ||'
+                JS_METHOD:
+                  type: string
+                  description: '| `''SEND''` | ||'
+                JS_PARAM:
+                  type: string
+                  description: '| `''/help''` | ||'
+                HASH:
+                  type: string
+                  description: '| `''register''` | Token for accessing your frame, 32 characters ||'
+                ICON_FILE:
+                  type: string
+                  description: '| `''/* base64 image */''` | Icon of your application - base64 ||'
+                CONTEXT:
+                  type: string
+                  description: '| `''BOT''` | Application context ||'
+                EXTRANET_SUPPORT:
+                  type: string
+                  description: '| `''N''` | Is the command available to extranet users, default N ||'
+                LIVECHAT_SUPPORT:
+                  type: string
+                  description: '| `''N''` | Online chat support ||'
+                IFRAME_POPUP:
+                  type: string
+                  description: '| `''N''` | iframe will open with the ability to move within the messenger, switching between dialogs will not close such a window ||'
+                LANG:
+                  type: string
+                  description: '| `Array(...)` | Array of translations, it is advisable to specify at least for DE and EN ||'
+              required:
+              - APP_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - imbot
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

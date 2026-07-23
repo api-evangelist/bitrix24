@@ -1,0 +1,852 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector General Methods API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: General Methods
+paths:
+  /access.name:
+    post:
+      summary: Get Access Permission Names access.name
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `access.name` retrieves the names of access permissions.
+      operationId: access_name
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/system/access-name.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ACCESS:
+                  type: array
+                  items: {}
+                  description: '| List of permission identifiers for which names need to be retrieved ||'
+              required:
+              - ACCESS
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ACCESS:
+                  type: array
+                  items: {}
+                  description: '| List of permission identifiers for which names need to be retrieved ||'
+              required:
+              - ACCESS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /app.info:
+    post:
+      summary: Show information about the app app.info
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `app.info` returns information about the application. No parameters.
+      operationId: app_info
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/system/app-info.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| The object contains information about the application:'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+                Code:
+                  type: string
+                  description: '| Error Message | Description ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| The object contains information about the application:'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+                Code:
+                  type: string
+                  description: '| Error Message | Description ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /app.option.get:
+    post:
+      summary: Get Application-Linked Data app.option.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `app.option.get` retrieves data linked to the application. If no input is provided, it will return all properties recorded via [app.option.set](./app-option-set.md).
+      operationId: app_option_get
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/settings/app-option-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                option:
+                  type: string
+                  description: '| A string, one of the keys from the property app.option.set. ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                option:
+                  type: string
+                  description: '| A string, one of the keys from the property app.option.set. ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /app.option.set:
+    post:
+      summary: Bind Data to the app.option.set Method
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `app.option.set` method binds data to the application.
+      operationId: app_option_set
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/settings/app-option-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                options:
+                  type: array
+                  items: {}
+                  description: '| An array where the key is the name of the property to be saved, and the value is the property value. If a value with a new key is passed, the method will write it; if an existing one, it will update it. ||'
+              required:
+              - options
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                options:
+                  type: array
+                  items: {}
+                  description: '| An array where the key is the name of the property to be saved, and the value is the property value. If a value with a new key is passed, the method will write it; if an existing one, it will update it. ||'
+              required:
+              - options
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /feature.get:
+    post:
+      summary: Get information about feature availability on the account feature.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `feature.get` returns information about the availability of features on a specific account.
+      operationId: feature_get
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/system/feature-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Available keys:'
+              required:
+              - CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                CODE:
+                  type: string
+                  description: '| Available keys:'
+              required:
+              - CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /method.get:
+    post:
+      summary: Get a list of available methods method.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `method.get` method returns two parameters `isExisting` and `isAvailable`, which determine the existence of the method on the account and its availability for invocation.
+      operationId: method_get
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/system/method-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the method to check in lowercase, for example `user.get` ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the method to check in lowercase, for example `user.get` ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /methods:
+    post:
+      summary: Get a List of Available Methods
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `methods` method retrieves a list of available methods. Development of this method has been halted. Please use [method.get](./method-get.md).
+      operationId: methods
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/system/methods.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                full:
+                  type: boolean
+                  description: '| If the parameter is set to `true`, the method will return a list of all methods ||'
+                scope:
+                  type: string
+                  description: '| Displays methods included in the specified permission. If the parameter is provided without a value (`methods?scope=&auth=xxxxx`), all common methods will be displayed. ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                full:
+                  type: boolean
+                  description: '| If the parameter is set to `true`, the method will return a list of all methods ||'
+                scope:
+                  type: string
+                  description: '| Displays methods included in the specified permission. If the parameter is provided without a value (`methods?scope=&auth=xxxxx`), all common methods will be displayed. ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /profile:
+    post:
+      summary: Get Basic Information About the Current User Profile
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `profile` method allows you to retrieve basic information about the current user without any scopes, unlike [user.current](../../user/user-current.md). No parameters required.
+      operationId: profile
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/users/profile.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| The object contains information about the user ||'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: '| The object contains information about the user ||'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /scope:
+    post:
+      summary: Get a List of Available Permissions Scope
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `scope` method returns a list of permissions.
+      operationId: scope
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/system/scope.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                full:
+                  type: boolean
+                  description: '| If the parameter is set to `true`, the method will return the complete list of permissions ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                full:
+                  type: boolean
+                  description: '| If the parameter is set to `true`, the method will return the complete list of permissions ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /server.time:
+    post:
+      summary: Get Current Server Time server.time
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `server.time` returns the current server time in the format `YYYY-MM-DDThh:mm:ss±hh:mm`. No parameters.
+      operationId: server_time
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/system/server-time.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: string
+                  description: '| Server time in the format `YYYY-MM-DDThh:mm:ss±hh:mm` ||'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: string
+                  description: '| Server time in the format `YYYY-MM-DDThh:mm:ss±hh:mm` ||'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /user.access:
+    post:
+      summary: Determine the user.access permissions set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `user.access` method checks if the current user has at least one of the permissions specified in the `ACCESS` parameter.
+      operationId: user_access
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/users/user-access.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ACCESS:
+                  type: array
+                  items: {}
+                  description: '| Identifier or list of identifiers of the permissions to check access for ||'
+              required:
+              - ACCESS
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                ACCESS:
+                  type: array
+                  items: {}
+                  description: '| Identifier or list of identifiers of the permissions to check access for ||'
+              required:
+              - ACCESS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /user.admin:
+    post:
+      summary: Determine Access Permissions for Application Settings user.admin
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.admin` determines whether the current user has the permissions to manage application settings. No parameters.
+      operationId: user_admin
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/users/user-admin.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: boolean
+                  description: '| Returns `true` if the current user has permissions to manage application settings, `false` otherwise ||'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: boolean
+                  description: '| Returns `true` if the current user has permissions to manage application settings, `false` otherwise ||'
+                time:
+                  type: string
+                  description: '| Information about the request execution time ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /user.option:
+    post:
+      summary: Get data associated with the application and user user.option.*
+      description: Some data may be missing — we will complete it soon. - missing parameters or fields - parameter types not specified - required parameters not specified
+      operationId: user_option
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/settings/user-option.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /user.option.get:
+    post:
+      summary: Get User Data Associated with the Application user.option.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.option.get` retrieves user data associated with the application. If no input is provided, it will return all properties recorded through [user.option.set](./user-option-set.md).
+      operationId: user_option_get
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/settings/user-option-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                option:
+                  type: string
+                  description: '| A string, one of the keys from the property user.option.set. ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                option:
+                  type: string
+                  description: '| A string, one of the keys from the property user.option.set. ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+  /user.option.set:
+    post:
+      summary: Bind Data to User and Application user.option.set
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.option.set` binds data to the application and user. The application can be bound to the user who installed it if it is a [headless application](../../../local-integrations/serverside-local-app-with-no-ui.md) or to the user with whom it interacts if it is a [UI application](../../../local-integrations/serverside-local-app-with-ui.md).
+      operationId: user_option_set
+      tags:
+      - General Methods
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/common/settings/user-option-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                options:
+                  type: array
+                  items: {}
+                  description: '| An array where the key is the name of the property to be saved, and the value is the property value. If a value with a new key is passed, the method will write it; if an existing one, it will update it. ||'
+              required:
+              - options
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                options:
+                  type: array
+                  items: {}
+                  description: '| An array where the key is the name of the property to be saved, and the value is the property value. If a value with a new key is passed, the method will write it; if an existing one, it will update it. ||'
+              required:
+              - options
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - basic
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

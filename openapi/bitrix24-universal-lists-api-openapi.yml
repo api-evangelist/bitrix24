@@ -1,0 +1,2108 @@
+openapi: 3.0.3
+info:
+  title: Bitrix24 REST BIconnector Universal Lists API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Universal Lists
+paths:
+  /lists.add:
+    post:
+      summary: Create a universal list lists.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `lists.add` method creates a universal list.
+      operationId: lists_add
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/lists/lists-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block ||'
+                SOCNET_GROUP_ID:
+                  type: integer
+                  description: '| Group identifier. Use this parameter if you want to add the list to a group.'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of list fields.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of labels for list items and sections. Supported values:'
+                RIGHTS:
+                  type: array
+                  items: {}
+                  description: '| Access permission settings for the list. An array in key-value format, where the key is the letter code of the user or department with the identifier, and the value is the letter code of the permission.'
+                NAME:
+                  type: string
+                  description: '| Name of the list ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the list ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                PICTURE:
+                  type: array
+                  items: {}
+                  description: '| Picture. An object in the format `{fileData: [value1, value2]}`, where `value1` is the name of the picture file with the extension, and `value2` is the picture in base64 format ||'
+                BIZPROC:
+                  type: string
+                  description: '| Enabling business process support. Possible values:'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_CODE
+              - FIELDS
+              - NAME
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block ||'
+                SOCNET_GROUP_ID:
+                  type: integer
+                  description: '| Group identifier. Use this parameter if you want to add the list to a group.'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of list fields.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of labels for list items and sections. Supported values:'
+                RIGHTS:
+                  type: array
+                  items: {}
+                  description: '| Access permission settings for the list. An array in key-value format, where the key is the letter code of the user or department with the identifier, and the value is the letter code of the permission.'
+                NAME:
+                  type: string
+                  description: '| Name of the list ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the list ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                PICTURE:
+                  type: array
+                  items: {}
+                  description: '| Picture. An object in the format `{fileData: [value1, value2]}`, where `value1` is the name of the picture file with the extension, and `value2` is the picture in base64 format ||'
+                BIZPROC:
+                  type: string
+                  description: '| Enabling business process support. Possible values:'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_CODE
+              - FIELDS
+              - NAME
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.delete:
+    post:
+      summary: Delete universal list lists.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.delete` removes a universal list.
+      operationId: lists_delete
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/lists/lists-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.element.add:
+    post:
+      summary: Create a list element lists.element.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.element.add` creates a list element.
+      operationId: lists_element_add
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/elements/lists-element-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                ELEMENT_CODE:
+                  type: string
+                  description: '| Symbolic code of the element ||'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of fields.'
+                IBLOCK_SECTION_ID:
+                  type: integer
+                  description: '| Identifier of the section to which the element is added.'
+                LIST_ELEMENT_URL:
+                  type: string
+                  description: '| Template address to the list elements.'
+                NAME:
+                  type: string
+                  description: '| Name of the element ||'
+                PROPERTY_PropertyId:
+                  type: string
+                  description: '| Custom properties.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - ELEMENT_CODE
+              - FIELDS
+              - NAME
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                ELEMENT_CODE:
+                  type: string
+                  description: '| Symbolic code of the element ||'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of fields.'
+                IBLOCK_SECTION_ID:
+                  type: integer
+                  description: '| Identifier of the section to which the element is added.'
+                LIST_ELEMENT_URL:
+                  type: string
+                  description: '| Template address to the list elements.'
+                NAME:
+                  type: string
+                  description: '| Name of the element ||'
+                PROPERTY_PropertyId:
+                  type: string
+                  description: '| Custom properties.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - ELEMENT_CODE
+              - FIELDS
+              - NAME
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.element.delete:
+    post:
+      summary: Delete List Element lists.element.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.element.delete` removes a list element.
+      operationId: lists_element_delete
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/elements/lists-element-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                ELEMENT_ID:
+                  type: integer
+                  description: '| Identifier of the element.'
+                ELEMENT_CODE:
+                  type: string
+                  description: '| Symbolic code of the element.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - ELEMENT_ID
+              - ELEMENT_CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                ELEMENT_ID:
+                  type: integer
+                  description: '| Identifier of the element.'
+                ELEMENT_CODE:
+                  type: string
+                  description: '| Symbolic code of the element.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - ELEMENT_ID
+              - ELEMENT_CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.element.get:
+    post:
+      summary: Get Element Parameters or List of Elements lists.element.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.element.get` returns an element or a list of elements.
+      operationId: lists_element_get
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/elements/lists-element-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                ELEMENT_ID:
+                  type: integer
+                  description: '| Identifier of the element.'
+                ELEMENT_CODE:
+                  type: string
+                  description: '| Symbolic code of the element.'
+                SELECT:
+                  type: array
+                  items: {}
+                  description: '| An array containing a list of fields to select. If no fields are specified, all available fields are returned by default.'
+                FILTER:
+                  type: object
+                  description: '| An object for filtering element fields in the format `{"field_1": "value_1", ... "field_N": "value_N"}`. The filterable field can take the following values:'
+                ELEMENT_ORDER:
+                  type: object
+                  description: '| An object for sorting element fields in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                start:
+                  type: integer
+                  description: '| This parameter is used to manage pagination.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                ELEMENT_ID:
+                  type: integer
+                  description: '| Identifier of the element.'
+                ELEMENT_CODE:
+                  type: string
+                  description: '| Symbolic code of the element.'
+                SELECT:
+                  type: array
+                  items: {}
+                  description: '| An array containing a list of fields to select. If no fields are specified, all available fields are returned by default.'
+                FILTER:
+                  type: object
+                  description: '| An object for filtering element fields in the format `{"field_1": "value_1", ... "field_N": "value_N"}`. The filterable field can take the following values:'
+                ELEMENT_ORDER:
+                  type: object
+                  description: '| An object for sorting element fields in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                start:
+                  type: integer
+                  description: '| This parameter is used to manage pagination.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.element.get.file.url:
+    post:
+      summary: Get File Path lists.element.get.file.url
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.element.get.file.url` returns the file path.
+      operationId: lists_element_get_file_url
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/elements/lists-element-get-file-url.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                ELEMENT_ID:
+                  type: integer
+                  description: '| Identifier of the element.'
+                ELEMENT_CODE:
+                  type: string
+                  description: '| Symbolic code of the element.'
+                FIELD_ID:
+                  type: integer
+                  description: '| Identifier of the File or File (Drive) property, without the `PROPERTY_` prefix ||'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - ELEMENT_ID
+              - ELEMENT_CODE
+              - FIELD_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                ELEMENT_ID:
+                  type: integer
+                  description: '| Identifier of the element.'
+                ELEMENT_CODE:
+                  type: string
+                  description: '| Symbolic code of the element.'
+                FIELD_ID:
+                  type: integer
+                  description: '| Identifier of the File or File (Drive) property, without the `PROPERTY_` prefix ||'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - ELEMENT_ID
+              - ELEMENT_CODE
+              - FIELD_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.element.update:
+    post:
+      summary: Update List Element lists.element.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.element.update` updates a list element. The method completely overwrites the element. Fields whose values are not provided will be cleared.
+      operationId: lists_element_update
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/elements/lists-element-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                ELEMENT_ID:
+                  type: integer
+                  description: '| Identifier of the element.'
+                ELEMENT_CODE:
+                  type: string
+                  description: '| Symbolic code of the element.'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of fields.'
+                NAME:
+                  type: string
+                  description: '| Name of the element ||'
+                PROPERTY_PropertyId:
+                  type: string
+                  description: '| Custom properties.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - ELEMENT_ID
+              - ELEMENT_CODE
+              - FIELDS
+              - NAME
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                ELEMENT_ID:
+                  type: integer
+                  description: '| Identifier of the element.'
+                ELEMENT_CODE:
+                  type: string
+                  description: '| Symbolic code of the element.'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of fields.'
+                NAME:
+                  type: string
+                  description: '| Name of the element ||'
+                PROPERTY_PropertyId:
+                  type: string
+                  description: '| Custom properties.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - ELEMENT_ID
+              - ELEMENT_CODE
+              - FIELDS
+              - NAME
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.field.add:
+    post:
+      summary: Create a Field for Universal List lists.field.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.field.add` creates a list field. You can find the available field types for the universal list using the method [lists.field.type.get](./lists-field-type-get.md)
+      operationId: lists_field_add
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/fields/lists-field-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of parameters.'
+                NAME:
+                  type: string
+                  description: '| Field name ||'
+                TYPE:
+                  type: string
+                  description: '| Field type. Once created, the field type cannot be changed.'
+                IS_REQUIRED:
+                  type: string
+                  description: '| Field required flag. Possible values:'
+                MULTIPLE:
+                  type: string
+                  description: '| Field multiplicity flag. Possible values:'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                DEFAULT_VALUE:
+                  type: string
+                  description: '| Default value. If the `ADD_READ_ONLY_FIELD` setting is enabled in `SETTINGS`, this parameter becomes required ||'
+                LIST:
+                  type: array
+                  items: {}
+                  description: '| Values for the List type field. An array in the format `{''ID'': { ''VALUE'': ''Value_1'', ''SORT'': 10, ''DEF'': ''N'' }}`, where `''ID''` — temporary identifier, `VALUE` — displayed text, `SORT` — sorting order, `DEF` — default value indicator.'
+                LIST_TEXT_VALUES:
+                  type: string
+                  description: '| An alternative way to specify values for the List type field. A string where values are separated by the newline character `\n`'
+                LIST_DEF:
+                  type: array
+                  items: {}
+                  description: '| Default value for the List type field. The array accepts a temporary identifier from `LIST` ||'
+                CODE:
+                  type: string
+                  description: '| Symbolic code of the field. Required for custom fields. Not used for system fields ||'
+                SETTINGS:
+                  type: array
+                  items: {}
+                  description: '| Display and behavior settings.'
+                USER_TYPE_SETTINGS:
+                  type: array
+                  items: {}
+                  description: '| Array of settings for custom fields. The structure depends on the field type:'
+                ROW_COUNT:
+                  type: integer
+                  description: '| Height of the field.'
+                COL_COUNT:
+                  type: integer
+                  description: '| Width of the field.'
+                LINK_IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the related list. Required for types Binding to sections, Binding to elements, and Binding to elements as a list ||'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - FIELDS
+              - NAME
+              - TYPE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of parameters.'
+                NAME:
+                  type: string
+                  description: '| Field name ||'
+                TYPE:
+                  type: string
+                  description: '| Field type. Once created, the field type cannot be changed.'
+                IS_REQUIRED:
+                  type: string
+                  description: '| Field required flag. Possible values:'
+                MULTIPLE:
+                  type: string
+                  description: '| Field multiplicity flag. Possible values:'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                DEFAULT_VALUE:
+                  type: string
+                  description: '| Default value. If the `ADD_READ_ONLY_FIELD` setting is enabled in `SETTINGS`, this parameter becomes required ||'
+                LIST:
+                  type: array
+                  items: {}
+                  description: '| Values for the List type field. An array in the format `{''ID'': { ''VALUE'': ''Value_1'', ''SORT'': 10, ''DEF'': ''N'' }}`, where `''ID''` — temporary identifier, `VALUE` — displayed text, `SORT` — sorting order, `DEF` — default value indicator.'
+                LIST_TEXT_VALUES:
+                  type: string
+                  description: '| An alternative way to specify values for the List type field. A string where values are separated by the newline character `\n`'
+                LIST_DEF:
+                  type: array
+                  items: {}
+                  description: '| Default value for the List type field. The array accepts a temporary identifier from `LIST` ||'
+                CODE:
+                  type: string
+                  description: '| Symbolic code of the field. Required for custom fields. Not used for system fields ||'
+                SETTINGS:
+                  type: array
+                  items: {}
+                  description: '| Display and behavior settings.'
+                USER_TYPE_SETTINGS:
+                  type: array
+                  items: {}
+                  description: '| Array of settings for custom fields. The structure depends on the field type:'
+                ROW_COUNT:
+                  type: integer
+                  description: '| Height of the field.'
+                COL_COUNT:
+                  type: integer
+                  description: '| Width of the field.'
+                LINK_IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the related list. Required for types Binding to sections, Binding to elements, and Binding to elements as a list ||'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - FIELDS
+              - NAME
+              - TYPE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.field.delete:
+    post:
+      summary: Delete Field from Universal List lists.field.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.field.delete` removes a field from the list.
+      operationId: lists_field_delete
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/fields/lists-field-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                FIELD_ID:
+                  type: string
+                  description: '| Identifier of the field. For a custom field, it appears as `PROPERTY_PropertyId`. For a system field, it is its symbolic code.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - FIELD_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                FIELD_ID:
+                  type: string
+                  description: '| Identifier of the field. For a custom field, it appears as `PROPERTY_PropertyId`. For a system field, it is its symbolic code.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - FIELD_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.field.get:
+    post:
+      summary: Get Field Parameters or List of Fields lists.field.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.field.get` returns data about a field or a list of fields.
+      operationId: lists_field_get
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/fields/lists-field-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                FIELD_ID:
+                  type: string
+                  description: '| Identifier of the field. For a custom field, it appears as `PROPERTY_PropertyId`. For a system field, it is its symbolic code.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                FIELD_ID:
+                  type: string
+                  description: '| Identifier of the field. For a custom field, it appears as `PROPERTY_PropertyId`. For a system field, it is its symbolic code.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.field.type.get:
+    post:
+      summary: Get Available Field Types for Universal List lists.field.type.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.field.type.get` returns a list of available field types for the list.
+      operationId: lists_field_type_get
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/fields/lists-field-type-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                FIELD_ID:
+                  type: integer
+                  description: '| Field identifier. For a custom field, it appears as `PROPERTY_PropertyId`. For a system field, it is its symbolic code.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                FIELD_ID:
+                  type: integer
+                  description: '| Field identifier. For a custom field, it appears as `PROPERTY_PropertyId`. For a system field, it is its symbolic code.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.field.update:
+    post:
+      summary: Update the Universal List Field lists.field.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.field.update` updates a list field. The field type cannot be changed. Please provide the type that was specified when the field was created.
+      operationId: lists_field_update
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/fields/lists-field-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of parameters.'
+                FIELD_ID:
+                  type: string
+                  description: '| Identifier of the field. For a custom field, it appears as `PROPERTY_PropertyId`. For a system field, it is its symbolic code.'
+                NAME:
+                  type: string
+                  description: '| Field name ||'
+                TYPE:
+                  type: string
+                  description: '| Field type. The type cannot be changed; please provide the one that was specified when the field was created.'
+                IS_REQUIRED:
+                  type: string
+                  description: '| Field required flag. Possible values:'
+                MULTIPLE:
+                  type: string
+                  description: '| Field multiplicity flag. Possible values:'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                DEFAULT_VALUE:
+                  type: string
+                  description: '| Default value. If the `ADD_READ_ONLY_FIELD` setting is enabled in `SETTINGS`, this parameter becomes required. ||'
+                LIST:
+                  type: array
+                  items: {}
+                  description: '| Values for the List type field. An array in the format `{''ID'': { ''VALUE'': ''Value_1'', ''SORT'': 10, ''DEF'': ''N'' }}`, where `''ID''` — identifier, `VALUE` — displayed text, `SORT` — sorting order, `DEF` — default value indicator.'
+                LIST_TEXT_VALUES:
+                  type: string
+                  description: '| An alternative way to specify values for the List type field. A string where values are separated by the newline character `\n`.'
+                LIST_DEF:
+                  type: array
+                  items: {}
+                  description: '| Default value for the List type field. The array accepts the identifier from `LIST`. ||'
+                CODE:
+                  type: string
+                  description: '| Symbolic code of the field. Required for custom fields. Not used for system fields. ||'
+                SETTINGS:
+                  type: array
+                  items: {}
+                  description: '| Display and behavior settings.'
+                USER_TYPE_SETTINGS:
+                  type: array
+                  items: {}
+                  description: '| Array of settings for custom fields. The structure depends on the field type:'
+                ROW_COUNT:
+                  type: integer
+                  description: '| Height of the field. ||'
+                COL_COUNT:
+                  type: integer
+                  description: '| Width of the field. ||'
+                LINK_IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the related list. Required for types Binding to sections, Binding to elements, and Binding to elements in list form. ||'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - FIELDS
+              - FIELD_ID
+              - NAME
+              - TYPE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of parameters.'
+                FIELD_ID:
+                  type: string
+                  description: '| Identifier of the field. For a custom field, it appears as `PROPERTY_PropertyId`. For a system field, it is its symbolic code.'
+                NAME:
+                  type: string
+                  description: '| Field name ||'
+                TYPE:
+                  type: string
+                  description: '| Field type. The type cannot be changed; please provide the one that was specified when the field was created.'
+                IS_REQUIRED:
+                  type: string
+                  description: '| Field required flag. Possible values:'
+                MULTIPLE:
+                  type: string
+                  description: '| Field multiplicity flag. Possible values:'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                DEFAULT_VALUE:
+                  type: string
+                  description: '| Default value. If the `ADD_READ_ONLY_FIELD` setting is enabled in `SETTINGS`, this parameter becomes required. ||'
+                LIST:
+                  type: array
+                  items: {}
+                  description: '| Values for the List type field. An array in the format `{''ID'': { ''VALUE'': ''Value_1'', ''SORT'': 10, ''DEF'': ''N'' }}`, where `''ID''` — identifier, `VALUE` — displayed text, `SORT` — sorting order, `DEF` — default value indicator.'
+                LIST_TEXT_VALUES:
+                  type: string
+                  description: '| An alternative way to specify values for the List type field. A string where values are separated by the newline character `\n`.'
+                LIST_DEF:
+                  type: array
+                  items: {}
+                  description: '| Default value for the List type field. The array accepts the identifier from `LIST`. ||'
+                CODE:
+                  type: string
+                  description: '| Symbolic code of the field. Required for custom fields. Not used for system fields. ||'
+                SETTINGS:
+                  type: array
+                  items: {}
+                  description: '| Display and behavior settings.'
+                USER_TYPE_SETTINGS:
+                  type: array
+                  items: {}
+                  description: '| Array of settings for custom fields. The structure depends on the field type:'
+                ROW_COUNT:
+                  type: integer
+                  description: '| Height of the field. ||'
+                COL_COUNT:
+                  type: integer
+                  description: '| Width of the field. ||'
+                LINK_IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the related list. Required for types Binding to sections, Binding to elements, and Binding to elements in list form. ||'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - FIELDS
+              - FIELD_ID
+              - NAME
+              - TYPE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.get:
+    post:
+      summary: 'Retrieve Data from Universal List or Array of Lists: lists.get'
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `lists.get` method returns a universal list or an array of lists.
+      operationId: lists_get
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/lists/lists-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block ||'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block'
+                SOCNET_GROUP_ID:
+                  type: integer
+                  description: '| Group identifier. Required for group lists; otherwise, an access error will occur.'
+                IBLOCK_ORDER:
+                  type: object
+                  description: '| Object for sorting list fields in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                start:
+                  type: integer
+                  description: '| Parameter used for pagination control.'
+              required:
+              - IBLOCK_TYPE_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block ||'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block'
+                SOCNET_GROUP_ID:
+                  type: integer
+                  description: '| Group identifier. Required for group lists; otherwise, an access error will occur.'
+                IBLOCK_ORDER:
+                  type: object
+                  description: '| Object for sorting list fields in the format `{"field_1": "value_1", ... "field_N": "value_N"}`.'
+                start:
+                  type: integer
+                  description: '| Parameter used for pagination control.'
+              required:
+              - IBLOCK_TYPE_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.get.iblock.type.id:
+    post:
+      summary: Get the information block type ID lists.get.iblock.type.id
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.get.iblock.type.id` returns the information block type ID.
+      operationId: lists_get_iblock_type_id
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/lists/lists-get-iblock-type-id.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Information block ID.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+              required:
+              - IBLOCK_ID
+              - IBLOCK_CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Information block ID.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+              required:
+              - IBLOCK_ID
+              - IBLOCK_CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.section.add:
+    post:
+      summary: Create a section of the universal list lists.section.add
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.section.add` creates a list section.
+      operationId: lists_section_add
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/sections/lists-section-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                IBLOCK_SECTION_ID:
+                  type: integer
+                  description: '| Identifier of the parent section.'
+                SECTION_CODE:
+                  type: string
+                  description: '| Symbolic code of the section ||'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of fields.'
+                NAME:
+                  type: string
+                  description: '| Name of the section ||'
+                EXTERNAL_ID:
+                  type: string
+                  description: '| External identifier of the section ||'
+                XML_ID:
+                  type: string
+                  description: '| External identifier (XML ID) ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                ACTIVE:
+                  type: string
+                  description: '| Activity status. Possible values:'
+                PICTURE:
+                  type: array
+                  items: {}
+                  description: '| Deprecated.'
+                DESCRIPTION:
+                  type: string
+                  description: '| Deprecated.'
+                DESCRIPTION_TYPE:
+                  type: string
+                  description: '| Deprecated.'
+                DETAIL_PICTURE:
+                  type: array
+                  items: {}
+                  description: '| Deprecated.'
+                SECTION_PROPERTY:
+                  type: array
+                  items: {}
+                  description: '| Deprecated.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - SECTION_CODE
+              - FIELDS
+              - NAME
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                IBLOCK_SECTION_ID:
+                  type: integer
+                  description: '| Identifier of the parent section.'
+                SECTION_CODE:
+                  type: string
+                  description: '| Symbolic code of the section ||'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of fields.'
+                NAME:
+                  type: string
+                  description: '| Name of the section ||'
+                EXTERNAL_ID:
+                  type: string
+                  description: '| External identifier of the section ||'
+                XML_ID:
+                  type: string
+                  description: '| External identifier (XML ID) ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                ACTIVE:
+                  type: string
+                  description: '| Activity status. Possible values:'
+                PICTURE:
+                  type: array
+                  items: {}
+                  description: '| Deprecated.'
+                DESCRIPTION:
+                  type: string
+                  description: '| Deprecated.'
+                DESCRIPTION_TYPE:
+                  type: string
+                  description: '| Deprecated.'
+                DETAIL_PICTURE:
+                  type: array
+                  items: {}
+                  description: '| Deprecated.'
+                SECTION_PROPERTY:
+                  type: array
+                  items: {}
+                  description: '| Deprecated.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - SECTION_CODE
+              - FIELDS
+              - NAME
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.section.delete:
+    post:
+      summary: Delete the section of the universal list lists.section.delete
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.section.delete` removes a section from the list.
+      operationId: lists_section_delete
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/sections/lists-section-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                SECTION_ID:
+                  type: integer
+                  description: '| Identifier of the section.'
+                SECTION_CODE:
+                  type: string
+                  description: '| Symbolic code of the section.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - SECTION_ID
+              - SECTION_CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                SECTION_ID:
+                  type: integer
+                  description: '| Identifier of the section.'
+                SECTION_CODE:
+                  type: string
+                  description: '| Symbolic code of the section.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - SECTION_ID
+              - SECTION_CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.section.get:
+    post:
+      summary: Get section parameters or list of sections using lists.section.get
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.section.get` returns a section or a list of sections.
+      operationId: lists_section_get
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/sections/lists-section-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                FILTER:
+                  type: object
+                  description: '| Object for filtering sections `{"field_1": "value_1", ... "field_N": "value_N"}`. The filterable field can take the following values:'
+                SELECT:
+                  type: array
+                  items: {}
+                  description: '| Array with fields to select. Available fields:'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                FILTER:
+                  type: object
+                  description: '| Object for filtering sections `{"field_1": "value_1", ... "field_N": "value_N"}`. The filterable field can take the following values:'
+                SELECT:
+                  type: array
+                  items: {}
+                  description: '| Array with fields to select. Available fields:'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.section.update:
+    post:
+      summary: Update the section of the universal list lists.section.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `lists.section.update` updates a list section.
+      operationId: lists_section_update
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/sections/lists-section-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                SECTION_ID:
+                  type: integer
+                  description: '| Identifier of the section.'
+                SECTION_CODE:
+                  type: string
+                  description: '| Symbolic code of the section.'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of fields.'
+                NAME:
+                  type: string
+                  description: '| Name of the section ||'
+                EXTERNAL_ID:
+                  type: string
+                  description: '| External identifier of the section ||'
+                XML_ID:
+                  type: string
+                  description: '| External identifier (XML ID) ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                ACTIVE:
+                  type: string
+                  description: '| Activity status. Possible values:'
+                PICTURE:
+                  type: array
+                  items: {}
+                  description: '| Deprecated.'
+                DESCRIPTION:
+                  type: string
+                  description: '| Deprecated.'
+                DESCRIPTION_TYPE:
+                  type: string
+                  description: '| Deprecated.'
+                DETAIL_PICTURE:
+                  type: array
+                  items: {}
+                  description: '| Deprecated.'
+                SECTION_PROPERTY:
+                  type: array
+                  items: {}
+                  description: '| Deprecated.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - SECTION_ID
+              - SECTION_CODE
+              - FIELDS
+              - NAME
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                SECTION_ID:
+                  type: integer
+                  description: '| Identifier of the section.'
+                SECTION_CODE:
+                  type: string
+                  description: '| Symbolic code of the section.'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of fields.'
+                NAME:
+                  type: string
+                  description: '| Name of the section ||'
+                EXTERNAL_ID:
+                  type: string
+                  description: '| External identifier of the section ||'
+                XML_ID:
+                  type: string
+                  description: '| External identifier (XML ID) ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                ACTIVE:
+                  type: string
+                  description: '| Activity status. Possible values:'
+                PICTURE:
+                  type: array
+                  items: {}
+                  description: '| Deprecated.'
+                DESCRIPTION:
+                  type: string
+                  description: '| Deprecated.'
+                DESCRIPTION_TYPE:
+                  type: string
+                  description: '| Deprecated.'
+                DETAIL_PICTURE:
+                  type: array
+                  items: {}
+                  description: '| Deprecated.'
+                SECTION_PROPERTY:
+                  type: array
+                  items: {}
+                  description: '| Deprecated.'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - SECTION_ID
+              - SECTION_CODE
+              - FIELDS
+              - NAME
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+  /lists.update:
+    post:
+      summary: Update Universal List lists.update
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `lists.update` method updates the universal list.
+      operationId: lists_update
+      tags:
+      - Universal Lists
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/lists/lists/lists-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                SOCNET_GROUP_ID:
+                  type: integer
+                  description: '| Group identifier. It is not necessary to specify this for changing list settings. Use this parameter if you want to move the list to another group.'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of list fields.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of labels for list items and sections. Supported values:'
+                RIGHTS:
+                  type: array
+                  items: {}
+                  description: '| Access permission settings for the list. An array in key-value format, where the key is the letter code of the user or department with the identifier, and the value is the letter code of the permission.'
+                NAME:
+                  type: string
+                  description: '| Name of the list ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the list ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                PICTURE:
+                  type: array
+                  items: {}
+                  description: '| Picture. An object in the format `{fileData: [value1, value2]}`, where `value1` is the name of the picture file with the extension, and `value2` is the picture in base64 format ||'
+                BIZPROC:
+                  type: string
+                  description: '| Enabling business process support. Possible values:'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - FIELDS
+              - NAME
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                IBLOCK_TYPE_ID:
+                  type: string
+                  description: '| Identifier of the information block type. Possible values:'
+                IBLOCK_ID:
+                  type: integer
+                  description: '| Identifier of the information block.'
+                IBLOCK_CODE:
+                  type: string
+                  description: '| Symbolic code of the information block.'
+                SOCNET_GROUP_ID:
+                  type: integer
+                  description: '| Group identifier. It is not necessary to specify this for changing list settings. Use this parameter if you want to move the list to another group.'
+                FIELDS:
+                  type: array
+                  items: {}
+                  description: '| Array of list fields.'
+                MESSAGES:
+                  type: array
+                  items: {}
+                  description: '| Array of labels for list items and sections. Supported values:'
+                RIGHTS:
+                  type: array
+                  items: {}
+                  description: '| Access permission settings for the list. An array in key-value format, where the key is the letter code of the user or department with the identifier, and the value is the letter code of the permission.'
+                NAME:
+                  type: string
+                  description: '| Name of the list ||'
+                DESCRIPTION:
+                  type: string
+                  description: '| Description of the list ||'
+                SORT:
+                  type: integer
+                  description: '| Sorting ||'
+                PICTURE:
+                  type: array
+                  items: {}
+                  description: '| Picture. An object in the format `{fileData: [value1, value2]}`, where `value1` is the name of the picture file with the extension, and `value2` is the picture in base64 format ||'
+                BIZPROC:
+                  type: string
+                  description: '| Enabling business process support. Possible values:'
+              required:
+              - IBLOCK_TYPE_ID
+              - IBLOCK_ID
+              - IBLOCK_CODE
+              - FIELDS
+              - NAME
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - lists
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com
