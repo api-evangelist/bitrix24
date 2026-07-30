@@ -10,7 +10,19 @@ description: >-
   applications. API endpoints live under each tenant at
   https://{installation}.bitrix24.com/rest/.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bitrix24.png
 tags:
   - CRM
   - Collaboration
@@ -27,34 +39,381 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: bitrix24:rest-api
-    name: Bitrix24 REST API
-    description: >-
-      Tenant-scoped REST API for managing CRM entities, deals, leads,
-      tasks, calendars, telephony, disk files, users, and marketplace
-      apps. Each request targets the customer's portal URL of the form
-      https://{portal}.bitrix24.com/rest/ and authenticates via an
-      inbound webhook secret or an OAuth 2.0 access token.
-    humanURL: https://apidocs.bitrix24.com/
-    baseURL: https://{installation}.bitrix24.com/rest/
-    tags:
-      - CRM
-      - Tasks
-      - Telephony
-      - Calendar
-      - Disk
-      - Webhooks
-      - OAuth
-    properties:
-      - type: Documentation
-        url: https://apidocs.bitrix24.com/
-      - type: Authentication
-        url: https://apidocs.bitrix24.com/settings/how-to-call-rest-api/authorization.html
-      - type: Webhooks
-        url: https://apidocs.bitrix24.com/local-integrations/local-webhooks.html
-      - type: REST API 3.0 Overview
-        url: https://apidocs.bitrix24.com/api-reference/rest-v3/index.html
-
+- aid: bitrix24:rest-api
+  name: Bitrix24 REST API
+  description: >-
+    Tenant-scoped REST API for managing CRM entities, deals, leads, tasks, calendars, telephony, disk
+    files, users, and marketplace apps. Each request targets the customer's portal URL of the form https://{portal}.bitrix24.com/rest/
+    and authenticates via an inbound webhook secret or an OAuth 2.0 access token.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - CRM
+  - Tasks
+  - Telephony
+  - Calendar
+  - Disk
+  - Webhooks
+  - OAuth
+  properties:
+  - type: Documentation
+    url: https://apidocs.bitrix24.com/
+  - type: Authentication
+    url: https://apidocs.bitrix24.com/settings/how-to-call-rest-api/authorization.html
+  - type: Webhooks
+    url: https://apidocs.bitrix24.com/local-integrations/local-webhooks.html
+  - type: REST API 3.0 Overview
+    url: https://apidocs.bitrix24.com/api-reference/rest-v3/index.html
+- aid: bitrix24:bitrix24-biconnector-api
+  name: Bitrix24 BIconnector API
+  description: The BIconnector API from Bitrix24 — 19 operation(s) for biconnector.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - BIconnector
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-biconnector-api-openapi.yml
+- aid: bitrix24:bitrix24-business-processes-api
+  name: Bitrix24 Business Processes API
+  description: The Business Processes API from Bitrix24 — 21 operation(s) for business processes.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Business Processes
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-business-processes-api-openapi.yml
+- aid: bitrix24:bitrix24-calendar-api
+  name: Bitrix24 Calendar API
+  description: The Calendar API from Bitrix24 — 21 operation(s) for calendar.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Calendar
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-calendar-api-openapi.yml
+- aid: bitrix24:bitrix24-chatbots-api
+  name: Bitrix24 Chatbots API
+  description: The Chatbots API from Bitrix24 — 66 operation(s) for chatbots.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Chatbots
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-chatbots-api-openapi.yml
+- aid: bitrix24:bitrix24-chats-api
+  name: Bitrix24 Chats API
+  description: The Chats API from Bitrix24 — 67 operation(s) for chats.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Chats
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-chats-api-openapi.yml
+- aid: bitrix24:bitrix24-company-structure-api
+  name: Bitrix24 Company Structure API
+  description: The Company Structure API from Bitrix24 — 5 operation(s) for company structure.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Company Structure
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-company-structure-api-openapi.yml
+- aid: bitrix24:bitrix24-copilot-ai-api
+  name: Bitrix24 CoPilot / AI API
+  description: The CoPilot / AI API from Bitrix24 — 3 operation(s) for copilot / ai.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - CoPilot / AI
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-copilot-ai-api-openapi.yml
+- aid: bitrix24:bitrix24-crm-api
+  name: Bitrix24 CRM API
+  description: The CRM API from Bitrix24 — 421 operation(s) for crm.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - CRM
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-crm-api-openapi.yml
+- aid: bitrix24:bitrix24-data-storage-api
+  name: Bitrix24 Data Storage API
+  description: The Data Storage API from Bitrix24 — 17 operation(s) for data storage.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Data Storage
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-data-storage-api-openapi.yml
+- aid: bitrix24:bitrix24-deprecated-methods-api
+  name: Bitrix24 Deprecated Methods API
+  description: The Deprecated Methods API from Bitrix24 — 30 operation(s) for deprecated methods.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Deprecated Methods
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-deprecated-methods-api-openapi.yml
+- aid: bitrix24:bitrix24-document-generator-api
+  name: Bitrix24 Document Generator API
+  description: The Document Generator API from Bitrix24 — 29 operation(s) for document generator.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Document Generator
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-document-generator-api-openapi.yml
+- aid: bitrix24:bitrix24-drive-api
+  name: Bitrix24 Drive API
+  description: The Drive API from Bitrix24 — 37 operation(s) for drive.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Drive
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-drive-api-openapi.yml
+- aid: bitrix24:bitrix24-e-commerce-api
+  name: Bitrix24 E-Commerce API
+  description: The E-Commerce API from Bitrix24 — 139 operation(s) for e-commerce.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - E-Commerce
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-e-commerce-api-openapi.yml
+- aid: bitrix24:bitrix24-events-api
+  name: Bitrix24 Events API
+  description: The Events API from Bitrix24 — 8 operation(s) for events.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-events-api-openapi.yml
+- aid: bitrix24:bitrix24-general-methods-api
+  name: Bitrix24 General Methods API
+  description: The General Methods API from Bitrix24 — 15 operation(s) for general methods.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - General Methods
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-general-methods-api-openapi.yml
+- aid: bitrix24:bitrix24-mail-services-api
+  name: Bitrix24 Mail Services API
+  description: The Mail Services API from Bitrix24 — 6 operation(s) for mail services.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Mail Services
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-mail-services-api-openapi.yml
+- aid: bitrix24:bitrix24-message-providers-api
+  name: Bitrix24 Message Providers API
+  description: The Message Providers API from Bitrix24 — 5 operation(s) for message providers.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Message Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-message-providers-api-openapi.yml
+- aid: bitrix24:bitrix24-news-feed-api
+  name: Bitrix24 News Feed API
+  description: The News Feed API from Bitrix24 — 9 operation(s) for news feed.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - News Feed
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-news-feed-api-openapi.yml
+- aid: bitrix24:bitrix24-online-booking-api
+  name: Bitrix24 Online Booking API
+  description: The Online Booking API from Bitrix24 — 38 operation(s) for online booking.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Online Booking
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-online-booking-api-openapi.yml
+- aid: bitrix24:bitrix24-open-lines-api
+  name: Bitrix24 Open Lines API
+  description: The Open Lines API from Bitrix24 — 50 operation(s) for open lines.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Open Lines
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-open-lines-api-openapi.yml
+- aid: bitrix24:bitrix24-payment-systems-api
+  name: Bitrix24 Payment Systems API
+  description: The Payment Systems API from Bitrix24 — 14 operation(s) for payment systems.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Payment Systems
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-payment-systems-api-openapi.yml
+- aid: bitrix24:bitrix24-polls-api
+  name: Bitrix24 Polls API
+  description: The Polls API from Bitrix24 — 10 operation(s) for polls.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Polls
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-polls-api-openapi.yml
+- aid: bitrix24:bitrix24-rest-v3-api
+  name: Bitrix24 REST v3 API
+  description: The REST v3 API from Bitrix24 — 25 operation(s) for rest v3.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - REST v3
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-rest-v3-api-openapi.yml
+- aid: bitrix24:bitrix24-signature-api
+  name: Bitrix24 Signature API
+  description: The Signature API from Bitrix24 — 5 operation(s) for signature.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Signature
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-signature-api-openapi.yml
+- aid: bitrix24:bitrix24-sites-api
+  name: Bitrix24 Sites API
+  description: The Sites API from Bitrix24 — 99 operation(s) for sites.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Sites
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-sites-api-openapi.yml
+- aid: bitrix24:bitrix24-tasks-api
+  name: Bitrix24 Tasks API
+  description: The Tasks API from Bitrix24 — 114 operation(s) for tasks.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-tasks-api-openapi.yml
+- aid: bitrix24:bitrix24-telephony-api
+  name: Bitrix24 Telephony API
+  description: The Telephony API from Bitrix24 — 30 operation(s) for telephony.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Telephony
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-telephony-api-openapi.yml
+- aid: bitrix24:bitrix24-time-management-api
+  name: Bitrix24 Time Management API
+  description: The Time Management API from Bitrix24 — 15 operation(s) for time management.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Time Management
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-time-management-api-openapi.yml
+- aid: bitrix24:bitrix24-trade-catalog-api
+  name: Bitrix24 Trade Catalog API
+  description: The Trade Catalog API from Bitrix24 — 167 operation(s) for trade catalog.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Trade Catalog
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-trade-catalog-api-openapi.yml
+- aid: bitrix24:bitrix24-universal-lists-api
+  name: Bitrix24 Universal Lists API
+  description: The Universal Lists API from Bitrix24 — 19 operation(s) for universal lists.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Universal Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-universal-lists-api-openapi.yml
+- aid: bitrix24:bitrix24-user-consent-api
+  name: Bitrix24 User Consent API
+  description: The User Consent API from Bitrix24 — 3 operation(s) for user consent.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - User Consent
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-user-consent-api-openapi.yml
+- aid: bitrix24:bitrix24-users-api
+  name: Bitrix24 Users API
+  description: The Users API from Bitrix24 — 8 operation(s) for users.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-users-api-openapi.yml
+- aid: bitrix24:bitrix24-vibe-api
+  name: Bitrix24 Vibe API
+  description: The Vibe API from Bitrix24 — 4 operation(s) for vibe.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Vibe
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-vibe-api-openapi.yml
+- aid: bitrix24:bitrix24-widgets-api
+  name: Bitrix24 Widgets API
+  description: The Widgets API from Bitrix24 — 12 operation(s) for widgets.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Widgets
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-widgets-api-openapi.yml
+- aid: bitrix24:bitrix24-workgroups-api
+  name: Bitrix24 Workgroups API
+  description: The Workgroups API from Bitrix24 — 39 operation(s) for workgroups.
+  humanURL: https://apidocs.bitrix24.com/
+  baseURL: https://{installation}.bitrix24.com/rest/
+  tags:
+  - Workgroups
+  properties:
+  - type: OpenAPI
+    url: openapi/bitrix24-workgroups-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/bitrix24-agentic-access.yml
