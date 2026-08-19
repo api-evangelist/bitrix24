@@ -1,0 +1,2563 @@
+{
+  "item": [
+    {
+      "id": "87d266c0-3454-4cfc-ab48-07e5e508e4e6",
+      "name": "News Feed",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "16082e09-fbe7-4640-acfa-41406e30d791",
+          "name": "Add a comment to the message log.blogcomment.add",
+          "request": {
+            "name": "Add a comment to the message log.blogcomment.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogcomment.add` adds a comment to a News Feed message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "log.blogcomment.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "POST_ID",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the News Feed message."
+                },
+                {
+                  "disabled": false,
+                  "key": "TEXT",
+                  "value": "<string>",
+                  "description": "(Required) | The text of the comment. It is considered during duplication checks and is saved in the `POST_TEXT` field ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| Identifier of the user on behalf of whom the comment is published. Available only to administrators. By default, the current user initiating the method call is used."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5f730697-b315-46bd-9b48-a3c1974eeca4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogcomment.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the News Feed message.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The text of the comment. It is considered during duplication checks and is saved in the `POST_TEXT` field ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TEXT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user on behalf of whom the comment is published. Available only to administrators. By default, the current user initiating the method call is used.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9496,\n  \"next\": 2027,\n  \"time\": {\n    \"start\": 8940.684831444649,\n    \"finish\": 492.41682613920256,\n    \"duration\": 4435.49419414362,\n    \"processing\": 8366.54013099891,\n    \"date_start\": \"1983-01-13T02:19:56.510Z\",\n    \"date_finish\": \"1949-12-01T05:52:30.635Z\",\n    \"operating_reset_at\": 7018,\n    \"operating\": 8743.933381392791\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9c324dd-ff22-4605-b8f9-dc5de6111ab2",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogcomment.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the News Feed message.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The text of the comment. It is considered during duplication checks and is saved in the `POST_TEXT` field ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TEXT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user on behalf of whom the comment is published. Available only to administrators. By default, the current user initiating the method call is used.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80354567-59e6-476c-aefd-cf5783615c46",
+          "name": "Delete comment from log.blogcomment.delete",
+          "request": {
+            "name": "Delete comment from log.blogcomment.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogcomment.delete` removes a comment from the News Feed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "log.blogcomment.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "COMMENT_ID",
+                  "value": "<integer>",
+                  "description": "(Required) | The identifier of the comment. The value must be greater than `0`."
+                },
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| The identifier of the user performing the deletion. Available only to administrators. By default, the current user who initiated the call is used."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b6bc8f24-e382-4f96-a402-ac0f0ec6656a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogcomment.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The identifier of the comment. The value must be greater than `0`.",
+                        "type": "text/plain"
+                      },
+                      "key": "COMMENT_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The identifier of the user performing the deletion. Available only to administrators. By default, the current user who initiated the call is used.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9496,\n  \"next\": 2027,\n  \"time\": {\n    \"start\": 8940.684831444649,\n    \"finish\": 492.41682613920256,\n    \"duration\": 4435.49419414362,\n    \"processing\": 8366.54013099891,\n    \"date_start\": \"1983-01-13T02:19:56.510Z\",\n    \"date_finish\": \"1949-12-01T05:52:30.635Z\",\n    \"operating_reset_at\": 7018,\n    \"operating\": 8743.933381392791\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa6330c3-d408-470b-b105-69045dd4ebb2",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogcomment.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The identifier of the comment. The value must be greater than `0`.",
+                        "type": "text/plain"
+                      },
+                      "key": "COMMENT_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The identifier of the user performing the deletion. Available only to administrators. By default, the current user who initiated the call is used.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5937cdfe-3a67-4d8e-b552-3ca3dcc00939",
+          "name": "Get User Comments log.blogcomment.user.get",
+          "request": {
+            "name": "Get User Comments log.blogcomment.user.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogcomment.user.get` returns a list of comments on a News Feed post for the specified user and information about attached files.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "log.blogcomment.user.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| The identifier of the user whose comments need to be retrieved. If the identifier is not specified, the method will return comments from the current user."
+                },
+                {
+                  "disabled": false,
+                  "key": "FIRST_ID",
+                  "value": "<integer>",
+                  "description": "| The method will return comments with identifiers greater than the specified value. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "LAST_ID",
+                  "value": "<integer>",
+                  "description": "| The method will return comments with identifiers less than the specified value. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "LIMIT",
+                  "value": "<integer>",
+                  "description": "| The number of records in the response. The acceptable value is from `1` to `100`. By default, `100` comments are returned. ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "838d5e2a-f2bf-4789-8ca8-503f64fb2823",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogcomment.user.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The identifier of the user whose comments need to be retrieved. If the identifier is not specified, the method will return comments from the current user.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The method will return comments with identifiers greater than the specified value. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "FIRST_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The method will return comments with identifiers less than the specified value. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LAST_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The number of records in the response. The acceptable value is from `1` to `100`. By default, `100` comments are returned. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LIMIT",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9496,\n  \"next\": 2027,\n  \"time\": {\n    \"start\": 8940.684831444649,\n    \"finish\": 492.41682613920256,\n    \"duration\": 4435.49419414362,\n    \"processing\": 8366.54013099891,\n    \"date_start\": \"1983-01-13T02:19:56.510Z\",\n    \"date_finish\": \"1949-12-01T05:52:30.635Z\",\n    \"operating_reset_at\": 7018,\n    \"operating\": 8743.933381392791\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f6b4720-e65e-43a1-8a84-53881b0f95a9",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogcomment.user.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The identifier of the user whose comments need to be retrieved. If the identifier is not specified, the method will return comments from the current user.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The method will return comments with identifiers greater than the specified value. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "FIRST_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The method will return comments with identifiers less than the specified value. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LAST_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The number of records in the response. The acceptable value is from `1` to `100`. By default, `100` comments are returned. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LIMIT",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dee1d31b-6239-43d0-ae46-e7e75b1aa005",
+          "name": "Add a Message to the News Feed log.blogpost.add",
+          "request": {
+            "name": "Add a Message to the News Feed log.blogpost.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.add` adds a message to the News Feed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "log.blogpost.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "POST_MESSAGE",
+                  "value": "<string>",
+                  "description": "(Required) | Message text ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "POST_TITLE",
+                  "value": "<string>",
+                  "description": "| Message title ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "IMPORTANT",
+                  "value": "<string>",
+                  "description": "| Indicator of an important message."
+                },
+                {
+                  "disabled": false,
+                  "key": "IMPORTANT_DATE_END",
+                  "value": "<string>",
+                  "description": "| Date and time in ISO 8601 format until which the message will be considered important ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SITE_ID",
+                  "value": "<string>",
+                  "description": "| Site identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| Identifier of the user on behalf of whom the message is published. Available only to administrators."
+                },
+                {
+                  "disabled": false,
+                  "key": "TAGS",
+                  "value": "<string>",
+                  "description": "| Message tags ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "BACKGROUND_CODE",
+                  "value": "<string>",
+                  "description": "| Background code of the message ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PARSE_PREVIEW",
+                  "value": "<string>",
+                  "description": "| Automatic addition of a link preview from the message text."
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_BLOG_POST_IMPRTNT",
+                  "value": "<integer>",
+                  "description": "| Indicator of an important message."
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_IMPRTANT_DATE_END",
+                  "value": "<dateTime>",
+                  "description": "| Expiration date of the important message."
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_BLOG_POST_URL_PRV",
+                  "value": "<integer>",
+                  "description": "| Link preview from the message text."
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_GRATITUDE",
+                  "value": "<integer>",
+                  "description": "| Data for the Gratitude functionality in the format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_BLOG_POST_VOTE",
+                  "value": "<integer>",
+                  "description": "| Survey data in the format:"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "534ac0e6-f17d-4eb6-ad73-86017e8d9dfe",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogpost.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Message text ||",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_MESSAGE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Message title ||",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_TITLE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Indicator of an important message.",
+                        "type": "text/plain"
+                      },
+                      "key": "IMPORTANT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Date and time in ISO 8601 format until which the message will be considered important ||",
+                        "type": "text/plain"
+                      },
+                      "key": "IMPORTANT_DATE_END",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Site identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "SITE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user on behalf of whom the message is published. Available only to administrators.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Message tags ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TAGS",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Background code of the message ||",
+                        "type": "text/plain"
+                      },
+                      "key": "BACKGROUND_CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Automatic addition of a link preview from the message text.",
+                        "type": "text/plain"
+                      },
+                      "key": "PARSE_PREVIEW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Indicator of an important message.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_BLOG_POST_IMPRTNT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Expiration date of the important message.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_IMPRTANT_DATE_END",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Link preview from the message text.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_BLOG_POST_URL_PRV",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Data for the Gratitude functionality in the format:",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_GRATITUDE",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Survey data in the format:",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_BLOG_POST_VOTE",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9496,\n  \"next\": 2027,\n  \"time\": {\n    \"start\": 8940.684831444649,\n    \"finish\": 492.41682613920256,\n    \"duration\": 4435.49419414362,\n    \"processing\": 8366.54013099891,\n    \"date_start\": \"1983-01-13T02:19:56.510Z\",\n    \"date_finish\": \"1949-12-01T05:52:30.635Z\",\n    \"operating_reset_at\": 7018,\n    \"operating\": 8743.933381392791\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67f59298-8f54-461e-a978-e0b2881eb1c4",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogpost.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Message text ||",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_MESSAGE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Message title ||",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_TITLE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Indicator of an important message.",
+                        "type": "text/plain"
+                      },
+                      "key": "IMPORTANT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Date and time in ISO 8601 format until which the message will be considered important ||",
+                        "type": "text/plain"
+                      },
+                      "key": "IMPORTANT_DATE_END",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Site identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "SITE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user on behalf of whom the message is published. Available only to administrators.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Message tags ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TAGS",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Background code of the message ||",
+                        "type": "text/plain"
+                      },
+                      "key": "BACKGROUND_CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Automatic addition of a link preview from the message text.",
+                        "type": "text/plain"
+                      },
+                      "key": "PARSE_PREVIEW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Indicator of an important message.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_BLOG_POST_IMPRTNT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Expiration date of the important message.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_IMPRTANT_DATE_END",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Link preview from the message text.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_BLOG_POST_URL_PRV",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Data for the Gratitude functionality in the format:",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_GRATITUDE",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Survey data in the format:",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_BLOG_POST_VOTE",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23b253d5-c7e1-48b4-ae29-919c8963901d",
+          "name": "Delete News Feed Message log.blogpost.delete",
+          "request": {
+            "name": "Delete News Feed Message log.blogpost.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.delete` removes a message from the News Feed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "log.blogpost.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "POST_ID",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the message."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3a296895-dfe2-4e89-8b6a-fc95f13f875a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogpost.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the message.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9496,\n  \"next\": 2027,\n  \"time\": {\n    \"start\": 8940.684831444649,\n    \"finish\": 492.41682613920256,\n    \"duration\": 4435.49419414362,\n    \"processing\": 8366.54013099891,\n    \"date_start\": \"1983-01-13T02:19:56.510Z\",\n    \"date_finish\": \"1949-12-01T05:52:30.635Z\",\n    \"operating_reset_at\": 7018,\n    \"operating\": 8743.933381392791\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a06db3b-c66f-40e5-9758-b12378aa7bfb",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogpost.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the message.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffe2ad0d-dfe9-4d6d-8fcb-4b347b4486db",
+          "name": "Access Available User Messages from the News Feed log.blogpost.get",
+          "request": {
+            "name": "Access Available User Messages from the News Feed log.blogpost.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.get` returns messages from the News Feed that are accessible to the current user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "log.blogpost.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "POST_ID",
+                  "value": "<integer>",
+                  "description": "| Filter by message ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>",
+                  "description": "| This parameter is used for pagination control."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c2f90ea2-efc4-4e9c-b909-82e784b051da",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogpost.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter by message ID.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| This parameter is used for pagination control.",
+                        "type": "text/plain"
+                      },
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9496,\n  \"next\": 2027,\n  \"time\": {\n    \"start\": 8940.684831444649,\n    \"finish\": 492.41682613920256,\n    \"duration\": 4435.49419414362,\n    \"processing\": 8366.54013099891,\n    \"date_start\": \"1983-01-13T02:19:56.510Z\",\n    \"date_finish\": \"1949-12-01T05:52:30.635Z\",\n    \"operating_reset_at\": 7018,\n    \"operating\": 8743.933381392791\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89fd7985-65f5-4156-b674-079fa8c5bb2f",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogpost.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter by message ID.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| This parameter is used for pagination control.",
+                        "type": "text/plain"
+                      },
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3befee4-32ea-42e1-9a26-343cf77d13a6",
+          "name": "View Users Who Read an Important Message log.blogpost.getusers.important",
+          "request": {
+            "name": "View Users Who Read an Important Message log.blogpost.getusers.important",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.getusers.important` returns an array of user IDs who have read an important message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "log.blogpost.getusers.important"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "POST_ID",
+                  "value": "<integer>",
+                  "description": "(Required) | The identifier of the important message in the News Feed."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d2c1b9eb-f0e6-4db8-b708-d544b697dd2c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogpost.getusers.important"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The identifier of the important message in the News Feed.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9496,\n  \"next\": 2027,\n  \"time\": {\n    \"start\": 8940.684831444649,\n    \"finish\": 492.41682613920256,\n    \"duration\": 4435.49419414362,\n    \"processing\": 8366.54013099891,\n    \"date_start\": \"1983-01-13T02:19:56.510Z\",\n    \"date_finish\": \"1949-12-01T05:52:30.635Z\",\n    \"operating_reset_at\": 7018,\n    \"operating\": 8743.933381392791\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1490a33d-1e06-4a67-88e9-1ca7b883645d",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogpost.getusers.important"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The identifier of the important message in the News Feed.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "127864ab-273e-4062-a734-68b7d676aa23",
+          "name": "Add Recipients to News Feed Message log.blogpost.share",
+          "request": {
+            "name": "Add Recipients to News Feed Message log.blogpost.share",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.share` adds new recipients to a news feed message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "log.blogpost.share"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "POST_ID",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the message."
+                },
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| Identifier of the user on behalf of whom the message is edited. Available only to administrators."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "01a37dde-9f7b-4392-bf7f-2ba8cd564bd0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogpost.share"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the message.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user on behalf of whom the message is edited. Available only to administrators.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9496,\n  \"next\": 2027,\n  \"time\": {\n    \"start\": 8940.684831444649,\n    \"finish\": 492.41682613920256,\n    \"duration\": 4435.49419414362,\n    \"processing\": 8366.54013099891,\n    \"date_start\": \"1983-01-13T02:19:56.510Z\",\n    \"date_finish\": \"1949-12-01T05:52:30.635Z\",\n    \"operating_reset_at\": 7018,\n    \"operating\": 8743.933381392791\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5eb79c75-5644-4724-ab3e-0707cfd887bd",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogpost.share"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the message.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user on behalf of whom the message is edited. Available only to administrators.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc2e7a42-4468-4a58-ae66-71ccfaed9fc3",
+          "name": "Update News Feed Message log.blogpost.update",
+          "request": {
+            "name": "Update News Feed Message log.blogpost.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.update` updates a message in the News Feed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "log.blogpost.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "POST_ID",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the message."
+                },
+                {
+                  "disabled": false,
+                  "key": "POST_MESSAGE",
+                  "value": "<string>",
+                  "description": "| New text of the message. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "POST_TITLE",
+                  "value": "<string>",
+                  "description": "| New title of the message."
+                },
+                {
+                  "disabled": false,
+                  "key": "IMPORTANT",
+                  "value": "<string>",
+                  "description": "| Indicator of an important message."
+                },
+                {
+                  "disabled": false,
+                  "key": "IMPORTANT_DATE_END",
+                  "value": "<string>",
+                  "description": "| Date and time in ISO 8601 format until which the message will be considered important. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SITE_ID",
+                  "value": "<string>",
+                  "description": "| Identifier of the site. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| Identifier of the user on behalf of whom the message is edited. Available only to administrators."
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_BLOG_POST_IMPRTNT",
+                  "value": "<integer>",
+                  "description": "| Indicator of an important message."
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_IMPRTANT_DATE_END",
+                  "value": "<dateTime>",
+                  "description": "| Expiration date of the important message."
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_BLOG_POST_URL_PRV",
+                  "value": "<integer>",
+                  "description": "| Preview link from the message text."
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_GRATITUDE",
+                  "value": "<integer>",
+                  "description": "| Data for the Gratitude functionality in the format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_BLOG_POST_VOTE",
+                  "value": "<integer>",
+                  "description": "| Survey data in the format:"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d630dfee-14c5-4af1-855c-2dba104bcfde",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogpost.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the message.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New text of the message. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_MESSAGE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New title of the message.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_TITLE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Indicator of an important message.",
+                        "type": "text/plain"
+                      },
+                      "key": "IMPORTANT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Date and time in ISO 8601 format until which the message will be considered important. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "IMPORTANT_DATE_END",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the site. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SITE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user on behalf of whom the message is edited. Available only to administrators.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Indicator of an important message.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_BLOG_POST_IMPRTNT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Expiration date of the important message.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_IMPRTANT_DATE_END",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Preview link from the message text.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_BLOG_POST_URL_PRV",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Data for the Gratitude functionality in the format:",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_GRATITUDE",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Survey data in the format:",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_BLOG_POST_VOTE",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9496,\n  \"next\": 2027,\n  \"time\": {\n    \"start\": 8940.684831444649,\n    \"finish\": 492.41682613920256,\n    \"duration\": 4435.49419414362,\n    \"processing\": 8366.54013099891,\n    \"date_start\": \"1983-01-13T02:19:56.510Z\",\n    \"date_finish\": \"1949-12-01T05:52:30.635Z\",\n    \"operating_reset_at\": 7018,\n    \"operating\": 8743.933381392791\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cbf2da60-64f4-4738-bd1c-f99bee5d76ee",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "log.blogpost.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the message.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New text of the message. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_MESSAGE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New title of the message.",
+                        "type": "text/plain"
+                      },
+                      "key": "POST_TITLE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Indicator of an important message.",
+                        "type": "text/plain"
+                      },
+                      "key": "IMPORTANT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Date and time in ISO 8601 format until which the message will be considered important. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "IMPORTANT_DATE_END",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the site. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SITE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user on behalf of whom the message is edited. Available only to administrators.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Indicator of an important message.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_BLOG_POST_IMPRTNT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Expiration date of the important message.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_IMPRTANT_DATE_END",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Preview link from the message text.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_BLOG_POST_URL_PRV",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Data for the Gratitude functionality in the format:",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_GRATITUDE",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Survey data in the format:",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_BLOG_POST_VOTE",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0a8a4dcf-bb19-4a1e-a675-6bd0c6a9bb5c",
+    "name": "Bitrix24 REST BIconnector News Feed API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

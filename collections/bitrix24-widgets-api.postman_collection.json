@@ -1,0 +1,3046 @@
+{
+  "item": [
+    {
+      "id": "5ce43365-fd8f-4dee-96bc-b70e959a68ad",
+      "name": "Widgets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b5239954-33da-477d-a47c-dc9a1e1888e6",
+          "name": "Set Up an Event Handler for the Interface BX24.placement.bindEvent",
+          "request": {
+            "name": "Set Up an Event Handler for the Interface BX24.placement.bindEvent",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `BX24.placement.bindEvent` sets an event handler for the interface. The event must be registered on the calling side; otherwise, nothing will happen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "BX24.placement.bindEvent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "event",
+                  "value": "<string>",
+                  "description": "(Required) | The name of the event to which the handler subscribes ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "callback",
+                  "value": "<string>",
+                  "description": "(Required) | The callback function."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b0ea58a3-74c6-48ae-8139-8e47098c4229",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BX24.placement.bindEvent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The name of the event to which the handler subscribes ||",
+                        "type": "text/plain"
+                      },
+                      "key": "event",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The callback function.",
+                        "type": "text/plain"
+                      },
+                      "key": "callback",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5613,\n  \"next\": 6920,\n  \"time\": {\n    \"start\": 2901.715208676463,\n    \"finish\": 7982.057065389173,\n    \"duration\": 1308.0743296808662,\n    \"processing\": 9303.68543434937,\n    \"date_start\": \"2014-03-07T15:40:42.919Z\",\n    \"date_finish\": \"1983-07-06T01:37:13.416Z\",\n    \"operating_reset_at\": 6004,\n    \"operating\": 978.9869526589068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a783c62-5df1-4f35-9673-5f18b8cf97c9",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BX24.placement.bindEvent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The name of the event to which the handler subscribes ||",
+                        "type": "text/plain"
+                      },
+                      "key": "event",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The callback function.",
+                        "type": "text/plain"
+                      },
+                      "key": "callback",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9861360-4b34-42a2-90e1-62e60d6c115b",
+          "name": "Call the Registered Interface Command BX24.placement.call",
+          "request": {
+            "name": "Call the Registered Interface Command BX24.placement.call",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `BX24.placement.call` invokes a registered interface command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "BX24.placement.call"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "command",
+                  "value": "<string>",
+                  "description": "(Required) | The command to be invoked ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "callback",
+                  "value": "<string>",
+                  "description": "(Required) | Callback function ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters",
+                  "value": "<object>",
+                  "description": "| Parameters to be passed ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e1ac56b3-600c-485c-8335-c816edf9be68",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BX24.placement.call"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The command to be invoked ||",
+                        "type": "text/plain"
+                      },
+                      "key": "command",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Callback function ||",
+                        "type": "text/plain"
+                      },
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Parameters to be passed ||",
+                        "type": "text/plain"
+                      },
+                      "key": "parameters",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5613,\n  \"next\": 6920,\n  \"time\": {\n    \"start\": 2901.715208676463,\n    \"finish\": 7982.057065389173,\n    \"duration\": 1308.0743296808662,\n    \"processing\": 9303.68543434937,\n    \"date_start\": \"2014-03-07T15:40:42.919Z\",\n    \"date_finish\": \"1983-07-06T01:37:13.416Z\",\n    \"operating_reset_at\": 6004,\n    \"operating\": 978.9869526589068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2dcf6e27-7f22-4d3b-89c8-12d54cb090aa",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BX24.placement.call"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The command to be invoked ||",
+                        "type": "text/plain"
+                      },
+                      "key": "command",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Callback function ||",
+                        "type": "text/plain"
+                      },
+                      "key": "callback",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Parameters to be passed ||",
+                        "type": "text/plain"
+                      },
+                      "key": "parameters",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1dbe4d47-30dd-4f96-ab93-2e06caa1f733",
+          "name": "Get Information About the JS Interface of the Current Placement BX24.placement.getInterface",
+          "request": {
+            "name": "Get Information About the JS Interface of the Current Placement BX24.placement.getInterface",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `BX24.placement.getInterface` allows you to retrieve information about the JS interface of the current placement: a list of available commands and events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "BX24.placement.getInterface"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "callback",
+                  "value": "<string>",
+                  "description": "(Required) | Callback function."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8e4d642a-1324-4a6f-a28e-319febc986e1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BX24.placement.getInterface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Callback function.",
+                        "type": "text/plain"
+                      },
+                      "key": "callback",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5613,\n  \"next\": 6920,\n  \"time\": {\n    \"start\": 2901.715208676463,\n    \"finish\": 7982.057065389173,\n    \"duration\": 1308.0743296808662,\n    \"processing\": 9303.68543434937,\n    \"date_start\": \"2014-03-07T15:40:42.919Z\",\n    \"date_finish\": \"1983-07-06T01:37:13.416Z\",\n    \"operating_reset_at\": 6004,\n    \"operating\": 978.9869526589068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "538a40fe-c9fa-4073-a306-a622f1ca7047",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BX24.placement.getInterface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Callback function.",
+                        "type": "text/plain"
+                      },
+                      "key": "callback",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82aadfe6-6ad9-4d36-a002-55c67a3f2885",
+          "name": "Get Information About the Call Context of BX24.placement.info",
+          "request": {
+            "name": "Get Information About the Call Context of BX24.placement.info",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `BX24.placement.info` retrieves information about the context of the embedding handler call. No parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "BX24.placement.info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dfdb614e-56d3-4a4e-899b-ba4c1f129cba",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BX24.placement.info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5613,\n  \"next\": 6920,\n  \"time\": {\n    \"start\": 2901.715208676463,\n    \"finish\": 7982.057065389173,\n    \"duration\": 1308.0743296808662,\n    \"processing\": 9303.68543434937,\n    \"date_start\": \"2014-03-07T15:40:42.919Z\",\n    \"date_finish\": \"1983-07-06T01:37:13.416Z\",\n    \"operating_reset_at\": 6004,\n    \"operating\": 978.9869526589068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23be23ba-2ec8-4c97-810b-cfe09d05f813",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BX24.placement.info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b23ec25-cfd9-45d4-8295-d641344931ea",
+          "name": "Set Up the Widget Handler placement.bind",
+          "request": {
+            "name": "Set Up the Widget Handler placement.bind",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `placement.bind` adds a handler for the widget placement. It can be called at any time during the application's operation; however, it is often more convenient to register your widgets during the [application installation](../../settings/app-installation/index.md). It is important to note that until the application installation is complete, the widgets you register will not be available to regular users in the Bitrix24 interface—they will only be visible to users with administrative rights.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "placement.bind"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "PLACEMENT",
+                  "value": "<string>",
+                  "description": "(Required) | Identifier for the required widget placement location ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "HANDLER",
+                  "value": "<string>",
+                  "description": "(Required) | URL of the widget placement handler ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "TITLE",
+                  "value": "<string>",
+                  "description": "| Name of the widget in the interface. Depending on the specific placement location, this may be the name of a tab in a form, a menu item, etc. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DESCRIPTION",
+                  "value": "<string>",
+                  "description": "| Description of the widget in the interface. Not used in practice ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "GROUP_NAME",
+                  "value": "<string>",
+                  "description": "| Allows grouping UI elements for multiple handlers of the same widget type. For example, several dropdown items in the top button of the CRM card. Supported only by certain types of widgets ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "LANG_ALL",
+                  "value": "<object>",
+                  "description": "| Array of parameters `TITLE`, `DESCRIPTION`, and `GROUP_NAME` for specified languages. Users who have selected one of these languages in the Bitrix24 interface will see localized versions of `TITLE`, `DESCRIPTION`, and `GROUP_NAME`:"
+                },
+                {
+                  "disabled": false,
+                  "key": "OPTIONS",
+                  "value": "<object>",
+                  "description": "| Additional display parameters for the widget. Specific values depend on the widget placement location. Currently used in widgets for messengers, in the widget `PAGE_BACKGROUND_WORKER`, and in the widget CRM_XXX_DETAIL_ACTIVITY"
+                },
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| Identifier of the Bitrix24 user for whom the registered widget will be available. Possible values can be obtained using the user.get method."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f3c173ab-7cb6-4273-8495-81cc985d37fe",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "placement.bind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier for the required widget placement location ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PLACEMENT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | URL of the widget placement handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "HANDLER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the widget in the interface. Depending on the specific placement location, this may be the name of a tab in a form, a menu item, etc. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TITLE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the widget in the interface. Not used in practice ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Allows grouping UI elements for multiple handlers of the same widget type. For example, several dropdown items in the top button of the CRM card. Supported only by certain types of widgets ||",
+                        "type": "text/plain"
+                      },
+                      "key": "GROUP_NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Array of parameters `TITLE`, `DESCRIPTION`, and `GROUP_NAME` for specified languages. Users who have selected one of these languages in the Bitrix24 interface will see localized versions of `TITLE`, `DESCRIPTION`, and `GROUP_NAME`:",
+                        "type": "text/plain"
+                      },
+                      "key": "LANG_ALL",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Additional display parameters for the widget. Specific values depend on the widget placement location. Currently used in widgets for messengers, in the widget `PAGE_BACKGROUND_WORKER`, and in the widget CRM_XXX_DETAIL_ACTIVITY",
+                        "type": "text/plain"
+                      },
+                      "key": "OPTIONS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the Bitrix24 user for whom the registered widget will be available. Possible values can be obtained using the user.get method.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5613,\n  \"next\": 6920,\n  \"time\": {\n    \"start\": 2901.715208676463,\n    \"finish\": 7982.057065389173,\n    \"duration\": 1308.0743296808662,\n    \"processing\": 9303.68543434937,\n    \"date_start\": \"2014-03-07T15:40:42.919Z\",\n    \"date_finish\": \"1983-07-06T01:37:13.416Z\",\n    \"operating_reset_at\": 6004,\n    \"operating\": 978.9869526589068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a6a9b52-e708-4300-a105-7f7048cce05d",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "placement.bind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier for the required widget placement location ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PLACEMENT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | URL of the widget placement handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "HANDLER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the widget in the interface. Depending on the specific placement location, this may be the name of a tab in a form, a menu item, etc. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TITLE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the widget in the interface. Not used in practice ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Allows grouping UI elements for multiple handlers of the same widget type. For example, several dropdown items in the top button of the CRM card. Supported only by certain types of widgets ||",
+                        "type": "text/plain"
+                      },
+                      "key": "GROUP_NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Array of parameters `TITLE`, `DESCRIPTION`, and `GROUP_NAME` for specified languages. Users who have selected one of these languages in the Bitrix24 interface will see localized versions of `TITLE`, `DESCRIPTION`, and `GROUP_NAME`:",
+                        "type": "text/plain"
+                      },
+                      "key": "LANG_ALL",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Additional display parameters for the widget. Specific values depend on the widget placement location. Currently used in widgets for messengers, in the widget `PAGE_BACKGROUND_WORKER`, and in the widget CRM_XXX_DETAIL_ACTIVITY",
+                        "type": "text/plain"
+                      },
+                      "key": "OPTIONS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the Bitrix24 user for whom the registered widget will be available. Possible values can be obtained using the user.get method.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eeac1556-7fe4-4967-8a99-f04895a2006c",
+          "name": "Get a List of Registered Placement Handlers placement.get",
+          "request": {
+            "name": "Get a List of Registered Placement Handlers placement.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `placement.get` retrieves a list of registered widget placement handlers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "placement.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3f4b770e-b0d4-4d93-b58a-88cd618d6583",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "placement.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5613,\n  \"next\": 6920,\n  \"time\": {\n    \"start\": 2901.715208676463,\n    \"finish\": 7982.057065389173,\n    \"duration\": 1308.0743296808662,\n    \"processing\": 9303.68543434937,\n    \"date_start\": \"2014-03-07T15:40:42.919Z\",\n    \"date_finish\": \"1983-07-06T01:37:13.416Z\",\n    \"operating_reset_at\": 6004,\n    \"operating\": 978.9869526589068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e557e160-4f5f-44d2-ae32-cbbc675606a2",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "placement.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3585babe-b8a1-4ac5-ac0e-8f18c80d6d5f",
+          "name": "Get a List of Available Application Embed Locations placement.list",
+          "request": {
+            "name": "Get a List of Available Application Embed Locations placement.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `placement.list` returns a list of available embed locations for the application. The method works only in the context of the [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "placement.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "SCOPE",
+                  "value": "<string>",
+                  "description": "| Limits the list of embed locations to a specific application scope."
+                },
+                {
+                  "disabled": false,
+                  "key": "FULL",
+                  "value": "<boolean>",
+                  "description": "| Flag to retrieve the full list of embed locations."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4e374af8-54ef-4fcb-9c74-447024514abe",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "placement.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Limits the list of embed locations to a specific application scope.",
+                        "type": "text/plain"
+                      },
+                      "key": "SCOPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Flag to retrieve the full list of embed locations.",
+                        "type": "text/plain"
+                      },
+                      "key": "FULL",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5613,\n  \"next\": 6920,\n  \"time\": {\n    \"start\": 2901.715208676463,\n    \"finish\": 7982.057065389173,\n    \"duration\": 1308.0743296808662,\n    \"processing\": 9303.68543434937,\n    \"date_start\": \"2014-03-07T15:40:42.919Z\",\n    \"date_finish\": \"1983-07-06T01:37:13.416Z\",\n    \"operating_reset_at\": 6004,\n    \"operating\": 978.9869526589068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56a7c67f-42a4-49da-b402-21090b1f9d38",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "placement.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Limits the list of embed locations to a specific application scope.",
+                        "type": "text/plain"
+                      },
+                      "key": "SCOPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Flag to retrieve the full list of embed locations.",
+                        "type": "text/plain"
+                      },
+                      "key": "FULL",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11e85522-f749-4ce4-9b14-e5d7b0d910a1",
+          "name": "Remove Registered Automation Rule Handler placement.unbind",
+          "request": {
+            "name": "Remove Registered Automation Rule Handler placement.unbind",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `placement.unbind` removes the registered Automation rule handler. The method works only in the context of the [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "placement.unbind"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "HANDLER",
+                  "value": "<string>",
+                  "description": "| URL of the Automation rule handler."
+                },
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| Identifier of the Bitrix24 user for whom the handler was registered."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "10e1682a-c2d8-4386-a58e-cdeebd0699f3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "placement.unbind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| URL of the Automation rule handler.",
+                        "type": "text/plain"
+                      },
+                      "key": "HANDLER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the Bitrix24 user for whom the handler was registered.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5613,\n  \"next\": 6920,\n  \"time\": {\n    \"start\": 2901.715208676463,\n    \"finish\": 7982.057065389173,\n    \"duration\": 1308.0743296808662,\n    \"processing\": 9303.68543434937,\n    \"date_start\": \"2014-03-07T15:40:42.919Z\",\n    \"date_finish\": \"1983-07-06T01:37:13.416Z\",\n    \"operating_reset_at\": 6004,\n    \"operating\": 978.9869526589068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7b77ad7-e962-40a4-ac72-513cac7cb6de",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "placement.unbind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| URL of the Automation rule handler.",
+                        "type": "text/plain"
+                      },
+                      "key": "HANDLER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the Bitrix24 user for whom the handler was registered.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d88483a5-dee6-4ca2-8103-601893f07280",
+          "name": "Register a New User Field Type userfieldtype.add",
+          "request": {
+            "name": "Register a New User Field Type userfieldtype.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userfieldtype.add` registers a new type of user fields. After registering the type, create a user field using the [userfieldconfig.add](../../crm/universal/userfieldconfig/userfieldconfig-add.md) method. When opening a card with a user type field, an array `PLACEMENT_OPTIONS` containing data about the field and entity is passed to the application handler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "userfieldtype.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "USER_TYPE_ID",
+                  "value": "<string>",
+                  "description": "(Required) | String code of the type |"
+                },
+                {
+                  "disabled": false,
+                  "key": "HANDLER",
+                  "value": "<string>",
+                  "description": "(Required) | Address of the user type handler |"
+                },
+                {
+                  "disabled": false,
+                  "key": "TITLE",
+                  "value": "<string>",
+                  "description": "| Text title of the type. Will be displayed in the administrative interface for user field settings | ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DESCRIPTION",
+                  "value": "<string>",
+                  "description": "| Text description of the type. Will be displayed in the administrative interface for user field settings | ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f6ab316b-7ff6-4ab8-ac84-fe51a3182d7f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userfieldtype.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | String code of the type |",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_TYPE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Address of the user type handler |",
+                        "type": "text/plain"
+                      },
+                      "key": "HANDLER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Text title of the type. Will be displayed in the administrative interface for user field settings | ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TITLE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Text description of the type. Will be displayed in the administrative interface for user field settings | ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5613,\n  \"next\": 6920,\n  \"time\": {\n    \"start\": 2901.715208676463,\n    \"finish\": 7982.057065389173,\n    \"duration\": 1308.0743296808662,\n    \"processing\": 9303.68543434937,\n    \"date_start\": \"2014-03-07T15:40:42.919Z\",\n    \"date_finish\": \"1983-07-06T01:37:13.416Z\",\n    \"operating_reset_at\": 6004,\n    \"operating\": 978.9869526589068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6d1f638-8f40-4296-a157-82eabbb48dbb",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userfieldtype.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | String code of the type |",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_TYPE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Address of the user type handler |",
+                        "type": "text/plain"
+                      },
+                      "key": "HANDLER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Text title of the type. Will be displayed in the administrative interface for user field settings | ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TITLE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Text description of the type. Will be displayed in the administrative interface for user field settings | ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4bc2e3a-2f89-40ad-b6e9-718d7eac1d7d",
+          "name": "Delete Registered User Field Type userfieldtype.delete",
+          "request": {
+            "name": "Delete Registered User Field Type userfieldtype.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userfieldtype.delete` removes a user field type registered by the application. It returns _true_ or an error with a description of the reason.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "userfieldtype.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "USER_TYPE_ID",
+                  "value": "<string>",
+                  "description": "(Required) | String code of the type |"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e6f777a1-ef3e-4544-93de-d09547a83e7a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userfieldtype.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | String code of the type |",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_TYPE_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5613,\n  \"next\": 6920,\n  \"time\": {\n    \"start\": 2901.715208676463,\n    \"finish\": 7982.057065389173,\n    \"duration\": 1308.0743296808662,\n    \"processing\": 9303.68543434937,\n    \"date_start\": \"2014-03-07T15:40:42.919Z\",\n    \"date_finish\": \"1983-07-06T01:37:13.416Z\",\n    \"operating_reset_at\": 6004,\n    \"operating\": 978.9869526589068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47556d00-d9e7-4ea4-9698-5251648be900",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userfieldtype.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | String code of the type |",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_TYPE_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0207eac2-f34a-445d-aca6-1917b139ff4d",
+          "name": "Get a list of registered user field types userfieldtype.list",
+          "request": {
+            "name": "Get a list of registered user field types userfieldtype.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method retrieves a list of user field types registered by the application. It returns a list of field types with pagination. No parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "userfieldtype.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<object>",
+                  "description": "| Root element of the response ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "total",
+                  "value": "<integer>",
+                  "description": "| Number of processed records ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "time",
+                  "value": "<string>",
+                  "description": "| Information about the execution time of the request ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9c271eef-8f7a-482c-b6be-a9e043e5610d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userfieldtype.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Root element of the response ||",
+                        "type": "text/plain"
+                      },
+                      "key": "result",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Number of processed records ||",
+                        "type": "text/plain"
+                      },
+                      "key": "total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Information about the execution time of the request ||",
+                        "type": "text/plain"
+                      },
+                      "key": "time",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5613,\n  \"next\": 6920,\n  \"time\": {\n    \"start\": 2901.715208676463,\n    \"finish\": 7982.057065389173,\n    \"duration\": 1308.0743296808662,\n    \"processing\": 9303.68543434937,\n    \"date_start\": \"2014-03-07T15:40:42.919Z\",\n    \"date_finish\": \"1983-07-06T01:37:13.416Z\",\n    \"operating_reset_at\": 6004,\n    \"operating\": 978.9869526589068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0d16634-a0af-4126-bb20-02dd23631d85",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userfieldtype.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Root element of the response ||",
+                        "type": "text/plain"
+                      },
+                      "key": "result",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Number of processed records ||",
+                        "type": "text/plain"
+                      },
+                      "key": "total",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Information about the execution time of the request ||",
+                        "type": "text/plain"
+                      },
+                      "key": "time",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3948e29-da7e-49a9-9655-40c9eea4f3ff",
+          "name": "Change settings for user field type userfieldtype.update",
+          "request": {
+            "name": "Change settings for user field type userfieldtype.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userfieldtype.update` modifies the settings of a user field type registered by the application. It returns _true_ or an error with a description of the reason.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "userfieldtype.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "USER_TYPE_ID",
+                  "value": "<string>",
+                  "description": "(Required) | String code of the type |"
+                },
+                {
+                  "disabled": false,
+                  "key": "HANDLER",
+                  "value": "<string>",
+                  "description": "(Required) | Address of the user type handler |"
+                },
+                {
+                  "disabled": false,
+                  "key": "TITLE",
+                  "value": "<string>",
+                  "description": "(Required) | Text name of the type. Will be displayed in the administrative interface for user field settings | ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DESCRIPTION",
+                  "value": "<string>",
+                  "description": "| Text description of the type. Will be displayed in the administrative interface for user field settings | ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "06cf9e74-080c-42a8-960e-caebfac17f31",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userfieldtype.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | String code of the type |",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_TYPE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Address of the user type handler |",
+                        "type": "text/plain"
+                      },
+                      "key": "HANDLER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Text name of the type. Will be displayed in the administrative interface for user field settings | ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TITLE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Text description of the type. Will be displayed in the administrative interface for user field settings | ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5613,\n  \"next\": 6920,\n  \"time\": {\n    \"start\": 2901.715208676463,\n    \"finish\": 7982.057065389173,\n    \"duration\": 1308.0743296808662,\n    \"processing\": 9303.68543434937,\n    \"date_start\": \"2014-03-07T15:40:42.919Z\",\n    \"date_finish\": \"1983-07-06T01:37:13.416Z\",\n    \"operating_reset_at\": 6004,\n    \"operating\": 978.9869526589068\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3d2d067-c2f8-4cc9-9236-f4da0948b8a0",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userfieldtype.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | String code of the type |",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_TYPE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Address of the user type handler |",
+                        "type": "text/plain"
+                      },
+                      "key": "HANDLER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Text name of the type. Will be displayed in the administrative interface for user field settings | ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TITLE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Text description of the type. Will be displayed in the administrative interface for user field settings | ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fbe1dcd1-410b-43c3-9039-b221d1dfa5c1",
+    "name": "Bitrix24 REST BIconnector Widgets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitrix24 REST BIconnector CoPilot / AI API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "auth",
+      "value": "{{auth}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CoPilot / AI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the List of Services ai.engine.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/ai.engine.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `ai.engine.list` returns a list of registered AI services."
+        },
+        {
+          "info": {
+            "name": "Register the Service ai.engine.register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/ai.engine.register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `ai.engine.register` registers a custom AI service."
+        },
+        {
+          "info": {
+            "name": "Remove the ai.engine.unregister Service",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/ai.engine.unregister",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `ai.engine.unregister` removes a registered AI service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

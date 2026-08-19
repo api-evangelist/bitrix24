@@ -1,0 +1,656 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitrix24 REST BIconnector Deprecated Methods API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "auth",
+      "value": "{{auth}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deprecated Methods",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a New Comment in the Timeline rpa.comment.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.comment.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method creates a new comment in the timeline of the item with the identifier `itemId` for the process w"
+        },
+        {
+          "info": {
+            "name": "Delete Comment rpa.comment.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.comment.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method deletes a comment with the identifier `id`. It only allows the deletion of comments that were ad"
+        },
+        {
+          "info": {
+            "name": "Update Timeline Entry rpa.comment.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.comment.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the timeline entry with the identifier `id`. It only updates the `title` and `descriptio"
+        },
+        {
+          "info": {
+            "name": "Get the Complete Set of Field Visibility Settings rpa.fields.getSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.fields.getSettings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method retrieves the complete set of field visibility settings for the stage with the identifier `stageId` in the pr"
+        },
+        {
+          "info": {
+            "name": "Set Full Visibility Settings for rpa.fields.setSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.fields.setSettings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method sets the full visibility settings for fields at the stage with the identifier `stageId` of the process with"
+        },
+        {
+          "info": {
+            "name": "Change Field Visibility Settings rpa.fields.setVisibilitySettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.fields.setVisibilitySettings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the `visibility` settings of `fields` for the process with the identifier `typeId` at the stage"
+        },
+        {
+          "info": {
+            "name": "Add Process Element rpa.item.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.item.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method adds a new process element with the identifier `typeId`. To upload a file, you need to pass an array as the val"
+        },
+        {
+          "info": {
+            "name": "Delete Element rpa.item.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.item.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method deletes an element."
+        },
+        {
+          "info": {
+            "name": "Get Information About the rpa.item.get Element",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.item.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves information about the element with the identifier `id` of the process with the identifier `ty"
+        },
+        {
+          "info": {
+            "name": "Get Data on Current Tasks of the Element rpa.item.getTasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.item.getTasks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves data on the current tasks of the element with the identifier `id` for the process with the "
+        },
+        {
+          "info": {
+            "name": "Retrieve an Array of Process Elements rpa.item.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.item.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart Processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves a list of process elements with the identifier `typeId`."
+        },
+        {
+          "info": {
+            "name": "Update Process Element rpa.item.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.item.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method updates the element with the identifier `id` in the process with the identifier `typeId`."
+        },
+        {
+          "info": {
+            "name": "Create a New Stage rpa.stage.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.stage.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method adds a new stage."
+        },
+        {
+          "info": {
+            "name": "Delete Stage rpa.stage.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.stage.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method deletes a stage. A process must always have one successful stage. It is not possible to delete a"
+        },
+        {
+          "info": {
+            "name": "Get Information About Stage rpa.stage.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.stage.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves information about a stage by its `id`."
+        },
+        {
+          "info": {
+            "name": "Get the List of Stages for the rpa.stage.listForType Process",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.stage.listForType",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves a list of process stages, sorted in order with final stages at the end."
+        },
+        {
+          "info": {
+            "name": "Update Stage rpa.stage.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.stage.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method updates the stage by `id`."
+        },
+        {
+          "info": {
+            "name": "Add User to Existing Task rpa.task.addUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.task.addUser",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. The method `rpa.task.addUser` will add a user to an existing task."
+        },
+        {
+          "info": {
+            "name": "Remove Automation Rule from Process rpa.task.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.task.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method removes the Automation rule named `robotName` from the process with the identifier `typeId` at t"
+        },
+        {
+          "info": {
+            "name": "Execute the rpa.task.do Command",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.task.do",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method executes a task. The set of parameters depends on the task."
+        },
+        {
+          "info": {
+            "name": "Add a New Timeline Entry rpa.timeline.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.timeline.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method creates a new timeline entry for the `itemId` of the `typeId` process. This method allows modification "
+        },
+        {
+          "info": {
+            "name": "Delete Timeline Record rpa.timeline.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.timeline.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method deletes a timeline record with the identifier `id`. The method only deletes records that were created by the sa"
+        },
+        {
+          "info": {
+            "name": "Get the Timeline Records List for the rpa.timeline.listForItem Element",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.timeline.listForItem",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves a list of timeline records for the `itemId` of the `typeId` process. The records are"
+        },
+        {
+          "info": {
+            "name": "Update Timeline Entry rpa.timeline.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.timeline.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the timeline entry with the identifier `id`. The method only updates the `title` and `de"
+        },
+        {
+          "info": {
+            "name": "Update the Attachment Flag of rpa.timeline.updateIsFixed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.timeline.updateIsFixed",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the attachment flag of a record."
+        },
+        {
+          "info": {
+            "name": "Create Process rpa.type.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.type.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method creates a new process."
+        },
+        {
+          "info": {
+            "name": "Delete Process rpa.type.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.type.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method deletes a process."
+        },
+        {
+          "info": {
+            "name": "Get Process Information by ID rpa.type.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.type.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves information about a process by its `id`."
+        },
+        {
+          "info": {
+            "name": "Retrieve a List of Processes with Their Fields rpa.type.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.type.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. The method will return an array of processes with their fields."
+        },
+        {
+          "info": {
+            "name": "Update the process rpa.type.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/rpa.type.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the process by its `id`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

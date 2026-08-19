@@ -1,0 +1,320 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitrix24 REST BIconnector Payment Systems API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "auth",
+      "value": "{{auth}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment Systems",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add Payment System sale.paysystem.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a payment system."
+        },
+        {
+          "info": {
+            "name": "Delete Payment System sale.paysystem.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a payment system."
+        },
+        {
+          "info": {
+            "name": "Add REST Handler for Payment System sale.paysystem.handler.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.handler.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so the assistant can use the official REST documentation. This method adds a REST handler for the payment system."
+        },
+        {
+          "info": {
+            "name": "Delete the REST handler for the payment system sale.paysystem.handler.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.handler.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method deletes the REST handler for the payment system."
+        },
+        {
+          "info": {
+            "name": "Get a List of REST Handlers for the Payment System sale.paysystem.handler.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.handler.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns a list of REST handlers for the payment system. No parameters required."
+        },
+        {
+          "info": {
+            "name": "Update REST Handler for Payment System sale.paysystem.handler.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.handler.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the REST handler for the payment system."
+        },
+        {
+          "info": {
+            "name": "Get a List of Payment Systems sale.paysystem.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method returns a list of payment systems."
+        },
+        {
+          "info": {
+            "name": "Pay Invoice Through a Specific Payment System sale.paysystem.pay.invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.pay.invoice",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method is used to pay an invoice (legacy version) through a specific payment system. It is called after processing the response from the payment system."
+        },
+        {
+          "info": {
+            "name": "Pay for an Order via a Specific Payment System sale.paysystem.pay.payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.pay.payment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method is used to pay for an order through a specific payment system. It is called after processing the response from the payment system. To perform the payment, there must be a payment associated with the specified payment system in the system."
+        },
+        {
+          "info": {
+            "name": "Get Payment System Settings sale.paysystem.settings.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.settings.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method returns the settings of the payment system. The structure of the settings is defined when adding the payment system handler in the method [sale.paysystem.handler.add](./sale-pay-system-handler-add.md) under the `CODES` key of the `SETTINGS` parameter."
+        },
+        {
+          "info": {
+            "name": "Get Payment System Settings for a Specific Invoice sale.paysystem.settings.invoice.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.settings.invoice.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method returns the payment system settings for a specific invoice (legacy version)."
+        },
+        {
+          "info": {
+            "name": "Get Payment System Settings for a Specific Payment sale.paysystem.settings.payment.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.settings.payment.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method returns the payment system settings for a specific payment."
+        },
+        {
+          "info": {
+            "name": "Update Payment System Settings sale.paysystem.settings.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.settings.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the payment system settings. The structure of the settings is defined when adding the payment system handler in the method [sale.paysystem.handler.add](./sale-pay-system-handler-add.md) under the `CODES` key of the `SETTINGS` parameter."
+        },
+        {
+          "info": {
+            "name": "Update Payment System sale.paysystem.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sale.paysystem.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the payment system."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

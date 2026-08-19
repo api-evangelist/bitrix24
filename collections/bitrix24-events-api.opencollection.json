@@ -1,0 +1,194 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitrix24 REST BIconnector Events API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "auth",
+      "value": "{{auth}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Register a new event handler event.bind",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/event.bind",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.bind` registers a new event handler. The method works only in the context of [application](../../settings/app-installation/index.md) authorization. It can operate both under a user with portal administration rights and under a regular user. The method for a user without "
+        },
+        {
+          "info": {
+            "name": "Get a List of Registered Event Handlers event.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/event.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `event.get` method allows you to retrieve a list of registered event handlers. The method works only in the context of authorizing the [application](../../settings/app-installation/index.md). No parameters."
+        },
+        {
+          "info": {
+            "name": "Clear records in the offline event queue event.offline.clear",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/event.offline.clear",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.clear` clears records in the offline event queue. The availability of offline events can be checked through the method [feature.get](../common/system/feature-get.md). The method works only in the context of application authorization [application](../../settings/a"
+        },
+        {
+          "info": {
+            "name": "Register Errors for Processing Offline Events event.offline.error",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/event.offline.error",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.error` saves a record in the database with an error mark when using offline events. The availability of offline events can be checked through the method [feature.get](../common/system/feature-get.md). The method works only in the context of authorizing the [appli"
+        },
+        {
+          "info": {
+            "name": "Get a List of Offline Events with event.offline.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/event.offline.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.get` returns the first queued offline events to the application according to the filter settings. The availability of offline events can be checked using the [feature.get](../common/system/feature-get.md) method. This method works only in the context of [applicat"
+        },
+        {
+          "info": {
+            "name": "Get a list of offline events event.offline.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/event.offline.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.list` is used to read the current queue without making changes to its state, unlike [event.offline.get](./event-offline-get.md). The availability of offline events can be checked through the [feature.get](../common/system/feature-get.md) method. The method works "
+        },
+        {
+          "info": {
+            "name": "Unbind Registered Event Handler event.unbind",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/event.unbind",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `event.unbind` method cancels a registered event handler. This method works only in the context of [application](../../settings/app-installation/index.md) authorization and only when authorized under a user with administrative rights to the account."
+        },
+        {
+          "info": {
+            "name": "Get a list of available events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `events` method returns a comprehensive list of available events. The method works only in the context of authorizing the [application](../../settings/app-installation/index.md)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

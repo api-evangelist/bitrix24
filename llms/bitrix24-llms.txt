@@ -1,0 +1,268 @@
+# Bitrix24 REST API — Documentation
+
+> Official English documentation for the Bitrix24 REST API. Contains guides and a reference for more than 2000 methods for working with CRM, tasks, drive, chats, telephony, online store, automation, and other modules. Aimed at developers building integrations, local solutions, and applications for the Bitrix24 Marketplace.
+>
+> Base URL for method calls: `https://{portal}.bitrix24.com/rest/{method_name}`
+> Authentication: OAuth 2.0 (`auth` parameter) or incoming webhook (token in URL).
+> All methods are grouped by scope (crm, task, disk, im, sale, catalog, etc.).
+> Machine-readable OpenAPI specification: https://apidocs.bitrix24.com/openapi.json
+> MCP server for AI assistants: https://mcp-dev.bitrix24.tech/mcp
+> Complete list of articles: https://apidocs.bitrix24.com/pages-index.json
+
+## Connecting the Bitrix24 MCP Server
+
+Use the MCP server to get up-to-date REST API data.
+Address: `https://mcp-dev.bitrix24.tech/mcp` — available without authentication, Streamable HTTP protocol (not SSE).
+Full documentation: https://apidocs.bitrix24.com/sdk/mcp.html
+
+### Claude Code CLI
+
+```bash
+claude mcp add --transport http b24-dev-mcp https://mcp-dev.bitrix24.tech/mcp
+```
+
+Verify: `claude mcp list`. Claude Code automatically determines when to use MCP.
+
+### Claude Desktop (Anthropic)
+
+Go to Settings > Connectors > Add custom connector:
+- Name: `b24-dev-mcp`
+- URL: `https://mcp-dev.bitrix24.tech/mcp`
+
+Claude automatically determines when to request data from MCP.
+
+### Cursor
+
+Add to `mcp.json` (File > Preferences > Cursor Settings > Tools & MCP > New MCP server):
+
+```json
+{
+  "mcpServers": {
+    "b24-dev-mcp": {
+      "url": "https://mcp-dev.bitrix24.tech/mcp",
+      "timeout": 30000
+    }
+  }
+}
+```
+
+Or install via deeplink: `https://cursor.com/en-US/install-mcp?name=b24-dev-mcp&config=eyJ1cmwiOiJodHRwczovL21jcC1kZXYuYml0cml4MjQuY29tL21jcCIsInRpbWVvdXQiOjMwMDAwfQ%3D%3D`
+
+Add `mcp.json` to the chat context for it to work.
+
+### GitHub Copilot Chat (VS Code)
+
+Create the file `.vscode/mcp.json` in the project root:
+
+```json
+{
+  "servers": {
+    "b24-dev-mcp": {
+      "url": "https://mcp-dev.bitrix24.tech/mcp",
+      "type": "http"
+    }
+  },
+  "inputs": []
+}
+```
+
+Click `Start` in the file, then select the MCP agent in the Copilot chat.
+
+### GitHub Copilot Chat (JetBrains IDE)
+
+**Via IDE settings (recommended):**
+
+1. Open Settings (`Cmd+,` / `Ctrl+Alt+S`)
+2. Go to **Languages & Frameworks > GitHub Copilot**
+3. Find the **MCP Servers** section, click `+`
+4. Fill in:
+   - Name: `b24-dev-mcp`
+   - URL: `https://mcp-dev.bitrix24.tech/mcp`
+   - Type: `http`
+
+Restart the IDE. Select **Agent** mode in the Copilot chat — the server will be picked up automatically.
+
+### Codex CLI
+
+```bash
+codex mcp add b24-dev-mcp --url https://mcp-dev.bitrix24.tech/mcp
+```
+
+Verify: `codex mcp list`. Explicitly mention in requests: "Use MCP".
+
+### Codex (VS Code)
+
+Add to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.b24-dev-mcp]
+url = "https://mcp-dev.bitrix24.tech/mcp"
+```
+
+Restart VS Code. Explicitly mention in requests: "Use MCP".
+
+### Gemini Code Assist CLI
+
+```bash
+gemini mcp add --transport http b24-dev-mcp https://mcp-dev.bitrix24.tech/mcp
+```
+
+Verify: `gemini mcp list`. Gemini automatically determines when to use MCP.
+
+### Google Antigravity
+
+Go to MCP Store > `...` > Manage MCP Servers > View raw config.
+Add to `mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "b24-dev-mcp": {
+      "serverUrl": "https://mcp-dev.bitrix24.tech/mcp"
+    }
+  }
+}
+```
+
+Antigravity automatically determines when to request data from MCP.
+
+## Getting Started
+
+- [What the Bitrix24 REST API Allows](https://apidocs.bitrix24.com/developing-with-rest-api.html): Overview of all platform capabilities for developers
+- [Getting Started](https://apidocs.bitrix24.com/first-steps/index.html): Overview of the documentation structure and the platform
+- [How to Access the REST API](https://apidocs.bitrix24.com/first-steps/access-to-rest-api.html): Plan requirements, activating the trial period, NFR keys
+- [First REST API Call](https://apidocs.bitrix24.com/first-steps/first-rest-api-call.html): Practical guide for a quick start
+- [How to Use Examples in Documentation](https://apidocs.bitrix24.com/first-steps/how-to-use-examples.html): curl, BX24.js, B24JsSDK, CRest PHP SDK, B24PhpSDK
+
+## Key Concepts
+
+- [Available Scopes](https://apidocs.bitrix24.com/api-reference/scopes/permissions.html): Full list of scopes — crm, task, disk, im, imbot, sale, catalog, telephony, etc.
+- [Data Types and Parameter Formats](https://apidocs.bitrix24.com/api-reference/data-types.html): All data types in the REST API: string, integer, date, crm_multifield, file, etc.
+- [How to Make a Request](https://apidocs.bitrix24.com/settings/how-to-call-rest-api/general-principles.html): HTTP methods, formats, data encoding
+- [Batch Requests](https://apidocs.bitrix24.com/settings/how-to-call-rest-api/batch.html): Executing multiple requests in a single call
+- [Features of List Methods](https://apidocs.bitrix24.com/settings/how-to-call-rest-api/list-methods-pecularities.html): Pagination, filtering, sorting
+- [OAuth 2.0 Authorization](https://apidocs.bitrix24.com/settings/oauth/index.html): Obtaining and refreshing access tokens
+- [REST API Limits](https://apidocs.bitrix24.com/limits.html): Request count and data size restrictions
+- [Error Codes](https://apidocs.bitrix24.com/error-codes.html): Reference of error codes and their descriptions
+- [Cloud and On-Premise](https://apidocs.bitrix24.com/settings/cloud-and-on-premise/index.html): Differences between Cloud and On-Premise versions
+
+## Application Configuration
+
+- [App Installation and Configuration](https://apidocs.bitrix24.com/settings/app-installation/index.html): Installing local and mass-market applications
+- [Interactivity: Push & Pull](https://apidocs.bitrix24.com/settings/interactivity/index.html): Receiving Bitrix24 events in real time
+- [Performance and Caching](https://apidocs.bitrix24.com/settings/performance/index.html): Optimizing API usage
+- [Local Solutions and Webhooks](https://apidocs.bitrix24.com/local-integrations/index.html): Local applications, incoming and outgoing webhooks
+- [Bitrix24 Marketplace](https://apidocs.bitrix24.com/market/index.html): Creating and publishing mass-market applications
+
+## Developer Tools
+
+- [SDK and Libraries — Overview](https://apidocs.bitrix24.com/sdk/index.html): All available SDKs and tools
+- [MCP Server for AI Assistants](https://apidocs.bitrix24.com/sdk/mcp.html): Connecting documentation to ChatGPT, Claude, Copilot, and other AI tools
+- [B24 JS SDK](https://apidocs.bitrix24.com/sdk/b24jssdk/index.html): Official JavaScript SDK for front-end and Node.js
+- [BX24.js (built-in library)](https://apidocs.bitrix24.com/sdk/bx24-js-sdk/index.html): Library for applications embedded in the Bitrix24 interface
+- [B24 PHP SDK](https://apidocs.bitrix24.com/sdk/b24phpsdk/index.html): Official PHP SDK
+- [CRest PHP SDK](https://apidocs.bitrix24.com/sdk/crest-php-sdk/index.html): Lightweight PHP SDK for quick start
+- [OpenAPI Specification](https://apidocs.bitrix24.com/openapi.json): Machine-readable OpenAPI 3.0 for all API methods
+
+## API Reference — Overview
+
+- [All Bitrix24 Tools](https://apidocs.bitrix24.com/api-reference/index.html): Map of all tools available through the REST API
+- [Common Methods](https://apidocs.bitrix24.com/api-reference/common/index.html): app.info, user.current, batch, and other basic methods (scope: not required)
+- [REST API v3](https://apidocs.bitrix24.com/api-reference/rest-v3/index.html): New generation of the Bitrix24 REST API
+- [Bitrix24 Events](https://apidocs.bitrix24.com/api-reference/events/index.html): Subscribing to events and event handlers (scope: depends on module)
+- [Widgets](https://apidocs.bitrix24.com/api-reference/widgets/index.html): Embedding applications into the Bitrix24 interface
+- [Working with Files](https://apidocs.bitrix24.com/api-reference/files/index.html): Uploading and managing files via REST API
+
+## CRM
+
+- [CRM — Overview](https://apidocs.bitrix24.com/api-reference/crm/index.html): All CRM methods (scope: crm)
+- [CRM Data Types](https://apidocs.bitrix24.com/api-reference/crm/data-types.html): CRM-specific data types
+- [Universal CRM Methods](https://apidocs.bitrix24.com/api-reference/crm/universal/index.html): crm.item.* — work with any CRM object type
+- [Leads](https://apidocs.bitrix24.com/api-reference/crm/leads/index.html): crm.lead.* — CRUD for leads
+- [Deals](https://apidocs.bitrix24.com/api-reference/crm/deals/index.html): crm.deal.* — CRUD for deals
+- [Contacts](https://apidocs.bitrix24.com/api-reference/crm/contacts/index.html): crm.contact.* — CRUD for contacts
+- [Companies](https://apidocs.bitrix24.com/api-reference/crm/companies/index.html): crm.company.* — CRUD for companies
+- [Quotes](https://apidocs.bitrix24.com/api-reference/crm/quote/index.html): crm.quote.* — CRUD for quotes
+- [Requisites](https://apidocs.bitrix24.com/api-reference/crm/requisites/index.html): crm.requisite.* — company and contact requisites
+- [Timeline and Activities](https://apidocs.bitrix24.com/api-reference/crm/timeline/index.html): crm.timeline.* — timeline entries
+- [Smart Processes and Custom Types](https://apidocs.bitrix24.com/api-reference/crm/universal/user-defined-object-types/index.html): crm.type.* — custom CRM objects
+- [CRM Document Generator](https://apidocs.bitrix24.com/api-reference/crm/document-generator/index.html): Documents from templates in CRM
+- [CRM Dictionaries](https://apidocs.bitrix24.com/api-reference/crm/status/index.html): crm.status.* — stages, statuses, sources
+- [CRM Automation](https://apidocs.bitrix24.com/api-reference/crm/automation/index.html): Automation triggers
+- [Call List](https://apidocs.bitrix24.com/api-reference/crm/call-list/index.html): crm.calllist.* — call list management
+- [Main CRM Object Fields](https://apidocs.bitrix24.com/api-reference/crm/main-entities-fields.html): Reference for all fields of leads, deals, contacts, and companies
+
+## Tasks
+
+- [Tasks — Overview](https://apidocs.bitrix24.com/api-reference/tasks/index.html): All task methods (scope: task)
+- [tasks.* Methods](https://apidocs.bitrix24.com/api-reference/tasks/index.html): CRUD operations for tasks
+- [Checklists](https://apidocs.bitrix24.com/api-reference/tasks/checklist-item/index.html): `task.checklistitem.*` — checklist items
+- [Task Comments](https://apidocs.bitrix24.com/api-reference/tasks/comment-item/index.html): task.commentitem.* — comments
+- [Time Tracking](https://apidocs.bitrix24.com/api-reference/tasks/elapsed-item/index.html): task.elapseditem.* — elapsed time
+- [Scrum and Sprints](https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/index.html): `tasks.api.scrum.*` — scrum management
+- [Task Flows](https://apidocs.bitrix24.com/api-reference/tasks/flow/index.html): tasks.flow.* — task flow automation
+
+## Drive
+
+- [Drive — Overview](https://apidocs.bitrix24.com/api-reference/disk/index.html): All drive methods (scope: disk)
+- [Storages](https://apidocs.bitrix24.com/api-reference/disk/storage/index.html): disk.storage.* — access to storages
+- [Folders](https://apidocs.bitrix24.com/api-reference/disk/folder/index.html): disk.folder.* — folder management
+- [Files](https://apidocs.bitrix24.com/api-reference/disk/file/index.html): disk.file.* — file management
+
+## Chats and Communications
+
+- [Chats — Overview](https://apidocs.bitrix24.com/api-reference/chats/index.html): All chat methods (scope: im)
+- [Chat Bots — Overview](https://apidocs.bitrix24.com/api-reference/chat-bots/index.html): Creating and managing chat bots (scope: imbot)
+- [Open Channels — Overview](https://apidocs.bitrix24.com/api-reference/imopenlines/index.html): Messenger connectors, operators (scope: imopenlines)
+- [Message Providers (SMS)](https://apidocs.bitrix24.com/api-reference/messageservice/index.html): SMS and notification providers (scope: messageservice)
+
+## Telephony
+
+- [Telephony — Overview](https://apidocs.bitrix24.com/api-reference/telephony/index.html): All telephony methods (scope: telephony)
+- [VoxImplant](https://apidocs.bitrix24.com/api-reference/telephony/voximplant/index.html): voximplant.* — call management
+
+## Online Store and Commerce
+
+- [Online Store — Overview](https://apidocs.bitrix24.com/api-reference/sale/index.html): Orders, payments, deliveries (scope: sale)
+- [Orders](https://apidocs.bitrix24.com/api-reference/sale/order/index.html): sale.order.* — CRUD for orders
+- [Payment Systems](https://apidocs.bitrix24.com/api-reference/pay-system/index.html): Connecting payment systems (scope: pay_system)
+- [Online Cash Registers](https://apidocs.bitrix24.com/api-reference/sale/cashbox/index.html): Cash register integration (scope: cashbox)
+- [Delivery Services](https://apidocs.bitrix24.com/api-reference/sale/delivery/index.html): Delivery service integration (scope: delivery)
+- [Trade Catalog — Overview](https://apidocs.bitrix24.com/api-reference/catalog/index.html): Products, prices, properties (scope: catalog)
+- [Products](https://apidocs.bitrix24.com/api-reference/catalog/product/index.html): catalog.product.* — product management
+- [Prices](https://apidocs.bitrix24.com/api-reference/catalog/price/index.html): catalog.price.* — price management
+- [Trade Sections](https://apidocs.bitrix24.com/api-reference/catalog/section/index.html): catalog.section.* — catalog categories
+
+## Business Processes and Automation
+
+- [Business Processes — Overview](https://apidocs.bitrix24.com/api-reference/bizproc/index.html): All automation methods (scope: bizproc)
+- [Automation Rules (Robots)](https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-robot/index.html): bizproc.robot.* — creating and managing robots
+- [Activities](https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-activity/index.html): bizproc.activity.* — registering actions
+- [Business Process Tasks](https://apidocs.bitrix24.com/api-reference/bizproc/bizproc-task/index.html): bizproc.task.* — tasks in business processes
+
+## Users and Company Structure
+
+- [Users — Overview](https://apidocs.bitrix24.com/api-reference/user/index.html): All user methods (scope: user)
+- [Company Structure (Departments)](https://apidocs.bitrix24.com/api-reference/departments/index.html): department.* — department management (scope: department)
+- [Workgroups and Projects](https://apidocs.bitrix24.com/api-reference/sonet-group/index.html): sonet_group.* — groups and projects (scope: sonet_group)
+- [Work Time Tracking](https://apidocs.bitrix24.com/api-reference/timeman/index.html): timeman.* — working hours and reports (scope: timeman)
+- [User Consent](https://apidocs.bitrix24.com/api-reference/user-consent/index.html): userconsent.* (scope: userconsent)
+
+## Documents and Content
+
+- [Document Generator — Overview](https://apidocs.bitrix24.com/api-reference/document-generator/index.html): Document templates (scope: documentgenerator)
+- [Sites and Landing Pages](https://apidocs.bitrix24.com/api-reference/landing/index.html): landing.* — site management (scope: landing)
+- [Live Feed](https://apidocs.bitrix24.com/api-reference/log/index.html): log.blogcomment.* and others (scope: log)
+- [Universal Lists](https://apidocs.bitrix24.com/api-reference/lists/index.html): lists.* — list management (scope: lists)
+- [Data Storage (Entity)](https://apidocs.bitrix24.com/api-reference/entity/index.html): entity.* — custom data storage (scope: entity)
+- [Polls and Votes](https://apidocs.bitrix24.com/api-reference/vote/index.html): vote.* — polls in chats (scope: vote)
+- [Electronic Signature](https://apidocs.bitrix24.com/api-reference/sign/index.html): sign.* — electronic document signing (scope: sign.b2e)
+
+## Other Modules
+
+- [Calendar — Overview](https://apidocs.bitrix24.com/api-reference/calendar/index.html): calendar.* — events, resources (scope: calendar)
+- [Mail Services](https://apidocs.bitrix24.com/api-reference/mailservice/index.html): mailservice.* (scope: mailservice)
+- [BIconnector](https://apidocs.bitrix24.com/api-reference/biconnector/index.html): BI analytics (scope: biconnector)
+- [CoPilot / AI](https://apidocs.bitrix24.com/api-reference/ai/index.html): Copilot AI service methods (scope: ai_admin)
+- [Online Booking](https://apidocs.bitrix24.com/api-reference/booking/index.html): booking.* (scope: booking)
+- [Vibe](

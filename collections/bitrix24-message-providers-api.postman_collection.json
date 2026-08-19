@@ -1,0 +1,1239 @@
+{
+  "item": [
+    {
+      "id": "d5ec7649-3c14-4596-9c64-a18711bf42ab",
+      "name": "Message Providers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a5324c97-62a4-4af5-b752-d4d80f902437",
+          "name": "Update Message Delivery Status messageservice.message.status.update",
+          "request": {
+            "name": "Update Message Delivery Status messageservice.message.status.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `messageservice.message.status.update` updates the delivery status of a message sent through a messaging provider. This method works only within the context of an [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messageservice.message.status.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "CODE",
+                  "value": "<string>",
+                  "description": "(Required) | Provider code."
+                },
+                {
+                  "disabled": false,
+                  "key": "MESSAGE_ID",
+                  "value": "<string>",
+                  "description": "(Required) | External identifier of the message, received by the application handler when the message was sent. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "STATUS",
+                  "value": "<string>",
+                  "description": "(Required) | New status of the message."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1cac456a-d071-4042-b877-d5b47bea2a57",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messageservice.message.status.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Provider code.",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | External identifier of the message, received by the application handler when the message was sent. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "MESSAGE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | New status of the message.",
+                        "type": "text/plain"
+                      },
+                      "key": "STATUS",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9051,\n  \"next\": 9888,\n  \"time\": {\n    \"start\": 5071.554659889074,\n    \"finish\": 4455.213914895312,\n    \"duration\": 1717.8358495875545,\n    \"processing\": 8286.666754503456,\n    \"date_start\": \"2008-01-05T15:40:10.823Z\",\n    \"date_finish\": \"1952-01-22T03:54:20.263Z\",\n    \"operating_reset_at\": 8867,\n    \"operating\": 2097.589291055445\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b87b6e4-9948-405e-af13-11ce2ed3891b",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messageservice.message.status.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Provider code.",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | External identifier of the message, received by the application handler when the message was sent. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "MESSAGE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | New status of the message.",
+                        "type": "text/plain"
+                      },
+                      "key": "STATUS",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8930f0d-2fff-4e53-81c9-735a47d581b5",
+          "name": "Register an SMS Provider or Message Provider messageservice.sender.add",
+          "request": {
+            "name": "Register an SMS Provider or Message Provider messageservice.sender.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `messageservice.sender.add` registers a new message provider. This method works only in the context of an [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messageservice.sender.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "CODE",
+                  "value": "<string>",
+                  "description": "(Required) | Provider code."
+                },
+                {
+                  "disabled": false,
+                  "key": "TYPE",
+                  "value": "<string>",
+                  "description": "(Required) | Provider type."
+                },
+                {
+                  "disabled": false,
+                  "key": "HANDLER",
+                  "value": "<string>",
+                  "description": "(Required) | Application handler URL that is called when sending a message."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f7ef8f3d-bd75-47eb-bfa7-5a5a1eb304e7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messageservice.sender.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Provider code.",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Provider type.",
+                        "type": "text/plain"
+                      },
+                      "key": "TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Application handler URL that is called when sending a message.",
+                        "type": "text/plain"
+                      },
+                      "key": "HANDLER",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9051,\n  \"next\": 9888,\n  \"time\": {\n    \"start\": 5071.554659889074,\n    \"finish\": 4455.213914895312,\n    \"duration\": 1717.8358495875545,\n    \"processing\": 8286.666754503456,\n    \"date_start\": \"2008-01-05T15:40:10.823Z\",\n    \"date_finish\": \"1952-01-22T03:54:20.263Z\",\n    \"operating_reset_at\": 8867,\n    \"operating\": 2097.589291055445\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "486232ab-98af-4292-a38e-192434efb5b3",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messageservice.sender.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Provider code.",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Provider type.",
+                        "type": "text/plain"
+                      },
+                      "key": "TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Application handler URL that is called when sending a message.",
+                        "type": "text/plain"
+                      },
+                      "key": "HANDLER",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62f9ca74-f970-45b4-b030-53d8ab49dd2f",
+          "name": "Delete SMS Provider or Message Provider messageservice.sender.delete",
+          "request": {
+            "name": "Delete SMS Provider or Message Provider messageservice.sender.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `messageservice.sender.delete` removes a previously registered message provider for the current application. This method works only within the context of an [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messageservice.sender.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "CODE",
+                  "value": "<string>",
+                  "description": "(Required) | Provider code."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "89a9573a-6eea-4c58-b1d1-616f63394701",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messageservice.sender.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Provider code.",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9051,\n  \"next\": 9888,\n  \"time\": {\n    \"start\": 5071.554659889074,\n    \"finish\": 4455.213914895312,\n    \"duration\": 1717.8358495875545,\n    \"processing\": 8286.666754503456,\n    \"date_start\": \"2008-01-05T15:40:10.823Z\",\n    \"date_finish\": \"1952-01-22T03:54:20.263Z\",\n    \"operating_reset_at\": 8867,\n    \"operating\": 2097.589291055445\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f154f27-c65d-4d9e-9fe3-590b897b716c",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messageservice.sender.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Provider code.",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9273a1d7-5983-4835-92a2-ec9c5ddf610d",
+          "name": "Get a List of SMS Providers or Message Providers messageservice.sender.list",
+          "request": {
+            "name": "Get a List of SMS Providers or Message Providers messageservice.sender.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `messageservice.sender.list` returns a list of provider codes registered with the current application. This method works only in the context of the [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messageservice.sender.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e365ceed-e7e0-4255-b2b1-841026c5a0c4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messageservice.sender.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9051,\n  \"next\": 9888,\n  \"time\": {\n    \"start\": 5071.554659889074,\n    \"finish\": 4455.213914895312,\n    \"duration\": 1717.8358495875545,\n    \"processing\": 8286.666754503456,\n    \"date_start\": \"2008-01-05T15:40:10.823Z\",\n    \"date_finish\": \"1952-01-22T03:54:20.263Z\",\n    \"operating_reset_at\": 8867,\n    \"operating\": 2097.589291055445\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "edeeb035-e449-4931-8f42-0e268959ba3b",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messageservice.sender.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00ad0135-0deb-4787-94ff-7b7af986e8e6",
+          "name": "Update Message Provider messageservice.sender.update",
+          "request": {
+            "name": "Update Message Provider messageservice.sender.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `messageservice.sender.update` updates the data of a registered message provider. This method works only in the context of an [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messageservice.sender.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "CODE",
+                  "value": "<string>",
+                  "description": "(Required) | The code of the provider to be updated."
+                },
+                {
+                  "disabled": false,
+                  "key": "HANDLER",
+                  "value": "<string>",
+                  "description": "| New application handler URL. ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "eefadcc3-7da3-4d66-9e0a-464ad04a4fa6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messageservice.sender.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The code of the provider to be updated.",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New application handler URL. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "HANDLER",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9051,\n  \"next\": 9888,\n  \"time\": {\n    \"start\": 5071.554659889074,\n    \"finish\": 4455.213914895312,\n    \"duration\": 1717.8358495875545,\n    \"processing\": 8286.666754503456,\n    \"date_start\": \"2008-01-05T15:40:10.823Z\",\n    \"date_finish\": \"1952-01-22T03:54:20.263Z\",\n    \"operating_reset_at\": 8867,\n    \"operating\": 2097.589291055445\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a738bff5-ac3c-4e13-8c0e-d418c96b9429",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messageservice.sender.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The code of the provider to be updated.",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New application handler URL. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "HANDLER",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4ab43184-16c9-4124-915b-5eafc8398aa0",
+    "name": "Bitrix24 REST BIconnector Message Providers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

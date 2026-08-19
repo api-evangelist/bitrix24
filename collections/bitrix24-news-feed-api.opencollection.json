@@ -1,0 +1,215 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitrix24 REST BIconnector News Feed API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "auth",
+      "value": "{{auth}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "News Feed",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a comment to the message log.blogcomment.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/log.blogcomment.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogcomment.add` adds a comment to a News Feed message."
+        },
+        {
+          "info": {
+            "name": "Delete comment from log.blogcomment.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/log.blogcomment.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogcomment.delete` removes a comment from the News Feed."
+        },
+        {
+          "info": {
+            "name": "Get User Comments log.blogcomment.user.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/log.blogcomment.user.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogcomment.user.get` returns a list of comments on a News Feed post for the specified user and information about attached files."
+        },
+        {
+          "info": {
+            "name": "Add a Message to the News Feed log.blogpost.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/log.blogpost.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.add` adds a message to the News Feed."
+        },
+        {
+          "info": {
+            "name": "Delete News Feed Message log.blogpost.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/log.blogpost.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.delete` removes a message from the News Feed."
+        },
+        {
+          "info": {
+            "name": "Access Available User Messages from the News Feed log.blogpost.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/log.blogpost.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.get` returns messages from the News Feed that are accessible to the current user."
+        },
+        {
+          "info": {
+            "name": "View Users Who Read an Important Message log.blogpost.getusers.important",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/log.blogpost.getusers.important",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.getusers.important` returns an array of user IDs who have read an important message."
+        },
+        {
+          "info": {
+            "name": "Add Recipients to News Feed Message log.blogpost.share",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/log.blogpost.share",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.share` adds new recipients to a news feed message."
+        },
+        {
+          "info": {
+            "name": "Update News Feed Message log.blogpost.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/log.blogpost.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `log.blogpost.update` updates a message in the News Feed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

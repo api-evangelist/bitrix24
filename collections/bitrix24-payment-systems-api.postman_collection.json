@@ -1,0 +1,4296 @@
+{
+  "item": [
+    {
+      "id": "5209ebef-1086-48bd-ab35-4bbd7b19e50c",
+      "name": "Payment Systems",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d3b9bf4e-4bcf-4d0b-bcaf-19cc53596d24",
+          "name": "Add Payment System sale.paysystem.add",
+          "request": {
+            "name": "Add Payment System sale.paysystem.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a payment system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "(Required) | Name of the payment system ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PERSON_TYPE_ID",
+                  "value": "<string>",
+                  "description": "(Required) | Identifier of the payer type ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "BX_REST_HANDLER",
+                  "value": "<string>",
+                  "description": "(Required) | Code of the REST handler specified when adding the handler using the sale.paysystem.handler.add method ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ENTITY_REGISTRY_TYPE",
+                  "value": "<string>",
+                  "description": "(Required) | Binding of the payment system:"
+                },
+                {
+                  "disabled": false,
+                  "key": "DESCRIPTION",
+                  "value": "<string>",
+                  "description": "| Description of the payment system ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ACTIVE",
+                  "value": "<string>",
+                  "description": "| Indicator of the payment system's activity. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "SETTINGS",
+                  "value": "<object>",
+                  "description": "| List of handler settings values in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}`, where `field` is the name of the setting and `value` is an object containing keys TYPE and VALUE (see description below)."
+                },
+                {
+                  "disabled": false,
+                  "key": "LOGOTYPE",
+                  "value": "<string>",
+                  "description": "| Logo of the payment system (image in Base64 format) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "NEW_WINDOW",
+                  "value": "<string>",
+                  "description": "| Flag for the \"Open in new window\" setting. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "XML_ID",
+                  "value": "<string>",
+                  "description": "| External identifier of the payment system. Can be used as an additional parameter for filtering in sale.paysystem.list ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "Name",
+                  "value": "<string>",
+                  "description": "| Description ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ORDER",
+                  "value": "<string>",
+                  "description": "| Parameters ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PROPERTY",
+                  "value": "<string>",
+                  "description": "| Invoice properties ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PAYMENT",
+                  "value": "<string>",
+                  "description": "| Payment ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "USER",
+                  "value": "<string>",
+                  "description": "| User ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "VALUE",
+                  "value": "<string>",
+                  "description": "| Arbitrary string value ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "41f71689-af23-4cda-9b0a-29a066317ed7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Name of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the payer type ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PERSON_TYPE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Code of the REST handler specified when adding the handler using the sale.paysystem.handler.add method ||",
+                        "type": "text/plain"
+                      },
+                      "key": "BX_REST_HANDLER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Binding of the payment system:",
+                        "type": "text/plain"
+                      },
+                      "key": "ENTITY_REGISTRY_TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Indicator of the payment system's activity. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| List of handler settings values in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}`, where `field` is the name of the setting and `value` is an object containing keys TYPE and VALUE (see description below).",
+                        "type": "text/plain"
+                      },
+                      "key": "SETTINGS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Logo of the payment system (image in Base64 format) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LOGOTYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Flag for the \"Open in new window\" setting. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "NEW_WINDOW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| External identifier of the payment system. Can be used as an additional parameter for filtering in sale.paysystem.list ||",
+                        "type": "text/plain"
+                      },
+                      "key": "XML_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Parameters ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ORDER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Invoice properties ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PROPERTY",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Payment ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PAYMENT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User ||",
+                        "type": "text/plain"
+                      },
+                      "key": "USER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Arbitrary string value ||",
+                        "type": "text/plain"
+                      },
+                      "key": "VALUE",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a763f93-fc15-4ca9-94e9-b952dc942904",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Name of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the payer type ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PERSON_TYPE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Code of the REST handler specified when adding the handler using the sale.paysystem.handler.add method ||",
+                        "type": "text/plain"
+                      },
+                      "key": "BX_REST_HANDLER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Binding of the payment system:",
+                        "type": "text/plain"
+                      },
+                      "key": "ENTITY_REGISTRY_TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Indicator of the payment system's activity. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| List of handler settings values in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}`, where `field` is the name of the setting and `value` is an object containing keys TYPE and VALUE (see description below).",
+                        "type": "text/plain"
+                      },
+                      "key": "SETTINGS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Logo of the payment system (image in Base64 format) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LOGOTYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Flag for the \"Open in new window\" setting. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "NEW_WINDOW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| External identifier of the payment system. Can be used as an additional parameter for filtering in sale.paysystem.list ||",
+                        "type": "text/plain"
+                      },
+                      "key": "XML_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Parameters ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ORDER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Invoice properties ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PROPERTY",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Payment ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PAYMENT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User ||",
+                        "type": "text/plain"
+                      },
+                      "key": "USER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Arbitrary string value ||",
+                        "type": "text/plain"
+                      },
+                      "key": "VALUE",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7332521c-c87e-40c6-914a-1145b81ee608",
+          "name": "Delete Payment System sale.paysystem.delete",
+          "request": {
+            "name": "Delete Payment System sale.paysystem.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a payment system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ID",
+                  "value": "<string>",
+                  "description": "(Required) | Identifier of the payment system ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b397a22f-44c1-446d-8baa-c127d30d4d73",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cf6e060-e80c-42df-879a-66666f821274",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66a9b943-77c3-4f15-ac3f-8dd6da82ffea",
+          "name": "Add REST Handler for Payment System sale.paysystem.handler.add",
+          "request": {
+            "name": "Add REST Handler for Payment System sale.paysystem.handler.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so the assistant can use the official REST documentation. This method adds a REST handler for the payment system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.handler.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "(Required) | Name of the REST handler ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "CODE",
+                  "value": "<string>",
+                  "description": "(Required) | Code of the REST handler. Must be unique among all handlers ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SETTINGS",
+                  "value": "<object>",
+                  "description": "(Required) | Handler settings (detailed description provided below) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "CODES",
+                  "value": "<object>",
+                  "description": "(Required) | List of handler parameters. Keys are parameter codes (`string`), values are parameter descriptions (detailed description provided below)."
+                },
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<integer>",
+                  "description": "| Sorting order. Default is `100` ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "FORM_DATA",
+                  "value": "<object>",
+                  "description": "| Form settings when using the operating mode in form ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "CHECKOUT_DATA",
+                  "value": "<object>",
+                  "description": "| Settings for the Checkout mode (creating an order on the service side and redirecting the buyer to this page for payment) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "IFRAME_DATA",
+                  "value": "<object>",
+                  "description": "| Settings for the page displayed in the iframe on the seller's site on the payment page ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "CLIENT_TYPE",
+                  "value": "<string>",
+                  "description": "| Type of buyers that the handler can work with. Available values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "CURRENCY",
+                  "value": "<string>",
+                  "description": "| List of currencies supported by the payment system. Default is empty ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DESCRIPTION",
+                  "value": "<string>",
+                  "description": "| Description of the parameter ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "GROUP",
+                  "value": "<string>",
+                  "description": "| Code of the group to which the parameter belongs ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DEFAULT",
+                  "value": "<object>",
+                  "description": "| Description of the default value (detailed description provided below)"
+                },
+                {
+                  "disabled": false,
+                  "key": "INPUT",
+                  "value": "<object>",
+                  "description": "| Object describing the input field. The structure of the object contains the `TYPE` parameter — the type of the field. Supported fields:"
+                },
+                {
+                  "disabled": false,
+                  "key": "PROVIDER_KEY",
+                  "value": "<string>",
+                  "description": "| Key of the provider from which the default value will be taken. Possible key values are listed below ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PROVIDER_VALUE",
+                  "value": "<string>",
+                  "description": "| Code of the value that will be taken from the provider. Possible key values are listed below ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "Name",
+                  "value": "<string>",
+                  "description": "| Description ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ORDER",
+                  "value": "<string>",
+                  "description": "| Order ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PROPERTY",
+                  "value": "<string>",
+                  "description": "| Invoice properties ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PAYMENT",
+                  "value": "<string>",
+                  "description": "| Payment ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "USER",
+                  "value": "<string>",
+                  "description": "| User ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "VALUE",
+                  "value": "<string>",
+                  "description": "| Arbitrary string type value ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aef34638-7bf2-4f4a-976b-3b050e1360c6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.handler.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Name of the REST handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Code of the REST handler. Must be unique among all handlers ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Handler settings (detailed description provided below) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SETTINGS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | List of handler parameters. Keys are parameter codes (`string`), values are parameter descriptions (detailed description provided below).",
+                        "type": "text/plain"
+                      },
+                      "key": "CODES",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting order. Default is `100` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Form settings when using the operating mode in form ||",
+                        "type": "text/plain"
+                      },
+                      "key": "FORM_DATA",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Settings for the Checkout mode (creating an order on the service side and redirecting the buyer to this page for payment) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CHECKOUT_DATA",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Settings for the page displayed in the iframe on the seller's site on the payment page ||",
+                        "type": "text/plain"
+                      },
+                      "key": "IFRAME_DATA",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Type of buyers that the handler can work with. Available values:",
+                        "type": "text/plain"
+                      },
+                      "key": "CLIENT_TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| List of currencies supported by the payment system. Default is empty ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CURRENCY",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the parameter ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Code of the group to which the parameter belongs ||",
+                        "type": "text/plain"
+                      },
+                      "key": "GROUP",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the default value (detailed description provided below)",
+                        "type": "text/plain"
+                      },
+                      "key": "DEFAULT",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object describing the input field. The structure of the object contains the `TYPE` parameter — the type of the field. Supported fields:",
+                        "type": "text/plain"
+                      },
+                      "key": "INPUT",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Key of the provider from which the default value will be taken. Possible key values are listed below ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PROVIDER_KEY",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Code of the value that will be taken from the provider. Possible key values are listed below ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PROVIDER_VALUE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Order ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ORDER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Invoice properties ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PROPERTY",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Payment ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PAYMENT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User ||",
+                        "type": "text/plain"
+                      },
+                      "key": "USER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Arbitrary string type value ||",
+                        "type": "text/plain"
+                      },
+                      "key": "VALUE",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "beccd5be-22aa-41b6-bfd8-08ee80b8fdb0",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.handler.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Name of the REST handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Code of the REST handler. Must be unique among all handlers ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Handler settings (detailed description provided below) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SETTINGS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | List of handler parameters. Keys are parameter codes (`string`), values are parameter descriptions (detailed description provided below).",
+                        "type": "text/plain"
+                      },
+                      "key": "CODES",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting order. Default is `100` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Form settings when using the operating mode in form ||",
+                        "type": "text/plain"
+                      },
+                      "key": "FORM_DATA",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Settings for the Checkout mode (creating an order on the service side and redirecting the buyer to this page for payment) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CHECKOUT_DATA",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Settings for the page displayed in the iframe on the seller's site on the payment page ||",
+                        "type": "text/plain"
+                      },
+                      "key": "IFRAME_DATA",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Type of buyers that the handler can work with. Available values:",
+                        "type": "text/plain"
+                      },
+                      "key": "CLIENT_TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| List of currencies supported by the payment system. Default is empty ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CURRENCY",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the parameter ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Code of the group to which the parameter belongs ||",
+                        "type": "text/plain"
+                      },
+                      "key": "GROUP",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the default value (detailed description provided below)",
+                        "type": "text/plain"
+                      },
+                      "key": "DEFAULT",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object describing the input field. The structure of the object contains the `TYPE` parameter — the type of the field. Supported fields:",
+                        "type": "text/plain"
+                      },
+                      "key": "INPUT",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Key of the provider from which the default value will be taken. Possible key values are listed below ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PROVIDER_KEY",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Code of the value that will be taken from the provider. Possible key values are listed below ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PROVIDER_VALUE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Order ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ORDER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Invoice properties ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PROPERTY",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Payment ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PAYMENT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User ||",
+                        "type": "text/plain"
+                      },
+                      "key": "USER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Arbitrary string type value ||",
+                        "type": "text/plain"
+                      },
+                      "key": "VALUE",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8d4cc70-5ed2-4708-89e3-aae2f8b2a89c",
+          "name": "Delete the REST handler for the payment system sale.paysystem.handler.delete",
+          "request": {
+            "name": "Delete the REST handler for the payment system sale.paysystem.handler.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method deletes the REST handler for the payment system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.handler.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ID",
+                  "value": "<string>",
+                  "description": "(Required) | Identifier of the REST handler ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0ba399ff-fe83-49cf-b67a-c07bc17da2a4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.handler.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the REST handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8ec7eb1-dbcc-4172-9b94-017a931451b7",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.handler.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the REST handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc4967c4-e87c-44db-8495-b37ab3b42f6f",
+          "name": "Get a List of REST Handlers for the Payment System sale.paysystem.handler.list",
+          "request": {
+            "name": "Get a List of REST Handlers for the Payment System sale.paysystem.handler.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns a list of REST handlers for the payment system. No parameters required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.handler.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<string>",
+                  "description": "| List of registered REST handlers for payment systems ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "time",
+                  "value": "<string>",
+                  "description": "| Information about the request execution time ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "Code",
+                  "value": "<string>",
+                  "description": "| Description | Status ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4f38b0fa-b3c0-43d4-8848-34d927462e20",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.handler.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| List of registered REST handlers for payment systems ||",
+                        "type": "text/plain"
+                      },
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Information about the request execution time ||",
+                        "type": "text/plain"
+                      },
+                      "key": "time",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description | Status ||",
+                        "type": "text/plain"
+                      },
+                      "key": "Code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "35308087-d9e9-4452-937a-bdc7b8a4d4dc",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.handler.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| List of registered REST handlers for payment systems ||",
+                        "type": "text/plain"
+                      },
+                      "key": "result",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Information about the request execution time ||",
+                        "type": "text/plain"
+                      },
+                      "key": "time",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description | Status ||",
+                        "type": "text/plain"
+                      },
+                      "key": "Code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86777573-3536-4ff8-a90e-469f2232c2c6",
+          "name": "Update REST Handler for Payment System sale.paysystem.handler.update",
+          "request": {
+            "name": "Update REST Handler for Payment System sale.paysystem.handler.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the REST handler for the payment system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.handler.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ID",
+                  "value": "<string>",
+                  "description": "(Required) | Identifier of the REST handler ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "FIELDS",
+                  "value": "<object>",
+                  "description": "(Required) | Set of values for updating (detailed description provided below) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| Name of the handler ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "CODE",
+                  "value": "<string>",
+                  "description": "| Unique code of the handler in the system ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SETTINGS",
+                  "value": "<object>",
+                  "description": "| Handler settings. The format is similar to that in sale.paysystem.handler.add ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<integer>",
+                  "description": "| Sorting ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "343a5dc7-bccf-4902-bb69-3f222191b5fa",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.handler.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the REST handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Set of values for updating (detailed description provided below) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "FIELDS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Unique code of the handler in the system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Handler settings. The format is similar to that in sale.paysystem.handler.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SETTINGS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eeb573b0-e130-4f1a-b8dc-c9e17321f719",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.handler.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the REST handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Set of values for updating (detailed description provided below) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "FIELDS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Unique code of the handler in the system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Handler settings. The format is similar to that in sale.paysystem.handler.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SETTINGS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6e3b8c8-31c3-4582-8146-3bc991baa5f6",
+          "name": "Get a List of Payment Systems sale.paysystem.list",
+          "request": {
+            "name": "Get a List of Payment Systems sale.paysystem.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method returns a list of payment systems.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "FILTER",
+                  "value": "<object>",
+                  "description": "| An object for filtering the selected payment systems in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}`."
+                },
+                {
+                  "disabled": false,
+                  "key": "ORDER",
+                  "value": "<object>",
+                  "description": "| An object for sorting the selected payment systems in the format `{\"field_1\": \"order_1\", ... \"field_N\": \"order_N\"}`."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ce2d6089-7929-4a29-9889-2b5069c19dea",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| An object for filtering the selected payment systems in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "FILTER",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| An object for sorting the selected payment systems in the format `{\"field_1\": \"order_1\", ... \"field_N\": \"order_N\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "ORDER",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f40def6-771d-4373-a920-4ed10c4e4ded",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| An object for filtering the selected payment systems in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "FILTER",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| An object for sorting the selected payment systems in the format `{\"field_1\": \"order_1\", ... \"field_N\": \"order_N\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "ORDER",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72e42226-0e07-4947-9b28-4426996f77dc",
+          "name": "Pay Invoice Through a Specific Payment System sale.paysystem.pay.invoice",
+          "request": {
+            "name": "Pay Invoice Through a Specific Payment System sale.paysystem.pay.invoice",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method is used to pay an invoice (legacy version) through a specific payment system. It is called after processing the response from the payment system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.pay.invoice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "INVOICE_ID",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the legacy invoice. The service crm.invoice.* is used to retrieve invoice information."
+                },
+                {
+                  "disabled": false,
+                  "key": "PAY_SYSTEM_ID",
+                  "value": "<string>",
+                  "description": "| Identifier of the payment system"
+                },
+                {
+                  "disabled": false,
+                  "key": "BX_REST_HANDLER",
+                  "value": "<string>",
+                  "description": "| Symbolic identifier of the REST handler for the payment system."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ca3d776f-b57b-4845-952c-5b4473ff0c4d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.pay.invoice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the legacy invoice. The service crm.invoice.* is used to retrieve invoice information.",
+                        "type": "text/plain"
+                      },
+                      "key": "INVOICE_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the payment system",
+                        "type": "text/plain"
+                      },
+                      "key": "PAY_SYSTEM_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Symbolic identifier of the REST handler for the payment system.",
+                        "type": "text/plain"
+                      },
+                      "key": "BX_REST_HANDLER",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b5a27d2-444b-4d1b-8115-9b23e974ec9d",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.pay.invoice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the legacy invoice. The service crm.invoice.* is used to retrieve invoice information.",
+                        "type": "text/plain"
+                      },
+                      "key": "INVOICE_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the payment system",
+                        "type": "text/plain"
+                      },
+                      "key": "PAY_SYSTEM_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Symbolic identifier of the REST handler for the payment system.",
+                        "type": "text/plain"
+                      },
+                      "key": "BX_REST_HANDLER",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5777539-16bd-4c5a-bc45-40407f0f5941",
+          "name": "Pay for an Order via a Specific Payment System sale.paysystem.pay.payment",
+          "request": {
+            "name": "Pay for an Order via a Specific Payment System sale.paysystem.pay.payment",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method is used to pay for an order through a specific payment system. It is called after processing the response from the payment system. To perform the payment, there must be a payment associated with the specified payment system in the system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.pay.payment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "PAYMENT_ID",
+                  "value": "<string>",
+                  "description": "(Required) | Payment identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "PAY_SYSTEM_ID",
+                  "value": "<string>",
+                  "description": "(Required) | Payment system identifier"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "61f3cb1a-0ba9-40f7-9968-09df314ae3df",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.pay.payment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Payment identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "PAYMENT_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Payment system identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "PAY_SYSTEM_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d33d5b34-af81-4e3a-8466-e443cc64b60a",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.pay.payment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Payment identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "PAYMENT_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Payment system identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "PAY_SYSTEM_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7f3e057-77ea-4861-8876-18f10c46fa20",
+          "name": "Get Payment System Settings sale.paysystem.settings.get",
+          "request": {
+            "name": "Get Payment System Settings sale.paysystem.settings.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method returns the settings of the payment system. The structure of the settings is defined when adding the payment system handler in the method [sale.paysystem.handler.add](./sale-pay-system-handler-add.md) under the `CODES` key of the `SETTINGS` parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.settings.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ID",
+                  "value": "<string>",
+                  "description": "(Required) | Identifier of the payment system for which settings are to be retrieved"
+                },
+                {
+                  "disabled": false,
+                  "key": "PERSON_TYPE_ID",
+                  "value": "<string>",
+                  "description": "(Required) | Identifier of the payer type for which settings are to be retrieved. To get default settings, pass `0`"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5a5c23db-1cb1-4013-83c9-4d4c6eb2fb8a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.settings.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the payment system for which settings are to be retrieved",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the payer type for which settings are to be retrieved. To get default settings, pass `0`",
+                        "type": "text/plain"
+                      },
+                      "key": "PERSON_TYPE_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "225c1046-643c-4999-834d-4d7ffdd944b1",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.settings.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the payment system for which settings are to be retrieved",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the payer type for which settings are to be retrieved. To get default settings, pass `0`",
+                        "type": "text/plain"
+                      },
+                      "key": "PERSON_TYPE_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a220203d-b878-47c0-879f-e32541a75d2a",
+          "name": "Get Payment System Settings for a Specific Invoice sale.paysystem.settings.invoice.get",
+          "request": {
+            "name": "Get Payment System Settings for a Specific Invoice sale.paysystem.settings.invoice.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method returns the payment system settings for a specific invoice (legacy version).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.settings.invoice.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "INVOICE_ID",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the legacy invoice. The service crm.invoice.* is used to retrieve information about invoices."
+                },
+                {
+                  "disabled": false,
+                  "key": "PAY_SYSTEM_ID",
+                  "value": "<string>",
+                  "description": "| Identifier of the payment system"
+                },
+                {
+                  "disabled": false,
+                  "key": "BX_REST_HANDLER",
+                  "value": "<string>",
+                  "description": "| Symbolic identifier of the payment system handler"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1ec8b461-6e6d-4570-87fb-85aea5c0eda5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.settings.invoice.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the legacy invoice. The service crm.invoice.* is used to retrieve information about invoices.",
+                        "type": "text/plain"
+                      },
+                      "key": "INVOICE_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the payment system",
+                        "type": "text/plain"
+                      },
+                      "key": "PAY_SYSTEM_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Symbolic identifier of the payment system handler",
+                        "type": "text/plain"
+                      },
+                      "key": "BX_REST_HANDLER",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64a220cb-793a-450d-b9d2-66021a940b3a",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.settings.invoice.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the legacy invoice. The service crm.invoice.* is used to retrieve information about invoices.",
+                        "type": "text/plain"
+                      },
+                      "key": "INVOICE_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the payment system",
+                        "type": "text/plain"
+                      },
+                      "key": "PAY_SYSTEM_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Symbolic identifier of the payment system handler",
+                        "type": "text/plain"
+                      },
+                      "key": "BX_REST_HANDLER",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46c4d191-15c1-4eea-802f-0c4b951ea5ee",
+          "name": "Get Payment System Settings for a Specific Payment sale.paysystem.settings.payment.get",
+          "request": {
+            "name": "Get Payment System Settings for a Specific Payment sale.paysystem.settings.payment.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method returns the payment system settings for a specific payment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.settings.payment.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "PAYMENT_ID",
+                  "value": "<string>",
+                  "description": "(Required) | Payment identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "PAY_SYSTEM_ID",
+                  "value": "<string>",
+                  "description": "(Required) | Payment system identifier"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a60dbe24-fe8d-47ca-b565-f04a3d583bdf",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.settings.payment.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Payment identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "PAYMENT_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Payment system identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "PAY_SYSTEM_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2e3503f-2dd0-41e2-b4b0-6cb67f0640ba",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.settings.payment.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Payment identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "PAYMENT_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Payment system identifier",
+                        "type": "text/plain"
+                      },
+                      "key": "PAY_SYSTEM_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e064cbb1-6734-4e66-8cbd-11443de41287",
+          "name": "Update Payment System Settings sale.paysystem.settings.update",
+          "request": {
+            "name": "Update Payment System Settings sale.paysystem.settings.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the payment system settings. The structure of the settings is defined when adding the payment system handler in the method [sale.paysystem.handler.add](./sale-pay-system-handler-add.md) under the `CODES` key of the `SETTINGS` parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.settings.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ID",
+                  "value": "<string>",
+                  "description": "(Required) | Identifier of the payment system for which settings need to be retrieved"
+                },
+                {
+                  "disabled": false,
+                  "key": "SETTINGS",
+                  "value": "<object>",
+                  "description": "(Required) | Settings to be updated. The keys are the names of the settings, and the values are objects whose structure is described below"
+                },
+                {
+                  "disabled": false,
+                  "key": "PERSON_TYPE_ID",
+                  "value": "<string>",
+                  "description": "| Identifier of the payer type for which settings need to be retrieved"
+                },
+                {
+                  "disabled": false,
+                  "key": "TYPE",
+                  "value": "<string>",
+                  "description": "| Source of the parameter value ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "VALUE",
+                  "value": "<string>",
+                  "description": "| Parameter code at the source or parameter value (for `TYPE=\"VALUE\"`) ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "30cb61f7-ffe1-4728-b641-848a438abe9d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.settings.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the payment system for which settings need to be retrieved",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Settings to be updated. The keys are the names of the settings, and the values are objects whose structure is described below",
+                        "type": "text/plain"
+                      },
+                      "key": "SETTINGS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the payer type for which settings need to be retrieved",
+                        "type": "text/plain"
+                      },
+                      "key": "PERSON_TYPE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Source of the parameter value ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Parameter code at the source or parameter value (for `TYPE=\"VALUE\"`) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "VALUE",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba742899-c494-4344-bb02-3434a6813f59",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.settings.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the payment system for which settings need to be retrieved",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Settings to be updated. The keys are the names of the settings, and the values are objects whose structure is described below",
+                        "type": "text/plain"
+                      },
+                      "key": "SETTINGS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the payer type for which settings need to be retrieved",
+                        "type": "text/plain"
+                      },
+                      "key": "PERSON_TYPE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Source of the parameter value ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Parameter code at the source or parameter value (for `TYPE=\"VALUE\"`) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "VALUE",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2309609f-bf71-414d-bf4f-5ef7f436bdea",
+          "name": "Update Payment System sale.paysystem.update",
+          "request": {
+            "name": "Update Payment System sale.paysystem.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the payment system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sale.paysystem.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ID",
+                  "value": "<string>",
+                  "description": "(Required) | Identifier of the payment system ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "FIELDS",
+                  "value": "<object>",
+                  "description": "| Object containing new field values (detailed description provided below) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| Name of the payment system ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DESCRIPTION",
+                  "value": "<string>",
+                  "description": "| Description of the payment system ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PERSON_TYPE_ID",
+                  "value": "<string>",
+                  "description": "| Identifier of the payer type ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "BX_REST_HANDLER",
+                  "value": "<string>",
+                  "description": "| Code of the REST handler specified when adding the handler using the sale.paysystem.handler.add method ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ACTIVE",
+                  "value": "<string>",
+                  "description": "| Indicator of the payment system's activity. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "LOGOTYPE",
+                  "value": "<string>",
+                  "description": "| Logo of the payment system (image in Base64 format) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "NEW_WINDOW",
+                  "value": "<string>",
+                  "description": "| Flag for the \"Open in new window\" setting. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "XML_ID",
+                  "value": "<string>",
+                  "description": "| External identifier of the payment system ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8a3bbf14-f2c1-4719-9b5d-d986bd3675c3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object containing new field values (detailed description provided below) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "FIELDS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the payer type ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PERSON_TYPE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Code of the REST handler specified when adding the handler using the sale.paysystem.handler.add method ||",
+                        "type": "text/plain"
+                      },
+                      "key": "BX_REST_HANDLER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Indicator of the payment system's activity. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Logo of the payment system (image in Base64 format) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LOGOTYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Flag for the \"Open in new window\" setting. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "NEW_WINDOW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| External identifier of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "XML_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1863,\n  \"next\": 3043,\n  \"time\": {\n    \"start\": 4290.868213426185,\n    \"finish\": 4751.667563987133,\n    \"duration\": 5892.5326514693525,\n    \"processing\": 3109.9930136667053,\n    \"date_start\": \"2002-06-15T04:39:16.382Z\",\n    \"date_finish\": \"2003-07-12T08:49:43.629Z\",\n    \"operating_reset_at\": 6502,\n    \"operating\": 6440.794964872626\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19cab62c-faff-4a06-89ce-f0a5d8c57cff",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sale.paysystem.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object containing new field values (detailed description provided below) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "FIELDS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the payer type ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PERSON_TYPE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Code of the REST handler specified when adding the handler using the sale.paysystem.handler.add method ||",
+                        "type": "text/plain"
+                      },
+                      "key": "BX_REST_HANDLER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Indicator of the payment system's activity. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Logo of the payment system (image in Base64 format) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LOGOTYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Flag for the \"Open in new window\" setting. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "NEW_WINDOW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| External identifier of the payment system ||",
+                        "type": "text/plain"
+                      },
+                      "key": "XML_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7976378e-6dc4-4f03-963f-3fd7ec5d7941",
+    "name": "Bitrix24 REST BIconnector Payment Systems API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

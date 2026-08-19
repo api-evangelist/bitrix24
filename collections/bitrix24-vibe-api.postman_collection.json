@@ -1,0 +1,1598 @@
+{
+  "item": [
+    {
+      "id": "005f76bd-f6b6-4680-9b95-a5f6f32f192d",
+      "name": "Vibe",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b7c885ff-a8b3-4233-a62c-01bcc3626c14",
+          "name": "Enable Debug Mode landing.repowidget.debug",
+          "request": {
+            "name": "Enable Debug Mode landing.repowidget.debug",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repowidget.debug` enables debug mode for all widgets of the current application. In this case, the vue application will report more errors in the js console for developer convenience. By default, the mode is disabled.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "landing.repowidget.debug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "enable",
+                  "value": "<boolean>",
+                  "description": "| Debug mode activation flag ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "20ef481d-4867-4436-9441-91fd6fc4c666",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "landing.repowidget.debug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Debug mode activation flag ||",
+                        "type": "text/plain"
+                      },
+                      "key": "enable",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 965,\n  \"next\": 5420,\n  \"time\": {\n    \"start\": 1692.644432082656,\n    \"finish\": 314.3972057743471,\n    \"duration\": 6904.545143797293,\n    \"processing\": 8249.599223622152,\n    \"date_start\": \"1970-05-01T01:50:07.670Z\",\n    \"date_finish\": \"1968-08-18T15:53:41.756Z\",\n    \"operating_reset_at\": 1439,\n    \"operating\": 7582.06527202672\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2c5dbcc-f5ad-4037-90cb-11bac6ee0f05",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "landing.repowidget.debug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Debug mode activation flag ||",
+                        "type": "text/plain"
+                      },
+                      "key": "enable",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64c51399-2e8c-4362-a640-3f7c2e4dcda6",
+          "name": "Get the list of widgets landing.repowidget.getlist",
+          "request": {
+            "name": "Get the list of widgets landing.repowidget.getlist",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repowidget.getlist` returns a list of widgets for the current application, filtered by the specified criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "landing.repowidget.getlist"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "params",
+                  "value": "<object>",
+                  "description": "(Required) | Array of fields to retrieve the list of widgets ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<object>",
+                  "description": "| Object for filtering the selected records in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}`."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<object>",
+                  "description": "| Object for sorting the selected records in the format `{\"field_1\": \"order_1\", ... \"field_N\": \"order_N\"}`."
+                },
+                {
+                  "disabled": false,
+                  "key": "ID",
+                  "value": "<integer>",
+                  "description": "| Widget identifier ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "XML_ID",
+                  "value": "<string>",
+                  "description": "| Unique record code ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "APP_CODE",
+                  "value": "<string>",
+                  "description": "| Code of the current application ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ACTIVE",
+                  "value": "<string>",
+                  "description": "| Widget activity. Accepts values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| Widget name ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DESCRIPTION",
+                  "value": "<string>",
+                  "description": "| Widget description ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SECTIONS",
+                  "value": "<string>",
+                  "description": "| Code of the section where the widget will be added ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PREVIEW",
+                  "value": "<string>",
+                  "description": "| URL of the widget cover image for the widget selection slider ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "WIDGET_PARAMS",
+                  "value": "<object>",
+                  "description": "| Parameters for the Vue template engine ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "CONTENT",
+                  "value": "<string>",
+                  "description": "| Widget markup using Vue constructs ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "MANIFEST",
+                  "value": "<object>",
+                  "description": "| Widget manifest ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "CREATED_BY_ID",
+                  "value": "<integer>",
+                  "description": "| Identifier of the user who created the record ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "MODIFIED_BY_ID",
+                  "value": "<integer>",
+                  "description": "| Identifier of the user who modified the record ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DATE_CREATE",
+                  "value": "<date>",
+                  "description": "| Creation date ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DATE_MODIFY",
+                  "value": "<date>",
+                  "description": "| Modification date ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SITE_TEMPLATE_ID",
+                  "value": "<string>",
+                  "description": "| Binding of the widget to a specific site template. Only for on-premise Bitrix24! ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d254a5a9-36b3-41a9-9749-4a47287623e6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "landing.repowidget.getlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Array of fields to retrieve the list of widgets ||",
+                        "type": "text/plain"
+                      },
+                      "key": "params",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object for filtering the selected records in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "filter",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object for sorting the selected records in the format `{\"field_1\": \"order_1\", ... \"field_N\": \"order_N\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget identifier ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Unique record code ||",
+                        "type": "text/plain"
+                      },
+                      "key": "XML_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Code of the current application ||",
+                        "type": "text/plain"
+                      },
+                      "key": "APP_CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget activity. Accepts values:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Code of the section where the widget will be added ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SECTIONS",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| URL of the widget cover image for the widget selection slider ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PREVIEW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Parameters for the Vue template engine ||",
+                        "type": "text/plain"
+                      },
+                      "key": "WIDGET_PARAMS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget markup using Vue constructs ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CONTENT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget manifest ||",
+                        "type": "text/plain"
+                      },
+                      "key": "MANIFEST",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user who created the record ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CREATED_BY_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user who modified the record ||",
+                        "type": "text/plain"
+                      },
+                      "key": "MODIFIED_BY_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Creation date ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_CREATE",
+                      "value": "<date>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Modification date ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_MODIFY",
+                      "value": "<date>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Binding of the widget to a specific site template. Only for on-premise Bitrix24! ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SITE_TEMPLATE_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 965,\n  \"next\": 5420,\n  \"time\": {\n    \"start\": 1692.644432082656,\n    \"finish\": 314.3972057743471,\n    \"duration\": 6904.545143797293,\n    \"processing\": 8249.599223622152,\n    \"date_start\": \"1970-05-01T01:50:07.670Z\",\n    \"date_finish\": \"1968-08-18T15:53:41.756Z\",\n    \"operating_reset_at\": 1439,\n    \"operating\": 7582.06527202672\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e2d3980-2208-42bf-a529-2573d1cb1316",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "landing.repowidget.getlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Array of fields to retrieve the list of widgets ||",
+                        "type": "text/plain"
+                      },
+                      "key": "params",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object for filtering the selected records in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "filter",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object for sorting the selected records in the format `{\"field_1\": \"order_1\", ... \"field_N\": \"order_N\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget identifier ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Unique record code ||",
+                        "type": "text/plain"
+                      },
+                      "key": "XML_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Code of the current application ||",
+                        "type": "text/plain"
+                      },
+                      "key": "APP_CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget activity. Accepts values:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Code of the section where the widget will be added ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SECTIONS",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| URL of the widget cover image for the widget selection slider ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PREVIEW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Parameters for the Vue template engine ||",
+                        "type": "text/plain"
+                      },
+                      "key": "WIDGET_PARAMS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget markup using Vue constructs ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CONTENT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget manifest ||",
+                        "type": "text/plain"
+                      },
+                      "key": "MANIFEST",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user who created the record ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CREATED_BY_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user who modified the record ||",
+                        "type": "text/plain"
+                      },
+                      "key": "MODIFIED_BY_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Creation date ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_CREATE",
+                      "value": "<date>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Modification date ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_MODIFY",
+                      "value": "<date>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Binding of the widget to a specific site template. Only for on-premise Bitrix24! ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SITE_TEMPLATE_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "38b2fe9b-66d9-42e9-8da8-7a7b6c212704",
+          "name": "Add Widget to Start Page: the Vibe landing.repowidget.register",
+          "request": {
+            "name": "Add Widget to Start Page: the Vibe landing.repowidget.register",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repowidget.register` adds a widget for the Start page: the Vibe. It returns an error or the `ID` of the added widget. During the addition, a check is performed. If a widget with the code `code` has already been registered previously, its content will be updated. Widgets already placed on the Vibe will be automatically updated in case of content changes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "landing.repowidget.register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "(Required) | Unique code for the widget. It is highly recommended to use a unique prefix for your widgets to avoid the risk of code conflicts with widgets from other developers ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<object>",
+                  "description": "(Required) | Field values for creating the widget ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "rootNode",
+                  "value": "<string>",
+                  "description": "(Required) | Selector for the root element in the markup that will be turned into a Vue component. The root element must be the only element in the passed template; all other markup will be cleared ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "handler",
+                  "value": "<string>",
+                  "description": "(Required) | Address of the external handler to which requests will be sent."
+                },
+                {
+                  "disabled": false,
+                  "key": "demoData",
+                  "value": "<object>",
+                  "description": "(Required) | Demo data for the widget that will be used to showcase the widget in the Vibe templates in Bitrix24 Marketplace."
+                },
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| Widget name ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PREVIEW",
+                  "value": "<string>",
+                  "description": "| URL of the widget cover image for the widget selection slider ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DESCRIPTION",
+                  "value": "<string>",
+                  "description": "| Widget description ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "CONTENT",
+                  "value": "<string>",
+                  "description": "| Widget markup using Vue constructs ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SECTIONS",
+                  "value": "<string>",
+                  "description": "| Code of the section where the widget will be added. List of available sections:"
+                },
+                {
+                  "disabled": false,
+                  "key": "WIDGET_PARAMS",
+                  "value": "<object>",
+                  "description": "| Parameters for the Vue templater. If absent, the block will remain as regular HTML code with `{{}}` ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ACTIVE",
+                  "value": "<string>",
+                  "description": "| Widget activity. Accepts values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "SITE_TEMPLATE_ID",
+                  "value": "<string>",
+                  "description": "| Binding the widget to a specific site template. Only for on-premise Bitrix24! ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "| Array of language phrases used in constructs `{{$Bitrix.Loc.getMessage('W_EMPTY')}}` ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "style",
+                  "value": "<string>",
+                  "description": "| Address of styles for the widget. Styles can also be set inline in the markup via the binding `:style=\"{borderBottom: '1px solid red'}\"` ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bc3133c5-ebbd-48b4-b6df-41220496faa1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "landing.repowidget.register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Unique code for the widget. It is highly recommended to use a unique prefix for your widgets to avoid the risk of code conflicts with widgets from other developers ||",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Field values for creating the widget ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Selector for the root element in the markup that will be turned into a Vue component. The root element must be the only element in the passed template; all other markup will be cleared ||",
+                        "type": "text/plain"
+                      },
+                      "key": "rootNode",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Address of the external handler to which requests will be sent.",
+                        "type": "text/plain"
+                      },
+                      "key": "handler",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Demo data for the widget that will be used to showcase the widget in the Vibe templates in Bitrix24 Marketplace.",
+                        "type": "text/plain"
+                      },
+                      "key": "demoData",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| URL of the widget cover image for the widget selection slider ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PREVIEW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget markup using Vue constructs ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CONTENT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Code of the section where the widget will be added. List of available sections:",
+                        "type": "text/plain"
+                      },
+                      "key": "SECTIONS",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Parameters for the Vue templater. If absent, the block will remain as regular HTML code with `{{}}` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "WIDGET_PARAMS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget activity. Accepts values:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Binding the widget to a specific site template. Only for on-premise Bitrix24! ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SITE_TEMPLATE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Array of language phrases used in constructs `{{$Bitrix.Loc.getMessage('W_EMPTY')}}` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Address of styles for the widget. Styles can also be set inline in the markup via the binding `:style=\"{borderBottom: '1px solid red'}\"` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "style",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 965,\n  \"next\": 5420,\n  \"time\": {\n    \"start\": 1692.644432082656,\n    \"finish\": 314.3972057743471,\n    \"duration\": 6904.545143797293,\n    \"processing\": 8249.599223622152,\n    \"date_start\": \"1970-05-01T01:50:07.670Z\",\n    \"date_finish\": \"1968-08-18T15:53:41.756Z\",\n    \"operating_reset_at\": 1439,\n    \"operating\": 7582.06527202672\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62477c43-e89a-4b65-aa1b-06702a37acac",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "landing.repowidget.register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Unique code for the widget. It is highly recommended to use a unique prefix for your widgets to avoid the risk of code conflicts with widgets from other developers ||",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Field values for creating the widget ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Selector for the root element in the markup that will be turned into a Vue component. The root element must be the only element in the passed template; all other markup will be cleared ||",
+                        "type": "text/plain"
+                      },
+                      "key": "rootNode",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Address of the external handler to which requests will be sent.",
+                        "type": "text/plain"
+                      },
+                      "key": "handler",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Demo data for the widget that will be used to showcase the widget in the Vibe templates in Bitrix24 Marketplace.",
+                        "type": "text/plain"
+                      },
+                      "key": "demoData",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| URL of the widget cover image for the widget selection slider ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PREVIEW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget markup using Vue constructs ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CONTENT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Code of the section where the widget will be added. List of available sections:",
+                        "type": "text/plain"
+                      },
+                      "key": "SECTIONS",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Parameters for the Vue templater. If absent, the block will remain as regular HTML code with `{{}}` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "WIDGET_PARAMS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Widget activity. Accepts values:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Binding the widget to a specific site template. Only for on-premise Bitrix24! ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SITE_TEMPLATE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Array of language phrases used in constructs `{{$Bitrix.Loc.getMessage('W_EMPTY')}}` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Address of styles for the widget. Styles can also be set inline in the markup via the binding `:style=\"{borderBottom: '1px solid red'}\"` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "style",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e781436c-b4ff-4735-ba8d-78b6bcdf84f0",
+          "name": "Unregister Widget for Vibe landing.repowidget.unregister",
+          "request": {
+            "name": "Unregister Widget for Vibe landing.repowidget.unregister",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repowidget.unregister` removes the widget for Start page: the Vibe. On success, it returns `true`; otherwise, it returns `false` or an error with a description.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "landing.repowidget.unregister"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "(Required) | Unique code of the widget to be removed ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4cb3eeea-3c8e-45d6-87aa-c8373bd21dad",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "landing.repowidget.unregister"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Unique code of the widget to be removed ||",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 965,\n  \"next\": 5420,\n  \"time\": {\n    \"start\": 1692.644432082656,\n    \"finish\": 314.3972057743471,\n    \"duration\": 6904.545143797293,\n    \"processing\": 8249.599223622152,\n    \"date_start\": \"1970-05-01T01:50:07.670Z\",\n    \"date_finish\": \"1968-08-18T15:53:41.756Z\",\n    \"operating_reset_at\": 1439,\n    \"operating\": 7582.06527202672\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1715b66-8574-4f68-aad0-7a0627236911",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "landing.repowidget.unregister"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Unique code of the widget to be removed ||",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9274e39a-f9fc-4363-b978-4af4f5d10d32",
+    "name": "Bitrix24 REST BIconnector Vibe API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

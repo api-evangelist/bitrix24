@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitrix24 REST BIconnector Vibe API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "auth",
+      "value": "{{auth}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vibe",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Enable Debug Mode landing.repowidget.debug",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/landing.repowidget.debug",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repowidget.debug` enables debug mode for all widgets of the current application. In this case, the vue application will report more errors in the js console for developer convenience. By default, the mode is disabled."
+        },
+        {
+          "info": {
+            "name": "Get the list of widgets landing.repowidget.getlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/landing.repowidget.getlist",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repowidget.getlist` returns a list of widgets for the current application, filtered by the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Add Widget to Start Page: the Vibe landing.repowidget.register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/landing.repowidget.register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repowidget.register` adds a widget for the Start page: the Vibe. It returns an error or the `ID` of the added widget. During the addition, a check is performed. If a widget with the code `code` has already been registered previously, its content will be updated. Widget"
+        },
+        {
+          "info": {
+            "name": "Unregister Widget for Vibe landing.repowidget.unregister",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/landing.repowidget.unregister",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repowidget.unregister` removes the widget for Start page: the Vibe. On success, it returns `true`; otherwise, it returns `false` or an error with a description."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,467 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitrix24 REST BIconnector Business Processes API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "auth",
+      "value": "{{auth}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Business Processes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a New Action bizproc.activity.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.activity.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a new action for use in workflows. The method works only in the context of an [application](../../../settings/app-installation/index.md). Each document generates its own set of field types. For example, in CRM, there is a field of type Address `UF:address`. To use this"
+        },
+        {
+          "info": {
+            "name": "Delete Action bizproc.activity.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.activity.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes an action for workflows that was added by the application. It only works in the context of the [application](../../../settings/app-installation/index.md). When the application is deleted or updated, the associated actions are removed from the list of actions in the "
+        },
+        {
+          "info": {
+            "name": "Get a List of Application Actions bizproc.activity.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.activity.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method retrieves a list of actions set by the application. It only works in the context of the [application](../../../settings/app-installation/index.md)."
+        },
+        {
+          "info": {
+            "name": "Write Information to the Business Process Log bizproc.activity.log",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.activity.log",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method logs information into the business process log. Event logging must be enabled in the business process template."
+        },
+        {
+          "info": {
+            "name": "Update Action bizproc.activity.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.activity.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates a business process action added by the application. It works only in the context of the [application](../../../settings/app-installation/index.md)."
+        },
+        {
+          "info": {
+            "name": "Return Parameters to Action or Automation Rule bizproc.event.send",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.event.send",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns the output parameters to the Automation rule or action that were specified during the registration or update of the Automation rule or action."
+        },
+        {
+          "info": {
+            "name": "Register a New Automation Rule bizproc.robot.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.robot.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `bizproc.robot.add` registers a new Automation rule. It only works in the context of an [application](../../../settings/app-installation/index.md)."
+        },
+        {
+          "info": {
+            "name": "Delete Registered Robot bizproc.robot.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.robot.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method removes a robot registered by the application. It only works in the context of the [application](../../../settings/app-installation/index.md). When the application is deleted or updated, the associated robots are removed from the list of robots. If the robot is in use, it i"
+        },
+        {
+          "info": {
+            "name": "Get a list of registered application robots bizproc.robot.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.robot.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method returns a list of robots registered by the application. It works only in the context of the [application](../../../settings/app-installation/index.md). No parameters."
+        },
+        {
+          "info": {
+            "name": "Update Fields of the Automation Rule bizproc.robot.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.robot.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the fields of the Automation Rule registered by the application. It only works in the context of the [application](../../../settings/app-installation/index.md)."
+        },
+        {
+          "info": {
+            "name": "Complete a business process task bizproc.task.complete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.task.complete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method completes a business process task: - Document approval - Document acknowledgment"
+        },
+        {
+          "info": {
+            "name": "Delegate a workflow task bizproc.task.delegate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.task.delegate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method delegates a workflow task. You can only delegate your own task. - [Actions: Tasks](https://helpdesk.bitrix24.com/open/11466058/)"
+        },
+        {
+          "info": {
+            "name": "Get a List of Workflow Tasks bizproc.task.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.task.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. The method `bizproc.task.list` retrieves a list of workflow tasks. A portal administrator can request all tasks or tasks of any user. A regular user can only request their own tasks or those of their subordinates. To request their own tasks, the `USER_ID` filter does not need to be specifie"
+        },
+        {
+          "info": {
+            "name": "Get a list of running workflows bizproc.workflow.instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.workflow.instances",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves a list of running workflows. There is an old method `bizproc.workflow.instance.list` — an alias for the method `bizproc.workflow.instances`. It accepts the same parameters and returns the same results. Support for `bizproc.workflow.instance.list` is not guaranteed in"
+        },
+        {
+          "info": {
+            "name": "Delete Running Process bizproc.workflow.kill",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.workflow.kill",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes the running workflow along with all process data."
+        },
+        {
+          "info": {
+            "name": "Start Business Process bizproc.workflow.start",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.workflow.start",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `bizproc.workflow.start` initiates a new business process. You can only start a business process using REST on paid plans, demo licenses, and NFR licenses."
+        },
+        {
+          "info": {
+            "name": "Add Business Process Template bizproc.workflow.template.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.workflow.template.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a business process template from a file. The business process template must be pre-configured. Export the completed template [to a file](https://helpdesk.bitrix24.com/open/8605753/) with the `.bpt` extension. The resulting file can be added as a template to the desired"
+        },
+        {
+          "info": {
+            "name": "Delete Business Process Template bizproc.workflow.template.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.workflow.template.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a business process template. It allows you to remove templates that were created using the method [bizproc.workflow.template.add](./bizproc-workflow-template-add.md). These templates are tied to the application and can only be deleted in the context of the same [app"
+        },
+        {
+          "info": {
+            "name": "Get the list of templates bizproc.workflow.template.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.workflow.template.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves a list of business process templates."
+        },
+        {
+          "info": {
+            "name": "Update Business Process Template bizproc.workflow.template.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.workflow.template.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates a business process template. It allows you to update templates that were created using the [bizproc.workflow.template.add](./bizproc-workflow-template-add.md) method. These templates are tied to the application and can only be updated in the context of the same [app"
+        },
+        {
+          "info": {
+            "name": "Stop Active Workflow bizproc.workflow.terminate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/bizproc.workflow.terminate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method stops the specified workflow. All data related to the workflow will be preserved."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

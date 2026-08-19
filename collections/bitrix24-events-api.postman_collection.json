@@ -1,0 +1,1938 @@
+{
+  "item": [
+    {
+      "id": "d85765c6-3fff-40f1-a2e1-e6028ee923f8",
+      "name": "Events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "12ea11c7-3f86-4dd2-bf96-ce0db8590b76",
+          "name": "Register a new event handler event.bind",
+          "request": {
+            "name": "Register a new event handler event.bind",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.bind` registers a new event handler. The method works only in the context of [application](../../settings/app-installation/index.md) authorization. It can operate both under a user with portal administration rights and under a regular user. The method for a user without administrator rights is available with limitations: 1. Offline events are not available; attempting to set them will raise an exception.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "event.bind"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "event",
+                  "value": "<string>",
+                  "description": "(Required) | Event name ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "handler",
+                  "value": "<string>",
+                  "description": "(Required) | Link to the event handler ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "auth_type",
+                  "value": "<integer>",
+                  "description": "| User ID under which the event handler is authorized. By default, the authorization of the user whose actions triggered the event will be used ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "event_type",
+                  "value": "<string>",
+                  "description": "| Values: `online\\|offline`. By default, `event_type=online`, and the method's behavior does not change. If `event_type=offline` is called, the method works with offline events ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "auth_connector",
+                  "value": "<string>",
+                  "description": "| Source key. This parameter is intended for offline events. It allows excluding false event triggers ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "options",
+                  "value": "<string>",
+                  "description": "| Additional settings for the registered event, if any ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6d877b83-eb7b-4ecb-9996-c47f623a8b55",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.bind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Event name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "event",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Link to the event handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "handler",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User ID under which the event handler is authorized. By default, the authorization of the user whose actions triggered the event will be used ||",
+                        "type": "text/plain"
+                      },
+                      "key": "auth_type",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Values: `online\\|offline`. By default, `event_type=online`, and the method's behavior does not change. If `event_type=offline` is called, the method works with offline events ||",
+                        "type": "text/plain"
+                      },
+                      "key": "event_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Source key. This parameter is intended for offline events. It allows excluding false event triggers ||",
+                        "type": "text/plain"
+                      },
+                      "key": "auth_connector",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Additional settings for the registered event, if any ||",
+                        "type": "text/plain"
+                      },
+                      "key": "options",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9813,\n  \"next\": 1774,\n  \"time\": {\n    \"start\": 4031.4485390457776,\n    \"finish\": 4942.267512588447,\n    \"duration\": 1863.5025047329957,\n    \"processing\": 8175.775295540883,\n    \"date_start\": \"1969-09-29T01:20:52.981Z\",\n    \"date_finish\": \"1951-05-17T13:08:44.763Z\",\n    \"operating_reset_at\": 8731,\n    \"operating\": 5929.241772137819\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68a8782f-d54d-4fca-b2ba-3a38688a84fe",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.bind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Event name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "event",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Link to the event handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "handler",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User ID under which the event handler is authorized. By default, the authorization of the user whose actions triggered the event will be used ||",
+                        "type": "text/plain"
+                      },
+                      "key": "auth_type",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Values: `online\\|offline`. By default, `event_type=online`, and the method's behavior does not change. If `event_type=offline` is called, the method works with offline events ||",
+                        "type": "text/plain"
+                      },
+                      "key": "event_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Source key. This parameter is intended for offline events. It allows excluding false event triggers ||",
+                        "type": "text/plain"
+                      },
+                      "key": "auth_connector",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Additional settings for the registered event, if any ||",
+                        "type": "text/plain"
+                      },
+                      "key": "options",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79067d06-1616-459e-8260-cae66df1849f",
+          "name": "Get a List of Registered Event Handlers event.get",
+          "request": {
+            "name": "Get a List of Registered Event Handlers event.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `event.get` method allows you to retrieve a list of registered event handlers. The method works only in the context of authorizing the [application](../../settings/app-installation/index.md). No parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "event.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<object>",
+                  "description": "| Root element of the response ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "time",
+                  "value": "<string>",
+                  "description": "| Information about the request execution time ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c1ef74e3-7e12-453d-82de-565a9e7cbf75",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Root element of the response ||",
+                        "type": "text/plain"
+                      },
+                      "key": "result",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Information about the request execution time ||",
+                        "type": "text/plain"
+                      },
+                      "key": "time",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9813,\n  \"next\": 1774,\n  \"time\": {\n    \"start\": 4031.4485390457776,\n    \"finish\": 4942.267512588447,\n    \"duration\": 1863.5025047329957,\n    \"processing\": 8175.775295540883,\n    \"date_start\": \"1969-09-29T01:20:52.981Z\",\n    \"date_finish\": \"1951-05-17T13:08:44.763Z\",\n    \"operating_reset_at\": 8731,\n    \"operating\": 5929.241772137819\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5115a4e4-35f5-4681-84d9-c9eb3c4209e4",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Root element of the response ||",
+                        "type": "text/plain"
+                      },
+                      "key": "result",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Information about the request execution time ||",
+                        "type": "text/plain"
+                      },
+                      "key": "time",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e41eaf50-363c-4bdd-a5f4-4896ffb0cc38",
+          "name": "Clear records in the offline event queue event.offline.clear",
+          "request": {
+            "name": "Clear records in the offline event queue event.offline.clear",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.clear` clears records in the offline event queue. The availability of offline events can be checked through the method [feature.get](../common/system/feature-get.md). The method works only in the context of application authorization [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "event.offline.clear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "process_id",
+                  "value": "<string>",
+                  "description": "(Required) | Identifier of the process that handles the records ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9f2ca4e3-d69a-4056-9e91-19185d8ef77e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.offline.clear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the process that handles the records ||",
+                        "type": "text/plain"
+                      },
+                      "key": "process_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9813,\n  \"next\": 1774,\n  \"time\": {\n    \"start\": 4031.4485390457776,\n    \"finish\": 4942.267512588447,\n    \"duration\": 1863.5025047329957,\n    \"processing\": 8175.775295540883,\n    \"date_start\": \"1969-09-29T01:20:52.981Z\",\n    \"date_finish\": \"1951-05-17T13:08:44.763Z\",\n    \"operating_reset_at\": 8731,\n    \"operating\": 5929.241772137819\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a62ebbef-1b0e-4687-b4be-cc0797854929",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.offline.clear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the process that handles the records ||",
+                        "type": "text/plain"
+                      },
+                      "key": "process_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0528b019-e3d3-46e0-af3f-1ed55478492e",
+          "name": "Register Errors for Processing Offline Events event.offline.error",
+          "request": {
+            "name": "Register Errors for Processing Offline Events event.offline.error",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.error` saves a record in the database with an error mark when using offline events. The availability of offline events can be checked through the method [feature.get](../common/system/feature-get.md). The method works only in the context of authorizing the [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "event.offline.error"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "process_id",
+                  "value": "<string>",
+                  "description": "(Required) | Identifier of the process that is handling the records ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "acec42d2-9ce6-4ff0-9f2a-96cb70d1bf9f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.offline.error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the process that is handling the records ||",
+                        "type": "text/plain"
+                      },
+                      "key": "process_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9813,\n  \"next\": 1774,\n  \"time\": {\n    \"start\": 4031.4485390457776,\n    \"finish\": 4942.267512588447,\n    \"duration\": 1863.5025047329957,\n    \"processing\": 8175.775295540883,\n    \"date_start\": \"1969-09-29T01:20:52.981Z\",\n    \"date_finish\": \"1951-05-17T13:08:44.763Z\",\n    \"operating_reset_at\": 8731,\n    \"operating\": 5929.241772137819\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a440e02-eb86-4821-9005-7b7846e76390",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.offline.error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the process that is handling the records ||",
+                        "type": "text/plain"
+                      },
+                      "key": "process_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f459b1f-bd5a-48dd-9506-2fc17c49da84",
+          "name": "Get a List of Offline Events with event.offline.get",
+          "request": {
+            "name": "Get a List of Offline Events with event.offline.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.get` returns the first queued offline events to the application according to the filter settings. The availability of offline events can be checked using the [feature.get](../common/system/feature-get.md) method. This method works only in the context of [application](../../settings/app-installation/index.md) authorization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "event.offline.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "| Number of records to select. Default is 50 ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "clear",
+                  "value": "<integer>",
+                  "description": "| Values: `0|1` — whether to delete the selected records. Default is `1` ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "process_id",
+                  "value": "<string>",
+                  "description": "| Process identifier. Used if you need to re-select any unprocessed records from the current process ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "auth_connector",
+                  "value": "<string>",
+                  "description": "| Source key. Used if the `auth_connector` value was specified in the event.bind method ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "error",
+                  "value": "<integer>",
+                  "description": "| Values: `0|1` — whether to return erroneous records. Default is `0` ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6bf7ca4b-3a43-4010-b1a3-5243e939d363",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.offline.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Number of records to select. Default is 50 ||",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Values: `0|1` — whether to delete the selected records. Default is `1` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "clear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Process identifier. Used if you need to re-select any unprocessed records from the current process ||",
+                        "type": "text/plain"
+                      },
+                      "key": "process_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Source key. Used if the `auth_connector` value was specified in the event.bind method ||",
+                        "type": "text/plain"
+                      },
+                      "key": "auth_connector",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Values: `0|1` — whether to return erroneous records. Default is `0` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "error",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9813,\n  \"next\": 1774,\n  \"time\": {\n    \"start\": 4031.4485390457776,\n    \"finish\": 4942.267512588447,\n    \"duration\": 1863.5025047329957,\n    \"processing\": 8175.775295540883,\n    \"date_start\": \"1969-09-29T01:20:52.981Z\",\n    \"date_finish\": \"1951-05-17T13:08:44.763Z\",\n    \"operating_reset_at\": 8731,\n    \"operating\": 5929.241772137819\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e00e3bb-57f4-4c10-8ccd-d47162aa9951",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.offline.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Number of records to select. Default is 50 ||",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Values: `0|1` — whether to delete the selected records. Default is `1` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "clear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Process identifier. Used if you need to re-select any unprocessed records from the current process ||",
+                        "type": "text/plain"
+                      },
+                      "key": "process_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Source key. Used if the `auth_connector` value was specified in the event.bind method ||",
+                        "type": "text/plain"
+                      },
+                      "key": "auth_connector",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Values: `0|1` — whether to return erroneous records. Default is `0` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "error",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ad029f9-8f96-4f3f-9304-dd27b2fa8676",
+          "name": "Get a list of offline events event.offline.list",
+          "request": {
+            "name": "Get a list of offline events event.offline.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.list` is used to read the current queue without making changes to its state, unlike [event.offline.get](./event-offline-get.md). The availability of offline events can be checked through the [feature.get](../common/system/feature-get.md) method. The method works only in the context of application authorization [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "event.offline.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>",
+                  "description": "| This parameter is used to manage pagination."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8e960a14-48cb-42d9-84d5-4c96def050ac",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.offline.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| This parameter is used to manage pagination.",
+                        "type": "text/plain"
+                      },
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9813,\n  \"next\": 1774,\n  \"time\": {\n    \"start\": 4031.4485390457776,\n    \"finish\": 4942.267512588447,\n    \"duration\": 1863.5025047329957,\n    \"processing\": 8175.775295540883,\n    \"date_start\": \"1969-09-29T01:20:52.981Z\",\n    \"date_finish\": \"1951-05-17T13:08:44.763Z\",\n    \"operating_reset_at\": 8731,\n    \"operating\": 5929.241772137819\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "898c4d23-b8c3-4d8e-ba4e-045ba4625925",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.offline.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| This parameter is used to manage pagination.",
+                        "type": "text/plain"
+                      },
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c84b4ea-0aea-4bad-9d32-566a5b2db189",
+          "name": "Unbind Registered Event Handler event.unbind",
+          "request": {
+            "name": "Unbind Registered Event Handler event.unbind",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `event.unbind` method cancels a registered event handler. This method works only in the context of [application](../../settings/app-installation/index.md) authorization and only when authorized under a user with administrative rights to the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "event.unbind"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "event",
+                  "value": "<string>",
+                  "description": "(Required) | Event name ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "handler",
+                  "value": "<string>",
+                  "description": "(Required) | Link to the event handler ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "auth_type",
+                  "value": "<integer>",
+                  "description": "| User identifier under which the event handler is authorized."
+                },
+                {
+                  "disabled": false,
+                  "key": "event_type",
+                  "value": "<string>",
+                  "description": "| Values: `online\\|offline`. By default, `event_type=online`, and the method's behavior remains unchanged. If `event_type=offline` is called, the method works with offline events ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5101b97e-955f-4db6-9d9e-e39da84c1df8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.unbind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Event name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "event",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Link to the event handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "handler",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier under which the event handler is authorized.",
+                        "type": "text/plain"
+                      },
+                      "key": "auth_type",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Values: `online\\|offline`. By default, `event_type=online`, and the method's behavior remains unchanged. If `event_type=offline` is called, the method works with offline events ||",
+                        "type": "text/plain"
+                      },
+                      "key": "event_type",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9813,\n  \"next\": 1774,\n  \"time\": {\n    \"start\": 4031.4485390457776,\n    \"finish\": 4942.267512588447,\n    \"duration\": 1863.5025047329957,\n    \"processing\": 8175.775295540883,\n    \"date_start\": \"1969-09-29T01:20:52.981Z\",\n    \"date_finish\": \"1951-05-17T13:08:44.763Z\",\n    \"operating_reset_at\": 8731,\n    \"operating\": 5929.241772137819\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6219e03-e400-4c2e-b154-9088290b54b1",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event.unbind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Event name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "event",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Link to the event handler ||",
+                        "type": "text/plain"
+                      },
+                      "key": "handler",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier under which the event handler is authorized.",
+                        "type": "text/plain"
+                      },
+                      "key": "auth_type",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Values: `online\\|offline`. By default, `event_type=online`, and the method's behavior remains unchanged. If `event_type=offline` is called, the method works with offline events ||",
+                        "type": "text/plain"
+                      },
+                      "key": "event_type",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d7ded38-8cd1-4dfd-9d07-716a8b80903b",
+          "name": "Get a list of available events",
+          "request": {
+            "name": "Get a list of available events",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `events` method returns a comprehensive list of available events. The method works only in the context of authorizing the [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "SCOPE",
+                  "value": "<string>",
+                  "description": "| The method will return events belonging to the specified permission ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "FULL",
+                  "value": "<boolean>",
+                  "description": "| The method will return the complete list of events. This parameter will be ignored if the `SCOPE` parameter is provided ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e7970437-4b12-4005-b6f0-1eee0f16b93d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The method will return events belonging to the specified permission ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SCOPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The method will return the complete list of events. This parameter will be ignored if the `SCOPE` parameter is provided ||",
+                        "type": "text/plain"
+                      },
+                      "key": "FULL",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9813,\n  \"next\": 1774,\n  \"time\": {\n    \"start\": 4031.4485390457776,\n    \"finish\": 4942.267512588447,\n    \"duration\": 1863.5025047329957,\n    \"processing\": 8175.775295540883,\n    \"date_start\": \"1969-09-29T01:20:52.981Z\",\n    \"date_finish\": \"1951-05-17T13:08:44.763Z\",\n    \"operating_reset_at\": 8731,\n    \"operating\": 5929.241772137819\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa5ad087-7695-4d8c-8660-afda3adfcd83",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The method will return events belonging to the specified permission ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SCOPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The method will return the complete list of events. This parameter will be ignored if the `SCOPE` parameter is provided ||",
+                        "type": "text/plain"
+                      },
+                      "key": "FULL",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "186437e3-2db2-44b0-b1a1-ad9524f96e34",
+    "name": "Bitrix24 REST BIconnector Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

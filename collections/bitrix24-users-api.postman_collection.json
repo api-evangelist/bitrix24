@@ -1,0 +1,2514 @@
+{
+  "item": [
+    {
+      "id": "283f1cf4-b226-4763-909c-e01ff7e7e350",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "08c06e11-2d54-41f8-be85-0e4afb331c66",
+          "name": "Get Information About the Current User user.current",
+          "request": {
+            "name": "Get Information About the Current User user.current",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.current` retrieves information about the [current](*current_key*) user. The list of user fields in Bitrix24 that will be obtained as a result of executing the method depends on the application's/webhook's scope. Details about user data access can be found in the [article](index.md). The method has no parameters. However, by making a REST request using data from `$_REQUEST` to the domain `DOMAIN` and adding `AUTH_ID` to the request for access to Bitrix24, you can find out which user opened the page in the context of Bitrix24.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user.current"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<object>",
+                  "description": "| The root element of the response that contains information about the user ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "time",
+                  "value": "<string>",
+                  "description": "| Information about the request execution time ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6d1bd9b3-77fd-4118-bbb2-3ac0c98396c6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The root element of the response that contains information about the user ||",
+                        "type": "text/plain"
+                      },
+                      "key": "result",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Information about the request execution time ||",
+                        "type": "text/plain"
+                      },
+                      "key": "time",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 2916,\n  \"next\": 1591,\n  \"time\": {\n    \"start\": 1195.2319271501976,\n    \"finish\": 9875.427819842595,\n    \"duration\": 4932.517890610887,\n    \"processing\": 5851.198592785213,\n    \"date_start\": \"1997-07-30T07:42:49.291Z\",\n    \"date_finish\": \"2014-11-09T15:07:17.924Z\",\n    \"operating_reset_at\": 2293,\n    \"operating\": 732.6033457084847\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b53a391-7708-45ef-970b-383600fce5dc",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The root element of the response that contains information about the user ||",
+                        "type": "text/plain"
+                      },
+                      "key": "result",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Information about the request execution time ||",
+                        "type": "text/plain"
+                      },
+                      "key": "time",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8a3f961-15b4-44b4-b089-0a278a943a79",
+          "name": "Get User Fields user.fields",
+          "request": {
+            "name": "Get User Fields user.fields",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `user.fields` method allows you to retrieve a list of user field names. The method returns a standard list of fields, and the use of custom fields is not supported. The list of user fields in Bitrix24 that will be obtained as a result of executing the method depends on the application's/webhook's scope. Details about accessing user data can be found in the [article](index.md). Without parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user.fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<object>",
+                  "description": "| Root element of the response containing user fields ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "time",
+                  "value": "<string>",
+                  "description": "| Information about the request execution time ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "09240381-3466-4169-8107-fcfe2fe3be85",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Root element of the response containing user fields ||",
+                        "type": "text/plain"
+                      },
+                      "key": "result",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Information about the request execution time ||",
+                        "type": "text/plain"
+                      },
+                      "key": "time",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 2916,\n  \"next\": 1591,\n  \"time\": {\n    \"start\": 1195.2319271501976,\n    \"finish\": 9875.427819842595,\n    \"duration\": 4932.517890610887,\n    \"processing\": 5851.198592785213,\n    \"date_start\": \"1997-07-30T07:42:49.291Z\",\n    \"date_finish\": \"2014-11-09T15:07:17.924Z\",\n    \"operating_reset_at\": 2293,\n    \"operating\": 732.6033457084847\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c9a7d1d-d74b-4fb5-8000-88023adef1d0",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Root element of the response containing user fields ||",
+                        "type": "text/plain"
+                      },
+                      "key": "result",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Information about the request execution time ||",
+                        "type": "text/plain"
+                      },
+                      "key": "time",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f4a6f02-0e05-4f7f-8b63-0b55705ef1de",
+          "name": "Get a List of Users with Search by Personal Data user.search",
+          "request": {
+            "name": "Get a List of Users with Search by Personal Data user.search",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `user.search` method allows you to retrieve a list of users with accelerated search based on personal data (first name, last name, patronymic, department name, job title). It operates in two modes: quickly using **Fulltext Index** and a slower option through [right LIKE](*key_right LIKE) (support is determined automatically). The list of user fields in Bitrix24 that will be returned as a result of executing the method depends on the application's/webhook's scope. Details about accessing user data can be found in the [article](index.md). The method inherits the behavior of the [user.get](./user-get.md) method, and all parameters from this function are also available.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user.search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "FILTER",
+                  "value": "<string>",
+                  "description": "| The array can contain fields in any combination:"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "| The field by which the results are sorted. Sorting works on all fields from user.add ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "| Sorting direction:"
+                },
+                {
+                  "disabled": false,
+                  "key": "ADMIN_MODE",
+                  "value": "<boolean>",
+                  "description": "| Key for operation in administrator mode. Used to retrieve data about any users ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>",
+                  "description": "| This parameter is used for managing pagination."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2e66ec99-5c43-44c1-b39c-aecbb68ae3f5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The array can contain fields in any combination:",
+                        "type": "text/plain"
+                      },
+                      "key": "FILTER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The field by which the results are sorted. Sorting works on all fields from user.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting direction:",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Key for operation in administrator mode. Used to retrieve data about any users ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ADMIN_MODE",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| This parameter is used for managing pagination.",
+                        "type": "text/plain"
+                      },
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 2916,\n  \"next\": 1591,\n  \"time\": {\n    \"start\": 1195.2319271501976,\n    \"finish\": 9875.427819842595,\n    \"duration\": 4932.517890610887,\n    \"processing\": 5851.198592785213,\n    \"date_start\": \"1997-07-30T07:42:49.291Z\",\n    \"date_finish\": \"2014-11-09T15:07:17.924Z\",\n    \"operating_reset_at\": 2293,\n    \"operating\": 732.6033457084847\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e18fc91c-343c-46a5-b14a-a723084cb47b",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The array can contain fields in any combination:",
+                        "type": "text/plain"
+                      },
+                      "key": "FILTER",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The field by which the results are sorted. Sorting works on all fields from user.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting direction:",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Key for operation in administrator mode. Used to retrieve data about any users ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ADMIN_MODE",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| This parameter is used for managing pagination.",
+                        "type": "text/plain"
+                      },
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "075b2a69-6aa1-4016-aa17-a0e99775f03e",
+          "name": "Add Custom Field user.userfield.add",
+          "request": {
+            "name": "Add Custom Field user.userfield.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.userfield.add` adds a custom field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user.userfield.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<object>",
+                  "description": "(Required) | Values of the fields to add a new custom field ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "FIELD_NAME",
+                  "value": "<string>",
+                  "description": "(Required) | Name (code) of the field. Prefixed with `UF_USR_`"
+                },
+                {
+                  "disabled": false,
+                  "key": "USER_TYPE_ID",
+                  "value": "<string>",
+                  "description": "(Required) | Type of the custom field. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "XML_ID",
+                  "value": "<string>",
+                  "description": "| External code ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<integer>",
+                  "description": "| Sorting order ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "MULTIPLE",
+                  "value": "<boolean>",
+                  "description": "| Is the field multiple. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "MANDATORY",
+                  "value": "<boolean>",
+                  "description": "| Is the custom field mandatory. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "SHOW_FILTER",
+                  "value": "<boolean>",
+                  "description": "| Show the field in the list filter. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "SHOW_IN_LIST",
+                  "value": "<boolean>",
+                  "description": "| Show the field in the list. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "SETTINGS",
+                  "value": "<object>",
+                  "description": "| Object in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}` for passing additional settings for custom fields. Settings are described below ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "EDIT_FORM_LABEL",
+                  "value": "<string>",
+                  "description": "| Label in the edit form. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "LIST_COLUMN_LABEL",
+                  "value": "<string>",
+                  "description": "| Column header in the list. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "LIST_FILTER_LABEL",
+                  "value": "<string>",
+                  "description": "| Filter header in the list. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ERROR_MESSAGE",
+                  "value": "<string>",
+                  "description": "| Error message for invalid input. You can pass a string or an object with texts by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "HELP_MESSAGE",
+                  "value": "<string>",
+                  "description": "| Help text for the field. You can pass a string or an object with texts by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "LABEL",
+                  "value": "<string>",
+                  "description": "| Default name of the custom field."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6b9b169c-6dab-4f97-8b80-a20d10306d8b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.userfield.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Values of the fields to add a new custom field ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Name (code) of the field. Prefixed with `UF_USR_`",
+                        "type": "text/plain"
+                      },
+                      "key": "FIELD_NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Type of the custom field. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_TYPE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| External code ||",
+                        "type": "text/plain"
+                      },
+                      "key": "XML_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting order ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Is the field multiple. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "MULTIPLE",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Is the custom field mandatory. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "MANDATORY",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Show the field in the list filter. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "SHOW_FILTER",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Show the field in the list. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "SHOW_IN_LIST",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}` for passing additional settings for custom fields. Settings are described below ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SETTINGS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Label in the edit form. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "EDIT_FORM_LABEL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Column header in the list. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LIST_COLUMN_LABEL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter header in the list. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LIST_FILTER_LABEL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Error message for invalid input. You can pass a string or an object with texts by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ERROR_MESSAGE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Help text for the field. You can pass a string or an object with texts by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "HELP_MESSAGE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Default name of the custom field.",
+                        "type": "text/plain"
+                      },
+                      "key": "LABEL",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 2916,\n  \"next\": 1591,\n  \"time\": {\n    \"start\": 1195.2319271501976,\n    \"finish\": 9875.427819842595,\n    \"duration\": 4932.517890610887,\n    \"processing\": 5851.198592785213,\n    \"date_start\": \"1997-07-30T07:42:49.291Z\",\n    \"date_finish\": \"2014-11-09T15:07:17.924Z\",\n    \"operating_reset_at\": 2293,\n    \"operating\": 732.6033457084847\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "890a339f-c242-4ae0-b4a4-4da714791f32",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.userfield.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Values of the fields to add a new custom field ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Name (code) of the field. Prefixed with `UF_USR_`",
+                        "type": "text/plain"
+                      },
+                      "key": "FIELD_NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Type of the custom field. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_TYPE_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| External code ||",
+                        "type": "text/plain"
+                      },
+                      "key": "XML_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting order ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Is the field multiple. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "MULTIPLE",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Is the custom field mandatory. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "MANDATORY",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Show the field in the list filter. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "SHOW_FILTER",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Show the field in the list. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "SHOW_IN_LIST",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}` for passing additional settings for custom fields. Settings are described below ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SETTINGS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Label in the edit form. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "EDIT_FORM_LABEL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Column header in the list. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LIST_COLUMN_LABEL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter header in the list. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LIST_FILTER_LABEL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Error message for invalid input. You can pass a string or an object with texts by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ERROR_MESSAGE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Help text for the field. You can pass a string or an object with texts by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "HELP_MESSAGE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Default name of the custom field.",
+                        "type": "text/plain"
+                      },
+                      "key": "LABEL",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4666182-db37-4e7b-8cc4-ff3c6dbe42b6",
+          "name": "Delete User Field user.userfield.delete",
+          "request": {
+            "name": "Delete User Field user.userfield.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.userfield.delete` removes a user field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user.userfield.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the user field."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e2a0ef88-ed76-45ab-b3ec-3acefcec2a13",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.userfield.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the user field.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 2916,\n  \"next\": 1591,\n  \"time\": {\n    \"start\": 1195.2319271501976,\n    \"finish\": 9875.427819842595,\n    \"duration\": 4932.517890610887,\n    \"processing\": 5851.198592785213,\n    \"date_start\": \"1997-07-30T07:42:49.291Z\",\n    \"date_finish\": \"2014-11-09T15:07:17.924Z\",\n    \"operating_reset_at\": 2293,\n    \"operating\": 732.6033457084847\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b6b9bd7-92cd-41fe-9b7f-76b3b6439dd6",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.userfield.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the user field.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a77a1ce2-2e04-4668-afb3-c5fc7825e5b7",
+          "name": "Get File from User Field user.userfield.file.get",
+          "request": {
+            "name": "Get File from User Field user.userfield.file.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The page is hidden from the menu, and the method is not operational. Some data may be missing here — we will complete it shortly. - It may be necessary to list parameters or fields in a table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user.userfield.file.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bd790cfe-31bd-45fe-9224-fe21c1a86143",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.userfield.file.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 2916,\n  \"next\": 1591,\n  \"time\": {\n    \"start\": 1195.2319271501976,\n    \"finish\": 9875.427819842595,\n    \"duration\": 4932.517890610887,\n    \"processing\": 5851.198592785213,\n    \"date_start\": \"1997-07-30T07:42:49.291Z\",\n    \"date_finish\": \"2014-11-09T15:07:17.924Z\",\n    \"operating_reset_at\": 2293,\n    \"operating\": 732.6033457084847\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d91a168d-49be-46c9-a0ae-b17e2617d309",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.userfield.file.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93675532-41aa-43ae-9f47-c6a174f7b88d",
+          "name": "Get a list of custom fields user.userfield.list",
+          "request": {
+            "name": "Get a list of custom fields user.userfield.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.userfield.list` retrieves a list of custom fields based on the filter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user.userfield.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "\\|`array` | Sorting of the selected custom fields in the format `{\"field_1\": \"order_1\", ... \"field_N\": \"order_N\"}`."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8ba31f86-dda0-4b71-9c62-f73f85fe4e30",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.userfield.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "\\|`array` | Sorting of the selected custom fields in the format `{\"field_1\": \"order_1\", ... \"field_N\": \"order_N\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 2916,\n  \"next\": 1591,\n  \"time\": {\n    \"start\": 1195.2319271501976,\n    \"finish\": 9875.427819842595,\n    \"duration\": 4932.517890610887,\n    \"processing\": 5851.198592785213,\n    \"date_start\": \"1997-07-30T07:42:49.291Z\",\n    \"date_finish\": \"2014-11-09T15:07:17.924Z\",\n    \"operating_reset_at\": 2293,\n    \"operating\": 732.6033457084847\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "600f6994-1259-44cd-aacd-42470657c545",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.userfield.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "\\|`array` | Sorting of the selected custom fields in the format `{\"field_1\": \"order_1\", ... \"field_N\": \"order_N\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c61046cf-7d5f-44a6-99c4-8d9295f61de7",
+          "name": "Update User Field user.userfield.update",
+          "request": {
+            "name": "Update User Field user.userfield.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.userfield.update` updates a user field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user.userfield.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the user field."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<object>",
+                  "description": "| Values of the fields to update the user field ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "XML_ID",
+                  "value": "<string>",
+                  "description": "| External code ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<integer>",
+                  "description": "| Sort order ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "MANDATORY",
+                  "value": "<boolean>",
+                  "description": "| Whether the user field is mandatory. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "SHOW_FILTER",
+                  "value": "<boolean>",
+                  "description": "| Whether to show the field in the list filter. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "SHOW_IN_LIST",
+                  "value": "<boolean>",
+                  "description": "| Whether to show the field in the list. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "SETTINGS",
+                  "value": "<object>",
+                  "description": "| An object in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}` for passing additional settings for user fields. Settings are described below ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "EDIT_FORM_LABEL",
+                  "value": "<string>",
+                  "description": "| Label in the edit form. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "LIST_COLUMN_LABEL",
+                  "value": "<string>",
+                  "description": "| Column header in the list. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "LIST_FILTER_LABEL",
+                  "value": "<string>",
+                  "description": "| Filter header in the list. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ERROR_MESSAGE",
+                  "value": "<string>",
+                  "description": "| Error message for invalid input. You can pass a string or an object with texts by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "HELP_MESSAGE",
+                  "value": "<string>",
+                  "description": "| Help text for the field. You can pass a string or an object with texts by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "LABEL",
+                  "value": "<string>",
+                  "description": "| Default name of the user field."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6ec6ddb1-4e4b-425d-9fcd-b549cfae7a82",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.userfield.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the user field.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Values of the fields to update the user field ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| External code ||",
+                        "type": "text/plain"
+                      },
+                      "key": "XML_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sort order ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Whether the user field is mandatory. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "MANDATORY",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Whether to show the field in the list filter. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "SHOW_FILTER",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Whether to show the field in the list. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "SHOW_IN_LIST",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| An object in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}` for passing additional settings for user fields. Settings are described below ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SETTINGS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Label in the edit form. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "EDIT_FORM_LABEL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Column header in the list. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LIST_COLUMN_LABEL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter header in the list. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LIST_FILTER_LABEL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Error message for invalid input. You can pass a string or an object with texts by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ERROR_MESSAGE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Help text for the field. You can pass a string or an object with texts by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "HELP_MESSAGE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Default name of the user field.",
+                        "type": "text/plain"
+                      },
+                      "key": "LABEL",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 2916,\n  \"next\": 1591,\n  \"time\": {\n    \"start\": 1195.2319271501976,\n    \"finish\": 9875.427819842595,\n    \"duration\": 4932.517890610887,\n    \"processing\": 5851.198592785213,\n    \"date_start\": \"1997-07-30T07:42:49.291Z\",\n    \"date_finish\": \"2014-11-09T15:07:17.924Z\",\n    \"operating_reset_at\": 2293,\n    \"operating\": 732.6033457084847\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d493dddc-7784-4677-bc10-a24b31a98ecd",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user.userfield.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the user field.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Values of the fields to update the user field ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| External code ||",
+                        "type": "text/plain"
+                      },
+                      "key": "XML_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sort order ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Whether the user field is mandatory. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "MANDATORY",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Whether to show the field in the list filter. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "SHOW_FILTER",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Whether to show the field in the list. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "SHOW_IN_LIST",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| An object in the format `{\"field_1\": \"value_1\", ... \"field_N\": \"value_N\"}` for passing additional settings for user fields. Settings are described below ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SETTINGS",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Label in the edit form. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "EDIT_FORM_LABEL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Column header in the list. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LIST_COLUMN_LABEL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter header in the list. You can pass a string or an object with labels by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LIST_FILTER_LABEL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Error message for invalid input. You can pass a string or an object with texts by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ERROR_MESSAGE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Help text for the field. You can pass a string or an object with texts by languages in the format `{\"de\": \"...\", \"en\": \"...\"}`. When passing a string, the value will be set for all languages ||",
+                        "type": "text/plain"
+                      },
+                      "key": "HELP_MESSAGE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Default name of the user field.",
+                        "type": "text/plain"
+                      },
+                      "key": "LABEL",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d8fa09bf-ccaa-4b12-8902-0bca5f7e71e8",
+    "name": "Bitrix24 REST BIconnector Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

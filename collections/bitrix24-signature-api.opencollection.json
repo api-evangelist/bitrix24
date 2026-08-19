@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitrix24 REST BIconnector Signature API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "auth",
+      "value": "{{auth}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Signature",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the List of Providers for sign.b2e.company.provider.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sign.b2e.company.provider.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.company.provider.list` returns a list of signature providers for the selected company. The method works only in the context of application authorization [application](../../settings/app-installation/index.md)."
+        },
+        {
+          "info": {
+            "name": "Get Document sign.b2e.document.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sign.b2e.document.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.document.get` returns information about the document and signing participants. The method works only in the context of application authorization [application](../../settings/app-installation/index.md)."
+        },
+        {
+          "info": {
+            "name": "Send Document for Signing sign.b2e.document.send",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sign.b2e.document.send",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.document.send` sends a document for signing on behalf of the company. This method works only in the context of application authorization [application](../../settings/app-installation/index.md)."
+        },
+        {
+          "info": {
+            "name": "Get a list of signed documents in the company's safe sign.b2e.mysafe.tail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sign.b2e.mysafe.tail",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.mysafe.tail` returns a list of signed documents in the company's safe. The method works only in the context of [application](../../settings/app-installation/index.md) authorization."
+        },
+        {
+          "info": {
+            "name": "Get a list of signed documents for the user sign.b2e.personal.tail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/sign.b2e.personal.tail",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.personal.tail` returns a list of signed documents for the user from the e-Signature for HR section. The method works only in the context of authorization of the [application](../../settings/app-installation/index.md)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

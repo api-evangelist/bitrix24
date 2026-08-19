@@ -1,0 +1,973 @@
+{
+  "item": [
+    {
+      "id": "cd1682fd-85a5-4c31-b39d-056e20503350",
+      "name": "CoPilot / AI",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "73391c2e-c680-45b1-9f14-fdca335947ca",
+          "name": "Get the List of Services ai.engine.list",
+          "request": {
+            "name": "Get the List of Services ai.engine.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `ai.engine.list` returns a list of registered AI services.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai.engine.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "| Maximum number of elements in the response ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ID",
+                  "value": "<integer>",
+                  "description": "| Service identifier ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "APP_CODE",
+                  "value": "<string>",
+                  "description": "| Application code to which the service belongs."
+                },
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| Service name ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "CODE",
+                  "value": "<string>",
+                  "description": "| Symbolic code of the service ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "CATEGORY",
+                  "value": "<string>",
+                  "description": "| Service category ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "COMPLETIONS_URL",
+                  "value": "<string>",
+                  "description": "| Service endpoint URL ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DATE_CREATE",
+                  "value": "<dateTime>",
+                  "description": "| Date and time of service creation in ISO 8601 format, e.g., 2026-03-20T09:50:00+03:00 ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "749cefa4-8471-4d42-9872-6c54196d9930",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai.engine.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Maximum number of elements in the response ||",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Service identifier ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Application code to which the service belongs.",
+                        "type": "text/plain"
+                      },
+                      "key": "APP_CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Service name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Symbolic code of the service ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Service category ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CATEGORY",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Service endpoint URL ||",
+                        "type": "text/plain"
+                      },
+                      "key": "COMPLETIONS_URL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Date and time of service creation in ISO 8601 format, e.g., 2026-03-20T09:50:00+03:00 ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_CREATE",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 2861,\n  \"next\": 4104,\n  \"time\": {\n    \"start\": 286.32947757740834,\n    \"finish\": 5389.912010978549,\n    \"duration\": 9082.379301673698,\n    \"processing\": 580.6546850369554,\n    \"date_start\": \"1995-10-06T15:16:07.830Z\",\n    \"date_finish\": \"1997-04-29T22:31:41.715Z\",\n    \"operating_reset_at\": 5401,\n    \"operating\": 1327.1378385068522\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "039240b0-5943-4c18-9fe9-82d54ae0a76f",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai.engine.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Maximum number of elements in the response ||",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Service identifier ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Application code to which the service belongs.",
+                        "type": "text/plain"
+                      },
+                      "key": "APP_CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Service name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Symbolic code of the service ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Service category ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CATEGORY",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Service endpoint URL ||",
+                        "type": "text/plain"
+                      },
+                      "key": "COMPLETIONS_URL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Date and time of service creation in ISO 8601 format, e.g., 2026-03-20T09:50:00+03:00 ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_CREATE",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "753db810-ae1f-4a25-9940-62ca39f1d5cb",
+          "name": "Register the Service ai.engine.register",
+          "request": {
+            "name": "Register the Service ai.engine.register",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `ai.engine.register` registers a custom AI service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai.engine.register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) | The name of the service that will be displayed in the interface ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "(Required) | A unique code for the service."
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "(Required) | The category of the service."
+                },
+                {
+                  "disabled": false,
+                  "key": "completions_url",
+                  "value": "<string>",
+                  "description": "(Required) | The URL endpoint of the handler, which must respond with HTTP status `200` during registration verification (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "settings",
+                  "value": "<object>",
+                  "description": "| Additional settings for the service (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_alias",
+                  "value": "<string>",
+                  "description": "| The alias of the model."
+                },
+                {
+                  "disabled": false,
+                  "key": "model_context_type",
+                  "value": "<string>",
+                  "description": "| The method of calculating context."
+                },
+                {
+                  "disabled": false,
+                  "key": "model_context_limit",
+                  "value": "<integer>",
+                  "description": "| The context limit."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a4b05f64-49a2-462c-9d3c-6e9c144a4bb9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai.engine.register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The name of the service that will be displayed in the interface ||",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | A unique code for the service.",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The category of the service.",
+                        "type": "text/plain"
+                      },
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The URL endpoint of the handler, which must respond with HTTP status `200` during registration verification (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "completions_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Additional settings for the service (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "settings",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The alias of the model.",
+                        "type": "text/plain"
+                      },
+                      "key": "code_alias",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The method of calculating context.",
+                        "type": "text/plain"
+                      },
+                      "key": "model_context_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The context limit.",
+                        "type": "text/plain"
+                      },
+                      "key": "model_context_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 2861,\n  \"next\": 4104,\n  \"time\": {\n    \"start\": 286.32947757740834,\n    \"finish\": 5389.912010978549,\n    \"duration\": 9082.379301673698,\n    \"processing\": 580.6546850369554,\n    \"date_start\": \"1995-10-06T15:16:07.830Z\",\n    \"date_finish\": \"1997-04-29T22:31:41.715Z\",\n    \"operating_reset_at\": 5401,\n    \"operating\": 1327.1378385068522\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a41e26d3-f682-46f9-babe-5f227fd126f2",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai.engine.register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The name of the service that will be displayed in the interface ||",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | A unique code for the service.",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The category of the service.",
+                        "type": "text/plain"
+                      },
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The URL endpoint of the handler, which must respond with HTTP status `200` during registration verification (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "completions_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Additional settings for the service (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "settings",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The alias of the model.",
+                        "type": "text/plain"
+                      },
+                      "key": "code_alias",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The method of calculating context.",
+                        "type": "text/plain"
+                      },
+                      "key": "model_context_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The context limit.",
+                        "type": "text/plain"
+                      },
+                      "key": "model_context_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b000fa40-15f6-4510-be83-4af98e38c95e",
+          "name": "Remove the ai.engine.unregister Service",
+          "request": {
+            "name": "Remove the ai.engine.unregister Service",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `ai.engine.unregister` removes a registered AI service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai.engine.unregister"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "| Character code of the service to be removed ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e7485909-d577-43c2-a981-bedbe5f51913",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai.engine.unregister"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Character code of the service to be removed ||",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 2861,\n  \"next\": 4104,\n  \"time\": {\n    \"start\": 286.32947757740834,\n    \"finish\": 5389.912010978549,\n    \"duration\": 9082.379301673698,\n    \"processing\": 580.6546850369554,\n    \"date_start\": \"1995-10-06T15:16:07.830Z\",\n    \"date_finish\": \"1997-04-29T22:31:41.715Z\",\n    \"operating_reset_at\": 5401,\n    \"operating\": 1327.1378385068522\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b35c6b5-96d4-44cc-b809-0fc9e6ca8e73",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai.engine.unregister"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Character code of the service to be removed ||",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5e8f4879-c0f2-4b4f-8ad6-8349f1ecedd1",
+    "name": "Bitrix24 REST BIconnector CoPilot / AI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

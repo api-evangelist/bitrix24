@@ -1,0 +1,877 @@
+{
+  "item": [
+    {
+      "id": "0c1860f5-24ba-4a07-8e78-432ef4ec7430",
+      "name": "User Consent",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7569b7b9-b0ec-4536-abd5-c1412eb9183c",
+          "name": "Get the list of agreements userconsent.agreement.list",
+          "request": {
+            "name": "Get the list of agreements userconsent.agreement.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userconsent.agreement.list` returns a list of agreements.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "userconsent.agreement.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1e1c7e17-c390-4808-a94a-527ce7a1f48c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userconsent.agreement.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1655,\n  \"next\": 1069,\n  \"time\": {\n    \"start\": 105.58040727585704,\n    \"finish\": 2135.9413475202437,\n    \"duration\": 9903.927788599813,\n    \"processing\": 6114.021562163473,\n    \"date_start\": \"2001-11-24T16:30:34.145Z\",\n    \"date_finish\": \"2005-02-25T11:07:52.134Z\",\n    \"operating_reset_at\": 6172,\n    \"operating\": 2244.4946399060705\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6bf1d7e-6054-4b0c-9643-b33040aea9ad",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userconsent.agreement.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6492e782-f662-4516-9175-9030b32cc91a",
+          "name": "Get the text of the agreement userconsent.agreement.text",
+          "request": {
+            "name": "Get the text of the agreement userconsent.agreement.text",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userconsent.agreement.text` returns the text of the agreement.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "userconsent.agreement.text"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the agreement."
+                },
+                {
+                  "disabled": false,
+                  "key": "replace",
+                  "value": "<object>",
+                  "description": "| Array of replacements for text substitution. Available keys:"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "76bfedaf-eb46-4155-9a67-5cb8e6a7c444",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userconsent.agreement.text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the agreement.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Array of replacements for text substitution. Available keys:",
+                        "type": "text/plain"
+                      },
+                      "key": "replace",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1655,\n  \"next\": 1069,\n  \"time\": {\n    \"start\": 105.58040727585704,\n    \"finish\": 2135.9413475202437,\n    \"duration\": 9903.927788599813,\n    \"processing\": 6114.021562163473,\n    \"date_start\": \"2001-11-24T16:30:34.145Z\",\n    \"date_finish\": \"2005-02-25T11:07:52.134Z\",\n    \"operating_reset_at\": 6172,\n    \"operating\": 2244.4946399060705\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d88d605-e595-4a5c-bae4-a540e1efd8d1",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userconsent.agreement.text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the agreement.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Array of replacements for text substitution. Available keys:",
+                        "type": "text/plain"
+                      },
+                      "key": "replace",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f9c9363-96fc-4b60-82e8-39d73d117464",
+          "name": "Save the User Consent userconsent.consent.add",
+          "request": {
+            "name": "Save the User Consent userconsent.consent.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userconsent.consent.add` saves the user's consent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "userconsent.consent.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AGREEMENT_ID",
+                  "value": "<integer>",
+                  "description": "(Required) | Agreement identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "IP",
+                  "value": "<string>",
+                  "description": "(Required) | User's IP address ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| User identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "URL",
+                  "value": "<string>",
+                  "description": "| URL of the page where consent was obtained ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ORIGIN_ID",
+                  "value": "<string>",
+                  "description": "| Identifier of the source, for example, `my_contact_form` ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ORIGINATOR_ID",
+                  "value": "<string>",
+                  "description": "| Identifier of the element in the source, for example, e-mail ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a7221c31-eee5-44f1-93a7-865bb4b134d5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userconsent.consent.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Agreement identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "AGREEMENT_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | User's IP address ||",
+                        "type": "text/plain"
+                      },
+                      "key": "IP",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| URL of the page where consent was obtained ||",
+                        "type": "text/plain"
+                      },
+                      "key": "URL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the source, for example, `my_contact_form` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ORIGIN_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the element in the source, for example, e-mail ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ORIGINATOR_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 1655,\n  \"next\": 1069,\n  \"time\": {\n    \"start\": 105.58040727585704,\n    \"finish\": 2135.9413475202437,\n    \"duration\": 9903.927788599813,\n    \"processing\": 6114.021562163473,\n    \"date_start\": \"2001-11-24T16:30:34.145Z\",\n    \"date_finish\": \"2005-02-25T11:07:52.134Z\",\n    \"operating_reset_at\": 6172,\n    \"operating\": 2244.4946399060705\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4def8feb-f1b7-42ff-9698-cc2c017da308",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userconsent.consent.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Agreement identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "AGREEMENT_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | User's IP address ||",
+                        "type": "text/plain"
+                      },
+                      "key": "IP",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| URL of the page where consent was obtained ||",
+                        "type": "text/plain"
+                      },
+                      "key": "URL",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the source, for example, `my_contact_form` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ORIGIN_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the element in the source, for example, e-mail ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ORIGINATOR_ID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6e79d102-17cb-48f8-90a0-5561a152e04b",
+    "name": "Bitrix24 REST BIconnector User Consent API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,3116 @@
+{
+  "item": [
+    {
+      "id": "0759b7ec-e934-4a64-9557-17b69d6152f3",
+      "name": "Polls",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83919fb1-db69-40bb-951b-1608f6da09c7",
+          "name": "Download the voting report vote.AttachedVote.download",
+          "request": {
+            "name": "Download the voting report vote.AttachedVote.download",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.download` generates and provides a downloadable report for the vote in the specified format. Attention! This method is an exception to the general rule of working with the REST API. Unlike other methods, it returns not a `JSON` object, but the actual content of the file with HTTP headers that initiate the download in the browser. Due to this, the standard function `BX24.callMethod()` **cannot** process the response and will throw an error. To work with this method, a direct HTTP request must be made, as shown in the JS code example.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vote.AttachedVote.download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "attachId",
+                  "value": "<integer>",
+                  "description": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "moduleId",
+                  "value": "<string>",
+                  "description": "(Required) | The module ID, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityType",
+                  "value": "<string>",
+                  "description": "(Required) | The object type, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityId",
+                  "value": "<integer>",
+                  "description": "(Required) | The ID of the entity, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "signedAttachId",
+                  "value": "<string>",
+                  "description": "(Required) | The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "427c81ef-6315-4a28-b6f1-649a9f21257d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the entity, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 6489,\n  \"next\": 7812,\n  \"time\": {\n    \"start\": 7912.941599907396,\n    \"finish\": 9080.359401291802,\n    \"duration\": 7937.864575590551,\n    \"processing\": 3829.1896898655564,\n    \"date_start\": \"1948-07-12T14:42:25.517Z\",\n    \"date_finish\": \"1971-02-10T02:35:35.927Z\",\n    \"operating_reset_at\": 8457,\n    \"operating\": 20.563911181985528\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "394362e0-b710-4480-aa3b-085dabec1212",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the entity, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73ab6da9-8763-40d0-9edd-724b4a9429b3",
+          "name": "Get Data of Attached Vote vote.AttachedVote.get",
+          "request": {
+            "name": "Get Data of Attached Vote vote.AttachedVote.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.get` returns data of the attached vote.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vote.AttachedVote.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "attachId",
+                  "value": "<integer>",
+                  "description": "(Required) | ID of the attached vote, can be equal to `voteId` from the results of vote.Integration.Im.send ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "moduleId",
+                  "value": "<string>",
+                  "description": "(Required) | Module ID, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityType",
+                  "value": "<string>",
+                  "description": "(Required) | Object type, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityId",
+                  "value": "<integer>",
+                  "description": "(Required) | Element ID, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "signedAttachId",
+                  "value": "<string>",
+                  "description": "(Required) | Signed attachment ID, can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2c986f6e-f40b-418c-a197-686e2c5d0684",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | ID of the attached vote, can be equal to `voteId` from the results of vote.Integration.Im.send ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Element ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Signed attachment ID, can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 6489,\n  \"next\": 7812,\n  \"time\": {\n    \"start\": 7912.941599907396,\n    \"finish\": 9080.359401291802,\n    \"duration\": 7937.864575590551,\n    \"processing\": 3829.1896898655564,\n    \"date_start\": \"1948-07-12T14:42:25.517Z\",\n    \"date_finish\": \"1971-02-10T02:35:35.927Z\",\n    \"operating_reset_at\": 8457,\n    \"operating\": 20.563911181985528\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8105d20d-6375-4985-b9ba-458b31709069",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | ID of the attached vote, can be equal to `voteId` from the results of vote.Integration.Im.send ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Element ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Signed attachment ID, can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65e816af-43a3-488e-b2ad-325a9487e044",
+          "name": "Get the list of users who voted for the answer vote.AttachedVote.getAnswerVoted",
+          "request": {
+            "name": "Get the list of users who voted for the answer vote.AttachedVote.getAnswerVoted",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.getAnswerVoted` returns a list of users who voted for the specified answer option.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vote.AttachedVote.getAnswerVoted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "attachId",
+                  "value": "<integer>",
+                  "description": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "answerId",
+                  "value": "<integer>",
+                  "description": "(Required) | The ID of the answer, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "moduleId",
+                  "value": "<string>",
+                  "description": "(Required) | The module ID, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityType",
+                  "value": "<string>",
+                  "description": "(Required) | The object type, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityId",
+                  "value": "<integer>",
+                  "description": "(Required) | The ID of the element, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "signedAttachId",
+                  "value": "<string>",
+                  "description": "(Required) | The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNavigation",
+                  "value": "<object>",
+                  "description": "| Pagination parameters, for example { size: 10, page: 1 } ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "userForMobileFormat",
+                  "value": "<boolean>",
+                  "description": "| User data format for mobile devices. Default value: `false` ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b53f615c-3d3b-4002-9b8f-7f4b27682686",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.getAnswerVoted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the answer, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "answerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the element, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Pagination parameters, for example { size: 10, page: 1 } ||",
+                        "type": "text/plain"
+                      },
+                      "key": "pageNavigation",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User data format for mobile devices. Default value: `false` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "userForMobileFormat",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 6489,\n  \"next\": 7812,\n  \"time\": {\n    \"start\": 7912.941599907396,\n    \"finish\": 9080.359401291802,\n    \"duration\": 7937.864575590551,\n    \"processing\": 3829.1896898655564,\n    \"date_start\": \"1948-07-12T14:42:25.517Z\",\n    \"date_finish\": \"1971-02-10T02:35:35.927Z\",\n    \"operating_reset_at\": 8457,\n    \"operating\": 20.563911181985528\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e15341f2-428d-4ebc-bad9-bd504854c59c",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.getAnswerVoted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the answer, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "answerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the element, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Pagination parameters, for example { size: 10, page: 1 } ||",
+                        "type": "text/plain"
+                      },
+                      "key": "pageNavigation",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User data format for mobile devices. Default value: `false` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "userForMobileFormat",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf279955-044a-47e1-8fe6-c6dbf00acf7e",
+          "name": "Get Multiple Votes vote.AttachedVote.getMany",
+          "request": {
+            "name": "Get Multiple Votes vote.AttachedVote.getMany",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.getMany` returns data for multiple votes based on the identifiers of the entities to which the vote is attached.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vote.AttachedVote.getMany"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "moduleId",
+                  "value": "<string>",
+                  "description": "(Required) | Module identifier, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityType",
+                  "value": "<string>",
+                  "description": "(Required) | Object type, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityId",
+                  "value": "<integer>",
+                  "description": "(Required) | Array of entity identifiers, possible values:"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1bdfb145-f5a7-4ae4-b540-64374d6ce8aa",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.getMany"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Module identifier, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Array of entity identifiers, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 6489,\n  \"next\": 7812,\n  \"time\": {\n    \"start\": 7912.941599907396,\n    \"finish\": 9080.359401291802,\n    \"duration\": 7937.864575590551,\n    \"processing\": 3829.1896898655564,\n    \"date_start\": \"1948-07-12T14:42:25.517Z\",\n    \"date_finish\": \"1971-02-10T02:35:35.927Z\",\n    \"operating_reset_at\": 8457,\n    \"operating\": 20.563911181985528\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff3e339b-be82-4ef2-abc8-8e61f1636864",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.getMany"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Module identifier, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Array of entity identifiers, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ca003ed-066f-4a0f-8a8d-68482f7eb2de",
+          "name": "Get Voting Data with Voter Information vote.AttachedVote.getWithVoted",
+          "request": {
+            "name": "Get Voting Data with Voter Information vote.AttachedVote.getWithVoted",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.getWithVoted` returns data for the attached vote along with information about the users who voted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vote.AttachedVote.getWithVoted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "attachId",
+                  "value": "<integer>",
+                  "description": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "moduleId",
+                  "value": "<string>",
+                  "description": "(Required) | The module ID, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityType",
+                  "value": "<string>",
+                  "description": "(Required) | The object type, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityId",
+                  "value": "<integer>",
+                  "description": "(Required) | The element ID, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "signedAttachId",
+                  "value": "<string>",
+                  "description": "(Required) | The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "| The number of records per page for the list of voters."
+                },
+                {
+                  "disabled": false,
+                  "key": "userForMobileFormat",
+                  "value": "<boolean>",
+                  "description": "| User data format for mobile devices."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "15e54267-a95d-494c-86b1-acc2e4cf9bc2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.getWithVoted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The element ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The number of records per page for the list of voters.",
+                        "type": "text/plain"
+                      },
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User data format for mobile devices.",
+                        "type": "text/plain"
+                      },
+                      "key": "userForMobileFormat",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 6489,\n  \"next\": 7812,\n  \"time\": {\n    \"start\": 7912.941599907396,\n    \"finish\": 9080.359401291802,\n    \"duration\": 7937.864575590551,\n    \"processing\": 3829.1896898655564,\n    \"date_start\": \"1948-07-12T14:42:25.517Z\",\n    \"date_finish\": \"1971-02-10T02:35:35.927Z\",\n    \"operating_reset_at\": 8457,\n    \"operating\": 20.563911181985528\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18a7c3ca-c890-47cf-9e4c-cf34e8a4ccc2",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.getWithVoted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The element ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The number of records per page for the list of voters.",
+                        "type": "text/plain"
+                      },
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User data format for mobile devices.",
+                        "type": "text/plain"
+                      },
+                      "key": "userForMobileFormat",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3add6de-fb44-49d1-8d8a-478eab65950e",
+          "name": "Recall Your Vote vote.AttachedVote.recall",
+          "request": {
+            "name": "Recall Your Vote vote.AttachedVote.recall",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.recall` allows a user to withdraw their vote in an active voting session. This method only works with votes where the option Allow Re-voting is enabled.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vote.AttachedVote.recall"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "attachId",
+                  "value": "<integer>",
+                  "description": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "moduleId",
+                  "value": "<string>",
+                  "description": "(Required) | The module ID, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityType",
+                  "value": "<string>",
+                  "description": "(Required) | The object type, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityId",
+                  "value": "<integer>",
+                  "description": "(Required) | The element ID, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "signedAttachId",
+                  "value": "<string>",
+                  "description": "(Required) | The signed attachment ID, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e31608b1-523d-44c6-8e10-415cb50d83bd",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.recall"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The element ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The signed attachment ID, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 6489,\n  \"next\": 7812,\n  \"time\": {\n    \"start\": 7912.941599907396,\n    \"finish\": 9080.359401291802,\n    \"duration\": 7937.864575590551,\n    \"processing\": 3829.1896898655564,\n    \"date_start\": \"1948-07-12T14:42:25.517Z\",\n    \"date_finish\": \"1971-02-10T02:35:35.927Z\",\n    \"operating_reset_at\": 8457,\n    \"operating\": 20.563911181985528\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d596057f-bd90-409e-82e2-c660df464210",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.recall"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The element ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The signed attachment ID, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e036c0a6-7403-4134-aee3-5b24dd0f0dc5",
+          "name": "Resume Voting vote.AttachedVote.resume",
+          "request": {
+            "name": "Resume Voting vote.AttachedVote.resume",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.resume` resumes a stopped vote, allowing users to participate in it again.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vote.AttachedVote.resume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "attachId",
+                  "value": "<integer>",
+                  "description": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "moduleId",
+                  "value": "<string>",
+                  "description": "(Required) | The module ID, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityType",
+                  "value": "<string>",
+                  "description": "(Required) | The object type, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityId",
+                  "value": "<integer>",
+                  "description": "(Required) | The ID of the entity, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "signedAttachId",
+                  "value": "<string>",
+                  "description": "(Required) | The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "862b232d-da7e-4abb-aa0f-4e9cee8c79d6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the entity, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 6489,\n  \"next\": 7812,\n  \"time\": {\n    \"start\": 7912.941599907396,\n    \"finish\": 9080.359401291802,\n    \"duration\": 7937.864575590551,\n    \"processing\": 3829.1896898655564,\n    \"date_start\": \"1948-07-12T14:42:25.517Z\",\n    \"date_finish\": \"1971-02-10T02:35:35.927Z\",\n    \"operating_reset_at\": 8457,\n    \"operating\": 20.563911181985528\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c09de74-ef20-46f3-9840-c21a38eb3be8",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the entity, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The signed ID of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc865b10-5598-432b-b930-65ab0f3a8328",
+          "name": "Stop voting vote.AttachedVote.stop",
+          "request": {
+            "name": "Stop voting vote.AttachedVote.stop",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.stop` halts an active vote, preventing further participation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vote.AttachedVote.stop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "attachId",
+                  "value": "<integer>",
+                  "description": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "moduleId",
+                  "value": "<string>",
+                  "description": "(Required) | The module ID, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityType",
+                  "value": "<string>",
+                  "description": "(Required) | The object type, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityId",
+                  "value": "<integer>",
+                  "description": "(Required) | The ID of the entity, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "signedAttachId",
+                  "value": "<string>",
+                  "description": "(Required) | The signed attachment ID, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "476885e1-547a-4023-b9ee-e4dad02ac340",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the entity, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The signed attachment ID, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 6489,\n  \"next\": 7812,\n  \"time\": {\n    \"start\": 7912.941599907396,\n    \"finish\": 9080.359401291802,\n    \"duration\": 7937.864575590551,\n    \"processing\": 3829.1896898655564,\n    \"date_start\": \"1948-07-12T14:42:25.517Z\",\n    \"date_finish\": \"1971-02-10T02:35:35.927Z\",\n    \"operating_reset_at\": 8457,\n    \"operating\": 20.563911181985528\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0cce025-f223-4558-ae40-584b9ea8db09",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached vote, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the entity, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The signed attachment ID, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d224a063-1652-4c41-b6b3-1acefa279df8",
+          "name": "Vote in the attached voting vote.AttachedVote.vote",
+          "request": {
+            "name": "Vote in the attached voting vote.AttachedVote.vote",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.AttachedVote.vote` allows you to vote in an attached voting.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vote.AttachedVote.vote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "attachId",
+                  "value": "<integer>",
+                  "description": "(Required) | The ID of the attached voting, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ballot",
+                  "value": "<object>",
+                  "description": "(Required) | Voting data in the format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "moduleId",
+                  "value": "<string>",
+                  "description": "(Required) | Module ID, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityType",
+                  "value": "<string>",
+                  "description": "(Required) | Object type, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "entityId",
+                  "value": "<integer>",
+                  "description": "(Required) | Element ID, possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "signedAttachId",
+                  "value": "<string>",
+                  "description": "(Required) | Signed identifier of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6f818b31-3618-406c-8026-ad291c7b9ba3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.vote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached voting, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Voting data in the format:",
+                        "type": "text/plain"
+                      },
+                      "key": "ballot",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Element ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Signed identifier of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 6489,\n  \"next\": 7812,\n  \"time\": {\n    \"start\": 7912.941599907396,\n    \"finish\": 9080.359401291802,\n    \"duration\": 7937.864575590551,\n    \"processing\": 3829.1896898655564,\n    \"date_start\": \"1948-07-12T14:42:25.517Z\",\n    \"date_finish\": \"1971-02-10T02:35:35.927Z\",\n    \"operating_reset_at\": 8457,\n    \"operating\": 20.563911181985528\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2435658-4677-421f-9c17-37380a4cacf5",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.AttachedVote.vote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The ID of the attached voting, which can be obtained using the methods vote.AttachedVote.get or vote.AttachedVote.getMany ||",
+                        "type": "text/plain"
+                      },
+                      "key": "attachId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Voting data in the format:",
+                        "type": "text/plain"
+                      },
+                      "key": "ballot",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Module ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "moduleId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Object type, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Element ID, possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "entityId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Signed identifier of the attachment, which can be obtained using the method vote.AttachedVote.get, response parameter `signedAttachId` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "signedAttachId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ef58b29-53ee-439e-922f-716169ce2cc8",
+          "name": "Create and Send a Vote in Chat vote.Integration.Im.send",
+          "request": {
+            "name": "Create and Send a Vote in Chat vote.Integration.Im.send",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `vote.Integration.Im.send` creates and sends a vote to the specified chat in the messenger.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vote.Integration.Im.send"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "chatId",
+                  "value": "<integer>",
+                  "description": "(Required) | The identifier of the chat to which the vote is sent. It can be obtained using the methods im.chat.add, im.chat.get, im.recent.get, im.recent.list ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "IM_MESSAGE_VOTE_DATA",
+                  "value": "<object>",
+                  "description": "(Required) | Vote data containing the question and answer options. The structure is described below ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "templateId",
+                  "value": "<string>",
+                  "description": "| A unique identifier for the request, with no format requirements. The purpose of the identifier is to prevent duplication. If the request is sent again due to a network failure with the same `templateId`, the server will recognize this and create the vote only once ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ANONYMITY",
+                  "value": "<integer>",
+                  "description": "| Anonymity of the vote. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "OPTIONS",
+                  "value": "<integer>",
+                  "description": "| Allow re-voting. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "QUESTION",
+                  "value": "<string>",
+                  "description": "| The text of the question ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "FIELD_TYPE",
+                  "value": "<integer>",
+                  "description": "| The type of field for the answer. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "MESSAGE",
+                  "value": "<string>",
+                  "description": "| The text of the answer option ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "eb5e2574-35a9-44a6-bce8-fafaffdc7fb5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.Integration.Im.send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The identifier of the chat to which the vote is sent. It can be obtained using the methods im.chat.add, im.chat.get, im.recent.get, im.recent.list ||",
+                        "type": "text/plain"
+                      },
+                      "key": "chatId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Vote data containing the question and answer options. The structure is described below ||",
+                        "type": "text/plain"
+                      },
+                      "key": "IM_MESSAGE_VOTE_DATA",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| A unique identifier for the request, with no format requirements. The purpose of the identifier is to prevent duplication. If the request is sent again due to a network failure with the same `templateId`, the server will recognize this and create the vote only once ||",
+                        "type": "text/plain"
+                      },
+                      "key": "templateId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Anonymity of the vote. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "ANONYMITY",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Allow re-voting. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "OPTIONS",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The text of the question ||",
+                        "type": "text/plain"
+                      },
+                      "key": "QUESTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The type of field for the answer. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "FIELD_TYPE",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The text of the answer option ||",
+                        "type": "text/plain"
+                      },
+                      "key": "MESSAGE",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 6489,\n  \"next\": 7812,\n  \"time\": {\n    \"start\": 7912.941599907396,\n    \"finish\": 9080.359401291802,\n    \"duration\": 7937.864575590551,\n    \"processing\": 3829.1896898655564,\n    \"date_start\": \"1948-07-12T14:42:25.517Z\",\n    \"date_finish\": \"1971-02-10T02:35:35.927Z\",\n    \"operating_reset_at\": 8457,\n    \"operating\": 20.563911181985528\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbb00ff7-8dc1-4efc-8313-bbe4f145b0b9",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vote.Integration.Im.send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The identifier of the chat to which the vote is sent. It can be obtained using the methods im.chat.add, im.chat.get, im.recent.get, im.recent.list ||",
+                        "type": "text/plain"
+                      },
+                      "key": "chatId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Vote data containing the question and answer options. The structure is described below ||",
+                        "type": "text/plain"
+                      },
+                      "key": "IM_MESSAGE_VOTE_DATA",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| A unique identifier for the request, with no format requirements. The purpose of the identifier is to prevent duplication. If the request is sent again due to a network failure with the same `templateId`, the server will recognize this and create the vote only once ||",
+                        "type": "text/plain"
+                      },
+                      "key": "templateId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Anonymity of the vote. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "ANONYMITY",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Allow re-voting. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "OPTIONS",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The text of the question ||",
+                        "type": "text/plain"
+                      },
+                      "key": "QUESTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The type of field for the answer. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "FIELD_TYPE",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The text of the answer option ||",
+                        "type": "text/plain"
+                      },
+                      "key": "MESSAGE",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "13cff372-160a-43c5-bd8b-4561cfdbd000",
+    "name": "Bitrix24 REST BIconnector Polls API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,5117 @@
+{
+  "item": [
+    {
+      "id": "c60fd2ef-9f58-4dd2-a7f6-b45f9d1504b9",
+      "name": "BIconnector",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "77d68cb3-5495-41f3-8ab7-dce1cb04555c",
+          "name": "Create Connector biconnector.connector.add",
+          "request": {
+            "name": "Create Connector biconnector.connector.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.connector.add` creates a new connector that allows integrating external data sources into Bitrix24.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.connector.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<object>",
+                  "description": "(Required) | An object containing data to create a new connector. The object format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "(Required) | Connector name ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "logo",
+                  "value": "<string>",
+                  "description": "(Required) | Connector logo. Can be provided as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "urlCheck",
+                  "value": "<string>",
+                  "description": "(Required) | Connector endpoint for availability check, (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "urlTableList",
+                  "value": "<string>",
+                  "description": "(Required) | Connector endpoint for retrieving the list of tables, (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "urlTableDescription",
+                  "value": "<string>",
+                  "description": "(Required) | Connector endpoint for retrieving the description of a specific table, (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "urlData",
+                  "value": "<string>",
+                  "description": "(Required) | Connector endpoint for retrieving data from the selected table, (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "| Connector description ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<integer>",
+                  "description": "| Connector sorting parameter. Default value is `100` ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1a8a069b-d0f2-4b3b-9a82-b8ceb566cf12",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.connector.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | An object containing data to create a new connector. The object format:",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector logo. Can be provided as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector endpoint for availability check, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlCheck",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector endpoint for retrieving the list of tables, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlTableList",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector endpoint for retrieving the description of a specific table, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlTableDescription",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector endpoint for retrieving data from the selected table, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlData",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Connector description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Connector sorting parameter. Default value is `100` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "sort",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b53639df-9e0f-4dd1-920a-fe42be26aea1",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.connector.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | An object containing data to create a new connector. The object format:",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector logo. Can be provided as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector endpoint for availability check, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlCheck",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector endpoint for retrieving the list of tables, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlTableList",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector endpoint for retrieving the description of a specific table, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlTableDescription",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector endpoint for retrieving data from the selected table, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlData",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Connector description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Connector sorting parameter. Default value is `100` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "sort",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fcb2041-b503-4634-a66a-924c2999f500",
+          "name": "Delete Connector biconnector.connector.delete",
+          "request": {
+            "name": "Delete Connector biconnector.connector.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.connector.delete` removes an existing connector. A connector can be deleted if it has no sources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.connector.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the connector, can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "db46159b-b48a-483e-8c34-dab576d81a0e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.connector.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the connector, can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "567019eb-5a82-40e8-b58c-a5550cb4158e",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.connector.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the connector, can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "360aa013-912c-429e-8091-69eb10532e68",
+          "name": "Get Connector Fields biconnector.connector.fields",
+          "request": {
+            "name": "Get Connector Fields biconnector.connector.fields",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.connector.fields` returns a description of the connector fields. A table with the description of standard fields can be found in the article [Connector: Overview of Methods](./index.md#fields).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.connector.fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4bc5b44d-513d-4493-81b9-401e8f5bb19e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.connector.fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30c09f83-49a1-4f25-9b7f-eeb0c17c6434",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.connector.fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e46fc99b-0fe7-4647-beb0-2dbd6057a09e",
+          "name": "Get Connector by ID biconnector.connector.get",
+          "request": {
+            "name": "Get Connector by ID biconnector.connector.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.connector.get` returns information about the connector by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.connector.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | The identifier of the connector, which can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "60c42f6a-0ca8-49b1-b522-5114fa781093",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.connector.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The identifier of the connector, which can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be5bd3c5-11f3-4731-a76e-48646c0ce84a",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.connector.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The identifier of the connector, which can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "945c29b1-5e5e-4219-955c-842f4d4157c9",
+          "name": "Get the list of connectors biconnector.connector.list",
+          "request": {
+            "name": "Get the list of connectors biconnector.connector.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.connector.list` returns a list of connectors based on a filter. It is an implementation of the list method for connectors.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.connector.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "select",
+                  "value": "<string>",
+                  "description": "| List of fields that must be filled in the connectors in the selection. By default, all fields are taken ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<object>",
+                  "description": "| Filter for selecting connectors. Example format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<object>",
+                  "description": "| Sorting parameters. Example format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4fa663a0-3a5c-4b1b-9b3b-0a2ea749f68d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.connector.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| List of fields that must be filled in the connectors in the selection. By default, all fields are taken ||",
+                        "type": "text/plain"
+                      },
+                      "key": "select",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter for selecting connectors. Example format:",
+                        "type": "text/plain"
+                      },
+                      "key": "filter",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting parameters. Example format:",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number",
+                        "type": "text/plain"
+                      },
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c138804d-fec3-4530-a827-c5f462763839",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.connector.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| List of fields that must be filled in the connectors in the selection. By default, all fields are taken ||",
+                        "type": "text/plain"
+                      },
+                      "key": "select",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter for selecting connectors. Example format:",
+                        "type": "text/plain"
+                      },
+                      "key": "filter",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting parameters. Example format:",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number",
+                        "type": "text/plain"
+                      },
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1345d35b-2ad1-4cc7-8d2a-fa144be0aced",
+          "name": "Update the biconnector.connector.update",
+          "request": {
+            "name": "Update the biconnector.connector.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.connector.update` updates an existing connector.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.connector.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | Connector identifier, can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<object>",
+                  "description": "(Required) | An object containing the updated data. The object format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "| New connector name ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "logo",
+                  "value": "<string>",
+                  "description": "| New connector logo. Can be passed as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "| New connector description ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "urlCheck",
+                  "value": "<string>",
+                  "description": "| New endpoint for checking the connector's availability, (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "urlTableList",
+                  "value": "<string>",
+                  "description": "| New endpoint for obtaining the list of tables, (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "urlTableDescription",
+                  "value": "<string>",
+                  "description": "| New endpoint for obtaining the description of a specific table, (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "urlData",
+                  "value": "<string>",
+                  "description": "| New endpoint for obtaining data from the selected table, (detailed description)  ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<integer>",
+                  "description": "| New sorting parameter for the connector ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "33cf7a4d-4a21-41dc-8fba-44a81a228393",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.connector.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector identifier, can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | An object containing the updated data. The object format:",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New connector name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New connector logo. Can be passed as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New connector description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New endpoint for checking the connector's availability, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlCheck",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New endpoint for obtaining the list of tables, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlTableList",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New endpoint for obtaining the description of a specific table, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlTableDescription",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New endpoint for obtaining data from the selected table, (detailed description)  ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlData",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New sorting parameter for the connector ||",
+                        "type": "text/plain"
+                      },
+                      "key": "sort",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70193aec-287c-4d49-add1-2f025ce73532",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.connector.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector identifier, can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | An object containing the updated data. The object format:",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New connector name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New connector logo. Can be passed as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "logo",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New connector description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New endpoint for checking the connector's availability, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlCheck",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New endpoint for obtaining the list of tables, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlTableList",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New endpoint for obtaining the description of a specific table, (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlTableDescription",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New endpoint for obtaining data from the selected table, (detailed description)  ||",
+                        "type": "text/plain"
+                      },
+                      "key": "urlData",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New sorting parameter for the connector ||",
+                        "type": "text/plain"
+                      },
+                      "key": "sort",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee31aeed-a49d-4ca0-8ab6-68602bab7014",
+          "name": "Create Dataset biconnector.dataset.add",
+          "request": {
+            "name": "Create Dataset biconnector.dataset.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.add` creates a new dataset associated with a data source.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.dataset.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<object>",
+                  "description": "(Required) | An object containing data to create a new dataset. The object format is:"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) | The name of the dataset. The name must start with a letter and can only use lowercase Latin letters `a-z`, numbers, and the underscore `_`. The maximum length of the name is 230 characters. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalName",
+                  "value": "<string>",
+                  "description": "(Required) | The name of the dataset in the external source, in the application. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalCode",
+                  "value": "<string>",
+                  "description": "(Required) | A unique code for the dataset in the external source, used when retrieving data. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "sourceId",
+                  "value": "<integer>",
+                  "description": "(Required) | The identifier of the source, which can be obtained using the methods biconnector.source.list or biconnector.source.add. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "| Description of the dataset. ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b26ec25b-170c-4b13-91e3-39db5c15ec6f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | An object containing data to create a new dataset. The object format is:",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The name of the dataset. The name must start with a letter and can only use lowercase Latin letters `a-z`, numbers, and the underscore `_`. The maximum length of the name is 230 characters. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The name of the dataset in the external source, in the application. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "externalName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | A unique code for the dataset in the external source, used when retrieving data. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "externalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The identifier of the source, which can be obtained using the methods biconnector.source.list or biconnector.source.add. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "sourceId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the dataset. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c835229e-5896-4082-b4b8-bd8bd65f861f",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | An object containing data to create a new dataset. The object format is:",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The name of the dataset. The name must start with a letter and can only use lowercase Latin letters `a-z`, numbers, and the underscore `_`. The maximum length of the name is 230 characters. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The name of the dataset in the external source, in the application. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "externalName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | A unique code for the dataset in the external source, used when retrieving data. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "externalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The identifier of the source, which can be obtained using the methods biconnector.source.list or biconnector.source.add. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "sourceId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the dataset. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e38bc175-dad3-4d77-b9fa-d4cf03f73632",
+          "name": "Delete dataset biconnector.dataset.delete",
+          "request": {
+            "name": "Delete dataset biconnector.dataset.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.delete` removes an existing dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.dataset.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the dataset, can be obtained using the methods biconnector.dataset.list or biconnector.dataset.add ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bb0f8e89-a320-4299-8e8c-65aae6f39b4a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the dataset, can be obtained using the methods biconnector.dataset.list or biconnector.dataset.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c31ec8aa-5d70-4358-95ea-621d3554c8f8",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the dataset, can be obtained using the methods biconnector.dataset.list or biconnector.dataset.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8613ca3-2162-41a1-a395-6a2f0e5d59d8",
+          "name": "Get Fields of the Dataset biconnector.dataset.fields",
+          "request": {
+            "name": "Get Fields of the Dataset biconnector.dataset.fields",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.fields` returns a description of the dataset fields. A table with descriptions of standard fields can be found in the article [Datasets: Overview of Methods](./index.md#dataset).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.dataset.fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1210ebd9-bdb8-4b82-a564-2d7dea0aac6a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1992d5d2-4c73-4fad-9e1a-50b920fb8bcd",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9f045e3-7078-473b-abb6-bbf6f9270ae5",
+          "name": "Update Dataset Fields biconnector.dataset.fields.update",
+          "request": {
+            "name": "Update Dataset Fields biconnector.dataset.fields.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.fields.update` updates the fields of an existing dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.dataset.fields.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the dataset, can be obtained using the methods biconnector.dataset.list or biconnector.dataset.add ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "add",
+                  "value": "<object>",
+                  "description": "| Object containing an array of fields to be added with the following structure:"
+                },
+                {
+                  "disabled": false,
+                  "key": "update",
+                  "value": "<object>",
+                  "description": "| Object containing an array of fields to be updated with the following structure:"
+                },
+                {
+                  "disabled": false,
+                  "key": "delete",
+                  "value": "<string>",
+                  "description": "| Object containing an array of field identifiers for deletion. Field identifiers can be obtained using the method biconnector.dataset.get ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5c1e8c4a-6e9e-4aad-a0e9-4580bef0af95",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.fields.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the dataset, can be obtained using the methods biconnector.dataset.list or biconnector.dataset.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object containing an array of fields to be added with the following structure:",
+                        "type": "text/plain"
+                      },
+                      "key": "add",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object containing an array of fields to be updated with the following structure:",
+                        "type": "text/plain"
+                      },
+                      "key": "update",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object containing an array of field identifiers for deletion. Field identifiers can be obtained using the method biconnector.dataset.get ||",
+                        "type": "text/plain"
+                      },
+                      "key": "delete",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "279f136f-0a16-4aa7-8365-32442d54613e",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.fields.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the dataset, can be obtained using the methods biconnector.dataset.list or biconnector.dataset.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object containing an array of fields to be added with the following structure:",
+                        "type": "text/plain"
+                      },
+                      "key": "add",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object containing an array of fields to be updated with the following structure:",
+                        "type": "text/plain"
+                      },
+                      "key": "update",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object containing an array of field identifiers for deletion. Field identifiers can be obtained using the method biconnector.dataset.get ||",
+                        "type": "text/plain"
+                      },
+                      "key": "delete",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f500aa21-f3e6-42a8-a4d9-553dcea05688",
+          "name": "Get dataset by id biconnector.dataset.get",
+          "request": {
+            "name": "Get dataset by id biconnector.dataset.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.get` returns information about a dataset by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.dataset.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the dataset, which can be obtained using the methods biconnector.dataset.list and biconnector.dataset.add ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7f3c6497-c137-4a4a-81ec-8cef444a3020",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the dataset, which can be obtained using the methods biconnector.dataset.list and biconnector.dataset.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31be42c2-43e1-4b0e-9d87-4853d63aaa10",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the dataset, which can be obtained using the methods biconnector.dataset.list and biconnector.dataset.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c776e130-f11e-4b10-b599-06d54fcb6035",
+          "name": "Get the list of datasets biconnector.dataset.list",
+          "request": {
+            "name": "Get the list of datasets biconnector.dataset.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.list` returns a list of datasets based on a filter. It is an implementation of the listing method for datasets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.dataset.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "select",
+                  "value": "<string>",
+                  "description": "| A list of fields that must be populated in the datasets in the selection. By default, all fields are taken."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<object>",
+                  "description": "| Filter for selecting datasets. Example format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<object>",
+                  "description": "| Sorting parameters. Example format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "| Controls pagination. The page size of results is 50 records. To navigate through the results, pass the page number. ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c1b2c24c-37bf-46b2-b0a2-f9764a214f2d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| A list of fields that must be populated in the datasets in the selection. By default, all fields are taken.",
+                        "type": "text/plain"
+                      },
+                      "key": "select",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter for selecting datasets. Example format:",
+                        "type": "text/plain"
+                      },
+                      "key": "filter",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting parameters. Example format:",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Controls pagination. The page size of results is 50 records. To navigate through the results, pass the page number. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0907c6a-9717-4d05-a121-a37704b10a3b",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| A list of fields that must be populated in the datasets in the selection. By default, all fields are taken.",
+                        "type": "text/plain"
+                      },
+                      "key": "select",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter for selecting datasets. Example format:",
+                        "type": "text/plain"
+                      },
+                      "key": "filter",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting parameters. Example format:",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Controls pagination. The page size of results is 50 records. To navigate through the results, pass the page number. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aca6e458-0b99-4669-94f4-d6126f08f90c",
+          "name": "Update Dataset biconnector.dataset.update",
+          "request": {
+            "name": "Update Dataset biconnector.dataset.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.update` updates an existing dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.dataset.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the dataset, can be obtained using the methods biconnector.dataset.list and biconnector.dataset.add ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<object>",
+                  "description": "(Required) | An object containing the updated data."
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "| Description of the dataset ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1b3872d1-4a51-46af-b862-0d9e3e9248aa",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the dataset, can be obtained using the methods biconnector.dataset.list and biconnector.dataset.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | An object containing the updated data.",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the dataset ||",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f32b257-ee2d-4b0e-bc96-8b70c0629671",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.dataset.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the dataset, can be obtained using the methods biconnector.dataset.list and biconnector.dataset.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | An object containing the updated data.",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the dataset ||",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "efb50d37-64d8-4e95-83d9-ae66b9e3a98c",
+          "name": "Create Source biconnector.source.add",
+          "request": {
+            "name": "Create Source biconnector.source.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.source.add` creates a new data source associated with the connector.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.source.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<object>",
+                  "description": "(Required) | An object containing data to create a new source. The object format is:"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "(Required) | Source name ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "connectorId",
+                  "value": "<integer>",
+                  "description": "(Required) | Connector identifier, can be obtained using the methods biconnector.connector.list or biconnector.connector.add ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "settings",
+                  "value": "<object>",
+                  "description": "(Required) | A list of parameters for authorization, passed as an object where the key is the `code` of the parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "| Source description ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<boolean>",
+                  "description": "| Source activity."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8a40653f-1598-417a-8533-4c89af432058",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.source.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | An object containing data to create a new source. The object format is:",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Source name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector identifier, can be obtained using the methods biconnector.connector.list or biconnector.connector.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "connectorId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | A list of parameters for authorization, passed as an object where the key is the `code` of the parameter.",
+                        "type": "text/plain"
+                      },
+                      "key": "settings",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Source description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Source activity.",
+                        "type": "text/plain"
+                      },
+                      "key": "active",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75748e3d-a0e3-4590-b021-979277d9f922",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.source.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | An object containing data to create a new source. The object format is:",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Source name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Connector identifier, can be obtained using the methods biconnector.connector.list or biconnector.connector.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "connectorId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | A list of parameters for authorization, passed as an object where the key is the `code` of the parameter.",
+                        "type": "text/plain"
+                      },
+                      "key": "settings",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Source description ||",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Source activity.",
+                        "type": "text/plain"
+                      },
+                      "key": "active",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2520970e-41fa-4d56-be1f-e6ae9db91f56",
+          "name": "Delete source biconnector.source.delete",
+          "request": {
+            "name": "Delete source biconnector.source.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.source.delete` removes an existing connection. A connection can be deleted if it has no datasets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.source.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the connection, can be obtained using the methods biconnector.source.list or biconnector.source.add ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8e191a72-26a5-490a-a906-e169a5f357f4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.source.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the connection, can be obtained using the methods biconnector.source.list or biconnector.source.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85e0c754-7b8b-4f70-8fae-5cb4babd04bf",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.source.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the connection, can be obtained using the methods biconnector.source.list or biconnector.source.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24774484-0c1d-4b9b-863f-dcf35ebfbbe6",
+          "name": "Get Source Fields of biconnector.source.fields",
+          "request": {
+            "name": "Get Source Fields of biconnector.source.fields",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.source.fields` returns a description of the source fields. A table with the description of standard fields can be found in the article [Sources: Overview of Methods](./index.md#fields).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.source.fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2283c796-a32a-48a4-b3b5-0178d923436c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.source.fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb9f42a1-a921-4bb5-8779-d701d8e89b43",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.source.fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69c62065-8730-4154-a314-2b9249b367d3",
+          "name": "Get Source by ID biconnector.source.get",
+          "request": {
+            "name": "Get Source by ID biconnector.source.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.source.get` returns information about the source by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.source.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the source, which can be obtained using the methods biconnector.source.list and biconnector.source.add ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3950104c-8869-4be3-b143-06858613d607",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.source.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the source, which can be obtained using the methods biconnector.source.list and biconnector.source.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ba2cded-633c-42e5-8e22-6a600d47db08",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.source.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the source, which can be obtained using the methods biconnector.source.list and biconnector.source.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b49339d4-538a-43e7-ac04-56129cba5e0f",
+          "name": "Get the list of sources biconnector.source.list",
+          "request": {
+            "name": "Get the list of sources biconnector.source.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.source.list` returns a list of sources based on a filter. It is an implementation of the list method for sources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.source.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "select",
+                  "value": "<string>",
+                  "description": "| List of fields that must be filled in the sources in the selection. By default, all fields are taken ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<object>",
+                  "description": "| Filter for selecting sources. Example format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<object>",
+                  "description": "| Sorting parameters. Example format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number  ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6e7ae468-5146-4bcc-9310-376b151d01f3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.source.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| List of fields that must be filled in the sources in the selection. By default, all fields are taken ||",
+                        "type": "text/plain"
+                      },
+                      "key": "select",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter for selecting sources. Example format:",
+                        "type": "text/plain"
+                      },
+                      "key": "filter",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting parameters. Example format:",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number  ||",
+                        "type": "text/plain"
+                      },
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "594e1251-79e1-4f41-bc09-3c4862cadde8",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.source.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| List of fields that must be filled in the sources in the selection. By default, all fields are taken ||",
+                        "type": "text/plain"
+                      },
+                      "key": "select",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter for selecting sources. Example format:",
+                        "type": "text/plain"
+                      },
+                      "key": "filter",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting parameters. Example format:",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number  ||",
+                        "type": "text/plain"
+                      },
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddf44c07-82c2-43bf-b43c-a86bc8297070",
+          "name": "Change source biconnector.source.update",
+          "request": {
+            "name": "Change source biconnector.source.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `biconnector.source.update` updates an existing source.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "biconnector.source.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the source, can be obtained using the methods biconnector.source.list and biconnector.source.add ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<object>",
+                  "description": "(Required) | Object containing the updated data."
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "| New name of the source ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "| New description of the source ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<boolean>",
+                  "description": "| Activity status of the source ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "settings",
+                  "value": "<object>",
+                  "description": "| List of parameters for authorization, passed as an object where the key is the `code` of the parameter."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2594624b-4dbf-49c2-a3f1-f7b417db4eb8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.source.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the source, can be obtained using the methods biconnector.source.list and biconnector.source.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Object containing the updated data.",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New name of the source ||",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New description of the source ||",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Activity status of the source ||",
+                        "type": "text/plain"
+                      },
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| List of parameters for authorization, passed as an object where the key is the `code` of the parameter.",
+                        "type": "text/plain"
+                      },
+                      "key": "settings",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5987,\n  \"next\": 5374,\n  \"time\": {\n    \"start\": 4816.951250998705,\n    \"finish\": 5275.457785549282,\n    \"duration\": 9147.436694539054,\n    \"processing\": 4503.882813545286,\n    \"date_start\": \"1980-08-12T07:57:53.305Z\",\n    \"date_finish\": \"2013-08-26T11:56:37.897Z\",\n    \"operating_reset_at\": 9268,\n    \"operating\": 3156.1085622031183\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92b312d2-5838-4faf-9bd1-b4fe8974b8f2",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "biconnector.source.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the source, can be obtained using the methods biconnector.source.list and biconnector.source.add ||",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Object containing the updated data.",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New name of the source ||",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New description of the source ||",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Activity status of the source ||",
+                        "type": "text/plain"
+                      },
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| List of parameters for authorization, passed as an object where the key is the `code` of the parameter.",
+                        "type": "text/plain"
+                      },
+                      "key": "settings",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2aa0ca09-68fa-4d26-a7c8-ba92ec938ed2",
+    "name": "Bitrix24 REST BIconnector API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

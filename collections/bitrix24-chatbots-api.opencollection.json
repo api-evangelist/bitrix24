@@ -1,0 +1,1412 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitrix24 REST BIconnector Chatbots API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "auth",
+      "value": "{{auth}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Chatbots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Event Formats im.v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/im.v2",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Description of all events that the user application receives via [im.v2.Event.get](./event-get.md). The fields of the `message`, `chat`, and `user` objects are described in [{#T}](../../entities.md). **Quick Navigation:** [ONIMV2MESSAGEADD](#onimv2messageadd) | [ONIMV2MESSAGEUPDA"
+        },
+        {
+          "info": {
+            "name": "Get User Events im.v2.Event.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/im.v2.Event.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.v2.Event.get` retrieves events for the current user in polling mode. To receive events, the user must be previously subscribed via [im.v2.Event.subscribe](./event-subscribe.md). Without a subscription, events are not recorded, and the method will return an empty ar"
+        },
+        {
+          "info": {
+            "name": "Subscribe to Events im.v2.Event.subscribe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/im.v2.Event.subscribe",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.v2.Event.subscribe` subscribes the current user to event logging. After subscribing, message events are recorded in the log and become accessible through [im.v2.Event.get](./event-get.md). The method is idempotent: repeated calls are safe and do not result in an er"
+        },
+        {
+          "info": {
+            "name": "Unsubscribing from Events im.v2.Event.unsubscribe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/im.v2.Event.unsubscribe",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.v2.Event.unsubscribe` cancels the current user's subscription to event logging. It stops recording new events in the log. Already recorded events remain accessible through [im.v2.Event.get](./event-get.md) until the retention period expires (24 hours) or until conf"
+        },
+        {
+          "info": {
+            "name": "Get Download Link for File im.v2.File.download",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/im.v2.File.download",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.v2.File.download` returns a link to download a file from the chat."
+        },
+        {
+          "info": {
+            "name": "Upload File to Chat im.v2.File.upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/im.v2.File.upload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.v2.File.upload` uploads a file to the chat on behalf of the current user. It combines three steps of the deprecated API into a single call: uploading the file to the Drive, attaching it to the chat, and sending a message."
+        },
+        {
+          "info": {
+            "name": "Get the List of Chat Bots imbot.bot.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.bot.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Bot.list](../../chat-bots-v2/imbot.v2/bots/bot-list.md). The method `imbot.bot.list` returns a list of registered chat bots. No parameters required."
+        },
+        {
+          "info": {
+            "name": "Create a chat on behalf of the chat bot imbot.chat.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.chat.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.add](../../chat-bots-v2/imbot.v2/chats/chat-add.md). The method `imbot.chat.add` creates a chat on behalf of the chat bot."
+        },
+        {
+          "info": {
+            "name": "Get Chat ID imbot.chat.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.chat.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.get](../../chat-bots-v2/imbot.v2/chats/chat-get.md). The method `imbot.chat.get` returns the chat ID. To obtain detailed information about the chat, use the method [imbot.dialog.get](./imbot-dialog-get.md)."
+        },
+        {
+          "info": {
+            "name": "Chat Bot Exit from Specified Chat imbot.chat.leave",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.chat.leave",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.leave](../../chat-bots-v2/imbot.v2/chats/chat-leave.md). The method `imbot.chat.leave` removes the chat bot from the chat."
+        },
+        {
+          "info": {
+            "name": "Send Typing Indicator imbot.chat.sendTyping",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.chat.sendTyping",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.InputAction.notify](../../chat-bots-v2/imbot.v2/ui/chat-input-action-notify.md). The method `imbot.chat.sendTyping` sends a typing indicator to the dialog. The method returns `true` immediately after the command i"
+        },
+        {
+          "info": {
+            "name": "Assign or Revoke Chat Administrator Rights imbot.chat.setManager",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.chat.setManager",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. To assign or revoke administrator rights, use the methods [imbot.v2.Chat.Manager.add](../../chat-bots-v2/imbot.v2/chats/chat-manager-add.md) and [imbot.v2.Chat.Manager.delete](../../chat-bots-v2/imbot.v2/chats/chat-manager-delete.md). The "
+        },
+        {
+          "info": {
+            "name": "Change Chat Owner via imbot.chat.setOwner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.chat.setOwner",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [imbot.v2.Chat.setOwner](../../chat-bots-v2/imbot.v2/chats/chat-set-owner.md). The method `imbot.chat.setOwner` changes the owner of the chat."
+        },
+        {
+          "info": {
+            "name": "Change Chat Avatar imbot.chat.updateAvatar",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.chat.updateAvatar",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.update](../../chat-bots-v2/imbot.v2/chats/chat-update.md). The method `imbot.chat.updateAvatar` updates the chat avatar."
+        },
+        {
+          "info": {
+            "name": "Change Chat Color imbot.chat.updateColor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.chat.updateColor",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.update](../../chat-bots-v2/imbot.v2/chats/chat-update.md). The method `imbot.chat.updateColor` updates the chat color for the mobile application."
+        },
+        {
+          "info": {
+            "name": "Change Chat Title imbot.chat.updateTitle",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.chat.updateTitle",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.update](../../chat-bots-v2/imbot.v2/chats/chat-update.md). The method `imbot.chat.updateTitle` updates the chat title."
+        },
+        {
+          "info": {
+            "name": "Add Participants to Chat imbot.chat.user.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.chat.user.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.User.add](../../chat-bots-v2/imbot.v2/chats/chat-user-add.md). The method `imbot.chat.user.add` adds users to a chat."
+        },
+        {
+          "info": {
+            "name": "Exclude Participants from Chat imbot.chat.user.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.chat.user.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [imbot.v2.Chat.User.delete](../../chat-bots-v2/imbot.v2/chats/chat-user-delete.md). The method `imbot.chat.user.delete` removes a user from the chat."
+        },
+        {
+          "info": {
+            "name": "Get the List of Chat Participants imbot.chat.user.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.chat.user.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.User.list](../../chat-bots-v2/imbot.v2/chats/chat-user-list.md). The method `imbot.chat.user.list` returns a list of identifiers for the chat participants."
+        },
+        {
+          "info": {
+            "name": "Send a response to the command imbot.command.answer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.command.answer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Command.answer](../../chat-bots-v2/imbot.v2/commands/command-answer.md). The method `imbot.command.answer` publishes a response to a chat bot command."
+        },
+        {
+          "info": {
+            "name": "Add the imbot.command.register Command",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.command.register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [imbot.v2.Command.register](../../chat-bots-v2/imbot.v2/commands/command-register.md). The `imbot.command.register` method registers a command for the chat bot."
+        },
+        {
+          "info": {
+            "name": "Remove the imbot.command.unregister Command",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.command.unregister",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Command.unregister](../../chat-bots-v2/imbot.v2/commands/command-unregister.md). The method `imbot.command.unregister` removes a registered command from the chat bot."
+        },
+        {
+          "info": {
+            "name": "Update the imbot.command.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.command.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Command.update](../../chat-bots-v2/imbot.v2/commands/command-update.md). The method `imbot.command.update` updates the parameters of a registered chat bot command."
+        },
+        {
+          "info": {
+            "name": "Get Data About Chat imbot.dialog.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.dialog.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.get](../../chat-bots-v2/imbot.v2/chats/chat-get.md). The method `imbot.dialog.get` returns data about the chat."
+        },
+        {
+          "info": {
+            "name": "Send Message imbot.message.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.message.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [imbot.v2.Chat.Message.send](../../chat-bots-v2/imbot.v2/messages/chat-message-send.md). The method `imbot.message.add` sends a message from the chat bot."
+        },
+        {
+          "info": {
+            "name": "Delete Message imbot.message.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.message.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.Message.delete](../../chat-bots-v2/imbot.v2/messages/chat-message-delete.md). The method `imbot.message.delete` removes a message from the chat bot."
+        },
+        {
+          "info": {
+            "name": "Set \"Like\" for the message imbot.message.like",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.message.like",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use the methods [imbot.v2.Chat.Message.Reaction.add](../../chat-bots-v2/imbot.v2/messages/chat-message-reaction-add.md) and [imbot.v2.Chat.Message.Reaction.delete](../../chat-bots-v2/imbot.v2/messages/chat-message-reaction-delet"
+        },
+        {
+          "info": {
+            "name": "Update Sent Message imbot.message.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.message.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.Message.update](../../chat-bots-v2/imbot.v2/messages/chat-message-update.md). The method `imbot.message.update` modifies a previously sent message from the chat bot."
+        },
+        {
+          "info": {
+            "name": "Create a Chat-Bot imbot.register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Bot.register](../../chat-bots-v2/imbot.v2/bots/bot-register.md). The method `imbot.register` registers a chat-bot and binds event handlers of the application."
+        },
+        {
+          "info": {
+            "name": "Unregister Chat Bot imbot.unregister",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.unregister",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Bot.unregister](../../chat-bots-v2/imbot.v2/bots/bot-unregister.md). The method `imbot.unregister` removes a chat bot. When deleting the bot, personal chats with users will also be deleted."
+        },
+        {
+          "info": {
+            "name": "Update Chat-Bot imbot.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Bot.update](../../chat-bots-v2/imbot.v2/bots/bot-update.md). The `imbot.update` method updates the data of the chat-bot and its event handlers."
+        },
+        {
+          "info": {
+            "name": "Change Log for API imbot.v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The change log for API `imbot.v2`: new features, fixes, and changes with breaking changes. Entries are listed from newest to oldest."
+        },
+        {
+          "info": {
+            "name": "Get Information About the Bot imbot.v2.Bot.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Bot.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.get` returns information about the bot. It is used to verify the bot's installation. For the owner application, it returns an extended format (including `moduleId`, `appId`, `eventMode`, and counters). For other applications, it returns a brief format."
+        },
+        {
+          "info": {
+            "name": "List of Bots for the imbot.v2.Bot.list Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Bot.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.list` returns a list of bots for the current application in an extended format."
+        },
+        {
+          "info": {
+            "name": "Register a bot imbot.v2.Bot.register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Bot.register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.register` registers a new chat bot. The method is idempotent: a repeated call with the same `fields.code` from the same application returns the existing bot without updating the data. To update, use [imbot.v2.Bot.update](./bot-update.md)."
+        },
+        {
+          "info": {
+            "name": "Remove the Automation rule imbot.v2.Bot.unregister",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Bot.unregister",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.unregister` removes the bot."
+        },
+        {
+          "info": {
+            "name": "Update the Automation rule imbot.v2.Bot.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Bot.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.update` updates the properties of the Automation rule."
+        },
+        {
+          "info": {
+            "name": "Send the bot action indicator imbot.v2.Chat.InputAction.notify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.InputAction.notify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.InputAction.notify` sends a bot action indicator to the chat — for example, \"bot is typing\"."
+        },
+        {
+          "info": {
+            "name": "Add Chat Managers imbot.v2.Chat.Manager.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.Manager.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Manager.add` adds users to the current list of chat managers. The bot must be the owner of the chat. Users who are not participants in the chat will be ignored without an error."
+        },
+        {
+          "info": {
+            "name": "Remove Chat Managers imbot.v2.Chat.Manager.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.Manager.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Manager.delete` removes users from the chat manager list. The bot must be the owner of the chat."
+        },
+        {
+          "info": {
+            "name": "Add Reaction to Message imbot.v2.Chat.Message.Reaction.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.Message.Reaction.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.Reaction.add` adds a bot reaction to a message."
+        },
+        {
+          "info": {
+            "name": "Remove Reaction from Message imbot.v2.Chat.Message.Reaction.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.Message.Reaction.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.Reaction.delete` removes the bot's reaction from a message."
+        },
+        {
+          "info": {
+            "name": "Delete Message imbot.v2.Chat.Message.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.Message.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.delete` removes a message. The bot can delete its own messages. If the bot is an administrator of the chat, it can delete any message. Messages sent with the parameter `system: true` have `authorId = 0`. The bot will not be able to delete such a "
+        },
+        {
+          "info": {
+            "name": "Get Message imbot.v2.Chat.Message.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.Message.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.get` returns a message by its ID. Typical use-case: the bot received an event with `replyId` and wants to read the original message. The method is available only for `supervisor` and `personal` type bots. For more details, see [Bot Types](../../."
+        },
+        {
+          "info": {
+            "name": "Get Context of Message imbot.v2.Chat.Message.getContext",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.Message.getContext",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.getContext` returns a window of messages surrounding the specified one. It is used for analyzing the dialogue history. The method is only available for `supervisor` and `personal` type bots. For more details, see [Bot Types](../../../index.md#bot"
+        },
+        {
+          "info": {
+            "name": "Mark Messages as Read imbot.v2.Chat.Message.read",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.Message.read",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.read` marks messages as read on behalf of the bot. It marks all messages up to and including the specified one as read. If `messageId` is not specified, it marks all messages in the chat as read."
+        },
+        {
+          "info": {
+            "name": "Send Message imbot.v2.Chat.Message.send",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.Message.send",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.send` sends a message on behalf of the bot to the specified dialog."
+        },
+        {
+          "info": {
+            "name": "Update Message imbot.v2.Chat.Message.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.Message.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.update` updates a bot's message. A bot can only update its own messages. Messages sent with the parameter `system: true` cannot be updated—they have `authorId = 0` and do not belong to the bot in terms of access permissions."
+        },
+        {
+          "info": {
+            "name": "Managing the Text Input Field imbot.v2.Chat.TextField.enabled",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.TextField.enabled",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.TextField.enabled` enables or disables the text input field in the chat. This method works in both group and personal chats with the bot. Access is verified based on the bot's membership in the chat, so `ACCESS_DENIED` is returned only if the bot is not "
+        },
+        {
+          "info": {
+            "name": "Add Participants to Chat imbot.v2.Chat.User.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.User.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.User.add` adds participants to a chat. The bot must be an administrator of the chat. Non-existent or inactive users will be ignored without an error."
+        },
+        {
+          "info": {
+            "name": "Remove a Participant from the Chat imbot.v2.Chat.User.delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.User.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.User.delete` removes a participant from the chat. The bot must be an administrator of the chat. If the user is not a participant in the chat, the method will return `true` (idempotent behavior)."
+        },
+        {
+          "info": {
+            "name": "List of Chat Participants imbot.v2.Chat.User.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.User.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.User.list` returns a list of chat participants."
+        },
+        {
+          "info": {
+            "name": "Create a Group Chat imbot.v2.Chat.add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.add` creates a new group chat on behalf of the bot. If the owner is not specified, the bot becomes the owner."
+        },
+        {
+          "info": {
+            "name": "Get Information About the Chat imbot.v2.Chat.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.get` returns information about the chat. The bot must be a participant in the chat."
+        },
+        {
+          "info": {
+            "name": "Leave Chat imbot.v2.Chat.leave",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.leave",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.leave` removes the bot from the chat."
+        },
+        {
+          "info": {
+            "name": "Assign Chat Owner imbot.v2.Chat.setOwner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.setOwner",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.setOwner` transfers ownership of the chat to another user. Only the current owner of the chat can transfer ownership."
+        },
+        {
+          "info": {
+            "name": "Update Chat Properties imbot.v2.Chat.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Chat.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.update` updates the properties of a chat. It combines the update of the title, description, color, and avatar in a single call."
+        },
+        {
+          "info": {
+            "name": "Responding to the imbot.v2.Command.answer Command",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Command.answer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `imbot.v2.Command.answer` method sends a bot's response to a slash command invocation. The bot can respond in the chat from which the command originated, even if the bot is not a participant in that chat. Access is granted temporarily based on the command token — `messageId` "
+        },
+        {
+          "info": {
+            "name": "Get the List of Commands imbot.v2.Command.list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Command.list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.list` returns a list of all commands of the bot."
+        },
+        {
+          "info": {
+            "name": "Register the Team imbot.v2.Command.register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Command.register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.register` registers a bot's slash command. The method is idempotent: a repeated call with the same `command` for the same bot from the same application returns the existing command without updating the data. To update, use [imbot.v2.Command.update](./"
+        },
+        {
+          "info": {
+            "name": "Remove the imbot.v2.Command.unregister Command",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Command.unregister",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.unregister` removes a bot's slash command."
+        },
+        {
+          "info": {
+            "name": "Update the imbot.v2.Command.update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Command.update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.update` updates the bot's slash command."
+        },
+        {
+          "info": {
+            "name": "Get Events from imbot.v2.Event.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Event.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Event.get` retrieves events for the bot in polling agent mode. It is used for bots with `eventMode: \"fetch\"`. The method confirms the receipt of events with IDs less than the provided `offset`. On the next call, only new events starting from the confirmed one"
+        },
+        {
+          "info": {
+            "name": "Get Download Link for imbot.v2.File.download",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.File.download",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.File.download` returns a link to download a file from the chat."
+        },
+        {
+          "info": {
+            "name": "Upload File to Chat imbot.v2.File.upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.File.upload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.File.upload` uploads a file to the chat on behalf of the bot. It combines three steps of the deprecated API into a single call: uploading the file to the Drive, attaching it to the chat, and sending a message."
+        },
+        {
+          "info": {
+            "name": "Get API Revisions imbot.v2.Revision.get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bitrix24.com/rest/imbot.v2.Revision.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "auth",
+              "value": "{{auth}}",
+              "placement": "query"
+            }
+          },
+          "docs": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Revision.get` returns the revision numbers of the REST API and client protocols of the messenger. It is used to check compatibility: which methods and features are supported by a specific Bitrix24."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

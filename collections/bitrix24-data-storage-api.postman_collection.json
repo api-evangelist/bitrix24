@@ -1,0 +1,4683 @@
+{
+  "item": [
+    {
+      "id": "f9f1f3d5-7251-4ae4-a33a-1044873f3486",
+      "name": "Data Storage",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "25de63ee-4a74-4443-8900-c21d5b604afa",
+          "name": "Create a Data Storage entity.add",
+          "request": {
+            "name": "Create a Data Storage entity.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.add` method creates a new data storage for the application. The method works only in the context of the [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ACCESS",
+                  "value": "<object>",
+                  "description": "| Access permissions in the format `{\"access_code\":\"permission_level\"}`."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1f1cfeb7-d020-4e9b-b65b-dd5ce3024887",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Access permissions in the format `{\"access_code\":\"permission_level\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "ACCESS",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2b10e50-50da-4214-a1b2-6aac7e7c45e0",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Access permissions in the format `{\"access_code\":\"permission_level\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "ACCESS",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "888f5056-8ecf-4189-a506-4dde1486806b",
+          "name": "Delete Data Store entity.delete",
+          "request": {
+            "name": "Delete Data Store entity.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.delete` method removes the application's data store. This method only works in the context of the [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dd20d617-9e36-476a-bfbb-fb7787e88d4c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4afb0bd9-2895-4257-bd6e-67bdce386c59",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cd0399a-8601-4ed2-96be-6b6e13935a01",
+          "name": "Get Storage Parameters or List of Storages entity.get",
+          "request": {
+            "name": "Get Storage Parameters or List of Storages entity.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.get` method returns the parameters of the specified storage or a list of all storages of the application. The method works only in the context of the [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ENTITY",
+                  "value": "<string>",
+                  "description": "| Identifier of the application's data storage. Use the value specified when creating the storage."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b3196b63-377b-4299-a89a-8d9c87ad32a6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the application's data storage. Use the value specified when creating the storage.",
+                        "type": "text/plain"
+                      },
+                      "key": "ENTITY",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a814de49-b2fc-44e6-801b-35e0d565aa69",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the application's data storage. Use the value specified when creating the storage.",
+                        "type": "text/plain"
+                      },
+                      "key": "ENTITY",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b8d25cb-27b7-4499-a87c-05667ad39651",
+          "name": "Add Item to the Storage entity.item.add",
+          "request": {
+            "name": "Add Item to the Storage entity.item.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `entity.item.add` adds an item to the application's data storage. The method works only in the context of the [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.item.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| Name of the storage item. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PROPERTY_VALUES",
+                  "value": "<object>",
+                  "description": "| Property values of the item in the format `{\"PROPERTY_CODE\": value}`."
+                },
+                {
+                  "disabled": false,
+                  "key": "SECTION",
+                  "value": "<integer>",
+                  "description": "| Identifier of the storage section. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DATE_ACTIVE_FROM",
+                  "value": "<dateTime>",
+                  "description": "| Start date of the item's activity. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DATE_ACTIVE_TO",
+                  "value": "<dateTime>",
+                  "description": "| End date of the item's activity. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PREVIEW_PICTURE",
+                  "value": "<string>",
+                  "description": "| Preview image of the item. File format is described in the article How to Upload Files. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DETAIL_PICTURE",
+                  "value": "<string>",
+                  "description": "| Detailed image of the item. File format is described in the article How to Upload Files. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_",
+                  "value": "<string>",
+                  "description": "| Custom fields of the item `UF_*`."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "636e01ab-d321-4f16-bc30-c0ff6edc6b16",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the storage item. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Property values of the item in the format `{\"PROPERTY_CODE\": value}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "PROPERTY_VALUES",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the storage section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SECTION",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Start date of the item's activity. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_ACTIVE_FROM",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| End date of the item's activity. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_ACTIVE_TO",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Preview image of the item. File format is described in the article How to Upload Files. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PREVIEW_PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Detailed image of the item. File format is described in the article How to Upload Files. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DETAIL_PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Custom fields of the item `UF_*`.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52c4121d-85d8-4ea3-9936-8ef503583094",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the storage item. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Property values of the item in the format `{\"PROPERTY_CODE\": value}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "PROPERTY_VALUES",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the storage section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SECTION",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Start date of the item's activity. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_ACTIVE_FROM",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| End date of the item's activity. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_ACTIVE_TO",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Preview image of the item. File format is described in the article How to Upload Files. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PREVIEW_PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Detailed image of the item. File format is described in the article How to Upload Files. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DETAIL_PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Custom fields of the item `UF_*`.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8e8d3e4-8a19-4060-be29-4105de361cde",
+          "name": "Delete Entity Storage Method: entity.item.delete",
+          "request": {
+            "name": "Delete Entity Storage Method: entity.item.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.item.delete` method removes an item from the application's data storage. This method works only within the context of an [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.item.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cfe13ff8-17ec-4133-b30c-f240eb7e614d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1630d447-5353-4baa-ae6d-9f5a244373ea",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "342c47e3-0de7-46fa-9714-301dbd574300",
+          "name": "Get a List of Storage Items: entity.item.get",
+          "request": {
+            "name": "Get a List of Storage Items: entity.item.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.item.get` method retrieves a list of items from the application's data storage. This method works only in the context of an [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.item.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<object>",
+                  "description": "| Object format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "FILTER",
+                  "value": "<object>",
+                  "description": "| Object format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>",
+                  "description": "| Pagination parameter."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a2d6f2fd-080a-4e5b-8f0c-afd7e2d0261f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object format:",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object format:",
+                        "type": "text/plain"
+                      },
+                      "key": "FILTER",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Pagination parameter.",
+                        "type": "text/plain"
+                      },
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "867189bf-ff9e-4c61-9212-6ee85e9dc255",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object format:",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object format:",
+                        "type": "text/plain"
+                      },
+                      "key": "FILTER",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Pagination parameter.",
+                        "type": "text/plain"
+                      },
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6414fd90-fb03-4231-a41f-4c860cac65c9",
+          "name": "Add Property to Data Storage Elements entity.item.property.add",
+          "request": {
+            "name": "Add Property to Data Storage Elements entity.item.property.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `entity.item.property.add` adds a property to the elements of the application's data storage. The method works only in the context of the [application](../../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.item.property.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| Name of the property ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "TYPE",
+                  "value": "<string>",
+                  "description": "| Type of the property:"
+                },
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<integer>",
+                  "description": "| Sorting index of the property ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ed0790da-b4d9-4cc0-ba85-a12b5904d062",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.property.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the property ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Type of the property:",
+                        "type": "text/plain"
+                      },
+                      "key": "TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting index of the property ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09740306-2e8e-4c21-8b1b-8717ec28ed02",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.property.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the property ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Type of the property:",
+                        "type": "text/plain"
+                      },
+                      "key": "TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting index of the property ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba03bbb8-691f-4f3c-9bbb-3bf5eb8c137f",
+          "name": "Delete Property of Storage Elements entity.item.property.delete",
+          "request": {
+            "name": "Delete Property of Storage Elements entity.item.property.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `entity.item.property.delete` removes a property from the application's data storage elements. The method works only in the context of the [application](../../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.item.property.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0c22f548-c2f4-4cc8-af9e-839ee74f5e3b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.property.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c21ed28d-b1cb-458b-9912-49b721b73473",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.property.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c062e66c-06b9-4c90-994c-33f9c9311272",
+          "name": "Get Properties of Storage Elements entity.item.property.get",
+          "request": {
+            "name": "Get Properties of Storage Elements entity.item.property.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `entity.item.property.get` returns the properties of the application's data storage elements. The method works only in the context of the [application](../../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.item.property.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "PROPERTY",
+                  "value": "<string>",
+                  "description": "| Property code."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3df2c188-7337-4b68-ba84-9e653550c4d7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.property.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Property code.",
+                        "type": "text/plain"
+                      },
+                      "key": "PROPERTY",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0847c158-04a4-4690-af9e-ad377f49fa16",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.property.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Property code.",
+                        "type": "text/plain"
+                      },
+                      "key": "PROPERTY",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3a5908f-8f36-4d9c-b712-8f2515d28da1",
+          "name": "Update Property of Storage Elements entity.item.property.update",
+          "request": {
+            "name": "Update Property of Storage Elements entity.item.property.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `entity.item.property.update` modifies the property of elements in the application's data storage. The method works only in the context of the [application](../../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.item.property.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "PROPERTY_NEW",
+                  "value": "<string>",
+                  "description": "| New property code."
+                },
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| New property name. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "TYPE",
+                  "value": "<string>",
+                  "description": "| New property type:"
+                },
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<integer>",
+                  "description": "| Property sort index. ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f892be92-d7e4-4760-993f-1a8a66f2f1ff",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.property.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New property code.",
+                        "type": "text/plain"
+                      },
+                      "key": "PROPERTY_NEW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New property name. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New property type:",
+                        "type": "text/plain"
+                      },
+                      "key": "TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Property sort index. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7513809-e0a1-416a-9036-c9eccba0867c",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.property.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New property code.",
+                        "type": "text/plain"
+                      },
+                      "key": "PROPERTY_NEW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New property name. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New property type:",
+                        "type": "text/plain"
+                      },
+                      "key": "TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Property sort index. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed56640d-68ef-4708-9e7d-62b80cc9b855",
+          "name": "Update Entity Storage entity.item.update",
+          "request": {
+            "name": "Update Entity Storage entity.item.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method works only in the context of the [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.item.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| New name of the storage item ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PROPERTY_VALUES",
+                  "value": "<object>",
+                  "description": "| Property values of the item in the format `{\"PROPERTY_CODE\": value}`."
+                },
+                {
+                  "disabled": false,
+                  "key": "SECTION",
+                  "value": "<integer>",
+                  "description": "| Identifier of the storage section ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DATE_ACTIVE_FROM",
+                  "value": "<dateTime>",
+                  "description": "| Start date of the item's activity ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DATE_ACTIVE_TO",
+                  "value": "<dateTime>",
+                  "description": "| End date of the item's activity ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PREVIEW_PICTURE",
+                  "value": "<string>",
+                  "description": "| Preview image of the item. File format is described in the article How to Upload Files."
+                },
+                {
+                  "disabled": false,
+                  "key": "DETAIL_PICTURE",
+                  "value": "<string>",
+                  "description": "| Detailed image of the item. File format is described in the article How to Upload Files."
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_",
+                  "value": "<string>",
+                  "description": "| Custom fields of the item `UF_*`."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f003dea1-7c3d-4669-909f-68cdf6292b08",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New name of the storage item ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Property values of the item in the format `{\"PROPERTY_CODE\": value}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "PROPERTY_VALUES",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the storage section ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SECTION",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Start date of the item's activity ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_ACTIVE_FROM",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| End date of the item's activity ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_ACTIVE_TO",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Preview image of the item. File format is described in the article How to Upload Files.",
+                        "type": "text/plain"
+                      },
+                      "key": "PREVIEW_PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Detailed image of the item. File format is described in the article How to Upload Files.",
+                        "type": "text/plain"
+                      },
+                      "key": "DETAIL_PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Custom fields of the item `UF_*`.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d656f2ae-044e-4c61-a990-be7a36f278b0",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.item.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New name of the storage item ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Property values of the item in the format `{\"PROPERTY_CODE\": value}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "PROPERTY_VALUES",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the storage section ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SECTION",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Start date of the item's activity ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_ACTIVE_FROM",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| End date of the item's activity ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DATE_ACTIVE_TO",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Preview image of the item. File format is described in the article How to Upload Files.",
+                        "type": "text/plain"
+                      },
+                      "key": "PREVIEW_PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Detailed image of the item. File format is described in the article How to Upload Files.",
+                        "type": "text/plain"
+                      },
+                      "key": "DETAIL_PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Custom fields of the item `UF_*`.",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2fb48fc-961d-46c4-b30d-79d5d5203fe4",
+          "name": "Get or Modify Access Permissions for entity.rights",
+          "request": {
+            "name": "Get or Modify Access Permissions for entity.rights",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.rights` method retrieves the current set of access permissions for the application's data storage or modifies it. The method works only in the context of the [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.rights"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ACCESS",
+                  "value": "<object>",
+                  "description": "| A new set of permissions in the format `{\"access_code\":\"access_level\"}`."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b8a5b55a-4df2-4f69-887b-0b2a1feb3d1a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.rights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| A new set of permissions in the format `{\"access_code\":\"access_level\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "ACCESS",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3067972-b97e-48e5-8757-2752ab73135b",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.rights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| A new set of permissions in the format `{\"access_code\":\"access_level\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "ACCESS",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b829a3cb-c3e3-4a1b-a38d-98afd942dd69",
+          "name": "Add Section to the entity.section.add Storage",
+          "request": {
+            "name": "Add Section to the entity.section.add Storage",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.section.add` method adds a section to the application's data storage. The method works only in the context of the [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.section.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "SECTION",
+                  "value": "<integer>",
+                  "description": "| Identifier of the parent section. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ACTIVE",
+                  "value": "<string>",
+                  "description": "| Section activity flag:"
+                },
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<integer>",
+                  "description": "| Section sorting index. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "CODE",
+                  "value": "<string>",
+                  "description": "| Symbolic code of the section. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DESCRIPTION",
+                  "value": "<string>",
+                  "description": "| Description of the section. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PICTURE",
+                  "value": "<string>",
+                  "description": "| Section image. File format — as described in How to upload files. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DETAIL_PICTURE",
+                  "value": "<string>",
+                  "description": "| Detailed image of the section. File format — as described in How to upload files. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_",
+                  "value": "<object>",
+                  "description": "| Custom fields of the section `UF_*` in the format `{\"UF_CODE\": value}` ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "61552f68-4958-4084-bd5d-23a89e6c0e1b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.section.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the parent section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SECTION",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Section activity flag:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Section sorting index. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Symbolic code of the section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Section image. File format — as described in How to upload files. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Detailed image of the section. File format — as described in How to upload files. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DETAIL_PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Custom fields of the section `UF_*` in the format `{\"UF_CODE\": value}` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aef6b5aa-b979-49b8-ac24-2b59a756e918",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.section.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the parent section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SECTION",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Section activity flag:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Section sorting index. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Symbolic code of the section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Section image. File format — as described in How to upload files. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Detailed image of the section. File format — as described in How to upload files. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DETAIL_PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Custom fields of the section `UF_*` in the format `{\"UF_CODE\": value}` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62108f85-50ca-4978-b114-0596e7216783",
+          "name": "Delete the entity.section.delete method",
+          "request": {
+            "name": "Delete the entity.section.delete method",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.section.delete` method removes a section from the application's data storage. The method works only in the context of the [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.section.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b2a007ac-e1d0-4e9a-8b20-f0fee0a79fee",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.section.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a4ed950-2228-4e3c-9a2c-e5d57eb39b9a",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.section.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1d30a2c-1a58-4c70-b77a-e82f038b212f",
+          "name": "Get a List of Sections with entity.section.get",
+          "request": {
+            "name": "Get a List of Sections with entity.section.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. The `entity.section.get` method retrieves a list of sections from the application's data storage. The method works only in the context of an [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.section.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<object>",
+                  "description": "| Object format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "FILTER",
+                  "value": "<object>",
+                  "description": "| Object format:"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>",
+                  "description": "| Pagination parameter."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5a3369ad-e750-4ac8-86cb-bb5d8457d46c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.section.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object format:",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object format:",
+                        "type": "text/plain"
+                      },
+                      "key": "FILTER",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Pagination parameter.",
+                        "type": "text/plain"
+                      },
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7ebcaba-0f2c-4576-a485-53eb2a7a2ece",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.section.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object format:",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Object format:",
+                        "type": "text/plain"
+                      },
+                      "key": "FILTER",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Pagination parameter.",
+                        "type": "text/plain"
+                      },
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "463d78f7-6db2-487c-87fc-3fcedab106a6",
+          "name": "Update the entity.section.update method",
+          "request": {
+            "name": "Update the entity.section.update method",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.section.update` method updates a section of the application's data storage. The method works only in the context of the [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.section.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| Name of the section. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SECTION",
+                  "value": "<integer>",
+                  "description": "| Identifier of the parent section. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ACTIVE",
+                  "value": "<string>",
+                  "description": "| Active flag for the section:"
+                },
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<integer>",
+                  "description": "| Sorting index of the section. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "CODE",
+                  "value": "<string>",
+                  "description": "| Symbolic code of the section. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DESCRIPTION",
+                  "value": "<string>",
+                  "description": "| Description of the section. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PICTURE",
+                  "value": "<string>",
+                  "description": "| Image of the section. File format — see the article How to upload files. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "DETAIL_PICTURE",
+                  "value": "<string>",
+                  "description": "| Detailed image of the section. File format — see the article How to upload files. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_",
+                  "value": "<object>",
+                  "description": "| Custom fields of the section `UF_*` in the format `{\"UF_CODE\": value}` ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b583cc6d-fdac-4359-a21c-4815dd1ab6ee",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.section.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the parent section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SECTION",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Active flag for the section:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting index of the section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Symbolic code of the section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Image of the section. File format — see the article How to upload files. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Detailed image of the section. File format — see the article How to upload files. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DETAIL_PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Custom fields of the section `UF_*` in the format `{\"UF_CODE\": value}` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d7c0e09-7e88-4417-9bba-c55dd5e992c1",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.section.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the parent section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SECTION",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Active flag for the section:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting index of the section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Symbolic code of the section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "CODE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Description of the section. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DESCRIPTION",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Image of the section. File format — see the article How to upload files. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Detailed image of the section. File format — see the article How to upload files. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "DETAIL_PICTURE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Custom fields of the section `UF_*` in the format `{\"UF_CODE\": value}` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08fcc9cb-3ddb-4c8e-9794-bef5b6729430",
+          "name": "Change Parameters of entity.update",
+          "request": {
+            "name": "Change Parameters of entity.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `entity.update` method updates the parameters of the application's data storage. The method works only in the context of the [application](../../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| New name for the storage. ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "ENTITY_NEW",
+                  "value": "<string>",
+                  "description": "| New identifier for the storage."
+                },
+                {
+                  "disabled": false,
+                  "key": "ACCESS",
+                  "value": "<object>",
+                  "description": "| New set of access permissions in the format `{\"access_code\":\"permission_level\"}`."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b61ccba1-ed81-48c7-9d4d-c9ed86159b42",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New name for the storage. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New identifier for the storage.",
+                        "type": "text/plain"
+                      },
+                      "key": "ENTITY_NEW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New set of access permissions in the format `{\"access_code\":\"permission_level\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "ACCESS",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5716,\n  \"next\": 4879,\n  \"time\": {\n    \"start\": 6943.894989206003,\n    \"finish\": 5130.168099353359,\n    \"duration\": 614.05014347782,\n    \"processing\": 2389.664563105599,\n    \"date_start\": \"2001-12-26T18:44:59.334Z\",\n    \"date_finish\": \"1969-10-23T12:26:29.580Z\",\n    \"operating_reset_at\": 9667,\n    \"operating\": 2796.2140734894124\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "726b71a5-3e17-47c6-922f-3db88f58aba1",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New name for the storage. ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New identifier for the storage.",
+                        "type": "text/plain"
+                      },
+                      "key": "ENTITY_NEW",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| New set of access permissions in the format `{\"access_code\":\"permission_level\"}`.",
+                        "type": "text/plain"
+                      },
+                      "key": "ACCESS",
+                      "value": "<object>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1aa0a5da-ead1-4f74-8cc5-d588ca9d0432",
+    "name": "Bitrix24 REST BIconnector Data Storage API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

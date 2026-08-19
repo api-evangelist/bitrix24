@@ -1,0 +1,1599 @@
+{
+  "item": [
+    {
+      "id": "cd057425-dbac-41bb-9e94-1d27b07549ee",
+      "name": "Signature",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "91f1fed5-98a0-4792-a2be-da44f75a0f5c",
+          "name": "Get the List of Providers for sign.b2e.company.provider.list",
+          "request": {
+            "name": "Get the List of Providers for sign.b2e.company.provider.list",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.company.provider.list` returns a list of signature providers for the selected company. The method works only in the context of application authorization [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sign.b2e.company.provider.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "companyUuid",
+                  "value": "<string>",
+                  "description": "(Required) | UUID of the company in HCM Link."
+                },
+                {
+                  "disabled": false,
+                  "key": "companyCrmId",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the company in CRM, connected in the integration as \"my company\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "| Language for localizing provider names."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "| Number of records per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "| Parameter for managing pagination."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4dd9c12a-e717-4220-af9c-c67a571a8bcb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sign.b2e.company.provider.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | UUID of the company in HCM Link.",
+                        "type": "text/plain"
+                      },
+                      "key": "companyUuid",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the company in CRM, connected in the integration as \"my company\".",
+                        "type": "text/plain"
+                      },
+                      "key": "companyCrmId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Language for localizing provider names.",
+                        "type": "text/plain"
+                      },
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Number of records per page.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Parameter for managing pagination.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 3350,\n  \"next\": 1215,\n  \"time\": {\n    \"start\": 7933.951809677412,\n    \"finish\": 1232.1592332488794,\n    \"duration\": 9577.39681348773,\n    \"processing\": 1952.9040594282765,\n    \"date_start\": \"1973-09-16T08:23:36.469Z\",\n    \"date_finish\": \"1968-04-05T01:12:20.269Z\",\n    \"operating_reset_at\": 5627,\n    \"operating\": 9598.462225146344\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12ae4e6b-9e3e-48cf-ac17-9981e87a5d09",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sign.b2e.company.provider.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | UUID of the company in HCM Link.",
+                        "type": "text/plain"
+                      },
+                      "key": "companyUuid",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the company in CRM, connected in the integration as \"my company\".",
+                        "type": "text/plain"
+                      },
+                      "key": "companyCrmId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Language for localizing provider names.",
+                        "type": "text/plain"
+                      },
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Number of records per page.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Parameter for managing pagination.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e08aa038-ffa5-4bf8-a459-ee5dc14e9442",
+          "name": "Get Document sign.b2e.document.get",
+          "request": {
+            "name": "Get Document sign.b2e.document.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.document.get` returns information about the document and signing participants. The method works only in the context of application authorization [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sign.b2e.document.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "uid",
+                  "value": "<string>",
+                  "description": "| Unique identifier of the document ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "| Language for localizing statuses in the response."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f0f686d2-3729-4181-8c50-efc6f8df820e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sign.b2e.document.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Unique identifier of the document ||",
+                        "type": "text/plain"
+                      },
+                      "key": "uid",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Language for localizing statuses in the response.",
+                        "type": "text/plain"
+                      },
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 3350,\n  \"next\": 1215,\n  \"time\": {\n    \"start\": 7933.951809677412,\n    \"finish\": 1232.1592332488794,\n    \"duration\": 9577.39681348773,\n    \"processing\": 1952.9040594282765,\n    \"date_start\": \"1973-09-16T08:23:36.469Z\",\n    \"date_finish\": \"1968-04-05T01:12:20.269Z\",\n    \"operating_reset_at\": 5627,\n    \"operating\": 9598.462225146344\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a8c1ef7-8734-4ec8-9e47-376bac6ff738",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sign.b2e.document.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Unique identifier of the document ||",
+                        "type": "text/plain"
+                      },
+                      "key": "uid",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Language for localizing statuses in the response.",
+                        "type": "text/plain"
+                      },
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4611e7d-7d1e-47ea-8fca-6fb1ca992514",
+          "name": "Send Document for Signing sign.b2e.document.send",
+          "request": {
+            "name": "Send Document for Signing sign.b2e.document.send",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.document.send` sends a document for signing on behalf of the company. This method works only in the context of application authorization [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sign.b2e.document.send"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<object>",
+                  "description": "(Required) | Parameters for sending the document for signing (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "company",
+                  "value": "<object>",
+                  "description": "(Required) | The company on behalf of which the document is sent (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "responsible",
+                  "value": "<object>",
+                  "description": "(Required) | Responsible person for the document (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "companyProviderUid",
+                  "value": "<string>",
+                  "description": "(Required) | Identifier of the signing provider. You can get a list of available signing providers using the sign.b2e.company.provider.list method ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "regionDocumentType",
+                  "value": "<string>",
+                  "description": "(Required) | Document type for the region (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalSettings",
+                  "value": "<object>",
+                  "description": "(Required) | External parameters of the document (detailed description) ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "uuid",
+                  "value": "<string>",
+                  "description": "(Required) | UUID of the company in HCM Link."
+                },
+                {
+                  "disabled": false,
+                  "key": "crmId",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the company in CRM, connected in the integration as \"my company\" ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "employeeCode",
+                  "value": "<string>",
+                  "description": "(Required) | Employee code in HCM Link."
+                },
+                {
+                  "disabled": false,
+                  "key": "employeeId",
+                  "value": "<integer>",
+                  "description": "(Required) | Employee identifier in HCM Link."
+                },
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<integer>",
+                  "description": "(Required) | User identifier in Bitrix24 ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string>",
+                  "description": "(Required) | Role of the participant. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "fileName",
+                  "value": "<string>",
+                  "description": "(Required) | File name. Must include the `.pdf` extension ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "fileType",
+                  "value": "<string>",
+                  "description": "(Required) | MIME type of the file. Supported `application/pdf` ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "fileContent",
+                  "value": "<string>",
+                  "description": "(Required) | Content of the file, encoded in Base64 ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalId",
+                  "value": "<string>",
+                  "description": "(Required) | External identifier. Maximum length — 255 characters ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalDateCreate",
+                  "value": "<string>",
+                  "description": "(Required) | Creation date of the external document in ISO 8601 format ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "| Language for localizing statuses in the response."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cd984678-2844-425d-ba41-f2617237cfec",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sign.b2e.document.send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Parameters for sending the document for signing (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The company on behalf of which the document is sent (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "company",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Responsible person for the document (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "responsible",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the signing provider. You can get a list of available signing providers using the sign.b2e.company.provider.list method ||",
+                        "type": "text/plain"
+                      },
+                      "key": "companyProviderUid",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Document type for the region (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "regionDocumentType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | External parameters of the document (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "externalSettings",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | UUID of the company in HCM Link.",
+                        "type": "text/plain"
+                      },
+                      "key": "uuid",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the company in CRM, connected in the integration as \"my company\" ||",
+                        "type": "text/plain"
+                      },
+                      "key": "crmId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Employee code in HCM Link.",
+                        "type": "text/plain"
+                      },
+                      "key": "employeeCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Employee identifier in HCM Link.",
+                        "type": "text/plain"
+                      },
+                      "key": "employeeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | User identifier in Bitrix24 ||",
+                        "type": "text/plain"
+                      },
+                      "key": "userId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Role of the participant. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "role",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | File name. Must include the `.pdf` extension ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fileName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | MIME type of the file. Supported `application/pdf` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fileType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Content of the file, encoded in Base64 ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fileContent",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | External identifier. Maximum length — 255 characters ||",
+                        "type": "text/plain"
+                      },
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Creation date of the external document in ISO 8601 format ||",
+                        "type": "text/plain"
+                      },
+                      "key": "externalDateCreate",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Language for localizing statuses in the response.",
+                        "type": "text/plain"
+                      },
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 3350,\n  \"next\": 1215,\n  \"time\": {\n    \"start\": 7933.951809677412,\n    \"finish\": 1232.1592332488794,\n    \"duration\": 9577.39681348773,\n    \"processing\": 1952.9040594282765,\n    \"date_start\": \"1973-09-16T08:23:36.469Z\",\n    \"date_finish\": \"1968-04-05T01:12:20.269Z\",\n    \"operating_reset_at\": 5627,\n    \"operating\": 9598.462225146344\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32ffea77-cda2-4f54-b66f-76977ab79c9d",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sign.b2e.document.send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Parameters for sending the document for signing (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | The company on behalf of which the document is sent (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "company",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Responsible person for the document (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "responsible",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the signing provider. You can get a list of available signing providers using the sign.b2e.company.provider.list method ||",
+                        "type": "text/plain"
+                      },
+                      "key": "companyProviderUid",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Document type for the region (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "regionDocumentType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | External parameters of the document (detailed description) ||",
+                        "type": "text/plain"
+                      },
+                      "key": "externalSettings",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | UUID of the company in HCM Link.",
+                        "type": "text/plain"
+                      },
+                      "key": "uuid",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the company in CRM, connected in the integration as \"my company\" ||",
+                        "type": "text/plain"
+                      },
+                      "key": "crmId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Employee code in HCM Link.",
+                        "type": "text/plain"
+                      },
+                      "key": "employeeCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Employee identifier in HCM Link.",
+                        "type": "text/plain"
+                      },
+                      "key": "employeeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | User identifier in Bitrix24 ||",
+                        "type": "text/plain"
+                      },
+                      "key": "userId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Role of the participant. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "role",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | File name. Must include the `.pdf` extension ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fileName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | MIME type of the file. Supported `application/pdf` ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fileType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Content of the file, encoded in Base64 ||",
+                        "type": "text/plain"
+                      },
+                      "key": "fileContent",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | External identifier. Maximum length — 255 characters ||",
+                        "type": "text/plain"
+                      },
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Creation date of the external document in ISO 8601 format ||",
+                        "type": "text/plain"
+                      },
+                      "key": "externalDateCreate",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Language for localizing statuses in the response.",
+                        "type": "text/plain"
+                      },
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7d4401d-fe76-4636-a697-84119d7afa97",
+          "name": "Get a list of signed documents in the company's safe sign.b2e.mysafe.tail",
+          "request": {
+            "name": "Get a list of signed documents in the company's safe sign.b2e.mysafe.tail",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.mysafe.tail` returns a list of signed documents in the company's safe. The method works only in the context of [application](../../settings/app-installation/index.md) authorization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sign.b2e.mysafe.tail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "| Number of records per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "| This parameter is used to manage pagination. It is similar to the standard start parameter."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "322259d3-5f05-43cb-adf9-7cf44e400394",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sign.b2e.mysafe.tail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Number of records per page.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| This parameter is used to manage pagination. It is similar to the standard start parameter.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 3350,\n  \"next\": 1215,\n  \"time\": {\n    \"start\": 7933.951809677412,\n    \"finish\": 1232.1592332488794,\n    \"duration\": 9577.39681348773,\n    \"processing\": 1952.9040594282765,\n    \"date_start\": \"1973-09-16T08:23:36.469Z\",\n    \"date_finish\": \"1968-04-05T01:12:20.269Z\",\n    \"operating_reset_at\": 5627,\n    \"operating\": 9598.462225146344\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "109c02e7-cbce-4187-817e-6aca51f06874",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sign.b2e.mysafe.tail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Number of records per page.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| This parameter is used to manage pagination. It is similar to the standard start parameter.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8498a436-4f0e-4ae7-9864-3357919c463d",
+          "name": "Get a list of signed documents for the user sign.b2e.personal.tail",
+          "request": {
+            "name": "Get a list of signed documents for the user sign.b2e.personal.tail",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.personal.tail` returns a list of signed documents for the user from the e-Signature for HR section. The method works only in the context of authorization of the [application](../../settings/app-installation/index.md).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sign.b2e.personal.tail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "| Number of records per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "| This parameter is used for pagination control. It is similar to the standard parameter start."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f3ad87f5-e455-4ead-8ddc-f6dafa1cbbff",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sign.b2e.personal.tail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Number of records per page.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| This parameter is used for pagination control. It is similar to the standard parameter start.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 3350,\n  \"next\": 1215,\n  \"time\": {\n    \"start\": 7933.951809677412,\n    \"finish\": 1232.1592332488794,\n    \"duration\": 9577.39681348773,\n    \"processing\": 1952.9040594282765,\n    \"date_start\": \"1973-09-16T08:23:36.469Z\",\n    \"date_finish\": \"1968-04-05T01:12:20.269Z\",\n    \"operating_reset_at\": 5627,\n    \"operating\": 9598.462225146344\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2933a3f-213c-4db7-81c8-a01b3c8a037f",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sign.b2e.personal.tail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Number of records per page.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| This parameter is used for pagination control. It is similar to the standard parameter start.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "77c978ff-7f43-4328-acd5-7d73e20da1a6",
+    "name": "Bitrix24 REST BIconnector Signature API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

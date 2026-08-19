@@ -1,0 +1,1383 @@
+{
+  "item": [
+    {
+      "id": "c7e8a47c-9979-42eb-8fbd-622c032dcf13",
+      "name": "Company Structure",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5c1abcfa-ef7a-48f7-9d99-527d7c6c64d9",
+          "name": "Create Department department.add",
+          "request": {
+            "name": "Create Department department.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `department.add` adds a new department to the company's structure.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "department.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "(Required) | Department name ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PARENT",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the parent department ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<integer>",
+                  "description": "| Department sorting field ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_HEAD",
+                  "value": "<integer>",
+                  "description": "| Identifier of the user who will become the head of the department ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "13025bff-3fbd-4edb-b90f-eb1c50dc5db1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "department.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Department name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the parent department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PARENT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Department sorting field ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user who will become the head of the department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_HEAD",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5167,\n  \"next\": 3412,\n  \"time\": {\n    \"start\": 523.0624583623334,\n    \"finish\": 3157.7242235269023,\n    \"duration\": 2836.105253744745,\n    \"processing\": 2622.9003282771723,\n    \"date_start\": \"1964-01-17T02:05:45.402Z\",\n    \"date_finish\": \"2000-08-04T21:32:03.257Z\",\n    \"operating_reset_at\": 2956,\n    \"operating\": 2457.5036138016403\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7924730-7732-4ef3-b97a-555d8f9efea7",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "department.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Department name ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the parent department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PARENT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Department sorting field ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user who will become the head of the department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_HEAD",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad3292b5-ab30-498d-9564-88767a701e0e",
+          "name": "Delete department.department.delete",
+          "request": {
+            "name": "Delete department.department.delete",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `department.delete` removes a department from the company structure.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "department.department.delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ID",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the department ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cfe80e64-18b8-42cd-846a-3c342913e18a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "department.department.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5167,\n  \"next\": 3412,\n  \"time\": {\n    \"start\": 523.0624583623334,\n    \"finish\": 3157.7242235269023,\n    \"duration\": 2836.105253744745,\n    \"processing\": 2622.9003282771723,\n    \"date_start\": \"1964-01-17T02:05:45.402Z\",\n    \"date_finish\": \"2000-08-04T21:32:03.257Z\",\n    \"operating_reset_at\": 2956,\n    \"operating\": 2457.5036138016403\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc0d4c75-f1b3-4784-b908-246b60a852ad",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "department.department.delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa363461-aed0-4d46-b8fa-50fef78b9a1b",
+          "name": "Get a list of department field names department.fields",
+          "request": {
+            "name": "Get a list of department field names department.fields",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `department.fields` returns a list and description of available department fields. No parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "department.fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "result",
+                  "value": "<object>",
+                  "description": "| Root element of the response. Contains the list and description of fields ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "time",
+                  "value": "<string>",
+                  "description": "| Information about the execution time of the request ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "55854902-61bd-4e10-8660-f7b3e516b97b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "department.fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Root element of the response. Contains the list and description of fields ||",
+                        "type": "text/plain"
+                      },
+                      "key": "result",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Information about the execution time of the request ||",
+                        "type": "text/plain"
+                      },
+                      "key": "time",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5167,\n  \"next\": 3412,\n  \"time\": {\n    \"start\": 523.0624583623334,\n    \"finish\": 3157.7242235269023,\n    \"duration\": 2836.105253744745,\n    \"processing\": 2622.9003282771723,\n    \"date_start\": \"1964-01-17T02:05:45.402Z\",\n    \"date_finish\": \"2000-08-04T21:32:03.257Z\",\n    \"operating_reset_at\": 2956,\n    \"operating\": 2457.5036138016403\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5fedd382-2317-4850-b8ce-184b9d72d6c3",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "department.fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Root element of the response. Contains the list and description of fields ||",
+                        "type": "text/plain"
+                      },
+                      "key": "result",
+                      "value": "<object>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Information about the execution time of the request ||",
+                        "type": "text/plain"
+                      },
+                      "key": "time",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbf3da25-3076-40f4-8aba-f8576201d9b4",
+          "name": "Get the list of departments department.get",
+          "request": {
+            "name": "Get the list of departments department.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `department.get` method is designed to retrieve a list of departments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "department.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "| The name of the field to sort by. Sorting works on the following fields:"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "| Sorting direction:"
+                },
+                {
+                  "disabled": false,
+                  "key": "ID",
+                  "value": "<integer>",
+                  "description": "| Filter by department identifier ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| Filter by department name. The full name of the department should be specified ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<integer>",
+                  "description": "| Filter by sorting field ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PARENT",
+                  "value": "<integer>",
+                  "description": "| Filter by parent department identifier ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_HEAD",
+                  "value": "<integer>",
+                  "description": "| Filter by department head identifier ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "START",
+                  "value": "<integer>",
+                  "description": "| This parameter is used for pagination control."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b9578706-2c93-44a5-a524-189075c1e364",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "department.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The name of the field to sort by. Sorting works on the following fields:",
+                        "type": "text/plain"
+                      },
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting direction:",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter by department identifier ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter by department name. The full name of the department should be specified ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter by sorting field ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter by parent department identifier ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PARENT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter by department head identifier ||",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_HEAD",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| This parameter is used for pagination control.",
+                        "type": "text/plain"
+                      },
+                      "key": "START",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5167,\n  \"next\": 3412,\n  \"time\": {\n    \"start\": 523.0624583623334,\n    \"finish\": 3157.7242235269023,\n    \"duration\": 2836.105253744745,\n    \"processing\": 2622.9003282771723,\n    \"date_start\": \"1964-01-17T02:05:45.402Z\",\n    \"date_finish\": \"2000-08-04T21:32:03.257Z\",\n    \"operating_reset_at\": 2956,\n    \"operating\": 2457.5036138016403\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "704f60b3-7333-448c-9d40-23895ebe4404",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "department.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The name of the field to sort by. Sorting works on the following fields:",
+                        "type": "text/plain"
+                      },
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting direction:",
+                        "type": "text/plain"
+                      },
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter by department identifier ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter by department name. The full name of the department should be specified ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter by sorting field ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter by parent department identifier ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PARENT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Filter by department head identifier ||",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_HEAD",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| This parameter is used for pagination control.",
+                        "type": "text/plain"
+                      },
+                      "key": "START",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c6ebcfa-ee0f-43d3-a6bf-01003c5d0d6f",
+          "name": "Update Department department.update",
+          "request": {
+            "name": "Update Department department.update",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `department.update` modifies the department data in the company structure.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "department.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ID",
+                  "value": "<integer>",
+                  "description": "(Required) | Identifier of the department ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "NAME",
+                  "value": "<string>",
+                  "description": "| Name of the department ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "SORT",
+                  "value": "<integer>",
+                  "description": "| Sorting field of the department ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "PARENT",
+                  "value": "<integer>",
+                  "description": "| Identifier of the parent department ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "UF_HEAD",
+                  "value": "<integer>",
+                  "description": "| Identifier of the user who will be the head of the department ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5fad9b6f-324b-4d6b-869e-833a459828fc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "department.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting field of the department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the parent department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PARENT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user who will be the head of the department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_HEAD",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 5167,\n  \"next\": 3412,\n  \"time\": {\n    \"start\": 523.0624583623334,\n    \"finish\": 3157.7242235269023,\n    \"duration\": 2836.105253744745,\n    \"processing\": 2622.9003282771723,\n    \"date_start\": \"1964-01-17T02:05:45.402Z\",\n    \"date_finish\": \"2000-08-04T21:32:03.257Z\",\n    \"operating_reset_at\": 2956,\n    \"operating\": 2457.5036138016403\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ffa7fb11-cc65-40bd-8392-709d6c142f26",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "department.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Identifier of the department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Name of the department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Sorting field of the department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "SORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the parent department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "PARENT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the user who will be the head of the department ||",
+                        "type": "text/plain"
+                      },
+                      "key": "UF_HEAD",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9947e0cb-f628-4a04-a060-e159468d50f2",
+    "name": "Bitrix24 REST BIconnector Company Structure API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

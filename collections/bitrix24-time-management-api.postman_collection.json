@@ -1,0 +1,3793 @@
+{
+  "item": [
+    {
+      "id": "4771f4be-18e7-4a58-a3f5-348b3a2ca99a",
+      "name": "Time Management",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a5ac210e-4bdb-4c40-befa-7fcb94f7c3f0",
+          "name": "Close Current Day timeman.close",
+          "request": {
+            "name": "Close Current Day timeman.close",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.close` ends the current workday.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.close"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| User identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "TIME",
+                  "value": "<dateTime>",
+                  "description": "| The end time and date of the workday in the ATOM (ISO-8601) format, for example, `2025-02-12T15:52:01+00:00`. The date must match the start date of the workday."
+                },
+                {
+                  "disabled": false,
+                  "key": "REPORT",
+                  "value": "<string>",
+                  "description": "| Reason for changing the workday."
+                },
+                {
+                  "disabled": false,
+                  "key": "LAT",
+                  "value": "<double>",
+                  "description": "| Geographic latitude of the end of the workday ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "LON",
+                  "value": "<double>",
+                  "description": "| Geographic longitude of the end of the workday ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c5d01a74-047a-4fed-bc85-6a501b94b5e2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The end time and date of the workday in the ATOM (ISO-8601) format, for example, `2025-02-12T15:52:01+00:00`. The date must match the start date of the workday.",
+                        "type": "text/plain"
+                      },
+                      "key": "TIME",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Reason for changing the workday.",
+                        "type": "text/plain"
+                      },
+                      "key": "REPORT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Geographic latitude of the end of the workday ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LAT",
+                      "value": "<double>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Geographic longitude of the end of the workday ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LON",
+                      "value": "<double>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ec34fbc-0277-49f9-83d6-709de5fb78c2",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The end time and date of the workday in the ATOM (ISO-8601) format, for example, `2025-02-12T15:52:01+00:00`. The date must match the start date of the workday.",
+                        "type": "text/plain"
+                      },
+                      "key": "TIME",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Reason for changing the workday.",
+                        "type": "text/plain"
+                      },
+                      "key": "REPORT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Geographic latitude of the end of the workday ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LAT",
+                      "value": "<double>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Geographic longitude of the end of the workday ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LON",
+                      "value": "<double>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fffd09a1-7bd7-48e1-ac62-3329dc38cabf",
+          "name": "Check IP Address timeman.networkrange.check",
+          "request": {
+            "name": "Check IP Address timeman.networkrange.check",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.networkrange.check` checks whether an IP address falls within the ranges of the office network. For the method to work correctly, at least one range must be set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.networkrange.check"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "IP",
+                  "value": "<string>",
+                  "description": "| The IP address to check. For example, `10.10.255.25`."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "703f1871-5ff7-4c2b-9528-7de78e78536b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.networkrange.check"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The IP address to check. For example, `10.10.255.25`.",
+                        "type": "text/plain"
+                      },
+                      "key": "IP",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fdcff4c-381a-47c6-89c0-30e05bcf0038",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.networkrange.check"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The IP address to check. For example, `10.10.255.25`.",
+                        "type": "text/plain"
+                      },
+                      "key": "IP",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b3e2c2a-20a5-44e9-a8d8-cca7273074e8",
+          "name": "Get Network Address Ranges timeman.networkrange.get",
+          "request": {
+            "name": "Get Network Address Ranges timeman.networkrange.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.networkrange.get` retrieves the ranges of network addresses for the office network.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.networkrange.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0999ce5e-1a24-4c94-90b9-922bdbc45a48",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.networkrange.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64c9eeaa-9a0a-4a35-9f1e-c1831eda51a4",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.networkrange.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64fe3838-8f72-4be6-9ec2-1b64753679fb",
+          "name": "Set Network Address Ranges timeman.networkrange.set",
+          "request": {
+            "name": "Set Network Address Ranges timeman.networkrange.set",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.networkrange.set` sets the network address ranges for the office network.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.networkrange.set"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "RANGES",
+                  "value": "<string>",
+                  "description": "(Required) | Network address ranges in the form of a list of objects. Each object contains a description of the network address range."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "910b491c-84a7-41be-bf91-d574affacae6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.networkrange.set"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Network address ranges in the form of a list of objects. Each object contains a description of the network address range.",
+                        "type": "text/plain"
+                      },
+                      "key": "RANGES",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "645a2abd-80ef-4f4d-8893-d84832eeb285",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.networkrange.set"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Network address ranges in the form of a list of objects. Each object contains a description of the network address range.",
+                        "type": "text/plain"
+                      },
+                      "key": "RANGES",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1a729d2-dc5e-4318-bffd-1a0a7c155f21",
+          "name": "Start a New Workday timeman.open",
+          "request": {
+            "name": "Start a New Workday timeman.open",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.open` starts a new workday or continues the workday after a break or completion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.open"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| User identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "TIME",
+                  "value": "<dateTime>",
+                  "description": "| The start date and time of the workday in the ATOM (ISO-8601) format, for example, `2025-02-12T15:52:01+00:00`. The date must match the current calendar date."
+                },
+                {
+                  "disabled": false,
+                  "key": "REPORT",
+                  "value": "<string>",
+                  "description": "| Reason for changing the workday."
+                },
+                {
+                  "disabled": false,
+                  "key": "LAT",
+                  "value": "<double>",
+                  "description": "| Geographic latitude of the start of the workday ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "LON",
+                  "value": "<double>",
+                  "description": "| Geographic longitude of the start of the workday ||"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fd05d3a9-a2e5-44ec-a309-42d8c18dbcfb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The start date and time of the workday in the ATOM (ISO-8601) format, for example, `2025-02-12T15:52:01+00:00`. The date must match the current calendar date.",
+                        "type": "text/plain"
+                      },
+                      "key": "TIME",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Reason for changing the workday.",
+                        "type": "text/plain"
+                      },
+                      "key": "REPORT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Geographic latitude of the start of the workday ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LAT",
+                      "value": "<double>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Geographic longitude of the start of the workday ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LON",
+                      "value": "<double>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6060add-6b79-4869-826f-39fb22aa2745",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The start date and time of the workday in the ATOM (ISO-8601) format, for example, `2025-02-12T15:52:01+00:00`. The date must match the current calendar date.",
+                        "type": "text/plain"
+                      },
+                      "key": "TIME",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Reason for changing the workday.",
+                        "type": "text/plain"
+                      },
+                      "key": "REPORT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Geographic latitude of the start of the workday ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LAT",
+                      "value": "<double>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Geographic longitude of the start of the workday ||",
+                        "type": "text/plain"
+                      },
+                      "key": "LON",
+                      "value": "<double>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39aca58f-d89f-46dd-a20a-8702f37061f0",
+          "name": "Pause the current workday timeman.pause",
+          "request": {
+            "name": "Pause the current workday timeman.pause",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.pause` pauses the current workday. If the workday is completed, the method will resume it and add the time that has passed since completion to the duration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.pause"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| User identifier."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8cd51b8b-b4ed-4f54-8ba8-d3afdec4f938",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.pause"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3206bafa-fc26-4f09-a712-4cc700e9303a",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.pause"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a65b8361-0c0a-4214-9607-79b14e04a46e",
+          "name": "Get Work Schedule timeman.schedule.get",
+          "request": {
+            "name": "Get Work Schedule timeman.schedule.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.schedule.get` retrieves the work schedule by its identifier. If no schedule exists with the specified identifier, it will return an empty array.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.schedule.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "| Identifier of the schedule."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ac96e61e-e0a1-44df-ad1f-9e029214c9e4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.schedule.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the schedule.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6a67718-5913-493c-942d-69d3bf459f3f",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.schedule.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Identifier of the schedule.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca848f14-1be4-460b-817a-c7ab6794374f",
+          "name": "Get User Work Time Settings timeman.settings",
+          "request": {
+            "name": "Get User Work Time Settings timeman.settings",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.settings` retrieves the user's work time settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| User identifier."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d0a39030-6337-4f60-b937-30d58f78a4c7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29ea9747-3924-4cd6-808b-631eb1634b08",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "665e528a-63f0-4cb0-aa5d-364021b892be",
+          "name": "Get information about the current workday timeman.status",
+          "request": {
+            "name": "Get information about the current workday timeman.status",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.status` retrieves information about the current workday.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| User identifier."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5548d164-0c00-482d-87b0-47049addba6d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a310156-1317-483c-b11d-641aa39f4427",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08bd836f-0460-41b5-b2af-29e597de5a30",
+          "name": "Add Absence Report timeman.timecontrol.report.add",
+          "request": {
+            "name": "Add Absence Report timeman.timecontrol.report.add",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.report.add` sends an absence report and adds it to the calendar. By default, a user can only send a report for themselves. A portal administrator can send a report for anyone—this requires specifying the user ID in the `USER_ID` parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.timecontrol.report.add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "REPORT_ID",
+                  "value": "<string>",
+                  "description": "(Required) \\| ID*"
+                },
+                {
+                  "disabled": false,
+                  "key": "TEXT",
+                  "value": "<string>",
+                  "description": "(Required) | Report text ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "| User identifier. Can only be specified by an administrator."
+                },
+                {
+                  "disabled": false,
+                  "key": "TYPE",
+                  "value": "<string>",
+                  "description": "| Report type:"
+                },
+                {
+                  "disabled": false,
+                  "key": "CALENDAR",
+                  "value": "<string>",
+                  "description": "| Add event to calendar:"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cf4793f6-5230-4f35-b872-c79acaf40462",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.timecontrol.report.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) \\| ID*",
+                        "type": "text/plain"
+                      },
+                      "key": "REPORT_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Report text ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TEXT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier. Can only be specified by an administrator.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Report type:",
+                        "type": "text/plain"
+                      },
+                      "key": "TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Add event to calendar:",
+                        "type": "text/plain"
+                      },
+                      "key": "CALENDAR",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd651fe0-727b-45b9-8cd8-b69642859fe9",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.timecontrol.report.add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) \\| ID*",
+                        "type": "text/plain"
+                      },
+                      "key": "REPORT_ID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Report text ||",
+                        "type": "text/plain"
+                      },
+                      "key": "TEXT",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| User identifier. Can only be specified by an administrator.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Report type:",
+                        "type": "text/plain"
+                      },
+                      "key": "TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Add event to calendar:",
+                        "type": "text/plain"
+                      },
+                      "key": "CALENDAR",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c86aaab7-ed5a-4415-bcec-0bfea36d5b52",
+          "name": "Get Report on Identified Absences timeman.timecontrol.reports.get",
+          "request": {
+            "name": "Get Report on Identified Absences timeman.timecontrol.reports.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.reports.get` retrieves a report on identified absences.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.timecontrol.reports.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "USER_ID",
+                  "value": "<integer>",
+                  "description": "(Required) | User ID for whom the reports are requested."
+                },
+                {
+                  "disabled": false,
+                  "key": "MONTH",
+                  "value": "<integer>",
+                  "description": "(Required) | Month number ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "YEAR",
+                  "value": "<integer>",
+                  "description": "(Required) | Year ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "IDLE_MINUTES",
+                  "value": "<integer>",
+                  "description": "| Maximum time of absence at the workplace that is not counted as absence."
+                },
+                {
+                  "disabled": false,
+                  "key": "WORKDAY_HOURS",
+                  "value": "<integer>",
+                  "description": "| Duration of the workday in hours."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e9de6ef3-5a6f-4742-b0ca-1db63b983705",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.timecontrol.reports.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | User ID for whom the reports are requested.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Month number ||",
+                        "type": "text/plain"
+                      },
+                      "key": "MONTH",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Year ||",
+                        "type": "text/plain"
+                      },
+                      "key": "YEAR",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Maximum time of absence at the workplace that is not counted as absence.",
+                        "type": "text/plain"
+                      },
+                      "key": "IDLE_MINUTES",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Duration of the workday in hours.",
+                        "type": "text/plain"
+                      },
+                      "key": "WORKDAY_HOURS",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94e0bd71-058e-4d76-90af-5e115e3ed7a9",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.timecontrol.reports.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | User ID for whom the reports are requested.",
+                        "type": "text/plain"
+                      },
+                      "key": "USER_ID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Month number ||",
+                        "type": "text/plain"
+                      },
+                      "key": "MONTH",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) | Year ||",
+                        "type": "text/plain"
+                      },
+                      "key": "YEAR",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Maximum time of absence at the workplace that is not counted as absence.",
+                        "type": "text/plain"
+                      },
+                      "key": "IDLE_MINUTES",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Duration of the workday in hours.",
+                        "type": "text/plain"
+                      },
+                      "key": "WORKDAY_HOURS",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9fe4355f-314d-4b02-aef7-0c0b7f2bb116",
+          "name": "Get Report Settings timeman.timecontrol.reports.settings.get",
+          "request": {
+            "name": "Get Report Settings timeman.timecontrol.reports.settings.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.reports.settings.get` retrieves report settings for building the report interface of the time control tool.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.timecontrol.reports.settings.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "96411af7-f4bb-4200-ba61-754261502844",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.timecontrol.reports.settings.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e979bd4e-8b11-4074-bdde-50ce8b0554a5",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.timecontrol.reports.settings.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddf30bd0-24df-49a1-96b5-0a0ff514290d",
+          "name": "Get the list of users for the timeman.timecontrol.reports.users.get",
+          "request": {
+            "name": "Get the list of users for the timeman.timecontrol.reports.users.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.reports.users.get` retrieves the list of users in the department. The data returned by the method depends on the role: - an employee will receive only their own data,",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.timecontrol.reports.users.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "DEPARTMENT_ID",
+                  "value": "<integer>",
+                  "description": "| The identifier of the department. This parameter should only be specified by a manager or administrator."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "972f4f47-dd9c-4ee9-95c6-f752a533d9a0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.timecontrol.reports.users.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The identifier of the department. This parameter should only be specified by a manager or administrator.",
+                        "type": "text/plain"
+                      },
+                      "key": "DEPARTMENT_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76b5031b-eb97-418f-8149-94b7046ddc71",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.timecontrol.reports.users.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| The identifier of the department. This parameter should only be specified by a manager or administrator.",
+                        "type": "text/plain"
+                      },
+                      "key": "DEPARTMENT_ID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5c0eb2b-abed-4086-bb9d-f9346bb0cf00",
+          "name": "Get Time Control Settings timeman.timecontrol.settings.get",
+          "request": {
+            "name": "Get Time Control Settings timeman.timecontrol.settings.get",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.settings.get` retrieves the settings of the time control module.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.timecontrol.settings.get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "45023a81-c1c0-43a4-a4d2-7c0eb662b947",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.timecontrol.settings.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f1d74d8-395d-4415-ab7b-a6c7714e9c19",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.timecontrol.settings.get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "o"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "2",
+                      "value": "b"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "3",
+                      "value": "j"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "4",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "5",
+                      "value": "c"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "6",
+                      "value": "t"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "7",
+                      "value": ">"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3437727c-462a-4cec-a561-1125995c3e4f",
+          "name": "Set Time Control Settings timeman.timecontrol.settings.set",
+          "request": {
+            "name": "Set Time Control Settings timeman.timecontrol.settings.set",
+            "description": {
+              "content": "If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.settings.set` sets the configurations for the time control module. Data collection for time control begins once the corresponding registration settings are activated. It is not possible to retrieve data for the period prior to activation — the system does not retain historical information retrospectively.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timeman.timecontrol.settings.set"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Subdomain of your Bitrix24 portal",
+                  "type": "any",
+                  "value": "{{portal}}",
+                  "key": "portal"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "auth"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ACTIVE",
+                  "value": "<boolean>",
+                  "description": "| Activate the time control module. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "MINIMUM_IDLE_FOR_REPORT",
+                  "value": "<integer>",
+                  "description": "| Minimum idle time in minutes after which a report is required ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "REGISTER_OFFLINE",
+                  "value": "<boolean>",
+                  "description": "| Register offline status ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "REGISTER_IDLE",
+                  "value": "<boolean>",
+                  "description": "| Register idle status ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "REGISTER_DESKTOP",
+                  "value": "<boolean>",
+                  "description": "| Register desktop application status ||"
+                },
+                {
+                  "disabled": false,
+                  "key": "REPORT_REQUEST_TYPE",
+                  "value": "<string>",
+                  "description": "| Type of report requests. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "REPORT_SIMPLE_TYPE",
+                  "value": "<string>",
+                  "description": "| Type of simple report. Possible values:"
+                },
+                {
+                  "disabled": false,
+                  "key": "REPORT_FULL_TYPE",
+                  "value": "<string>",
+                  "description": "| Type of full report. Possible values:"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "56554c5a-887c-408c-9ef8-271581f09710",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.timecontrol.settings.set"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Activate the time control module. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Minimum idle time in minutes after which a report is required ||",
+                        "type": "text/plain"
+                      },
+                      "key": "MINIMUM_IDLE_FOR_REPORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Register offline status ||",
+                        "type": "text/plain"
+                      },
+                      "key": "REGISTER_OFFLINE",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Register idle status ||",
+                        "type": "text/plain"
+                      },
+                      "key": "REGISTER_IDLE",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Register desktop application status ||",
+                        "type": "text/plain"
+                      },
+                      "key": "REGISTER_DESKTOP",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Type of report requests. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "REPORT_REQUEST_TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Type of simple report. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "REPORT_SIMPLE_TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Type of full report. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "REPORT_FULL_TYPE",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {},\n  \"total\": 9633,\n  \"next\": 9957,\n  \"time\": {\n    \"start\": 386.29968677399205,\n    \"finish\": 4537.6875129354175,\n    \"duration\": 2279.1684798015153,\n    \"processing\": 3819.824161897062,\n    \"date_start\": \"1980-08-27T02:25:21.237Z\",\n    \"date_finish\": \"2021-05-17T23:50:14.616Z\",\n    \"operating_reset_at\": 5871,\n    \"operating\": 1031.8001330234706\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5260776d-8026-4e0d-a195-f1e4f804570d",
+              "name": "Request error (400, 401, 403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timeman.timecontrol.settings.set"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auth",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Subdomain of your Bitrix24 portal",
+                      "type": "any",
+                      "value": "{{portal}}",
+                      "key": "portal"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Activate the time control module. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "ACTIVE",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Minimum idle time in minutes after which a report is required ||",
+                        "type": "text/plain"
+                      },
+                      "key": "MINIMUM_IDLE_FOR_REPORT",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Register offline status ||",
+                        "type": "text/plain"
+                      },
+                      "key": "REGISTER_OFFLINE",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Register idle status ||",
+                        "type": "text/plain"
+                      },
+                      "key": "REGISTER_IDLE",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Register desktop application status ||",
+                        "type": "text/plain"
+                      },
+                      "key": "REGISTER_DESKTOP",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Type of report requests. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "REPORT_REQUEST_TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Type of simple report. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "REPORT_SIMPLE_TYPE",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "| Type of full report. Possible values:",
+                        "type": "text/plain"
+                      },
+                      "key": "REPORT_FULL_TYPE",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ACCESS_DENIED\",\n  \"error_description\": \"Access denied.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Subdomain of your Bitrix24 portal",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-portal",
+      "key": "portal"
+    },
+    {
+      "type": "string",
+      "value": "https://{{portal}}.bitrix24.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a2c66e1e-c2b4-4075-9f63-4d2f4504e9e9",
+    "name": "Bitrix24 REST BIconnector Time Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com\n\nContact Support:\n Name: Bitrix24 Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
