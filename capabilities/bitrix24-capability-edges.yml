@@ -1,0 +1,86 @@
+slug: bitrix24
+provider: Bitrix24
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: CRM
+  spec_file: bitrix24-crm-api-openapi.yml
+  capability_id: BC-420
+  capability_id_l1: BC-420
+  capability_name: Customer Relationship Management
+  confidence: 0.82
+  evidence: '"Add a deal binding to a CRM entity", "Add System Activity crm.activity.add", "Get a list
+    of all bindings for the deal"'
+  reason: Large CRM surface covering activities, deals and CRM entities — customer relationship management.
+    Spans customer data and deal/pipeline management, so L1 only.
+- tag: Tasks
+  spec_file: bitrix24-tasks-api-openapi.yml
+  capability_id: BC-900.30
+  capability_id_l1: BC-900
+  capability_name: Project Management
+  confidence: 0.78
+  evidence: POST /task.checklistitem.complete  Mark checklist item as completed; POST /task.comment.add  Add
+    Comment to Task
+  reason: Task CRUD, checklists, completion and commentary — work planning and tracking, i.e. project/task
+    execution management. Mapped to Project Management.
+- tag: Telephony
+  spec_file: bitrix24-telephony-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.78
+  evidence: POST /telephony.externalCall.finish  Finish Call and Log It in Telephony Statistics; POST
+    /telephony.externalCall.searchCrmEntities  Find a Client in CRM by Phone Number
+  reason: Call registration, external lines, call cards, recordings/transcriptions and callbacks tied
+    to CRM lookups — contact-centre telephony operations, which BC-430.30 explicitly names.
+- tag: BIconnector
+  spec_file: bitrix24-biconnector-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.72
+  evidence: '"Create Connector biconnector.connector.add", "Create Dataset biconnector.dataset.add", "Update
+    Dataset Fields"'
+  reason: BI connector and dataset definition endpoints expose Bitrix24 data to external BI/analytics
+    tooling — analytics and BI delivery enablement.
+- tag: Business Processes
+  spec_file: bitrix24-business-processes-api-openapi.yml
+  capability_id: BC-930
+  capability_id_l1: BC-930
+  capability_name: Business Process Management
+  confidence: 0.72
+  evidence: '"Register a New Automation Rule bizproc.robot.add", "Complete a business process task", "Delegate
+    a workflow task", "Write Information to the Business Process Log"'
+  reason: bizproc endpoints define and run business process activities, automation robots and workflow
+    tasks — business process automation/execution. L1 only since the surface spans authoring, automation
+    and task execution rather than one sub-capability.
+- tag: Time Management
+  spec_file: bitrix24-time-management-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: POST /timeman.open  Start a New Workday; POST /timeman.timecontrol.report.add  Add Absence
+    Report
+  reason: Workday start/close/pause, work schedules and absence reporting for users — employee time and
+    attendance administration, an HR operations process rather than project time costing.
+- tag: User Consent
+  spec_file: bitrix24-user-consent-api-openapi.yml
+  capability_id: BC-130.50
+  capability_id_l1: BC-130
+  capability_name: Privacy & Data Protection Management
+  confidence: 0.72
+  evidence: '"Get the list of agreements userconsent.agreement.list", "Save the User Consent userconsent.consent.add"'
+  reason: Retrieving agreement texts and recording a user's consent is data-protection consent capture,
+    the operational core of privacy compliance. Only three operations and no explicit privacy framing
+    in the spec, so confidence is moderate.
