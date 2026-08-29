@@ -3,7 +3,7 @@ provider: Bitrix24
 generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
-- Software & Technology
+- Telecommunications
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -18,69 +18,70 @@ edges:
   capability_id: BC-420
   capability_id_l1: BC-420
   capability_name: Customer Relationship Management
-  confidence: 0.82
-  evidence: '"Add a deal binding to a CRM entity", "Add System Activity crm.activity.add", "Get a list
-    of all bindings for the deal"'
-  reason: Large CRM surface covering activities, deals and CRM entities — customer relationship management.
-    Spans customer data and deal/pipeline management, so L1 only.
-- tag: Tasks
-  spec_file: bitrix24-tasks-api-openapi.yml
-  capability_id: BC-900.30
-  capability_id_l1: BC-900
-  capability_name: Project Management
-  confidence: 0.78
-  evidence: POST /task.checklistitem.complete  Mark checklist item as completed; POST /task.comment.add  Add
-    Comment to Task
-  reason: Task CRUD, checklists, completion and commentary — work planning and tracking, i.e. project/task
-    execution management. Mapped to Project Management.
-- tag: Telephony
-  spec_file: bitrix24-telephony-api-openapi.yml
-  capability_id: BC-430.30
-  capability_id_l1: BC-430
-  capability_name: Contact Centre Operations Management
-  confidence: 0.78
-  evidence: POST /telephony.externalCall.finish  Finish Call and Log It in Telephony Statistics; POST
-    /telephony.externalCall.searchCrmEntities  Find a Client in CRM by Phone Number
-  reason: Call registration, external lines, call cards, recordings/transcriptions and callbacks tied
-    to CRM lookups — contact-centre telephony operations, which BC-430.30 explicitly names.
-- tag: BIconnector
-  spec_file: bitrix24-biconnector-api-openapi.yml
-  capability_id: BC-610.50
-  capability_id_l1: BC-610
-  capability_name: Analytics & BI Management
-  confidence: 0.72
-  evidence: '"Create Connector biconnector.connector.add", "Create Dataset biconnector.dataset.add", "Update
-    Dataset Fields"'
-  reason: BI connector and dataset definition endpoints expose Bitrix24 data to external BI/analytics
-    tooling — analytics and BI delivery enablement.
-- tag: Business Processes
-  spec_file: bitrix24-business-processes-api-openapi.yml
-  capability_id: BC-930
-  capability_id_l1: BC-930
-  capability_name: Business Process Management
-  confidence: 0.72
-  evidence: '"Register a New Automation Rule bizproc.robot.add", "Complete a business process task", "Delegate
-    a workflow task", "Write Information to the Business Process Log"'
-  reason: bizproc endpoints define and run business process activities, automation robots and workflow
-    tasks — business process automation/execution. L1 only since the surface spans authoring, automation
-    and task execution rather than one sub-capability.
+  confidence: 0.8
+  evidence: POST /crm.activity.binding.add  Add a deal binding to a CRM entity crm.activity.binding.add;
+    421 operations under crm.*
+  reason: The tag covers the vendor's CRM module — activities, deals, and CRM entity records — which realises
+    Customer Relationship Management. The 421 operations span customer data, activities and deals, so
+    no single L2 is clearly dominant (deal-centric operations would suggest BC-410.30, entity records
+    BC-420.10), hence L1 only.
 - tag: Time Management
   spec_file: bitrix24-time-management-api-openapi.yml
   capability_id: BC-300.70
   capability_id_l1: BC-300
   capability_name: HR Operations Management
-  confidence: 0.72
-  evidence: POST /timeman.open  Start a New Workday; POST /timeman.timecontrol.report.add  Add Absence
-    Report
-  reason: Workday start/close/pause, work schedules and absence reporting for users — employee time and
-    attendance administration, an HR operations process rather than project time costing.
+  confidence: 0.8
+  evidence: '"Start a New Workday timeman.open", "Get Work Schedule timeman.schedule.get", "Add Absence
+    Report timeman.timecontrol.report.add"'
+  reason: Employee workday clock-in/clock-out, work schedules and absence reporting are HR time-and-attendance
+    operations within the employee lifecycle.
+- tag: BIconnector
+  spec_file: bitrix24-biconnector-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.78
+  evidence: biconnector.dataset.add  Create Dataset; biconnector.connector.list  Get the list of connectors
+  reason: Manages BI connectors and datasets/fields used to feed business-intelligence tooling from Bitrix24
+    data — analytics and BI delivery.
 - tag: User Consent
   spec_file: bitrix24-user-consent-api-openapi.yml
   capability_id: BC-130.50
   capability_id_l1: BC-130
   capability_name: Privacy & Data Protection Management
-  confidence: 0.72
+  confidence: 0.75
   evidence: '"Get the list of agreements userconsent.agreement.list", "Save the User Consent userconsent.consent.add"'
-  reason: Retrieving agreement texts and recording a user's consent is data-protection consent capture,
-    the operational core of privacy compliance. Only three operations and no explicit privacy framing
-    in the spec, so confidence is moderate.
+  reason: Agreement text presentation and recording of user consent is data-protection/privacy consent
+    management (GDPR-style), the classic use of this surface.
+- tag: Business Processes
+  spec_file: bitrix24-business-processes-api-openapi.yml
+  capability_id: BC-930
+  capability_id_l1: BC-930
+  capability_name: Business Process Management
+  confidence: 0.7
+  evidence: bizproc.robot.add  Register a New Automation Rule; bizproc.task.complete  Complete a business
+    process task
+  reason: Registration of workflow activities, automation robots and handling of business-process tasks
+    is workflow/business-process automation. Kept at L1 because the API executes automation rather than
+    governing a process portfolio.
+- tag: Tasks
+  spec_file: bitrix24-tasks-api-openapi.yml
+  capability_id: BC-900.30
+  capability_id_l1: BC-900
+  capability_name: Project Management
+  confidence: 0.7
+  evidence: POST /task.checklistitem.complete Mark checklist item as completed; POST /task.comment.add
+    Add Comment to Task
+  reason: 'Work-item lifecycle: tasks, checklists, completion and collaboration comments — the execution/tracking
+    of planned work, matching project execution and tracking.'
+- tag: Telephony
+  spec_file: bitrix24-telephony-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.7
+  evidence: '"Register an External Call in Bitrix24 telephony.externalCall.register", "Add External Line
+    telephony.externalLine.add", "Find a Client in CRM by Phone Number"'
+  reason: Operations manage business telephony lines, call registration, call cards and call recordings/transcriptions
+    inside a CRM/contact-centre suite — i.e. contact-centre telephony operations, not carrier network
+    operations.
