@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Mail Services API
+  title: Bitrix24 REST Mail Services API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /mailservice.add:
     post:
       summary: Create Mail Service mailservice.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `mailservice.add` creates a mail service for the current Bitrix24.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `mailservice.add` creates a mail service for the current Bitrix24.
       operationId: mailservice_add
       tags:
       - Mail Services
@@ -121,7 +121,7 @@ paths:
   /mailservice.delete:
     post:
       summary: Delete Mail Service mailservice.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `mailservice.delete` removes a mail service by its identifier.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `mailservice.delete` removes a mail service by its identifier.
       operationId: mailservice_delete
       tags:
       - Mail Services
@@ -168,7 +168,7 @@ paths:
   /mailservice.fields:
     post:
       summary: Get Mail Service Fields mailservice.fields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `mailservice.fields` returns localized names of the mail service fields.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `mailservice.fields` returns localized names of the mail service fields.
       operationId: mailservice_fields
       tags:
       - Mail Services
@@ -203,7 +203,7 @@ paths:
   /mailservice.get:
     post:
       summary: Get the mailservice.get method
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `mailservice.get` method returns the parameters of the mail service by its identifier.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `mailservice.get` method returns the parameters of the mail service by its identifier.
       operationId: mailservice_get
       tags:
       - Mail Services
@@ -250,7 +250,7 @@ paths:
   /mailservice.list:
     post:
       summary: Get the list of mail services mailservice.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `mailservice.list` returns a list of active mail services.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `mailservice.list` returns a list of active mail services.
       operationId: mailservice_list
       tags:
       - Mail Services
@@ -285,7 +285,7 @@ paths:
   /mailservice.update:
     post:
       summary: Update Mail Service mailservice.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `mailservice.update` modifies the parameters of an existing mail service.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `mailservice.update` modifies the parameters of an existing mail service.
       operationId: mailservice_update
       tags:
       - Mail Services
@@ -379,21 +379,6 @@ paths:
         - mailservice
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -421,6 +406,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

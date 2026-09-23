@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Vibe API
+  title: Bitrix24 REST Vibe API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /landing.repowidget.debug:
     post:
       summary: Enable Debug Mode landing.repowidget.debug
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repowidget.debug` enables debug mode for all widgets of the current application. In this case, the vue application will report more errors in the js console for developer convenience. By default, the mode is disabled.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repowidget.debug` enables debug mode for all widgets of the current application. In this case, the vue application will report more errors in the js console for developer convenience. By default, the mode is disabled.
       operationId: landing_repowidget_debug
       tags:
       - Vibe
@@ -75,7 +75,7 @@ paths:
   /landing.repowidget.getlist:
     post:
       summary: Get the list of widgets landing.repowidget.getlist
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repowidget.getlist` returns a list of widgets for the current application, filtered by the specified criteria.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repowidget.getlist` returns a list of widgets for the current application, filtered by the specified criteria.
       operationId: landing_repowidget_getlist
       tags:
       - Vibe
@@ -252,7 +252,7 @@ paths:
   /landing.repowidget.register:
     post:
       summary: 'Add Widget to Start Page: the Vibe landing.repowidget.register'
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repowidget.register` adds a widget for the Start page: the Vibe. It returns an error or the `ID` of the added widget. During the addition, a check is performed. If a widget with the code `code` has already been registered previously, its content will be updated. Widgets already placed on the Vibe will be automatically updated in case of content changes.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repowidget.register` adds a widget for the Start page: the Vibe. It returns an error or the `ID` of the added widget. During the addition, a check is performed. If a widget with the code `code` has already been registered previously, its content will be updated. Widgets already placed on the Vibe will be automatically updated in case of content changes.'
       operationId: landing_repowidget_register
       tags:
       - Vibe
@@ -393,7 +393,7 @@ paths:
   /landing.repowidget.unregister:
     post:
       summary: Unregister Widget for Vibe landing.repowidget.unregister
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repowidget.unregister` removes the widget for Start page: the Vibe. On success, it returns `true`; otherwise, it returns `false` or an error with a description.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repowidget.unregister` removes the widget for Start page: the Vibe. On success, it returns `true`; otherwise, it returns `false` or an error with a description.'
       operationId: landing_repowidget_unregister
       tags:
       - Vibe
@@ -439,21 +439,6 @@ paths:
         - landing
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -481,6 +466,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

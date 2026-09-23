@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Chatbots API
+  title: Bitrix24 REST Chatbots API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /im.v2:
     post:
       summary: Event Formats im.v2
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Description of all events that the user application receives via [im.v2.Event.get](./event-get.md). The fields of the `message`, `chat`, and `user` objects are described in [{#T}](../../entities.md). **Quick Navigation:** [ONIMV2MESSAGEADD](#onimv2messageadd) | [ONIMV2MESSAGEUPDATE](#onimv2messageupdate) | [ONIMV2MESSAGEDELETE](#onimv2messagedelete) | [ONIMV2REACTIONCHANGE](#onimv2reactionchange) | [ONIMV2JOINCHAT](#onimv2joinchat)
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Description of all events that the user application receives via im.v2.Event.get. The fields of the `message`, `chat`, and `user` objects are described in {#T}. **Quick Navigation:** ONIMV2MESSAGEADD | ONIMV2MESSAGEUPDATE | ONIMV2MESSAGEDELETE | ONIMV2REACTIONCHANGE | ONIMV2JOINCHAT
       operationId: im_v2
       tags:
       - Chatbots
@@ -121,7 +121,7 @@ paths:
   /im.v2.Event.get:
     post:
       summary: Get User Events im.v2.Event.get
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.v2.Event.get` retrieves events for the current user in polling mode. To receive events, the user must be previously subscribed via [im.v2.Event.subscribe](./event-subscribe.md). Without a subscription, events are not recorded, and the method will return an empty array. The method uses confirmation via `offset`: pass the `nextOffset` from the previous response to get the next batch of events.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.v2.Event.get` retrieves events for the current user in polling mode. To receive events, the user must be previously subscribed via im.v2.Event.subscribe. Without a subscription, events are not recorded, and the method will return an empty array. The method uses confirmation via `offset`: pass the `nextOffset` from the previous response to get the next batch of events.'
       operationId: im_v2_Event_get
       tags:
       - Chatbots
@@ -170,7 +170,7 @@ paths:
   /im.v2.Event.subscribe:
     post:
       summary: Subscribe to Events im.v2.Event.subscribe
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.v2.Event.subscribe` subscribes the current user to event logging. After subscribing, message events are recorded in the log and become accessible through [im.v2.Event.get](./event-get.md). The method is idempotent: repeated calls are safe and do not result in an error.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.v2.Event.subscribe` subscribes the current user to event logging. After subscribing, message events are recorded in the log and become accessible through im.v2.Event.get. The method is idempotent: repeated calls are safe and do not result in an error.'
       operationId: im_v2_Event_subscribe
       tags:
       - Chatbots
@@ -205,7 +205,7 @@ paths:
   /im.v2.Event.unsubscribe:
     post:
       summary: Unsubscribing from Events im.v2.Event.unsubscribe
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.v2.Event.unsubscribe` cancels the current user''s subscription to event logging. It stops recording new events in the log. Already recorded events remain accessible through [im.v2.Event.get](./event-get.md) until the retention period expires (24 hours) or until confirmed via `offset`. The method is idempotent: repeated calls are safe and do not result in an error.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.v2.Event.unsubscribe` cancels the current user''s subscription to event logging. It stops recording new events in the log. Already recorded events remain accessible through im.v2.Event.get until the retention period expires (24 hours) or until confirmed via `offset`. The method is idempotent: repeated calls are safe and do not result in an error.'
       operationId: im_v2_Event_unsubscribe
       tags:
       - Chatbots
@@ -240,7 +240,7 @@ paths:
   /im.v2.File.download:
     post:
       summary: Get Download Link for File im.v2.File.download
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.v2.File.download` returns a link to download a file from the chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.v2.File.download` returns a link to download a file from the chat.
       operationId: im_v2_File_download
       tags:
       - Chatbots
@@ -295,7 +295,7 @@ paths:
   /im.v2.File.upload:
     post:
       summary: Upload File to Chat im.v2.File.upload
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `im.v2.File.upload` uploads a file to the chat on behalf of the current user. It combines three steps of the deprecated API into a single call: uploading the file to the Drive, attaching it to the chat, and sending a message.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.v2.File.upload` uploads a file to the chat on behalf of the current user. It combines three steps of the deprecated API into a single call: uploading the file to the Drive, attaching it to the chat, and sending a message.'
       operationId: im_v2_File_upload
       tags:
       - Chatbots
@@ -372,7 +372,7 @@ paths:
   /imbot.bot.list:
     post:
       summary: Get the List of Chat Bots imbot.bot.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Bot.list](../../chat-bots-v2/imbot.v2/bots/bot-list.md). The method `imbot.bot.list` returns a list of registered chat bots. No parameters required.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Bot.list. The method `imbot.bot.list` returns a list of registered chat bots. No parameters required.
       operationId: imbot_bot_list
       tags:
       - Chatbots
@@ -451,7 +451,7 @@ paths:
   /imbot.chat.add:
     post:
       summary: Create a chat on behalf of the chat bot imbot.chat.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.add](../../chat-bots-v2/imbot.v2/chats/chat-add.md). The method `imbot.chat.add` creates a chat on behalf of the chat bot.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.add. The method `imbot.chat.add` creates a chat on behalf of the chat bot.
       operationId: imbot_chat_add
       tags:
       - Chatbots
@@ -556,7 +556,7 @@ paths:
   /imbot.chat.get:
     post:
       summary: Get Chat ID imbot.chat.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.get](../../chat-bots-v2/imbot.v2/chats/chat-get.md). The method `imbot.chat.get` returns the chat ID. To obtain detailed information about the chat, use the method [imbot.dialog.get](./imbot-dialog-get.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.get. The method `imbot.chat.get` returns the chat ID. To obtain detailed information about the chat, use the method imbot.dialog.get.
       operationId: imbot_chat_get
       tags:
       - Chatbots
@@ -611,7 +611,7 @@ paths:
   /imbot.chat.leave:
     post:
       summary: Chat Bot Exit from Specified Chat imbot.chat.leave
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.leave](../../chat-bots-v2/imbot.v2/chats/chat-leave.md). The method `imbot.chat.leave` removes the chat bot from the chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.leave. The method `imbot.chat.leave` removes the chat bot from the chat.
       operationId: imbot_chat_leave
       tags:
       - Chatbots
@@ -670,7 +670,7 @@ paths:
   /imbot.chat.sendTyping:
     post:
       summary: Send Typing Indicator imbot.chat.sendTyping
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.InputAction.notify](../../chat-bots-v2/imbot.v2/ui/chat-input-action-notify.md). The method `imbot.chat.sendTyping` sends a typing indicator to the dialog. The method returns `true` immediately after the command is sent.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.InputAction.notify. The method `imbot.chat.sendTyping` sends a typing indicator to the dialog. The method returns `true` immediately after the command is sent.
       operationId: imbot_chat_sendTyping
       tags:
       - Chatbots
@@ -729,7 +729,7 @@ paths:
   /imbot.chat.setManager:
     post:
       summary: Assign or Revoke Chat Administrator Rights imbot.chat.setManager
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. To assign or revoke administrator rights, use the methods [imbot.v2.Chat.Manager.add](../../chat-bots-v2/imbot.v2/chats/chat-manager-add.md) and [imbot.v2.Chat.Manager.delete](../../chat-bots-v2/imbot.v2/chats/chat-manager-delete.md). The method `imbot.chat.setManager` assigns a chat administrator or revokes administrator rights from a chat participant.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. To assign or revoke administrator rights, use the methods imbot.v2.Chat.Manager.add and imbot.v2.Chat.Manager.delete. The method `imbot.chat.setManager` assigns a chat administrator or revokes administrator rights from a chat participant.
       operationId: imbot_chat_setManager
       tags:
       - Chatbots
@@ -802,7 +802,7 @@ paths:
   /imbot.chat.setOwner:
     post:
       summary: Change Chat Owner via imbot.chat.setOwner
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [imbot.v2.Chat.setOwner](../../chat-bots-v2/imbot.v2/chats/chat-set-owner.md). The method `imbot.chat.setOwner` changes the owner of the chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use imbot.v2.Chat.setOwner. The method `imbot.chat.setOwner` changes the owner of the chat.
       operationId: imbot_chat_setOwner
       tags:
       - Chatbots
@@ -869,7 +869,7 @@ paths:
   /imbot.chat.updateAvatar:
     post:
       summary: Change Chat Avatar imbot.chat.updateAvatar
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.update](../../chat-bots-v2/imbot.v2/chats/chat-update.md). The method `imbot.chat.updateAvatar` updates the chat avatar.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.update. The method `imbot.chat.updateAvatar` updates the chat avatar.
       operationId: imbot_chat_updateAvatar
       tags:
       - Chatbots
@@ -936,7 +936,7 @@ paths:
   /imbot.chat.updateColor:
     post:
       summary: Change Chat Color imbot.chat.updateColor
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.update](../../chat-bots-v2/imbot.v2/chats/chat-update.md). The method `imbot.chat.updateColor` updates the chat color for the mobile application.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.update. The method `imbot.chat.updateColor` updates the chat color for the mobile application.
       operationId: imbot_chat_updateColor
       tags:
       - Chatbots
@@ -1003,7 +1003,7 @@ paths:
   /imbot.chat.updateTitle:
     post:
       summary: Change Chat Title imbot.chat.updateTitle
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.update](../../chat-bots-v2/imbot.v2/chats/chat-update.md). The method `imbot.chat.updateTitle` updates the chat title.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.update. The method `imbot.chat.updateTitle` updates the chat title.
       operationId: imbot_chat_updateTitle
       tags:
       - Chatbots
@@ -1070,7 +1070,7 @@ paths:
   /imbot.chat.user.add:
     post:
       summary: Add Participants to Chat imbot.chat.user.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.User.add](../../chat-bots-v2/imbot.v2/chats/chat-user-add.md). The method `imbot.chat.user.add` adds users to a chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.User.add. The method `imbot.chat.user.add` adds users to a chat.
       operationId: imbot_chat_user_add
       tags:
       - Chatbots
@@ -1145,7 +1145,7 @@ paths:
   /imbot.chat.user.delete:
     post:
       summary: Exclude Participants from Chat imbot.chat.user.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [imbot.v2.Chat.User.delete](../../chat-bots-v2/imbot.v2/chats/chat-user-delete.md). The method `imbot.chat.user.delete` removes a user from the chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use imbot.v2.Chat.User.delete. The method `imbot.chat.user.delete` removes a user from the chat.
       operationId: imbot_chat_user_delete
       tags:
       - Chatbots
@@ -1212,7 +1212,7 @@ paths:
   /imbot.chat.user.list:
     post:
       summary: Get the List of Chat Participants imbot.chat.user.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.User.list](../../chat-bots-v2/imbot.v2/chats/chat-user-list.md). The method `imbot.chat.user.list` returns a list of identifiers for the chat participants.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.User.list. The method `imbot.chat.user.list` returns a list of identifiers for the chat participants.
       operationId: imbot_chat_user_list
       tags:
       - Chatbots
@@ -1271,7 +1271,7 @@ paths:
   /imbot.command.answer:
     post:
       summary: Send a response to the command imbot.command.answer
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Command.answer](../../chat-bots-v2/imbot.v2/commands/command-answer.md). The method `imbot.command.answer` publishes a response to a chat bot command.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Command.answer. The method `imbot.command.answer` publishes a response to a chat bot command.
       operationId: imbot_command_answer
       tags:
       - Chatbots
@@ -1376,7 +1376,7 @@ paths:
   /imbot.command.register:
     post:
       summary: Add the imbot.command.register Command
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [imbot.v2.Command.register](../../chat-bots-v2/imbot.v2/commands/command-register.md). The `imbot.command.register` method registers a command for the chat bot.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use imbot.v2.Command.register. The `imbot.command.register` method registers a command for the chat bot.
       operationId: imbot_command_register
       tags:
       - Chatbots
@@ -1495,7 +1495,7 @@ paths:
   /imbot.command.unregister:
     post:
       summary: Remove the imbot.command.unregister Command
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Command.unregister](../../chat-bots-v2/imbot.v2/commands/command-unregister.md). The method `imbot.command.unregister` removes a registered command from the chat bot.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Command.unregister. The method `imbot.command.unregister` removes a registered command from the chat bot.
       operationId: imbot_command_unregister
       tags:
       - Chatbots
@@ -1548,7 +1548,7 @@ paths:
   /imbot.command.update:
     post:
       summary: Update the imbot.command.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Command.update](../../chat-bots-v2/imbot.v2/commands/command-update.md). The method `imbot.command.update` updates the parameters of a registered chat bot command.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Command.update. The method `imbot.command.update` updates the parameters of a registered chat bot command.
       operationId: imbot_command_update
       tags:
       - Chatbots
@@ -1663,7 +1663,7 @@ paths:
   /imbot.dialog.get:
     post:
       summary: Get Data About Chat imbot.dialog.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.get](../../chat-bots-v2/imbot.v2/chats/chat-get.md). The method `imbot.dialog.get` returns data about the chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.get. The method `imbot.dialog.get` returns data about the chat.
       operationId: imbot_dialog_get
       tags:
       - Chatbots
@@ -1710,7 +1710,7 @@ paths:
   /imbot.message.add:
     post:
       summary: Send Message imbot.message.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [imbot.v2.Chat.Message.send](../../chat-bots-v2/imbot.v2/messages/chat-message-send.md). The method `imbot.message.add` sends a message from the chat bot.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use imbot.v2.Chat.Message.send. The method `imbot.message.add` sends a message from the chat bot.
       operationId: imbot_message_add
       tags:
       - Chatbots
@@ -1817,7 +1817,7 @@ paths:
   /imbot.message.delete:
     post:
       summary: Delete Message imbot.message.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.Message.delete](../../chat-bots-v2/imbot.v2/messages/chat-message-delete.md). The method `imbot.message.delete` removes a message from the chat bot.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.Message.delete. The method `imbot.message.delete` removes a message from the chat bot.
       operationId: imbot_message_delete
       tags:
       - Chatbots
@@ -1882,7 +1882,7 @@ paths:
   /imbot.message.like:
     post:
       summary: Set "Like" for the message imbot.message.like
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use the methods [imbot.v2.Chat.Message.Reaction.add](../../chat-bots-v2/imbot.v2/messages/chat-message-reaction-add.md) and [imbot.v2.Chat.Message.Reaction.delete](../../chat-bots-v2/imbot.v2/messages/chat-message-reaction-delete.md). The method `imbot.message.like` sets or removes the "Like" mark for a message.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use the methods imbot.v2.Chat.Message.Reaction.add and imbot.v2.Chat.Message.Reaction.delete. The method `imbot.message.like` sets or removes the "Like" mark for a message.
       operationId: imbot_message_like
       tags:
       - Chatbots
@@ -1947,7 +1947,7 @@ paths:
   /imbot.message.update:
     post:
       summary: Update Sent Message imbot.message.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Chat.Message.update](../../chat-bots-v2/imbot.v2/messages/chat-message-update.md). The method `imbot.message.update` modifies a previously sent message from the chat bot.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.Message.update. The method `imbot.message.update` modifies a previously sent message from the chat bot.
       operationId: imbot_message_update
       tags:
       - Chatbots
@@ -2036,7 +2036,7 @@ paths:
   /imbot.register:
     post:
       summary: Create a Chat-Bot imbot.register
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Bot.register](../../chat-bots-v2/imbot.v2/bots/bot-register.md). The method `imbot.register` registers a chat-bot and binds event handlers of the application.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Bot.register. The method `imbot.register` registers a chat-bot and binds event handlers of the application.
       operationId: imbot_register
       tags:
       - Chatbots
@@ -2209,7 +2209,7 @@ paths:
   /imbot.unregister:
     post:
       summary: Unregister Chat Bot imbot.unregister
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Bot.unregister](../../chat-bots-v2/imbot.v2/bots/bot-unregister.md). The method `imbot.unregister` removes a chat bot. When deleting the bot, personal chats with users will also be deleted.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Bot.unregister. The method `imbot.unregister` removes a chat bot. When deleting the bot, personal chats with users will also be deleted.
       operationId: imbot_unregister
       tags:
       - Chatbots
@@ -2262,7 +2262,7 @@ paths:
   /imbot.update:
     post:
       summary: Update Chat-Bot imbot.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [imbot.v2.Bot.update](../../chat-bots-v2/imbot.v2/bots/bot-update.md). The `imbot.update` method updates the data of the chat-bot and its event handlers.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Bot.update. The `imbot.update` method updates the data of the chat-bot and its event handlers.
       operationId: imbot_update
       tags:
       - Chatbots
@@ -2425,7 +2425,7 @@ paths:
   /imbot.v2:
     post:
       summary: Change Log for API imbot.v2
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The change log for API `imbot.v2`: new features, fixes, and changes with breaking changes. Entries are listed from newest to oldest.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The change log for API `imbot.v2`: new features, fixes, and changes with breaking changes. Entries are listed from newest to oldest.'
       operationId: imbot_v2
       tags:
       - Chatbots
@@ -2458,7 +2458,7 @@ paths:
   /imbot.v2.Bot.get:
     post:
       summary: Get Information About the Bot imbot.v2.Bot.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.get` returns information about the bot. It is used to verify the bot's installation. For the owner application, it returns an extended format (including `moduleId`, `appId`, `eventMode`, and counters). For other applications, it returns a brief format.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.get` returns information about the bot. It is used to verify the bot's installation. For the owner application, it returns an extended format (including `moduleId`, `appId`, `eventMode`, and counters). For other applications, it returns a brief format.
       operationId: imbot_v2_Bot_get
       tags:
       - Chatbots
@@ -2513,7 +2513,7 @@ paths:
   /imbot.v2.Bot.list:
     post:
       summary: List of Bots for the imbot.v2.Bot.list Application
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.list` returns a list of bots for the current application in an extended format.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.list` returns a list of bots for the current application in an extended format.
       operationId: imbot_v2_Bot_list
       tags:
       - Chatbots
@@ -2574,7 +2574,7 @@ paths:
   /imbot.v2.Bot.register:
     post:
       summary: Register a bot imbot.v2.Bot.register
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.register` registers a new chat bot. The method is idempotent: a repeated call with the same `fields.code` from the same application returns the existing bot without updating the data. To update, use [imbot.v2.Bot.update](./bot-update.md).'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.register` registers a new chat bot. The method is idempotent: a repeated call with the same `fields.code` from the same application returns the existing bot without updating the data. To update, use imbot.v2.Bot.update.'
       operationId: imbot_v2_Bot_register
       tags:
       - Chatbots
@@ -2729,7 +2729,7 @@ paths:
   /imbot.v2.Bot.unregister:
     post:
       summary: Remove the Automation rule imbot.v2.Bot.unregister
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.unregister` removes the bot.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.unregister` removes the bot.
       operationId: imbot_v2_Bot_unregister
       tags:
       - Chatbots
@@ -2782,7 +2782,7 @@ paths:
   /imbot.v2.Bot.update:
     post:
       summary: Update the Automation rule imbot.v2.Bot.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.update` updates the properties of the Automation rule.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.update` updates the properties of the Automation rule.
       operationId: imbot_v2_Bot_update
       tags:
       - Chatbots
@@ -2921,7 +2921,7 @@ paths:
   /imbot.v2.Chat.InputAction.notify:
     post:
       summary: Send the bot action indicator imbot.v2.Chat.InputAction.notify
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.InputAction.notify` sends a bot action indicator to the chat — for example, "bot is typing".
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.InputAction.notify` sends a bot action indicator to the chat — for example, "bot is typing".
       operationId: imbot_v2_Chat_InputAction_notify
       tags:
       - Chatbots
@@ -3000,7 +3000,7 @@ paths:
   /imbot.v2.Chat.Manager.add:
     post:
       summary: Add Chat Managers imbot.v2.Chat.Manager.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Manager.add` adds users to the current list of chat managers. The bot must be the owner of the chat. Users who are not participants in the chat will be ignored without an error.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Manager.add` adds users to the current list of chat managers. The bot must be the owner of the chat. Users who are not participants in the chat will be ignored without an error.
       operationId: imbot_v2_Chat_Manager_add
       tags:
       - Chatbots
@@ -3069,7 +3069,7 @@ paths:
   /imbot.v2.Chat.Manager.delete:
     post:
       summary: Remove Chat Managers imbot.v2.Chat.Manager.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Manager.delete` removes users from the chat manager list. The bot must be the owner of the chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Manager.delete` removes users from the chat manager list. The bot must be the owner of the chat.
       operationId: imbot_v2_Chat_Manager_delete
       tags:
       - Chatbots
@@ -3138,7 +3138,7 @@ paths:
   /imbot.v2.Chat.Message.Reaction.add:
     post:
       summary: Add Reaction to Message imbot.v2.Chat.Message.Reaction.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.Reaction.add` adds a bot reaction to a message.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.Reaction.add` adds a bot reaction to a message.
       operationId: imbot_v2_Chat_Message_Reaction_add
       tags:
       - Chatbots
@@ -3213,7 +3213,7 @@ paths:
   /imbot.v2.Chat.Message.Reaction.delete:
     post:
       summary: Remove Reaction from Message imbot.v2.Chat.Message.Reaction.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.Reaction.delete` removes the bot's reaction from a message.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.Reaction.delete` removes the bot's reaction from a message.
       operationId: imbot_v2_Chat_Message_Reaction_delete
       tags:
       - Chatbots
@@ -3282,7 +3282,7 @@ paths:
   /imbot.v2.Chat.Message.delete:
     post:
       summary: Delete Message imbot.v2.Chat.Message.delete
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.delete` removes a message. The bot can delete its own messages. If the bot is an administrator of the chat, it can delete any message. Messages sent with the parameter `system: true` have `authorId = 0`. The bot will not be able to delete such a message unless it is an administrator of the chat.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.delete` removes a message. The bot can delete its own messages. If the bot is an administrator of the chat, it can delete any message. Messages sent with the parameter `system: true` have `authorId = 0`. The bot will not be able to delete such a message unless it is an administrator of the chat.'
       operationId: imbot_v2_Chat_Message_delete
       tags:
       - Chatbots
@@ -3349,7 +3349,7 @@ paths:
   /imbot.v2.Chat.Message.get:
     post:
       summary: Get Message imbot.v2.Chat.Message.get
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.get` returns a message by its ID. Typical use-case: the bot received an event with `replyId` and wants to read the original message. The method is available only for `supervisor` and `personal` type bots. For more details, see [Bot Types](../../../index.md#bot-types).'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.get` returns a message by its ID. Typical use-case: the bot received an event with `replyId` and wants to read the original message. The method is available only for `supervisor` and `personal` type bots. For more details, see Bot Types.'
       operationId: imbot_v2_Chat_Message_get
       tags:
       - Chatbots
@@ -3410,7 +3410,7 @@ paths:
   /imbot.v2.Chat.Message.getContext:
     post:
       summary: Get Context of Message imbot.v2.Chat.Message.getContext
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.getContext` returns a window of messages surrounding the specified one. It is used for analyzing the dialogue history. The method is only available for `supervisor` and `personal` type bots. For more details, see [Bot Types](../../../index.md#bot-types).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.getContext` returns a window of messages surrounding the specified one. It is used for analyzing the dialogue history. The method is only available for `supervisor` and `personal` type bots. For more details, see Bot Types.
       operationId: imbot_v2_Chat_Message_getContext
       tags:
       - Chatbots
@@ -3477,7 +3477,7 @@ paths:
   /imbot.v2.Chat.Message.read:
     post:
       summary: Mark Messages as Read imbot.v2.Chat.Message.read
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.read` marks messages as read on behalf of the bot. It marks all messages up to and including the specified one as read. If `messageId` is not specified, it marks all messages in the chat as read.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.read` marks messages as read on behalf of the bot. It marks all messages up to and including the specified one as read. If `messageId` is not specified, it marks all messages in the chat as read.
       operationId: imbot_v2_Chat_Message_read
       tags:
       - Chatbots
@@ -3544,7 +3544,7 @@ paths:
   /imbot.v2.Chat.Message.send:
     post:
       summary: Send Message imbot.v2.Chat.Message.send
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.send` sends a message on behalf of the bot to the specified dialog.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.send` sends a message on behalf of the bot to the specified dialog.
       operationId: imbot_v2_Chat_Message_send
       tags:
       - Chatbots
@@ -3663,7 +3663,7 @@ paths:
   /imbot.v2.Chat.Message.update:
     post:
       summary: Update Message imbot.v2.Chat.Message.update
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.update` updates a bot''s message. A bot can only update its own messages. Messages sent with the parameter `system: true` cannot be updated—they have `authorId = 0` and do not belong to the bot in terms of access permissions.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.update` updates a bot''s message. A bot can only update its own messages. Messages sent with the parameter `system: true` cannot be updated—they have `authorId = 0` and do not belong to the bot in terms of access permissions.'
       operationId: imbot_v2_Chat_Message_update
       tags:
       - Chatbots
@@ -3760,7 +3760,7 @@ paths:
   /imbot.v2.Chat.TextField.enabled:
     post:
       summary: Managing the Text Input Field imbot.v2.Chat.TextField.enabled
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.TextField.enabled` enables or disables the text input field in the chat. This method works in both group and personal chats with the bot. Access is verified based on the bot's membership in the chat, so `ACCESS_DENIED` is returned only if the bot is not a participant in the specified dialogue.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.TextField.enabled` enables or disables the text input field in the chat. This method works in both group and personal chats with the bot. Access is verified based on the bot's membership in the chat, so `ACCESS_DENIED` is returned only if the bot is not a participant in the specified dialogue.
       operationId: imbot_v2_Chat_TextField_enabled
       tags:
       - Chatbots
@@ -3827,7 +3827,7 @@ paths:
   /imbot.v2.Chat.User.add:
     post:
       summary: Add Participants to Chat imbot.v2.Chat.User.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.User.add` adds participants to a chat. The bot must be an administrator of the chat. Non-existent or inactive users will be ignored without an error.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.User.add` adds participants to a chat. The bot must be an administrator of the chat. Non-existent or inactive users will be ignored without an error.
       operationId: imbot_v2_Chat_User_add
       tags:
       - Chatbots
@@ -3896,7 +3896,7 @@ paths:
   /imbot.v2.Chat.User.delete:
     post:
       summary: Remove a Participant from the Chat imbot.v2.Chat.User.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.User.delete` removes a participant from the chat. The bot must be an administrator of the chat. If the user is not a participant in the chat, the method will return `true` (idempotent behavior).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.User.delete` removes a participant from the chat. The bot must be an administrator of the chat. If the user is not a participant in the chat, the method will return `true` (idempotent behavior).
       operationId: imbot_v2_Chat_User_delete
       tags:
       - Chatbots
@@ -3965,7 +3965,7 @@ paths:
   /imbot.v2.Chat.User.list:
     post:
       summary: List of Chat Participants imbot.v2.Chat.User.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.User.list` returns a list of chat participants.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.User.list` returns a list of chat participants.
       operationId: imbot_v2_Chat_User_list
       tags:
       - Chatbots
@@ -4038,7 +4038,7 @@ paths:
   /imbot.v2.Chat.add:
     post:
       summary: Create a Group Chat imbot.v2.Chat.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.add` creates a new group chat on behalf of the bot. If the owner is not specified, the bot becomes the owner.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.add` creates a new group chat on behalf of the bot. If the owner is not specified, the bot becomes the owner.
       operationId: imbot_v2_Chat_add
       tags:
       - Chatbots
@@ -4145,7 +4145,7 @@ paths:
   /imbot.v2.Chat.get:
     post:
       summary: Get Information About the Chat imbot.v2.Chat.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.get` returns information about the chat. The bot must be a participant in the chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.get` returns information about the chat. The bot must be a participant in the chat.
       operationId: imbot_v2_Chat_get
       tags:
       - Chatbots
@@ -4206,7 +4206,7 @@ paths:
   /imbot.v2.Chat.leave:
     post:
       summary: Leave Chat imbot.v2.Chat.leave
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.leave` removes the bot from the chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.leave` removes the bot from the chat.
       operationId: imbot_v2_Chat_leave
       tags:
       - Chatbots
@@ -4267,7 +4267,7 @@ paths:
   /imbot.v2.Chat.setOwner:
     post:
       summary: Assign Chat Owner imbot.v2.Chat.setOwner
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.setOwner` transfers ownership of the chat to another user. Only the current owner of the chat can transfer ownership.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.setOwner` transfers ownership of the chat to another user. Only the current owner of the chat can transfer ownership.
       operationId: imbot_v2_Chat_setOwner
       tags:
       - Chatbots
@@ -4336,7 +4336,7 @@ paths:
   /imbot.v2.Chat.update:
     post:
       summary: Update Chat Properties imbot.v2.Chat.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.update` updates the properties of a chat. It combines the update of the title, description, color, and avatar in a single call.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.update` updates the properties of a chat. It combines the update of the title, description, color, and avatar in a single call.
       operationId: imbot_v2_Chat_update
       tags:
       - Chatbots
@@ -4435,7 +4435,7 @@ paths:
   /imbot.v2.Command.answer:
     post:
       summary: Responding to the imbot.v2.Command.answer Command
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `imbot.v2.Command.answer` method sends a bot's response to a slash command invocation. The bot can respond in the chat from which the command originated, even if the bot is not a participant in that chat. Access is granted temporarily based on the command token — `messageId` + `commandId`. If the bot is not a participant in the chat, the message is sent as a system message indicating the bot's name.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `imbot.v2.Command.answer` method sends a bot's response to a slash command invocation. The bot can respond in the chat from which the command originated, even if the bot is not a participant in that chat. Access is granted temporarily based on the command token — `messageId` + `commandId`. If the bot is not a participant in the chat, the message is sent as a system message indicating the bot's name.
       operationId: imbot_v2_Command_answer
       tags:
       - Chatbots
@@ -4552,7 +4552,7 @@ paths:
   /imbot.v2.Command.list:
     post:
       summary: Get the List of Commands imbot.v2.Command.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.list` returns a list of all commands of the bot.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.list` returns a list of all commands of the bot.
       operationId: imbot_v2_Command_list
       tags:
       - Chatbots
@@ -4605,7 +4605,7 @@ paths:
   /imbot.v2.Command.register:
     post:
       summary: Register the Team imbot.v2.Command.register
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.register` registers a bot''s slash command. The method is idempotent: a repeated call with the same `command` for the same bot from the same application returns the existing command without updating the data. To update, use [imbot.v2.Command.update](./command-update.md). The method call format has changed: command parameters are now passed in the `fields` object. The old flat format will be supported until 30.09.2026. For more details, see [API Change Log for imbot.v2](../../change-log.md#command-register-fields).'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.register` registers a bot''s slash command. The method is idempotent: a repeated call with the same `command` for the same bot from the same application returns the existing command without updating the data. To update, use imbot.v2.Command.update. The method call format has changed: command parameters are now passed in the `fields` object. The old flat format will be supported until 30.09.2026. For more details, see API Change Log for imbot.v2.'
       operationId: imbot_v2_Command_register
       tags:
       - Chatbots
@@ -4704,7 +4704,7 @@ paths:
   /imbot.v2.Command.unregister:
     post:
       summary: Remove the imbot.v2.Command.unregister Command
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.unregister` removes a bot's slash command.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.unregister` removes a bot's slash command.
       operationId: imbot_v2_Command_unregister
       tags:
       - Chatbots
@@ -4765,7 +4765,7 @@ paths:
   /imbot.v2.Command.update:
     post:
       summary: Update the imbot.v2.Command.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.update` updates the bot's slash command.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.update` updates the bot's slash command.
       operationId: imbot_v2_Command_update
       tags:
       - Chatbots
@@ -4870,7 +4870,7 @@ paths:
   /imbot.v2.Event.get:
     post:
       summary: Get Events from imbot.v2.Event.get
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Event.get` retrieves events for the bot in polling agent mode. It is used for bots with `eventMode: "fetch"`. The method confirms the receipt of events with IDs less than the provided `offset`. On the next call, only new events starting from the confirmed ones are returned. Only one application—the one that registered the bot—can receive events for a specific bot. If multiple independent agents are needed, register a separate bot for each.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Event.get` retrieves events for the bot in polling agent mode. It is used for bots with `eventMode: "fetch"`. The method confirms the receipt of events with IDs less than the provided `offset`. On the next call, only new events starting from the confirmed ones are returned. Only one application—the one that registered the bot—can receive events for a specific bot. If multiple independent agents are needed, register a separate bot for each.'
       operationId: imbot_v2_Event_get
       tags:
       - Chatbots
@@ -4941,7 +4941,7 @@ paths:
   /imbot.v2.File.download:
     post:
       summary: Get Download Link for imbot.v2.File.download
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.File.download` returns a link to download a file from the chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.File.download` returns a link to download a file from the chat.
       operationId: imbot_v2_File_download
       tags:
       - Chatbots
@@ -5002,7 +5002,7 @@ paths:
   /imbot.v2.File.upload:
     post:
       summary: Upload File to Chat imbot.v2.File.upload
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.File.upload` uploads a file to the chat on behalf of the bot. It combines three steps of the deprecated API into a single call: uploading the file to the Drive, attaching it to the chat, and sending a message.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.File.upload` uploads a file to the chat on behalf of the bot. It combines three steps of the deprecated API into a single call: uploading the file to the Drive, attaching it to the chat, and sending a message.'
       operationId: imbot_v2_File_upload
       tags:
       - Chatbots
@@ -5093,7 +5093,7 @@ paths:
   /imbot.v2.Revision.get:
     post:
       summary: Get API Revisions imbot.v2.Revision.get
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imbot.v2.Revision.get` returns the revision numbers of the REST API and client protocols of the messenger. It is used to check compatibility: which methods and features are supported by a specific Bitrix24.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Revision.get` returns the revision numbers of the REST API and client protocols of the messenger. It is used to check compatibility: which methods and features are supported by a specific Bitrix24.'
       operationId: imbot_v2_Revision_get
       tags:
       - Chatbots
@@ -5127,21 +5127,6 @@ paths:
         - imbot
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -5169,6 +5154,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

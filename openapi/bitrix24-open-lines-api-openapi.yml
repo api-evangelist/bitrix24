@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Open Lines API
+  title: Bitrix24 REST Open Lines API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /imconnector.activate:
     post:
       summary: Activate Connector imconnector.activate
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.activate` activates or deactivates the connector on the specified open line. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imconnector.activate` activates or deactivates the connector on the specified open line. The method works only in the context of the application.
       operationId: imconnector_activate
       tags:
       - Open Lines
@@ -95,7 +95,7 @@ paths:
   /imconnector.chat.name.set:
     post:
       summary: Set a New Chat Name imconnector.chat.name.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.chat.name.set` sets a new name for the chat. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imconnector.chat.name.set` sets a new name for the chat. The method works only in the context of the application.
       operationId: imconnector_chat_name_set
       tags:
       - Open Lines
@@ -172,7 +172,7 @@ paths:
   /imconnector.connector.data.set:
     post:
       summary: Set Connector Settings imconnector.connector.data.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.connector.data.set` sets the channel settings in an external system for a custom connector and the specified open line. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imconnector.connector.data.set` sets the channel settings in an external system for a custom connector and the specified open line. The method works only in the context of the application.
       operationId: imconnector_connector_data_set
       tags:
       - Open Lines
@@ -259,7 +259,7 @@ paths:
   /imconnector.delete.messages:
     post:
       summary: Delete Sent Messages imconnector.delete.messages
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.delete.messages` removes messages from an open line that were sent by an external system. The method works only in the context of an [application](../../../settings/app-installation/index.md). The method parameters use values from the external system: user ID, message ID, and chat or channel ID.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imconnector.delete.messages` removes messages from an open line that were sent by an external system. The method works only in the context of an application. The method parameters use values from the external system: user ID, message ID, and chat or channel ID.'
       operationId: imconnector_delete_messages
       tags:
       - Open Lines
@@ -350,7 +350,7 @@ paths:
   /imconnector.list:
     post:
       summary: Get the List of Connectors imconnector.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.list` returns a list of all connectors registered in Bitrix24. The method works only in the context of an [application](../../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imconnector.list` returns a list of all connectors registered in Bitrix24. The method works only in the context of an application.
       operationId: imconnector_list
       tags:
       - Open Lines
@@ -385,7 +385,7 @@ paths:
   /imconnector.register:
     post:
       summary: Register the Connector imconnector.register
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.register` registers a custom connector for Open Channels. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imconnector.register` registers a custom connector for Open Channels. The method works only in the context of the application.
       operationId: imconnector_register
       tags:
       - Open Lines
@@ -530,7 +530,7 @@ paths:
   /imconnector.send.messages:
     post:
       summary: Send Messages to Bitrix24 imconnector.send.messages
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.send.messages` accepts messages from an external system and forwards them to an open line in Bitrix24 via a custom connector. The method parameters utilize values from the external system: user ID, chat ID, chat link, and its name in the application that registered the connector. Upon execution, the method returns the chat ID and the open line dialog ID created in Bitrix24.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imconnector.send.messages` accepts messages from an external system and forwards them to an open line in Bitrix24 via a custom connector. The method parameters utilize values from the external system: user ID, chat ID, chat link, and its name in the application that registered the connector. Upon execution, the method returns the chat ID and the open line dialog ID created in Bitrix24.'
       operationId: imconnector_send_messages
       tags:
       - Open Lines
@@ -701,7 +701,7 @@ paths:
   /imconnector.send.status.delivery:
     post:
       summary: Update Status "Delivered" imconnector.send.status.delivery
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.send.status.delivery` confirms in Bitrix24 that an outgoing message from an open line has been successfully delivered to an external system. This method does not resend the message; it only records the delivery result. In the current implementation of open lines, when processing the "delivered" status, the message is also marked as "read." The method is not applicable for incoming messages from an external system to an open line.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imconnector.send.status.delivery` confirms in Bitrix24 that an outgoing message from an open line has been successfully delivered to an external system. This method does not resend the message; it only records the delivery result. In the current implementation of open lines, when processing the "delivered" status, the message is also marked as "read." The method is not applicable for incoming messages from an external system to an open line.
       operationId: imconnector_send_status_delivery
       tags:
       - Open Lines
@@ -810,7 +810,7 @@ paths:
   /imconnector.send.status.reading:
     post:
       summary: Update Status to "Read" imconnector.send.status.reading
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. - The method is hidden because it is essentially useless; the onReceivedStatusReading handler is a stub that simply returns true; The method `imconnector.send.status.reading` confirms in Bitrix24 that an outgoing message from the open line has been read in an external system. The method does not resend the message but only records the read status. This method is not applicable for incoming messages from an external system to the open line.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. - The method is hidden because it is essentially useless; the onReceivedStatusReading handler is a stub that simply returns true; The method `imconnector.send.status.reading` confirms in Bitrix24 that an outgoing message from the open line has been read in an external system. The method does not resend the message but only records the read status. This method is not applicable for incoming messages from an external system to the open line.
       operationId: imconnector_send_status_reading
       tags:
       - Open Lines
@@ -913,7 +913,7 @@ paths:
   /imconnector.status:
     post:
       summary: Get the Status of the Connector imconnector.status
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.status` returns the current status of the connector for the specified open line. The method works only in the context of the [application](../../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imconnector.status` returns the current status of the connector for the specified open line. The method works only in the context of the application.
       operationId: imconnector_status
       tags:
       - Open Lines
@@ -966,7 +966,7 @@ paths:
   /imconnector.unregister:
     post:
       summary: Unregister the Connector imconnector.unregister
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.unregister` removes a user connector. This method works only in the context of the [application](../../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imconnector.unregister` removes a user connector. This method works only in the context of the application.
       operationId: imconnector_unregister
       tags:
       - Open Lines
@@ -1013,7 +1013,7 @@ paths:
   /imconnector.update.messages:
     post:
       summary: Update Sent Messages with imconnector.update.messages
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imconnector.update.messages` updates the data of previously sent messages from an external system in an open line. The method works only in the context of an [application](../../../settings/app-installation/index.md). The method parameters use values from the external system: user ID, chat ID, chat link, and its name in the application that registered the connector.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imconnector.update.messages` updates the data of previously sent messages from an external system in an open line. The method works only in the context of an application. The method parameters use values from the external system: user ID, chat ID, chat link, and its name in the application that registered the connector.'
       operationId: imconnector_update_messages
       tags:
       - Open Lines
@@ -1184,7 +1184,7 @@ paths:
   /imopenlines.bot.session.finish:
     post:
       summary: Finish Dialog imopenlines.bot.session.finish
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.bot.session.finish` ends the current dialog of the open line on behalf of the application's chat-bot.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.bot.session.finish` ends the current dialog of the open line on behalf of the application's chat-bot.
       operationId: imopenlines_bot_session_finish
       tags:
       - Open Lines
@@ -1237,7 +1237,7 @@ paths:
   /imopenlines.bot.session.message.send:
     post:
       summary: Send an Automatic Message in the imopenlines.bot.session.message.send Dialog
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.bot.session.message.send` sends an automatic message from the application chatbot to the open line dialog.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.bot.session.message.send` sends an automatic message from the application chatbot to the open line dialog.
       operationId: imopenlines_bot_session_message_send
       tags:
       - Open Lines
@@ -1296,7 +1296,7 @@ paths:
   /imopenlines.bot.session.operator:
     post:
       summary: Switch Dialog to Free Operator imopenlines.bot.session.operator
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.bot.session.operator` switches the dialog from the chatbot to a free operator in the open line.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.bot.session.operator` switches the dialog from the chatbot to a free operator in the open line.
       operationId: imopenlines_bot_session_operator
       tags:
       - Open Lines
@@ -1342,8 +1342,8 @@ paths:
         - imopenlines
   /imopenlines.bot.session.transfer:
     post:
-      summary: Transfer a Dialogue to an Operator or Queue using imopenlines.bot.session.transfer
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.bot.session.transfer` transfers a dialogue from the chat bot in an open line to a specified operator or queue.
+      summary: Transfer a Dialogue to an Operator or Queue using…
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.bot.session.transfer` transfers a dialogue from the chat bot in an open line to a specified operator or queue.
       operationId: imopenlines_bot_session_transfer
       tags:
       - Open Lines
@@ -1420,7 +1420,7 @@ paths:
   /imopenlines.config.add:
     post:
       summary: Add Open Channel imopenlines.config.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.config.add` adds a new open channel. To allow users to write to the open channel, set the connector settings using the method [imconnector.connector.data.set](../imconnector/imconnector-connector-data-set.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.config.add` adds a new open channel. To allow users to write to the open channel, set the connector settings using the method imconnector.connector.data.set.
       operationId: imopenlines_config_add
       tags:
       - Open Lines
@@ -1483,7 +1483,7 @@ paths:
   /imopenlines.config.delete:
     post:
       summary: Delete Open Channel imopenlines.config.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.config.delete` removes an open channel.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.config.delete` removes an open channel.
       operationId: imopenlines_config_delete
       tags:
       - Open Lines
@@ -1530,7 +1530,7 @@ paths:
   /imopenlines.config.get:
     post:
       summary: Get Open Line by ID imopenlines.config.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.config.get` retrieves the settings of an open line by its ID.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.config.get` retrieves the settings of an open line by its ID.
       operationId: imopenlines_config_get
       tags:
       - Open Lines
@@ -1593,7 +1593,7 @@ paths:
   /imopenlines.config.list.get:
     post:
       summary: Get the List of Open Channels imopenlines.config.list.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.config.list.get` retrieves a list of open channels.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.config.list.get` retrieves a list of open channels.
       operationId: imopenlines_config_list_get
       tags:
       - Open Lines
@@ -1690,7 +1690,7 @@ paths:
   /imopenlines.config.path.get:
     post:
       summary: Get Link to Public Page of Open Channels imopenlines.config.path.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.config.path.get` retrieves the link to the public page of open channels on the account.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.config.path.get` retrieves the link to the public page of open channels on the account.
       operationId: imopenlines_config_path_get
       tags:
       - Open Lines
@@ -1725,7 +1725,7 @@ paths:
   /imopenlines.config.update:
     post:
       summary: Update Open Channel imopenlines.config.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.config.update` updates an open channel.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.config.update` updates an open channel.
       operationId: imopenlines_config_update
       tags:
       - Open Lines
@@ -1778,7 +1778,7 @@ paths:
   /imopenlines.crm.chat.get:
     post:
       summary: Get Chats for CRM Object imopenlines.crm.chat.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.chat.get` retrieves a list of chats associated with a CRM object.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.chat.get` retrieves a list of chats associated with a CRM object.
       operationId: imopenlines_crm_chat_get
       tags:
       - Open Lines
@@ -1841,7 +1841,7 @@ paths:
   /imopenlines.crm.chat.getLastId:
     post:
       summary: Get the Id of the Last Chat imopenlines.crm.chat.getLastId
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.chat.getLastId` retrieves the identifier of the last chat associated with the CRM entity.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.chat.getLastId` retrieves the identifier of the last chat associated with the CRM entity.
       operationId: imopenlines_crm_chat_getLastId
       tags:
       - Open Lines
@@ -1896,7 +1896,7 @@ paths:
   /imopenlines.crm.chat.user.add:
     post:
       summary: Add User to Existing Chat imopenlines.crm.chat.user.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.chat.user.add` adds a user to a chat associated with a CRM entity.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.chat.user.add` adds a user to a chat associated with a CRM entity.
       operationId: imopenlines_crm_chat_user_add
       tags:
       - Open Lines
@@ -1965,7 +1965,7 @@ paths:
   /imopenlines.crm.chat.user.delete:
     post:
       summary: Remove User from Chat imopenlines.crm.chat.user.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.chat.user.delete` removes a user from the chat associated with the CRM entity.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.chat.user.delete` removes a user from the chat associated with the CRM entity.
       operationId: imopenlines_crm_chat_user_delete
       tags:
       - Open Lines
@@ -2034,7 +2034,7 @@ paths:
   /imopenlines.crm.lead.create:
     post:
       summary: Create a Lead Based on the Dialogue imopenlines.crm.lead.create
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.lead.create` creates a CRM lead based on the current chat in the Open Channels.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.lead.create` creates a CRM lead based on the current chat in the Open Channels.
       operationId: imopenlines_crm_lead_create
       tags:
       - Open Lines
@@ -2081,7 +2081,7 @@ paths:
   /imopenlines.crm.message.add:
     post:
       summary: Send a Message to Open Channel imopenlines.crm.message.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.message.add` sends a message on behalf of an employee or bot in a chat linked to a CRM entity.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.crm.message.add` sends a message on behalf of an employee or bot in a chat linked to a CRM entity.
       operationId: imopenlines_crm_message_add
       tags:
       - Open Lines
@@ -2160,7 +2160,7 @@ paths:
   /imopenlines.dialog.get:
     post:
       summary: Get Information About the Operator's Dialog imopenlines.dialog.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.dialog.get` returns data from the open line chat. You only need to provide one of the parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.dialog.get` returns data from the open line chat. You only need to provide one of the parameters.
       operationId: imopenlines_dialog_get
       tags:
       - Open Lines
@@ -2221,7 +2221,7 @@ paths:
   /imopenlines.message.quick.save:
     post:
       summary: Save Message as Quick Answer imopenlines.message.quick.save
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.message.quick.save` saves a message from the open line chat to the list of quick answers.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.message.quick.save` saves a message from the open line chat to the list of quick answers.
       operationId: imopenlines_message_quick_save
       tags:
       - Open Lines
@@ -2276,7 +2276,7 @@ paths:
   /imopenlines.message.session.start:
     post:
       summary: Start a New Dialogue Based on the Message imopenlines.message.session.start
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.message.session.start` initiates a new session and transfers the specified message into it.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.message.session.start` initiates a new session and transfers the specified message into it.
       operationId: imopenlines_message_session_start
       tags:
       - Open Lines
@@ -2331,7 +2331,7 @@ paths:
   /imopenlines.network.join:
     post:
       summary: Connect an External Open Channel to the Account imopenlines.network.join
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.network.join` connects an external open channel from another Bitrix24 to the current Bitrix24.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.network.join` connects an external open channel from another Bitrix24 to the current Bitrix24.
       operationId: imopenlines_network_join
       tags:
       - Open Lines
@@ -2377,8 +2377,8 @@ paths:
         - imopenlines
   /imopenlines.network.message.add:
     post:
-      summary: Send a message to a user on behalf of the Open Channel imopenlines.network.message.add
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.network.message.add` sends a message to a user on behalf of the open channel connected in Bitrix24 Network. Method operation limitations: 1. The method is unavailable during session authorization. It returns the error `WRONG_AUTH_TYPE` for session authorization.'
+      summary: Send a message to a user on behalf of the Open Channel…
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.network.message.add` sends a message to a user on behalf of the open channel connected in Bitrix24 Network. Method operation limitations: 1. The method is unavailable during session authorization. It returns the error `WRONG_AUTH_TYPE` for session authorization.'
       operationId: imopenlines_network_message_add
       tags:
       - Open Lines
@@ -2461,7 +2461,7 @@ paths:
   /imopenlines.operator.another.finish:
     post:
       summary: Finish Another Operator's Dialog imopenlines.operator.another.finish
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.another.finish` ends a dialog in an open line, even if the dialog is assigned to another operator.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.another.finish` ends a dialog in an open line, even if the dialog is assigned to another operator.
       operationId: imopenlines_operator_another_finish
       tags:
       - Open Lines
@@ -2508,7 +2508,7 @@ paths:
   /imopenlines.operator.answer:
     post:
       summary: Take the dialog for yourself imopenlines.operator.answer
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.answer` assigns the dialog of the open line to the current operator.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.answer` assigns the dialog of the open line to the current operator.
       operationId: imopenlines_operator_answer
       tags:
       - Open Lines
@@ -2555,7 +2555,7 @@ paths:
   /imopenlines.operator.finish:
     post:
       summary: Finish Your Dialogue imopenlines.operator.finish
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.finish` ends the open line dialogue on behalf of the current operator.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.finish` ends the open line dialogue on behalf of the current operator.
       operationId: imopenlines_operator_finish
       tags:
       - Open Lines
@@ -2602,7 +2602,7 @@ paths:
   /imopenlines.operator.skip:
     post:
       summary: Skip Dialog imopenlines.operator.skip
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.skip` transfers the current dialog to the next operator in the queue.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.skip` transfers the current dialog to the next operator in the queue.
       operationId: imopenlines_operator_skip
       tags:
       - Open Lines
@@ -2649,7 +2649,7 @@ paths:
   /imopenlines.operator.spam:
     post:
       summary: Mark a conversation as "spam" imopenlines.operator.spam
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.spam` marks an open line conversation as spam and ends it.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.spam` marks an open line conversation as spam and ends it.
       operationId: imopenlines_operator_spam
       tags:
       - Open Lines
@@ -2695,8 +2695,8 @@ paths:
         - imopenlines
   /imopenlines.operator.transfer:
     post:
-      summary: Transfer a dialog to another operator or to another line imopenlines.operator.transfer
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.transfer` transfers a dialog to another operator or to the queue of another open line.
+      summary: Transfer a dialog to another operator or to another line…
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.operator.transfer` transfers a dialog to another operator or to the queue of another open line.
       operationId: imopenlines_operator_transfer
       tags:
       - Open Lines
@@ -2761,7 +2761,7 @@ paths:
   /imopenlines.revision.get:
     post:
       summary: Get Information About API Revisions imopenlines.revision.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.revision.get` retrieves information about the API revisions of Open Channels.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.revision.get` retrieves information about the API revisions of Open Channels.
       operationId: imopenlines_revision_get
       tags:
       - Open Lines
@@ -2796,7 +2796,7 @@ paths:
   /imopenlines.session.head.vote:
     post:
       summary: Rate Employee Performance in the imopenlines.session.head.vote Dialog
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.head.vote` saves the manager's rating and comment for a completed dialog.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.session.head.vote` saves the manager's rating and comment for a completed dialog.
       operationId: imopenlines_session_head_vote
       tags:
       - Open Lines
@@ -2855,7 +2855,7 @@ paths:
   /imopenlines.session.history.get:
     post:
       summary: Get Message History of the Dialogue imopenlines.session.history.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.history.get` returns the message history of an open line session.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.session.history.get` returns the message history of an open line session.
       operationId: imopenlines_session_history_get
       tags:
       - Open Lines
@@ -2904,7 +2904,7 @@ paths:
   /imopenlines.session.intercept:
     post:
       summary: Take Over the Dialogue from the Current Operator imopenlines.session.intercept
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.intercept` transfers the current dialogue to the operator who calls the method.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.session.intercept` transfers the current dialogue to the operator who calls the method.
       operationId: imopenlines_session_intercept
       tags:
       - Open Lines
@@ -2951,7 +2951,7 @@ paths:
   /imopenlines.session.join:
     post:
       summary: Join the Dialogue imopenlines.session.join
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.join` adds the current operator to an active dialogue in the Open Channels.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.session.join` adds the current operator to an active dialogue in the Open Channels.
       operationId: imopenlines_session_join
       tags:
       - Open Lines
@@ -2998,7 +2998,7 @@ paths:
   /imopenlines.session.mode.pin:
     post:
       summary: Pin or Unpin a Dialog imopenlines.session.mode.pin
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.mode.pin` pins or unpins a dialog to the current operator.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.session.mode.pin` pins or unpins a dialog to the current operator.
       operationId: imopenlines_session_mode_pin
       tags:
       - Open Lines
@@ -3051,7 +3051,7 @@ paths:
   /imopenlines.session.mode.pinAll:
     post:
       summary: Pin All Available Dialogs to the Operator imopenlines.session.mode.pinAll
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.mode.pinAll` pins all available active dialogs to the current operator.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.session.mode.pinAll` pins all available active dialogs to the current operator.
       operationId: imopenlines_session_mode_pinAll
       tags:
       - Open Lines
@@ -3086,7 +3086,7 @@ paths:
   /imopenlines.session.mode.silent:
     post:
       summary: Switch the dialog to silent mode imopenlines.session.mode.silent
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.mode.silent` enables or disables the silent messaging mode in the dialog. The development of this method has been halted, but it continues to function.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.session.mode.silent` enables or disables the silent messaging mode in the dialog. The development of this method has been halted, but it continues to function.
       operationId: imopenlines_session_mode_silent
       tags:
       - Open Lines
@@ -3139,7 +3139,7 @@ paths:
   /imopenlines.session.mode.unpinAll:
     post:
       summary: Unpin All Operator Dialogs imopenlines.session.mode.unpinAll
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.mode.unpinAll` unpins all available pinned dialogs from the current operator.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.session.mode.unpinAll` unpins all available pinned dialogs from the current operator.
       operationId: imopenlines_session_mode_unpinAll
       tags:
       - Open Lines
@@ -3174,7 +3174,7 @@ paths:
   /imopenlines.session.open:
     post:
       summary: Get Chat by User Code imopenlines.session.open
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.open` returns the chat ID of the open line based on the user code `USER_CODE`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.session.open` returns the chat ID of the open line based on the user code `USER_CODE`.
       operationId: imopenlines_session_open
       tags:
       - Open Lines
@@ -3221,7 +3221,7 @@ paths:
   /imopenlines.session.start:
     post:
       summary: Start a New Dialogue imopenlines.session.start
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `imopenlines.session.start` initiates a new session in the current open line chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imopenlines.session.start` initiates a new session in the current open line chat.
       operationId: imopenlines_session_start
       tags:
       - Open Lines
@@ -3267,21 +3267,6 @@ paths:
         - imopenlines
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -3309,6 +3294,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Events API
+  title: Bitrix24 REST Events API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /event.bind:
     post:
       summary: Register a new event handler event.bind
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.bind` registers a new event handler. The method works only in the context of [application](../../settings/app-installation/index.md) authorization. It can operate both under a user with portal administration rights and under a regular user. The method for a user without administrator rights is available with limitations: 1. Offline events are not available; attempting to set them will raise an exception.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `event.bind` registers a new event handler. The method works only in the context of application authorization. It can operate both under a user with portal administration rights and under a regular user. The method for a user without administrator rights is available with limitations: 1. Offline events are not available; attempting to set them will raise an exception.'
       operationId: event_bind
       tags:
       - Events
@@ -109,7 +109,7 @@ paths:
   /event.get:
     post:
       summary: Get a List of Registered Event Handlers event.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `event.get` method allows you to retrieve a list of registered event handlers. The method works only in the context of authorizing the [application](../../settings/app-installation/index.md). No parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `event.get` method allows you to retrieve a list of registered event handlers. The method works only in the context of authorizing the application. No parameters.
       operationId: event_get
       tags:
       - Events
@@ -156,7 +156,7 @@ paths:
   /event.offline.clear:
     post:
       summary: Clear records in the offline event queue event.offline.clear
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.clear` clears records in the offline event queue. The availability of offline events can be checked through the method [feature.get](../common/system/feature-get.md). The method works only in the context of application authorization [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `event.offline.clear` clears records in the offline event queue. The availability of offline events can be checked through the method feature.get. The method works only in the context of application authorization application.
       operationId: event_offline_clear
       tags:
       - Events
@@ -217,7 +217,7 @@ paths:
   /event.offline.error:
     post:
       summary: Register Errors for Processing Offline Events event.offline.error
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.error` saves a record in the database with an error mark when using offline events. The availability of offline events can be checked through the method [feature.get](../common/system/feature-get.md). The method works only in the context of authorizing the [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `event.offline.error` saves a record in the database with an error mark when using offline events. The availability of offline events can be checked through the method feature.get. The method works only in the context of authorizing the application.
       operationId: event_offline_error
       tags:
       - Events
@@ -270,7 +270,7 @@ paths:
   /event.offline.get:
     post:
       summary: Get a List of Offline Events with event.offline.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.get` returns the first queued offline events to the application according to the filter settings. The availability of offline events can be checked using the [feature.get](../common/system/feature-get.md) method. This method works only in the context of [application](../../settings/app-installation/index.md) authorization.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `event.offline.get` returns the first queued offline events to the application according to the filter settings. The availability of offline events can be checked using the feature.get method. This method works only in the context of application authorization.
       operationId: event_offline_get
       tags:
       - Events
@@ -351,7 +351,7 @@ paths:
   /event.offline.list:
     post:
       summary: Get a list of offline events event.offline.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `event.offline.list` is used to read the current queue without making changes to its state, unlike [event.offline.get](./event-offline-get.md). The availability of offline events can be checked through the [feature.get](../common/system/feature-get.md) method. The method works only in the context of application authorization [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `event.offline.list` is used to read the current queue without making changes to its state, unlike event.offline.get. The availability of offline events can be checked through the feature.get method. The method works only in the context of application authorization application.
       operationId: event_offline_list
       tags:
       - Events
@@ -408,7 +408,7 @@ paths:
   /event.unbind:
     post:
       summary: Unbind Registered Event Handler event.unbind
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `event.unbind` method cancels a registered event handler. This method works only in the context of [application](../../settings/app-installation/index.md) authorization and only when authorized under a user with administrative rights to the account.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `event.unbind` method cancels a registered event handler. This method works only in the context of application authorization and only when authorized under a user with administrative rights to the account.
       operationId: event_unbind
       tags:
       - Events
@@ -473,7 +473,7 @@ paths:
   /events:
     post:
       summary: Get a list of available events
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `events` method returns a comprehensive list of available events. The method works only in the context of authorizing the [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `events` method returns a comprehensive list of available events. The method works only in the context of authorizing the application.
       operationId: events
       tags:
       - Events
@@ -519,21 +519,6 @@ paths:
       - AccessToken: []
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -561,6 +546,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

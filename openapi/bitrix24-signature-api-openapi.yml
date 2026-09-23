@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Signature API
+  title: Bitrix24 REST Signature API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /sign.b2e.company.provider.list:
     post:
       summary: Get the List of Providers for sign.b2e.company.provider.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.company.provider.list` returns a list of signature providers for the selected company. The method works only in the context of application authorization [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sign.b2e.company.provider.list` returns a list of signature providers for the selected company. The method works only in the context of application authorization application.
       operationId: sign_b2e_company_provider_list
       tags:
       - Signature
@@ -105,7 +105,7 @@ paths:
   /sign.b2e.document.get:
     post:
       summary: Get Document sign.b2e.document.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.document.get` returns information about the document and signing participants. The method works only in the context of application authorization [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sign.b2e.document.get` returns information about the document and signing participants. The method works only in the context of application authorization application.
       operationId: sign_b2e_document_get
       tags:
       - Signature
@@ -154,7 +154,7 @@ paths:
   /sign.b2e.document.send:
     post:
       summary: Send Document for Signing sign.b2e.document.send
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.document.send` sends a document for signing on behalf of the company. This method works only in the context of application authorization [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sign.b2e.document.send` sends a document for signing on behalf of the company. This method works only in the context of application authorization application.
       operationId: sign_b2e_document_send
       tags:
       - Signature
@@ -355,7 +355,7 @@ paths:
   /sign.b2e.mysafe.tail:
     post:
       summary: Get a list of signed documents in the company's safe sign.b2e.mysafe.tail
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.mysafe.tail` returns a list of signed documents in the company's safe. The method works only in the context of [application](../../settings/app-installation/index.md) authorization.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sign.b2e.mysafe.tail` returns a list of signed documents in the company's safe. The method works only in the context of application authorization.
       operationId: sign_b2e_mysafe_tail
       tags:
       - Signature
@@ -404,7 +404,7 @@ paths:
   /sign.b2e.personal.tail:
     post:
       summary: Get a list of signed documents for the user sign.b2e.personal.tail
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sign.b2e.personal.tail` returns a list of signed documents for the user from the e-Signature for HR section. The method works only in the context of authorization of the [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sign.b2e.personal.tail` returns a list of signed documents for the user from the e-Signature for HR section. The method works only in the context of authorization of the application.
       operationId: sign_b2e_personal_tail
       tags:
       - Signature
@@ -452,21 +452,6 @@ paths:
         - sign.b2e
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -494,6 +479,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

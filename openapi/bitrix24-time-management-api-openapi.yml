@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Time Management API
+  title: Bitrix24 REST Time Management API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /timeman.close:
     post:
       summary: Close Current Day timeman.close
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.close` ends the current workday.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.close` ends the current workday.
       operationId: timeman_close
       tags:
       - Time Management
@@ -105,7 +105,7 @@ paths:
   /timeman.networkrange.check:
     post:
       summary: Check IP Address timeman.networkrange.check
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.networkrange.check` checks whether an IP address falls within the ranges of the office network. For the method to work correctly, at least one range must be set.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.networkrange.check` checks whether an IP address falls within the ranges of the office network. For the method to work correctly, at least one range must be set.
       operationId: timeman_networkrange_check
       tags:
       - Time Management
@@ -148,7 +148,7 @@ paths:
   /timeman.networkrange.get:
     post:
       summary: Get Network Address Ranges timeman.networkrange.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.networkrange.get` retrieves the ranges of network addresses for the office network.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.networkrange.get` retrieves the ranges of network addresses for the office network.
       operationId: timeman_networkrange_get
       tags:
       - Time Management
@@ -183,7 +183,7 @@ paths:
   /timeman.networkrange.set:
     post:
       summary: Set Network Address Ranges timeman.networkrange.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.networkrange.set` sets the network address ranges for the office network.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.networkrange.set` sets the network address ranges for the office network.
       operationId: timeman_networkrange_set
       tags:
       - Time Management
@@ -230,7 +230,7 @@ paths:
   /timeman.open:
     post:
       summary: Start a New Workday timeman.open
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.open` starts a new workday or continues the workday after a break or completion.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.open` starts a new workday or continues the workday after a break or completion.
       operationId: timeman_open
       tags:
       - Time Management
@@ -303,7 +303,7 @@ paths:
   /timeman.pause:
     post:
       summary: Pause the current workday timeman.pause
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.pause` pauses the current workday. If the workday is completed, the method will resume it and add the time that has passed since completion to the duration.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.pause` pauses the current workday. If the workday is completed, the method will resume it and add the time that has passed since completion to the duration.
       operationId: timeman_pause
       tags:
       - Time Management
@@ -346,7 +346,7 @@ paths:
   /timeman.schedule.get:
     post:
       summary: Get Work Schedule timeman.schedule.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.schedule.get` retrieves the work schedule by its identifier. If no schedule exists with the specified identifier, it will return an empty array.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.schedule.get` retrieves the work schedule by its identifier. If no schedule exists with the specified identifier, it will return an empty array.
       operationId: timeman_schedule_get
       tags:
       - Time Management
@@ -389,7 +389,7 @@ paths:
   /timeman.settings:
     post:
       summary: Get User Work Time Settings timeman.settings
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.settings` retrieves the user's work time settings.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.settings` retrieves the user's work time settings.
       operationId: timeman_settings
       tags:
       - Time Management
@@ -432,7 +432,7 @@ paths:
   /timeman.status:
     post:
       summary: Get information about the current workday timeman.status
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.status` retrieves information about the current workday.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.status` retrieves information about the current workday.
       operationId: timeman_status
       tags:
       - Time Management
@@ -475,7 +475,7 @@ paths:
   /timeman.timecontrol.report.add:
     post:
       summary: Add Absence Report timeman.timecontrol.report.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.report.add` sends an absence report and adds it to the calendar. By default, a user can only send a report for themselves. A portal administrator can send a report for anyone—this requires specifying the user ID in the `USER_ID` parameter.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.report.add` sends an absence report and adds it to the calendar. By default, a user can only send a report for themselves. A portal administrator can send a report for anyone—this requires specifying the user ID in the `USER_ID` parameter.
       operationId: timeman_timecontrol_report_add
       tags:
       - Time Management
@@ -548,7 +548,7 @@ paths:
   /timeman.timecontrol.reports.get:
     post:
       summary: Get Report on Identified Absences timeman.timecontrol.reports.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.reports.get` retrieves a report on identified absences.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.reports.get` retrieves a report on identified absences.
       operationId: timeman_timecontrol_reports_get
       tags:
       - Time Management
@@ -623,7 +623,7 @@ paths:
   /timeman.timecontrol.reports.settings.get:
     post:
       summary: Get Report Settings timeman.timecontrol.reports.settings.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.reports.settings.get` retrieves report settings for building the report interface of the time control tool.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.reports.settings.get` retrieves report settings for building the report interface of the time control tool.
       operationId: timeman_timecontrol_reports_settings_get
       tags:
       - Time Management
@@ -658,7 +658,7 @@ paths:
   /timeman.timecontrol.reports.users.get:
     post:
       summary: Get the list of users for the timeman.timecontrol.reports.users.get
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.reports.users.get` retrieves the list of users in the department. The data returned by the method depends on the role: - an employee will receive only their own data,'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.reports.users.get` retrieves the list of users in the department. The data returned by the method depends on the role: - an employee will receive only their own data,'
       operationId: timeman_timecontrol_reports_users_get
       tags:
       - Time Management
@@ -701,7 +701,7 @@ paths:
   /timeman.timecontrol.settings.get:
     post:
       summary: Get Time Control Settings timeman.timecontrol.settings.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.settings.get` retrieves the settings of the time control module.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.settings.get` retrieves the settings of the time control module.
       operationId: timeman_timecontrol_settings_get
       tags:
       - Time Management
@@ -736,7 +736,7 @@ paths:
   /timeman.timecontrol.settings.set:
     post:
       summary: Set Time Control Settings timeman.timecontrol.settings.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.settings.set` sets the configurations for the time control module. Data collection for time control begins once the corresponding registration settings are activated. It is not possible to retrieve data for the period prior to activation — the system does not retain historical information retrospectively.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `timeman.timecontrol.settings.set` sets the configurations for the time control module. Data collection for time control begins once the corresponding registration settings are activated. It is not possible to retrieve data for the period prior to activation — the system does not retain historical information retrospectively.
       operationId: timeman_timecontrol_settings_set
       tags:
       - Time Management
@@ -844,21 +844,6 @@ paths:
         - timeman
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -886,6 +871,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

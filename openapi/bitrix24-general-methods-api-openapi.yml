@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector General Methods API
+  title: Bitrix24 REST General Methods API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /access.name:
     post:
       summary: Get Access Permission Names access.name
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `access.name` retrieves the names of access permissions.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `access.name` retrieves the names of access permissions.
       operationId: access_name
       tags:
       - General Methods
@@ -81,7 +81,7 @@ paths:
   /app.info:
     post:
       summary: Show information about the app app.info
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `app.info` returns information about the application. No parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `app.info` returns information about the application. No parameters.
       operationId: app_info
       tags:
       - General Methods
@@ -136,7 +136,7 @@ paths:
   /app.option.get:
     post:
       summary: Get Application-Linked Data app.option.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `app.option.get` retrieves data linked to the application. If no input is provided, it will return all properties recorded via [app.option.set](./app-option-set.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `app.option.get` retrieves data linked to the application. If no input is provided, it will return all properties recorded via app.option.set.
       operationId: app_option_get
       tags:
       - General Methods
@@ -179,7 +179,7 @@ paths:
   /app.option.set:
     post:
       summary: Bind Data to the app.option.set Method
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `app.option.set` method binds data to the application.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `app.option.set` method binds data to the application.
       operationId: app_option_set
       tags:
       - General Methods
@@ -228,7 +228,7 @@ paths:
   /feature.get:
     post:
       summary: Get information about feature availability on the account feature.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `feature.get` returns information about the availability of features on a specific account.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `feature.get` returns information about the availability of features on a specific account.
       operationId: feature_get
       tags:
       - General Methods
@@ -275,7 +275,7 @@ paths:
   /method.get:
     post:
       summary: Get a list of available methods method.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `method.get` method returns two parameters `isExisting` and `isAvailable`, which determine the existence of the method on the account and its availability for invocation.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `method.get` method returns two parameters `isExisting` and `isAvailable`, which determine the existence of the method on the account and its availability for invocation.
       operationId: method_get
       tags:
       - General Methods
@@ -318,7 +318,7 @@ paths:
   /methods:
     post:
       summary: Get a List of Available Methods
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `methods` method retrieves a list of available methods. Development of this method has been halted. Please use [method.get](./method-get.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `methods` method retrieves a list of available methods. Development of this method has been halted. Please use method.get.
       operationId: methods
       tags:
       - General Methods
@@ -367,7 +367,7 @@ paths:
   /profile:
     post:
       summary: Get Basic Information About the Current User Profile
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `profile` method allows you to retrieve basic information about the current user without any scopes, unlike [user.current](../../user/user-current.md). No parameters required.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `profile` method allows you to retrieve basic information about the current user without any scopes, unlike user.current. No parameters required.
       operationId: profile
       tags:
       - General Methods
@@ -416,7 +416,7 @@ paths:
   /scope:
     post:
       summary: Get a List of Available Permissions Scope
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `scope` method returns a list of permissions.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `scope` method returns a list of permissions.
       operationId: scope
       tags:
       - General Methods
@@ -459,7 +459,7 @@ paths:
   /server.time:
     post:
       summary: Get Current Server Time server.time
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `server.time` returns the current server time in the format `YYYY-MM-DDThh:mm:ss±hh:mm`. No parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `server.time` returns the current server time in the format `YYYY-MM-DDThh:mm:ss±hh:mm`. No parameters.
       operationId: server_time
       tags:
       - General Methods
@@ -508,7 +508,7 @@ paths:
   /user.access:
     post:
       summary: Determine the user.access permissions set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `user.access` method checks if the current user has at least one of the permissions specified in the `ACCESS` parameter.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `user.access` method checks if the current user has at least one of the permissions specified in the `ACCESS` parameter.
       operationId: user_access
       tags:
       - General Methods
@@ -557,7 +557,7 @@ paths:
   /user.admin:
     post:
       summary: Determine Access Permissions for Application Settings user.admin
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.admin` determines whether the current user has the permissions to manage application settings. No parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `user.admin` determines whether the current user has the permissions to manage application settings. No parameters.
       operationId: user_admin
       tags:
       - General Methods
@@ -641,7 +641,7 @@ paths:
   /user.option.get:
     post:
       summary: Get User Data Associated with the Application user.option.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.option.get` retrieves user data associated with the application. If no input is provided, it will return all properties recorded through [user.option.set](./user-option-set.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `user.option.get` retrieves user data associated with the application. If no input is provided, it will return all properties recorded through user.option.set.
       operationId: user_option_get
       tags:
       - General Methods
@@ -684,7 +684,7 @@ paths:
   /user.option.set:
     post:
       summary: Bind Data to User and Application user.option.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.option.set` binds data to the application and user. The application can be bound to the user who installed it if it is a [headless application](../../../local-integrations/serverside-local-app-with-no-ui.md) or to the user with whom it interacts if it is a [UI application](../../../local-integrations/serverside-local-app-with-ui.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `user.option.set` binds data to the application and user. The application can be bound to the user who installed it if it is a headless application or to the user with whom it interacts if it is a UI application.
       operationId: user_option_set
       tags:
       - General Methods
@@ -732,21 +732,6 @@ paths:
         - basic
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -774,6 +759,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

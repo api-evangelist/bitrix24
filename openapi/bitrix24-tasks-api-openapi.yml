@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Tasks API
+  title: Bitrix24 REST Tasks API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /task.checklistitem.add:
     post:
       summary: Add checklist item task.checklistitem.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.checklistitem.add` adds a new checklist item to a task. You can check permissions for adding an item using the method [task.checklistitem.isactionallowed](./task-checklist-item-is-action-allowed.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.checklistitem.add` adds a new checklist item to a task. You can check permissions for adding an item using the method task.checklistitem.isactionallowed.
       operationId: task_checklistitem_add
       tags:
       - Tasks
@@ -125,7 +125,7 @@ paths:
   /task.checklistitem.complete:
     post:
       summary: Mark checklist item as completed task.checklistitem.complete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.checklistitem.complete` marks a checklist item as completed.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.checklistitem.complete` marks a checklist item as completed.
       operationId: task_checklistitem_complete
       tags:
       - Tasks
@@ -180,7 +180,7 @@ paths:
   /task.checklistitem.delete:
     post:
       summary: Delete checklist item task.checklistitem.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.checklistitem.delete` removes a checklist item from a task. You can check permissions for deleting an item using the method [task.checklistitem.isactionallowed](./task-checklist-item-is-action-allowed.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.checklistitem.delete` removes a checklist item from a task. You can check permissions for deleting an item using the method task.checklistitem.isactionallowed.
       operationId: task_checklistitem_delete
       tags:
       - Tasks
@@ -235,7 +235,7 @@ paths:
   /task.checklistitem.get:
     post:
       summary: Get checklist item task.checklistitem.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.checklistitem.get` retrieves the description of a checklist item by its identifier.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.checklistitem.get` retrieves the description of a checklist item by its identifier.
       operationId: task_checklistitem_get
       tags:
       - Tasks
@@ -290,7 +290,7 @@ paths:
   /task.checklistitem.getlist:
     post:
       summary: Get the list of checklist items task.checklistitem.getlist
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.checklistitem.getlist` retrieves a list of checklist items in a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.checklistitem.getlist` retrieves a list of checklist items in a task.
       operationId: task_checklistitem_getlist
       tags:
       - Tasks
@@ -343,7 +343,7 @@ paths:
   /task.checklistitem.getmanifest:
     post:
       summary: Get a list of methods and their description task.checklistitem.getmanifest
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.checklistitem.getmanifest` retrieves information about the methods for working with task checklist items `task.checklistitem.*`. It is recommended to use the result only as a reference, as the structure of the method's response can be changed by the developer at any time.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.checklistitem.getmanifest` retrieves information about the methods for working with task checklist items `task.checklistitem.*`. It is recommended to use the result only as a reference, as the structure of the method's response can be changed by the developer at any time.
       operationId: task_checklistitem_getmanifest
       tags:
       - Tasks
@@ -378,7 +378,7 @@ paths:
   /task.checklistitem.isactionallowed:
     post:
       summary: Check Action Permission for task.checklistitem.isactionallowed
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.checklistitem.isactionallowed` checks whether an action is permitted for a checklist item in a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.checklistitem.isactionallowed` checks whether an action is permitted for a checklist item in a task.
       operationId: task_checklistitem_isactionallowed
       tags:
       - Tasks
@@ -441,7 +441,7 @@ paths:
   /task.checklistitem.moveafteritem:
     post:
       summary: Move Checklist Item task.checklistitem.moveafteritem
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.checklistitem.moveafteritem` moves the checklist item `itemId` to a position after the element `afterItemId`. Both elements must belong to the same task `taskId`. The elements can be in different sublists, but after the move, `itemId` will have the same `PARENT_ID` as `afterItemId`. You can check permissions to modify the item using the method [task.checklistitem.isactionallowed](./task-checklist-item-is-action-allowed.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.checklistitem.moveafteritem` moves the checklist item `itemId` to a position after the element `afterItemId`. Both elements must belong to the same task `taskId`. The elements can be in different sublists, but after the move, `itemId` will have the same `PARENT_ID` as `afterItemId`. You can check permissions to modify the item using the method task.checklistitem.isactionallowed.
       operationId: task_checklistitem_moveafteritem
       tags:
       - Tasks
@@ -504,7 +504,7 @@ paths:
   /task.checklistitem.renew:
     post:
       summary: Mark a checklist item as incomplete task.checklistitem.renew
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.checklistitem.renew` marks a completed checklist item as active.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.checklistitem.renew` marks a completed checklist item as active.
       operationId: task_checklistitem_renew
       tags:
       - Tasks
@@ -559,7 +559,7 @@ paths:
   /task.checklistitem.update:
     post:
       summary: Update checklist item task.checklistitem.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.checklistitem.update` modifies an existing checklist item. You can check permissions to modify the item using the method [task.checklistitem.isactionallowed](./task-checklist-item-is-action-allowed.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.checklistitem.update` modifies an existing checklist item. You can check permissions to modify the item using the method task.checklistitem.isactionallowed.
       operationId: task_checklistitem_update
       tags:
       - Tasks
@@ -658,7 +658,7 @@ paths:
   /task.comment.add:
     post:
       summary: Add Comment to Task task.comment.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use [tasks.task.chat.message.send](../../rest-v3/tasks/tasks-task-chat-message-send.md). This method adds comments to a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use tasks.task.chat.message.send. This method adds comments to a task.
       operationId: task_comment_add
       tags:
       - Tasks
@@ -713,7 +713,7 @@ paths:
   /task.commentitem.add:
     post:
       summary: Add Comment task.commentitem.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.commentitem.add` adds a new comment to a task. The development of this method has been halted since version `tasks 25.700.0`. Please use [tasks.task.chat.message.send](../../rest-v3/tasks/tasks-task-chat-message-send.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.commentitem.add` adds a new comment to a task. The development of this method has been halted since version `tasks 25.700.0`. Please use tasks.task.chat.message.send.
       operationId: task_commentitem_add
       tags:
       - Tasks
@@ -796,7 +796,7 @@ paths:
   /task.commentitem.delete:
     post:
       summary: Delete Comment task.commentitem.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.commentitem.delete` removes a comment. Development of this method has been halted since version `tasks 25.700.0`. The method `task.commentitem.delete` does not work in the [new task card](../tasks-new.md); please use the method [im.message.delete](../../chats/messages/im-message-delete.md) for managing task chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.commentitem.delete` removes a comment. Development of this method has been halted since version `tasks 25.700.0`. The method `task.commentitem.delete` does not work in the new task card; please use the method im.message.delete for managing task chat.
       operationId: task_commentitem_delete
       tags:
       - Tasks
@@ -851,7 +851,7 @@ paths:
   /task.commentitem.get:
     post:
       summary: Get Comment by Identifier task.commentitem.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.commentitem.get` retrieves a comment by its identifier. Development of this method has been halted since version `tasks 25.700.0`. The method task.commentitem.get does not work in the [new task card](../tasks-new.md); use the method [im.dialog.messages.get](../../chats/messages/im-dialog-messages-get.md) for working with task chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.commentitem.get` retrieves a comment by its identifier. Development of this method has been halted since version `tasks 25.700.0`. The method task.commentitem.get does not work in the new task card; use the method im.dialog.messages.get for working with task chat.
       operationId: task_commentitem_get
       tags:
       - Tasks
@@ -906,7 +906,7 @@ paths:
   /task.commentitem.getlist:
     post:
       summary: Get List of Comments task.commentitem.getlist
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.commentitem.getlist` retrieves a list of comments for a task. The development of this method has been halted since version `tasks 25.700.0`. The method task.commentitem.getlist does not work in the [new task card](../tasks-new.md); use the method [im.dialog.messages.get](../../chats/messages/im-dialog-messages-get.md) for working with task chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.commentitem.getlist` retrieves a list of comments for a task. The development of this method has been halted since version `tasks 25.700.0`. The method task.commentitem.getlist does not work in the new task card; use the method im.dialog.messages.get for working with task chat.
       operationId: task_commentitem_getlist
       tags:
       - Tasks
@@ -965,7 +965,7 @@ paths:
   /task.commentitem.getmanifest:
     post:
       summary: Get the list of methods and their description task.commentitem.getmanifest
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.commentitem.getmanifest` retrieves up-to-date information about methods for working with task comments `task.commentitem.*`. It is recommended to use it only as a reference, as the response structure of the method can be changed by the developer at any time.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.commentitem.getmanifest` retrieves up-to-date information about methods for working with task comments `task.commentitem.*`. It is recommended to use it only as a reference, as the response structure of the method can be changed by the developer at any time.
       operationId: task_commentitem_getmanifest
       tags:
       - Tasks
@@ -1000,7 +1000,7 @@ paths:
   /task.commentitem.isactionallowed:
     post:
       summary: Check if action is allowed for comment task.commentitem.isactionallowed
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.commentitem.isactionallowed` checks if an action is allowed for a comment.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.commentitem.isactionallowed` checks if an action is allowed for a comment.
       operationId: task_commentitem_isactionallowed
       tags:
       - Tasks
@@ -1063,7 +1063,7 @@ paths:
   /task.commentitem.update:
     post:
       summary: Update Comment task.commentitem.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.commentitem.update` updates a comment. The development of this method has been halted since version `tasks 25.700.0`. The method `task.commentitem.update` does not work in the [new task card](../tasks-new.md); use the method [im.message.update](../../chats/messages/im-message-update.md) for working with task chat.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.commentitem.update` updates a comment. The development of this method has been halted since version `tasks 25.700.0`. The method `task.commentitem.update` does not work in the new task card; use the method im.message.update for working with task chat.
       operationId: task_commentitem_update
       tags:
       - Tasks
@@ -1142,7 +1142,7 @@ paths:
   /task.dependence.add:
     post:
       summary: Create a link between tasks task.dependence.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method creates a dependency of one task on another.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method creates a dependency of one task on another.
       operationId: task_dependence_add
       tags:
       - Tasks
@@ -1205,7 +1205,7 @@ paths:
   /task.dependence.delete:
     post:
       summary: Delete the link between tasks task.dependence.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method removes the dependency of one task on another.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method removes the dependency of one task on another.
       operationId: task_dependence_delete
       tags:
       - Tasks
@@ -1260,7 +1260,7 @@ paths:
   /task.elapseditem.add:
     post:
       summary: Add Time Entry task.elapseditem.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds the elapsed time to a task. It returns the identifier of the added entry. You can check the permission to add using the special method [task.elapseditem.isactionallowed](./task-elapsed-item-is-action-allowed.md)
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method adds the elapsed time to a task. It returns the identifier of the added entry. You can check the permission to add using the special method task.elapseditem.isactionallowed
       operationId: task_elapseditem_add
       tags:
       - Tasks
@@ -1337,7 +1337,7 @@ paths:
   /task.elapseditem.delete:
     post:
       summary: Delete Time Entry task.elapseditem.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a time entry. You can check the permission to delete using the special method [task.elapseditem.isactionallowed](./task-elapsed-item-is-action-allowed.md)
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes a time entry. You can check the permission to delete using the special method task.elapseditem.isactionallowed
       operationId: task_elapseditem_delete
       tags:
       - Tasks
@@ -1392,7 +1392,7 @@ paths:
   /task.elapseditem.get:
     post:
       summary: Get elapsed time record by identifier task.elapseditem.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method returns a record of elapsed time by its identifier.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method returns a record of elapsed time by its identifier.
       operationId: task_elapseditem_get
       tags:
       - Tasks
@@ -1447,7 +1447,7 @@ paths:
   /task.elapseditem.getlist:
     post:
       summary: Get a list of time spent records task.elapseditem.getlist
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method returns a list of time spent records for a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method returns a list of time spent records for a task.
       operationId: task_elapseditem_getlist
       tags:
       - Tasks
@@ -1570,7 +1570,7 @@ paths:
   /task.elapseditem.getmanifest:
     post:
       summary: Get a list of methods and their descriptions task.elapseditem.getmanifest
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method returns a list of methods in the form of `task.elapseditem.*` and their descriptions. The return value of this method is not intended for automated processing, as its format may change without notice. The method can be useful as reference information, as it always contains up-to-date information.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method returns a list of methods in the form of `task.elapseditem.*` and their descriptions. The return value of this method is not intended for automated processing, as its format may change without notice. The method can be useful as reference information, as it always contains up-to-date information.
       operationId: task_elapseditem_getmanifest
       tags:
       - Tasks
@@ -1619,7 +1619,7 @@ paths:
   /task.elapseditem.isactionallowed:
     post:
       summary: Check Action Permission for task.elapseditem.isactionallowed
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method checks whether an action is allowed on a record: creation, modification, and deletion.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method checks whether an action is allowed on a record: creation, modification, and deletion.'
       operationId: task_elapseditem_isactionallowed
       tags:
       - Tasks
@@ -1682,7 +1682,7 @@ paths:
   /task.elapseditem.update:
     post:
       summary: Update Time Entry task.elapseditem.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the parameters of the specified time entry. You can check the permission to modify using the special method [task.elapseditem.isactionallowed](./task-elapsed-item-is-action-allowed.md)
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method updates the parameters of the specified time entry. You can check the permission to modify using the special method task.elapseditem.isactionallowed
       operationId: task_elapseditem_update
       tags:
       - Tasks
@@ -1767,7 +1767,7 @@ paths:
   /task.item.add:
     post:
       summary: Add Task task.item.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method creates a new task and returns the identifier of the added task. The following [fields](./index.md) are available. Development of this method has been halted. Please use [tasks.task.add](../../tasks-task-add.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method creates a new task and returns the identifier of the added task. The following fields are available. Development of this method has been halted. Please use tasks.task.add.
       operationId: task_item_add
       tags:
       - Tasks
@@ -1812,7 +1812,7 @@ paths:
   /task.item.addfile:
     post:
       summary: Upload File to Task task.item.addfile
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [tasks.task.files.attach](../../tasks-task-files-attach.md). This method uploads a file to a task. Currently, file upload is implemented via `post`, with the file content passed in the `CONTENT` parameter.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use tasks.task.files.attach. This method uploads a file to a task. Currently, file upload is implemented via `post`, with the file content passed in the `CONTENT` parameter.
       operationId: task_item_addfile
       tags:
       - Tasks
@@ -1867,7 +1867,7 @@ paths:
   /task.item.addtofavorite:
     post:
       summary: Add Task to Favorites task.item.addtofavorite
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. - parameter types are not specified - parameter requirements are not indicated - no response in case of an error
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. - parameter types are not specified - parameter requirements are not indicated - no response in case of an error
       operationId: task_item_addtofavorite
       tags:
       - Tasks
@@ -1928,7 +1928,7 @@ paths:
   /task.item.approve:
     post:
       summary: Change the status of a pending task to "completed" task.item.approve
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method changes the status of a pending task to "completed." Development of this method has been halted. Please use [tasks.task.approve](../../tasks-task-approve.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method changes the status of a pending task to "completed." Development of this method has been halted. Please use tasks.task.approve.
       operationId: task_item_approve
       tags:
       - Tasks
@@ -1977,7 +1977,7 @@ paths:
   /task.item.complete:
     post:
       summary: Move Task to "Completed" Status task.item.complete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method moves a task to the "completed" or "conditionally completed (awaiting executor control)" status. Development of this method has been halted. Please use [tasks.task.complete](../../tasks-task-complete.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method moves a task to the "completed" or "conditionally completed (awaiting executor control)" status. Development of this method has been halted. Please use tasks.task.complete.
       operationId: task_item_complete
       tags:
       - Tasks
@@ -2026,7 +2026,7 @@ paths:
   /task.item.defer:
     post:
       summary: Defer Task to "Deferred" Status task.item.defer
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method changes the status of a task to "Deferred." To perform this operation, the task must be in the [In Progress](./task-item-start-execution.md) status. Development of this method has been halted. Please use [tasks.task.defer](../../tasks-task-defer.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method changes the status of a task to "Deferred." To perform this operation, the task must be in the In Progress status. Development of this method has been halted. Please use tasks.task.defer.
       operationId: task_item_defer
       tags:
       - Tasks
@@ -2075,7 +2075,7 @@ paths:
   /task.item.delegate:
     post:
       summary: Delegate Task task.item.delegate
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method delegates a task to a new user. The development of this method has been halted. Please use [tasks.task.delegate](../../tasks-task-delegate.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method delegates a task to a new user. The development of this method has been halted. Please use tasks.task.delegate.
       operationId: task_item_delegate
       tags:
       - Tasks
@@ -2130,7 +2130,7 @@ paths:
   /task.item.delete:
     post:
       summary: Delete Task task.item.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a task. The development of this method has been halted. Please use [tasks.task.delete](../../tasks-task-delete.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes a task. The development of this method has been halted. Please use tasks.task.delete.
       operationId: task_item_delete
       tags:
       - Tasks
@@ -2179,7 +2179,7 @@ paths:
   /task.item.deletefile:
     post:
       summary: Delete File Attachment from Task task.item.deletefile
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [tasks.task.update](../../tasks-task-update.md). This method removes the file attachment from a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use tasks.task.update. This method removes the file attachment from a task.
       operationId: task_item_deletefile
       tags:
       - Tasks
@@ -2240,7 +2240,7 @@ paths:
   /task.item.deletefromfavorite:
     post:
       summary: Remove Task from Favorites task.item.deletefromfavorite
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method removes a task from Favorites. The development of this method has been halted. Please use [tasks.task.favorite.remove](../../tasks-task-favorite-remove.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method removes a task from Favorites. The development of this method has been halted. Please use tasks.task.favorite.remove.
       operationId: task_item_deletefromfavorite
       tags:
       - Tasks
@@ -2301,7 +2301,7 @@ paths:
   /task.item.disapprove:
     post:
       summary: Change the pending control task status to "not completed" task.item.disapprove
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method changes the status of a pending control task to "not completed." Development of this method has been halted. Please use [tasks.task.disapprove](../../tasks-task-disapprove.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method changes the status of a pending control task to "not completed." Development of this method has been halted. Please use tasks.task.disapprove.
       operationId: task_item_disapprove
       tags:
       - Tasks
@@ -2350,7 +2350,7 @@ paths:
   /task.item.getallowedactions:
     post:
       summary: 'Get Allowed Actions for Task: task.item.getallowedactions'
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns an array of identifiers for the allowed actions on a task. The development of this method has been halted. Please use [tasks.task.getAccess](../../tasks-task-get-access.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method returns an array of identifiers for the allowed actions on a task. The development of this method has been halted. Please use tasks.task.getAccess.
       operationId: task_item_getallowedactions
       tags:
       - Tasks
@@ -2398,8 +2398,8 @@ paths:
         - task
   /task.item.getallowedtaskactionsasstrings:
     post:
-      summary: Get a List of Action Names and Their Allowability task.item.getallowedtaskactionsasstrings
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method returns an array where the keys are the names of actions (the names correspond to the constants of the PHP class `CTaskItem`), and the values indicate whether the action is allowed (`true`) or not (`false`). The development of this method has been halted. Please use [tasks.task.getAccess](../../tasks-task-get-access.md).
+      summary: Get a List of Action Names and Their Allowability…
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method returns an array where the keys are the names of actions (the names correspond to the constants of the PHP class `CTaskItem`), and the values indicate whether the action is allowed (`true`) or not (`false`). The development of this method has been halted. Please use tasks.task.getAccess.
       operationId: task_item_getallowedtaskactionsasstrings
       tags:
       - Tasks
@@ -2448,7 +2448,7 @@ paths:
   /task.item.getdata:
     post:
       summary: Get Data About Task task.item.getdata
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns an array of data about the task (`TITLE`, `DESCRIPTION`, and so on). The following [fields](./index.md) are available. Development of this method has been halted. Please use [tasks.task.get](../../tasks-task-get.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method returns an array of data about the task (`TITLE`, `DESCRIPTION`, and so on). The following fields are available. Development of this method has been halted. Please use tasks.task.get.
       operationId: task_item_getdata
       tags:
       - Tasks
@@ -2497,7 +2497,7 @@ paths:
   /task.item.getdependson:
     post:
       summary: Get a List of Previous Tasks task.item.getdependson
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns an array containing the identifiers of tasks that the specified task depends on (the `Previous Tasks` option in the task creation form). Development of this method has been halted. Please use [tasks.task.get](../../tasks-task-get.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method returns an array containing the identifiers of tasks that the specified task depends on (the `Previous Tasks` option in the task creation form). Development of this method has been halted. Please use tasks.task.get.
       operationId: task_item_getdependson
       tags:
       - Tasks
@@ -2546,7 +2546,7 @@ paths:
   /task.item.getdescription:
     post:
       summary: Get Task Description task.item.getdescription
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns the description of a task. Development of this method has been halted. Please use [tasks.task.get](../../tasks-task-get.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method returns the description of a task. Development of this method has been halted. Please use tasks.task.get.
       operationId: task_item_getdescription
       tags:
       - Tasks
@@ -2601,7 +2601,7 @@ paths:
   /task.item.getfiles:
     post:
       summary: Get Links to Files Attached to a Task task.item.getfiles
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns an array containing links to files attached to a task. Development of this method has been halted. Please use [tasks.task.get](../../tasks-task-get.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method returns an array containing links to files attached to a task. Development of this method has been halted. Please use tasks.task.get.
       operationId: task_item_getfiles
       tags:
       - Tasks
@@ -2650,7 +2650,7 @@ paths:
   /task.item.getmanifest:
     post:
       summary: Get a List of Methods task.item.* with Their Descriptions task.item.getmanifest
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns a list of methods in the format `task.item.*` along with their descriptions. The return value of this method is not intended for automated processing, as its format may change without notice. This method can be useful as a reference, as it always contains up-to-date information.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method returns a list of methods in the format `task.item.*` along with their descriptions. The return value of this method is not intended for automated processing, as its format may change without notice. This method can be useful as a reference, as it always contains up-to-date information.
       operationId: task_item_getmanifest
       tags:
       - Tasks
@@ -2685,7 +2685,7 @@ paths:
   /task.item.isactionallowed:
     post:
       summary: Check if the action task.item.isactionallowed is permitted
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method returns `true` if the action is allowed. Otherwise, it will return `false`. The development of this method has been halted. Please use [tasks.task.getAccess](../../tasks-task-get-access.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method returns `true` if the action is allowed. Otherwise, it will return `false`. The development of this method has been halted. Please use tasks.task.getAccess.
       operationId: task_item_isactionallowed
       tags:
       - Tasks
@@ -2740,7 +2740,7 @@ paths:
   /task.item.list:
     post:
       summary: 'Get Task List: task.item.list'
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns an array of tasks, each containing an array of fields (similar to the array returned by [task.item.getdata](task-item-get-data.md)). Development of this method has been halted. Please use [tasks.task.list](../../tasks-task-list.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method returns an array of tasks, each containing an array of fields (similar to the array returned by task.item.getdata). Development of this method has been halted. Please use tasks.task.list.
       operationId: task_item_list
       tags:
       - Tasks
@@ -2805,7 +2805,7 @@ paths:
   /task.item.renew:
     post:
       summary: Change Task Status to "Not Completed" task.item.renew
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method changes the task status to "Not Completed." It is applicable for tasks with the status [Completed](./task-item-complete.md). Development of this method has been halted. Please use [tasks.task.renew](../../tasks-task-renew.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method changes the task status to "Not Completed." It is applicable for tasks with the status Completed. Development of this method has been halted. Please use tasks.task.renew.
       operationId: task_item_renew
       tags:
       - Tasks
@@ -2854,7 +2854,7 @@ paths:
   /task.item.startexecution:
     post:
       summary: Move Task to "In Progress" Status task.item.startexecution
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method changes the status of a task to "In Progress". Development of this method has been halted. Please use [tasks.task.start](../../tasks-task-start.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method changes the status of a task to "In Progress". Development of this method has been halted. Please use tasks.task.start.
       operationId: task_item_startexecution
       tags:
       - Tasks
@@ -2903,7 +2903,7 @@ paths:
   /task.item.update:
     post:
       summary: 'Update Task: task.item.update'
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the data for a task. The following [fields](./index.md) are available for updating. When updating task data, business logic and permissions are taken into account. For example, a Participant cannot rename a task—an error will be generated in such cases. It is recommended to check whether the action is allowed before updating the data ([task.item.isactionallowed](./task-item-is-action-allowed.md)). The development of this method has been halted. Please use [tasks.task.update](../../tasks-task-update.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method updates the data for a task. The following fields are available for updating. When updating task data, business logic and permissions are taken into account. For example, a Participant cannot rename a task—an error will be generated in such cases. It is recommended to check whether the action is allowed before updating the data (task.item.isactionallowed). The development of this method has been halted. Please use tasks.task.update.
       operationId: task_item_update
       tags:
       - Tasks
@@ -2958,7 +2958,7 @@ paths:
   /task.item.userfield.add:
     post:
       summary: Add Custom Field task.item.userfield.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.item.userfield.add` creates a custom field for a task. When creating a custom field, it is mandatory to use the prefix `UF_` in the field name `FIELD_NAME`. If the prefix is not specified, the system will automatically add it to the beginning of the name.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.item.userfield.add` creates a custom field for a task. When creating a custom field, it is mandatory to use the prefix `UF_` in the field name `FIELD_NAME`. If the prefix is not specified, the system will automatically add it to the beginning of the name.
       operationId: task_item_userfield_add
       tags:
       - Tasks
@@ -3075,7 +3075,7 @@ paths:
   /task.item.userfield.delete:
     post:
       summary: Delete User Field task.item.userfield.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.item.userfield.delete` removes a user-defined field from a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.item.userfield.delete` removes a user-defined field from a task.
       operationId: task_item_userfield_delete
       tags:
       - Tasks
@@ -3122,7 +3122,7 @@ paths:
   /task.item.userfield.get:
     post:
       summary: Get User Field of Task by ID task.item.userfield.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.item.userfield.get` retrieves the description of a user field of a task by its ID.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.item.userfield.get` retrieves the description of a user field of a task by its ID.
       operationId: task_item_userfield_get
       tags:
       - Tasks
@@ -3169,7 +3169,7 @@ paths:
   /task.item.userfield.getfields:
     post:
       summary: Get Custom Field Data with task.item.userfield.getfields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.item.userfield.getfields` retrieves a list of fields for custom task fields.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.item.userfield.getfields` retrieves a list of fields for custom task fields.
       operationId: task_item_userfield_getfields
       tags:
       - Tasks
@@ -3204,7 +3204,7 @@ paths:
   /task.item.userfield.getlist:
     post:
       summary: Get a List of Custom Fields task.item.userfield.getlist
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.item.userfield.getlist` retrieves a list of custom fields for tasks. The list will include three system fields for linking to other objects: - `UF_CRM_TASK` — with CRM objects'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.item.userfield.getlist` retrieves a list of custom fields for tasks. The list will include three system fields for linking to other objects: - `UF_CRM_TASK` — with CRM objects'
       operationId: task_item_userfield_getlist
       tags:
       - Tasks
@@ -3253,7 +3253,7 @@ paths:
   /task.item.userfield.gettypes:
     post:
       summary: Get a List of Available Data Types for task.item.userfield.gettypes
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.item.userfield.gettypes` retrieves the available types of custom fields. Only the following types are supported for tasks: - `string` — string'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.item.userfield.gettypes` retrieves the available types of custom fields. Only the following types are supported for tasks: - `string` — string'
       operationId: task_item_userfield_gettypes
       tags:
       - Tasks
@@ -3288,7 +3288,7 @@ paths:
   /task.item.userfield.update:
     post:
       summary: Update Custom Field task.item.userfield.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.item.userfield.update` updates the parameters of a task's custom field.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.item.userfield.update` updates the parameters of a task's custom field.
       operationId: task_item_userfield_update
       tags:
       - Tasks
@@ -3391,7 +3391,7 @@ paths:
   /task.items.getlist:
     post:
       summary: 'Get Task List: task.items.getlist'
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [tasks.task.list](../tasks-task-list.md). This method returns an array of tasks, each containing an array of fields (similar to the array returned by [task.item.getdata](task-item/task-item-get-data.md)).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use tasks.task.list. This method returns an array of tasks, each containing an array of fields (similar to the array returned by task.item.getdata).
       operationId: task_items_getlist
       tags:
       - Tasks
@@ -3456,7 +3456,7 @@ paths:
   /task.logitem.list:
     post:
       summary: View Task Change History task.logitem.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [tasks.task.history.list](../../tasks-task-history-list.md). This method returns the history of changes for a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use tasks.task.history.list. This method returns the history of changes for a task.
       operationId: task_logitem_list
       tags:
       - Tasks
@@ -3509,7 +3509,7 @@ paths:
   /task.planner.getlist:
     post:
       summary: Get the list of tasks from the Planner for the day task.planner.getlist
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `task.planner.getlist` retrieves a list of task identifiers from the "Planner for the day" of the current user. To get detailed information about the tasks, use the method [tasks.task.get](../tasks-task-get.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `task.planner.getlist` retrieves a list of task identifiers from the "Planner for the day" of the current user. To get detailed information about the tasks, use the method tasks.task.get.
       operationId: task_planner_getlist
       tags:
       - Tasks
@@ -3544,7 +3544,7 @@ paths:
   /task.stages.add:
     post:
       summary: Add a Kanban or "My Planner" Stage task.stages.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method adds a Kanban or "My Planner" stage.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method adds a Kanban or "My Planner" stage.
       operationId: task_stages_add
       tags:
       - Tasks
@@ -3623,7 +3623,7 @@ paths:
   /task.stages.canmovetask:
     post:
       summary: Check the ability to move a task task.stages.canmovetask
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method checks whether the current user can move tasks in the specified object.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method checks whether the current user can move tasks in the specified object.
       operationId: task_stages_canmovetask
       tags:
       - Tasks
@@ -3678,7 +3678,7 @@ paths:
   /task.stages.delete:
     post:
       summary: Delete a Kanban or "My Planner" Stage task.stages.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a Kanban or "My Planner" stage. It takes the `id` of the stage as input. The stage is checked for sufficient access permission, as well as for the absence of tasks within it.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes a Kanban or "My Planner" stage. It takes the `id` of the stage as input. The stage is checked for sufficient access permission, as well as for the absence of tasks within it.
       operationId: task_stages_delete
       tags:
       - Tasks
@@ -3731,7 +3731,7 @@ paths:
   /task.stages.get:
     post:
       summary: Get the list of Kanban stages or "My Planner" task.stages.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method retrieves the stages of the Kanban or "My Planner".
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method retrieves the stages of the Kanban or "My Planner".
       operationId: task_stages_get
       tags:
       - Tasks
@@ -3784,7 +3784,7 @@ paths:
   /task.stages.movetask:
     post:
       summary: Move a task from one stage to another task.stages.movetask
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method moves a task from one stage to another and allows changing the position of the task within the kanban of the group or "My Planner". The method works as follows: - If a group stage is provided, the movement occurs within the group''s kanban.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method moves a task from one stage to another and allows changing the position of the task within the kanban of the group or "My Planner". The method works as follows: - If a group stage is provided, the movement occurs within the group''s kanban.'
       operationId: task_stages_movetask
       tags:
       - Tasks
@@ -3851,7 +3851,7 @@ paths:
   /task.stages.update:
     post:
       summary: Update the stage of the kanban or "My Planner" task.stages.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method updates the stages of the kanban or "My Planner". The method is also used to move a stage from one position to another. To do this, simply pass the required `AFTER_ID`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method updates the stages of the kanban or "My Planner". The method is also used to move a stage from one position to another. To do this, simply pass the required `AFTER_ID`.
       operationId: task_stages_update
       tags:
       - Tasks
@@ -3932,7 +3932,7 @@ paths:
   /tasks.flow.Flow.activate:
     post:
       summary: Activate/Deactivate Flow tasks.flow.Flow.activate
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.flow.Flow.activate` turns a flow on or off by its identifier. If the flow is off, it turns it on. If it is on, it turns it off.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.flow.Flow.activate` turns a flow on or off by its identifier. If the flow is off, it turns it on. If it is on, it turns it off.
       operationId: tasks_flow_Flow_activate
       tags:
       - Tasks
@@ -3979,7 +3979,7 @@ paths:
   /tasks.flow.Flow.create:
     post:
       summary: Create a new Flow tasks.flow.Flow.create
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.flow.Flow.create` creates a flow. The flow must be linked to a group. If a group ID is not provided when creating the flow, a new group will be automatically created, consisting of the creator, administrator, and the flow team.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.flow.Flow.create` creates a flow. The flow must be linked to a group. If a group ID is not provided when creating the flow, a new group will be automatically created, consisting of the creator, administrator, and the flow team.
       operationId: tasks_flow_Flow_create
       tags:
       - Tasks
@@ -4130,7 +4130,7 @@ paths:
   /tasks.flow.Flow.delete:
     post:
       summary: Delete Flow tasks.flow.Flow.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.flow.Flow.delete` removes a flow by its identifier.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.flow.Flow.delete` removes a flow by its identifier.
       operationId: tasks_flow_Flow_delete
       tags:
       - Tasks
@@ -4185,7 +4185,7 @@ paths:
   /tasks.flow.Flow.get:
     post:
       summary: Get Flow tasks.flow.Flow.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.flow.Flow.get` returns flow data by its identifier.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.flow.Flow.get` returns flow data by its identifier.
       operationId: tasks_flow_Flow_get
       tags:
       - Tasks
@@ -4232,7 +4232,7 @@ paths:
   /tasks.flow.Flow.isExists:
     post:
       summary: Check the existence of the Flow tasks.flow.Flow.isExists
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.flow.Flow.isExists` checks whether a flow with the specified name exists. If an `id` is provided, it checks for flows with the same name, excluding the specified one.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.flow.Flow.isExists` checks whether a flow with the specified name exists. If an `id` is provided, it checks for flows with the same name, excluding the specified one.
       operationId: tasks_flow_Flow_isExists
       tags:
       - Tasks
@@ -4293,7 +4293,7 @@ paths:
   /tasks.flow.Flow.pin:
     post:
       summary: Pin or Unpin Flow tasks.flow.Flow.pin
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method pins or unpins a flow in the list of flows by its identifier.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method pins or unpins a flow in the list of flows by its identifier.
       operationId: tasks_flow_Flow_pin
       tags:
       - Tasks
@@ -4340,7 +4340,7 @@ paths:
   /tasks.flow.Flow.update:
     post:
       summary: Update Flow tasks.flow.Flow.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.flow.Flow.update` modifies the flow.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.flow.Flow.update` modifies the flow.
       operationId: tasks_flow_Flow_update
       tags:
       - Tasks
@@ -4499,7 +4499,7 @@ paths:
   /tasks.task.approve:
     post:
       summary: Approve Task tasks.task.approve
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.approve` accepts the work of the assignee on a task when task control is enabled and changes the task status to Completed. You can check the permission to accept the work of the assignee on the task using the [check access to the task](./tasks-task-get-access.md) method.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.approve` accepts the work of the assignee on a task when task control is enabled and changes the task status to Completed. You can check the permission to accept the work of the assignee on the task using the check access to the task method.
       operationId: tasks_task_approve
       tags:
       - Tasks
@@ -4546,7 +4546,7 @@ paths:
   /tasks.task.complete:
     post:
       summary: Translate task to Completed status tasks.task.complete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.complete` changes the task status to Completed.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.complete` changes the task status to Completed.
       operationId: tasks_task_complete
       tags:
       - Tasks
@@ -4593,7 +4593,7 @@ paths:
   /tasks.task.counters.get:
     post:
       summary: Get User Task Counters tasks.task.counters.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.counters.get` retrieves task counter values for the specified user.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.counters.get` retrieves task counter values for the specified user.
       operationId: tasks_task_counters_get
       tags:
       - Tasks
@@ -4648,7 +4648,7 @@ paths:
   /tasks.task.defer:
     post:
       summary: Translate the task to Deferred status tasks.task.defer
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.defer` changes the task status to Deferred.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.defer` changes the task status to Deferred.
       operationId: tasks_task_defer
       tags:
       - Tasks
@@ -4695,7 +4695,7 @@ paths:
   /tasks.task.delegate:
     post:
       summary: Delegate Task tasks.task.delegate
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.delegate` changes the responsible person and delegates the task to another user. You can check the right to delegate a task using the [check access to the task](./tasks-task-get-access.md) method.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.delegate` changes the responsible person and delegates the task to another user. You can check the right to delegate a task using the check access to the task method.
       operationId: tasks_task_delegate
       tags:
       - Tasks
@@ -4750,7 +4750,7 @@ paths:
   /tasks.task.disapprove:
     post:
       summary: Disapprove Task tasks.task.disapprove
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.disapprove` disapproves a task and returns it for revision to the assignee when task control is enabled. You can check the permission to disapprove the assignee's work on the task using the [task access check method](./tasks-task-get-access.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.disapprove` disapproves a task and returns it for revision to the assignee when task control is enabled. You can check the permission to disapprove the assignee's work on the task using the task access check method.
       operationId: tasks_task_disapprove
       tags:
       - Tasks
@@ -4797,7 +4797,7 @@ paths:
   /tasks.task.favorite.add:
     post:
       summary: Add Task to Favorites tasks.task.favorite.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.favorite.add` adds a task to Favorites.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.favorite.add` adds a task to Favorites.
       operationId: tasks_task_favorite_add
       tags:
       - Tasks
@@ -4844,7 +4844,7 @@ paths:
   /tasks.task.favorite.remove:
     post:
       summary: Remove Task from Favorites tasks.task.favorite.remove
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.favorite.remove` removes a task from Favorites.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.favorite.remove` removes a task from Favorites.
       operationId: tasks_task_favorite_remove
       tags:
       - Tasks
@@ -4891,7 +4891,7 @@ paths:
   /tasks.task.files.attach:
     post:
       summary: Attach Files to Task tasks.task.files.attach
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.files.attach` adds a file from Disk to a task. The user must have read access or higher to the file.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.files.attach` adds a file from Disk to a task. The user must have read access or higher to the file.
       operationId: tasks_task_files_attach
       tags:
       - Tasks
@@ -4946,7 +4946,7 @@ paths:
   /tasks.task.getFields:
     post:
       summary: Get the list of fields tasks.task.getFields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.getFields` returns the description of standard and custom fields of a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.getFields` returns the description of standard and custom fields of a task.
       operationId: tasks_task_getFields
       tags:
       - Tasks
@@ -4981,7 +4981,7 @@ paths:
   /tasks.task.getaccess:
     post:
       summary: Check Access to Task tasks.task.getaccess
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.getaccess` checks the available actions for users on a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.getaccess` checks the available actions for users on a task.
       operationId: tasks_task_getaccess
       tags:
       - Tasks
@@ -5036,7 +5036,7 @@ paths:
   /tasks.task.history.list:
     post:
       summary: Get Task History tasks.task.history.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.history.list` retrieves the history of changes for a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.history.list` retrieves the history of changes for a task.
       operationId: tasks_task_history_list
       tags:
       - Tasks
@@ -5095,7 +5095,7 @@ paths:
   /tasks.task.list:
     post:
       summary: Get the list of tasks tasks.task.list
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.list` retrieves a list of tasks with pagination. Access to the data depends on permissions: - administrators see all tasks,'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.list` retrieves a list of tasks with pagination. Access to the data depends on permissions: - administrators see all tasks,'
       operationId: tasks_task_list
       tags:
       - Tasks
@@ -5164,7 +5164,7 @@ paths:
   /tasks.task.mute:
     post:
       summary: Enable "Mute" Mode tasks.task.mute
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.mute` enables "Mute" mode for a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.mute` enables "Mute" mode for a task.
       operationId: tasks_task_mute
       tags:
       - Tasks
@@ -5211,7 +5211,7 @@ paths:
   /tasks.task.pause:
     post:
       summary: Translate task to Waiting for execution status tasks.task.pause
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.pause` stops the execution of the task and changes its status to Waiting for execution.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.pause` stops the execution of the task and changes its status to Waiting for execution.
       operationId: tasks_task_pause
       tags:
       - Tasks
@@ -5258,7 +5258,7 @@ paths:
   /tasks.task.pin:
     post:
       summary: Pin a task tasks.task.pin
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `tasks.task.pin` method pins a task in the current user's task list.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `tasks.task.pin` method pins a task in the current user's task list.
       operationId: tasks_task_pin
       tags:
       - Tasks
@@ -5305,7 +5305,7 @@ paths:
   /tasks.task.renew:
     post:
       summary: Renew a task after its completion tasks.task.renew
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.renew` resumes a task after it has been completed.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.renew` resumes a task after it has been completed.
       operationId: tasks_task_renew
       tags:
       - Tasks
@@ -5352,7 +5352,7 @@ paths:
   /tasks.task.result.addFromComment:
     post:
       summary: Add Comment to Result tasks.task.result.addFromComment
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.result.addFromComment` pins a comment as the result of a task. A user can pin only their own comment as a result. An administrator can pin any user's comment, becoming the author of the result. When working with the [new task detail form](../tasks-new.md) with chat from version `tasks 25.700.0`, the method does not work.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.result.addFromComment` pins a comment as the result of a task. A user can pin only their own comment as a result. An administrator can pin any user's comment, becoming the author of the result. When working with the new task detail form with chat from version `tasks 25.700.0`, the method does not work.
       operationId: tasks_task_result_addFromComment
       tags:
       - Tasks
@@ -5399,7 +5399,7 @@ paths:
   /tasks.task.result.deleteFromComment:
     post:
       summary: Remove Comment from Result tasks.task.result.deleteFromComment
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.result.deleteFromComment` removes the pinning of a comment as the result of a task. To delete a comment from the result, use the method [task.commentitem.delete](../comment-item/task-comment-item-delete.md). A user can only unpin their own comment. An administrator can unpin any user's comment. When working with the [new task detail form](../tasks-new.md) with chat from version `tasks 25.700.0`, the method does not work.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.result.deleteFromComment` removes the pinning of a comment as the result of a task. To delete a comment from the result, use the method task.commentitem.delete. A user can only unpin their own comment. An administrator can unpin any user's comment. When working with the new task detail form with chat from version `tasks 25.700.0`, the method does not work.
       operationId: tasks_task_result_deleteFromComment
       tags:
       - Tasks
@@ -5446,7 +5446,7 @@ paths:
   /tasks.task.start:
     post:
       summary: Translate the task to In Progress status tasks.task.start
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.start` changes the task status to In Progress.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.start` changes the task status to In Progress.
       operationId: tasks_task_start
       tags:
       - Tasks
@@ -5493,7 +5493,7 @@ paths:
   /tasks.task.startwatch:
     post:
       summary: Enable Task Watching tasks.task.startwatch
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.startwatch` enables watching a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.startwatch` enables watching a task.
       operationId: tasks_task_startwatch
       tags:
       - Tasks
@@ -5540,7 +5540,7 @@ paths:
   /tasks.task.stopwatch:
     post:
       summary: Disable Task Stopwatch tasks.task.stopwatch
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.stopwatch` disables the stopwatch for the task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.stopwatch` disables the stopwatch for the task.
       operationId: tasks_task_stopwatch
       tags:
       - Tasks
@@ -5587,7 +5587,7 @@ paths:
   /tasks.task.unmute:
     post:
       summary: Disable "Mute" mode tasks.task.unmute
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.task.unmute` disables the "Mute" mode for a task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.task.unmute` disables the "Mute" mode for a task.
       operationId: tasks_task_unmute
       tags:
       - Tasks
@@ -5634,7 +5634,7 @@ paths:
   /tasks.task.unpin:
     post:
       summary: Unpin a task tasks.task.unpin
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `tasks.task.unpin` method unpins a task in the current user's task list.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `tasks.task.unpin` method unpins a task in the current user's task list.
       operationId: tasks_task_unpin
       tags:
       - Tasks
@@ -5681,7 +5681,7 @@ paths:
   /tasks.template.add:
     post:
       summary: Add Task Template tasks.template.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.add` creates a new task template.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.add` creates a new task template.
       operationId: tasks_template_add
       tags:
       - Tasks
@@ -5728,7 +5728,7 @@ paths:
   /tasks.template.checklist.add:
     post:
       summary: Add Checklist Item to Task Template tasks.template.checklist.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.add` adds a checklist item to a task template.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.add` adds a checklist item to a task template.
       operationId: tasks_template_checklist_add
       tags:
       - Tasks
@@ -5822,8 +5822,8 @@ paths:
         - task
   /tasks.template.checklist.addAttachmentByContent:
     post:
-      summary: Add Attachment to Checklist Item Using tasks.template.checklist.addAttachmentByContent
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.addAttachmentByContent` adds an attachment to a checklist item based on the file's content.
+      summary: Add Attachment to Checklist Item Using tasks.template.checklist.addAttachmentByC…
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.addAttachmentByContent` adds an attachment to a checklist item based on the file's content.
       operationId: tasks_template_checklist_addAttachmentByContent
       tags:
       - Tasks
@@ -5897,8 +5897,8 @@ paths:
         - task
   /tasks.template.checklist.addAttachmentsFromDisk:
     post:
-      summary: Add Attachments from Drive to Checklist Item tasks.template.checklist.addAttachmentsFromDisk
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.addAttachmentsFromDisk` adds files from Drive to a checklist item.
+      summary: Add Attachments from Drive to Checklist Item…
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.addAttachmentsFromDisk` adds files from Drive to a checklist item.
       operationId: tasks_template_checklist_addAttachmentsFromDisk
       tags:
       - Tasks
@@ -5963,7 +5963,7 @@ paths:
   /tasks.template.checklist.complete:
     post:
       summary: Complete Checklist Item of Task Template tasks.template.checklist.complete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.complete` marks a checklist item of the template as completed.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.complete` marks a checklist item of the template as completed.
       operationId: tasks_template_checklist_complete
       tags:
       - Tasks
@@ -6018,7 +6018,7 @@ paths:
   /tasks.template.checklist.delete:
     post:
       summary: Delete Checklist Item from Task Template tasks.template.checklist.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.delete` removes a checklist item from the task template.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.delete` removes a checklist item from the task template.
       operationId: tasks_template_checklist_delete
       tags:
       - Tasks
@@ -6073,7 +6073,7 @@ paths:
   /tasks.template.checklist.get:
     post:
       summary: Get Checklist Item of Task Template tasks.template.checklist.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.get` returns a single checklist item from the task template.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.get` returns a single checklist item from the task template.
       operationId: tasks_template_checklist_get
       tags:
       - Tasks
@@ -6128,7 +6128,7 @@ paths:
   /tasks.template.checklist.list:
     post:
       summary: Get the List of Checklist Items for Task Template tasks.template.checklist.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.list` returns a list of checklist items for a task template.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.list` returns a list of checklist items for a task template.
       operationId: tasks_template_checklist_list
       tags:
       - Tasks
@@ -6195,7 +6195,7 @@ paths:
   /tasks.template.checklist.moveAfter:
     post:
       summary: Move Checklist Item After Another tasks.template.checklist.moveAfter
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.moveAfter` moves a checklist item after a specified item.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.moveAfter` moves a checklist item after a specified item.
       operationId: tasks_template_checklist_moveAfter
       tags:
       - Tasks
@@ -6258,7 +6258,7 @@ paths:
   /tasks.template.checklist.moveBefore:
     post:
       summary: 'Move Checklist Item Before Another Item: tasks.template.checklist.moveBefore'
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.moveBefore` moves a checklist item before the specified item.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.moveBefore` moves a checklist item before the specified item.
       operationId: tasks_template_checklist_moveBefore
       tags:
       - Tasks
@@ -6320,8 +6320,8 @@ paths:
         - task
   /tasks.template.checklist.removeAttachments:
     post:
-      summary: Remove Attachments from Checklist Item tasks.template.checklist.removeAttachments
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.removeAttachments` removes attachments from a checklist item in the task template.
+      summary: Remove Attachments from Checklist Item tasks.template.checklist.removeAttachment…
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.removeAttachments` removes attachments from a checklist item in the task template.
       operationId: tasks_template_checklist_removeAttachments
       tags:
       - Tasks
@@ -6386,7 +6386,7 @@ paths:
   /tasks.template.checklist.renew:
     post:
       summary: Renew Checklist Item of Task Template tasks.template.checklist.renew
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.renew` removes the completion mark from a checklist item of the task template.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.renew` removes the completion mark from a checklist item of the task template.
       operationId: tasks_template_checklist_renew
       tags:
       - Tasks
@@ -6441,7 +6441,7 @@ paths:
   /tasks.template.checklist.update:
     post:
       summary: Update Checklist Item of Task Template tasks.template.checklist.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.update` updates a checklist item of the task template.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.checklist.update` updates a checklist item of the task template.
       operationId: tasks_template_checklist_update
       tags:
       - Tasks
@@ -6540,7 +6540,7 @@ paths:
   /tasks.template.delete:
     post:
       summary: Delete Task Template tasks.template.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.delete` removes a task template.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.delete` removes a task template.
       operationId: tasks_template_delete
       tags:
       - Tasks
@@ -6587,7 +6587,7 @@ paths:
   /tasks.template.fields:
     post:
       summary: Get the List of Task Template Fields tasks.template.fields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.fields` returns the description of the task template fields.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.fields` returns the description of the task template fields.
       operationId: tasks_template_fields
       tags:
       - Tasks
@@ -6622,7 +6622,7 @@ paths:
   /tasks.template.get:
     post:
       summary: Get Task Template by ID tasks.template.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.get` returns the task template data by its ID.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.get` returns the task template data by its ID.
       operationId: tasks_template_get
       tags:
       - Tasks
@@ -6683,7 +6683,7 @@ paths:
   /tasks.template.update:
     post:
       summary: Update Task Template tasks.template.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.template.update` updates an existing task template.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.template.update` updates an existing task template.
       operationId: tasks_template_update
       tags:
       - Tasks
@@ -6737,21 +6737,6 @@ paths:
         - task
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -6779,6 +6764,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

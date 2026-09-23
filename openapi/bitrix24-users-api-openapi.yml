@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Users API
+  title: Bitrix24 REST Users API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /user.current:
     post:
       summary: Get Information About the Current User user.current
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.current` retrieves information about the [current](*current_key*) user. The list of user fields in Bitrix24 that will be obtained as a result of executing the method depends on the application's/webhook's scope. Details about user data access can be found in the [article](index.md). The method has no parameters. However, by making a REST request using data from `$_REQUEST` to the domain `DOMAIN` and adding `AUTH_ID` to the request for access to Bitrix24, you can find out which user opened the page in the context of Bitrix24.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `user.current` retrieves information about the current user. The list of user fields in Bitrix24 that will be obtained as a result of executing the method depends on the application's/webhook's scope. Details about user data access can be found in the article. The method has no parameters. However, by making a REST request using data from `$_REQUEST` to the domain `DOMAIN` and adding `AUTH_ID` to the request for access to Bitrix24, you can find out which user opened the page in the context of Bitrix24.
       operationId: user_current
       tags:
       - Users
@@ -81,7 +81,7 @@ paths:
   /user.fields:
     post:
       summary: Get User Fields user.fields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `user.fields` method allows you to retrieve a list of user field names. The method returns a standard list of fields, and the use of custom fields is not supported. The list of user fields in Bitrix24 that will be obtained as a result of executing the method depends on the application's/webhook's scope. Details about accessing user data can be found in the [article](index.md). Without parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `user.fields` method allows you to retrieve a list of user field names. The method returns a standard list of fields, and the use of custom fields is not supported. The list of user fields in Bitrix24 that will be obtained as a result of executing the method depends on the application's/webhook's scope. Details about accessing user data can be found in the article. Without parameters.
       operationId: user_fields
       tags:
       - Users
@@ -130,7 +130,7 @@ paths:
   /user.search:
     post:
       summary: Get a List of Users with Search by Personal Data user.search
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `user.search` method allows you to retrieve a list of users with accelerated search based on personal data (first name, last name, patronymic, department name, job title). It operates in two modes: quickly using **Fulltext Index** and a slower option through [right LIKE](*key_right LIKE) (support is determined automatically). The list of user fields in Bitrix24 that will be returned as a result of executing the method depends on the application''s/webhook''s scope. Details about accessing user data can be found in the [article](index.md). The method inherits the behavior of the [user.get](./user-get.md) method, and all parameters from this function are also available.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `user.search` method allows you to retrieve a list of users with accelerated search based on personal data (first name, last name, patronymic, department name, job title). It operates in two modes: quickly using **Fulltext Index** and a slower option through right LIKE (support is determined automatically). The list of user fields in Bitrix24 that will be returned as a result of executing the method depends on the application''s/webhook''s scope. Details about accessing user data can be found in the article. The method inherits the behavior of the user.get method, and all parameters from this function are also available.'
       operationId: user_search
       tags:
       - Users
@@ -197,7 +197,7 @@ paths:
   /user.userfield.add:
     post:
       summary: Add Custom Field user.userfield.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.userfield.add` adds a custom field.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `user.userfield.add` adds a custom field.
       operationId: user_userfield_add
       tags:
       - Users
@@ -338,7 +338,7 @@ paths:
   /user.userfield.delete:
     post:
       summary: Delete User Field user.userfield.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.userfield.delete` removes a user field.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `user.userfield.delete` removes a user field.
       operationId: user_userfield_delete
       tags:
       - Users
@@ -385,7 +385,7 @@ paths:
   /user.userfield.file.get:
     post:
       summary: Get File from User Field user.userfield.file.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The page is hidden from the menu, and the method is not operational. Some data may be missing here — we will complete it shortly. - It may be necessary to list parameters or fields in a table.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The page is hidden from the menu, and the method is not operational. Some data may be missing here — we will complete it shortly. - It may be necessary to list parameters or fields in a table.
       operationId: user_userfield_file_get
       tags:
       - Users
@@ -420,7 +420,7 @@ paths:
   /user.userfield.list:
     post:
       summary: Get a list of custom fields user.userfield.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.userfield.list` retrieves a list of custom fields based on the filter.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `user.userfield.list` retrieves a list of custom fields based on the filter.
       operationId: user_userfield_list
       tags:
       - Users
@@ -471,7 +471,7 @@ paths:
   /user.userfield.update:
     post:
       summary: Update User Field user.userfield.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `user.userfield.update` updates a user field.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `user.userfield.update` updates a user field.
       operationId: user_userfield_update
       tags:
       - Users
@@ -595,21 +595,6 @@ paths:
         - user.userfield
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -637,6 +622,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

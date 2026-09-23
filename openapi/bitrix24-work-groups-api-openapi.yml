@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Workgroups API
+  title: Bitrix24 REST Workgroups API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -27,15 +27,15 @@ servers:
 security:
 - AccessToken: []
 tags:
-- name: Workgroups
+- name: Work Groups
 paths:
   /feature.access:
     post:
       summary: Check the access permissions of the current user sonet_group.feature.access
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.feature.access` checks whether the current user has access to operations within the group or project functionality.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sonet_group.feature.access` checks whether the current user has access to operations within the group or project functionality.
       operationId: feature_access
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/sonet-group-feature-access.html
         description: Official Documentation
@@ -95,10 +95,10 @@ paths:
   /socialnetwork.api.workgroup.get:
     post:
       summary: Retrieve Data on Workgroup socialnetwork.api.workgroup.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `socialnetwork.api.workgroup.get` returns information about a workgroup, project, scrum, or collaboration based on the identifier. An administrator can retrieve information about any group on the account, even if it is secret and they are not a member.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `socialnetwork.api.workgroup.get` returns information about a workgroup, project, scrum, or collaboration based on the identifier. An administrator can retrieve information about any group on the account, even if it is secret and they are not a member.
       operationId: socialnetwork_api_workgroup_get
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/socialnetwork-api-workgroup-get.html
         description: Official Documentation
@@ -272,10 +272,10 @@ paths:
   /socialnetwork.api.workgroup.list:
     post:
       summary: Get a List of Workgroups socialnetwork.api.workgroup.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `socialnetwork.api.workgroup.list` returns a list of workgroups, projects, scrums, and collaborations based on the current user's permissions.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `socialnetwork.api.workgroup.list` returns a list of workgroups, projects, scrums, and collaborations based on the current user's permissions.
       operationId: socialnetwork_api_workgroup_list
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/socialnetwork-api-workgroup-list.html
         description: Official Documentation
@@ -565,10 +565,10 @@ paths:
   /tasks.api.scrum.backlog.add:
     post:
       summary: Add backlog in Scrum tasks.api.scrum.backlog.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.backlog.add` adds a backlog in Scrum. It may be necessary to create a backlog during import after creating the Scrum.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.backlog.add` adds a backlog in Scrum. It may be necessary to create a backlog during import after creating the Scrum.
       operationId: tasks_api_scrum_backlog_add
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/backlog/tasks-api-scrum-backlog-add.html
         description: Official Documentation
@@ -634,10 +634,10 @@ paths:
   /tasks.api.scrum.backlog.delete:
     post:
       summary: Delete backlog tasks.api.scrum.backlog.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.backlog.delete` removes the backlog. In normal circumstances, there is no need to delete the backlog. When the backlog is deleted, *Bitrix24* will automatically recreate it when the planning page in Scrum tasks is opened. The method is used if the backlog was mistakenly added to a group or project that is not Scrum.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.backlog.delete` removes the backlog. In normal circumstances, there is no need to delete the backlog. When the backlog is deleted, *Bitrix24* will automatically recreate it when the planning page in Scrum tasks is opened. The method is used if the backlog was mistakenly added to a group or project that is not Scrum.
       operationId: tasks_api_scrum_backlog_delete
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/backlog/tasks-api-scrum-backlog-delete.html
         description: Official Documentation
@@ -681,10 +681,10 @@ paths:
   /tasks.api.scrum.backlog.get:
     post:
       summary: Get Backlog Fields by Scrum ID tasks.api.scrum.backlog.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.backlog.get` returns the values of backlog fields by Scrum `id`. You may need to obtain the `id` of the backlog to add or move a task to the backlog.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.backlog.get` returns the values of backlog fields by Scrum `id`. You may need to obtain the `id` of the backlog to add or move a task to the backlog.
       operationId: tasks_api_scrum_backlog_get
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/backlog/tasks-api-scrum-backlog-get.html
         description: Official Documentation
@@ -728,10 +728,10 @@ paths:
   /tasks.api.scrum.backlog.getFields:
     post:
       summary: Get a list of available backlog fields tasks.api.scrum.backlog.getFields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.backlog.getFields` returns the available backlog fields. Without parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.backlog.getFields` returns the available backlog fields. Without parameters.
       operationId: tasks_api_scrum_backlog_getFields
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/backlog/tasks-api-scrum-backlog-get-fields.html
         description: Official Documentation
@@ -783,10 +783,10 @@ paths:
   /tasks.api.scrum.backlog.update:
     post:
       summary: Update backlog tasks.api.scrum.backlog.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the backlog.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method updates the backlog.
       operationId: tasks_api_scrum_backlog_update
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/backlog/tasks-api-scrum-backlog-update.html
         description: Official Documentation
@@ -856,10 +856,10 @@ paths:
   /tasks.api.scrum.epic.add:
     post:
       summary: Add Epic in Scrum tasks.api.scrum.epic.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds an epic to Scrum.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method adds an epic to Scrum.
       operationId: tasks_api_scrum_epic_add
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/epic/tasks-api-scrum-epic-add.html
         description: Official Documentation
@@ -951,10 +951,10 @@ paths:
   /tasks.api.scrum.epic.delete:
     post:
       summary: Delete Epic tasks.api.scrum.epic.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes an epic.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes an epic.
       operationId: tasks_api_scrum_epic_delete
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/epic/tasks-api-scrum-epic-delete.html
         description: Official Documentation
@@ -998,10 +998,10 @@ paths:
   /tasks.api.scrum.epic.get:
     post:
       summary: Get Epic Fields by Its Identifier tasks.api.scrum.epic.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. - The structure of the parameter files relates to the Drive module, so it is not described here. A link should be made when the structure description appears in the documentation. The method retrieves the values of the epic fields by its identifier `id`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. - The structure of the parameter files relates to the Drive module, so it is not described here. A link should be made when the structure description appears in the documentation. The method retrieves the values of the epic fields by its identifier `id`.
       operationId: tasks_api_scrum_epic_get
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/epic/tasks-api-scrum-epic-get.html
         description: Official Documentation
@@ -1045,10 +1045,10 @@ paths:
   /tasks.api.scrum.epic.getFields:
     post:
       summary: Get a list of available fields for epic tasks.api.scrum.epic.getFields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.epic.getFields` returns the available fields for an epic. No parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.epic.getFields` returns the available fields for an epic. No parameters.
       operationId: tasks_api_scrum_epic_getFields
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/epic/tasks-api-scrum-epic-get-fields.html
         description: Official Documentation
@@ -1130,10 +1130,10 @@ paths:
   /tasks.api.scrum.epic.list:
     post:
       summary: Get a List of Epics tasks.api.scrum.epic.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns a list of epics.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. This method returns a list of epics.
       operationId: tasks_api_scrum_epic_list
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/epic/tasks-api-scrum-epic-list.html
         description: Official Documentation
@@ -1197,10 +1197,10 @@ paths:
   /tasks.api.scrum.epic.update:
     post:
       summary: Update Epic in Scrum tasks.api.scrum.epic.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates an epic in Scrum.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method updates an epic in Scrum.
       operationId: tasks_api_scrum_epic_update
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/epic/tasks-api-scrum-epic-update.html
         description: Official Documentation
@@ -1290,10 +1290,10 @@ paths:
   /tasks.api.scrum.kanban.addStage:
     post:
       summary: Create a Scrum Kanban Stage tasks.api.scrum.kanban.addStage
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method creates a Scrum Kanban stage. A Scrum Kanban must include stages of type new `NEW` and final `FINISH`. Use this method only for active sprints, meaning with the field `"status": "active"`.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method creates a Scrum Kanban stage. A Scrum Kanban must include stages of type new `NEW` and final `FINISH`. Use this method only for active sprints, meaning with the field `"status": "active"`.'
       operationId: tasks_api_scrum_kanban_addStage
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-add-stage.html
         description: Official Documentation
@@ -1371,10 +1371,10 @@ paths:
   /tasks.api.scrum.kanban.addTask:
     post:
       summary: Add Task to Scrum Kanban tasks.api.scrum.kanban.addTask
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a task to the Scrum kanban.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method adds a task to the Scrum kanban.
       operationId: tasks_api_scrum_kanban_addTask
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-add-task.html
         description: Official Documentation
@@ -1434,10 +1434,10 @@ paths:
   /tasks.api.scrum.kanban.deleteStage:
     post:
       summary: Delete Stage tasks.api.scrum.kanban.deleteStage
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a stage. The stage will not be deleted if it contains tasks.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes a stage. The stage will not be deleted if it contains tasks.
       operationId: tasks_api_scrum_kanban_deleteStage
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-delete-stage.html
         description: Official Documentation
@@ -1481,10 +1481,10 @@ paths:
   /tasks.api.scrum.kanban.deleteTask:
     post:
       summary: Delete Task from Scrum Kanban tasks.api.scrum.kanban.deleteTask
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method removes a task from the Scrum kanban. The task will remain in the sprint on the planning page. The method will not move the task to the [backlog](../backlog/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method removes a task from the Scrum kanban. The task will remain in the sprint on the planning page. The method will not move the task to the backlog.
       operationId: tasks_api_scrum_kanban_deleteTask
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-delete-task.html
         description: Official Documentation
@@ -1535,11 +1535,11 @@ paths:
         - task
   /tasks.api.scrum.kanban.getFields:
     post:
-      summary: Get a list of available fields for the kanban stage tasks.api.scrum.kanban.getFields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method returns the available fields for the kanban stage. No parameters.
+      summary: Get a list of available fields for the kanban stage…
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method returns the available fields for the kanban stage. No parameters.
       operationId: tasks_api_scrum_kanban_getFields
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-get-fields.html
         description: Official Documentation
@@ -1571,10 +1571,10 @@ paths:
   /tasks.api.scrum.kanban.getStages:
     post:
       summary: Get Kanban Stages by Sprint ID tasks.api.scrum.kanban.getStages
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method returns the Kanban stages by the sprint ID.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method returns the Kanban stages by the sprint ID.
       operationId: tasks_api_scrum_kanban_getStages
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-get-stages.html
         description: Official Documentation
@@ -1618,10 +1618,10 @@ paths:
   /tasks.api.scrum.kanban.updateStage:
     post:
       summary: Update Scrum Kanban Stage tasks.api.scrum.kanban.updateStage
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method changes the stage of the Scrum Kanban.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method changes the stage of the Scrum Kanban.
       operationId: tasks_api_scrum_kanban_updateStage
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/kanban/tasks-api-scrum-kanban-update-stage.html
         description: Official Documentation
@@ -1703,10 +1703,10 @@ paths:
   /tasks.api.scrum.sprint.add:
     post:
       summary: Add Sprint in Scrum tasks.api.scrum.sprint.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.add` adds a sprint to Scrum.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.add` adds a sprint to Scrum.
       operationId: tasks_api_scrum_sprint_add
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-add.html
         description: Official Documentation
@@ -1790,10 +1790,10 @@ paths:
   /tasks.api.scrum.sprint.complete:
     post:
       summary: Complete the active sprint of the selected Scrum tasks.api.scrum.sprint.complete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.complete` completes the active sprint of the selected Scrum. When the sprint is completed, unfinished tasks are moved to the backlog.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.complete` completes the active sprint of the selected Scrum. When the sprint is completed, unfinished tasks are moved to the backlog.
       operationId: tasks_api_scrum_sprint_complete
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-complete.html
         description: Official Documentation
@@ -1837,10 +1837,10 @@ paths:
   /tasks.api.scrum.sprint.delete:
     post:
       summary: Delete Sprint tasks.api.scrum.sprint.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.delete` deletes a sprint. When a sprint with tasks is deleted, the tasks will be moved to the backlog.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.delete` deletes a sprint. When a sprint with tasks is deleted, the tasks will be moved to the backlog.
       operationId: tasks_api_scrum_sprint_delete
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-delete.html
         description: Official Documentation
@@ -1884,10 +1884,10 @@ paths:
   /tasks.api.scrum.sprint.get:
     post:
       summary: Get Sprint Fields by Its Identifier tasks.api.scrum.sprint.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.get` returns the values of the sprint fields by its identifier.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.get` returns the values of the sprint fields by its identifier.
       operationId: tasks_api_scrum_sprint_get
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-get.html
         description: Official Documentation
@@ -1931,10 +1931,10 @@ paths:
   /tasks.api.scrum.sprint.getFields:
     post:
       summary: Get a list of available fields for the sprint tasks.api.scrum.sprint.getFields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.getFields` returns the available fields for the sprint. No parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.getFields` returns the available fields for the sprint. No parameters.
       operationId: tasks_api_scrum_sprint_getFields
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-get-fields.html
         description: Official Documentation
@@ -2016,10 +2016,10 @@ paths:
   /tasks.api.scrum.sprint.list:
     post:
       summary: Get the list of sprints tasks.api.scrum.sprint.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.list` returns a list of sprints. This method is similar to other methods with filtering by list.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.list` returns a list of sprints. This method is similar to other methods with filtering by list.
       operationId: tasks_api_scrum_sprint_list
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-list.html
         description: Official Documentation
@@ -2143,10 +2143,10 @@ paths:
   /tasks.api.scrum.sprint.start:
     post:
       summary: Start Sprint tasks.api.scrum.sprint.start
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.start` initiates a sprint. Only a planned sprint can be started. When starting a sprint, the columns of the active sprint and Automation rules will be carried over from the previous completed sprint, if one exists.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.start` initiates a sprint. Only a planned sprint can be started. When starting a sprint, the columns of the active sprint and Automation rules will be carried over from the previous completed sprint, if one exists.
       operationId: tasks_api_scrum_sprint_start
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-start.html
         description: Official Documentation
@@ -2190,10 +2190,10 @@ paths:
   /tasks.api.scrum.sprint.update:
     post:
       summary: Update Sprint tasks.api.scrum.sprint.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.update` updates a sprint.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `tasks.api.scrum.sprint.update` updates a sprint.
       operationId: tasks_api_scrum_sprint_update
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/sprint/tasks-api-scrum-sprint-update.html
         description: Official Documentation
@@ -2281,10 +2281,10 @@ paths:
   /tasks.api.scrum.task.get:
     post:
       summary: Get Scrum Task Fields by ID tasks.api.scrum.task.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves the values of the Scrum task fields by its identifier `id`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves the values of the Scrum task fields by its identifier `id`.
       operationId: tasks_api_scrum_task_get
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/task/tasks-api-scrum-task-get.html
         description: Official Documentation
@@ -2328,10 +2328,10 @@ paths:
   /tasks.api.scrum.task.getFields:
     post:
       summary: Get Scrum Task Fields tasks.api.scrum.task.getFields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves the available fields of a Scrum task. No parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves the available fields of a Scrum task. No parameters.
       operationId: tasks_api_scrum_task_getFields
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/task/tasks-api-scrum-task-get-fields.html
         description: Official Documentation
@@ -2363,10 +2363,10 @@ paths:
   /tasks.api.scrum.task.update:
     post:
       summary: Create or Update a Scrum Task tasks.api.scrum.task.update
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method creates or updates a Scrum task. You will be able to: - create a task in Scrum - move a task from another project'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method creates or updates a Scrum task. You will be able to: - create a task in Scrum - move a task from another project'
       operationId: tasks_api_scrum_task_update
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/scrum/task/tasks-api-scrum-task-update.html
         description: Official Documentation
@@ -2418,10 +2418,10 @@ paths:
   /user.add:
     post:
       summary: Add Users to Group sonet_group.user.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.add` adds users to a workgroup or project without an invitation and confirmation.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sonet_group.user.add` adds users to a workgroup or project without an invitation and confirmation.
       operationId: user_add
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/members/sonet-group-user-add.html
         description: Official Documentation
@@ -2473,10 +2473,10 @@ paths:
   /user.delete:
     post:
       summary: Remove users from group sonet_group.user.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.delete` removes participants from a workgroup or project.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sonet_group.user.delete` removes participants from a workgroup or project.
       operationId: user_delete
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/members/sonet-group-user-delete.html
         description: Official Documentation
@@ -2528,10 +2528,10 @@ paths:
   /user.get:
     post:
       summary: Get the list of group participants sonet_group.user.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.get` returns a list of active participants in a workgroup or project.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sonet_group.user.get` returns a list of active participants in a workgroup or project.
       operationId: user_get
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/members/sonet-group-user-get.html
         description: Official Documentation
@@ -2575,10 +2575,10 @@ paths:
   /user.groups:
     post:
       summary: Get the list of groups for the current user sonet_group.user.groups
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.groups` returns the groups and projects that the current user is a member of.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sonet_group.user.groups` returns the groups and projects that the current user is a member of.
       operationId: user_groups
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/sonet-group-user-groups.html
         description: Official Documentation
@@ -2610,10 +2610,10 @@ paths:
   /user.invite:
     post:
       summary: Invite users to group sonet_group.user.invite
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.invite` sends invitations to users in a workgroup or project.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sonet_group.user.invite` sends invitations to users in a workgroup or project.
       operationId: user_invite
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/members/sonet-group-user-invite.html
         description: Official Documentation
@@ -2671,10 +2671,10 @@ paths:
   /user.request:
     post:
       summary: Send a request to join the group sonet_group.user.request
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.request` sends a request from the current user to join a workgroup or project.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sonet_group.user.request` sends a request from the current user to join a workgroup or project.
       operationId: user_request
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/members/sonet-group-user-request.html
         description: Official Documentation
@@ -2724,10 +2724,10 @@ paths:
   /user.update:
     post:
       summary: Change Role of Group Participants sonet_group.user.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `sonet_group.user.update` changes the role of participants in a workgroup or project. To change the owner, use the method [sonet_group.setowner](../sonet-group-setowner.md)
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sonet_group.user.update` changes the role of participants in a workgroup or project. To change the owner, use the method sonet_group.setowner
       operationId: user_update
       tags:
-      - Workgroups
+      - Work Groups
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/sonet-group/members/sonet-group-user-update.html
         description: Official Documentation
@@ -2786,21 +2786,6 @@ paths:
         - sonet
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -2828,6 +2813,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

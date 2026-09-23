@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Widgets API
+  title: Bitrix24 REST Widgets API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /BX24.placement.bindEvent:
     post:
       summary: Set Up an Event Handler for the Interface BX24.placement.bindEvent
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `BX24.placement.bindEvent` sets an event handler for the interface. The event must be registered on the calling side; otherwise, nothing will happen.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `BX24.placement.bindEvent` sets an event handler for the interface. The event must be registered on the calling side; otherwise, nothing will happen.
       operationId: BX24_placement_bindEvent
       tags:
       - Widgets
@@ -87,7 +87,7 @@ paths:
   /BX24.placement.call:
     post:
       summary: Call the Registered Interface Command BX24.placement.call
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `BX24.placement.call` invokes a registered interface command.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `BX24.placement.call` invokes a registered interface command.
       operationId: BX24_placement_call
       tags:
       - Widgets
@@ -147,8 +147,8 @@ paths:
         - placement
   /BX24.placement.getInterface:
     post:
-      summary: Get Information About the JS Interface of the Current Placement BX24.placement.getInterface
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `BX24.placement.getInterface` allows you to retrieve information about the JS interface of the current placement: a list of available commands and events.'
+      summary: Get Information About the JS Interface of the Current Placement…
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `BX24.placement.getInterface` allows you to retrieve information about the JS interface of the current placement: a list of available commands and events.'
       operationId: BX24_placement_getInterface
       tags:
       - Widgets
@@ -195,7 +195,7 @@ paths:
   /BX24.placement.info:
     post:
       summary: Get Information About the Call Context of BX24.placement.info
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `BX24.placement.info` retrieves information about the context of the embedding handler call. No parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `BX24.placement.info` retrieves information about the context of the embedding handler call. No parameters.
       operationId: BX24_placement_info
       tags:
       - Widgets
@@ -230,7 +230,7 @@ paths:
   /placement.bind:
     post:
       summary: Set Up the Widget Handler placement.bind
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `placement.bind` adds a handler for the widget placement. It can be called at any time during the application's operation; however, it is often more convenient to register your widgets during the [application installation](../../settings/app-installation/index.md). It is important to note that until the application installation is complete, the widgets you register will not be available to regular users in the Bitrix24 interface—they will only be visible to users with administrative rights.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `placement.bind` adds a handler for the widget placement. It can be called at any time during the application's operation; however, it is often more convenient to register your widgets during the application installation. It is important to note that until the application installation is complete, the widgets you register will not be available to regular users in the Bitrix24 interface—they will only be visible to users with administrative rights.
       operationId: placement_bind
       tags:
       - Widgets
@@ -319,7 +319,7 @@ paths:
   /placement.get:
     post:
       summary: Get a List of Registered Placement Handlers placement.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `placement.get` retrieves a list of registered widget placement handlers.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `placement.get` retrieves a list of registered widget placement handlers.
       operationId: placement_get
       tags:
       - Widgets
@@ -352,7 +352,7 @@ paths:
   /placement.list:
     post:
       summary: Get a List of Available Application Embed Locations placement.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `placement.list` returns a list of available embed locations for the application. The method works only in the context of the [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `placement.list` returns a list of available embed locations for the application. The method works only in the context of the application.
       operationId: placement_list
       tags:
       - Widgets
@@ -401,7 +401,7 @@ paths:
   /placement.unbind:
     post:
       summary: Remove Registered Automation Rule Handler placement.unbind
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `placement.unbind` removes the registered Automation rule handler. The method works only in the context of the [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `placement.unbind` removes the registered Automation rule handler. The method works only in the context of the application.
       operationId: placement_unbind
       tags:
       - Widgets
@@ -450,7 +450,7 @@ paths:
   /userfieldtype.add:
     post:
       summary: Register a New User Field Type userfieldtype.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userfieldtype.add` registers a new type of user fields. After registering the type, create a user field using the [userfieldconfig.add](../../crm/universal/userfieldconfig/userfieldconfig-add.md) method. When opening a card with a user type field, an array `PLACEMENT_OPTIONS` containing data about the field and entity is passed to the application handler.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `userfieldtype.add` registers a new type of user fields. After registering the type, create a user field using the userfieldconfig.add method. When opening a card with a user type field, an array `PLACEMENT_OPTIONS` containing data about the field and entity is passed to the application handler.
       operationId: userfieldtype_add
       tags:
       - Widgets
@@ -525,7 +525,7 @@ paths:
   /userfieldtype.delete:
     post:
       summary: Delete Registered User Field Type userfieldtype.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userfieldtype.delete` removes a user field type registered by the application. It returns _true_ or an error with a description of the reason.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `userfieldtype.delete` removes a user field type registered by the application. It returns _true_ or an error with a description of the reason.
       operationId: userfieldtype_delete
       tags:
       - Widgets
@@ -572,7 +572,7 @@ paths:
   /userfieldtype.list:
     post:
       summary: Get a list of registered user field types userfieldtype.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method retrieves a list of user field types registered by the application. It returns a list of field types with pagination. No parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method retrieves a list of user field types registered by the application. It returns a list of field types with pagination. No parameters.
       operationId: userfieldtype_list
       tags:
       - Widgets
@@ -627,7 +627,7 @@ paths:
   /userfieldtype.update:
     post:
       summary: Change settings for user field type userfieldtype.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `userfieldtype.update` modifies the settings of a user field type registered by the application. It returns _true_ or an error with a description of the reason.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `userfieldtype.update` modifies the settings of a user field type registered by the application. It returns _true_ or an error with a description of the reason.
       operationId: userfieldtype_update
       tags:
       - Widgets
@@ -703,21 +703,6 @@ paths:
         - depending on the embedding location
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -745,6 +730,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

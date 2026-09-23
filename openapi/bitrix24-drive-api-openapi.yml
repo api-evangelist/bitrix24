@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Drive API
+  title: Bitrix24 REST Drive API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /disk.attachedObject.get:
     post:
       summary: Get Information About Attached File disk.attachedObject.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.attachedObject.get` returns information about the attached file.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.attachedObject.get` returns information about the attached file.
       operationId: disk_attachedObject_get
       tags:
       - Drive
@@ -79,7 +79,7 @@ paths:
   /disk.file.copyto:
     post:
       summary: Copy File to Specified Folder disk.file.copyto
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.copyto` copies a file to the specified folder.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.copyto` copies a file to the specified folder.
       operationId: disk_file_copyto
       tags:
       - Drive
@@ -134,7 +134,7 @@ paths:
   /disk.file.delete:
     post:
       summary: Permanently Delete File disk.file.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.delete` permanently deletes a file. If you want to move the file to the trash, use the method [disk.file.markdeleted](./disk-file-mark-deleted.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.delete` permanently deletes a file. If you want to move the file to the trash, use the method disk.file.markdeleted.
       operationId: disk_file_delete
       tags:
       - Drive
@@ -181,7 +181,7 @@ paths:
   /disk.file.get:
     post:
       summary: Get File Parameters disk.file.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.get` returns data about a file.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.get` returns data about a file.
       operationId: disk_file_get
       tags:
       - Drive
@@ -228,7 +228,7 @@ paths:
   /disk.file.getExternalLink:
     post:
       summary: Get Public Link for File disk.file.getExternalLink
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.getExternalLink` returns a public link to a file.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.getExternalLink` returns a public link to a file.
       operationId: disk_file_getExternalLink
       tags:
       - Drive
@@ -275,7 +275,7 @@ paths:
   /disk.file.getVersions:
     post:
       summary: List of File Versions for disk.file.getVersions
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.getVersions` returns a list of file versions. Versions are returned in descending order of creation date.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.getVersions` returns a list of file versions. Versions are returned in descending order of creation date.
       operationId: disk_file_getVersions
       tags:
       - Drive
@@ -336,7 +336,7 @@ paths:
   /disk.file.getfields:
     post:
       summary: Get Description of File Fields for disk.file.getfields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.getfields` returns the description of file fields.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.getfields` returns the description of file fields.
       operationId: disk_file_getfields
       tags:
       - Drive
@@ -371,7 +371,7 @@ paths:
   /disk.file.markdeleted:
     post:
       summary: Move File to Trash disk.file.markdeleted
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.markdeleted` moves a file to the trash. Save the file ID after deletion so that it can be restored later using the [disk.file.restore](./disk-file-restore.md) method.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.markdeleted` moves a file to the trash. Save the file ID after deletion so that it can be restored later using the disk.file.restore method.
       operationId: disk_file_markdeleted
       tags:
       - Drive
@@ -418,7 +418,7 @@ paths:
   /disk.file.moveto:
     post:
       summary: Move File to Specified Folder disk.file.moveto
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.moveto` moves a file to the specified folder. You cannot move a file to a folder from a different storage.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.moveto` moves a file to the specified folder. You cannot move a file to a folder from a different storage.
       operationId: disk_file_moveto
       tags:
       - Drive
@@ -473,7 +473,7 @@ paths:
   /disk.file.rename:
     post:
       summary: Rename File disk.file.rename
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.rename` renames a file.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.rename` renames a file.
       operationId: disk_file_rename
       tags:
       - Drive
@@ -528,7 +528,7 @@ paths:
   /disk.file.restore:
     post:
       summary: Restore File from Trash disk.file.restore
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.restore` restores a file from the trash.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.restore` restores a file from the trash.
       operationId: disk_file_restore
       tags:
       - Drive
@@ -575,7 +575,7 @@ paths:
   /disk.file.restoreFromVersion:
     post:
       summary: Restore a File from a Specific Version disk.file.restoreFromVersion
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.restoreFromVersion` restores a file from a specific version.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.restoreFromVersion` restores a file from a specific version.
       operationId: disk_file_restoreFromVersion
       tags:
       - Drive
@@ -630,7 +630,7 @@ paths:
   /disk.file.uploadversion:
     post:
       summary: Upload a New Version of a File disk.file.uploadversion
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.file.uploadversion` uploads a new version of a file.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.uploadversion` uploads a new version of a file.
       operationId: disk_file_uploadversion
       tags:
       - Drive
@@ -687,7 +687,7 @@ paths:
   /disk.folder.addsubfolder:
     post:
       summary: Create a Subfolder disk.folder.addsubfolder
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.addsubfolder` creates a subfolder.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.addsubfolder` creates a subfolder.
       operationId: disk_folder_addsubfolder
       tags:
       - Drive
@@ -744,7 +744,7 @@ paths:
   /disk.folder.copyto:
     post:
       summary: Copy a folder and all its contents to the specified folder disk.folder.copyto
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.copyto` copies a folder and all its contents to the specified folder.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.copyto` copies a folder and all its contents to the specified folder.
       operationId: disk_folder_copyto
       tags:
       - Drive
@@ -799,7 +799,7 @@ paths:
   /disk.folder.deletetree:
     post:
       summary: Permanently Delete a Folder and All Its Contents disk.folder.deletetree
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.deletetree` permanently deletes a folder and all its contents. If you want to move the folder to the trash, use the method [disk.folder.markdeleted](./disk-folder-mark-deleted.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.deletetree` permanently deletes a folder and all its contents. If you want to move the folder to the trash, use the method disk.folder.markdeleted.
       operationId: disk_folder_deletetree
       tags:
       - Drive
@@ -846,7 +846,7 @@ paths:
   /disk.folder.get:
     post:
       summary: Get Folder Parameters disk.folder.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.get` returns data about a folder.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.get` returns data about a folder.
       operationId: disk_folder_get
       tags:
       - Drive
@@ -893,7 +893,7 @@ paths:
   /disk.folder.getchildren:
     post:
       summary: Get a list of files and folders in the folder disk.folder.getchildren
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.getchildren` returns a list of files and folders located in the folder. Only those files and folders for which the user has "Read" access permission are returned.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.getchildren` returns a list of files and folders located in the folder. Only those files and folders for which the user has "Read" access permission are returned.
       operationId: disk_folder_getchildren
       tags:
       - Drive
@@ -962,7 +962,7 @@ paths:
   /disk.folder.getexternallink:
     post:
       summary: Get Public Link for Folder disk.folder.getexternallink
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.getexternallink` returns a public link to the folder.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.getexternallink` returns a public link to the folder.
       operationId: disk_folder_getexternallink
       tags:
       - Drive
@@ -1009,7 +1009,7 @@ paths:
   /disk.folder.getfields:
     post:
       summary: Get Folder Field Descriptions disk.folder.getfields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.getfields` returns the description of folder fields.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.getfields` returns the description of folder fields.
       operationId: disk_folder_getfields
       tags:
       - Drive
@@ -1044,7 +1044,7 @@ paths:
   /disk.folder.markdeleted:
     post:
       summary: Move Folder to Trash disk.folder.markdeleted
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.markdeleted` moves a folder to the trash. Save the folder ID after deletion so that it can be restored later using the method [disk.folder.restore](./disk-folder-restore.md)
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.markdeleted` moves a folder to the trash. Save the folder ID after deletion so that it can be restored later using the method disk.folder.restore
       operationId: disk_folder_markdeleted
       tags:
       - Drive
@@ -1091,7 +1091,7 @@ paths:
   /disk.folder.moveto:
     post:
       summary: Move a folder and all its contents to the specified folder disk.folder.moveto
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.moveto` moves a folder and all its contents to the specified folder.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.moveto` moves a folder and all its contents to the specified folder.
       operationId: disk_folder_moveto
       tags:
       - Drive
@@ -1146,7 +1146,7 @@ paths:
   /disk.folder.rename:
     post:
       summary: Rename Folder disk.folder.rename
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.rename` renames a folder.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.rename` renames a folder.
       operationId: disk_folder_rename
       tags:
       - Drive
@@ -1201,7 +1201,7 @@ paths:
   /disk.folder.restore:
     post:
       summary: Restore Folder from Trash disk.folder.restore
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.restore` restores a folder from the trash.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.restore` restores a folder from the trash.
       operationId: disk_folder_restore
       tags:
       - Drive
@@ -1248,7 +1248,7 @@ paths:
   /disk.folder.sharetouser:
     post:
       summary: Assign Access Permissions to Folder disk.folder.sharetouser
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.sharetouser` assigns access permissions to a folder.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.sharetouser` assigns access permissions to a folder.
       operationId: disk_folder_sharetouser
       tags:
       - Drive
@@ -1311,7 +1311,7 @@ paths:
   /disk.folder.uploadfile:
     post:
       summary: Upload a New File to the Specified Folder disk.folder.uploadfile
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.folder.uploadfile` uploads a new file to the specified folder.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.uploadfile` uploads a new file to the specified folder.
       operationId: disk_folder_uploadfile
       tags:
       - Drive
@@ -1390,7 +1390,7 @@ paths:
   /disk.rights.getTasks:
     post:
       summary: Get a List of Available Access Levels disk.rights.getTasks
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.rights.getTasks` returns a list of available access levels. Use the obtained access level identifiers to set permissions on files during their upload. Specify the identifiers as the value of the `TASK_ID` parameter in the methods [disk.storage.uploadfile](../storage/disk-storage-upload-file.md) and [disk.folder.uploadfile](../folder/disk-folder-upload-file.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.rights.getTasks` returns a list of available access levels. Use the obtained access level identifiers to set permissions on files during their upload. Specify the identifiers as the value of the `TASK_ID` parameter in the methods disk.storage.uploadfile and disk.folder.uploadfile.
       operationId: disk_rights_getTasks
       tags:
       - Drive
@@ -1425,7 +1425,7 @@ paths:
   /disk.storage.addfolder:
     post:
       summary: Create a Folder in the Root of the Storage disk.storage.addfolder
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.addfolder` creates a folder in the root of the storage.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.addfolder` creates a folder in the root of the storage.
       operationId: disk_storage_addfolder
       tags:
       - Drive
@@ -1490,7 +1490,7 @@ paths:
   /disk.storage.get:
     post:
       summary: Get Storage Description disk.storage.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.get` returns storage data.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.get` returns storage data.
       operationId: disk_storage_get
       tags:
       - Drive
@@ -1536,8 +1536,8 @@ paths:
         - disk
   /disk.storage.getchildren:
     post:
-      summary: Get a list of files and folders in the root of the storage disk.storage.getchildren
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.getchildren` returns a list of files and folders located in the root of the storage. Only those files and folders for which the user has "Read" access permission are returned.
+      summary: Get a list of files and folders in the root of the storage…
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.getchildren` returns a list of files and folders located in the root of the storage. Only those files and folders for which the user has "Read" access permission are returned.
       operationId: disk_storage_getchildren
       tags:
       - Drive
@@ -1606,7 +1606,7 @@ paths:
   /disk.storage.getfields:
     post:
       summary: Get Description of Storage Fields disk.storage.getfields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.getfields` returns the description of storage fields.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.getfields` returns the description of storage fields.
       operationId: disk_storage_getfields
       tags:
       - Drive
@@ -1641,7 +1641,7 @@ paths:
   /disk.storage.getforapp:
     post:
       summary: Get Application Storage Description disk.storage.getforapp
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.getforapp` returns the description of the storage associated with the application. If the storage does not exist, it creates one. The method works only in the context of the [application](../../../settings/app-installation/index.md)
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.getforapp` returns the description of the storage associated with the application. If the storage does not exist, it creates one. The method works only in the context of the application
       operationId: disk_storage_getforapp
       tags:
       - Drive
@@ -1676,7 +1676,7 @@ paths:
   /disk.storage.getlist:
     post:
       summary: Get a List of Available Storages disk.storage.getlist
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.getlist` returns a list of available storages.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.getlist` returns a list of available storages.
       operationId: disk_storage_getlist
       tags:
       - Drive
@@ -1735,7 +1735,7 @@ paths:
   /disk.storage.gettypes:
     post:
       summary: Get Storage Types disk.storage.gettypes
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.gettypes` returns a list of storage types.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.gettypes` returns a list of storage types.
       operationId: disk_storage_gettypes
       tags:
       - Drive
@@ -1770,7 +1770,7 @@ paths:
   /disk.storage.rename:
     post:
       summary: Rename Application Storage disk.storage.rename
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.rename` renames the application storage. The method works only in the context of the [application](../../../settings/app-installation/index.md)
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.rename` renames the application storage. The method works only in the context of the application
       operationId: disk_storage_rename
       tags:
       - Drive
@@ -1825,7 +1825,7 @@ paths:
   /disk.storage.uploadfile:
     post:
       summary: Upload a New File to the Root of the Storage disk.storage.uploadfile
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.storage.uploadfile` uploads a new file to the root of the storage.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.uploadfile` uploads a new file to the root of the storage.
       operationId: disk_storage_uploadfile
       tags:
       - Drive
@@ -1906,7 +1906,7 @@ paths:
   /disk.version.get:
     post:
       summary: Get File Version disk.version.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `disk.version.get` returns the version of a file.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.version.get` returns the version of a file.
       operationId: disk_version_get
       tags:
       - Drive
@@ -1952,21 +1952,6 @@ paths:
         - disk
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -1994,6 +1979,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

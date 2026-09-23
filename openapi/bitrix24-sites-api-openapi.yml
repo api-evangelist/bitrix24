@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Sites API
+  title: Bitrix24 REST Sites API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /landing.block.addcard:
     post:
       summary: Add Card to Block landing.block.addcard
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.addcard` adds a card to a block in the draft of a page. This method works with cards described in the `cards` key of the block manifest. If the page is already published, changes will be visible to visitors after re-publishing through the interface or using the [landing.landing.publication](../../page/methods/landing-landing-publication.md) method.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.addcard` adds a card to a block in the draft of a page. This method works with cards described in the `cards` key of the block manifest. If the page is already published, changes will be visible to visitors after re-publishing through the interface or using the landing.landing.publication method.
       operationId: landing_block_addcard
       tags:
       - Sites
@@ -115,7 +115,7 @@ paths:
   /landing.block.changeAnchor:
     post:
       summary: Change the Anchor of the Block landing.block.changeAnchor
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.changeAnchor` modifies or removes a custom anchor of a block in the draft of a page. If the page is already published, changes will be visible to visitors after publishing the updates through the interface or using the method [landing.landing.publication](../../page/methods/landing-landing-publication.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.changeAnchor` modifies or removes a custom anchor of a block in the draft of a page. If the page is already published, changes will be visible to visitors after publishing the updates through the interface or using the method landing.landing.publication.
       operationId: landing_block_changeAnchor
       tags:
       - Sites
@@ -190,7 +190,7 @@ paths:
   /landing.block.changeNodeName:
     post:
       summary: Change HTML Tag of a Block Element landing.block.changeNodeName
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.changeNodeName` changes the HTML tag of a block element in the draft of a page. If the page is already published, changes will be visible to visitors after re-publishing through the interface or using the method [landing.landing.publication](../../page/methods/landing-landing-publication.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.changeNodeName` changes the HTML tag of a block element in the draft of a page. If the page is already published, changes will be visible to visitors after re-publishing through the interface or using the method landing.landing.publication.
       operationId: landing_block_changeNodeName
       tags:
       - Sites
@@ -271,7 +271,7 @@ paths:
   /landing.block.clonecard:
     post:
       summary: Clone Card of Block landing.block.clonecard
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.clonecard` creates a copy of a card in the block within the draft of the page. It works with cards described in the `cards` key of the block manifest. If the page is already published, the changes will be visible to visitors after publication through the interface or by using the [landing.landing.publication](../../page/methods/landing-landing-publication.md) method.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.clonecard` creates a copy of a card in the block within the draft of the page. It works with cards described in the `cards` key of the block manifest. If the page is already published, the changes will be visible to visitors after publication through the interface or by using the landing.landing.publication method.
       operationId: landing_block_clonecard
       tags:
       - Sites
@@ -346,7 +346,7 @@ paths:
   /landing.block.getContentFromRepository:
     post:
       summary: Get Block Content from Repository landing.block.getContentFromRepository
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.getContentFromRepository` returns the HTML content of a block from the repository.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.getContentFromRepository` returns the HTML content of a block from the repository.
       operationId: landing_block_getContentFromRepository
       tags:
       - Sites
@@ -393,7 +393,7 @@ paths:
   /landing.block.getbyid:
     post:
       summary: Get Block by ID landing.block.getbyid
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.getbyid` returns a single block of a page by its identifier.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.getbyid` returns a single block of a page by its identifier.
       operationId: landing_block_getbyid
       tags:
       - Sites
@@ -470,7 +470,7 @@ paths:
   /landing.block.getcontent:
     post:
       summary: Get Content of Block landing.block.getcontent
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.getcontent` returns the ready HTML of the block, its resources, manifest, and service properties of the block.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.getcontent` returns the ready HTML of the block, its resources, manifest, and service properties of the block.
       operationId: landing_block_getcontent
       tags:
       - Sites
@@ -555,7 +555,7 @@ paths:
   /landing.block.getlist:
     post:
       summary: Get the List of Page Blocks landing.block.getlist
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.getlist` returns a list of blocks for the selected page.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.getlist` returns a list of blocks for the selected page.
       operationId: landing_block_getlist
       tags:
       - Sites
@@ -632,7 +632,7 @@ paths:
   /landing.block.getmanifest:
     post:
       summary: Get the Manifest of the landing.block.getmanifest Method
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The `landing.block.getmanifest` method returns a prepared manifest of the block placed on the page. It does not return the original file but rather the prepared data for a specific block. For example, localized titles, fields such as `code`, `preview`, `assets`, `timestamp`, and `callbacks`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `landing.block.getmanifest` method returns a prepared manifest of the block placed on the page. It does not return the original file but rather the prepared data for a specific block. For example, localized titles, fields such as `code`, `preview`, `assets`, `timestamp`, and `callbacks`.
       operationId: landing_block_getmanifest
       tags:
       - Sites
@@ -705,7 +705,7 @@ paths:
   /landing.block.getmanifestfile:
     post:
       summary: Get the Manifest File of the Block landing.block.getmanifestfile
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.getmanifestfile` returns the original manifest of the block from the file repository. Unlike [landing.block.getmanifest](./landing-block-get-manifest.md), this method returns the manifest in its original form — as specified in the `.description.php` file. It does not add any service fields, such as `code`, `preview`, or `timestamp`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.getmanifestfile` returns the original manifest of the block from the file repository. Unlike landing.block.getmanifest, this method returns the manifest in its original form — as specified in the `.description.php` file. It does not add any service fields, such as `code`, `preview`, or `timestamp`.
       operationId: landing_block_getmanifestfile
       tags:
       - Sites
@@ -752,7 +752,7 @@ paths:
   /landing.block.getrepository:
     post:
       summary: Get a List of Blocks from the Repository landing.block.getrepository
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.getrepository` returns the available sections of the block repository or the data for a specific section.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.getrepository` returns the available sections of the block repository or the data for a specific section.
       operationId: landing_block_getrepository
       tags:
       - Sites
@@ -801,7 +801,7 @@ paths:
   /landing.block.removecard:
     post:
       summary: Remove Card from Block landing.block.removecard
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.removecard` removes a card from a block in the draft of a page. This method only works with cards described in the `cards` key of the block manifest. If the page is already published, the change will be visible to visitors after publication through the interface or by using the [landing.landing.publication](../../page/methods/landing-landing-publication.md) method.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.removecard` removes a card from a block in the draft of a page. This method only works with cards described in the `cards` key of the block manifest. If the page is already published, the change will be visible to visitors after publication through the interface or by using the landing.landing.publication method.
       operationId: landing_block_removecard
       tags:
       - Sites
@@ -876,7 +876,7 @@ paths:
   /landing.block.updateCards:
     post:
       summary: Update Cards in landing.block.updateCards
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.updateCards` updates a set of cards in a block and the nodes within those cards in the draft of the page. This method works with cards described in the `cards` key of the block manifest. If the page is already published, changes will be visible to visitors after publication through the interface or by using the [landing.landing.publication](../../page/methods/landing-landing-publication.md) method.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.updateCards` updates a set of cards in a block and the nodes within those cards in the draft of the page. This method works with cards described in the `cards` key of the block manifest. If the page is already published, changes will be visible to visitors after publication through the interface or by using the landing.landing.publication method.
       operationId: landing_block_updateCards
       tags:
       - Sites
@@ -973,7 +973,7 @@ paths:
   /landing.block.updateStyles:
     post:
       summary: Update Styles for landing.block.updateStyles
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.updateStyles` updates the CSS classes and inline styles of block elements in the draft of a page. If the page is already published, changes will be visible to visitors after re-publishing through the interface or using the [landing.landing.publication](../../page/methods/landing-landing-publication.md) method.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.updateStyles` updates the CSS classes and inline styles of block elements in the draft of a page. If the page is already published, changes will be visible to visitors after re-publishing through the interface or using the landing.landing.publication method.
       operationId: landing_block_updateStyles
       tags:
       - Sites
@@ -1070,7 +1070,7 @@ paths:
   /landing.block.updateattrs:
     post:
       summary: Change Attributes of Block Elements landing.block.updateattrs
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.updateattrs` updates the attributes of HTML elements within a block in the draft of a page. This method does not change the text, the entire HTML code of the block, or styles. It only updates the attribute values of already existing elements, such as `href`, `target`, `alt`, `title`, `data-*`, and `aria-*`. If the page is already published, changes will be visible to visitors after re-publishing through the interface or using the [landing.landing.publication](../../page/methods/landing-landing-publication.md) method.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.updateattrs` updates the attributes of HTML elements within a block in the draft of a page. This method does not change the text, the entire HTML code of the block, or styles. It only updates the attribute values of already existing elements, such as `href`, `target`, `alt`, `title`, `data-*`, and `aria-*`. If the page is already published, changes will be visible to visitors after re-publishing through the interface or using the landing.landing.publication method.
       operationId: landing_block_updateattrs
       tags:
       - Sites
@@ -1139,7 +1139,7 @@ paths:
   /landing.block.updatecontent:
     post:
       summary: Update Content of the Block landing.block.updatecontent
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.updatecontent` completely replaces the HTML content of a block in the page draft. If you only need to change specific nodes, attributes, or styles of the block, use the methods [landing.block.updatenodes](./landing-block-update-nodes.md), [landing.block.updateattrs](./landing-block-update-attrs.md), and [landing.block.updateStyles](./landing-block-update-styles.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.updatecontent` completely replaces the HTML content of a block in the page draft. If you only need to change specific nodes, attributes, or styles of the block, use the methods landing.block.updatenodes, landing.block.updateattrs, and landing.block.updateStyles.
       operationId: landing_block_updatecontent
       tags:
       - Sites
@@ -1220,7 +1220,7 @@ paths:
   /landing.block.updatenodes:
     post:
       summary: Update Nodes of the Block landing.block.updatenodes
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.updatenodes` updates the nodes of a block in the draft of a page. If the page is already published, changes will be visible to visitors after re-publishing through the interface or using the method [landing.landing.publication](../../page/methods/landing-landing-publication.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.updatenodes` updates the nodes of a block in the draft of a page. If the page is already published, changes will be visible to visitors after re-publishing through the interface or using the method landing.landing.publication.
       operationId: landing_block_updatenodes
       tags:
       - Sites
@@ -1307,7 +1307,7 @@ paths:
   /landing.block.uploadfile:
     post:
       summary: Upload and Attach an Image to the Block landing.block.uploadfile
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.block.uploadfile` uploads an image and attaches it to the specified block. In response, the method returns the file identifier and a link to it in the `src` field. The method does not insert the image into the block itself. This means that after uploading, the file exists, but it is not yet displayed in the block's content. Typically, after `landing.block.uploadfile`, the [landing.block.updatenodes](./landing-block-update-nodes.md) method is called.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.block.uploadfile` uploads an image and attaches it to the specified block. In response, the method returns the file identifier and a link to it in the `src` field. The method does not insert the image into the block itself. This means that after uploading, the file exists, but it is not yet displayed in the block's content. Typically, after `landing.block.uploadfile`, the landing.block.updatenodes method is called.
       operationId: landing_block_uploadfile
       tags:
       - Sites
@@ -1404,7 +1404,7 @@ paths:
   /landing.demos.getList:
     post:
       summary: Get a List of Registered Templates landing.demos.getList
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.demos.getList` retrieves a list of registered templates.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.demos.getList` retrieves a list of registered templates.
       operationId: landing_demos_getList
       tags:
       - Sites
@@ -1485,7 +1485,7 @@ paths:
   /landing.demos.getPageList:
     post:
       summary: Get a List of Templates for Creating Pages landing.demos.getPageList
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.demos.getPageList` retrieves a list of file demo templates for pages.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.demos.getPageList` retrieves a list of file demo templates for pages.
       operationId: landing_demos_getPageList
       tags:
       - Sites
@@ -1528,7 +1528,7 @@ paths:
   /landing.demos.getSiteList:
     post:
       summary: Get a List of Templates for Creating Websites landing.demos.getSiteList
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.demos.getSiteList` retrieves a list of file demo templates for websites.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.demos.getSiteList` retrieves a list of file demo templates for websites.
       operationId: landing_demos_getSiteList
       tags:
       - Sites
@@ -1571,7 +1571,7 @@ paths:
   /landing.demos.register:
     post:
       summary: Register a Template in the Site Creation Wizard landing.demos.register
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.demos.register` registers a custom template in the site and page creation wizard. The method updates the template if it already exists with the same code for the current application. If it does not exist, it creates a new one.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.demos.register` registers a custom template in the site and page creation wizard. The method updates the template if it already exists with the same code for the current application. If it does not exist, it creates a new one.
       operationId: landing_demos_register
       tags:
       - Sites
@@ -1788,7 +1788,7 @@ paths:
   /landing.demos.unregister:
     post:
       summary: Delete Registered Template landing.demos.unregister
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.demos.unregister` deletes a registered template by its code.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.demos.unregister` deletes a registered template by its code.
       operationId: landing_demos_unregister
       tags:
       - Sites
@@ -1823,7 +1823,7 @@ paths:
   /landing.landing.add:
     post:
       summary: Add Page or Folder landing.landing.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.add` adds a page or folder to the specified site and returns the identifier of the created object. The new object is created as inactive (`ACTIVE = N`).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.add` adds a page or folder to the specified site and returns the identifier of the created object. The new object is created as inactive (`ACTIVE = N`).
       operationId: landing_landing_add
       tags:
       - Sites
@@ -1952,7 +1952,7 @@ paths:
   /landing.landing.addByTemplate:
     post:
       summary: Add Page by Template landing.landing.addByTemplate
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.addByTemplate` creates a page in the specified site based on the template code and returns the identifier of the created page. The new page is created as inactive (`ACTIVE = N`). If you need to fully manage the fields of the created page, use [landing.landing.add](./landing-landing-add.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.addByTemplate` creates a page in the specified site based on the template code and returns the identifier of the created page. The new page is created as inactive (`ACTIVE = N`). If you need to fully manage the fields of the created page, use landing.landing.add.
       operationId: landing_landing_addByTemplate
       tags:
       - Sites
@@ -2097,7 +2097,7 @@ paths:
   /landing.landing.addblock:
     post:
       summary: Add Block to Page landing.landing.addblock
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.addblock` adds a new block to the page and returns the identifier of the created block. If the page is already published, the new block will be visible to visitors after the "Publish Changes" command in the interface or after calling the method [landing.landing.publication](../methods/landing-landing-publication.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.addblock` adds a new block to the page and returns the identifier of the created block. If the page is already published, the new block will be visible to visitors after the "Publish Changes" command in the interface or after calling the method landing.landing.publication.
       operationId: landing_landing_addblock
       tags:
       - Sites
@@ -2196,7 +2196,7 @@ paths:
   /landing.landing.copy:
     post:
       summary: Copy Page landing.landing.copy
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.copy` copies a page and returns the identifier of the new page. This method can also copy a page marked as deleted and located in the trash.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.copy` copies a page and returns the identifier of the new page. This method can also copy a page marked as deleted and located in the trash.
       operationId: landing_landing_copy
       tags:
       - Sites
@@ -2267,7 +2267,7 @@ paths:
   /landing.landing.copyblock:
     post:
       summary: Copy Block to Page landing.landing.copyblock
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.copyblock` copies a block to the specified page and returns the identifier of the created copy of the block. You can copy a block from another page or within the same page. The HTML content of the block is also copied.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.copyblock` copies a block to the specified page and returns the identifier of the created copy of the block. You can copy a block from another page or within the same page. The HTML content of the block is also copied.
       operationId: landing_landing_copyblock
       tags:
       - Sites
@@ -2346,7 +2346,7 @@ paths:
   /landing.landing.delete:
     post:
       summary: Delete Page landing.landing.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.delete` removes a page along with its blocks and associated files.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.delete` removes a page along with its blocks and associated files.
       operationId: landing_landing_delete
       tags:
       - Sites
@@ -2399,7 +2399,7 @@ paths:
   /landing.landing.deleteblock:
     post:
       summary: Delete Block from Page landing.landing.deleteblock
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.deleteblock` completely removes a block from the page. If the page is already published, changes will be visible to visitors after the "Publish Changes" command in the interface or after calling the method [landing.landing.publication](../methods/landing-landing-publication.md). Along with the block, associated data is deleted. Files and images are marked for deletion and will be automatically removed if they are not used elsewhere.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.deleteblock` completely removes a block from the page. If the page is already published, changes will be visible to visitors after the "Publish Changes" command in the interface or after calling the method landing.landing.publication. Along with the block, associated data is deleted. Files and images are marked for deletion and will be automatically removed if they are not used elsewhere.
       operationId: landing_landing_deleteblock
       tags:
       - Sites
@@ -2460,7 +2460,7 @@ paths:
   /landing.landing.downblock:
     post:
       summary: Move Block Down landing.landing.downblock
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.downblock` moves a block one position down in the page draft. If the page is already published, visitors will see the change after the "Publish Changes" command in the interface or after calling the method [landing.landing.publication](../methods/landing-landing-publication.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.downblock` moves a block one position down in the page draft. If the page is already published, visitors will see the change after the "Publish Changes" command in the interface or after calling the method landing.landing.publication.
       operationId: landing_landing_downblock
       tags:
       - Sites
@@ -2527,7 +2527,7 @@ paths:
   /landing.landing.favoriteBlock:
     post:
       summary: Save to the list of blocks landing.landing.favoriteBlock
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.favoriteBlock` creates a copy of a page block and saves it to the block list as a template. Upon successful execution, the method returns the identifier of the new block copy.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.favoriteBlock` creates a copy of a page block and saves it to the block list as a template. Upon successful execution, the method returns the identifier of the new block copy.
       operationId: landing_landing_favoriteBlock
       tags:
       - Sites
@@ -2620,7 +2620,7 @@ paths:
   /landing.landing.getList:
     post:
       summary: Get a List of Pages landing.landing.getList
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.getList` retrieves a list of pages based on the selection parameters. By default, the method returns only pages on non-deleted sites with `DELETED = "N"`. To retrieve deleted pages, pass `DELETED` or `=DELETED` in the filter. This only works for pages on non-deleted sites: the method does not return pages from deleted sites.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.getList` retrieves a list of pages based on the selection parameters. By default, the method returns only pages on non-deleted sites with `DELETED = "N"`. To retrieve deleted pages, pass `DELETED` or `=DELETED` in the filter. This only works for pages on non-deleted sites: the method does not return pages from deleted sites.'
       operationId: landing_landing_getList
       tags:
       - Sites
@@ -2725,7 +2725,7 @@ paths:
   /landing.landing.getadditionalfields:
     post:
       summary: Get Additional Fields of the Page landing.landing.getadditionalfields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.getadditionalfields` retrieves [additional fields](../additional-fields.md) of the page.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.getadditionalfields` retrieves additional fields of the page.
       operationId: landing_landing_getadditionalfields
       tags:
       - Sites
@@ -2778,7 +2778,7 @@ paths:
   /landing.landing.getpreview:
     post:
       summary: Get the URL of the Preview for landing.landing.getpreview
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.getpreview` returns the URL or relative path to the preview image of the page.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.getpreview` returns the URL or relative path to the preview image of the page.
       operationId: landing_landing_getpreview
       tags:
       - Sites
@@ -2831,7 +2831,7 @@ paths:
   /landing.landing.getpublicurl:
     post:
       summary: Get Public URL of the Page landing.landing.getpublicurl
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.getpublicurl` returns the complete public URL of the page.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.getpublicurl` returns the complete public URL of the page.
       operationId: landing_landing_getpublicurl
       tags:
       - Sites
@@ -2884,7 +2884,7 @@ paths:
   /landing.landing.hideblock:
     post:
       summary: Hide Block on Page landing.landing.hideblock
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.hideblock` hides a block on the page. The hidden block remains in the draft of the page and can be shown again using the method [landing.landing.showblock](./landing-landing-show-block.md). If the page is already published, the change will be visible to visitors after the "Publish Changes" command in the interface or after calling the method [landing.landing.publication](../methods/landing-landing-publication.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.hideblock` hides a block on the page. The hidden block remains in the draft of the page and can be shown again using the method landing.landing.showblock. If the page is already published, the change will be visible to visitors after the "Publish Changes" command in the interface or after calling the method landing.landing.publication.
       operationId: landing_landing_hideblock
       tags:
       - Sites
@@ -2945,7 +2945,7 @@ paths:
   /landing.landing.markDelete:
     post:
       summary: Mark Page as Deleted landing.landing.markDelete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.markDelete` marks the page as deleted, moves it to the trash, and unpublishes it.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.markDelete` marks the page as deleted, moves it to the trash, and unpublishes it.
       operationId: landing_landing_markDelete
       tags:
       - Sites
@@ -2992,7 +2992,7 @@ paths:
   /landing.landing.markUnDelete:
     post:
       summary: Restore Page from Recycle Bin landing.landing.markUnDelete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.markUnDelete` restores a page from the recycle bin and removes the deletion flag. After restoration, the page remains unpublished (`ACTIVE = "N"`).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.markUnDelete` restores a page from the recycle bin and removes the deletion flag. After restoration, the page remains unpublished (`ACTIVE = "N"`).
       operationId: landing_landing_markUnDelete
       tags:
       - Sites
@@ -3039,7 +3039,7 @@ paths:
   /landing.landing.markdeletedblock:
     post:
       summary: Mark a Block as Deleted landing.landing.markdeletedblock
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.markdeletedblock` marks a page block as deleted but does not remove it from the database. The marked block can be restored using the method [landing.landing.markundeletedblock](./landing-landing-mark-undeleted-block.md). If the page is already published, changes will be visible to visitors after the "Publish Changes" command in the interface or after calling the method [landing.landing.publication](../methods/landing-landing-publication.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.markdeletedblock` marks a page block as deleted but does not remove it from the database. The marked block can be restored using the method landing.landing.markundeletedblock. If the page is already published, changes will be visible to visitors after the "Publish Changes" command in the interface or after calling the method landing.landing.publication.
       operationId: landing_landing_markdeletedblock
       tags:
       - Sites
@@ -3112,7 +3112,7 @@ paths:
   /landing.landing.markundeletedblock:
     post:
       summary: Remove the deletion mark from the block landing.landing.markundeletedblock
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.markundeletedblock` removes the deletion mark from the block. If the page is already published, the changes will be visible to visitors after the "Publish changes" command in the interface or after calling the method [landing.landing.publication](../methods/landing-landing-publication.md). The method only removes the deletion mark. If the block was hidden before deletion, it will remain hidden after restoration. To show such a block again, use [landing.landing.showblock](./landing-landing-show-block.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.markundeletedblock` removes the deletion mark from the block. If the page is already published, the changes will be visible to visitors after the "Publish changes" command in the interface or after calling the method landing.landing.publication. The method only removes the deletion mark. If the block was hidden before deletion, it will remain hidden after restoration. To show such a block again, use landing.landing.showblock.
       operationId: landing_landing_markundeletedblock
       tags:
       - Sites
@@ -3173,7 +3173,7 @@ paths:
   /landing.landing.move:
     post:
       summary: Move Page landing.landing.move
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.move` moves a page to another site or folder.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.move` moves a page to another site or folder.
       operationId: landing_landing_move
       tags:
       - Sites
@@ -3238,7 +3238,7 @@ paths:
   /landing.landing.moveblock:
     post:
       summary: Move Block to Page landing.landing.moveblock
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.moveblock` moves a block to the specified page and returns the identifier of the moved block. The block can be moved within the same page or to another page. If the pages are already published, changes will be visible to visitors after the "Publish Changes" command in the interface or after calling the [landing.landing.publication](../methods/landing-landing-publication.md) method.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.moveblock` moves a block to the specified page and returns the identifier of the moved block. The block can be moved within the same page or to another page. If the pages are already published, changes will be visible to visitors after the "Publish Changes" command in the interface or after calling the landing.landing.publication method.
       operationId: landing_landing_moveblock
       tags:
       - Sites
@@ -3317,7 +3317,7 @@ paths:
   /landing.landing.publication:
     post:
       summary: Publish the landing.landing.publication page
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.publication` publishes the page and makes it active. If the page is located in a folder, the method will publish that folder and all parent folders. After this, the site will become active. For Knowledge Base pages, the method manages the visibility of the page: making it available or hidden from users.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.publication` publishes the page and makes it active. If the page is located in a folder, the method will publish that folder and all parent folders. After this, the site will become active. For Knowledge Base pages, the method manages the visibility of the page: making it available or hidden from users.'
       operationId: landing_landing_publication
       tags:
       - Sites
@@ -3369,8 +3369,8 @@ paths:
         - landing
   /landing.landing.removeEntities:
     post:
-      summary: Remove Blocks and Clear Image File Bindings on Page landing.landing.removeEntities
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.removeEntities` removes specified blocks and their associated images from the page. It can also clear file bindings for individual images without deleting the blocks themselves.
+      summary: Remove Blocks and Clear Image File Bindings on Page…
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.removeEntities` removes specified blocks and their associated images from the page. It can also clear file bindings for individual images without deleting the blocks themselves.
       operationId: landing_landing_removeEntities
       tags:
       - Sites
@@ -3459,7 +3459,7 @@ paths:
   /landing.landing.resolveIdByPublicUrl:
     post:
       summary: Get Page ID by Public URL landing.landing.resolveIdByPublicUrl
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.resolveIdByPublicUrl` returns the page ID based on its public URL within the specified site.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.resolveIdByPublicUrl` returns the page ID based on its public URL within the specified site.
       operationId: landing_landing_resolveIdByPublicUrl
       tags:
       - Sites
@@ -3520,7 +3520,7 @@ paths:
   /landing.landing.showblock:
     post:
       summary: Show Block on Page landing.landing.showblock
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.showblock` displays a block on the page that was previously hidden. If the page is already published, changes will be visible to visitors after the "Publish Changes" command in the interface or after calling the [landing.landing.publication](../methods/landing-landing-publication.md) method. If the block is marked as deleted, first restore it using the [landing.landing.markundeletedblock](./landing-landing-mark-undeleted-block.md) method.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.showblock` displays a block on the page that was previously hidden. If the page is already published, changes will be visible to visitors after the "Publish Changes" command in the interface or after calling the landing.landing.publication method. If the block is marked as deleted, first restore it using the landing.landing.markundeletedblock method.
       operationId: landing_landing_showblock
       tags:
       - Sites
@@ -3581,7 +3581,7 @@ paths:
   /landing.landing.unFavoriteBlock:
     post:
       summary: Remove from the saved list of blocks landing.landing.unFavoriteBlock
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.unFavoriteBlock` removes the saved copy of a block. The original block on the page remains unchanged. When a saved block is deleted, any associated files, such as a user-uploaded preview for that block, are also removed. You can only delete a saved block that the current user created using the method [landing.landing.favoriteBlock](./landing-landing-favorite-block.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.unFavoriteBlock` removes the saved copy of a block. The original block on the page remains unchanged. When a saved block is deleted, any associated files, such as a user-uploaded preview for that block, are also removed. You can only delete a saved block that the current user created using the method landing.landing.favoriteBlock.
       operationId: landing_landing_unFavoriteBlock
       tags:
       - Sites
@@ -3628,7 +3628,7 @@ paths:
   /landing.landing.unpublic:
     post:
       summary: Unpublishing a Page landing.landing.unpublic
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.unpublic` unpublishes a page.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.unpublic` unpublishes a page.
       operationId: landing_landing_unpublic
       tags:
       - Sites
@@ -3681,7 +3681,7 @@ paths:
   /landing.landing.upblock:
     post:
       summary: Move Block Up landing.landing.upblock
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.upblock` moves a block one position up in the draft of the page. If the page is already published, the change will be visible to visitors after the "Publish Changes" command in the interface or after calling the method [landing.landing.publication](../methods/landing-landing-publication.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.upblock` moves a block one position up in the draft of the page. If the page is already published, the change will be visible to visitors after the "Publish Changes" command in the interface or after calling the method landing.landing.publication.
       operationId: landing_landing_upblock
       tags:
       - Sites
@@ -3748,7 +3748,7 @@ paths:
   /landing.landing.update:
     post:
       summary: Update Page landing.landing.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.landing.update` updates the parameters of the page.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.landing.update` updates the parameters of the page.
       operationId: landing_landing_update
       tags:
       - Sites
@@ -3875,7 +3875,7 @@ paths:
   /landing.repo.checkContent:
     post:
       summary: Check Content for Dangerous Substrings landing.repo.checkContent
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repo.checkContent` checks content through a sanitizer.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repo.checkContent` checks content through a sanitizer.
       operationId: landing_repo_checkContent
       tags:
       - Sites
@@ -3918,7 +3918,7 @@ paths:
   /landing.repo.getList:
     post:
       summary: Get a List of Custom Blocks landing.repo.getList
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repo.getList` retrieves a list of custom blocks.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repo.getList` retrieves a list of custom blocks.
       operationId: landing_repo_getList
       tags:
       - Sites
@@ -3999,7 +3999,7 @@ paths:
   /landing.repo.register:
     post:
       summary: Add a Custom Block to the Repository landing.repo.register
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repo.register` adds a new custom block to the repository. The method updates the block if it already exists with the same code for the current application. If it does not exist, it creates a new one.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repo.register` adds a new custom block to the repository. The method updates the block if it already exists with the same code for the current application. If it does not exist, it creates a new one.
       operationId: landing_repo_register
       tags:
       - Sites
@@ -4066,7 +4066,7 @@ paths:
   /landing.repo.unbind:
     post:
       summary: Remove Embedding Placement landing.repo.unbind
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repo.unbind` removes the embedding placement registered by the current application in the `landing` section.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repo.unbind` removes the embedding placement registered by the current application in the `landing` section.
       operationId: landing_repo_unbind
       tags:
       - Sites
@@ -4109,7 +4109,7 @@ paths:
   /landing.repo.unregister:
     post:
       summary: Delete User Block landing.repo.unregister
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.repo.unregister` deletes a user block by its code.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repo.unregister` deletes a user block by its code.
       operationId: landing_repo_unregister
       tags:
       - Sites
@@ -4144,7 +4144,7 @@ paths:
   /landing.role.enable:
     post:
       summary: Enable or Disable Role-Based Access Model landing.role.enable
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.role.enable` enables or disables the role-based access model for the "Sites and Stores" section.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.role.enable` enables or disables the role-based access model for the "Sites and Stores" section.
       operationId: landing_role_enable
       tags:
       - Sites
@@ -4191,7 +4191,7 @@ paths:
   /landing.role.getList:
     post:
       summary: Get the List of Roles landing.role.getList
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.role.getList` retrieves a list of access roles for the selected type of sites.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.role.getList` retrieves a list of access roles for the selected type of sites.
       operationId: landing_role_getList
       tags:
       - Sites
@@ -4234,7 +4234,7 @@ paths:
   /landing.role.getRights:
     post:
       summary: Get Role Rights with landing.role.getRights
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.role.getRights` returns the rights of the specified role for each site where they are configured.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.role.getRights` returns the rights of the specified role for each site where they are configured.
       operationId: landing_role_getRights
       tags:
       - Sites
@@ -4281,7 +4281,7 @@ paths:
   /landing.role.isEnabled:
     post:
       summary: 'Check if the role model of permissions is enabled: landing.role.isEnabled'
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.role.isEnabled` checks whether the role model of permissions is enabled for the "Sites and Stores" section.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.role.isEnabled` checks whether the role model of permissions is enabled for the "Sites and Stores" section.
       operationId: landing_role_isEnabled
       tags:
       - Sites
@@ -4316,7 +4316,7 @@ paths:
   /landing.role.setAccessCodes:
     post:
       summary: Set Access Codes for Role landing.role.setAccessCodes
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.role.setAccessCodes` specifies to whom the role is assigned: users, groups, or departments. After invocation, the method reapplies the already saved permissions of this role for the sites.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.role.setAccessCodes` specifies to whom the role is assigned: users, groups, or departments. After invocation, the method reapplies the already saved permissions of this role for the sites.'
       operationId: landing_role_setAccessCodes
       tags:
       - Sites
@@ -4369,7 +4369,7 @@ paths:
   /landing.role.setRights:
     post:
       summary: Set Role Permissions for the Site List landing.role.setRights
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.role.setRights` sets role permissions for sites. You can specify separate permissions for each site, while others will have default permissions. The new set of permissions completely replaces the previous one.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.role.setRights` sets role permissions for sites. You can specify separate permissions for each site, while others will have default permissions. The new set of permissions completely replaces the previous one.
       operationId: landing_role_setRights
       tags:
       - Sites
@@ -4436,7 +4436,7 @@ paths:
   /landing.site.add:
     post:
       summary: Add site landing.site.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.add` creates a new site and returns the identifier of the created site.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.add` creates a new site and returns the identifier of the created site.
       operationId: landing_site_add
       tags:
       - Sites
@@ -4541,7 +4541,7 @@ paths:
   /landing.site.addFolder:
     post:
       summary: Add Folder to Site landing.site.addFolder
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.addFolder` creates a folder in the specified site and returns the identifier of the created folder.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.addFolder` creates a folder in the specified site and returns the identifier of the created folder.
       operationId: landing_site_addFolder
       tags:
       - Sites
@@ -4628,7 +4628,7 @@ paths:
   /landing.site.bindingToGroup:
     post:
       summary: Bind to Social Network Group landing.site.bindingToGroup
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.bindingToGroup` binds the Knowledge Base to a Social Network group.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.bindingToGroup` binds the Knowledge Base to a Social Network group.
       operationId: landing_site_bindingToGroup
       tags:
       - Sites
@@ -4663,7 +4663,7 @@ paths:
   /landing.site.bindingToMenu:
     post:
       summary: Bind Knowledge Base to Menu landing.site.bindingToMenu
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.bindingToMenu` binds the Knowledge Base to the specified menu.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.bindingToMenu` binds the Knowledge Base to the specified menu.
       operationId: landing_site_bindingToMenu
       tags:
       - Sites
@@ -4698,7 +4698,7 @@ paths:
   /landing.site.delete:
     post:
       summary: Delete Site landing.site.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.delete` only deletes an empty site without pages.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.delete` only deletes an empty site without pages.
       operationId: landing_site_delete
       tags:
       - Sites
@@ -4751,7 +4751,7 @@ paths:
   /landing.site.fullExport:
     post:
       summary: Exporting the site landing.site.fullExport
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.fullExport` exports the site and its pages into an array for subsequent import, for example, via [landing.demos.register](../demos/landing-demos-register.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.fullExport` exports the site and its pages into an array for subsequent import, for example, via landing.demos.register.
       operationId: landing_site_fullExport
       tags:
       - Sites
@@ -4864,7 +4864,7 @@ paths:
   /landing.site.getFolders:
     post:
       summary: Get Site Folders landing.site.getFolders
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.getFolders` returns a list of site folders.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.getFolders` returns a list of site folders.
       operationId: landing_site_getFolders
       tags:
       - Sites
@@ -4993,7 +4993,7 @@ paths:
   /landing.site.getGroupBindings:
     post:
       summary: Get Group Bindings - landing.site.getGroupBindings
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.getGroupBindings` returns the bindings of Knowledge Bases to groups.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.getGroupBindings` returns the bindings of Knowledge Bases to groups.
       operationId: landing_site_getGroupBindings
       tags:
       - Sites
@@ -5036,7 +5036,7 @@ paths:
   /landing.site.getList:
     post:
       summary: Get the List of Sites landing.site.getList
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.getList` retrieves a list of sites based on the selection parameters. By default, only sites with `DELETED = "N"` are included in the selection. To retrieve deleted sites, pass `DELETED` or `=DELETED` in the filter.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.getList` retrieves a list of sites based on the selection parameters. By default, only sites with `DELETED = "N"` are included in the selection. To retrieve deleted sites, pass `DELETED` or `=DELETED` in the filter.
       operationId: landing_site_getList
       tags:
       - Sites
@@ -5129,7 +5129,7 @@ paths:
   /landing.site.getMenuBindings:
     post:
       summary: Get Menu Bindings with landing.site.getMenuBindings
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.getMenuBindings` returns Knowledge Base bindings to the menu.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.getMenuBindings` returns Knowledge Base bindings to the menu.
       operationId: landing_site_getMenuBindings
       tags:
       - Sites
@@ -5172,7 +5172,7 @@ paths:
   /landing.site.getPreview:
     post:
       summary: Get URL Preview of the Site landing.site.getPreview
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.getPreview` returns the URL preview of the site's index page.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.getPreview` returns the URL preview of the site's index page.
       operationId: landing_site_getPreview
       tags:
       - Sites
@@ -5225,7 +5225,7 @@ paths:
   /landing.site.getPublicUrl:
     post:
       summary: Get Public URL of the Site landing.site.getPublicUrl
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.getPublicUrl` returns the complete public URL of a site or multiple sites.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.getPublicUrl` returns the complete public URL of a site or multiple sites.
       operationId: landing_site_getPublicUrl
       tags:
       - Sites
@@ -5278,7 +5278,7 @@ paths:
   /landing.site.getRights:
     post:
       summary: Get Access Permissions for landing.site.getRights
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.getRights` retrieves the list of permissions for the current user for the specified site.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.getRights` retrieves the list of permissions for the current user for the specified site.
       operationId: landing_site_getRights
       tags:
       - Sites
@@ -5325,7 +5325,7 @@ paths:
   /landing.site.getadditionalfields:
     post:
       summary: Get Additional Fields of the Site landing.site.getadditionalfields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.getadditionalfields` retrieves additional fields of the site.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.getadditionalfields` retrieves additional fields of the site.
       operationId: landing_site_getadditionalfields
       tags:
       - Sites
@@ -5378,7 +5378,7 @@ paths:
   /landing.site.markDelete:
     post:
       summary: Mark the site as deleted landing.site.markDelete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.markDelete` marks the site as deleted and moves it to the trash.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.markDelete` marks the site as deleted and moves it to the trash.
       operationId: landing_site_markDelete
       tags:
       - Sites
@@ -5431,7 +5431,7 @@ paths:
   /landing.site.markFolderDelete:
     post:
       summary: Mark a Folder as Deleted landing.site.markFolderDelete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.markFolderDelete` marks a folder as deleted and moves it to the trash. Upon successful execution, the method also marks the pages within this folder and any nested folders as deleted.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.markFolderDelete` marks a folder as deleted and moves it to the trash. Upon successful execution, the method also marks the pages within this folder and any nested folders as deleted.
       operationId: landing_site_markFolderDelete
       tags:
       - Sites
@@ -5484,7 +5484,7 @@ paths:
   /landing.site.markFolderUnDelete:
     post:
       summary: Restore Folder from Recycle Bin landing.site.markFolderUnDelete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.markFolderUnDelete` restores a folder from the recycle bin and removes the deletion mark from this folder and the pages within it.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.markFolderUnDelete` restores a folder from the recycle bin and removes the deletion mark from this folder and the pages within it.
       operationId: landing_site_markFolderUnDelete
       tags:
       - Sites
@@ -5537,7 +5537,7 @@ paths:
   /landing.site.markUnDelete:
     post:
       summary: Restore Site from Recycle Bin landing.site.markUnDelete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.markUnDelete` restores a site from the recycle bin and removes the deletion flag. After restoration, the site remains unpublished (`ACTIVE = "N"`).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.markUnDelete` restores a site from the recycle bin and removes the deletion flag. After restoration, the site remains unpublished (`ACTIVE = "N"`).
       operationId: landing_site_markUnDelete
       tags:
       - Sites
@@ -5590,7 +5590,7 @@ paths:
   /landing.site.publication:
     post:
       summary: Publish the site landing.site.publication
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.publication` publishes the site and its pages. If a page is inactive (`ACTIVE = "N"`), it remains unpublished (`PUBLIC = "N"`). When the method is called, non-deleted site folders (`DELETED = "N"`) are also activated. For the Knowledge Base, the method manages the visibility of the site and its pages for users.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.publication` publishes the site and its pages. If a page is inactive (`ACTIVE = "N"`), it remains unpublished (`PUBLIC = "N"`). When the method is called, non-deleted site folders (`DELETED = "N"`) are also activated. For the Knowledge Base, the method manages the visibility of the site and its pages for users.
       operationId: landing_site_publication
       tags:
       - Sites
@@ -5643,7 +5643,7 @@ paths:
   /landing.site.publicationFolder:
     post:
       summary: Publish the Website Folder landing.site.publicationFolder
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.publicationFolder` publishes the website folder and its chain of parent folders.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.publicationFolder` publishes the website folder and its chain of parent folders.
       operationId: landing_site_publicationFolder
       tags:
       - Sites
@@ -5702,7 +5702,7 @@ paths:
   /landing.site.setRights:
     post:
       summary: Set Access Permissions for landing.site.setRights
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.setRights` sets access permissions in the advanced permission model for the specified site. This method only works in the advanced permission model. If the role model is enabled in the "Sites and Stores" section, the call will return `true`, but the saved permissions will not be applied. To enable the advanced permission model, use the method [landing.role.enable](../landing-role-enable.md) with the value `mode: 0`.'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.setRights` sets access permissions in the advanced permission model for the specified site. This method only works in the advanced permission model. If the role model is enabled in the "Sites and Stores" section, the call will return `true`, but the saved permissions will not be applied. To enable the advanced permission model, use the method landing.role.enable with the value `mode: 0`.'
       operationId: landing_site_setRights
       tags:
       - Sites
@@ -5755,7 +5755,7 @@ paths:
   /landing.site.unPublicFolder:
     post:
       summary: Unpublishing a Website Folder landing.site.unPublicFolder
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.unPublicFolder` unpublishes a website folder and its parent folder chain.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.unPublicFolder` unpublishes a website folder and its parent folder chain.
       operationId: landing_site_unPublicFolder
       tags:
       - Sites
@@ -5808,7 +5808,7 @@ paths:
   /landing.site.unbindingFromGroup:
     post:
       summary: Unbind Knowledge Base from Social Network Group landing.site.unbindingFromGroup
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.unbindingFromGroup` removes the binding of the Knowledge Base to a Social Network group.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.unbindingFromGroup` removes the binding of the Knowledge Base to a Social Network group.
       operationId: landing_site_unbindingFromGroup
       tags:
       - Sites
@@ -5843,7 +5843,7 @@ paths:
   /landing.site.unbindingFromMenu:
     post:
       summary: Unbind Knowledge Base from Menu landing.site.unbindingFromMenu
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.unbindingFromMenu` removes the binding of the Knowledge Base from the specified menu.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.unbindingFromMenu` removes the binding of the Knowledge Base from the specified menu.
       operationId: landing_site_unbindingFromMenu
       tags:
       - Sites
@@ -5878,7 +5878,7 @@ paths:
   /landing.site.unpublic:
     post:
       summary: Unpublishing a Site landing.site.unpublic
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.unpublic` unpublishes the site and its pages, deactivating the site. For all non-deleted folders of the site, the method also disables activity. For the Knowledge Base, the method hides the site and its pages from users.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.unpublic` unpublishes the site and its pages, deactivating the site. For all non-deleted folders of the site, the method also disables activity. For the Knowledge Base, the method hides the site and its pages from users.
       operationId: landing_site_unpublic
       tags:
       - Sites
@@ -5931,7 +5931,7 @@ paths:
   /landing.site.update:
     post:
       summary: Update Site landing.site.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.update` updates the parameters of the site.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.update` updates the parameters of the site.
       operationId: landing_site_update
       tags:
       - Sites
@@ -6046,7 +6046,7 @@ paths:
   /landing.site.updateFolder:
     post:
       summary: Change Folder in landing.site.updateFolder
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.site.updateFolder` updates the parameters of a site folder.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.site.updateFolder` updates the parameters of a site folder.
       operationId: landing_site_updateFolder
       tags:
       - Sites
@@ -6145,7 +6145,7 @@ paths:
   /landing.syspage.deleteForLanding:
     post:
       summary: Delete All Page Bindings as Special landing.syspage.deleteForLanding
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.syspage.deleteForLanding` removes all bindings where the page with the identifier `id` is designated as special for the site. This method does not delete sites or pages. It only removes bindings of special pages. If the same page is designated as special for multiple sites, the method will delete all such bindings at once.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.syspage.deleteForLanding` removes all bindings where the page with the identifier `id` is designated as special for the site. This method does not delete sites or pages. It only removes bindings of special pages. If the same page is designated as special for multiple sites, the method will delete all such bindings at once.
       operationId: landing_syspage_deleteForLanding
       tags:
       - Sites
@@ -6192,7 +6192,7 @@ paths:
   /landing.syspage.deleteForSite:
     post:
       summary: Delete All Bindings of Special Pages for Site landing.syspage.deleteForSite
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.syspage.deleteForSite` removes all bindings of special pages for the site. This method does not delete the site or the pages themselves. It only removes the records of the bindings of special pages. All found bindings for the specified site are deleted in a single call.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.syspage.deleteForSite` removes all bindings of special pages for the site. This method does not delete the site or the pages themselves. It only removes the records of the bindings of special pages. All found bindings for the specified site are deleted in a single call.
       operationId: landing_syspage_deleteForSite
       tags:
       - Sites
@@ -6239,7 +6239,7 @@ paths:
   /landing.syspage.get:
     post:
       summary: Get a List of Special Pages from landing.syspage.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.syspage.get` returns a list of special pages for the site.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.syspage.get` returns a list of special pages for the site.
       operationId: landing_syspage_get
       tags:
       - Sites
@@ -6292,7 +6292,7 @@ paths:
   /landing.syspage.getSpecialPage:
     post:
       summary: Get the URL of the special page using landing.syspage.getSpecialPage
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.syspage.getSpecialPage` returns the URL of the special page for the site.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.syspage.getSpecialPage` returns the URL of the special page for the site.
       operationId: landing_syspage_getSpecialPage
       tags:
       - Sites
@@ -6353,7 +6353,7 @@ paths:
   /landing.syspage.set:
     post:
       summary: Set a Special Page for the Site landing.syspage.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.syspage.set` assigns a special page for the site.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.syspage.set` assigns a special page for the site.
       operationId: landing_syspage_set
       tags:
       - Sites
@@ -6414,7 +6414,7 @@ paths:
   /landing.template.getLandingRef:
     post:
       summary: Get a List of Included Areas for the landing.template.getLandingRef Page
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.template.getLandingRef` retrieves a list of included areas associated with the page. The response includes only the bindings saved for the page. Bindings configured at the site level are not returned by this method. To obtain them, use the method [landing.template.getSiteRef](./landing-template-get-site-ref.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.template.getLandingRef` retrieves a list of included areas associated with the page. The response includes only the bindings saved for the page. Bindings configured at the site level are not returned by this method. To obtain them, use the method landing.template.getSiteRef.
       operationId: landing_template_getLandingRef
       tags:
       - Sites
@@ -6461,7 +6461,7 @@ paths:
   /landing.template.getSiteRef:
     post:
       summary: Get a List of Included Areas for the Site landing.template.getSiteRef
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.template.getSiteRef` retrieves a list of included areas associated with the site. The response includes only the bindings saved for the site. Bindings configured for individual pages of this site are not returned by the method. To obtain them, use [landing.template.getLandingRef](./landing-template-get-landing-ref.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.template.getSiteRef` retrieves a list of included areas associated with the site. The response includes only the bindings saved for the site. Bindings configured for individual pages of this site are not returned by the method. To obtain them, use landing.template.getLandingRef.
       operationId: landing_template_getSiteRef
       tags:
       - Sites
@@ -6508,7 +6508,7 @@ paths:
   /landing.template.getlist:
     post:
       summary: Get a List of View Templates landing.template.getlist
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.template.getlist` retrieves a list of view templates for the current account based on the selection parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.template.getlist` retrieves a list of view templates for the current account based on the selection parameters.
       operationId: landing_template_getlist
       tags:
       - Sites
@@ -6589,7 +6589,7 @@ paths:
   /landing.template.setLandingRef:
     post:
       summary: Set Included Areas for landing.template.setLandingRef Page
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.template.setLandingRef` sets the bindings of included areas for the page. It only works with page bindings and does not alter site bindings. Included areas of the template are separate pages used as parts of the layout, such as the header, footer, or sidebar.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.template.setLandingRef` sets the bindings of included areas for the page. It only works with page bindings and does not alter site bindings. Included areas of the template are separate pages used as parts of the layout, such as the header, footer, or sidebar.
       operationId: landing_template_setLandingRef
       tags:
       - Sites
@@ -6642,7 +6642,7 @@ paths:
   /landing.template.setSiteRef:
     post:
       summary: Set Included Areas for the Site landing.template.setSiteRef
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `landing.template.setSiteRef` saves the bindings of included areas for the site. It only works with site bindings and does not change the bindings of individual pages.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.template.setSiteRef` saves the bindings of included areas for the site. It only works with site bindings and does not change the bindings of individual pages.
       operationId: landing_template_setSiteRef
       tags:
       - Sites
@@ -6694,21 +6694,6 @@ paths:
         - landing
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -6736,6 +6721,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

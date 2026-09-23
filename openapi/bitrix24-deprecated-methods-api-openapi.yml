@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Deprecated Methods API
+  title: Bitrix24 REST Deprecated Methods API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /rpa.comment.add:
     post:
       summary: Create a New Comment in the Timeline rpa.comment.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method creates a new comment in the timeline of the item with the identifier `itemId` for the process with the identifier `typeId`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative to this functionality. This method creates a new comment in the timeline of the item with the identifier `itemId` for the process with the identifier `typeId`.
       operationId: rpa_comment_add
       tags:
       - Deprecated Methods
@@ -101,7 +101,7 @@ paths:
   /rpa.comment.delete:
     post:
       summary: Delete Comment rpa.comment.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method deletes a comment with the identifier `id`. It only allows the deletion of comments that were added by the same user.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative to this functionality. This method deletes a comment with the identifier `id`. It only allows the deletion of comments that were added by the same user.
       operationId: rpa_comment_delete
       tags:
       - Deprecated Methods
@@ -148,7 +148,7 @@ paths:
   /rpa.comment.update:
     post:
       summary: Update Timeline Entry rpa.comment.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the timeline entry with the identifier `id`. It only updates the `title` and `description` fields. The method allows changes only to comments that were added by the same user.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative to this functionality. This method updates the timeline entry with the identifier `id`. It only updates the `title` and `description` fields. The method allows changes only to comments that were added by the same user.
       operationId: rpa_comment_update
       tags:
       - Deprecated Methods
@@ -197,7 +197,7 @@ paths:
   /rpa.fields.getSettings:
     post:
       summary: Get the Complete Set of Field Visibility Settings rpa.fields.getSettings
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method retrieves the complete set of field visibility settings for the stage with the identifier `stageId` in the process with the identifier `typeId`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use Smart processes as an alternative functionality. This method retrieves the complete set of field visibility settings for the stage with the identifier `stageId` in the process with the identifier `typeId`.
       operationId: rpa_fields_getSettings
       tags:
       - Deprecated Methods
@@ -250,7 +250,7 @@ paths:
   /rpa.fields.setSettings:
     post:
       summary: Set Full Visibility Settings for rpa.fields.setSettings
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method sets the full visibility settings for fields at the stage with the identifier `stageId` of the process with the identifier `typeId`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Use Smart scripts as an alternative to this functionality. This method sets the full visibility settings for fields at the stage with the identifier `stageId` of the process with the identifier `typeId`.
       operationId: rpa_fields_setSettings
       tags:
       - Deprecated Methods
@@ -311,7 +311,7 @@ paths:
   /rpa.fields.setVisibilitySettings:
     post:
       summary: Change Field Visibility Settings rpa.fields.setVisibilitySettings
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the `visibility` settings of `fields` for the process with the identifier `typeId` at the stage with the identifier `stageId`. Other settings remain unchanged. The method should be used when you need to change the visibility settings for only one type.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use Smart scripts as an alternative to this functionality. This method updates the `visibility` settings of `fields` for the process with the identifier `typeId` at the stage with the identifier `stageId`. Other settings remain unchanged. The method should be used when you need to change the visibility settings for only one type.
       operationId: rpa_fields_setVisibilitySettings
       tags:
       - Deprecated Methods
@@ -382,7 +382,7 @@ paths:
   /rpa.item.add:
     post:
       summary: Add Process Element rpa.item.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method adds a new process element with the identifier `typeId`. To upload a file, you need to pass an array as the value of the custom field, where the first element is the file name and the second is the base64 encoded content of the file.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use Smart scripts as an alternative functionality. This method adds a new process element with the identifier `typeId`. To upload a file, you need to pass an array as the value of the custom field, where the first element is the file name and the second is the base64 encoded content of the file.
       operationId: rpa_item_add
       tags:
       - Deprecated Methods
@@ -437,7 +437,7 @@ paths:
   /rpa.item.delete:
     post:
       summary: Delete Element rpa.item.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method deletes an element.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative to this functionality. This method deletes an element.
       operationId: rpa_item_delete
       tags:
       - Deprecated Methods
@@ -492,7 +492,7 @@ paths:
   /rpa.item.get:
     post:
       summary: Get Information About the rpa.item.get Element
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves information about the element with the identifier `id` of the process with the identifier `typeId`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use Smart scripts as an alternative to this functionality. This method retrieves information about the element with the identifier `id` of the process with the identifier `typeId`.
       operationId: rpa_item_get
       tags:
       - Deprecated Methods
@@ -631,7 +631,7 @@ paths:
   /rpa.item.getTasks:
     post:
       summary: Get Data on Current Tasks of the Element rpa.item.getTasks
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves data on the current tasks of the element with the identifier `id` for the process with the identifier `typeId`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use Smart processes as an alternative to this functionality. This method retrieves data on the current tasks of the element with the identifier `id` for the process with the identifier `typeId`.
       operationId: rpa_item_getTasks
       tags:
       - Deprecated Methods
@@ -680,7 +680,7 @@ paths:
   /rpa.item.list:
     post:
       summary: Retrieve an Array of Process Elements rpa.item.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart Processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves a list of process elements with the identifier `typeId`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart Processes as an alternative to this functionality. This method retrieves a list of process elements with the identifier `typeId`.
       operationId: rpa_item_list
       tags:
       - Deprecated Methods
@@ -741,7 +741,7 @@ paths:
   /rpa.item.update:
     post:
       summary: Update Process Element rpa.item.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method updates the element with the identifier `id` in the process with the identifier `typeId`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative functionality. This method updates the element with the identifier `id` in the process with the identifier `typeId`.
       operationId: rpa_item_update
       tags:
       - Deprecated Methods
@@ -800,7 +800,7 @@ paths:
   /rpa.stage.add:
     post:
       summary: Create a New Stage rpa.stage.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method adds a new stage.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use Smart scripts as an alternative to this functionality. This method adds a new stage.
       operationId: rpa_stage_add
       tags:
       - Deprecated Methods
@@ -847,7 +847,7 @@ paths:
   /rpa.stage.delete:
     post:
       summary: Delete Stage rpa.stage.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method deletes a stage. A process must always have one successful stage. It is not possible to delete a successful stage.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative to this functionality. This method deletes a stage. A process must always have one successful stage. It is not possible to delete a successful stage.
       operationId: rpa_stage_delete
       tags:
       - Deprecated Methods
@@ -894,7 +894,7 @@ paths:
   /rpa.stage.get:
     post:
       summary: Get Information About Stage rpa.stage.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves information about a stage by its `id`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use Smart scripts as an alternative to this functionality. This method retrieves information about a stage by its `id`.
       operationId: rpa_stage_get
       tags:
       - Deprecated Methods
@@ -1025,7 +1025,7 @@ paths:
   /rpa.stage.listForType:
     post:
       summary: Get the List of Stages for the rpa.stage.listForType Process
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves a list of process stages, sorted in order with final stages at the end.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart processes as an alternative to this functionality. This method retrieves a list of process stages, sorted in order with final stages at the end.
       operationId: rpa_stage_listForType
       tags:
       - Deprecated Methods
@@ -1078,7 +1078,7 @@ paths:
   /rpa.stage.update:
     post:
       summary: Update Stage rpa.stage.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method updates the stage by `id`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative functionality. This method updates the stage by `id`.
       operationId: rpa_stage_update
       tags:
       - Deprecated Methods
@@ -1129,7 +1129,7 @@ paths:
   /rpa.task.addUser:
     post:
       summary: Add User to Existing Task rpa.task.addUser
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. The method `rpa.task.addUser` will add a user to an existing task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use Smart scripts as an alternative to this functionality. The method `rpa.task.addUser` will add a user to an existing task.
       operationId: rpa_task_addUser
       tags:
       - Deprecated Methods
@@ -1184,7 +1184,7 @@ paths:
   /rpa.task.delete:
     post:
       summary: Remove Automation Rule from Process rpa.task.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method removes the Automation rule named `robotName` from the process with the identifier `typeId` at the stage with the identifier `stageId`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative to this functionality. This method removes the Automation rule named `robotName` from the process with the identifier `typeId` at the stage with the identifier `stageId`.
       operationId: rpa_task_delete
       tags:
       - Deprecated Methods
@@ -1239,7 +1239,7 @@ paths:
   /rpa.task.do:
     post:
       summary: Execute the rpa.task.do Command
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method executes a task. The set of parameters depends on the task.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative to this functionality. This method executes a task. The set of parameters depends on the task.
       operationId: rpa_task_do
       tags:
       - Deprecated Methods
@@ -1274,7 +1274,7 @@ paths:
   /rpa.timeline.add:
     post:
       summary: Add a New Timeline Entry rpa.timeline.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method creates a new timeline entry for the `itemId` of the `typeId` process. This method allows modification of only the `title` and `description` fields.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use Smart scripts as an alternative to this functionality. This method creates a new timeline entry for the `itemId` of the `typeId` process. This method allows modification of only the `title` and `description` fields.
       operationId: rpa_timeline_add
       tags:
       - Deprecated Methods
@@ -1341,7 +1341,7 @@ paths:
   /rpa.timeline.delete:
     post:
       summary: Delete Timeline Record rpa.timeline.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative functionality. This method deletes a timeline record with the identifier `id`. The method only deletes records that were created by the same user and through the application.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use Smart scripts as an alternative functionality. This method deletes a timeline record with the identifier `id`. The method only deletes records that were created by the same user and through the application.
       operationId: rpa_timeline_delete
       tags:
       - Deprecated Methods
@@ -1388,7 +1388,7 @@ paths:
   /rpa.timeline.listForItem:
     post:
       summary: Get the Timeline Records List for the rpa.timeline.listForItem Element
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart processes](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves a list of timeline records for the `itemId` of the `typeId` process. The records are sorted in descending order by creation date, meaning the newest entries appear at the top of the list.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart processes as an alternative to this functionality. This method retrieves a list of timeline records for the `itemId` of the `typeId` process. The records are sorted in descending order by creation date, meaning the newest entries appear at the top of the list.
       operationId: rpa_timeline_listForItem
       tags:
       - Deprecated Methods
@@ -1443,7 +1443,7 @@ paths:
   /rpa.timeline.update:
     post:
       summary: Update Timeline Entry rpa.timeline.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the timeline entry with the identifier `id`. The method only updates the `title` and `description` fields, and only for entries created by the same user and through the application.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative to this functionality. This method updates the timeline entry with the identifier `id`. The method only updates the `title` and `description` fields, and only for entries created by the same user and through the application.
       operationId: rpa_timeline_update
       tags:
       - Deprecated Methods
@@ -1504,7 +1504,7 @@ paths:
   /rpa.timeline.updateIsFixed:
     post:
       summary: Update the Attachment Flag of rpa.timeline.updateIsFixed
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the attachment flag of a record.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative to this functionality. This method updates the attachment flag of a record.
       operationId: rpa_timeline_updateIsFixed
       tags:
       - Deprecated Methods
@@ -1553,7 +1553,7 @@ paths:
   /rpa.type.add:
     post:
       summary: Create Process rpa.type.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method creates a new process.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use Smart scripts as an alternative to this functionality. This method creates a new process.
       operationId: rpa_type_add
       tags:
       - Deprecated Methods
@@ -1632,7 +1632,7 @@ paths:
   /rpa.type.delete:
     post:
       summary: Delete Process rpa.type.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method deletes a process.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative to this functionality. This method deletes a process.
       operationId: rpa_type_delete
       tags:
       - Deprecated Methods
@@ -1679,7 +1679,7 @@ paths:
   /rpa.type.get:
     post:
       summary: Get Process Information by ID rpa.type.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method retrieves information about a process by its `id`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Use Smart scripts as an alternative to this functionality. This method retrieves information about a process by its `id`.
       operationId: rpa_type_get
       tags:
       - Deprecated Methods
@@ -1726,7 +1726,7 @@ paths:
   /rpa.type.list:
     post:
       summary: Retrieve a List of Processes with Their Fields rpa.type.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. The method will return an array of processes with their fields.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative to this functionality. The method will return an array of processes with their fields.
       operationId: rpa_type_list
       tags:
       - Deprecated Methods
@@ -1789,7 +1789,7 @@ paths:
   /rpa.type.update:
     post:
       summary: Update the process rpa.type.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use [Smart scripts](../../../crm/universal/user-defined-object-types/index.md) as an alternative to this functionality. This method updates the process by its `id`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use Smart scripts as an alternative to this functionality. This method updates the process by its `id`.
       operationId: rpa_type_update
       tags:
       - Deprecated Methods
@@ -1839,21 +1839,6 @@ paths:
         - rpa
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -1881,6 +1866,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

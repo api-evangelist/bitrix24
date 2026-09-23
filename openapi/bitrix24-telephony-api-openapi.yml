@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Telephony API
+  title: Bitrix24 REST Telephony API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /telephony.call.attachTranscription:
     post:
       summary: Add Transcription to Call with telephony.call.attachTranscription
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.call.attachTranscription` adds a transcription of the conversation to a completed call.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `telephony.call.attachTranscription` adds a transcription of the conversation to a completed call.
       operationId: telephony_call_attachTranscription
       tags:
       - Telephony
@@ -135,7 +135,7 @@ paths:
   /telephony.externalCall.attachRecord:
     post:
       summary: Attach a Record to a Completed Call telephony.externalCall.attachRecord
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.attachRecord` attaches a record to a completed call and to the CRM activity of the call. Call this method after [telephony.externalCall.finish](./telephony-external-call-finish.md) when the record is ready.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.attachRecord` attaches a record to a completed call and to the CRM activity of the call. Call this method after telephony.externalCall.finish when the record is ready.
       operationId: telephony_externalCall_attachRecord
       tags:
       - Telephony
@@ -200,7 +200,7 @@ paths:
   /telephony.externalCall.finish:
     post:
       summary: Finish Call and Log It in Telephony Statistics telephony.externalCall.finish
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.finish` ends an external call, saves it in the statistics, and logs it in the CRM activity. The method works only in the context of the [application](../../settings/app-installation/index.md)
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.finish` ends an external call, saves it in the statistics, and logs it in the CRM activity. The method works only in the context of the application
       operationId: telephony_externalCall_finish
       tags:
       - Telephony
@@ -313,7 +313,7 @@ paths:
   /telephony.externalCall.hide:
     post:
       summary: Hide Call Card for User telephony.externalCall.hide
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.hide` hides the call card for a user or a list of users.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.hide` hides the call card for a user or a list of users.
       operationId: telephony_externalCall_hide
       tags:
       - Telephony
@@ -366,7 +366,7 @@ paths:
   /telephony.externalCall.register:
     post:
       summary: Register an External Call in Bitrix24 telephony.externalCall.register
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.register` registers an external call in Bitrix24. To create a CRM activity for the call, you must also call the method [telephony.externalCall.finish](./telephony-external-call-finish.md). The method works only in the context of an [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.register` registers an external call in Bitrix24. To create a CRM activity for the call, you must also call the method telephony.externalCall.finish. The method works only in the context of an application.
       operationId: telephony_externalCall_register
       tags:
       - Telephony
@@ -497,7 +497,7 @@ paths:
   /telephony.externalCall.searchCrmEntities:
     post:
       summary: Find a Client in CRM by Phone Number telephony.externalCall.searchCrmEntities
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.searchCrmEntities` returns CRM entities based on the client's phone number and the details of the responsible employee.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.searchCrmEntities` returns CRM entities based on the client's phone number and the details of the responsible employee.
       operationId: telephony_externalCall_searchCrmEntities
       tags:
       - Telephony
@@ -544,7 +544,7 @@ paths:
   /telephony.externalCall.show:
     post:
       summary: Show Call Card to User telephony.externalCall.show
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.show` displays the call card to a user or a list of users.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `telephony.externalCall.show` displays the call card to a user or a list of users.
       operationId: telephony_externalCall_show
       tags:
       - Telephony
@@ -597,7 +597,7 @@ paths:
   /telephony.externalLine.add:
     post:
       summary: Add External Line telephony.externalLine.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalLine.add` adds an external line to the application. The method works only in the context of the [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `telephony.externalLine.add` adds an external line to the application. The method works only in the context of the application.
       operationId: telephony_externalLine_add
       tags:
       - Telephony
@@ -656,7 +656,7 @@ paths:
   /telephony.externalLine.delete:
     post:
       summary: Delete External Line telephony.externalLine.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalLine.delete` removes an external line from the application. The method works only in the context of the [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `telephony.externalLine.delete` removes an external line from the application. The method works only in the context of the application.
       operationId: telephony_externalLine_delete
       tags:
       - Telephony
@@ -703,7 +703,7 @@ paths:
   /telephony.externalLine.get:
     post:
       summary: Get a List of External Lines with telephony.externalLine.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalLine.get` returns a list of external lines for the application. The method works only in the context of the [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `telephony.externalLine.get` returns a list of external lines for the application. The method works only in the context of the application.
       operationId: telephony_externalLine_get
       tags:
       - Telephony
@@ -738,7 +738,7 @@ paths:
   /telephony.externalLine.update:
     post:
       summary: Update External Line telephony.externalLine.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `telephony.externalLine.update` modifies the parameters of the application's external line. This method works only in the context of the [application](../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `telephony.externalLine.update` modifies the parameters of the application's external line. This method works only in the context of the application.
       operationId: telephony_externalLine_update
       tags:
       - Telephony
@@ -797,7 +797,7 @@ paths:
   /voximplant.callback.start:
     post:
       summary: Start a Callback with voximplant.callback.start
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.callback.start` initiates a callback between an employee and a client.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.callback.start` initiates a callback between an employee and a client.
       operationId: voximplant_callback_start
       tags:
       - Telephony
@@ -866,7 +866,7 @@ paths:
   /voximplant.infocall.startwithsound:
     post:
       summary: Make an Auto-Call with MP3 Playback using voximplant.infocall.startwithsound
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.infocall.startwithsound` initiates an auto-call and plays an MP3 file from a URL.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.infocall.startwithsound` initiates an auto-call and plays an MP3 file from a URL.
       operationId: voximplant_infocall_startwithsound
       tags:
       - Telephony
@@ -928,8 +928,8 @@ paths:
         - telephony
   /voximplant.infocall.startwithtext:
     post:
-      summary: Initiate an Auto-Call with the Voice Automation Rule voximplant.infocall.startwithtext
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.infocall.startwithtext` initiates an auto-call and plays the specified text to the recipient using speech synthesis.
+      summary: Initiate an Auto-Call with the Voice Automation Rule…
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.infocall.startwithtext` initiates an auto-call and plays the specified text to the recipient using speech synthesis.
       operationId: voximplant_infocall_startwithtext
       tags:
       - Telephony
@@ -998,7 +998,7 @@ paths:
   /voximplant.line.get:
     post:
       summary: Get a List of Outgoing Lines voximplant.line.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.line.get` returns a list of available outgoing lines.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.line.get` returns a list of available outgoing lines.
       operationId: voximplant_line_get
       tags:
       - Telephony
@@ -1033,7 +1033,7 @@ paths:
   /voximplant.line.outgoing.get:
     post:
       summary: Get Line for Outgoing Calls voximplant.line.outgoing.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.line.outgoing.get` returns the identifier of the current default outgoing line.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.line.outgoing.get` returns the identifier of the current default outgoing line.
       operationId: voximplant_line_outgoing_get
       tags:
       - Telephony
@@ -1068,7 +1068,7 @@ paths:
   /voximplant.line.outgoing.set:
     post:
       summary: Set Outgoing Line voximplant.line.outgoing.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.line.outgoing.set` sets the default outgoing line.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.line.outgoing.set` sets the default outgoing line.
       operationId: voximplant_line_outgoing_set
       tags:
       - Telephony
@@ -1115,7 +1115,7 @@ paths:
   /voximplant.line.outgoing.sip.set:
     post:
       summary: Set Outgoing SIP Line voximplant.line.outgoing.sip.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.line.outgoing.sip.set` sets the SIP line as the default outgoing line.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.line.outgoing.sip.set` sets the SIP line as the default outgoing line.
       operationId: voximplant_line_outgoing_sip_set
       tags:
       - Telephony
@@ -1162,7 +1162,7 @@ paths:
   /voximplant.sip.add:
     post:
       summary: Create SIP Line voximplant.sip.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.sip.add` creates a new SIP line associated with an application.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.sip.add` creates a new SIP line associated with an application.
       operationId: voximplant_sip_add
       tags:
       - Telephony
@@ -1235,7 +1235,7 @@ paths:
   /voximplant.sip.connector.status:
     post:
       summary: Get the Status of the SIP Connector voximplant.sip.connector.status
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.sip.connector.status` returns the current status of the SIP connector.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.sip.connector.status` returns the current status of the SIP connector.
       operationId: voximplant_sip_connector_status
       tags:
       - Telephony
@@ -1270,7 +1270,7 @@ paths:
   /voximplant.sip.delete:
     post:
       summary: Delete SIP Line voximplant.sip.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.sip.delete` removes an existing SIP line created by the current application.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.sip.delete` removes an existing SIP line created by the current application.
       operationId: voximplant_sip_delete
       tags:
       - Telephony
@@ -1317,7 +1317,7 @@ paths:
   /voximplant.sip.get:
     post:
       summary: Get SIP Lines of the Application voximplant.sip.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.sip.get` returns a list of SIP lines created by the current application.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.sip.get` returns a list of SIP lines created by the current application.
       operationId: voximplant_sip_get
       tags:
       - Telephony
@@ -1486,7 +1486,7 @@ paths:
   /voximplant.sip.status:
     post:
       summary: Get SIP Registration Status voximplant.sip.status
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.sip.status` returns the current SIP registration status for the cloud PBX.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.sip.status` returns the current SIP registration status for the cloud PBX.
       operationId: voximplant_sip_status
       tags:
       - Telephony
@@ -1533,7 +1533,7 @@ paths:
   /voximplant.sip.update:
     post:
       summary: Update SIP Line voximplant.sip.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.sip.update` updates an existing SIP line created by the current application.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.sip.update` updates an existing SIP line created by the current application.
       operationId: voximplant_sip_update
       tags:
       - Telephony
@@ -1604,7 +1604,7 @@ paths:
   /voximplant.statistic.get:
     post:
       summary: Get Call History List voximplant.statistic.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.statistic.get` returns a list of calls from telephony statistics.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.statistic.get` returns a list of calls from telephony statistics.
       operationId: voximplant_statistic_get
       tags:
       - Telephony
@@ -1837,7 +1837,7 @@ paths:
   /voximplant.tts.voices.get:
     post:
       summary: Get a List of Available Voices for Text-to-Speech voximplant.tts.voices.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.tts.voices.get` returns a list of available voices for text-to-speech synthesis.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.tts.voices.get` returns a list of available voices for text-to-speech synthesis.
       operationId: voximplant_tts_voices_get
       tags:
       - Telephony
@@ -1872,7 +1872,7 @@ paths:
   /voximplant.url.get:
     post:
       summary: Get Links for Navigation in the Telephony Pages voximplant.url.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.url.get` returns links for navigation in the telephony pages.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.url.get` returns links for navigation in the telephony pages.
       operationId: voximplant_url_get
       tags:
       - Telephony
@@ -1907,7 +1907,7 @@ paths:
   /voximplant.user.activatePhone:
     post:
       summary: Activate User SIP Device voximplant.user.activatePhone
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.user.activatePhone` sets a flag indicating the presence of a SIP device for an employee.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.user.activatePhone` sets a flag indicating the presence of a SIP device for an employee.
       operationId: voximplant_user_activatePhone
       tags:
       - Telephony
@@ -1953,8 +1953,8 @@ paths:
         - telephony
   /voximplant.user.deactivatePhone:
     post:
-      summary: Deactivate the employee's SIP phone presence with voximplant.user.deactivatePhone
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. Some data may be missing here — we will complete it shortly. - The required parameters are not specified - Examples are missing
+      summary: Deactivate the employee's SIP phone presence with…
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Some data may be missing here — we will complete it shortly. - The required parameters are not specified - Examples are missing
       operationId: voximplant_user_deactivatePhone
       tags:
       - Telephony
@@ -1995,7 +1995,7 @@ paths:
   /voximplant.user.get:
     post:
       summary: Get User Settings voximplant.user.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `voximplant.user.get` returns user settings. For applications, calling the method requires [administrator confirmation](../../../scopes/confirmation.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `voximplant.user.get` returns user settings. For applications, calling the method requires administrator confirmation.
       operationId: voximplant_user_get
       tags:
       - Telephony
@@ -2041,21 +2041,6 @@ paths:
         - telephony
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -2083,6 +2068,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response

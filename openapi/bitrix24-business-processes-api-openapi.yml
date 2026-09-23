@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bitrix24 REST BIconnector Business Processes API
+  title: Bitrix24 REST Business Processes API
   version: 1.0.0
   description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
   contact:
@@ -32,7 +32,7 @@ paths:
   /bizproc.activity.add:
     post:
       summary: Add a New Action bizproc.activity.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a new action for use in workflows. The method works only in the context of an [application](../../../settings/app-installation/index.md). Each document generates its own set of field types. For example, in CRM, there is a field of type Address `UF:address`. To use this field type in your actions, specify the CRM document type in `DOCUMENT_TYPE` and describe the field properties in `PROPERTIES`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method adds a new action for use in workflows. The method works only in the context of an application. Each document generates its own set of field types. For example, in CRM, there is a field of type Address `UF:address`. To use this field type in your actions, specify the CRM document type in `DOCUMENT_TYPE` and describe the field properties in `PROPERTIES`.
       operationId: bizproc_activity_add
       tags:
       - Business Processes
@@ -171,7 +171,7 @@ paths:
   /bizproc.activity.delete:
     post:
       summary: Delete Action bizproc.activity.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes an action for workflows that was added by the application. It only works in the context of the [application](../../../settings/app-installation/index.md). When the application is deleted or updated, the associated actions are removed from the list of actions in the workflow designer. If the action is used in a workflow, it is blocked and can only be removed from the scheme. Upon reinstalling the application, the action becomes available again.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes an action for workflows that was added by the application. It only works in the context of the application. When the application is deleted or updated, the associated actions are removed from the list of actions in the workflow designer. If the action is used in a workflow, it is blocked and can only be removed from the scheme. Upon reinstalling the application, the action becomes available again.
       operationId: bizproc_activity_delete
       tags:
       - Business Processes
@@ -218,7 +218,7 @@ paths:
   /bizproc.activity.list:
     post:
       summary: Get a List of Application Actions bizproc.activity.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. This method retrieves a list of actions set by the application. It only works in the context of the [application](../../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so the assistant can utilize the official REST documentation. This method retrieves a list of actions set by the application. It only works in the context of the application.
       operationId: bizproc_activity_list
       tags:
       - Business Processes
@@ -253,7 +253,7 @@ paths:
   /bizproc.activity.log:
     post:
       summary: Write Information to the Business Process Log bizproc.activity.log
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method logs information into the business process log. Event logging must be enabled in the business process template.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. This method logs information into the business process log. Event logging must be enabled in the business process template.
       operationId: bizproc_activity_log
       tags:
       - Business Processes
@@ -308,7 +308,7 @@ paths:
   /bizproc.activity.update:
     post:
       summary: Update Action bizproc.activity.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates a business process action added by the application. It works only in the context of the [application](../../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. This method updates a business process action added by the application. It works only in the context of the application.
       operationId: bizproc_activity_update
       tags:
       - Business Processes
@@ -455,7 +455,7 @@ paths:
   /bizproc.event.send:
     post:
       summary: Return Parameters to Action or Automation Rule bizproc.event.send
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method returns the output parameters to the Automation rule or action that were specified during the registration or update of the Automation rule or action.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method returns the output parameters to the Automation rule or action that were specified during the registration or update of the Automation rule or action.
       operationId: bizproc_event_send
       tags:
       - Business Processes
@@ -510,7 +510,7 @@ paths:
   /bizproc.robot.add:
     post:
       summary: Register a New Automation Rule bizproc.robot.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `bizproc.robot.add` registers a new Automation rule. It only works in the context of an [application](../../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `bizproc.robot.add` registers a new Automation rule. It only works in the context of an application.
       operationId: bizproc_robot_add
       tags:
       - Business Processes
@@ -649,7 +649,7 @@ paths:
   /bizproc.robot.delete:
     post:
       summary: Delete Registered Robot bizproc.robot.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method removes a robot registered by the application. It only works in the context of the [application](../../../settings/app-installation/index.md). When the application is deleted or updated, the associated robots are removed from the list of robots. If the robot is in use, it is blocked and can only be removed from the workflow. Upon reinstalling the application, the robot becomes available again.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method removes a robot registered by the application. It only works in the context of the application. When the application is deleted or updated, the associated robots are removed from the list of robots. If the robot is in use, it is blocked and can only be removed from the workflow. Upon reinstalling the application, the robot becomes available again.
       operationId: bizproc_robot_delete
       tags:
       - Business Processes
@@ -696,7 +696,7 @@ paths:
   /bizproc.robot.list:
     post:
       summary: Get a list of registered application robots bizproc.robot.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method returns a list of robots registered by the application. It works only in the context of the [application](../../../settings/app-installation/index.md). No parameters.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method returns a list of robots registered by the application. It works only in the context of the application. No parameters.
       operationId: bizproc_robot_list
       tags:
       - Business Processes
@@ -753,7 +753,7 @@ paths:
   /bizproc.robot.update:
     post:
       summary: Update Fields of the Automation Rule bizproc.robot.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates the fields of the Automation Rule registered by the application. It only works in the context of the [application](../../../settings/app-installation/index.md).
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method updates the fields of the Automation Rule registered by the application. It only works in the context of the application.
       operationId: bizproc_robot_update
       tags:
       - Business Processes
@@ -900,7 +900,7 @@ paths:
   /bizproc.task.complete:
     post:
       summary: Complete a business process task bizproc.task.complete
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method completes a business process task: - Document approval - Document acknowledgment'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method completes a business process task: - Document approval - Document acknowledgment'
       operationId: bizproc_task_complete
       tags:
       - Business Processes
@@ -959,7 +959,7 @@ paths:
   /bizproc.task.delegate:
     post:
       summary: Delegate a workflow task bizproc.task.delegate
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method delegates a workflow task. You can only delegate your own task. - [Actions: Tasks](https://helpdesk.bitrix24.com/open/11466058/)'
+      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method delegates a workflow task. You can only delegate your own task. - Actions: Tasks'
       operationId: bizproc_task_delegate
       tags:
       - Business Processes
@@ -1024,7 +1024,7 @@ paths:
   /bizproc.task.list:
     post:
       summary: Get a List of Workflow Tasks bizproc.task.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so the assistant can utilize the official REST documentation. The method `bizproc.task.list` retrieves a list of workflow tasks. A portal administrator can request all tasks or tasks of any user. A regular user can only request their own tasks or those of their subordinates. To request their own tasks, the `USER_ID` filter does not need to be specified.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so the assistant can utilize the official REST documentation. The method `bizproc.task.list` retrieves a list of workflow tasks. A portal administrator can request all tasks or tasks of any user. A regular user can only request their own tasks or those of their subordinates. To request their own tasks, the `USER_ID` filter does not need to be specified.
       operationId: bizproc_task_list
       tags:
       - Business Processes
@@ -1087,7 +1087,7 @@ paths:
   /bizproc.workflow.instances:
     post:
       summary: Get a list of running workflows bizproc.workflow.instances
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves a list of running workflows. There is an old method `bizproc.workflow.instance.list` — an alias for the method `bizproc.workflow.instances`. It accepts the same parameters and returns the same results. Support for `bizproc.workflow.instance.list` is not guaranteed in the future, so we recommend using `bizproc.workflow.instances`.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves a list of running workflows. There is an old method `bizproc.workflow.instance.list` — an alias for the method `bizproc.workflow.instances`. It accepts the same parameters and returns the same results. Support for `bizproc.workflow.instance.list` is not guaranteed in the future, so we recommend using `bizproc.workflow.instances`.
       operationId: bizproc_workflow_instances
       tags:
       - Business Processes
@@ -1150,7 +1150,7 @@ paths:
   /bizproc.workflow.kill:
     post:
       summary: Delete Running Process bizproc.workflow.kill
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes the running workflow along with all process data.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes the running workflow along with all process data.
       operationId: bizproc_workflow_kill
       tags:
       - Business Processes
@@ -1197,7 +1197,7 @@ paths:
   /bizproc.workflow.start:
     post:
       summary: Start Business Process bizproc.workflow.start
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. The method `bizproc.workflow.start` initiates a new business process. You can only start a business process using REST on paid plans, demo licenses, and NFR licenses.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `bizproc.workflow.start` initiates a new business process. You can only start a business process using REST on paid plans, demo licenses, and NFR licenses.
       operationId: bizproc_workflow_start
       tags:
       - Business Processes
@@ -1260,7 +1260,7 @@ paths:
   /bizproc.workflow.template.add:
     post:
       summary: Add Business Process Template bizproc.workflow.template.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method adds a business process template from a file. The business process template must be pre-configured. Export the completed template [to a file](https://helpdesk.bitrix24.com/open/8605753/) with the `.bpt` extension. The resulting file can be added as a template to the desired Bitrix24. The method works only in the context of an [application](../../../settings/app-installation/index.md). The system binds the new template to the application.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method adds a business process template from a file. The business process template must be pre-configured. Export the completed template to a file with the `.bpt` extension. The resulting file can be added as a template to the desired Bitrix24. The method works only in the context of an application. The system binds the new template to the application.
       operationId: bizproc_workflow_template_add
       tags:
       - Business Processes
@@ -1337,7 +1337,7 @@ paths:
   /bizproc.workflow.template.delete:
     post:
       summary: Delete Business Process Template bizproc.workflow.template.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method deletes a business process template. It allows you to remove templates that were created using the method [bizproc.workflow.template.add](./bizproc-workflow-template-add.md). These templates are tied to the application and can only be deleted in the context of the same [application](../../../settings/app-installation/index.md) in which they were created.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes a business process template. It allows you to remove templates that were created using the method bizproc.workflow.template.add. These templates are tied to the application and can only be deleted in the context of the same application in which they were created.
       operationId: bizproc_workflow_template_delete
       tags:
       - Business Processes
@@ -1384,7 +1384,7 @@ paths:
   /bizproc.workflow.template.list:
     post:
       summary: Get the list of templates bizproc.workflow.template.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method retrieves a list of business process templates.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves a list of business process templates.
       operationId: bizproc_workflow_template_list
       tags:
       - Business Processes
@@ -1541,7 +1541,7 @@ paths:
   /bizproc.workflow.template.update:
     post:
       summary: Update Business Process Template bizproc.workflow.template.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method updates a business process template. It allows you to update templates that were created using the [bizproc.workflow.template.add](./bizproc-workflow-template-add.md) method. These templates are tied to the application and can only be updated in the context of the same [application](../../../settings/app-installation/index.md) that created them.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method updates a business process template. It allows you to update templates that were created using the bizproc.workflow.template.add method. These templates are tied to the application and can only be updated in the context of the same application that created them.
       operationId: bizproc_workflow_template_update
       tags:
       - Business Processes
@@ -1620,7 +1620,7 @@ paths:
   /bizproc.workflow.terminate:
     post:
       summary: Stop Active Workflow bizproc.workflow.terminate
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the [MCP server](../../ai-tools/mcp.md) so that the assistant can utilize the official REST documentation. This method stops the specified workflow. All data related to the workflow will be preserved.
+      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method stops the specified workflow. All data related to the workflow will be preserved.
       operationId: bizproc_workflow_terminate
       tags:
       - Business Processes
@@ -1672,21 +1672,6 @@ paths:
         - bizproc
 components:
   schemas:
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -1714,6 +1699,21 @@ components:
         operating:
           type: number
           format: double
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response
