@@ -2786,6 +2786,35 @@ paths:
         - sonet
 components:
   schemas:
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -2813,35 +2842,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey
