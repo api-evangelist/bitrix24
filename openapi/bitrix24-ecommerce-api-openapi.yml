@@ -10476,6 +10476,33 @@ paths:
         - sale
 components:
   schemas:
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
     BitrixResponse:
       type: object
       description: Standard Bitrix24 REST API response
@@ -10505,33 +10532,6 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
-    BitrixTime:
-      type: object
-      description: Request execution time information
-      properties:
-        start:
-          type: number
-          format: double
-        finish:
-          type: number
-          format: double
-        duration:
-          type: number
-          format: double
-        processing:
-          type: number
-          format: double
-        date_start:
-          type: string
-          format: date-time
-        date_finish:
-          type: string
-          format: date-time
-        operating_reset_at:
-          type: integer
-        operating:
-          type: number
-          format: double
   securitySchemes:
     AccessToken:
       type: apiKey
