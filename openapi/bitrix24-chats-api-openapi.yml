@@ -3994,6 +3994,21 @@ paths:
         - imbot
 components:
   schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
     BitrixTime:
       type: object
       description: Request execution time information
@@ -4035,21 +4050,6 @@ components:
           description: Next offset for pagination
         time:
           $ref: '#/components/schemas/BitrixTime'
-    BitrixError:
-      type: object
-      description: Bitrix24 REST API error response
-      required:
-      - error
-      - error_description
-      properties:
-        error:
-          type: string
-          description: Error code
-          example: ACCESS_DENIED
-        error_description:
-          type: string
-          description: Human-readable error description
-          example: Access denied.
   securitySchemes:
     AccessToken:
       type: apiKey
