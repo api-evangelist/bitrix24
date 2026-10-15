@@ -7,6 +7,7 @@ checked:
 - https://monid.ai/tools/bitrix24
 - https://n8n.io/integrations/bitrix24/
 - https://registry.modelcontextprotocol.io/v0/servers
+- https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/bitrix24/integrations
 - wordpress/integrations/wordpress-integration-edges.yml
 summary: null
@@ -737,7 +738,7 @@ edges:
     registered_name: io.github.bitrix24/bitrix-mcp-rest
     register_id: io.github.bitrix24/bitrix-mcp-rest
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-14'
+    detected: '2026-10-15'
   mcp_registry:
     servers:
     - io.github.bitrix24/bitrix-mcp-rest
@@ -754,6 +755,31 @@ edges:
   - remote-domain
   detected_by: sweep-agent-tools.py
   first_seen: '2026-10-14'
+- partner_name: Zapier
+  partner: zapier
+  partner_match: aggregator
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://zapier.com/apps/bitrix24-crm-new/integrations
+  category: null
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: Bitrix24 CRM
+    matched_domain: bitrix24.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: bitrix24-crm-new
+    beta: false
+    builder: unknown (not in the directory record)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 - partner_name: WordPress (own)
   partner: wordpress
   partner_match: mirror
