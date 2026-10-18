@@ -10,6 +10,7 @@ checked:
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/bitrix24/integrations
 - wordpress/integrations/wordpress-integration-edges.yml
+- zoom/integrations/zoom-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: n8n
@@ -797,4 +798,21 @@ edges:
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
   category: WordPress plugin
+- partner_name: Zoom (own)
+  partner: zoom
+  partner_match: mirror
+  mirror_match: domain+product
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.zoom.us/apps/0YlRycf6SfikxdH4ayRmtg
+  mirror_of: zoom/integrations/zoom-integration-edges.yml
+  apps:
+  - Bitrix24 Official Integration
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Zoom app
 templates: []
