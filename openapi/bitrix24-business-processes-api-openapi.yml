@@ -32,7 +32,7 @@ paths:
   /bizproc.activity.add:
     post:
       summary: Add a New Action bizproc.activity.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method adds a new action for use in workflows. The method works only in the context of an application. Each document generates its own set of field types. For example, in CRM, there is a field of type Address `UF:address`. To use this field type in your actions, specify the CRM document type in `DOCUMENT_TYPE` and describe the field properties in `PROPERTIES`.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `bizproc.activity.add` method adds a new action for use in workflows.'
       operationId: bizproc_activity_add
       tags:
       - Business Processes
@@ -47,7 +47,7 @@ paths:
               properties:
                 CODE:
                   type: string
-                  description: '| Internal identifier of the action. It must be unique within the application.'
+                  description: '| Internal identifier of the action. It is unique within the application.'
                 HANDLER:
                   type: string
                   description: '| URL to which the action will send data via the Bitrix24 queue server.'
@@ -56,7 +56,7 @@ paths:
                   description: '| Identifier of the user whose token will be passed to the application ||'
                 USE_SUBSCRIPTION:
                   type: boolean
-                  description: '| Should the action wait for a response from the application. Possible values:'
+                  description: '| Should the action wait for a response from the application? Possible values:'
                 PROPERTIES:
                   type: object
                   description: '| Object with action parameters. Contains objects, each describing a parameter of the action.'
@@ -69,7 +69,7 @@ paths:
                   description: '| Document type that will determine the data types for the `PROPERTIES` and `RETURN_PROPERTIES` parameters. Consists of three string-type elements:'
                 FILTER:
                   type: object
-                  description: '| Object with rules to restrict the action by document type and edition.'
+                  description: '| Object with rules for restricting the action by document type and edition.'
                 USE_PLACEMENT:
                   type: boolean
                   description: '| Allows opening additional settings for the action in the application slider. Possible values:'
@@ -85,24 +85,23 @@ paths:
                   description: '| Array of values for the parameter of type list `''TYPE'': select''` like:'
                 Required:
                   type: boolean
-                  description: '| Requirement of the parameter. Possible values:'
+                  description: '| Parameter requirement. Possible values:'
                 Multiple:
                   type: boolean
-                  description: '| Multiplicity of the parameter. Possible values:'
+                  description: '| Parameter multiplicity. Possible values:'
                 Default:
                   type: string
                   description: '| Default value of the parameter ||'
               required:
               - CODE
               - HANDLER
-              - PLACEMENT_HANDLER
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 CODE:
                   type: string
-                  description: '| Internal identifier of the action. It must be unique within the application.'
+                  description: '| Internal identifier of the action. It is unique within the application.'
                 HANDLER:
                   type: string
                   description: '| URL to which the action will send data via the Bitrix24 queue server.'
@@ -111,7 +110,7 @@ paths:
                   description: '| Identifier of the user whose token will be passed to the application ||'
                 USE_SUBSCRIPTION:
                   type: boolean
-                  description: '| Should the action wait for a response from the application. Possible values:'
+                  description: '| Should the action wait for a response from the application? Possible values:'
                 PROPERTIES:
                   type: object
                   description: '| Object with action parameters. Contains objects, each describing a parameter of the action.'
@@ -124,7 +123,7 @@ paths:
                   description: '| Document type that will determine the data types for the `PROPERTIES` and `RETURN_PROPERTIES` parameters. Consists of three string-type elements:'
                 FILTER:
                   type: object
-                  description: '| Object with rules to restrict the action by document type and edition.'
+                  description: '| Object with rules for restricting the action by document type and edition.'
                 USE_PLACEMENT:
                   type: boolean
                   description: '| Allows opening additional settings for the action in the application slider. Possible values:'
@@ -140,17 +139,16 @@ paths:
                   description: '| Array of values for the parameter of type list `''TYPE'': select''` like:'
                 Required:
                   type: boolean
-                  description: '| Requirement of the parameter. Possible values:'
+                  description: '| Parameter requirement. Possible values:'
                 Multiple:
                   type: boolean
-                  description: '| Multiplicity of the parameter. Possible values:'
+                  description: '| Parameter multiplicity. Possible values:'
                 Default:
                   type: string
                   description: '| Default value of the parameter ||'
               required:
               - CODE
               - HANDLER
-              - PLACEMENT_HANDLER
       responses:
         '200':
           description: Successful response
@@ -171,7 +169,7 @@ paths:
   /bizproc.activity.delete:
     post:
       summary: Delete Action bizproc.activity.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes an action for workflows that was added by the application. It only works in the context of the application. When the application is deleted or updated, the associated actions are removed from the list of actions in the workflow designer. If the action is used in a workflow, it is blocked and can only be removed from the scheme. Upon reinstalling the application, the action becomes available again.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `bizproc.activity.delete` method deletes an action for workflows that was added by the application.'
       operationId: bizproc_activity_delete
       tags:
       - Business Processes
@@ -218,7 +216,7 @@ paths:
   /bizproc.activity.list:
     post:
       summary: Get a List of Application Actions bizproc.activity.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so the assistant can utilize the official REST documentation. This method retrieves a list of actions set by the application. It only works in the context of the application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `bizproc.activity.list` method retrieves a list of actions set by the application.'
       operationId: bizproc_activity_list
       tags:
       - Business Processes
@@ -253,7 +251,7 @@ paths:
   /bizproc.activity.log:
     post:
       summary: Write Information to the Business Process Log bizproc.activity.log
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. This method logs information into the business process log. Event logging must be enabled in the business process template.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `bizproc.activity.log` method logs information into the business process log. Event logging must be enabled in the business process template.'
       operationId: bizproc_activity_log
       tags:
       - Business Processes
@@ -308,7 +306,7 @@ paths:
   /bizproc.activity.update:
     post:
       summary: Update Action bizproc.activity.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. This method updates a business process action added by the application. It works only in the context of the application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `bizproc.activity.update` method updates a business process action added by the application.'
       operationId: bizproc_activity_update
       tags:
       - Business Processes
@@ -354,7 +352,7 @@ paths:
                   description: '| Allows opening additional settings for the action in the application slider. Possible values:'
                 PLACEMENT_HANDLER:
                   type: string
-                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                  description: '| URL of the placement handler on the application side ||'
                 Type:
                   type: string
                   description: '| Type of the parameter. Basic values:'
@@ -374,8 +372,6 @@ paths:
               required:
               - CODE
               - FIELDS
-              - HANDLER
-              - PLACEMENT_HANDLER
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -413,7 +409,7 @@ paths:
                   description: '| Allows opening additional settings for the action in the application slider. Possible values:'
                 PLACEMENT_HANDLER:
                   type: string
-                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                  description: '| URL of the placement handler on the application side ||'
                 Type:
                   type: string
                   description: '| Type of the parameter. Basic values:'
@@ -433,8 +429,6 @@ paths:
               required:
               - CODE
               - FIELDS
-              - HANDLER
-              - PLACEMENT_HANDLER
       responses:
         '200':
           description: Successful response
@@ -455,7 +449,7 @@ paths:
   /bizproc.event.send:
     post:
       summary: Return Parameters to Action or Automation Rule bizproc.event.send
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method returns the output parameters to the Automation rule or action that were specified during the registration or update of the Automation rule or action.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `bizproc.event.send` method returns the output parameters to the Automation rule or action that were specified during the registration or update of the Automation rule or action.'
       operationId: bizproc_event_send
       tags:
       - Business Processes
@@ -470,26 +464,30 @@ paths:
               properties:
                 EVENT_TOKEN:
                   type: string
-                  description: '| A special token that is sent to the application handler when the action or Automation rule is executed. The value of this token is received by the handler in the input data array.'
+                  description: '| The run token of the Automation rule or action. Bitrix24 passes it to the application handler in the `event_token` field.'
                 RETURN_VALUES:
                   type: object
-                  description: '| An array of returned values from the action or Automation rule. It specifies the values of properties that were registered as additional results `RETURN_PROPERTIES` by the methods:'
+                  description: '| Return values of the Automation rule or action. The keys are the parameter codes from `RETURN_PROPERTIES` that were set with the methods:'
                 LOG_MESSAGE:
                   type: string
                   description: '| Text for the business process log.'
+              required:
+              - EVENT_TOKEN
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 EVENT_TOKEN:
                   type: string
-                  description: '| A special token that is sent to the application handler when the action or Automation rule is executed. The value of this token is received by the handler in the input data array.'
+                  description: '| The run token of the Automation rule or action. Bitrix24 passes it to the application handler in the `event_token` field.'
                 RETURN_VALUES:
                   type: object
-                  description: '| An array of returned values from the action or Automation rule. It specifies the values of properties that were registered as additional results `RETURN_PROPERTIES` by the methods:'
+                  description: '| Return values of the Automation rule or action. The keys are the parameter codes from `RETURN_PROPERTIES` that were set with the methods:'
                 LOG_MESSAGE:
                   type: string
                   description: '| Text for the business process log.'
+              required:
+              - EVENT_TOKEN
       responses:
         '200':
           description: Successful response
@@ -510,7 +508,7 @@ paths:
   /bizproc.robot.add:
     post:
       summary: Register a New Automation Rule bizproc.robot.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `bizproc.robot.add` registers a new Automation rule. It only works in the context of an application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `bizproc.robot.add` registers a new Automation rule.'
       operationId: bizproc_robot_add
       tags:
       - Business Processes
@@ -525,13 +523,13 @@ paths:
               properties:
                 CODE:
                   type: string
-                  description: '| Internal identifier of the Automation rule. It must be unique within the application.'
+                  description: '| Internal identifier of the Automation rule. It must be unique among the application''s Automation rules and workflow actions: if the application already has a workflow action with this `CODE`, the method returns the `ERROR_ACTIVITY_ALREADY_INSTALLED` error.'
                 HANDLER:
                   type: string
-                  description: '| URL to which the Automation rule will send data via the Bitrix24 queue server.'
+                  description: '| Handler URL to which Bitrix24 sends the Automation rule data via the queue server.'
                 AUTH_USER_ID:
                   type: integer
-                  description: '| Identifier of the user whose token will be passed to the application ||'
+                  description: '| Identifier of the user whose token Bitrix24 passes to the handler by default. An administrator can select a different user in the Automation rule settings. If the parameter is not passed, no user is set ||'
                 USE_SUBSCRIPTION:
                   type: boolean
                   description: '| Should the Automation rule wait for a response from the application? Possible values:'
@@ -547,20 +545,19 @@ paths:
                   description: '| Document type that will determine the data types for the `PROPERTIES` and `RETURN_PROPERTIES` parameters. Consists of three string-type elements:'
                 FILTER:
                   type: object
-                  description: '| Object with rules for restricting the Automation rule by document type and edition.'
+                  description: '| Object with rules to limit the Automation rule by document type and edition.'
                 USE_PLACEMENT:
                   type: boolean
                   description: '| Allows opening additional settings for the Automation rule in the application slider. Possible values:'
                 PLACEMENT_HANDLER:
                   type: string
-                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''`. It is validated the same way as `HANDLER`. Each Automation rule and workflow action of the application must have its own URL ||'
                 Type:
                   type: string
                   description: '| Type of the parameter. Basic values:'
                 Options:
-                  type: array
-                  items: {}
-                  description: '| Array of values for the parameter of type list `''TYPE'': select''` in the format:'
+                  type: object
+                  description: '| Options for a list-type parameter, `Type: ''select''`. The key is the option value, and the value is its title:'
                 Required:
                   type: boolean
                   description: '| Parameter requirement. Possible values:'
@@ -573,20 +570,19 @@ paths:
               required:
               - CODE
               - HANDLER
-              - PLACEMENT_HANDLER
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 CODE:
                   type: string
-                  description: '| Internal identifier of the Automation rule. It must be unique within the application.'
+                  description: '| Internal identifier of the Automation rule. It must be unique among the application''s Automation rules and workflow actions: if the application already has a workflow action with this `CODE`, the method returns the `ERROR_ACTIVITY_ALREADY_INSTALLED` error.'
                 HANDLER:
                   type: string
-                  description: '| URL to which the Automation rule will send data via the Bitrix24 queue server.'
+                  description: '| Handler URL to which Bitrix24 sends the Automation rule data via the queue server.'
                 AUTH_USER_ID:
                   type: integer
-                  description: '| Identifier of the user whose token will be passed to the application ||'
+                  description: '| Identifier of the user whose token Bitrix24 passes to the handler by default. An administrator can select a different user in the Automation rule settings. If the parameter is not passed, no user is set ||'
                 USE_SUBSCRIPTION:
                   type: boolean
                   description: '| Should the Automation rule wait for a response from the application? Possible values:'
@@ -602,20 +598,19 @@ paths:
                   description: '| Document type that will determine the data types for the `PROPERTIES` and `RETURN_PROPERTIES` parameters. Consists of three string-type elements:'
                 FILTER:
                   type: object
-                  description: '| Object with rules for restricting the Automation rule by document type and edition.'
+                  description: '| Object with rules to limit the Automation rule by document type and edition.'
                 USE_PLACEMENT:
                   type: boolean
                   description: '| Allows opening additional settings for the Automation rule in the application slider. Possible values:'
                 PLACEMENT_HANDLER:
                   type: string
-                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''`. It is validated the same way as `HANDLER`. Each Automation rule and workflow action of the application must have its own URL ||'
                 Type:
                   type: string
                   description: '| Type of the parameter. Basic values:'
                 Options:
-                  type: array
-                  items: {}
-                  description: '| Array of values for the parameter of type list `''TYPE'': select''` in the format:'
+                  type: object
+                  description: '| Options for a list-type parameter, `Type: ''select''`. The key is the option value, and the value is its title:'
                 Required:
                   type: boolean
                   description: '| Parameter requirement. Possible values:'
@@ -628,7 +623,6 @@ paths:
               required:
               - CODE
               - HANDLER
-              - PLACEMENT_HANDLER
       responses:
         '200':
           description: Successful response
@@ -649,7 +643,7 @@ paths:
   /bizproc.robot.delete:
     post:
       summary: Delete Registered Robot bizproc.robot.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method removes a robot registered by the application. It only works in the context of the application. When the application is deleted or updated, the associated robots are removed from the list of robots. If the robot is in use, it is blocked and can only be removed from the workflow. Upon reinstalling the application, the robot becomes available again.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `bizproc.robot.delete` method removes a robot registered by the application.'
       operationId: bizproc_robot_delete
       tags:
       - Business Processes
@@ -664,7 +658,7 @@ paths:
               properties:
                 CODE:
                   type: string
-                  description: '| Symbolic identifier of the application robot ||'
+                  description: '| Code of the robot that this application passed in `CODE` during registration. You can retrieve the codes using the bizproc.robot.list method ||'
               required:
               - CODE
           application/x-www-form-urlencoded:
@@ -673,7 +667,7 @@ paths:
               properties:
                 CODE:
                   type: string
-                  description: '| Symbolic identifier of the application robot ||'
+                  description: '| Code of the robot that this application passed in `CODE` during registration. You can retrieve the codes using the bizproc.robot.list method ||'
               required:
               - CODE
       responses:
@@ -696,7 +690,7 @@ paths:
   /bizproc.robot.list:
     post:
       summary: Get a list of registered application robots bizproc.robot.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method returns a list of robots registered by the application. It works only in the context of the application. No parameters.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `bizproc.robot.list` method returns a list of robots registered by the application.'
       operationId: bizproc_robot_list
       tags:
       - Business Processes
@@ -708,31 +702,9 @@ paths:
           application/json:
             schema:
               type: object
-              properties:
-                result:
-                  type: array
-                  items: {}
-                  description: '| List of application robot identifiers ||'
-                time:
-                  type: string
-                  description: '| Information about the request execution time ||'
-                Code:
-                  type: string
-                  description: '| Error Message | Description ||'
           application/x-www-form-urlencoded:
             schema:
               type: object
-              properties:
-                result:
-                  type: array
-                  items: {}
-                  description: '| List of application robot identifiers ||'
-                time:
-                  type: string
-                  description: '| Information about the request execution time ||'
-                Code:
-                  type: string
-                  description: '| Error Message | Description ||'
       responses:
         '200':
           description: Successful response
@@ -753,7 +725,7 @@ paths:
   /bizproc.robot.update:
     post:
       summary: Update Fields of the Automation Rule bizproc.robot.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method updates the fields of the Automation Rule registered by the application. It only works in the context of the application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `bizproc.robot.update` method updates the fields of the Automation Rule registered by the application.'
       operationId: bizproc_robot_update
       tags:
       - Business Processes
@@ -768,16 +740,16 @@ paths:
               properties:
                 CODE:
                   type: string
-                  description: '| Internal identifier of the Automation Rule ||'
+                  description: '| Code of the Automation Rule that this application passed in `CODE` during registration. You can retrieve the codes using the bizproc.robot.list method ||'
                 FIELDS:
                   type: object
                   description: '| Object with fields of the Automation Rule ||'
                 HANDLER:
                   type: string
-                  description: '| URL to which the Automation Rule will send data via the Bitrix24 queue server.'
+                  description: '| Handler URL to which Bitrix24 sends the Automation Rule data via the queue server.'
                 AUTH_USER_ID:
                   type: integer
-                  description: '| Identifier of the user whose token will be passed to the application ||'
+                  description: '| Identifier of the user whose token Bitrix24 passes to the handler by default. An administrator can select a different user in the Automation Rule settings ||'
                 USE_SUBSCRIPTION:
                   type: boolean
                   description: '| Should the Automation Rule wait for a response from the application? Possible values:'
@@ -799,14 +771,13 @@ paths:
                   description: '| Allows opening additional settings for the Automation Rule in the application slider. Possible values:'
                 PLACEMENT_HANDLER:
                   type: string
-                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                  description: '| URL of the placement handler on the application side. It is validated the same way as `HANDLER`.'
                 Type:
                   type: string
                   description: '| Type of the parameter. Basic values:'
                 Options:
-                  type: array
-                  items: {}
-                  description: '| Array of values for the parameter of type list `''TYPE'': select''` like:'
+                  type: object
+                  description: '| Options for a list-type parameter, `Type: ''select''`. The key is the option value, and the value is its title:'
                 Required:
                   type: boolean
                   description: '| Requirement of the parameter. Possible values:'
@@ -815,28 +786,26 @@ paths:
                   description: '| Multiplicity of the parameter. Possible values:'
                 Default:
                   type: string
-                  description: '| Default value of the parameter ||'
+                  description: '| Default value of the parameter. For `Type = ''select''`, specify the key from `Options` ||'
               required:
               - CODE
               - FIELDS
-              - HANDLER
-              - PLACEMENT_HANDLER
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 CODE:
                   type: string
-                  description: '| Internal identifier of the Automation Rule ||'
+                  description: '| Code of the Automation Rule that this application passed in `CODE` during registration. You can retrieve the codes using the bizproc.robot.list method ||'
                 FIELDS:
                   type: object
                   description: '| Object with fields of the Automation Rule ||'
                 HANDLER:
                   type: string
-                  description: '| URL to which the Automation Rule will send data via the Bitrix24 queue server.'
+                  description: '| Handler URL to which Bitrix24 sends the Automation Rule data via the queue server.'
                 AUTH_USER_ID:
                   type: integer
-                  description: '| Identifier of the user whose token will be passed to the application ||'
+                  description: '| Identifier of the user whose token Bitrix24 passes to the handler by default. An administrator can select a different user in the Automation Rule settings ||'
                 USE_SUBSCRIPTION:
                   type: boolean
                   description: '| Should the Automation Rule wait for a response from the application? Possible values:'
@@ -858,14 +827,13 @@ paths:
                   description: '| Allows opening additional settings for the Automation Rule in the application slider. Possible values:'
                 PLACEMENT_HANDLER:
                   type: string
-                  description: '| URL of the placement handler on the application side. Required if `USE_PLACEMENT = ''Y''` ||'
+                  description: '| URL of the placement handler on the application side. It is validated the same way as `HANDLER`.'
                 Type:
                   type: string
                   description: '| Type of the parameter. Basic values:'
                 Options:
-                  type: array
-                  items: {}
-                  description: '| Array of values for the parameter of type list `''TYPE'': select''` like:'
+                  type: object
+                  description: '| Options for a list-type parameter, `Type: ''select''`. The key is the option value, and the value is its title:'
                 Required:
                   type: boolean
                   description: '| Requirement of the parameter. Possible values:'
@@ -874,12 +842,10 @@ paths:
                   description: '| Multiplicity of the parameter. Possible values:'
                 Default:
                   type: string
-                  description: '| Default value of the parameter ||'
+                  description: '| Default value of the parameter. For `Type = ''select''`, specify the key from `Options` ||'
               required:
               - CODE
               - FIELDS
-              - HANDLER
-              - PLACEMENT_HANDLER
       responses:
         '200':
           description: Successful response
@@ -900,7 +866,7 @@ paths:
   /bizproc.task.complete:
     post:
       summary: Complete a business process task bizproc.task.complete
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method completes a business process task: - Document approval - Document acknowledgment'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method completes a business process task:'
       operationId: bizproc_task_complete
       tags:
       - Business Processes
@@ -959,7 +925,7 @@ paths:
   /bizproc.task.delegate:
     post:
       summary: Delegate a workflow task bizproc.task.delegate
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method delegates a workflow task. You can only delegate your own task. - Actions: Tasks'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method delegates a workflow task. You can only delegate your own task.'
       operationId: bizproc_task_delegate
       tags:
       - Business Processes
@@ -1024,7 +990,7 @@ paths:
   /bizproc.task.list:
     post:
       summary: Get a List of Workflow Tasks bizproc.task.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so the assistant can utilize the official REST documentation. The method `bizproc.task.list` retrieves a list of workflow tasks. A portal administrator can request all tasks or tasks of any user. A regular user can only request their own tasks or those of their subordinates. To request their own tasks, the `USER_ID` filter does not need to be specified.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `bizproc.task.list` retrieves a list of workflow tasks.'
       operationId: bizproc_task_list
       tags:
       - Business Processes
@@ -1087,7 +1053,7 @@ paths:
   /bizproc.workflow.instances:
     post:
       summary: Get a list of running workflows bizproc.workflow.instances
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves a list of running workflows. There is an old method `bizproc.workflow.instance.list` — an alias for the method `bizproc.workflow.instances`. It accepts the same parameters and returns the same results. Support for `bizproc.workflow.instance.list` is not guaranteed in the future, so we recommend using `bizproc.workflow.instances`.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method retrieves a list of running workflows.'
       operationId: bizproc_workflow_instances
       tags:
       - Business Processes
@@ -1150,7 +1116,7 @@ paths:
   /bizproc.workflow.kill:
     post:
       summary: Delete Running Process bizproc.workflow.kill
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes the running workflow along with all process data.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method deletes the running workflow along with all process data.'
       operationId: bizproc_workflow_kill
       tags:
       - Business Processes
@@ -1197,7 +1163,7 @@ paths:
   /bizproc.workflow.start:
     post:
       summary: Start Business Process bizproc.workflow.start
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect the MCP server so that the assistant can utilize the official REST documentation. The method `bizproc.workflow.start` initiates a new business process. You can only start a business process using REST on paid plans, demo licenses, and NFR licenses.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `bizproc.workflow.start` initiates a new business process.'
       operationId: bizproc_workflow_start
       tags:
       - Business Processes
@@ -1260,7 +1226,7 @@ paths:
   /bizproc.workflow.template.add:
     post:
       summary: Add Business Process Template bizproc.workflow.template.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method adds a business process template from a file. The business process template must be pre-configured. Export the completed template to a file with the `.bpt` extension. The resulting file can be added as a template to the desired Bitrix24. The method works only in the context of an application. The system binds the new template to the application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method adds a business process template from a file.'
       operationId: bizproc_workflow_template_add
       tags:
       - Business Processes
@@ -1337,7 +1303,7 @@ paths:
   /bizproc.workflow.template.delete:
     post:
       summary: Delete Business Process Template bizproc.workflow.template.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes a business process template. It allows you to remove templates that were created using the method bizproc.workflow.template.add. These templates are tied to the application and can only be deleted in the context of the same application in which they were created.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method deletes a business process template.'
       operationId: bizproc_workflow_template_delete
       tags:
       - Business Processes
@@ -1384,7 +1350,7 @@ paths:
   /bizproc.workflow.template.list:
     post:
       summary: Get the list of templates bizproc.workflow.template.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves a list of business process templates.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method retrieves a list of business process templates created in the workflow designer.'
       operationId: bizproc_workflow_template_list
       tags:
       - Business Processes
@@ -1420,7 +1386,7 @@ paths:
                   type: string
                   description: '| Identifier of the object by document. Possible values:'
                 DOCUMENT_TYPE:
-                  type: integer
+                  type: string
                   description: '| Document type. Possible values:'
                 AUTO_EXECUTE:
                   type: integer
@@ -1484,7 +1450,7 @@ paths:
                   type: string
                   description: '| Identifier of the object by document. Possible values:'
                 DOCUMENT_TYPE:
-                  type: integer
+                  type: string
                   description: '| Document type. Possible values:'
                 AUTO_EXECUTE:
                   type: integer
@@ -1541,7 +1507,7 @@ paths:
   /bizproc.workflow.template.update:
     post:
       summary: Update Business Process Template bizproc.workflow.template.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method updates a business process template. It allows you to update templates that were created using the bizproc.workflow.template.add method. These templates are tied to the application and can only be updated in the context of the same application that created them.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method updates a business process template.'
       operationId: bizproc_workflow_template_update
       tags:
       - Business Processes
@@ -1620,7 +1586,7 @@ paths:
   /bizproc.workflow.terminate:
     post:
       summary: Stop Active Workflow bizproc.workflow.terminate
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method stops the specified workflow. All data related to the workflow will be preserved.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method stops the specified workflow. All data related to the workflow will be preserved.'
       operationId: bizproc_workflow_terminate
       tags:
       - Business Processes
@@ -1687,6 +1653,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -1714,20 +1694,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

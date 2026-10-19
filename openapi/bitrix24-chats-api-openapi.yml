@@ -32,7 +32,7 @@ paths:
   /im.chat.add:
     post:
       summary: Create Chat im.chat.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.chat.add` creates a new chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.chat.add` creates a new chat.'
       operationId: im_chat_add
       tags:
       - Chats
@@ -131,7 +131,7 @@ paths:
   /im.chat.get:
     post:
       summary: Get Chat ID im.chat.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.chat.get` retrieves the chat ID.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.chat.get` retrieves the chat ID.'
       operationId: im_chat_get
       tags:
       - Chats
@@ -186,7 +186,7 @@ paths:
   /im.chat.leave:
     post:
       summary: Leave Chat im.chat.leave
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.chat.leave` removes the current user from the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.chat.leave` removes the current user from the chat.'
       operationId: im_chat_leave
       tags:
       - Chats
@@ -233,7 +233,7 @@ paths:
   /im.chat.mute:
     post:
       summary: Disable Notifications from Chat im.chat.mute
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.chat.mute` disables or enables notifications in the specified chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.chat.mute` disables or enables notifications in the specified chat.'
       operationId: im_chat_mute
       tags:
       - Chats
@@ -248,32 +248,26 @@ paths:
               properties:
                 CHAT_ID:
                   type: integer
-                  description: '| The identifier of the chat. You can obtain the identifier using the im.chat.get method ||'
+                  description: '| The identifier of the chat. Required if `DIALOG_ID` is not provided.'
                 DIALOG_ID:
                   type: string
                   description: '| The chat identifier in the format:'
                 MUTE:
                   type: string
                   description: '| Notification control:'
-              required:
-              - CHAT_ID
-              - DIALOG_ID
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 CHAT_ID:
                   type: integer
-                  description: '| The identifier of the chat. You can obtain the identifier using the im.chat.get method ||'
+                  description: '| The identifier of the chat. Required if `DIALOG_ID` is not provided.'
                 DIALOG_ID:
                   type: string
                   description: '| The chat identifier in the format:'
                 MUTE:
                   type: string
                   description: '| Notification control:'
-              required:
-              - CHAT_ID
-              - DIALOG_ID
       responses:
         '200':
           description: Successful response
@@ -294,7 +288,7 @@ paths:
   /im.chat.setOwner:
     post:
       summary: Change Chat Owner im.chat.setOwner
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.chat.setOwner` changes the owner of the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.chat.setOwner` changes the owner of the chat.'
       operationId: im_chat_setOwner
       tags:
       - Chats
@@ -309,7 +303,10 @@ paths:
               properties:
                 CHAT_ID:
                   type: integer
-                  description: '| Identifier of the chat.'
+                  description: '| Identifier of the chat. Pass a number without the `chat` prefix. Required if `DIALOG_ID` is not provided.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format `chatXXX`, where `XXX` is the chat identifier. Can be provided instead of `CHAT_ID`.'
                 USER_ID:
                   type: integer
                   description: '| Identifier of the new chat owner.'
@@ -322,7 +319,10 @@ paths:
               properties:
                 CHAT_ID:
                   type: integer
-                  description: '| Identifier of the chat.'
+                  description: '| Identifier of the chat. Pass a number without the `chat` prefix. Required if `DIALOG_ID` is not provided.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format `chatXXX`, where `XXX` is the chat identifier. Can be provided instead of `CHAT_ID`.'
                 USER_ID:
                   type: integer
                   description: '| Identifier of the new chat owner.'
@@ -349,7 +349,7 @@ paths:
   /im.chat.updateAvatar:
     post:
       summary: Update Chat Avatar im.chat.updateAvatar
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.chat.updateAvatar` updates the chat avatar.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.chat.updateAvatar` updates the chat avatar.'
       operationId: im_chat_updateAvatar
       tags:
       - Chats
@@ -364,7 +364,10 @@ paths:
               properties:
                 CHAT_ID:
                   type: integer
-                  description: '| Identifier of the chat.'
+                  description: '| Identifier of the chat. Pass a number without the `chat` prefix. Required if `DIALOG_ID` is not provided.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format `chatXXX`, where `XXX` is the chat identifier. Can be provided instead of `CHAT_ID`.'
                 AVATAR:
                   type: string
                   description: '| Image in Base64 format.'
@@ -377,7 +380,10 @@ paths:
               properties:
                 CHAT_ID:
                   type: integer
-                  description: '| Identifier of the chat.'
+                  description: '| Identifier of the chat. Pass a number without the `chat` prefix. Required if `DIALOG_ID` is not provided.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format `chatXXX`, where `XXX` is the chat identifier. Can be provided instead of `CHAT_ID`.'
                 AVATAR:
                   type: string
                   description: '| Image in Base64 format.'
@@ -404,7 +410,7 @@ paths:
   /im.chat.updateColor:
     post:
       summary: Change Chat Color im.chat.updateColor
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.chat.updateColor` updates the chat color for the mobile application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.chat.updateColor` updates the chat color for the mobile application.'
       operationId: im_chat_updateColor
       tags:
       - Chats
@@ -419,10 +425,13 @@ paths:
               properties:
                 CHAT_ID:
                   type: integer
-                  description: '| Identifier of the chat.'
+                  description: '| Identifier of the chat. Pass a number without the `chat` prefix. Required if `DIALOG_ID` is not provided.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format `chatXXX`, where `XXX` is the chat identifier. Can be provided instead of `CHAT_ID`.'
                 COLOR:
                   type: string
-                  description: '| Chat color for the mobile application. Possible values:'
+                  description: '| Chat color. It is displayed in the mobile application and wherever the chat has no avatar. Possible values:'
               required:
               - CHAT_ID
               - COLOR
@@ -432,10 +441,13 @@ paths:
               properties:
                 CHAT_ID:
                   type: integer
-                  description: '| Identifier of the chat.'
+                  description: '| Identifier of the chat. Pass a number without the `chat` prefix. Required if `DIALOG_ID` is not provided.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format `chatXXX`, where `XXX` is the chat identifier. Can be provided instead of `CHAT_ID`.'
                 COLOR:
                   type: string
-                  description: '| Chat color for the mobile application. Possible values:'
+                  description: '| Chat color. It is displayed in the mobile application and wherever the chat has no avatar. Possible values:'
               required:
               - CHAT_ID
               - COLOR
@@ -459,7 +471,7 @@ paths:
   /im.chat.updateTitle:
     post:
       summary: Update Chat Title im.chat.updateTitle
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.chat.updateTitle` updates the chat title.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.chat.updateTitle` updates the chat title.'
       operationId: im_chat_updateTitle
       tags:
       - Chats
@@ -474,7 +486,10 @@ paths:
               properties:
                 CHAT_ID:
                   type: integer
-                  description: '| Chat identifier.'
+                  description: '| Chat identifier. Pass a number without the `chat` prefix. Required if `DIALOG_ID` is not provided.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format `chatXXX`, where `XXX` is the chat identifier. Can be provided instead of `CHAT_ID`.'
                 TITLE:
                   type: string
                   description: '| Chat title.'
@@ -487,7 +502,10 @@ paths:
               properties:
                 CHAT_ID:
                   type: integer
-                  description: '| Chat identifier.'
+                  description: '| Chat identifier. Pass a number without the `chat` prefix. Required if `DIALOG_ID` is not provided.'
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the dialog in the format `chatXXX`, where `XXX` is the chat identifier. Can be provided instead of `CHAT_ID`.'
                 TITLE:
                   type: string
                   description: '| Chat title.'
@@ -514,7 +532,7 @@ paths:
   /im.chat.user.add:
     post:
       summary: Invite Participants to Chat im.chat.user.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.chat.user.add` adds users to a chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.chat.user.add` adds users to a chat.'
       operationId: im_chat_user_add
       tags:
       - Chats
@@ -577,7 +595,7 @@ paths:
   /im.chat.user.delete:
     post:
       summary: Exclude Participants from Chat im.chat.user.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.chat.user.delete` removes a user from the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.chat.user.delete` removes a user from the chat.'
       operationId: im_chat_user_delete
       tags:
       - Chats
@@ -632,7 +650,7 @@ paths:
   /im.chat.user.list:
     post:
       summary: Get Chat Participant IDs im.chat.user.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.chat.user.list` returns a list of chat participant IDs.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.chat.user.list` returns a list of chat participant IDs.'
       operationId: im_chat_user_list
       tags:
       - Chats
@@ -679,7 +697,7 @@ paths:
   /im.counters.get:
     post:
       summary: Get Counters im.counters.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.counters.get` retrieves the counters for unread messages and notifications for the current user.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.counters.get` retrieves the counters for unread messages and notifications for the current user.'
       operationId: im_counters_get
       tags:
       - Chats
@@ -714,7 +732,7 @@ paths:
   /im.department.colleagues.list:
     post:
       summary: Get the List of Colleagues for the Current User im.department.colleagues.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.department.colleagues.list` retrieves the list of colleagues for the current user. For a manager, the method will return a list of subordinates and all supervisors.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.department.colleagues.list` retrieves the list of colleagues for the current user. For a manager, the method will return a list of subordinates and all supervisors.'
       operationId: im_department_colleagues_list
       tags:
       - Chats
@@ -732,7 +750,7 @@ paths:
                   description: '| Return detailed user data.'
                 OFFSET:
                   type: integer
-                  description: '| Offset for user selection ||'
+                  description: '| Offset for user selection. Default is `0` ||'
                 LIMIT:
                   type: integer
                   description: '| Number of items in the selection. Default is `10`. Maximum value is `50` ||'
@@ -745,7 +763,7 @@ paths:
                   description: '| Return detailed user data.'
                 OFFSET:
                   type: integer
-                  description: '| Offset for user selection ||'
+                  description: '| Offset for user selection. Default is `0` ||'
                 LIMIT:
                   type: integer
                   description: '| Number of items in the selection. Default is `10`. Maximum value is `50` ||'
@@ -769,7 +787,7 @@ paths:
   /im.department.employees.get:
     post:
       summary: Get a List of Employees from Departments im.department.employees.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.department.employees.get` retrieves a list of employees from the specified departments.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.department.employees.get` retrieves a list of employees from the specified departments.'
       operationId: im_department_employees_get
       tags:
       - Chats
@@ -824,7 +842,7 @@ paths:
   /im.department.get:
     post:
       summary: Get Information About the Department im.department.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.department.get` retrieves data about departments by their `ID` identifiers.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.department.get` retrieves data about departments by their `ID` identifiers.'
       operationId: im_department_get
       tags:
       - Chats
@@ -879,7 +897,7 @@ paths:
   /im.department.managers.get:
     post:
       summary: Get a List of Department Managers im.department.managers.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.department.managers.get` retrieves a list of managers for the specified departments.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.department.managers.get` retrieves a list of managers for the specified departments.'
       operationId: im_department_managers_get
       tags:
       - Chats
@@ -934,7 +952,7 @@ paths:
   /im.dialog.get:
     post:
       summary: Get Chat Data im.dialog.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.dialog.get` retrieves information about a chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.dialog.get` retrieves information about a chat.'
       operationId: im_dialog_get
       tags:
       - Chats
@@ -980,8 +998,8 @@ paths:
         - im
   /im.dialog.messages.get:
     post:
-      summary: Get the List of Recent Messages im.dialog.messages.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.dialog.messages.get` retrieves messages from the specified dialog, including system messages. It does not support standard pagination due to the potential large volume of data. Messages can only be retrieved without participating in the chat for Open Line chats via the method imopenlines.session.history.get.
+      summary: Retrieve a List of Recent Messages im.dialog.messages.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `im.dialog.messages.get` method retrieves messages from the specified conversation, including system messages. It does not support standard pagination due to the potentially large volume of data.'
       operationId: im_dialog_messages_get
       tags:
       - Chats
@@ -999,13 +1017,13 @@ paths:
                   description: '| Identifier of the chat in the format:'
                 LAST_ID:
                   type: integer
-                  description: '| Identifier of the message older than which messages need to be loaded. The method will return messages with identifiers less than the specified one. ||'
+                  description: '| Message identifier relative to which older messages should be loaded. The method will return messages with an identifier smaller than the specified one.'
                 FIRST_ID:
                   type: integer
-                  description: '| Identifier of the message newer than which messages need to be loaded. The method will return messages with identifiers greater than the specified one.'
+                  description: '| Message identifier relative to which newer messages should be loaded. The method will return messages with an identifier larger than the specified one.'
                 LIMIT:
                   type: integer
-                  description: '| Limit on the number of messages in the response. If `LAST_ID` and `FIRST_ID` are not provided, the method will return the last N messages of the dialog specified in `LIMIT`.'
+                  description: '| Limit on the number of messages in the response. If `LAST_ID` and `FIRST_ID` are not provided — the method will return the latest messages of the dialogue, taking into account `LIMIT`.'
               required:
               - DIALOG_ID
           application/x-www-form-urlencoded:
@@ -1017,13 +1035,13 @@ paths:
                   description: '| Identifier of the chat in the format:'
                 LAST_ID:
                   type: integer
-                  description: '| Identifier of the message older than which messages need to be loaded. The method will return messages with identifiers less than the specified one. ||'
+                  description: '| Message identifier relative to which older messages should be loaded. The method will return messages with an identifier smaller than the specified one.'
                 FIRST_ID:
                   type: integer
-                  description: '| Identifier of the message newer than which messages need to be loaded. The method will return messages with identifiers greater than the specified one.'
+                  description: '| Message identifier relative to which newer messages should be loaded. The method will return messages with an identifier larger than the specified one.'
                 LIMIT:
                   type: integer
-                  description: '| Limit on the number of messages in the response. If `LAST_ID` and `FIRST_ID` are not provided, the method will return the last N messages of the dialog specified in `LIMIT`.'
+                  description: '| Limit on the number of messages in the response. If `LAST_ID` and `FIRST_ID` are not provided — the method will return the latest messages of the dialogue, taking into account `LIMIT`.'
               required:
               - DIALOG_ID
       responses:
@@ -1046,7 +1064,7 @@ paths:
   /im.dialog.messages.search:
     post:
       summary: Find Message in Chat im.dialog.messages.search
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.dialog.messages.search` performs a search for messages in the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.dialog.messages.search` performs a search for messages in the chat.'
       operationId: im_dialog_messages_search
       tags:
       - Chats
@@ -1131,7 +1149,7 @@ paths:
   /im.dialog.read:
     post:
       summary: Set the "read" flag for messages im.dialog.read
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.dialog.read` sets the "read" flag for dialog messages up to and including the specified message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.dialog.read` sets the "read" flag for dialog messages up to and including the specified message.'
       operationId: im_dialog_read
       tags:
       - Chats
@@ -1184,7 +1202,7 @@ paths:
   /im.dialog.read.all:
     post:
       summary: Set the "read" flag for all chats im.dialog.read.all
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.dialog.read.all` sets the "read" flag for all chats of the current user.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.dialog.read.all` sets the "read" flag for all chats of the current user.'
       operationId: im_dialog_read_all
       tags:
       - Chats
@@ -1219,7 +1237,7 @@ paths:
   /im.dialog.unread:
     post:
       summary: Set the "unread" flag for messages im.dialog.unread
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.dialog.unread` sets the "unread" flag for messages in a dialog starting from the specified message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.dialog.unread` sets the "unread" flag for messages in a dialog starting from the specified message.'
       operationId: im_dialog_unread
       tags:
       - Chats
@@ -1274,7 +1292,7 @@ paths:
   /im.dialog.users.list:
     post:
       summary: Get the List of Participants im.dialog.users.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.dialog.users.list` returns detailed information about the participants in the dialog with pagination support.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.dialog.users.list` returns detailed information about the participants in the dialog with pagination support.'
       operationId: im_dialog_users_list
       tags:
       - Chats
@@ -1351,7 +1369,7 @@ paths:
   /im.dialog.writing:
     post:
       summary: Send "User is typing" indicator im.dialog.writing
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.dialog.writing` sends a "User is typing" indicator to the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.dialog.writing` sends a "User is typing" indicator to the chat.'
       operationId: im_dialog_writing
       tags:
       - Chats
@@ -1398,7 +1416,7 @@ paths:
   /im.disk.file.commit:
     post:
       summary: Add File to Chat im.disk.file.commit
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.disk.file.commit` adds a file to a chat. To add a file, specify: - one of the chat identifier parameters — `CHAT_ID` or `DIALOG_ID`'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method is kept to support existing integrations. For new development, use im.v2.File.upload: it uploads a file to the chat in a single call, without uploading the file through Drive methods first.'
       operationId: im_disk_file_commit
       tags:
       - Chats
@@ -1487,7 +1505,7 @@ paths:
   /im.disk.file.delete:
     post:
       summary: Delete File from Chat Folder im.disk.file.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.disk.file.delete` removes a file from the chat folder. Only the user—who is a participant in the chat and sent the file—can delete it. Other chat participants cannot delete the file. After deletion, the text *Message deleted* is displayed in the chat instead of the file.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method belongs to the `im.disk.*` group of the previous generation of the messenger API. It has no replacement in `im.v2` yet — use this method.'
       operationId: im_disk_file_delete
       tags:
       - Chats
@@ -1542,7 +1560,7 @@ paths:
   /im.disk.file.save:
     post:
       summary: Save File to Your Drive im.disk.file.save
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.disk.file.save` saves a file from the chat to the user's personal Drive. The file is saved in the *Saved Files* folder. If the folder does not exist, the system will create it automatically.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method belongs to the `im.disk.*` group of the previous generation of the messenger API. It has no replacement in `im.v2` yet — use this method.'
       operationId: im_disk_file_save
       tags:
       - Chats
@@ -1589,7 +1607,7 @@ paths:
   /im.disk.folder.get:
     post:
       summary: Get Chat File Storage Folder im.disk.folder.get
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.disk.folder.get` retrieves the identifier of the folder where chat files are stored. The identifier from the response can be used in Drive methods: - disk.folder.uploadfile to upload a file to the chat folder'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method is kept to support existing integrations. To upload a file to a chat, the folder is no longer needed — use im.v2.File.upload.'
       operationId: im_disk_folder_get
       tags:
       - Chats
@@ -1644,7 +1662,7 @@ paths:
   /im.message.add:
     post:
       summary: Send Message im.message.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.message.add` sends a message to a chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.message.add` sends a message to a chat.'
       operationId: im_message_add
       tags:
       - Chats
@@ -1729,7 +1747,7 @@ paths:
   /im.message.command:
     post:
       summary: Execute the chat-bot command im.message.command
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.message.command` executes a chat-bot command in the context of a message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.message.command` executes a chat-bot command in the context of a message.'
       operationId: im_message_command
       tags:
       - Chats
@@ -1798,7 +1816,7 @@ paths:
   /im.message.delete:
     post:
       summary: Delete Message im.message.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.message.delete` removes a message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.message.delete` removes a message.'
       operationId: im_message_delete
       tags:
       - Chats
@@ -1845,7 +1863,7 @@ paths:
   /im.message.like:
     post:
       summary: Change Status to "Like" im.message.like
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.message.like` sets or removes the "Like" mark for a message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.message.like` sets or removes the "Like" mark for a message.'
       operationId: im_message_like
       tags:
       - Chats
@@ -1898,7 +1916,7 @@ paths:
   /im.message.share:
     post:
       summary: Create an Object Based on the Message im.message.share
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.message.share` creates an object based on a message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.message.share` creates an object based on a message.'
       operationId: im_message_share
       tags:
       - Chats
@@ -1961,7 +1979,7 @@ paths:
   /im.message.update:
     post:
       summary: Update Message im.message.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.message.update` modifies the text and parameters of an already sent message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.message.update` modifies the text and parameters of an already sent message.'
       operationId: im_message_update
       tags:
       - Chats
@@ -2038,7 +2056,7 @@ paths:
   /im.notify:
     post:
       summary: Send Notification im.notify
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `im.notify` method sends a notification to a user. The method is only available when called through the application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `im.notify` method sends a notification to a user.'
       operationId: im_notify
       tags:
       - Chats
@@ -2071,6 +2089,9 @@ paths:
                   description: '| An additional notification tag without uniqueness checks. Pass it with `CLIENT_ID` when calling via webhook. ||'
                 ATTACH:
                   type: object
+                CLIENT_ID:
+                  type: string
+                  description: '| The application identifier. The parameter is required only when calling via a webhook: pass it together with `TAG` and `SUB_TAG` ||'
               required:
               - USER_ID
               - MESSAGE
@@ -2098,6 +2119,9 @@ paths:
                   description: '| An additional notification tag without uniqueness checks. Pass it with `CLIENT_ID` when calling via webhook. ||'
                 ATTACH:
                   type: object
+                CLIENT_ID:
+                  type: string
+                  description: '| The application identifier. The parameter is required only when calling via a webhook: pass it together with `TAG` and `SUB_TAG` ||'
               required:
               - USER_ID
               - MESSAGE
@@ -2121,7 +2145,7 @@ paths:
   /im.notify.answer:
     post:
       summary: Responding to Notifications with Quick Response im.notify.answer
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.notify.answer` sends a text quick response to a notification.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.notify.answer` sends a text quick response to a notification.'
       operationId: im_notify_answer
       tags:
       - Chats
@@ -2176,7 +2200,7 @@ paths:
   /im.notify.confirm:
     post:
       summary: Interacting with Notification Buttons im.notify.confirm
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.notify.confirm` sends the selected value of the notification button.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.notify.confirm` sends the selected value of the notification button.'
       operationId: im_notify_confirm
       tags:
       - Chats
@@ -2231,7 +2255,7 @@ paths:
   /im.notify.delete:
     post:
       summary: Delete Notification im.notify.delete
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.notify.delete` removes a notification by `ID` or by tags `TAG` and `SUB_TAG`. You must provide one of three parameters: `ID`, `TAG`, or `SUB_TAG`.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.notify.delete` removes a notification by `ID` or by tags `TAG` and `SUB_TAG`.'
       operationId: im_notify_delete
       tags:
       - Chats
@@ -2246,40 +2270,32 @@ paths:
               properties:
                 ID:
                   type: integer
-                  description: '| Identifier of the notification to be deleted ||'
+                  description: '| Identifier of the notification to be deleted.'
                 TAG:
                   type: string
-                  description: '| Unique tag of the notification within the application. Only notifications from the current application are deleted ||'
+                  description: '| Unique tag of the notification within the application. Only notifications from the current application are deleted.'
                 SUB_TAG:
                   type: string
-                  description: '| Additional tag of the notification. Only notifications from the current application are deleted ||'
+                  description: '| Additional tag of the notification. Only notifications from the current application are deleted.'
                 CLIENT_ID:
                   type: string
                   description: '| This parameter is required only for webhooks. Pass the same `CLIENT_ID` that was specified during the chat bot registration ||'
-              required:
-              - ID
-              - TAG
-              - SUB_TAG
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 ID:
                   type: integer
-                  description: '| Identifier of the notification to be deleted ||'
+                  description: '| Identifier of the notification to be deleted.'
                 TAG:
                   type: string
-                  description: '| Unique tag of the notification within the application. Only notifications from the current application are deleted ||'
+                  description: '| Unique tag of the notification within the application. Only notifications from the current application are deleted.'
                 SUB_TAG:
                   type: string
-                  description: '| Additional tag of the notification. Only notifications from the current application are deleted ||'
+                  description: '| Additional tag of the notification. Only notifications from the current application are deleted.'
                 CLIENT_ID:
                   type: string
                   description: '| This parameter is required only for webhooks. Pass the same `CLIENT_ID` that was specified during the chat bot registration ||'
-              required:
-              - ID
-              - TAG
-              - SUB_TAG
       responses:
         '200':
           description: Successful response
@@ -2300,7 +2316,7 @@ paths:
   /im.notify.get:
     post:
       summary: Get Notifications im.notify.get
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.notify.get` returns a list of user notifications in parts. The next part is requested using `LAST_ID` and `LAST_TYPE`. Notification sorting: first by descending creation date, then by descending identifiers.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.notify.get` returns a list of user notifications in parts. The next part is requested using `LAST_ID` and `LAST_TYPE`.'
       operationId: im_notify_get
       tags:
       - Chats
@@ -2361,7 +2377,7 @@ paths:
   /im.notify.history.search:
     post:
       summary: Searching Notification History im.notify.history.search
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.notify.history.search` performs a search through the user's notification history. Notifications are sorted first by descending creation date, then by descending identifiers.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.notify.history.search` performs a search through the user''s notification history.'
       operationId: im_notify_history_search
       tags:
       - Chats
@@ -2468,7 +2484,7 @@ paths:
   /im.notify.personal.add:
     post:
       summary: Send Personal Notification im.notify.personal.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.notify.personal.add` sends a personal notification on behalf of the current user. The method is only available when called through an application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.notify.personal.add` sends a personal notification on behalf of the current user.'
       operationId: im_notify_personal_add
       tags:
       - Chats
@@ -2498,6 +2514,9 @@ paths:
                   description: '| An additional tag for the notification without uniqueness checks. Pass with `CLIENT_ID` when calling via webhook ||'
                 ATTACH:
                   type: object
+                CLIENT_ID:
+                  type: string
+                  description: '| The application identifier. The parameter is required only when calling via a webhook: pass it together with `TAG` and `SUB_TAG` ||'
               required:
               - USER_ID
               - MESSAGE
@@ -2522,6 +2541,9 @@ paths:
                   description: '| An additional tag for the notification without uniqueness checks. Pass with `CLIENT_ID` when calling via webhook ||'
                 ATTACH:
                   type: object
+                CLIENT_ID:
+                  type: string
+                  description: '| The application identifier. The parameter is required only when calling via a webhook: pass it together with `TAG` and `SUB_TAG` ||'
               required:
               - USER_ID
               - MESSAGE
@@ -2545,7 +2567,7 @@ paths:
   /im.notify.read:
     post:
       summary: Read or Mark Notification as Unread im.notify.read
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.notify.read` marks a notification or all notifications as read or unread based on the specified parameters.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.notify.read` marks a notification or all notifications as read or unread based on the specified parameters.'
       operationId: im_notify_read
       tags:
       - Chats
@@ -2600,7 +2622,7 @@ paths:
   /im.notify.read.all:
     post:
       summary: Read All Notifications im.notify.read.all
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.notify.read.all` marks all notifications of the current user as read.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.notify.read.all` marks all notifications of the current user as read.'
       operationId: im_notify_read_all
       tags:
       - Chats
@@ -2635,7 +2657,7 @@ paths:
   /im.notify.read.list:
     post:
       summary: Read the list of notifications im.notify.read.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.notify.read.list` marks a list of notifications as read or unread.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.notify.read.list` marks a list of notifications as read or unread.'
       operationId: im_notify_read_list
       tags:
       - Chats
@@ -2690,7 +2712,7 @@ paths:
   /im.notify.schema.get:
     post:
       summary: Get Notification Type Schema im.notify.schema.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.notify.schema.get` returns the schema of available notification types by modules.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.notify.schema.get` returns the schema of available notification types by modules.'
       operationId: im_notify_schema_get
       tags:
       - Chats
@@ -2725,7 +2747,7 @@ paths:
   /im.notify.system.add:
     post:
       summary: Send System Notification im.notify.system.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.notify.system.add` sends a system notification to a user. The method is only available when called through an application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.notify.system.add` sends a system notification to a user.'
       operationId: im_notify_system_add
       tags:
       - Chats
@@ -2755,6 +2777,9 @@ paths:
                   description: '| An additional notification tag without uniqueness checks. Pass with `CLIENT_ID` when calling via webhook. ||'
                 ATTACH:
                   type: object
+                CLIENT_ID:
+                  type: string
+                  description: '| The application identifier. The parameter is required only when calling via a webhook: pass it together with `TAG` and `SUB_TAG` ||'
               required:
               - USER_ID
               - MESSAGE
@@ -2779,6 +2804,9 @@ paths:
                   description: '| An additional notification tag without uniqueness checks. Pass with `CLIENT_ID` when calling via webhook. ||'
                 ATTACH:
                   type: object
+                CLIENT_ID:
+                  type: string
+                  description: '| The application identifier. The parameter is required only when calling via a webhook: pass it together with `TAG` and `SUB_TAG` ||'
               required:
               - USER_ID
               - MESSAGE
@@ -2799,63 +2827,10 @@ paths:
       - AccessToken: []
       - OAuth2:
         - im
-  /im.recent:
-    post:
-      summary: Pin a Chat at the Top of the im.recent List
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.recent.pin` pins or unpins a conversation at the top of the user's chat list.
-      operationId: im_recent
-      tags:
-      - Chats
-      externalDocs:
-        url: https://apidocs.bitrix24.com/api-reference/chats/special-operations/im-recent-pin.html
-        description: Official Documentation
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                DIALOG_ID:
-                  type: string
-                  description: '| Identifier of the chat in the format:'
-                PIN:
-                  type: string
-                  description: '| Pin or unpin the conversation:'
-              required:
-              - DIALOG_ID
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                DIALOG_ID:
-                  type: string
-                  description: '| Identifier of the chat in the format:'
-                PIN:
-                  type: string
-                  description: '| Pin or unpin the conversation:'
-              required:
-              - DIALOG_ID
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BitrixResponse'
-        4XX:
-          description: Request error (400, 401, 403)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BitrixError'
-      security:
-      - AccessToken: []
-      - OAuth2:
-        - im
   /im.recent.get:
     post:
       summary: Get a Shortened List of Recent Chats im.recent.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.recent.get` retrieves a list of the user's recent chats.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.recent.get` retrieves a list of the user''s recent chats.'
       operationId: im_recent_get
       tags:
       - Chats
@@ -2932,7 +2907,7 @@ paths:
   /im.recent.hide:
     post:
       summary: Remove Chat from the Recent List im.recent.hide
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.recent.hide` removes a dialog from the list of recent chats for the current user. You can retrieve the list of recent chats using the im.recent.get method.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.recent.hide` removes a dialog from the list of recent chats for the current user.'
       operationId: im_recent_hide
       tags:
       - Chats
@@ -2979,7 +2954,7 @@ paths:
   /im.recent.list:
     post:
       summary: Get the List of Chats im.recent.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.recent.list` retrieves a list of the user's recent conversations with pagination support.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.recent.list` retrieves a list of the user''s recent conversations with pagination support.'
       operationId: im_recent_list
       tags:
       - Chats
@@ -3019,10 +2994,63 @@ paths:
       - AccessToken: []
       - OAuth2:
         - im
+  /im.recent.pin:
+    post:
+      summary: Pin a Chat at the Top of the List im.recent.pin
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.recent.pin` pins or unpins a conversation at the top of the user''s chat list.'
+      operationId: im_recent_pin
+      tags:
+      - Chats
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/chats/special-operations/im-recent-pin.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                PIN:
+                  type: string
+                  description: '| Pin or unpin the conversation:'
+              required:
+              - DIALOG_ID
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                DIALOG_ID:
+                  type: string
+                  description: '| Identifier of the chat in the format:'
+                PIN:
+                  type: string
+                  description: '| Pin or unpin the conversation:'
+              required:
+              - DIALOG_ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - im
   /im.recent.unread:
     post:
       summary: Set or Remove the "Read" Flag for the Chat im.recent.unread
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.recent.unread` sets or removes the "read" flag for the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.recent.unread` sets or removes the "read" flag for the chat.'
       operationId: im_recent_unread
       tags:
       - Chats
@@ -3075,7 +3103,7 @@ paths:
   /im.revision.get:
     post:
       summary: Get API Revisions im.revision.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.revision.get` returns the API revisions of the IM module for the current Bitrix24. Use the revision values to check the compatibility of the client with the Bitrix24 server, especially on on-premise accounts where the module version may differ from the current one.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.revision.get` returns the API revisions of the IM module for the current Bitrix24.'
       operationId: im_revision_get
       tags:
       - Chats
@@ -3110,7 +3138,7 @@ paths:
   /im.search.chat.list:
     post:
       summary: Find Chats im.search.chat.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.search.chat.list` performs a search for chats that the current user has access to. The search is conducted based on the title, first name, and last name of chat participants. Results are sorted in descending order of identifiers.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.search.chat.list` performs a search for chats that the current user has access to. The search is conducted based on the title, first name, and last name of chat participants.'
       operationId: im_search_chat_list
       tags:
       - Chats
@@ -3125,10 +3153,10 @@ paths:
               properties:
                 FIND:
                   type: string
-                  description: '| Search phrase for querying indexed chat data. The minimum number of characters for a search is `3` ||'
+                  description: '| Search phrase for querying indexed chat data. The minimum number of characters for a search is `2` ||'
                 FIND_LINES:
                   type: string
-                  description: '| Search phrase for finding chats among Open Channels. The minimum number of characters for a search is `3` ||'
+                  description: '| Search phrase for finding chats among Open Channels. The minimum number of characters for a search is `2` ||'
                 OFFSET:
                   type: integer
                   description: '| Offset for the chat sample. Default is `0` ||'
@@ -3141,10 +3169,10 @@ paths:
               properties:
                 FIND:
                   type: string
-                  description: '| Search phrase for querying indexed chat data. The minimum number of characters for a search is `3` ||'
+                  description: '| Search phrase for querying indexed chat data. The minimum number of characters for a search is `2` ||'
                 FIND_LINES:
                   type: string
-                  description: '| Search phrase for finding chats among Open Channels. The minimum number of characters for a search is `3` ||'
+                  description: '| Search phrase for finding chats among Open Channels. The minimum number of characters for a search is `2` ||'
                 OFFSET:
                   type: integer
                   description: '| Offset for the chat sample. Default is `0` ||'
@@ -3171,7 +3199,7 @@ paths:
   /im.search.department.list:
     post:
       summary: Find Departments im.search.department.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.search.department.list` performs a search for departments by their full name.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.search.department.list` performs a search for departments by their full name.'
       operationId: im_search_department_list
       tags:
       - Chats
@@ -3186,7 +3214,7 @@ paths:
               properties:
                 FIND:
                   type: string
-                  description: '| Search phrase for finding the full name of the department (field full_name) ||'
+                  description: '| Search phrase for finding the beginning of words in the full name of the department (field full_name).'
                 USER_DATA:
                   type: string
                   description: '| Return the manager''s data in the field manager_user_data.'
@@ -3204,7 +3232,7 @@ paths:
               properties:
                 FIND:
                   type: string
-                  description: '| Search phrase for finding the full name of the department (field full_name) ||'
+                  description: '| Search phrase for finding the beginning of words in the full name of the department (field full_name).'
                 USER_DATA:
                   type: string
                   description: '| Return the manager''s data in the field manager_user_data.'
@@ -3236,7 +3264,7 @@ paths:
   /im.search.last.add:
     post:
       summary: Add Entry to Search History im.search.last.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.search.last.add` adds a dialog to the last search history. This method was designed for the previous version of the chat. In the current M1 chat version, it works, but the results are not displayed in the interface.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method was designed for the previous version of the chat and is kept only to support existing integrations. In the current M1 chat version, it works, but the result is not displayed in the interface. There is no replacement in the current version.'
       operationId: im_search_last_add
       tags:
       - Chats
@@ -3283,7 +3311,7 @@ paths:
   /im.search.last.delete:
     post:
       summary: Delete Record from Search History im.search.last.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.search.last.delete` removes a dialog from the last search history. This method was designed for the previous version of the chat. In the current version of the chat M1, it works, but the results are not displayed in the interface.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method was designed for the previous version of the chat and is kept only to support existing integrations. In the current M1 chat version, it works, but the result is not displayed in the interface. There is no replacement in the current version.'
       operationId: im_search_last_delete
       tags:
       - Chats
@@ -3330,7 +3358,7 @@ paths:
   /im.search.last.get:
     post:
       summary: Get Search History im.search.last.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.search.last.get` returns a list of dialogs from the history of the last search. This method was designed for the previous version of the chat. In the current M1 chat version, it works, but the results are not displayed in the interface.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method was designed for the previous version of the chat and is kept only to support existing integrations. In the current M1 chat version, it works, but the result is not displayed in the interface. There is no replacement in the current version.'
       operationId: im_search_last_get
       tags:
       - Chats
@@ -3385,7 +3413,7 @@ paths:
   /im.search.user.list:
     post:
       summary: Find Users im.search.user.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.search.user.list` allows you to search for users by first name, last name, job title, and department.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.search.user.list` allows you to search for users by first name, last name, job title, and department.'
       operationId: im_search_user_list
       tags:
       - Chats
@@ -3400,7 +3428,7 @@ paths:
               properties:
                 FIND:
                   type: string
-                  description: '| Search phrase. The minimum number of characters for the search is `3` ||'
+                  description: '| Search phrase. The minimum number of characters for the search is `2` ||'
                 BUSINESS:
                   type: string
                   description: '| Search only among business users.'
@@ -3418,7 +3446,7 @@ paths:
               properties:
                 FIND:
                   type: string
-                  description: '| Search phrase. The minimum number of characters for the search is `3` ||'
+                  description: '| Search phrase. The minimum number of characters for the search is `2` ||'
                 BUSINESS:
                   type: string
                   description: '| Search only among business users.'
@@ -3450,7 +3478,7 @@ paths:
   /im.user.get:
     post:
       summary: Get User Data im.user.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.user.get` retrieves data about the current user or a user by `ID`.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.user.get` retrieves data about the current user or a user by `ID`.'
       operationId: im_user_get
       tags:
       - Chats
@@ -3499,7 +3527,7 @@ paths:
   /im.user.list.get:
     post:
       summary: Get User Data with im.user.list.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.user.list.get` returns data about users based on a list of identifiers. If the current user is an extranet user, the method will return data only for users from their extranet groups. User identifiers outside these groups will be skipped without error.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.user.list.get` returns data about users based on a list of identifiers.'
       operationId: im_user_list_get
       tags:
       - Chats
@@ -3558,7 +3586,7 @@ paths:
   /im.user.status.get:
     post:
       summary: Get User Status im.user.status.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.user.status.get` returns the status of the current user. The method returns the status that was set using the im.user.status.set method.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.user.status.get` returns the status of the current user.'
       operationId: im_user_status_get
       tags:
       - Chats
@@ -3593,7 +3621,7 @@ paths:
   /im.user.status.idle.end:
     post:
       summary: Disable Automatic Status "Away" im.user.status.idle.end
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.user.status.idle.end` disables the automatic "Away" status for the current user. This method was designed for the previous version of the chat. In the current version of the chat M1, it works, but the results are not displayed in the interface. - Bitrix24 Chat: New Messenger'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.user.status.idle.end` disables the automatic "Away" status for the current user.'
       operationId: im_user_status_idle_end
       tags:
       - Chats
@@ -3628,7 +3656,7 @@ paths:
   /im.user.status.idle.start:
     post:
       summary: Enable Automatic Status "Away" im.user.status.idle.start
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.user.status.idle.start` enables the automatic status "Away" for the current user. This method was designed for the previous version of the chat. In the current M1 chat version, it works, but the results are not displayed in the interface. - Bitrix24 Chat: New Messenger'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.user.status.idle.start` enables the automatic status "Away" for the current user.'
       operationId: im_user_status_idle_start
       tags:
       - Chats
@@ -3671,7 +3699,7 @@ paths:
   /im.user.status.set:
     post:
       summary: Set User Status im.user.status.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.user.status.set` sets the current user's status. To check the current status, use the method im.user.status.get.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.user.status.set` sets the current user''s status.'
       operationId: im_user_status_set
       tags:
       - Chats
@@ -3718,7 +3746,7 @@ paths:
   /imbot.app.register:
     post:
       summary: Register a Chat Application imbot.app.register
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.app.register` registers a chat application. Applications are divided into two types: JS command and IFRAME application.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.app.register` registers a chat application.'
       operationId: imbot_app_register
       tags:
       - Chats
@@ -3821,7 +3849,7 @@ paths:
   /imbot.app.unregister:
     post:
       summary: Unregister Chat Application imbot.app.unregister
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.app.unregister` removes the application from the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.app.unregister` removes the application from the chat.'
       operationId: imbot_app_unregister
       tags:
       - Chats
@@ -3870,7 +3898,7 @@ paths:
   /imbot.app.update:
     post:
       summary: Update Application Data in Chat imbot.app.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.app.update` updates application data in the chat. The required fields are the application ID and one of the necessary fields for editing. If both JS and IFRAME methods are specified in one command, only JS will be used.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.app.update` updates application data in the chat.'
       operationId: imbot_app_update
       tags:
       - Chats
@@ -4009,6 +4037,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -4036,20 +4078,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

@@ -1,0 +1,1579 @@
+openapi: 3.2.0
+info:
+  title: Bitrix24 REST Mail API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Mail
+paths:
+  /mail.mailbox.field.get:
+    post:
+      summary: Get mailbox field mail.mailbox.field.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_mailbox_field_get
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/mailbox/mail-mailbox-field-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be obtained.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| A list of description fields that should be returned in the response.'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be obtained.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| A list of description fields that should be returned in the response.'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.mailbox.field.list:
+    post:
+      summary: Get a list of mailbox fields mail.mailbox.field.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_mailbox_field_list
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/mailbox/mail-mailbox-field-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields that need to be returned in the response.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields that need to be returned in the response.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.mailbox.get:
+    post:
+      summary: Get mailbox mail.mailbox.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_mailbox_get
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/mailbox/mail-mailbox-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Mailbox identifier.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| A list of mailbox fields to be returned.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Mailbox identifier.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| A list of mailbox fields to be returned.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.mailbox.list:
+    post:
+      summary: Get a list of mailboxes mail.mailbox.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_mailbox_list
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/mailbox/mail-mailbox-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| Mailbox name fragment for filtering ||'
+                email:
+                  type: string
+                  description: '| Email fragment for filtering ||'
+                pagination:
+                  type: object
+                  description: '| Pagination parameters:'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| Mailbox name fragment for filtering ||'
+                email:
+                  type: string
+                  description: '| Email fragment for filtering ||'
+                pagination:
+                  type: object
+                  description: '| Pagination parameters:'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.mailbox.senders:
+    post:
+      summary: Get senders mail.mailbox.senders
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_mailbox_senders
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/mailbox/mail-mailbox-senders.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pagination:
+                  type: object
+                  description: '| Pagination parameters:'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                pagination:
+                  type: object
+                  description: '| Pagination parameters:'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.createcalendarevent:
+    post:
+      summary: Create a calendar event from an e-mail mail.message.createcalendarevent
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_createcalendarevent
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-createcalendarevent.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageId:
+                  type: integer
+                  description: '| E-mail identifier.'
+                dateFrom:
+                  type: string
+                  description: '| Event start date and time in `Y-m-d H:i:s` format, for example `2026-04-15 10:00:00` ||'
+                dateTo:
+                  type: string
+                  description: '| Event end date and time in `Y-m-d H:i:s` format, for example `2026-04-15 11:00:00` ||'
+                name:
+                  type: string
+                  description: '| Event name.'
+                description:
+                  type: string
+                  description: '| Event description ||'
+              required:
+              - messageId
+              - dateFrom
+              - dateTo
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                messageId:
+                  type: integer
+                  description: '| E-mail identifier.'
+                dateFrom:
+                  type: string
+                  description: '| Event start date and time in `Y-m-d H:i:s` format, for example `2026-04-15 10:00:00` ||'
+                dateTo:
+                  type: string
+                  description: '| Event end date and time in `Y-m-d H:i:s` format, for example `2026-04-15 11:00:00` ||'
+                name:
+                  type: string
+                  description: '| Event name.'
+                description:
+                  type: string
+                  description: '| Event description ||'
+              required:
+              - messageId
+              - dateFrom
+              - dateTo
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.createchat:
+    post:
+      summary: Create a chat from e-mail mail.message.createchat
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_createchat
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-createchat.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageId:
+                  type: integer
+                  description: '| E-mail identifier.'
+              required:
+              - messageId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                messageId:
+                  type: integer
+                  description: '| E-mail identifier.'
+              required:
+              - messageId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.createcrmactivity:
+    post:
+      summary: Create a CRM activity from an e-mail mail.message.createcrmactivity
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_createcrmactivity
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-createcrmactivity.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageId:
+                  type: integer
+                  description: '| E-mail identifier.'
+              required:
+              - messageId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                messageId:
+                  type: integer
+                  description: '| E-mail identifier.'
+              required:
+              - messageId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.createfeedpost:
+    post:
+      summary: Create a News Feed message from e-mail mail.message.createfeedpost
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_createfeedpost
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-createfeedpost.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageId:
+                  type: integer
+                  description: '| E-mail identifier.'
+                title:
+                  type: string
+                  description: '| Message subject.'
+              required:
+              - messageId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                messageId:
+                  type: integer
+                  description: '| E-mail identifier.'
+                title:
+                  type: string
+                  description: '| Message subject.'
+              required:
+              - messageId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.createtask:
+    post:
+      summary: Create a task from an e-mail mail.message.createtask
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_createtask
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-createtask.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageId:
+                  type: integer
+                  description: '| E-mail identifier.'
+                title:
+                  type: string
+                  description: '| Task name.'
+                responsibleId:
+                  type: integer
+                  description: '| Responsible person identifier.'
+                description:
+                  type: string
+                  description: '| Task description ||'
+              required:
+              - messageId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                messageId:
+                  type: integer
+                  description: '| E-mail identifier.'
+                title:
+                  type: string
+                  description: '| Task name.'
+                responsibleId:
+                  type: integer
+                  description: '| Responsible person identifier.'
+                description:
+                  type: string
+                  description: '| Task description ||'
+              required:
+              - messageId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.field.get:
+    post:
+      summary: Get e-mail field mail.message.field.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_field_get
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-field-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| Name of the field whose description needs to be obtained.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields that need to be returned in the response.'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| Name of the field whose description needs to be obtained.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields that need to be returned in the response.'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.field.list:
+    post:
+      summary: Get a list of email fields mail.message.field.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_field_list
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-field-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields that need to be returned in the response.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields that need to be returned in the response.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.forward:
+    post:
+      summary: Forward e-mail mail.message.forward
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_forward
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-forward.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                forwardMessageId:
+                  type: integer
+                  description: '| Identifier of the e-mail to be forwarded.'
+                from:
+                  type: string
+                  description: '| Sender''s e-mail.'
+                to:
+                  type: array
+                  items: {}
+                  description: '| An array of recipient e-mail addresses ||'
+                subject:
+                  type: string
+                  description: '| E-mail subject ||'
+                body:
+                  type: string
+                  description: '| E-mail text: plain text or basic HTML ||'
+                cc:
+                  type: array
+                  items: {}
+                  description: '| An array of CC recipient e-mail addresses ||'
+                bcc:
+                  type: array
+                  items: {}
+                  description: '| An array of BCC recipient e-mail addresses ||'
+              required:
+              - forwardMessageId
+              - from
+              - to
+              - subject
+              - body
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                forwardMessageId:
+                  type: integer
+                  description: '| Identifier of the e-mail to be forwarded.'
+                from:
+                  type: string
+                  description: '| Sender''s e-mail.'
+                to:
+                  type: array
+                  items: {}
+                  description: '| An array of recipient e-mail addresses ||'
+                subject:
+                  type: string
+                  description: '| E-mail subject ||'
+                body:
+                  type: string
+                  description: '| E-mail text: plain text or basic HTML ||'
+                cc:
+                  type: array
+                  items: {}
+                  description: '| An array of CC recipient e-mail addresses ||'
+                bcc:
+                  type: array
+                  items: {}
+                  description: '| An array of BCC recipient e-mail addresses ||'
+              required:
+              - forwardMessageId
+              - from
+              - to
+              - subject
+              - body
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.get:
+    post:
+      summary: Get e-mail mail.message.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_get
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| E-mail identifier.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of e-mail fields to be returned.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| E-mail identifier.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of e-mail fields to be returned.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.list:
+    post:
+      summary: Get a list of e-mails mail.message.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_list
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mailboxId:
+                  type: integer
+                  description: '| Mailbox identifier.'
+                searchQuery:
+                  type: string
+                  description: '| A string for searching e-mails by content and e-mail metadata ||'
+                dateFrom:
+                  type: string
+                  description: '| The start of the e-mail selection period in ISO 8601 format, for example `2026-01-01T00:00:00+03:00` ||'
+                dateTo:
+                  type: string
+                  description: '| The end of the e-mail selection period in ISO 8601 format, for example `2026-01-31T23:59:59+03:00` ||'
+                isSeen:
+                  type: boolean
+                  description: '| Filter by e-mail read status.'
+                hasAttachments:
+                  type: boolean
+                  description: '| Filter by attachment presence.'
+                folder:
+                  type: string
+                  description: '| Mail folder name or path ||'
+                pagination:
+                  type: object
+                  description: '| Pagination parameters:'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                mailboxId:
+                  type: integer
+                  description: '| Mailbox identifier.'
+                searchQuery:
+                  type: string
+                  description: '| A string for searching e-mails by content and e-mail metadata ||'
+                dateFrom:
+                  type: string
+                  description: '| The start of the e-mail selection period in ISO 8601 format, for example `2026-01-01T00:00:00+03:00` ||'
+                dateTo:
+                  type: string
+                  description: '| The end of the e-mail selection period in ISO 8601 format, for example `2026-01-31T23:59:59+03:00` ||'
+                isSeen:
+                  type: boolean
+                  description: '| Filter by e-mail read status.'
+                hasAttachments:
+                  type: boolean
+                  description: '| Filter by attachment presence.'
+                folder:
+                  type: string
+                  description: '| Mail folder name or path ||'
+                pagination:
+                  type: object
+                  description: '| Pagination parameters:'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.movetofolder:
+    post:
+      summary: Move emails to folder mail.message.movetofolder
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_movetofolder
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-movetofolder.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageIds:
+                  type: array
+                  items: {}
+                  description: '| An array of email IDs.'
+                action:
+                  type: string
+                  description: '| Action for emails:'
+                folder:
+                  type: string
+                  description: '| The name or path of an existing folder in this mailbox.'
+              required:
+              - messageIds
+              - action
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                messageIds:
+                  type: array
+                  items: {}
+                  description: '| An array of email IDs.'
+                action:
+                  type: string
+                  description: '| Action for emails:'
+                folder:
+                  type: string
+                  description: '| The name or path of an existing folder in this mailbox.'
+              required:
+              - messageIds
+              - action
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.removecrmactivity:
+    post:
+      summary: Remove the link between an e-mail and a CRM deal mail.message.removecrmactivity
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_removecrmactivity
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-removecrmactivity.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messageId:
+                  type: integer
+                  description: '| E-mail identifier.'
+              required:
+              - messageId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                messageId:
+                  type: integer
+                  description: '| E-mail identifier.'
+              required:
+              - messageId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.reply:
+    post:
+      summary: Reply to e-mail mail.message.reply
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_reply
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-reply.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                replyToMessageId:
+                  type: integer
+                  description: '| The e-mail identifier that needs to be replied to.'
+                from:
+                  type: string
+                  description: '| Sender''s e-mail.'
+                to:
+                  type: array
+                  items: {}
+                  description: '| An array of recipient e-mail addresses ||'
+                subject:
+                  type: string
+                  description: '| E-mail subject ||'
+                body:
+                  type: string
+                  description: '| E-mail text: plain text or basic HTML ||'
+                cc:
+                  type: array
+                  items: {}
+                  description: '| An array of CC recipient e-mail addresses ||'
+                bcc:
+                  type: array
+                  items: {}
+                  description: '| An array of BCC recipient e-mail addresses ||'
+              required:
+              - replyToMessageId
+              - from
+              - to
+              - subject
+              - body
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                replyToMessageId:
+                  type: integer
+                  description: '| The e-mail identifier that needs to be replied to.'
+                from:
+                  type: string
+                  description: '| Sender''s e-mail.'
+                to:
+                  type: array
+                  items: {}
+                  description: '| An array of recipient e-mail addresses ||'
+                subject:
+                  type: string
+                  description: '| E-mail subject ||'
+                body:
+                  type: string
+                  description: '| E-mail text: plain text or basic HTML ||'
+                cc:
+                  type: array
+                  items: {}
+                  description: '| An array of CC recipient e-mail addresses ||'
+                bcc:
+                  type: array
+                  items: {}
+                  description: '| An array of BCC recipient e-mail addresses ||'
+              required:
+              - replyToMessageId
+              - from
+              - to
+              - subject
+              - body
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.send:
+    post:
+      summary: Send an e-mail mail.message.send
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_send
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-send.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                from:
+                  type: string
+                  description: '| Sender''s e-mail.'
+                to:
+                  type: array
+                  items: {}
+                  description: '| Array of recipient e-mail addresses ||'
+                subject:
+                  type: string
+                  description: '| E-mail subject ||'
+                body:
+                  type: string
+                  description: '| E-mail body: plain text or basic HTML ||'
+                cc:
+                  type: array
+                  items: {}
+                  description: '| Array of CC recipient e-mail addresses ||'
+                bcc:
+                  type: array
+                  items: {}
+                  description: '| Array of BCC recipient e-mail addresses ||'
+              required:
+              - from
+              - to
+              - subject
+              - body
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                from:
+                  type: string
+                  description: '| Sender''s e-mail.'
+                to:
+                  type: array
+                  items: {}
+                  description: '| Array of recipient e-mail addresses ||'
+                subject:
+                  type: string
+                  description: '| E-mail subject ||'
+                body:
+                  type: string
+                  description: '| E-mail body: plain text or basic HTML ||'
+                cc:
+                  type: array
+                  items: {}
+                  description: '| Array of CC recipient e-mail addresses ||'
+                bcc:
+                  type: array
+                  items: {}
+                  description: '| Array of BCC recipient e-mail addresses ||'
+              required:
+              - from
+              - to
+              - subject
+              - body
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.message.thread:
+    post:
+      summary: Get e-mail thread mail.message.thread
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_message_thread
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/message/mail-message-thread.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| The identifier of any e-mail from the thread.'
+                limit:
+                  type: integer
+                  description: '| Maximum number of e-mails in the response.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| The identifier of any e-mail from the thread.'
+                limit:
+                  type: integer
+                  description: '| Maximum number of e-mails in the response.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.recipient.field.get:
+    post:
+      summary: Get recipient field mail.recipient.field.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_recipient_field_get
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/recipient/mail-recipient-field-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| Name of the field whose description is to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields to be returned in the response.'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| Name of the field whose description is to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields to be returned in the response.'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.recipient.field.list:
+    post:
+      summary: Get a list of recipient fields mail.recipient.field.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_recipient_field_list
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/recipient/mail-recipient-field-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields that need to be returned in the response.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields that need to be returned in the response.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.recipient.listcontacts:
+    post:
+      summary: Get a list of contacts mail.recipient.listcontacts
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_recipient_listcontacts
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/recipient/mail-recipient-listcontacts.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: '| Search string by contact name or email.'
+                pagination:
+                  type: object
+                  description: '| Pagination parameters:'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: '| Search string by contact name or email.'
+                pagination:
+                  type: object
+                  description: '| Pagination parameters:'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+  /mail.recipient.listemployees:
+    post:
+      summary: Get a list of employees mail.recipient.listemployees
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: mail_recipient_listemployees
+      tags:
+      - Mail
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/mail/recipient/mail-recipient-listemployees.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: '| Search string by employee name or email.'
+                pagination:
+                  type: object
+                  description: '| Pagination parameters:'
+              required:
+              - query
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: '| Search string by employee name or email.'
+                pagination:
+                  type: object
+                  description: '| Pagination parameters:'
+              required:
+              - query
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - mail
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

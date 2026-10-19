@@ -29,10 +29,830 @@ security:
 tags:
 - name: Signature
 paths:
+  /humanresources.hcmlink.company.add:
+    post:
+      summary: Add HCM Link Company humanresources.hcmlink.company.add
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `humanresources.hcmlink.company.add` method adds a company from an HR system to the HCM Link integration.'
+      operationId: humanresources_hcmlink_company_add
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/hcm-link/humanresources-hcmlink-company-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Company data from the HR system (detailed description) ||'
+                company:
+                  type: string
+                  description: '| Company code in the HR system ||'
+                crmCompanyId:
+                  type: integer
+                  description: '| CRM company ID.'
+                title:
+                  type: string
+                  description: '| Company name ||'
+                data:
+                  type: object
+                  description: '| Additional company data ||'
+                field:
+                  type: string
+                  description: '| Field code in the HR system ||'
+                type:
+                  type: string
+                  description: '| Field type. If no value is passed, the method saves the field with the internal `UNKNOWN` type.'
+                entityType:
+                  type: string
+                  description: '| Type of object the field belongs to. If no value is passed, the method saves the field with the internal `UNKNOWN` type.'
+                ttl:
+                  type: integer
+                  description: '| Field value storage time in seconds.'
+              required:
+              - fields
+              - company
+              - crmCompanyId
+              - title
+              - field
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Company data from the HR system (detailed description) ||'
+                company:
+                  type: string
+                  description: '| Company code in the HR system ||'
+                crmCompanyId:
+                  type: integer
+                  description: '| CRM company ID.'
+                title:
+                  type: string
+                  description: '| Company name ||'
+                data:
+                  type: object
+                  description: '| Additional company data ||'
+                field:
+                  type: string
+                  description: '| Field code in the HR system ||'
+                type:
+                  type: string
+                  description: '| Field type. If no value is passed, the method saves the field with the internal `UNKNOWN` type.'
+                entityType:
+                  type: string
+                  description: '| Type of object the field belongs to. If no value is passed, the method saves the field with the internal `UNKNOWN` type.'
+                ttl:
+                  type: integer
+                  description: '| Field value storage time in seconds.'
+              required:
+              - fields
+              - company
+              - crmCompanyId
+              - title
+              - field
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources.hcmlink
+  /humanresources.hcmlink.company.delete:
+    post:
+      summary: Delete HCM Link Company humanresources.hcmlink.company.delete
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `humanresources.hcmlink.company.delete` method deletes a company from the HCM Link integration.'
+      operationId: humanresources_hcmlink_company_delete
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/hcm-link/humanresources-hcmlink-company-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| HCM Link company ID.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| HCM Link company ID.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources.hcmlink
+  /humanresources.hcmlink.company.list:
+    post:
+      summary: Get HCM Link Company List humanresources.hcmlink.company.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `humanresources.hcmlink.company.list` method retrieves a list of companies connected to the HCM Link integration.'
+      operationId: humanresources_hcmlink_company_list
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/hcm-link/humanresources-hcmlink-company-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  description: '| Number of records per page.'
+                offset:
+                  type: integer
+                  description: '| Offset for page navigation.'
+                userId:
+                  type: integer
+                  description: '| Bitrix24 user ID. If passed, the method returns companies linked to this user ||'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  description: '| Number of records per page.'
+                offset:
+                  type: integer
+                  description: '| Offset for page navigation.'
+                userId:
+                  type: integer
+                  description: '| Bitrix24 user ID. If passed, the method returns companies linked to this user ||'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources.hcmlink
+  /humanresources.hcmlink.company.update:
+    post:
+      summary: Update HCM Link Company humanresources.hcmlink.company.update
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `humanresources.hcmlink.company.update` method updates a company from an HR system and the list of its fields in the HCM Link integration.'
+      operationId: humanresources_hcmlink_company_update
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/hcm-link/humanresources-hcmlink-company-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| HCM Link company ID.'
+                fields:
+                  type: object
+                  description: '| New company data from the HR system (detailed description) ||'
+                company:
+                  type: string
+                  description: '| Company code in the HR system ||'
+                crmCompanyId:
+                  type: integer
+                  description: '| CRM company ID.'
+                title:
+                  type: string
+                  description: '| Company name ||'
+                data:
+                  type: object
+                  description: '| Additional company data ||'
+                field:
+                  type: string
+                  description: '| Field code in the HR system ||'
+                type:
+                  type: string
+                  description: '| Field type. If no value is provided, the method will save the field with the internal type `UNKNOWN`.'
+                entityType:
+                  type: string
+                  description: '| Object type to which the field belongs. If no value is provided, the method will save the field with the internal type `UNKNOWN`.'
+                ttl:
+                  type: integer
+                  description: '| Field value retention time in seconds.'
+              required:
+              - id
+              - fields
+              - company
+              - crmCompanyId
+              - title
+              - field
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| HCM Link company ID.'
+                fields:
+                  type: object
+                  description: '| New company data from the HR system (detailed description) ||'
+                company:
+                  type: string
+                  description: '| Company code in the HR system ||'
+                crmCompanyId:
+                  type: integer
+                  description: '| CRM company ID.'
+                title:
+                  type: string
+                  description: '| Company name ||'
+                data:
+                  type: object
+                  description: '| Additional company data ||'
+                field:
+                  type: string
+                  description: '| Field code in the HR system ||'
+                type:
+                  type: string
+                  description: '| Field type. If no value is provided, the method will save the field with the internal type `UNKNOWN`.'
+                entityType:
+                  type: string
+                  description: '| Object type to which the field belongs. If no value is provided, the method will save the field with the internal type `UNKNOWN`.'
+                ttl:
+                  type: integer
+                  description: '| Field value retention time in seconds.'
+              required:
+              - id
+              - fields
+              - company
+              - crmCompanyId
+              - title
+              - field
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources.hcmlink
+  /humanresources.hcmlink.company.user.list:
+    post:
+      summary: Get Current User HCM Link Company List humanresources.hcmlink.company.user.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `humanresources.hcmlink.company.user.list` method retrieves companies from an HR system linked to the current Bitrix24 user.'
+      operationId: humanresources_hcmlink_company_user_list
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/hcm-link/humanresources-hcmlink-company-user-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  description: '| Number of records per page.'
+                offset:
+                  type: integer
+                  description: '| Offset for page navigation.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  description: '| Number of records per page.'
+                offset:
+                  type: integer
+                  description: '| Offset for page navigation.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources.hcmlink
+  /humanresources.hcmlink.employee.list:
+    post:
+      summary: Get Mapped HCM Link Employee List humanresources.hcmlink.employee.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `humanresources.hcmlink.employee.list` method retrieves a list of mapped employees from the HR system and Bitrix24.'
+      operationId: humanresources_hcmlink_employee_list
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/hcm-link/humanresources-hcmlink-employee-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company:
+                  type: string
+                  description: '| Company code in the HR system.'
+                limit:
+                  type: integer
+                  description: '| Number of records per page.'
+                offset:
+                  type: integer
+                  description: '| Offset for page navigation.'
+                updatedAt:
+                  type: string
+                  description: '| Modification date in ISO 8601 format. If passed, the method returns records changed after this date ||'
+              required:
+              - company
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                company:
+                  type: string
+                  description: '| Company code in the HR system.'
+                limit:
+                  type: integer
+                  description: '| Number of records per page.'
+                offset:
+                  type: integer
+                  description: '| Offset for page navigation.'
+                updatedAt:
+                  type: string
+                  description: '| Modification date in ISO 8601 format. If passed, the method returns records changed after this date ||'
+              required:
+              - company
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources.hcmlink
+  /humanresources.hcmlink.employee.set:
+    post:
+      summary: Transfer HCM Link Employee List humanresources.hcmlink.employee.set
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `humanresources.hcmlink.employee.set` method transfers a list of employees from an HR system to the HCM Link integration.'
+      operationId: humanresources_hcmlink_employee_set
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/hcm-link/humanresources-hcmlink-employee-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company:
+                  type: string
+                  description: '| Company code in the HR system.'
+                data:
+                  type: array
+                  items: {}
+                  description: '| List of employees from the HR system (detailed description) ||'
+                job:
+                  type: object
+                  description: '| Data for updating the synchronization job (detailed description).'
+                employee:
+                  type: string
+                  description: '| Employee code in the HR system ||'
+                person:
+                  type: string
+                  description: '| Individual code in the HR system ||'
+                userId:
+                  type: integer
+                  description: '| Bitrix24 user ID.'
+                firstName:
+                  type: string
+                  description: '| First name ||'
+                lastName:
+                  type: string
+                  description: '| Last name ||'
+                patronymicName:
+                  type: string
+                  description: '| Middle name ||'
+                id:
+                  type: integer
+                  description: '| Synchronization job ID.'
+                fields:
+                  type: object
+                  description: '| New synchronization job data (detailed description) ||'
+                status:
+                  type: string
+                  description: '| New job status.'
+                total:
+                  type: integer
+                  description: '| Total number of items in the job ||'
+                sent:
+                  type: integer
+                  description: '| Number of processed items ||'
+              required:
+              - company
+              - data
+              - employee
+              - person
+              - id
+              - fields
+              - status
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                company:
+                  type: string
+                  description: '| Company code in the HR system.'
+                data:
+                  type: array
+                  items: {}
+                  description: '| List of employees from the HR system (detailed description) ||'
+                job:
+                  type: object
+                  description: '| Data for updating the synchronization job (detailed description).'
+                employee:
+                  type: string
+                  description: '| Employee code in the HR system ||'
+                person:
+                  type: string
+                  description: '| Individual code in the HR system ||'
+                userId:
+                  type: integer
+                  description: '| Bitrix24 user ID.'
+                firstName:
+                  type: string
+                  description: '| First name ||'
+                lastName:
+                  type: string
+                  description: '| Last name ||'
+                patronymicName:
+                  type: string
+                  description: '| Middle name ||'
+                id:
+                  type: integer
+                  description: '| Synchronization job ID.'
+                fields:
+                  type: object
+                  description: '| New synchronization job data (detailed description) ||'
+                status:
+                  type: string
+                  description: '| New job status.'
+                total:
+                  type: integer
+                  description: '| Total number of items in the job ||'
+                sent:
+                  type: integer
+                  description: '| Number of processed items ||'
+              required:
+              - company
+              - data
+              - employee
+              - person
+              - id
+              - fields
+              - status
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources.hcmlink
+  /humanresources.hcmlink.field.value.set:
+    post:
+      summary: Transfer HCM Link Field Values humanresources.hcmlink.field.value.set
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `humanresources.hcmlink.field.value.set` method transfers HR system field values for employees.'
+      operationId: humanresources_hcmlink_field_value_set
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/hcm-link/humanresources-hcmlink-field-value-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company:
+                  type: string
+                  description: '| Company code in the HR system or CRM company ID.'
+                data:
+                  type: array
+                  items: {}
+                  description: '| List of field values (detailed description) ||'
+                job:
+                  type: object
+                  description: '| Data for updating the synchronization job (detailed description).'
+                field:
+                  type: string
+                  description: '| Field code in the HR system.'
+                employee:
+                  type: string
+                  description: '| Employee code in the HR system.'
+                value:
+                  type: string
+                  description: '| Field value ||'
+                id:
+                  type: integer
+                  description: '| Synchronization task identifier.'
+                fields:
+                  type: object
+                  description: '| New synchronization task data (detailed description) ||'
+                status:
+                  type: string
+                  description: '| New task status.'
+                total:
+                  type: integer
+                  description: '| Total number of items in the task ||'
+                sent:
+                  type: integer
+                  description: '| Number of processed items ||'
+              required:
+              - company
+              - data
+              - field
+              - employee
+              - value
+              - id
+              - fields
+              - status
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                company:
+                  type: string
+                  description: '| Company code in the HR system or CRM company ID.'
+                data:
+                  type: array
+                  items: {}
+                  description: '| List of field values (detailed description) ||'
+                job:
+                  type: object
+                  description: '| Data for updating the synchronization job (detailed description).'
+                field:
+                  type: string
+                  description: '| Field code in the HR system.'
+                employee:
+                  type: string
+                  description: '| Employee code in the HR system.'
+                value:
+                  type: string
+                  description: '| Field value ||'
+                id:
+                  type: integer
+                  description: '| Synchronization task identifier.'
+                fields:
+                  type: object
+                  description: '| New synchronization task data (detailed description) ||'
+                status:
+                  type: string
+                  description: '| New task status.'
+                total:
+                  type: integer
+                  description: '| Total number of items in the task ||'
+                sent:
+                  type: integer
+                  description: '| Number of processed items ||'
+              required:
+              - company
+              - data
+              - field
+              - employee
+              - value
+              - id
+              - fields
+              - status
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources.hcmlink
+  /humanresources.hcmlink.job.status.get:
+    post:
+      summary: Get HCM Link Job Status humanresources.hcmlink.job.status.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `humanresources.hcmlink.job.status.get` method checks whether an HCM Link synchronization job is active.'
+      operationId: humanresources_hcmlink_job_status_get
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/hcm-link/humanresources-hcmlink-job-status-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Synchronization job ID.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Synchronization job ID.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources.hcmlink
+  /humanresources.hcmlink.job.update:
+    post:
+      summary: Update HCM Link Job humanresources.hcmlink.job.update
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `humanresources.hcmlink.job.update` method updates an HCM Link synchronization job.'
+      operationId: humanresources_hcmlink_job_update
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/hcm-link/humanresources-hcmlink-job-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Synchronization job ID.'
+                fields:
+                  type: object
+                  description: '| Job data (detailed description) ||'
+                status:
+                  type: string
+                  description: '| New job status.'
+                total:
+                  type: integer
+                  description: '| Total number of items in the job ||'
+                sent:
+                  type: integer
+                  description: '| Number of processed items ||'
+                data:
+                  type: object
+                  description: '| Additional job data ||'
+              required:
+              - id
+              - fields
+              - status
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Synchronization job ID.'
+                fields:
+                  type: object
+                  description: '| Job data (detailed description) ||'
+                status:
+                  type: string
+                  description: '| New job status.'
+                total:
+                  type: integer
+                  description: '| Total number of items in the job ||'
+                sent:
+                  type: integer
+                  description: '| Number of processed items ||'
+                data:
+                  type: object
+                  description: '| Additional job data ||'
+              required:
+              - id
+              - fields
+              - status
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources.hcmlink
   /sign.b2e.company.provider.list:
     post:
       summary: Get the List of Providers for sign.b2e.company.provider.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sign.b2e.company.provider.list` returns a list of signature providers for the selected company. The method works only in the context of application authorization application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `sign.b2e.company.provider.list` returns a list of signature providers for the selected company.'
       operationId: sign_b2e_company_provider_list
       tags:
       - Signature
@@ -105,7 +925,7 @@ paths:
   /sign.b2e.document.get:
     post:
       summary: Get Document sign.b2e.document.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sign.b2e.document.get` returns information about the document and signing participants. The method works only in the context of application authorization application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `sign.b2e.document.get` returns information about the document and signing participants.'
       operationId: sign_b2e_document_get
       tags:
       - Signature
@@ -154,7 +974,7 @@ paths:
   /sign.b2e.document.send:
     post:
       summary: Send Document for Signing sign.b2e.document.send
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sign.b2e.document.send` sends a document for signing on behalf of the company. This method works only in the context of application authorization application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `sign.b2e.document.send` sends a document for signing on behalf of the company.'
       operationId: sign_b2e_document_send
       tags:
       - Signature
@@ -196,6 +1016,9 @@ paths:
                 externalSettings:
                   type: object
                   description: '| External parameters of the document (detailed description) ||'
+                message:
+                  type: string
+                  description: '| Message text for the employee. The employee will see the message in the chat together with the invitation to sign the document.'
                 uuid:
                   type: string
                   description: '| UUID of the company in HCM Link.'
@@ -282,6 +1105,9 @@ paths:
                 externalSettings:
                   type: object
                   description: '| External parameters of the document (detailed description) ||'
+                message:
+                  type: string
+                  description: '| Message text for the employee. The employee will see the message in the chat together with the invitation to sign the document.'
                 uuid:
                   type: string
                   description: '| UUID of the company in HCM Link.'
@@ -352,10 +1178,57 @@ paths:
       - AccessToken: []
       - OAuth2:
         - sign.b2e
+  /sign.b2e.hcmlink.document.get:
+    post:
+      summary: Retrieve Signed HCM Link Document sign.b2e.hcmlink.document.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `sign.b2e.hcmlink.document.get` method returns data of a signed e-Signature for HR document linked to HCM Link.'
+      operationId: sign_b2e_hcmlink_document_get
+      tags:
+      - Signature
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/sign/sign-b2e-hcmlink-document-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Signing participant identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Signing participant identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - sign.b2e
   /sign.b2e.mysafe.tail:
     post:
       summary: Get a list of signed documents in the company's safe sign.b2e.mysafe.tail
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sign.b2e.mysafe.tail` returns a list of signed documents in the company's safe. The method works only in the context of application authorization.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `sign.b2e.mysafe.tail` returns a list of signed documents in the company''s safe.'
       operationId: sign_b2e_mysafe_tail
       tags:
       - Signature
@@ -404,7 +1277,7 @@ paths:
   /sign.b2e.personal.tail:
     post:
       summary: Get a list of signed documents for the user sign.b2e.personal.tail
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `sign.b2e.personal.tail` returns a list of signed documents for the user from the e-Signature for HR section. The method works only in the context of authorization of the application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `sign.b2e.personal.tail` returns a list of signed documents for the user from the e-Signature for HR section.'
       operationId: sign_b2e_personal_tail
       tags:
       - Signature
@@ -467,6 +1340,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -494,20 +1381,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

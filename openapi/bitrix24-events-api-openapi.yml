@@ -31,8 +31,8 @@ tags:
 paths:
   /event.bind:
     post:
-      summary: Register a new event handler event.bind
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `event.bind` registers a new event handler. The method works only in the context of application authorization. It can operate both under a user with portal administration rights and under a regular user. The method for a user without administrator rights is available with limitations: 1. Offline events are not available; attempting to set them will raise an exception.'
+      summary: Register a New Event Handler event.bind
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `event.bind` method registers a new event handler.'
       operationId: event_bind
       tags:
       - Events
@@ -47,22 +47,22 @@ paths:
               properties:
                 event:
                   type: string
-                  description: '| Event name ||'
+                  description: '| Event code, such as `ONCRMLEADADD`. The event must belong to the application''s scope or be a basic event; otherwise, the method returns the `ERROR_EVENT_NOT_FOUND` error. The list of available events is returned by the events method ||'
                 handler:
                   type: string
-                  description: '| Link to the event handler ||'
+                  description: '| Handler URL with the `http` or `https` scheme. The host name must contain a dot, so `localhost` is not accepted. Required for online events; ignored when `event_type=offline` ||'
                 auth_type:
                   type: integer
-                  description: '| User ID under which the event handler is authorized. By default, the authorization of the user whose actions triggered the event will be used ||'
+                  description: '| Identifier of the user under whom the event handler is authorized. By default, for an administrator, it is the user whose action triggered the event; for a user without administrator rights, it is that user. Ignored when `event_type=offline` ||'
                 event_type:
                   type: string
-                  description: '| Values: `online\|offline`. By default, `event_type=online`, and the method''s behavior does not change. If `event_type=offline` is called, the method works with offline events ||'
+                  description: '| Subscription type: `online` or `offline`. Default is `online`. With `offline`, the event is placed in the offline event queue ||'
                 auth_connector:
                   type: string
-                  description: '| Source key. This parameter is intended for offline events. It allows excluding false event triggers ||'
+                  description: '| Source key for offline events. This key creates a separate queue that does not receive changes made by requests of the application itself with the same `auth_connector`. The same value is passed to the `event.offline.*` methods. The parameter is not available on all plans: check it with the fea...'
                 options:
-                  type: string
-                  description: '| Additional settings for the registered event, if any ||'
+                  type: object
+                  description: '| Additional settings for the registered event. The set of fields depends on the event.'
               required:
               - event
               - handler
@@ -72,22 +72,22 @@ paths:
               properties:
                 event:
                   type: string
-                  description: '| Event name ||'
+                  description: '| Event code, such as `ONCRMLEADADD`. The event must belong to the application''s scope or be a basic event; otherwise, the method returns the `ERROR_EVENT_NOT_FOUND` error. The list of available events is returned by the events method ||'
                 handler:
                   type: string
-                  description: '| Link to the event handler ||'
+                  description: '| Handler URL with the `http` or `https` scheme. The host name must contain a dot, so `localhost` is not accepted. Required for online events; ignored when `event_type=offline` ||'
                 auth_type:
                   type: integer
-                  description: '| User ID under which the event handler is authorized. By default, the authorization of the user whose actions triggered the event will be used ||'
+                  description: '| Identifier of the user under whom the event handler is authorized. By default, for an administrator, it is the user whose action triggered the event; for a user without administrator rights, it is that user. Ignored when `event_type=offline` ||'
                 event_type:
                   type: string
-                  description: '| Values: `online\|offline`. By default, `event_type=online`, and the method''s behavior does not change. If `event_type=offline` is called, the method works with offline events ||'
+                  description: '| Subscription type: `online` or `offline`. Default is `online`. With `offline`, the event is placed in the offline event queue ||'
                 auth_connector:
                   type: string
-                  description: '| Source key. This parameter is intended for offline events. It allows excluding false event triggers ||'
+                  description: '| Source key for offline events. This key creates a separate queue that does not receive changes made by requests of the application itself with the same `auth_connector`. The same value is passed to the `event.offline.*` methods. The parameter is not available on all plans: check it with the fea...'
                 options:
-                  type: string
-                  description: '| Additional settings for the registered event, if any ||'
+                  type: object
+                  description: '| Additional settings for the registered event. The set of fields depends on the event.'
               required:
               - event
               - handler
@@ -106,10 +106,12 @@ paths:
                 $ref: '#/components/schemas/BitrixError'
       security:
       - AccessToken: []
+      - OAuth2:
+        - basic
   /event.get:
     post:
-      summary: Get a List of Registered Event Handlers event.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `event.get` method allows you to retrieve a list of registered event handlers. The method works only in the context of authorizing the application. No parameters.
+      summary: Retrieve a List of Registered Event Handlers event.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `event.get` method returns a list of event handlers that the application registered with the event.bind method.'
       operationId: event_get
       tags:
       - Events
@@ -121,23 +123,9 @@ paths:
           application/json:
             schema:
               type: object
-              properties:
-                result:
-                  type: object
-                  description: '| Root element of the response ||'
-                time:
-                  type: string
-                  description: '| Information about the request execution time ||'
           application/x-www-form-urlencoded:
             schema:
               type: object
-              properties:
-                result:
-                  type: object
-                  description: '| Root element of the response ||'
-                time:
-                  type: string
-                  description: '| Information about the request execution time ||'
       responses:
         '200':
           description: Successful response
@@ -153,10 +141,12 @@ paths:
                 $ref: '#/components/schemas/BitrixError'
       security:
       - AccessToken: []
+      - OAuth2:
+        - basic
   /event.offline.clear:
     post:
-      summary: Clear records in the offline event queue event.offline.clear
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `event.offline.clear` clears records in the offline event queue. The availability of offline events can be checked through the method feature.get. The method works only in the context of application authorization application.
+      summary: Clear Offline Event Queue event.offline.clear
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `event.offline.clear` method deletes from the queue the records of a batch retrieved by the event.offline.get method with `clear=0`. This is how the application confirms that it has processed these records. Mark the records that could not be processed with the event.offline.error method. The batch workflow is described in the article {#T}.'
       operationId: event_offline_clear
       tags:
       - Events
@@ -171,15 +161,18 @@ paths:
               properties:
                 process_id:
                   type: string
-                  description: '| Identifier of the process that handles the records ||'
+                  description: '| Identifier of the reserved event batch. It is returned by the event.offline.get method when called with the `clear=0` parameter. The value is also available in the `PROCESS_ID` field of the records returned by the event.offline.list method. Do not pass an empty string: the method does not retur...'
                 id:
                   type: array
                   items: {}
-                  description: '| Array of identifiers of the records to be cleared. By default, all records marked with the provided `process_id` will be cleared ||'
+                  description: '| Array of `ID` field values of the records to delete — integers greater than `0`. Ignored if the `message_id` parameter is passed. By default and when the array is empty, all records of the `process_id` batch are deleted ||'
                 message_id:
                   type: array
                   items: {}
-                  description: '| Array of values of the `MESSAGE_ID` field of the records to be cleared. Ignored if the `id` parameter is specified. By default, all records marked with the provided `process_id` will be cleared ||'
+                  description: '| Array of `MESSAGE_ID` field values of the records to delete — strings of 32 characters. By default and when the array is empty, all records of the `process_id` batch are deleted ||'
+                auth_connector:
+                  type: string
+                  description: '| Source key. Pass the same value with which the batch was retrieved by the `event.offline.get` method, otherwise the method deletes nothing. The parameter is not available on all plans: check it using the feature.get method with the code `rest_auth_connector`, otherwise the method returns the `W...'
               required:
               - process_id
           application/x-www-form-urlencoded:
@@ -188,15 +181,18 @@ paths:
               properties:
                 process_id:
                   type: string
-                  description: '| Identifier of the process that handles the records ||'
+                  description: '| Identifier of the reserved event batch. It is returned by the event.offline.get method when called with the `clear=0` parameter. The value is also available in the `PROCESS_ID` field of the records returned by the event.offline.list method. Do not pass an empty string: the method does not retur...'
                 id:
                   type: array
                   items: {}
-                  description: '| Array of identifiers of the records to be cleared. By default, all records marked with the provided `process_id` will be cleared ||'
+                  description: '| Array of `ID` field values of the records to delete — integers greater than `0`. Ignored if the `message_id` parameter is passed. By default and when the array is empty, all records of the `process_id` batch are deleted ||'
                 message_id:
                   type: array
                   items: {}
-                  description: '| Array of values of the `MESSAGE_ID` field of the records to be cleared. Ignored if the `id` parameter is specified. By default, all records marked with the provided `process_id` will be cleared ||'
+                  description: '| Array of `MESSAGE_ID` field values of the records to delete — strings of 32 characters. By default and when the array is empty, all records of the `process_id` batch are deleted ||'
+                auth_connector:
+                  type: string
+                  description: '| Source key. Pass the same value with which the batch was retrieved by the `event.offline.get` method, otherwise the method deletes nothing. The parameter is not available on all plans: check it using the feature.get method with the code `rest_auth_connector`, otherwise the method returns the `W...'
               required:
               - process_id
       responses:
@@ -214,10 +210,12 @@ paths:
                 $ref: '#/components/schemas/BitrixError'
       security:
       - AccessToken: []
+      - OAuth2:
+        - basic
   /event.offline.error:
     post:
-      summary: Register Errors for Processing Offline Events event.offline.error
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `event.offline.error` saves a record in the database with an error mark when using offline events. The availability of offline events can be checked through the method feature.get. The method works only in the context of authorizing the application.
+      summary: Register Offline Event Queue Processing Errors event.offline.error
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `event.offline.error` method marks records of a reserved offline event batch as erroneous. Such records are released from the reservation and are no longer included in the regular output of event.offline.get. You can retrieve them with the `event.offline.get` method with the `error=1` parameter.'
       operationId: event_offline_error
       tags:
       - Events
@@ -232,26 +230,34 @@ paths:
               properties:
                 process_id:
                   type: string
-                  description: '| Identifier of the process that is handling the records ||'
+                  description: '| Identifier of the reserved event batch. It is returned by the event.offline.get method when called with the `clear=0` parameter ||'
                 message_id:
                   type: array
                   items: {}
-                  description: '| Array of values for the `MESSAGE_ID` field of the records to be marked as erroneous ||'
+                  description: '| Array of `MESSAGE_ID` field values from the `event.offline.get` response — the keys of the records to mark as erroneous. A key is a string of 32 characters. The method does not check the length: with an invalid key, the record is not found and no error is returned. The method does not change re...'
+                auth_connector:
+                  type: string
+                  description: '| Source key. Pass the same value with which the batch was retrieved by the `event.offline.get` method, otherwise the method does not find the records. The parameter is not available on all plans: check it using the feature.get method with the code `rest_auth_connector`, otherwise the method retu...'
               required:
               - process_id
+              - message_id
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 process_id:
                   type: string
-                  description: '| Identifier of the process that is handling the records ||'
+                  description: '| Identifier of the reserved event batch. It is returned by the event.offline.get method when called with the `clear=0` parameter ||'
                 message_id:
                   type: array
                   items: {}
-                  description: '| Array of values for the `MESSAGE_ID` field of the records to be marked as erroneous ||'
+                  description: '| Array of `MESSAGE_ID` field values from the `event.offline.get` response — the keys of the records to mark as erroneous. A key is a string of 32 characters. The method does not check the length: with an invalid key, the record is not found and no error is returned. The method does not change re...'
+                auth_connector:
+                  type: string
+                  description: '| Source key. Pass the same value with which the batch was retrieved by the `event.offline.get` method, otherwise the method does not find the records. The parameter is not available on all plans: check it using the feature.get method with the code `rest_auth_connector`, otherwise the method retu...'
               required:
               - process_id
+              - message_id
       responses:
         '200':
           description: Successful response
@@ -267,10 +273,12 @@ paths:
                 $ref: '#/components/schemas/BitrixError'
       security:
       - AccessToken: []
+      - OAuth2:
+        - basic
   /event.offline.get:
     post:
-      summary: Get a List of Offline Events with event.offline.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `event.offline.get` returns the first queued offline events to the application according to the filter settings. The availability of offline events can be checked using the feature.get method. This method works only in the context of application authorization.
+      summary: Retrieve a List of Offline Events With Cleanup event.offline.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `event.offline.get` method returns to the application the first records from the offline event queue that match the filter. The method has two modes:'
       operationId: event_offline_get
       tags:
       - Events
@@ -284,55 +292,51 @@ paths:
               type: object
               properties:
                 filter:
-                  type: array
-                  items: {}
-                  description: '| Record filter. By default, all records are returned without filtering. Filtering is supported by fields: `ID`, `TIMESTAMP_X`, `EVENT_NAME`, `MESSAGE_ID` with standard operations like `=`, `>`, `<`, `<=`, and so on.'
+                  type: object
+                  description: '| Record filter. By default, the method returns all records. You can filter by the fields: `ID`, `TIMESTAMP_X`, `EVENT_NAME`, `MESSAGE_ID`.'
                 order:
-                  type: array
-                  items: {}
-                  description: '| Record sorting. Sorting is supported by the same fields as in the filter, and an array of the form `[field=>ASC|DESC]` is accepted. By default — [TIMESTAMP_X:ASC] ||'
+                  type: object
+                  description: '| Record sorting by the same fields as in the filter, in the form `{"field": "ASC"}` or `{"field": "DESC"}`. Default is `{"TIMESTAMP_X": "ASC"}` ||'
                 limit:
                   type: integer
-                  description: '| Number of records to select. Default is 50 ||'
+                  description: '| Number of records to select, an integer greater than `0`. Default is 50 ||'
                 clear:
                   type: integer
-                  description: '| Values: `0|1` — whether to delete the selected records. Default is `1` ||'
+                  description: '| Whether to delete the selected records: `1` — delete immediately, `0` — reserve as a batch. Default is `1`. The value `0` without the `rest_offline_extended` mode returns the `WRONG_LICENSE` error ||'
                 process_id:
                   type: string
-                  description: '| Process identifier. Used if you need to re-select any unprocessed records from the current process ||'
+                  description: '| Identifier of a previously reserved batch. Pass it to retrieve the batch records that have not been confirmed yet. With `clear=1`, the method deletes the entire batch, including records that were not included in the response due to `limit`. To keep the records, pass `clear=0` ||'
                 auth_connector:
                   type: string
-                  description: '| Source key. Used if the `auth_connector` value was specified in the event.bind method ||'
+                  description: '| Source key. Pass the same `auth_connector` value as when subscribing with the event.bind method, otherwise the method returns only events without a source. The parameter is not available on all plans: check its availability using the feature.get method with the code `rest_auth_connector`, other...'
                 error:
                   type: integer
-                  description: '| Values: `0|1` — whether to return erroneous records. Default is `0` ||'
+                  description: '| `1` — return only records marked as erroneous by the event.offline.error method, `0` — only records without such a mark. Default is `0` ||'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 filter:
-                  type: array
-                  items: {}
-                  description: '| Record filter. By default, all records are returned without filtering. Filtering is supported by fields: `ID`, `TIMESTAMP_X`, `EVENT_NAME`, `MESSAGE_ID` with standard operations like `=`, `>`, `<`, `<=`, and so on.'
+                  type: object
+                  description: '| Record filter. By default, the method returns all records. You can filter by the fields: `ID`, `TIMESTAMP_X`, `EVENT_NAME`, `MESSAGE_ID`.'
                 order:
-                  type: array
-                  items: {}
-                  description: '| Record sorting. Sorting is supported by the same fields as in the filter, and an array of the form `[field=>ASC|DESC]` is accepted. By default — [TIMESTAMP_X:ASC] ||'
+                  type: object
+                  description: '| Record sorting by the same fields as in the filter, in the form `{"field": "ASC"}` or `{"field": "DESC"}`. Default is `{"TIMESTAMP_X": "ASC"}` ||'
                 limit:
                   type: integer
-                  description: '| Number of records to select. Default is 50 ||'
+                  description: '| Number of records to select, an integer greater than `0`. Default is 50 ||'
                 clear:
                   type: integer
-                  description: '| Values: `0|1` — whether to delete the selected records. Default is `1` ||'
+                  description: '| Whether to delete the selected records: `1` — delete immediately, `0` — reserve as a batch. Default is `1`. The value `0` without the `rest_offline_extended` mode returns the `WRONG_LICENSE` error ||'
                 process_id:
                   type: string
-                  description: '| Process identifier. Used if you need to re-select any unprocessed records from the current process ||'
+                  description: '| Identifier of a previously reserved batch. Pass it to retrieve the batch records that have not been confirmed yet. With `clear=1`, the method deletes the entire batch, including records that were not included in the response due to `limit`. To keep the records, pass `clear=0` ||'
                 auth_connector:
                   type: string
-                  description: '| Source key. Used if the `auth_connector` value was specified in the event.bind method ||'
+                  description: '| Source key. Pass the same `auth_connector` value as when subscribing with the event.bind method, otherwise the method returns only events without a source. The parameter is not available on all plans: check its availability using the feature.get method with the code `rest_auth_connector`, other...'
                 error:
                   type: integer
-                  description: '| Values: `0|1` — whether to return erroneous records. Default is `0` ||'
+                  description: '| `1` — return only records marked as erroneous by the event.offline.error method, `0` — only records without such a mark. Default is `0` ||'
       responses:
         '200':
           description: Successful response
@@ -348,10 +352,12 @@ paths:
                 $ref: '#/components/schemas/BitrixError'
       security:
       - AccessToken: []
+      - OAuth2:
+        - basic
   /event.offline.list:
     post:
-      summary: Get a list of offline events event.offline.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `event.offline.list` is used to read the current queue without making changes to its state, unlike event.offline.get. The availability of offline events can be checked through the feature.get method. The method works only in the context of application authorization application.
+      summary: Get a List of Offline Events event.offline.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `event.offline.list` method reads the offline event queue of the application that called it. Unlike event.offline.get, it does not reserve records and does not return `process_id`. To confirm records or mark them as erroneous, retrieve them with the `event.offline.get` method with `clear=0`.'
       operationId: event_offline_list
       tags:
       - Events
@@ -365,31 +371,33 @@ paths:
               type: object
               properties:
                 filter:
-                  type: array
-                  items: {}
-                  description: '| Record filter. By default, all records are returned without filtering. Filtering is supported by the fields: `ID`, `TIMESTAMP_X`, `EVENT_NAME`, `MESSAGE_ID`, `PROCESS_ID`, `ERROR` with standard operations like `=`, `>`, `<`, `<=`, and so on ||'
+                  type: object
+                  description: '| Record filter. Without a filter, the method returns all records. You can filter by the fields: `ID`, `TIMESTAMP_X`, `EVENT_NAME`, `MESSAGE_ID`, `PROCESS_ID`, `ERROR`.'
                 order:
-                  type: array
-                  items: {}
-                  description: '| Record sorting. Sorting is supported by the same fields as in the filter, and an array of the form `[field=>ASC|DESC]` is accepted. By default — `[ID:ASC]` ||'
+                  type: object
+                  description: '| Record sorting by the same fields as in the filter, in the form `{"field": "ASC"}` or `{"field": "DESC"}`. Default is `{"ID": "ASC"}` ||'
                 start:
                   type: integer
-                  description: '| This parameter is used to manage pagination.'
+                  description: '| This parameter is used to control pagination.'
+                auth_connector:
+                  type: string
+                  description: '| Source key. The queue of offline events is divided by sources. Pass the same `auth_connector` value as when subscribing with the event.bind method; otherwise, the method will return only events without a source. The parameter is not available on all plans: check its availability using the featu...'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 filter:
-                  type: array
-                  items: {}
-                  description: '| Record filter. By default, all records are returned without filtering. Filtering is supported by the fields: `ID`, `TIMESTAMP_X`, `EVENT_NAME`, `MESSAGE_ID`, `PROCESS_ID`, `ERROR` with standard operations like `=`, `>`, `<`, `<=`, and so on ||'
+                  type: object
+                  description: '| Record filter. Without a filter, the method returns all records. You can filter by the fields: `ID`, `TIMESTAMP_X`, `EVENT_NAME`, `MESSAGE_ID`, `PROCESS_ID`, `ERROR`.'
                 order:
-                  type: array
-                  items: {}
-                  description: '| Record sorting. Sorting is supported by the same fields as in the filter, and an array of the form `[field=>ASC|DESC]` is accepted. By default — `[ID:ASC]` ||'
+                  type: object
+                  description: '| Record sorting by the same fields as in the filter, in the form `{"field": "ASC"}` or `{"field": "DESC"}`. Default is `{"ID": "ASC"}` ||'
                 start:
                   type: integer
-                  description: '| This parameter is used to manage pagination.'
+                  description: '| This parameter is used to control pagination.'
+                auth_connector:
+                  type: string
+                  description: '| Source key. The queue of offline events is divided by sources. Pass the same `auth_connector` value as when subscribing with the event.bind method; otherwise, the method will return only events without a source. The parameter is not available on all plans: check its availability using the featu...'
       responses:
         '200':
           description: Successful response
@@ -405,10 +413,12 @@ paths:
                 $ref: '#/components/schemas/BitrixError'
       security:
       - AccessToken: []
+      - OAuth2:
+        - basic
   /event.unbind:
     post:
-      summary: Unbind Registered Event Handler event.unbind
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `event.unbind` method cancels a registered event handler. This method works only in the context of application authorization and only when authorized under a user with administrative rights to the account.
+      summary: Unregister Event Handler event.unbind
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `event.unbind` method deletes event handlers that the application registered with the event.bind method. BX24.js provides the BX24.callUnbind wrapper for this method.'
       operationId: event_unbind
       tags:
       - Events
@@ -423,16 +433,19 @@ paths:
               properties:
                 event:
                   type: string
-                  description: '| Event name ||'
+                  description: '| Event code, for example `ONCRMLEADADD`. The code is case-insensitive ||'
                 handler:
                   type: string
-                  description: '| Link to the event handler ||'
+                  description: '| Handler URL specified at registration. Required for online events. With `event_type=offline`, the value is ignored ||'
                 auth_type:
                   type: integer
-                  description: '| User identifier under which the event handler is authorized.'
+                  description: '| User identifier under which the event handler is authorized. Without this parameter, an administrator deletes the handlers of all users, and a user without administrator rights deletes only their own. A user without administrator rights does not need to pass this parameter: if it is passed, onl...'
                 event_type:
                   type: string
-                  description: '| Values: `online\|offline`. By default, `event_type=online`, and the method''s behavior remains unchanged. If `event_type=offline` is called, the method works with offline events ||'
+                  description: '| Subscription type: `online` or `offline`, case-insensitive. Defaults to `online`. With `offline`, the method works with offline events ||'
+                auth_connector:
+                  type: string
+                  description: '| Source key. Applies only with `event_type=offline`: the method deletes offline handlers with the same `auth_connector` that was passed to event.bind. Without this parameter, the method deletes handlers that have no source key ||'
               required:
               - event
               - handler
@@ -442,16 +455,19 @@ paths:
               properties:
                 event:
                   type: string
-                  description: '| Event name ||'
+                  description: '| Event code, for example `ONCRMLEADADD`. The code is case-insensitive ||'
                 handler:
                   type: string
-                  description: '| Link to the event handler ||'
+                  description: '| Handler URL specified at registration. Required for online events. With `event_type=offline`, the value is ignored ||'
                 auth_type:
                   type: integer
-                  description: '| User identifier under which the event handler is authorized.'
+                  description: '| User identifier under which the event handler is authorized. Without this parameter, an administrator deletes the handlers of all users, and a user without administrator rights deletes only their own. A user without administrator rights does not need to pass this parameter: if it is passed, onl...'
                 event_type:
                   type: string
-                  description: '| Values: `online\|offline`. By default, `event_type=online`, and the method''s behavior remains unchanged. If `event_type=offline` is called, the method works with offline events ||'
+                  description: '| Subscription type: `online` or `offline`, case-insensitive. Defaults to `online`. With `offline`, the method works with offline events ||'
+                auth_connector:
+                  type: string
+                  description: '| Source key. Applies only with `event_type=offline`: the method deletes offline handlers with the same `auth_connector` that was passed to event.bind. Without this parameter, the method deletes handlers that have no source key ||'
               required:
               - event
               - handler
@@ -470,53 +486,8 @@ paths:
                 $ref: '#/components/schemas/BitrixError'
       security:
       - AccessToken: []
-  /events:
-    post:
-      summary: Get a list of available events
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `events` method returns a comprehensive list of available events. The method works only in the context of authorizing the application.
-      operationId: events
-      tags:
-      - Events
-      externalDocs:
-        url: https://apidocs.bitrix24.com/api-reference/events/events.html
-        description: Official Documentation
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                SCOPE:
-                  type: string
-                  description: '| The method will return events belonging to the specified permission ||'
-                FULL:
-                  type: boolean
-                  description: '| The method will return the complete list of events. This parameter will be ignored if the `SCOPE` parameter is provided ||'
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                SCOPE:
-                  type: string
-                  description: '| The method will return events belonging to the specified permission ||'
-                FULL:
-                  type: boolean
-                  description: '| The method will return the complete list of events. This parameter will be ignored if the `SCOPE` parameter is provided ||'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BitrixResponse'
-        4XX:
-          description: Request error (400, 401, 403)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BitrixError'
-      security:
-      - AccessToken: []
+      - OAuth2:
+        - basic
 components:
   schemas:
     BitrixError:
@@ -534,6 +505,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -561,20 +546,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

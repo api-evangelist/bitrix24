@@ -1,0 +1,1502 @@
+openapi: 3.2.0
+info:
+  title: Bitrix24 REST Note API
+  version: 1.0.0
+  description: 'Bitrix24 REST API provides access to CRM, tasks, drive, chats, telephony, e-commerce, automation, and other modules. Documentation: https://apidocs.bitrix24.com'
+  contact:
+    name: Bitrix24 Developer Support
+    url: https://apidocs.bitrix24.com/support.html
+  license:
+    name: MIT
+    url: https://github.com/bitrix-tools/b24-rest-docs/blob/main/LICENSE
+  x-logo:
+    url: https://apidocs.bitrix24.com/_images/bitrix24logo.svg
+servers:
+- url: https://{portal}.bitrix24.com/rest
+  description: Your Bitrix24 portal (cloud)
+  variables:
+    portal:
+      default: your-portal
+      description: Subdomain of your Bitrix24 portal
+- url: https://{host}/rest
+  description: On-Premise Bitrix24 installation
+  variables:
+    host:
+      default: your-bitrix24.example.com
+      description: Host of your on-premise installation
+security:
+- AccessToken: []
+tags:
+- name: Note
+paths:
+  /note.collection.add:
+    post:
+      summary: Create a Knowledge Base note.collection.add
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_collection_add
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/collection/note-collection-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Object with the fields of the new knowledge base. Object structure description ||'
+                name:
+                  type: string
+                  description: '| Knowledge base name.'
+                position:
+                  type: integer
+                  description: '| Knowledge base position in the general list.'
+              required:
+              - fields
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Object with the fields of the new knowledge base. Object structure description ||'
+                name:
+                  type: string
+                  description: '| Knowledge base name.'
+                position:
+                  type: integer
+                  description: '| Knowledge base position in the general list.'
+              required:
+              - fields
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.collection.archive:
+    post:
+      summary: Archive Knowledge Base note.collection.archive
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_collection_archive
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/collection/note-collection-archive.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Knowledge base identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Knowledge base identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.collection.delete:
+    post:
+      summary: Move Knowledge Base to Shopping Cart note.collection.delete
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_collection_delete
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/collection/note-collection-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Knowledge base identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Knowledge base identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.collection.field.get:
+    post:
+      summary: Get Knowledge Base Field note.collection.field.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_collection_field_get
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/collection/note-collection-field-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.collection.field.list:
+    post:
+      summary: Get a List of Knowledge Base Fields note.collection.field.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_collection_field_list
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/collection/note-collection-field-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.collection.get:
+    post:
+      summary: Get Knowledge Base note.collection.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_collection_get
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/collection/note-collection-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Knowledge base identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Knowledge base identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.collection.list:
+    post:
+      summary: Get a List of Knowledge Bases note.collection.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_collection_list
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/collection/note-collection-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pagination:
+                  type: object
+                  description: '| Pagination object. Object structure description ||'
+                limit:
+                  type: integer
+                  description: '| Page size.'
+                afterCursor:
+                  type: object
+                  description: '| Next page cursor. Pass `result.nextCursor` from the previous response. Object structure description.'
+                position:
+                  type: integer
+                  description: '| The `position` field value of the last knowledge base from the previous page.'
+                id:
+                  type: integer
+                  description: '| The identifier of the last knowledge base from the previous page.'
+              required:
+              - position
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                pagination:
+                  type: object
+                  description: '| Pagination object. Object structure description ||'
+                limit:
+                  type: integer
+                  description: '| Page size.'
+                afterCursor:
+                  type: object
+                  description: '| Next page cursor. Pass `result.nextCursor` from the previous response. Object structure description.'
+                position:
+                  type: integer
+                  description: '| The `position` field value of the last knowledge base from the previous page.'
+                id:
+                  type: integer
+                  description: '| The identifier of the last knowledge base from the previous page.'
+              required:
+              - position
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.collection.update:
+    post:
+      summary: Rename Knowledge Base note.collection.update
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_collection_update
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/collection/note-collection-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Knowledge base identifier.'
+                fields:
+                  type: object
+                  description: '| Object with the fields that need to be changed. Object structure description ||'
+                name:
+                  type: string
+                  description: '| New knowledge base name.'
+              required:
+              - id
+              - fields
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Knowledge base identifier.'
+                fields:
+                  type: object
+                  description: '| Object with the fields that need to be changed. Object structure description ||'
+                name:
+                  type: string
+                  description: '| New knowledge base name.'
+              required:
+              - id
+              - fields
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.add:
+    post:
+      summary: Create Document note.document.add
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_add
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Object with the fields of the new document. Object structure description ||'
+                collectionId:
+                  type: integer
+                  description: '| Knowledge base identifier.'
+                title:
+                  type: string
+                  description: '| Document title.'
+                parentId:
+                  type: integer
+                  description: '| Parent document identifier.'
+                markdown:
+                  type: string
+                  description: '| Initial document content in Markdown.'
+              required:
+              - fields
+              - collectionId
+              - title
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| Object with the fields of the new document. Object structure description ||'
+                collectionId:
+                  type: integer
+                  description: '| Knowledge base identifier.'
+                title:
+                  type: string
+                  description: '| Document title.'
+                parentId:
+                  type: integer
+                  description: '| Parent document identifier.'
+                markdown:
+                  type: string
+                  description: '| Initial document content in Markdown.'
+              required:
+              - fields
+              - collectionId
+              - title
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.archive:
+    post:
+      summary: Archive a Document note.document.archive
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_archive
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-archive.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.delete:
+    post:
+      summary: Move a Document to the Shopping Cart note.document.delete
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_delete
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.field.get:
+    post:
+      summary: Get Document Field note.document.field.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_field_get
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-field-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.field.list:
+    post:
+      summary: Get a List of Document Fields note.document.field.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_field_list
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-field-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.get:
+    post:
+      summary: Get Document note.document.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_get
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.search.field.get:
+    post:
+      summary: Get Document Search Field note.document.search.field.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_search_field_get
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-search-field-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.search.field.list:
+    post:
+      summary: Get a List of Document Search Fields note.document.search.field.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_search_field_list
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-search-field-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.search.list:
+    post:
+      summary: Find Documents note.document.search.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_search_list
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-search-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: '| Search query.'
+                pagination:
+                  type: object
+                  description: '| Pagination object. Object structure description ||'
+                limit:
+                  type: integer
+                  description: '| Page size.'
+              required:
+              - query
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: '| Search query.'
+                pagination:
+                  type: object
+                  description: '| Pagination object. Object structure description ||'
+                limit:
+                  type: integer
+                  description: '| Page size.'
+              required:
+              - query
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.tree.field.get:
+    post:
+      summary: Get Document Tree Field note.document.tree.field.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_tree_field_get
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-tree-field-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.tree.field.list:
+    post:
+      summary: Get a List of Document Tree Fields note.document.tree.field.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_tree_field_list
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-tree-field-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.tree.list:
+    post:
+      summary: Get Document Tree note.document.tree.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_tree_list
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-tree-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                collectionId:
+                  type: integer
+                  description: '| Knowledge base identifier.'
+              required:
+              - collectionId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                collectionId:
+                  type: integer
+                  description: '| Knowledge base identifier.'
+              required:
+              - collectionId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.document.update:
+    post:
+      summary: Update Document note.document.update
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_document_update
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/document/note-document-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+                fields:
+                  type: object
+                  description: '| An object with the fields that need to be changed. Object structure description ||'
+                overwrite:
+                  type: boolean
+                  description: '| Determines whether to force overwrite the document content if it has unsaved changes from a collaborative editor.'
+                title:
+                  type: string
+                  description: '| New document title.'
+                markdown:
+                  type: string
+                  description: '| New document content in Markdown.'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Document identifier.'
+                fields:
+                  type: object
+                  description: '| An object with the fields that need to be changed. Object structure description ||'
+                overwrite:
+                  type: boolean
+                  description: '| Determines whether to force overwrite the document content if it has unsaved changes from a collaborative editor.'
+                title:
+                  type: string
+                  description: '| New document title.'
+                markdown:
+                  type: string
+                  description: '| New document content in Markdown.'
+              required:
+              - id
+              - fields
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.file.add:
+    post:
+      summary: Upload a File to Document note.file.add
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_file_add
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/file/note-file-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                documentId:
+                  type: integer
+                  description: '| Identifier of the document to which the file should be attached.'
+                fileName:
+                  type: string
+                  description: '| File name with extension.'
+                fileContent:
+                  type: string
+                  description: '| Binary file content in Base64 encoding.'
+              required:
+              - documentId
+              - fileName
+              - fileContent
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                documentId:
+                  type: integer
+                  description: '| Identifier of the document to which the file should be attached.'
+                fileName:
+                  type: string
+                  description: '| File name with extension.'
+                fileContent:
+                  type: string
+                  description: '| Binary file content in Base64 encoding.'
+              required:
+              - documentId
+              - fileName
+              - fileContent
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.file.field.get:
+    post:
+      summary: Get Document File Field note.file.field.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_file_field_get
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/file/note-file-field-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.file.field.list:
+    post:
+      summary: Get a List of Document File Fields note.file.field.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_file_field_list
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/file/note-file-field-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| An array of description property names to return in the response.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+  /note.file.get:
+    post:
+      summary: Get Document File Data note.file.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: note_file_get
+      tags:
+      - Note
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/note/file/note-file-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| File identifier.'
+                documentId:
+                  type: integer
+                  description: '| Document identifier to which the file is attached.'
+              required:
+              - id
+              - documentId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| File identifier.'
+                documentId:
+                  type: integer
+                  description: '| Document identifier to which the file is attached.'
+              required:
+              - id
+              - documentId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - note
+components:
+  schemas:
+    BitrixError:
+      type: object
+      description: Bitrix24 REST API error response
+      required:
+      - error
+      - error_description
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: ACCESS_DENIED
+        error_description:
+          type: string
+          description: Human-readable error description
+          example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
+    BitrixTime:
+      type: object
+      description: Request execution time information
+      properties:
+        start:
+          type: number
+          format: double
+        finish:
+          type: number
+          format: double
+        duration:
+          type: number
+          format: double
+        processing:
+          type: number
+          format: double
+        date_start:
+          type: string
+          format: date-time
+        date_finish:
+          type: string
+          format: date-time
+        operating_reset_at:
+          type: integer
+        operating:
+          type: number
+          format: double
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: query
+      name: auth
+      description: OAuth 2.0 access_token or incoming webhook token
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth.bitrix.info/oauth/authorize/
+          tokenUrl: https://oauth.bitrix.info/oauth/token/
+          scopes:
+            crm: CRM — leads, deals, contacts, companies, smart processes
+            task: Tasks and projects
+            disk: Drive — files and folders
+            im: Chats and notifications
+            imbot: Chatbots
+            imopenlines: Open Lines — messenger connectors
+            telephony: Telephony
+            sale: E-Commerce — orders, shipments
+            catalog: Trade Catalog — products, prices
+            calendar: Calendar
+            bizproc: Business processes and robots
+            user: Users
+            department: Company structure
+            timeman: Time tracking
+            landing: Sites and landing pages
+            pay_system: Payment systems
+            cashbox: Online cash registers
+            delivery: Delivery services
+            documentgenerator: Document generator
+            lists: Universal lists
+            entity: Data storage
+            log: News feed
+            sonet_group: Workgroups and projects
+            mailservice: Mail services
+            messageservice: Message providers (SMS)
+            biconnector: BIconnector — BI analytics
+            ai_admin: CoPilot / AI
+            sign.b2e: Signature — e-document signing
+            vote: Polls and voting
+            booking: Online booking
+            userconsent: User consent agreements
+            userfieldconfig: Custom field settings
+            basic: Basic access
+            placement: Widget placements
+            rpa: Robots process automation
+            sonet: Social network
+            intranet: Intranet
+            socialnetwork: Social network
+            workgroups: Workgroups
+            salescenter: Sales center
+            main: Main module
+            imconnector: IM connector
+            user.userfield: User custom fields
+            user_basic: Basic user access
+            userfieldconfig, module scope: Custom field config
+externalDocs:
+  description: Official Bitrix24 REST API Documentation
+  url: https://apidocs.bitrix24.com

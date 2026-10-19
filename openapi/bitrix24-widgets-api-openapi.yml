@@ -32,7 +32,7 @@ paths:
   /BX24.placement.bindEvent:
     post:
       summary: Set Up an Event Handler for the Interface BX24.placement.bindEvent
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `BX24.placement.bindEvent` sets an event handler for the interface. The event must be registered on the calling side; otherwise, nothing will happen.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `BX24.placement.bindEvent` sets an event handler for the interface. The event must be registered by the current placement, otherwise the subscription will not work.'
       operationId: BX24_placement_bindEvent
       tags:
       - Widgets
@@ -50,7 +50,7 @@ paths:
                   description: '| The name of the event to which the handler subscribes ||'
                 callback:
                   type: string
-                  description: '| The callback function.'
+                  description: '| Callback function.'
               required:
               - event
               - callback
@@ -63,7 +63,7 @@ paths:
                   description: '| The name of the event to which the handler subscribes ||'
                 callback:
                   type: string
-                  description: '| The callback function.'
+                  description: '| Callback function.'
               required:
               - event
               - callback
@@ -87,7 +87,7 @@ paths:
   /BX24.placement.call:
     post:
       summary: Call the Registered Interface Command BX24.placement.call
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `BX24.placement.call` invokes a registered interface command.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `BX24.placement.call` invokes an interface command registered by the current placement.'
       operationId: BX24_placement_call
       tags:
       - Widgets
@@ -102,32 +102,30 @@ paths:
               properties:
                 command:
                   type: string
-                  description: '| The command to be invoked ||'
+                  description: '| The name of the command to invoke ||'
                 parameters:
-                  type: object
-                  description: '| Parameters to be passed ||'
+                  type: string
+                  description: '| Passed parameters. The value type depends on the command: object, string, number, array, or `null`. Commands without parameters accept an empty object `{}` ||'
                 callback:
                   type: string
-                  description: '| Callback function ||'
+                  description: '| Callback function. It receives the result of the command ||'
               required:
               - command
-              - callback
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 command:
                   type: string
-                  description: '| The command to be invoked ||'
+                  description: '| The name of the command to invoke ||'
                 parameters:
-                  type: object
-                  description: '| Parameters to be passed ||'
+                  type: string
+                  description: '| Passed parameters. The value type depends on the command: object, string, number, array, or `null`. Commands without parameters accept an empty object `{}` ||'
                 callback:
                   type: string
-                  description: '| Callback function ||'
+                  description: '| Callback function. It receives the result of the command ||'
               required:
               - command
-              - callback
       responses:
         '200':
           description: Successful response
@@ -148,7 +146,7 @@ paths:
   /BX24.placement.getInterface:
     post:
       summary: Get Information About the JS Interface of the Current Placement…
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `BX24.placement.getInterface` allows you to retrieve information about the JS interface of the current placement: a list of available commands and events.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `BX24.placement.getInterface` retrieves information about the JS interface of the current placement: the list of available commands and events.'
       operationId: BX24_placement_getInterface
       tags:
       - Widgets
@@ -163,7 +161,7 @@ paths:
               properties:
                 callback:
                   type: string
-                  description: '| Callback function.'
+                  description: '| Callback function. It receives an object with the fields `command` and `event` ||'
               required:
               - callback
           application/x-www-form-urlencoded:
@@ -172,7 +170,7 @@ paths:
               properties:
                 callback:
                   type: string
-                  description: '| Callback function.'
+                  description: '| Callback function. It receives an object with the fields `command` and `event` ||'
               required:
               - callback
       responses:
@@ -194,8 +192,8 @@ paths:
         - placement
   /BX24.placement.info:
     post:
-      summary: Get Information About the Call Context of BX24.placement.info
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `BX24.placement.info` retrieves information about the context of the embedding handler call. No parameters.
+      summary: Get the Widget Execution Context BX24.placement.info
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `BX24.placement.info` retrieves the handler call context: the code of the placement where the widget is open and the parameters passed along with it.'
       operationId: BX24_placement_info
       tags:
       - Widgets
@@ -229,8 +227,8 @@ paths:
         - placement
   /placement.bind:
     post:
-      summary: Set Up the Widget Handler placement.bind
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `placement.bind` adds a handler for the widget placement. It can be called at any time during the application's operation; however, it is often more convenient to register your widgets during the application installation. It is important to note that until the application installation is complete, the widgets you register will not be available to regular users in the Bitrix24 interface—they will only be visible to users with administrative rights.
+      summary: Register a Widget Handler placement.bind
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `placement.bind` adds a handler for the widget placement.'
       operationId: placement_bind
       tags:
       - Widgets
@@ -245,13 +243,13 @@ paths:
               properties:
                 PLACEMENT:
                   type: string
-                  description: '| Identifier for the required widget placement location ||'
+                  description: '| Placement code. The method converts it to uppercase. The code must be available to the application under its scopes ||'
                 HANDLER:
                   type: string
-                  description: '| URL of the widget placement handler ||'
+                  description: '| Widget handler URL. Specify an address with the `http` or `https` scheme and a host name containing a dot ||'
                 TITLE:
                   type: string
-                  description: '| Name of the widget in the interface. Depending on the specific placement location, this may be the name of a tab in a form, a menu item, etc. ||'
+                  description: '| Name of the widget in the interface. Depending on the placement, this may be the name of a tab in a form, a menu item, etc. ||'
                 DESCRIPTION:
                   type: string
                   description: '| Description of the widget in the interface. Not used in practice ||'
@@ -260,10 +258,13 @@ paths:
                   description: '| Allows grouping UI elements for multiple handlers of the same widget type. For example, several dropdown items in the top button of the CRM card. Supported only by certain types of widgets ||'
                 LANG_ALL:
                   type: object
-                  description: '| Array of parameters `TITLE`, `DESCRIPTION`, and `GROUP_NAME` for specified languages. Users who have selected one of these languages in the Bitrix24 interface will see localized versions of `TITLE`, `DESCRIPTION`, and `GROUP_NAME`:'
+                  description: '| Object with `TITLE`, `DESCRIPTION`, and `GROUP_NAME` for the specified languages. If a nonempty `LANG_ALL` is passed, the method uses it instead of the corresponding top-level parameters. Users whose Bitrix24 interface uses one of these languages see localized names, descriptions, and groups:'
                 OPTIONS:
                   type: object
-                  description: '| Additional display parameters for the widget. Specific values depend on the widget placement location. Currently used in widgets for messengers, in the widget `PAGE_BACKGROUND_WORKER`, and in the widget CRM_XXX_DETAIL_ACTIVITY'
+                  description: '| Additional display parameters for the widget. Specific values depend on the placement. Currently used in widgets for messengers, in the widget `PAGE_BACKGROUND_WORKER`, and in the widget CRM_XXX_DETAIL_ACTIVITY'
+                ICON:
+                  type: object
+                  description: '| Handler image. Pass `fileData` as an array containing the file name and its Base64-encoded content. The method stores the file as the registered handler''s icon ||'
                 USER_ID:
                   type: integer
                   description: '| Identifier of the Bitrix24 user for whom the registered widget will be available. Possible values can be obtained using the user.get method.'
@@ -276,13 +277,13 @@ paths:
               properties:
                 PLACEMENT:
                   type: string
-                  description: '| Identifier for the required widget placement location ||'
+                  description: '| Placement code. The method converts it to uppercase. The code must be available to the application under its scopes ||'
                 HANDLER:
                   type: string
-                  description: '| URL of the widget placement handler ||'
+                  description: '| Widget handler URL. Specify an address with the `http` or `https` scheme and a host name containing a dot ||'
                 TITLE:
                   type: string
-                  description: '| Name of the widget in the interface. Depending on the specific placement location, this may be the name of a tab in a form, a menu item, etc. ||'
+                  description: '| Name of the widget in the interface. Depending on the placement, this may be the name of a tab in a form, a menu item, etc. ||'
                 DESCRIPTION:
                   type: string
                   description: '| Description of the widget in the interface. Not used in practice ||'
@@ -291,10 +292,13 @@ paths:
                   description: '| Allows grouping UI elements for multiple handlers of the same widget type. For example, several dropdown items in the top button of the CRM card. Supported only by certain types of widgets ||'
                 LANG_ALL:
                   type: object
-                  description: '| Array of parameters `TITLE`, `DESCRIPTION`, and `GROUP_NAME` for specified languages. Users who have selected one of these languages in the Bitrix24 interface will see localized versions of `TITLE`, `DESCRIPTION`, and `GROUP_NAME`:'
+                  description: '| Object with `TITLE`, `DESCRIPTION`, and `GROUP_NAME` for the specified languages. If a nonempty `LANG_ALL` is passed, the method uses it instead of the corresponding top-level parameters. Users whose Bitrix24 interface uses one of these languages see localized names, descriptions, and groups:'
                 OPTIONS:
                   type: object
-                  description: '| Additional display parameters for the widget. Specific values depend on the widget placement location. Currently used in widgets for messengers, in the widget `PAGE_BACKGROUND_WORKER`, and in the widget CRM_XXX_DETAIL_ACTIVITY'
+                  description: '| Additional display parameters for the widget. Specific values depend on the placement. Currently used in widgets for messengers, in the widget `PAGE_BACKGROUND_WORKER`, and in the widget CRM_XXX_DETAIL_ACTIVITY'
+                ICON:
+                  type: object
+                  description: '| Handler image. Pass `fileData` as an array containing the file name and its Base64-encoded content. The method stores the file as the registered handler''s icon ||'
                 USER_ID:
                   type: integer
                   description: '| Identifier of the Bitrix24 user for whom the registered widget will be available. Possible values can be obtained using the user.get method.'
@@ -318,8 +322,8 @@ paths:
       - AccessToken: []
   /placement.get:
     post:
-      summary: Get a List of Registered Placement Handlers placement.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `placement.get` retrieves a list of registered widget placement handlers.
+      summary: Get Handlers Registered by the Application placement.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `placement.get` returns the list of widget handlers that the application registered with the method placement.bind. For each handler, the method returns the embedding point code, the handler address, the user for whom the widget is registered, the settings, and the names in different languages.'
       operationId: placement_get
       tags:
       - Widgets
@@ -349,10 +353,12 @@ paths:
                 $ref: '#/components/schemas/BitrixError'
       security:
       - AccessToken: []
+      - OAuth2:
+        - placement
   /placement.list:
     post:
-      summary: Get a List of Available Application Embed Locations placement.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `placement.list` returns a list of available embed locations for the application. The method works only in the context of the application.
+      summary: Get Placements Available to the Application placement.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `placement.list` returns the placements available to the application.'
       operationId: placement_list
       tags:
       - Widgets
@@ -367,20 +373,20 @@ paths:
               properties:
                 SCOPE:
                   type: string
-                  description: '| Limits the list of embed locations to a specific application scope.'
+                  description: '| Limits the list to a specific application scope.'
                 FULL:
                   type: boolean
-                  description: '| Flag to retrieve the full list of embed locations.'
+                  description: '| Flag to retrieve the full list of placements.'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 SCOPE:
                   type: string
-                  description: '| Limits the list of embed locations to a specific application scope.'
+                  description: '| Limits the list to a specific application scope.'
                 FULL:
                   type: boolean
-                  description: '| Flag to retrieve the full list of embed locations.'
+                  description: '| Flag to retrieve the full list of placements.'
       responses:
         '200':
           description: Successful response
@@ -400,8 +406,8 @@ paths:
         - placement
   /placement.unbind:
     post:
-      summary: Remove Registered Automation Rule Handler placement.unbind
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `placement.unbind` removes the registered Automation rule handler. The method works only in the context of the application.
+      summary: Delete a Widget Handler placement.unbind
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `placement.unbind` removes the registered widget handler.'
       operationId: placement_unbind
       tags:
       - Widgets
@@ -416,7 +422,7 @@ paths:
               properties:
                 HANDLER:
                   type: string
-                  description: '| URL of the Automation rule handler.'
+                  description: '| URL of the widget handler.'
                 USER_ID:
                   type: integer
                   description: '| Identifier of the Bitrix24 user for whom the handler was registered.'
@@ -426,7 +432,7 @@ paths:
               properties:
                 HANDLER:
                   type: string
-                  description: '| URL of the Automation rule handler.'
+                  description: '| URL of the widget handler.'
                 USER_ID:
                   type: integer
                   description: '| Identifier of the Bitrix24 user for whom the handler was registered.'
@@ -450,7 +456,7 @@ paths:
   /userfieldtype.add:
     post:
       summary: Register a New User Field Type userfieldtype.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `userfieldtype.add` registers a new type of user fields. After registering the type, create a user field using the userfieldconfig.add method. When opening a card with a user type field, an array `PLACEMENT_OPTIONS` containing data about the field and entity is passed to the application handler.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `userfieldtype.add` method registers an application''s user field type and works only in the context of an application. After registration, create a field of this type using the userfieldconfig.add method: pass the full code `rest__` in `field.userTypeId`, where `APP_ID` is the application identifier from the app.info method. To create a field, the application also needs the `userfieldconfig` and `crm` scopes.'
       operationId: userfieldtype_add
       tags:
       - Widgets
@@ -465,20 +471,22 @@ paths:
               properties:
                 USER_TYPE_ID:
                   type: string
-                  description: '| String code of the type |'
+                  description: '| Type code. The method converts it to lowercase.'
                 HANDLER:
                   type: string
-                  description: '| Address of the user type handler |'
+                  description: '| Handler address that Bitrix24 loads into the field. It must start with `http://` or `https://`, and the host name must contain a dot.'
                 TITLE:
                   type: string
-                  description: '| Text title of the type. Will be displayed in the administrative interface for user field settings | ||'
+                  description: '| Type name, up to 255 characters. Displayed in the administrative interface for configuring custom fields. If not passed, the type code becomes the name ||'
                 DESCRIPTION:
                   type: string
-                  description: '| Text description of the type. Will be displayed in the administrative interface for user field settings | ||'
+                  description: '| Type description, up to 255 characters. Displayed in the administrative interface for configuring custom fields ||'
                 OPTIONS:
-                  type: array
-                  items: {}
-                  description: '| Additional settings. Currently, one key is available: `height` — specifies the height of the user field in pixels. Any positive value will apply.'
+                  type: object
+                  description: '| Additional settings. Currently, one key is available: `height` — the field height in pixels, an integer.'
+                LANG_ALL:
+                  type: object
+                  description: '| Type name and description for different languages. The object key is a two-letter language code, for example `ru` or `en`. The value is an object with the string fields `TITLE` and `DESCRIPTION`, up to 255 characters each. If a non-empty `LANG_ALL` is passed, the method ignores the `TITLE` and ...'
               required:
               - USER_TYPE_ID
               - HANDLER
@@ -488,20 +496,22 @@ paths:
               properties:
                 USER_TYPE_ID:
                   type: string
-                  description: '| String code of the type |'
+                  description: '| Type code. The method converts it to lowercase.'
                 HANDLER:
                   type: string
-                  description: '| Address of the user type handler |'
+                  description: '| Handler address that Bitrix24 loads into the field. It must start with `http://` or `https://`, and the host name must contain a dot.'
                 TITLE:
                   type: string
-                  description: '| Text title of the type. Will be displayed in the administrative interface for user field settings | ||'
+                  description: '| Type name, up to 255 characters. Displayed in the administrative interface for configuring custom fields. If not passed, the type code becomes the name ||'
                 DESCRIPTION:
                   type: string
-                  description: '| Text description of the type. Will be displayed in the administrative interface for user field settings | ||'
+                  description: '| Type description, up to 255 characters. Displayed in the administrative interface for configuring custom fields ||'
                 OPTIONS:
-                  type: array
-                  items: {}
-                  description: '| Additional settings. Currently, one key is available: `height` — specifies the height of the user field in pixels. Any positive value will apply.'
+                  type: object
+                  description: '| Additional settings. Currently, one key is available: `height` — the field height in pixels, an integer.'
+                LANG_ALL:
+                  type: object
+                  description: '| Type name and description for different languages. The object key is a two-letter language code, for example `ru` or `en`. The value is an object with the string fields `TITLE` and `DESCRIPTION`, up to 255 characters each. If a non-empty `LANG_ALL` is passed, the method ignores the `TITLE` and ...'
               required:
               - USER_TYPE_ID
               - HANDLER
@@ -521,11 +531,11 @@ paths:
       security:
       - AccessToken: []
       - OAuth2:
-        - depending on the placement
+        - placement
   /userfieldtype.delete:
     post:
       summary: Delete Registered User Field Type userfieldtype.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `userfieldtype.delete` removes a user field type registered by the application. It returns _true_ or an error with a description of the reason.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `userfieldtype.delete` removes a user field type registered by this application and works only in the context of an application. To change the handler address, name, description, or field height, you do not need to delete the type — use the userfieldtype.update method.'
       operationId: userfieldtype_delete
       tags:
       - Widgets
@@ -540,7 +550,7 @@ paths:
               properties:
                 USER_TYPE_ID:
                   type: string
-                  description: '| String code of the type |'
+                  description: '| Type code that the application passed to userfieldtype.add. The code is case-insensitive. You can retrieve the codes using the userfieldtype.list method ||'
               required:
               - USER_TYPE_ID
           application/x-www-form-urlencoded:
@@ -549,7 +559,7 @@ paths:
               properties:
                 USER_TYPE_ID:
                   type: string
-                  description: '| String code of the type |'
+                  description: '| Type code that the application passed to userfieldtype.add. The code is case-insensitive. You can retrieve the codes using the userfieldtype.list method ||'
               required:
               - USER_TYPE_ID
       responses:
@@ -568,11 +578,11 @@ paths:
       security:
       - AccessToken: []
       - OAuth2:
-        - depending on the integration point
+        - placement
   /userfieldtype.list:
     post:
       summary: Get a list of registered user field types userfieldtype.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method retrieves a list of user field types registered by the application. It returns a list of field types with pagination. No parameters.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `userfieldtype.list` returns the user field types that the application registered with the method userfieldtype.add. For each type, the method returns the code, the handler address, the name, and the description.'
       operationId: userfieldtype_list
       tags:
       - Widgets
@@ -585,28 +595,16 @@ paths:
             schema:
               type: object
               properties:
-                result:
-                  type: object
-                  description: '| Root element of the response ||'
-                total:
+                start:
                   type: integer
-                  description: '| Number of processed records ||'
-                time:
-                  type: string
-                  description: '| Information about the execution time of the request ||'
+                  description: '| Offset for pagination. The method returns no more than 50 records per call. To retrieve the next page, pass the `next` value from the previous response: `50` for the second page, `100` for the third. For details, see the article Features of List Methods ||'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
-                result:
-                  type: object
-                  description: '| Root element of the response ||'
-                total:
+                start:
                   type: integer
-                  description: '| Number of processed records ||'
-                time:
-                  type: string
-                  description: '| Information about the execution time of the request ||'
+                  description: '| Offset for pagination. The method returns no more than 50 records per call. To retrieve the next page, pass the `next` value from the previous response: `50` for the second page, `100` for the third. For details, see the article Features of List Methods ||'
       responses:
         '200':
           description: Successful response
@@ -623,11 +621,11 @@ paths:
       security:
       - AccessToken: []
       - OAuth2:
-        - depending on the embedding location
+        - placement
   /userfieldtype.update:
     post:
       summary: Change settings for user field type userfieldtype.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `userfieldtype.update` modifies the settings of a user field type registered by the application. It returns _true_ or an error with a description of the reason.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `userfieldtype.update` method modifies the settings of a user field type previously registered by the application. It updates the handler URL, name, description, and field height, but does not change the type code.'
       operationId: userfieldtype_update
       tags:
       - Widgets
@@ -642,10 +640,10 @@ paths:
               properties:
                 USER_TYPE_ID:
                   type: string
-                  description: '| String code of the type |'
+                  description: '| Short code of the previously registered user field type. Retrieve the code using userfieldtype.list | ||'
                 HANDLER:
                   type: string
-                  description: '| Address of the user type handler |'
+                  description: '| New handler URL for the user field type. Bitrix24 loads this URL in a frame within the field | Absolute URLs with the `http` or `https` protocol are allowed ||'
                 TITLE:
                   type: string
                   description: '| Text name of the type. Will be displayed in the administrative interface for user field settings | ||'
@@ -653,23 +651,23 @@ paths:
                   type: string
                   description: '| Text description of the type. Will be displayed in the administrative interface for user field settings | ||'
                 OPTIONS:
-                  type: array
-                  items: {}
-                  description: '| Additional settings. Currently, one key is available: `height` — specifies the height of the user field in pixels. Any positive value will apply.'
+                  type: object
+                  description: '| Additional settings. Currently, one key is available: `height`—specifies the height of the user field in pixels. The value is converted to an integer.'
+                LANG_ALL:
+                  type: object
+                  description: '| Type name and description for different languages. The object key is the language code, and the value is an object with the `TITLE` and `DESCRIPTION` fields | ||'
               required:
               - USER_TYPE_ID
-              - HANDLER
-              - TITLE
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 USER_TYPE_ID:
                   type: string
-                  description: '| String code of the type |'
+                  description: '| Short code of the previously registered user field type. Retrieve the code using userfieldtype.list | ||'
                 HANDLER:
                   type: string
-                  description: '| Address of the user type handler |'
+                  description: '| New handler URL for the user field type. Bitrix24 loads this URL in a frame within the field | Absolute URLs with the `http` or `https` protocol are allowed ||'
                 TITLE:
                   type: string
                   description: '| Text name of the type. Will be displayed in the administrative interface for user field settings | ||'
@@ -677,13 +675,13 @@ paths:
                   type: string
                   description: '| Text description of the type. Will be displayed in the administrative interface for user field settings | ||'
                 OPTIONS:
-                  type: array
-                  items: {}
-                  description: '| Additional settings. Currently, one key is available: `height` — specifies the height of the user field in pixels. Any positive value will apply.'
+                  type: object
+                  description: '| Additional settings. Currently, one key is available: `height`—specifies the height of the user field in pixels. The value is converted to an integer.'
+                LANG_ALL:
+                  type: object
+                  description: '| Type name and description for different languages. The object key is the language code, and the value is an object with the `TITLE` and `DESCRIPTION` fields | ||'
               required:
               - USER_TYPE_ID
-              - HANDLER
-              - TITLE
       responses:
         '200':
           description: Successful response
@@ -700,7 +698,7 @@ paths:
       security:
       - AccessToken: []
       - OAuth2:
-        - depending on the embedding location
+        - placement
 components:
   schemas:
     BitrixError:
@@ -718,6 +716,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -745,20 +757,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

@@ -32,7 +32,7 @@ paths:
   /disk.attachedObject.get:
     post:
       summary: Get Information About Attached File disk.attachedObject.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.attachedObject.get` returns information about the attached file.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.attachedObject.get` returns information about the attached file.'
       operationId: disk_attachedObject_get
       tags:
       - Drive
@@ -76,11 +76,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.file.copyto:
+  /disk.file.copyTo:
     post:
-      summary: Copy File to Specified Folder disk.file.copyto
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.copyto` copies a file to the specified folder.
-      operationId: disk_file_copyto
+      summary: Copy File to Specified Folder disk.file.copyTo
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.copyTo` copies a file to the specified folder.'
+      operationId: disk_file_copyTo
       tags:
       - Drive
       externalDocs:
@@ -134,7 +134,7 @@ paths:
   /disk.file.delete:
     post:
       summary: Permanently Delete File disk.file.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.delete` permanently deletes a file. If you want to move the file to the trash, use the method disk.file.markdeleted.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.delete` permanently deletes a file.'
       operationId: disk_file_delete
       tags:
       - Drive
@@ -181,7 +181,7 @@ paths:
   /disk.file.get:
     post:
       summary: Get File Parameters disk.file.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.get` returns data about a file.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.get` returns data about a file.'
       operationId: disk_file_get
       tags:
       - Drive
@@ -228,7 +228,7 @@ paths:
   /disk.file.getExternalLink:
     post:
       summary: Get Public Link for File disk.file.getExternalLink
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.getExternalLink` returns a public link to a file.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.getExternalLink` returns a public link to a file.'
       operationId: disk_file_getExternalLink
       tags:
       - Drive
@@ -272,10 +272,45 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
+  /disk.file.getFields:
+    post:
+      summary: Get Description of File Fields for disk.file.getFields
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.getFields` returns the description of file fields.'
+      operationId: disk_file_getFields
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-get-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
   /disk.file.getVersions:
     post:
       summary: List of File Versions for disk.file.getVersions
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.getVersions` returns a list of file versions. Versions are returned in descending order of creation date.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.getVersions` returns a list of file versions.'
       operationId: disk_file_getVersions
       tags:
       - Drive
@@ -333,46 +368,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.file.getfields:
+  /disk.file.markDeleted:
     post:
-      summary: Get Description of File Fields for disk.file.getfields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.getfields` returns the description of file fields.
-      operationId: disk_file_getfields
-      tags:
-      - Drive
-      externalDocs:
-        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-get-fields.html
-        description: Official Documentation
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BitrixResponse'
-        4XX:
-          description: Request error (400, 401, 403)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BitrixError'
-      security:
-      - AccessToken: []
-      - OAuth2:
-        - disk
-  /disk.file.markdeleted:
-    post:
-      summary: Move File to Trash disk.file.markdeleted
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.markdeleted` moves a file to the trash. Save the file ID after deletion so that it can be restored later using the disk.file.restore method.
-      operationId: disk_file_markdeleted
+      summary: Move File to Trash disk.file.markDeleted
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.markDeleted` moves a file to the trash.'
+      operationId: disk_file_markDeleted
       tags:
       - Drive
       externalDocs:
@@ -415,11 +415,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.file.moveto:
+  /disk.file.moveTo:
     post:
-      summary: Move File to Specified Folder disk.file.moveto
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.moveto` moves a file to the specified folder. You cannot move a file to a folder from a different storage.
-      operationId: disk_file_moveto
+      summary: Move File to Specified Folder disk.file.moveTo
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.moveTo` moves a file to the specified folder.'
+      operationId: disk_file_moveTo
       tags:
       - Drive
       externalDocs:
@@ -473,7 +473,7 @@ paths:
   /disk.file.rename:
     post:
       summary: Rename File disk.file.rename
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.rename` renames a file.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.rename` renames a file.'
       operationId: disk_file_rename
       tags:
       - Drive
@@ -528,7 +528,7 @@ paths:
   /disk.file.restore:
     post:
       summary: Restore File from Trash disk.file.restore
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.restore` restores a file from the trash.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.restore` restores a file from the trash.'
       operationId: disk_file_restore
       tags:
       - Drive
@@ -575,7 +575,7 @@ paths:
   /disk.file.restoreFromVersion:
     post:
       summary: Restore a File from a Specific Version disk.file.restoreFromVersion
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.restoreFromVersion` restores a file from a specific version.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.restoreFromVersion` restores a file from a specific version.'
       operationId: disk_file_restoreFromVersion
       tags:
       - Drive
@@ -627,11 +627,88 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.file.uploadversion:
+  /disk.file.search:
     post:
-      summary: Upload a New Version of a File disk.file.uploadversion
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.file.uploadversion` uploads a new version of a file.
-      operationId: disk_file_uploadversion
+      summary: Search Files and Folders disk.file.search
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.search` finds files and folders on Drive by a text query.'
+      operationId: disk_file_search
+      tags:
+      - Drive
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/disk/file/disk-file-search.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                QUERY:
+                  type: string
+                  description: '| Text of the search query.'
+                TYPE:
+                  type: string
+                  description: '| Type of objects in the result:'
+                FILTER:
+                  type: object
+                  description: '| Search scope (detailed description).'
+                start:
+                  type: integer
+                  description: '| Offset for pagination.'
+                STORAGE_ID:
+                  type: integer
+                  description: '| Optional key. Identifier of the storage to search in.'
+                FOLDER_ID:
+                  type: integer
+                  description: '| Optional key. Identifier of the folder to search in. The search also covers nested folders, and the folder itself is not included in the result.'
+              required:
+              - QUERY
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                QUERY:
+                  type: string
+                  description: '| Text of the search query.'
+                TYPE:
+                  type: string
+                  description: '| Type of objects in the result:'
+                FILTER:
+                  type: object
+                  description: '| Search scope (detailed description).'
+                start:
+                  type: integer
+                  description: '| Offset for pagination.'
+                STORAGE_ID:
+                  type: integer
+                  description: '| Optional key. Identifier of the storage to search in.'
+                FOLDER_ID:
+                  type: integer
+                  description: '| Optional key. Identifier of the folder to search in. The search also covers nested folders, and the folder itself is not included in the result.'
+              required:
+              - QUERY
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - disk
+  /disk.file.uploadVersion:
+    post:
+      summary: Upload a New Version of a File disk.file.uploadVersion
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.file.uploadVersion` uploads a new version of a file.'
+      operationId: disk_file_uploadVersion
       tags:
       - Drive
       externalDocs:
@@ -649,7 +726,7 @@ paths:
                 fileContent:
                   type: array
                   items: {}
-                  description: '| An array containing the file name and a string in Base64 ||'
+                  description: '| New version contents (detailed description) ||'
               required:
               - id
               - fileContent
@@ -663,7 +740,7 @@ paths:
                 fileContent:
                   type: array
                   items: {}
-                  description: '| An array containing the file name and a string in Base64 ||'
+                  description: '| New version contents (detailed description) ||'
               required:
               - id
               - fileContent
@@ -684,11 +761,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.folder.addsubfolder:
+  /disk.folder.addSubFolder:
     post:
-      summary: Create a Subfolder disk.folder.addsubfolder
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.addsubfolder` creates a subfolder.
-      operationId: disk_folder_addsubfolder
+      summary: Create a Subfolder disk.folder.addSubFolder
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.addSubFolder` creates a subfolder.'
+      operationId: disk_folder_addSubFolder
       tags:
       - Drive
       externalDocs:
@@ -704,12 +781,19 @@ paths:
                   type: integer
                   description: '| Identifier of the parent folder.'
                 data:
+                  type: object
+                  description: '| Subfolder parameters (detailed description) ||'
+                rights:
                   type: array
                   items: {}
-                  description: '| An array with the field `NAME`, where `NAME` is the name of the subfolder ||'
+                  description: '| An array of access permissions for the folder. Each item contains:'
+                NAME:
+                  type: string
+                  description: '| Subfolder name. The maximum length is 255 characters. The name must not contain characters prohibited in file names ||'
               required:
               - id
               - data
+              - NAME
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -718,12 +802,19 @@ paths:
                   type: integer
                   description: '| Identifier of the parent folder.'
                 data:
+                  type: object
+                  description: '| Subfolder parameters (detailed description) ||'
+                rights:
                   type: array
                   items: {}
-                  description: '| An array with the field `NAME`, where `NAME` is the name of the subfolder ||'
+                  description: '| An array of access permissions for the folder. Each item contains:'
+                NAME:
+                  type: string
+                  description: '| Subfolder name. The maximum length is 255 characters. The name must not contain characters prohibited in file names ||'
               required:
               - id
               - data
+              - NAME
       responses:
         '200':
           description: Successful response
@@ -741,11 +832,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.folder.copyto:
+  /disk.folder.copyTo:
     post:
-      summary: Copy a folder and all its contents to the specified folder disk.folder.copyto
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.copyto` copies a folder and all its contents to the specified folder.
-      operationId: disk_folder_copyto
+      summary: Copy a folder and all its contents to the specified folder disk.folder.copyTo
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.copyTo` copies a folder and all its contents to the specified folder. The response contains only the new root folder object of the copy. Retrieve its contents using disk.folder.getChildren.'
+      operationId: disk_folder_copyTo
       tags:
       - Drive
       externalDocs:
@@ -796,11 +887,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.folder.deletetree:
+  /disk.folder.deleteTree:
     post:
-      summary: Permanently Delete a Folder and All Its Contents disk.folder.deletetree
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.deletetree` permanently deletes a folder and all its contents. If you want to move the folder to the trash, use the method disk.folder.markdeleted.
-      operationId: disk_folder_deletetree
+      summary: Permanently Delete a Folder and All Its Contents disk.folder.deleteTree
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.deleteTree` permanently deletes a folder and all its contents.'
+      operationId: disk_folder_deleteTree
       tags:
       - Drive
       externalDocs:
@@ -846,7 +937,7 @@ paths:
   /disk.folder.get:
     post:
       summary: Get Folder Parameters disk.folder.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.get` returns data about a folder.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.get` returns data about a folder.'
       operationId: disk_folder_get
       tags:
       - Drive
@@ -890,11 +981,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.folder.getchildren:
+  /disk.folder.getChildren:
     post:
-      summary: Get a list of files and folders in the folder disk.folder.getchildren
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.getchildren` returns a list of files and folders located in the folder. Only those files and folders for which the user has "Read" access permission are returned.
-      operationId: disk_folder_getchildren
+      summary: Get a list of files and folders in the folder disk.folder.getChildren
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.getChildren` returns a list of files and folders located in the folder.'
+      operationId: disk_folder_getChildren
       tags:
       - Drive
       externalDocs:
@@ -959,11 +1050,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.folder.getexternallink:
+  /disk.folder.getExternalLink:
     post:
-      summary: Get Public Link for Folder disk.folder.getexternallink
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.getexternallink` returns a public link to the folder.
-      operationId: disk_folder_getexternallink
+      summary: Get Public Link for Folder disk.folder.getExternalLink
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.getExternalLink` returns an active public link to the folder. If the link does not exist or has expired, the method creates a new one. While the link remains active, repeated calls return the same value.'
+      operationId: disk_folder_getExternalLink
       tags:
       - Drive
       externalDocs:
@@ -1006,11 +1097,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.folder.getfields:
+  /disk.folder.getFields:
     post:
-      summary: Get Folder Field Descriptions disk.folder.getfields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.getfields` returns the description of folder fields.
-      operationId: disk_folder_getfields
+      summary: Get Folder Field Descriptions disk.folder.getFields
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.getFields` returns the description of folder fields.'
+      operationId: disk_folder_getFields
       tags:
       - Drive
       externalDocs:
@@ -1041,11 +1132,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.folder.markdeleted:
+  /disk.folder.markDeleted:
     post:
-      summary: Move Folder to Trash disk.folder.markdeleted
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.markdeleted` moves a folder to the trash. Save the folder ID after deletion so that it can be restored later using the method disk.folder.restore
-      operationId: disk_folder_markdeleted
+      summary: Move Folder to Trash disk.folder.markDeleted
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.markDeleted` moves a folder to the trash.'
+      operationId: disk_folder_markDeleted
       tags:
       - Drive
       externalDocs:
@@ -1088,11 +1179,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.folder.moveto:
+  /disk.folder.moveTo:
     post:
-      summary: Move a folder and all its contents to the specified folder disk.folder.moveto
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.moveto` moves a folder and all its contents to the specified folder.
-      operationId: disk_folder_moveto
+      summary: Move a Folder and All Its Contents to the Specified Folder disk.folder.moveTo
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.moveTo` moves a folder and all its contents to the specified folder.'
+      operationId: disk_folder_moveTo
       tags:
       - Drive
       externalDocs:
@@ -1146,7 +1237,7 @@ paths:
   /disk.folder.rename:
     post:
       summary: Rename Folder disk.folder.rename
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.rename` renames a folder.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.rename` renames a folder.'
       operationId: disk_folder_rename
       tags:
       - Drive
@@ -1164,7 +1255,7 @@ paths:
                   description: '| Identifier of the folder.'
                 newName:
                   type: string
-                  description: '| New name of the folder ||'
+                  description: '| New folder name. The maximum length is 255 characters. The name must not contain characters prohibited in file names ||'
               required:
               - id
               - newName
@@ -1177,7 +1268,7 @@ paths:
                   description: '| Identifier of the folder.'
                 newName:
                   type: string
-                  description: '| New name of the folder ||'
+                  description: '| New folder name. The maximum length is 255 characters. The name must not contain characters prohibited in file names ||'
               required:
               - id
               - newName
@@ -1201,7 +1292,7 @@ paths:
   /disk.folder.restore:
     post:
       summary: Restore Folder from Trash disk.folder.restore
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.restore` restores a folder from the trash.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.restore` restores a folder from the trash.'
       operationId: disk_folder_restore
       tags:
       - Drive
@@ -1245,11 +1336,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.folder.sharetouser:
+  /disk.folder.shareToUser:
     post:
-      summary: Assign Access Permissions to Folder disk.folder.sharetouser
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.sharetouser` assigns access permissions to a folder.
-      operationId: disk_folder_sharetouser
+      summary: Assign Access Permissions to Folder disk.folder.shareToUser
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.shareToUser` assigns access permissions to a folder.'
+      operationId: disk_folder_shareToUser
       tags:
       - Drive
       externalDocs:
@@ -1308,11 +1399,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.folder.uploadfile:
+  /disk.folder.uploadFile:
     post:
-      summary: Upload a New File to the Specified Folder disk.folder.uploadfile
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.folder.uploadfile` uploads a new file to the specified folder.
-      operationId: disk_folder_uploadfile
+      summary: Upload a New File to the Specified Folder disk.folder.uploadFile
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.folder.uploadFile` uploads a new file to the specified folder.'
+      operationId: disk_folder_uploadFile
       tags:
       - Drive
       externalDocs:
@@ -1328,9 +1419,8 @@ paths:
                   type: integer
                   description: '| Identifier of the folder where the file needs to be uploaded.'
                 data:
-                  type: array
-                  items: {}
-                  description: '| An array with the field `NAME`, where `NAME` is the name of the file.'
+                  type: object
+                  description: '| New file parameters (detailed description)'
                 fileContent:
                   type: array
                   items: {}
@@ -1338,13 +1428,15 @@ paths:
                 rights:
                   type: array
                   items: {}
-                  description: '| An array of access permissions for the uploaded file in the format `{"TASK_ID": 42, "ACCESS_CODE": "U35"}`, where'
+                  description: '| An array of access permissions for the uploaded file. Each item contains:'
                 generateUniqueName:
                   type: boolean
                   description: '| Generate a unique file name if a file with that name already exists. For example, file (1).docx.'
+                NAME:
+                  type: string
+                  description: '| File name. Required for direct upload. The maximum length is 255 characters. The name must not contain characters prohibited in file names ||'
               required:
               - id
-              - data
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -1353,9 +1445,8 @@ paths:
                   type: integer
                   description: '| Identifier of the folder where the file needs to be uploaded.'
                 data:
-                  type: array
-                  items: {}
-                  description: '| An array with the field `NAME`, where `NAME` is the name of the file.'
+                  type: object
+                  description: '| New file parameters (detailed description)'
                 fileContent:
                   type: array
                   items: {}
@@ -1363,13 +1454,15 @@ paths:
                 rights:
                   type: array
                   items: {}
-                  description: '| An array of access permissions for the uploaded file in the format `{"TASK_ID": 42, "ACCESS_CODE": "U35"}`, where'
+                  description: '| An array of access permissions for the uploaded file. Each item contains:'
                 generateUniqueName:
                   type: boolean
                   description: '| Generate a unique file name if a file with that name already exists. For example, file (1).docx.'
+                NAME:
+                  type: string
+                  description: '| File name. Required for direct upload. The maximum length is 255 characters. The name must not contain characters prohibited in file names ||'
               required:
               - id
-              - data
       responses:
         '200':
           description: Successful response
@@ -1390,7 +1483,7 @@ paths:
   /disk.rights.getTasks:
     post:
       summary: Get a List of Available Access Levels disk.rights.getTasks
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.rights.getTasks` returns a list of available access levels. Use the obtained access level identifiers to set permissions on files during their upload. Specify the identifiers as the value of the `TASK_ID` parameter in the methods disk.storage.uploadfile and disk.folder.uploadfile.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.rights.getTasks` returns a list of available access levels.'
       operationId: disk_rights_getTasks
       tags:
       - Drive
@@ -1422,11 +1515,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.storage.addfolder:
+  /disk.storage.addFolder:
     post:
-      summary: Create a Folder in the Root of the Storage disk.storage.addfolder
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.addfolder` creates a folder in the root of the storage.
-      operationId: disk_storage_addfolder
+      summary: Create a Folder in the Root of the Storage disk.storage.addFolder
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.storage.addFolder` creates a folder in the root of the storage.'
+      operationId: disk_storage_addFolder
       tags:
       - Drive
       externalDocs:
@@ -1442,16 +1535,19 @@ paths:
                   type: integer
                   description: '| Identifier of the storage.'
                 data:
-                  type: array
-                  items: {}
-                  description: '| Array with the field `NAME`, where `NAME` is the name of the new folder ||'
+                  type: object
+                  description: '| New folder parameters (detailed description) ||'
                 rights:
                   type: array
                   items: {}
-                  description: '| Array of access permissions for the folder in the format `{"TASK_ID": 42, "ACCESS_CODE": "U35"}`, where'
+                  description: '| Array of access permissions for the folder. Each item contains:'
+                NAME:
+                  type: string
+                  description: '| New folder name. The maximum length is 255 characters. The name must not contain characters prohibited in file names ||'
               required:
               - id
               - data
+              - NAME
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -1460,16 +1556,19 @@ paths:
                   type: integer
                   description: '| Identifier of the storage.'
                 data:
-                  type: array
-                  items: {}
-                  description: '| Array with the field `NAME`, where `NAME` is the name of the new folder ||'
+                  type: object
+                  description: '| New folder parameters (detailed description) ||'
                 rights:
                   type: array
                   items: {}
-                  description: '| Array of access permissions for the folder in the format `{"TASK_ID": 42, "ACCESS_CODE": "U35"}`, where'
+                  description: '| Array of access permissions for the folder. Each item contains:'
+                NAME:
+                  type: string
+                  description: '| New folder name. The maximum length is 255 characters. The name must not contain characters prohibited in file names ||'
               required:
               - id
               - data
+              - NAME
       responses:
         '200':
           description: Successful response
@@ -1490,7 +1589,7 @@ paths:
   /disk.storage.get:
     post:
       summary: Get Storage Description disk.storage.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.get` returns storage data.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.storage.get` returns storage data.'
       operationId: disk_storage_get
       tags:
       - Drive
@@ -1534,11 +1633,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.storage.getchildren:
+  /disk.storage.getChildren:
     post:
       summary: Get a list of files and folders in the root of the storage…
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.getchildren` returns a list of files and folders located in the root of the storage. Only those files and folders for which the user has "Read" access permission are returned.
-      operationId: disk_storage_getchildren
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.storage.getChildren` returns a list of files and folders located in the root of the storage.'
+      operationId: disk_storage_getChildren
       tags:
       - Drive
       externalDocs:
@@ -1603,11 +1702,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.storage.getfields:
+  /disk.storage.getFields:
     post:
-      summary: Get Description of Storage Fields disk.storage.getfields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.getfields` returns the description of storage fields.
-      operationId: disk_storage_getfields
+      summary: Get Description of Storage Fields disk.storage.getFields
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.storage.getFields` returns the description of storage fields.'
+      operationId: disk_storage_getFields
       tags:
       - Drive
       externalDocs:
@@ -1638,11 +1737,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.storage.getforapp:
+  /disk.storage.getForApp:
     post:
-      summary: Get Application Storage Description disk.storage.getforapp
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.getforapp` returns the description of the storage associated with the application. If the storage does not exist, it creates one. The method works only in the context of the application
-      operationId: disk_storage_getforapp
+      summary: Get Application Storage Description disk.storage.getForApp
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.storage.getForApp` returns the description of the storage associated with the application. If the storage does not exist, it creates one.'
+      operationId: disk_storage_getForApp
       tags:
       - Drive
       externalDocs:
@@ -1673,11 +1772,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.storage.getlist:
+  /disk.storage.getList:
     post:
-      summary: Get a List of Available Storages disk.storage.getlist
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.getlist` returns a list of available storages.
-      operationId: disk_storage_getlist
+      summary: Get a List of Available Storages disk.storage.getList
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.storage.getList` returns a list of available storages.'
+      operationId: disk_storage_getList
       tags:
       - Drive
       externalDocs:
@@ -1732,11 +1831,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.storage.gettypes:
+  /disk.storage.getTypes:
     post:
-      summary: Get Storage Types disk.storage.gettypes
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.gettypes` returns a list of storage types.
-      operationId: disk_storage_gettypes
+      summary: Get Storage Types disk.storage.getTypes
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.storage.getTypes` returns a list of storage types.'
+      operationId: disk_storage_getTypes
       tags:
       - Drive
       externalDocs:
@@ -1770,7 +1869,7 @@ paths:
   /disk.storage.rename:
     post:
       summary: Rename Application Storage disk.storage.rename
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.rename` renames the application storage. The method works only in the context of the application
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.storage.rename` renames the application storage.'
       operationId: disk_storage_rename
       tags:
       - Drive
@@ -1788,7 +1887,7 @@ paths:
                   description: '| Identifier of the application storage.'
                 newName:
                   type: string
-                  description: '| New name for the storage ||'
+                  description: '| New storage name. The maximum length is 100 characters ||'
               required:
               - id
               - newName
@@ -1801,7 +1900,7 @@ paths:
                   description: '| Identifier of the application storage.'
                 newName:
                   type: string
-                  description: '| New name for the storage ||'
+                  description: '| New storage name. The maximum length is 100 characters ||'
               required:
               - id
               - newName
@@ -1822,11 +1921,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - disk
-  /disk.storage.uploadfile:
+  /disk.storage.uploadFile:
     post:
-      summary: Upload a New File to the Root of the Storage disk.storage.uploadfile
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.storage.uploadfile` uploads a new file to the root of the storage.
-      operationId: disk_storage_uploadfile
+      summary: Upload a New File to the Root of the Storage disk.storage.uploadFile
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.storage.uploadFile` uploads a new file to the root of the storage.'
+      operationId: disk_storage_uploadFile
       tags:
       - Drive
       externalDocs:
@@ -1842,9 +1941,8 @@ paths:
                   type: integer
                   description: '| Identifier of the storage where the file needs to be uploaded.'
                 data:
-                  type: array
-                  items: {}
-                  description: '| An array with the field `NAME`, where `NAME` is the name of the file ||'
+                  type: object
+                  description: '| New file parameters (detailed description) ||'
                 fileContent:
                   type: array
                   items: {}
@@ -1852,14 +1950,18 @@ paths:
                 rights:
                   type: array
                   items: {}
-                  description: '| An array of access permissions for the uploaded file in the format `{"TASK_ID": 42, "ACCESS_CODE": "U35"}`, where'
+                  description: '| An array of access permissions for the uploaded file. Each item contains:'
                 generateUniqueName:
                   type: boolean
                   description: '| Generate a unique file name if a file with that name already exists. For example, file (1).docx.'
+                NAME:
+                  type: string
+                  description: '| File name. The maximum length is 255 characters. The name must not contain characters prohibited in file names ||'
               required:
               - id
               - data
               - fileContent
+              - NAME
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -1868,9 +1970,8 @@ paths:
                   type: integer
                   description: '| Identifier of the storage where the file needs to be uploaded.'
                 data:
-                  type: array
-                  items: {}
-                  description: '| An array with the field `NAME`, where `NAME` is the name of the file ||'
+                  type: object
+                  description: '| New file parameters (detailed description) ||'
                 fileContent:
                   type: array
                   items: {}
@@ -1878,14 +1979,18 @@ paths:
                 rights:
                   type: array
                   items: {}
-                  description: '| An array of access permissions for the uploaded file in the format `{"TASK_ID": 42, "ACCESS_CODE": "U35"}`, where'
+                  description: '| An array of access permissions for the uploaded file. Each item contains:'
                 generateUniqueName:
                   type: boolean
                   description: '| Generate a unique file name if a file with that name already exists. For example, file (1).docx.'
+                NAME:
+                  type: string
+                  description: '| File name. The maximum length is 255 characters. The name must not contain characters prohibited in file names ||'
               required:
               - id
               - data
               - fileContent
+              - NAME
       responses:
         '200':
           description: Successful response
@@ -1906,7 +2011,7 @@ paths:
   /disk.version.get:
     post:
       summary: Get File Version disk.version.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `disk.version.get` returns the version of a file.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `disk.version.get` returns the version of a file.'
       operationId: disk_version_get
       tags:
       - Drive
@@ -1967,6 +2072,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -1994,20 +2113,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

@@ -32,7 +32,7 @@ paths:
   /log.blogcomment.add:
     post:
       summary: Add a comment to the message log.blogcomment.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `log.blogcomment.add` adds a comment to a News Feed message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `log.blogcomment.add` adds a comment to a News Feed message.'
       operationId: log_blogcomment_add
       tags:
       - News Feed
@@ -100,8 +100,8 @@ paths:
         - log
   /log.blogcomment.delete:
     post:
-      summary: Delete comment from log.blogcomment.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `log.blogcomment.delete` removes a comment from the News Feed.
+      summary: Delete Comment from a Post log.blogcomment.delete
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `log.blogcomment.delete` removes a comment from the News Feed.'
       operationId: log_blogcomment_delete
       tags:
       - News Feed
@@ -154,7 +154,7 @@ paths:
   /log.blogcomment.user.get:
     post:
       summary: Get User Comments log.blogcomment.user.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `log.blogcomment.user.get` returns a list of comments on a News Feed post for the specified user and information about attached files.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `log.blogcomment.user.get` returns a list of comments on a News Feed post for the specified user and information about attached files.'
       operationId: log_blogcomment_user_get
       tags:
       - News Feed
@@ -215,7 +215,7 @@ paths:
   /log.blogpost.add:
     post:
       summary: Add a Message to the News Feed log.blogpost.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `log.blogpost.add` adds a message to the News Feed.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `log.blogpost.add` adds a message to the News Feed.'
       operationId: log_blogpost_add
       tags:
       - News Feed
@@ -374,7 +374,7 @@ paths:
   /log.blogpost.delete:
     post:
       summary: Delete News Feed Message log.blogpost.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `log.blogpost.delete` removes a message from the News Feed.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `log.blogpost.delete` removes a message from the News Feed.'
       operationId: log_blogpost_delete
       tags:
       - News Feed
@@ -421,7 +421,7 @@ paths:
   /log.blogpost.get:
     post:
       summary: Access Available User Messages from the News Feed log.blogpost.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `log.blogpost.get` returns messages from the News Feed that are accessible to the current user.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `log.blogpost.get` returns messages from the News Feed that are accessible to the current user.'
       operationId: log_blogpost_get
       tags:
       - News Feed
@@ -441,6 +441,21 @@ paths:
                   type: array
                   items: {}
                   description: '| Filter by recipients who have the right to view the message.'
+                LOG_DATE_FROM:
+                  type: string
+                  description: '| Lower boundary of the post publication period in ISO 8601 format. If `LOG_DATE_FROM` and `LOG_DATE_TO` are specified, the `LOG_DATE_FROM` value must not be later than `LOG_DATE_TO`. An empty string does not limit the result set ||'
+                LOG_DATE_TO:
+                  type: string
+                  description: '| Upper boundary of the post publication period in ISO 8601 format. If the value is not specified or an empty string is passed, the upper boundary of the period is not applied ||'
+                FIRST_ID:
+                  type: integer
+                  description: '| News Feed entry identifier for cursor-based forward navigation. The method returns posts with identifiers greater than the specified value. If `FIRST_ID` and `LAST_ID` are passed, `FIRST_ID` is applied. A value of `0` or an empty string starts the result set from the edge of the list ||'
+                LAST_ID:
+                  type: integer
+                  description: '| News Feed entry identifier for cursor-based backward navigation. The method returns posts with identifiers less than the specified value. A value of `0` or an empty string starts the result set from the edge of the list ||'
+                LIMIT:
+                  type: integer
+                  description: '| Page size in cursor mode. The default value is `50`. A non-positive or non-numeric value is replaced with the default value. The maximum value is `200` ||'
                 start:
                   type: integer
                   description: '| This parameter is used for pagination control.'
@@ -455,6 +470,21 @@ paths:
                   type: array
                   items: {}
                   description: '| Filter by recipients who have the right to view the message.'
+                LOG_DATE_FROM:
+                  type: string
+                  description: '| Lower boundary of the post publication period in ISO 8601 format. If `LOG_DATE_FROM` and `LOG_DATE_TO` are specified, the `LOG_DATE_FROM` value must not be later than `LOG_DATE_TO`. An empty string does not limit the result set ||'
+                LOG_DATE_TO:
+                  type: string
+                  description: '| Upper boundary of the post publication period in ISO 8601 format. If the value is not specified or an empty string is passed, the upper boundary of the period is not applied ||'
+                FIRST_ID:
+                  type: integer
+                  description: '| News Feed entry identifier for cursor-based forward navigation. The method returns posts with identifiers greater than the specified value. If `FIRST_ID` and `LAST_ID` are passed, `FIRST_ID` is applied. A value of `0` or an empty string starts the result set from the edge of the list ||'
+                LAST_ID:
+                  type: integer
+                  description: '| News Feed entry identifier for cursor-based backward navigation. The method returns posts with identifiers less than the specified value. A value of `0` or an empty string starts the result set from the edge of the list ||'
+                LIMIT:
+                  type: integer
+                  description: '| Page size in cursor mode. The default value is `50`. A non-positive or non-numeric value is replaced with the default value. The maximum value is `200` ||'
                 start:
                   type: integer
                   description: '| This parameter is used for pagination control.'
@@ -478,7 +508,7 @@ paths:
   /log.blogpost.getusers.important:
     post:
       summary: View Users Who Read an Important Message log.blogpost.getusers.important
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `log.blogpost.getusers.important` returns an array of user IDs who have read an important message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `log.blogpost.getusers.important` returns an array of user IDs who have read an important message.'
       operationId: log_blogpost_getusers_important
       tags:
       - News Feed
@@ -525,7 +555,7 @@ paths:
   /log.blogpost.share:
     post:
       summary: Add Recipients to News Feed Message log.blogpost.share
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `log.blogpost.share` adds new recipients to a news feed message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `log.blogpost.share` adds new recipients to a news feed message.'
       operationId: log_blogpost_share
       tags:
       - News Feed
@@ -588,7 +618,7 @@ paths:
   /log.blogpost.update:
     post:
       summary: Update News Feed Message log.blogpost.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `log.blogpost.update` updates a message in the News Feed.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `log.blogpost.update` updates a message in the News Feed.'
       operationId: log_blogpost_update
       tags:
       - News Feed
@@ -749,6 +779,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -776,20 +820,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

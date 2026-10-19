@@ -32,7 +32,7 @@ paths:
   /biconnector.connector.add:
     post:
       summary: Create Connector biconnector.connector.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.connector.add` creates a new connector that allows integrating external data sources into Bitrix24.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.connector.add` method creates a new connector.'
       operationId: biconnector_connector_add
       tags:
       - BIconnector
@@ -50,7 +50,7 @@ paths:
                   description: '| An object containing data to create a new connector. The object format:'
                 title:
                   type: string
-                  description: '| Connector name ||'
+                  description: '| Connector name, maximum length is 512 characters ||'
                 logo:
                   type: string
                   description: '| Connector logo. Can be provided as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||'
@@ -59,23 +59,38 @@ paths:
                   description: '| Connector description ||'
                 urlCheck:
                   type: string
-                  description: '| Connector endpoint for availability check, (detailed description) ||'
+                  description: '| Connector endpoint for availability check, maximum length is 2048 characters, (detailed description) ||'
                 urlTableList:
                   type: string
-                  description: '| Connector endpoint for retrieving the list of tables, (detailed description) ||'
+                  description: '| Connector endpoint for retrieving the list of tables, maximum length is 2048 characters, (detailed description) ||'
                 urlTableDescription:
                   type: string
-                  description: '| Connector endpoint for retrieving the description of a specific table, (detailed description) ||'
+                  description: '| Connector endpoint for retrieving the description of a specific table, maximum length is 2048 characters, (detailed description) ||'
                 urlData:
                   type: string
-                  description: '| Connector endpoint for retrieving data from the selected table, (detailed description) ||'
+                  description: '| Connector endpoint for retrieving data from the selected table, maximum length is 2048 characters, (detailed description) ||'
                 settings:
                   type: array
                   items: {}
-                  description: '| List of connection parameters, (detailed description) ||'
+                  description: '| Array of connection parameters: the codes and names of the fields whose values the user fills in when creating a source (detailed description) ||'
+                supportMapping:
+                  type: boolean
+                  description: '| Support for mapping the table fields to the fields of the external system. The default value is `false`.'
+                sourceCode:
+                  type: string
+                  description: '| String code of the external system, maximum length is 64 characters ||'
                 sort:
                   type: integer
                   description: '| Connector sorting parameter. Default value is `100` ||'
+                code:
+                  type: string
+                  description: '| Parameter code. The parameter goes to the external system under this name inside the `connection` object. Maximum length is 512 characters ||'
+                name:
+                  type: string
+                  description: '| Parameter name that the user sees in the Analytics hub section. Maximum length is 512 characters ||'
+                type:
+                  type: string
+                  description: '| Parameter type that determines the input field in the interface. Allowed values: `STRING`, `INT`. The value is case-sensitive: a lowercase `string` causes the `VALIDATION_SETTINGS_INVALID_TYPE` error ||'
               required:
               - fields
               - title
@@ -85,6 +100,9 @@ paths:
               - urlTableDescription
               - urlData
               - settings
+              - code
+              - name
+              - type
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -94,7 +112,7 @@ paths:
                   description: '| An object containing data to create a new connector. The object format:'
                 title:
                   type: string
-                  description: '| Connector name ||'
+                  description: '| Connector name, maximum length is 512 characters ||'
                 logo:
                   type: string
                   description: '| Connector logo. Can be provided as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||'
@@ -103,23 +121,38 @@ paths:
                   description: '| Connector description ||'
                 urlCheck:
                   type: string
-                  description: '| Connector endpoint for availability check, (detailed description) ||'
+                  description: '| Connector endpoint for availability check, maximum length is 2048 characters, (detailed description) ||'
                 urlTableList:
                   type: string
-                  description: '| Connector endpoint for retrieving the list of tables, (detailed description) ||'
+                  description: '| Connector endpoint for retrieving the list of tables, maximum length is 2048 characters, (detailed description) ||'
                 urlTableDescription:
                   type: string
-                  description: '| Connector endpoint for retrieving the description of a specific table, (detailed description) ||'
+                  description: '| Connector endpoint for retrieving the description of a specific table, maximum length is 2048 characters, (detailed description) ||'
                 urlData:
                   type: string
-                  description: '| Connector endpoint for retrieving data from the selected table, (detailed description) ||'
+                  description: '| Connector endpoint for retrieving data from the selected table, maximum length is 2048 characters, (detailed description) ||'
                 settings:
                   type: array
                   items: {}
-                  description: '| List of connection parameters, (detailed description) ||'
+                  description: '| Array of connection parameters: the codes and names of the fields whose values the user fills in when creating a source (detailed description) ||'
+                supportMapping:
+                  type: boolean
+                  description: '| Support for mapping the table fields to the fields of the external system. The default value is `false`.'
+                sourceCode:
+                  type: string
+                  description: '| String code of the external system, maximum length is 64 characters ||'
                 sort:
                   type: integer
                   description: '| Connector sorting parameter. Default value is `100` ||'
+                code:
+                  type: string
+                  description: '| Parameter code. The parameter goes to the external system under this name inside the `connection` object. Maximum length is 512 characters ||'
+                name:
+                  type: string
+                  description: '| Parameter name that the user sees in the Analytics hub section. Maximum length is 512 characters ||'
+                type:
+                  type: string
+                  description: '| Parameter type that determines the input field in the interface. Allowed values: `STRING`, `INT`. The value is case-sensitive: a lowercase `string` causes the `VALIDATION_SETTINGS_INVALID_TYPE` error ||'
               required:
               - fields
               - title
@@ -129,6 +162,9 @@ paths:
               - urlTableDescription
               - urlData
               - settings
+              - code
+              - name
+              - type
       responses:
         '200':
           description: Successful response
@@ -149,7 +185,7 @@ paths:
   /biconnector.connector.delete:
     post:
       summary: Delete Connector biconnector.connector.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.connector.delete` removes an existing connector. A connector can be deleted if it has no sources.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `biconnector.connector.delete` removes an existing connector.'
       operationId: biconnector_connector_delete
       tags:
       - BIconnector
@@ -196,7 +232,7 @@ paths:
   /biconnector.connector.fields:
     post:
       summary: Get Connector Fields biconnector.connector.fields
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.connector.fields` returns a description of the connector fields. A table with the description of standard fields can be found in the article Connector: Overview of Methods.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.connector.fields` method returns a description of the connector fields.'
       operationId: biconnector_connector_fields
       tags:
       - BIconnector
@@ -231,7 +267,7 @@ paths:
   /biconnector.connector.get:
     post:
       summary: Get Connector by ID biconnector.connector.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.connector.get` returns information about the connector by its identifier.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `biconnector.connector.get` returns information about the connector by its identifier.'
       operationId: biconnector_connector_get
       tags:
       - BIconnector
@@ -277,8 +313,8 @@ paths:
         - biconnector
   /biconnector.connector.list:
     post:
-      summary: Get the list of connectors biconnector.connector.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.connector.list` returns a list of connectors based on a filter. It is an implementation of the list method for connectors.
+      summary: Get a List of Connectors biconnector.connector.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.connector.list` method returns a list of connectors by filter.'
       operationId: biconnector_connector_list
       tags:
       - BIconnector
@@ -293,7 +329,7 @@ paths:
               properties:
                 select:
                   type: string
-                  description: '| List of fields that must be filled in the connectors in the selection. By default, all fields are taken ||'
+                  description: '| List of fields to be filled in for the connectors in the selection. Allowed values are the field names from the selection element table and `*`. The `["*"]` value returns all fields and is also used by default ||'
                 filter:
                   type: object
                   description: '| Filter for selecting connectors. Example format:'
@@ -302,14 +338,14 @@ paths:
                   description: '| Sorting parameters. Example format:'
                 page:
                   type: integer
-                  description: '| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number'
+                  description: '| Number of the result page. Numbering starts at one, and the default value is 1. A non-numeric, zero, or negative value causes no error: the method silently returns the first page. The `start` parameter, common to most list methods of the REST API, does not work here ||'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 select:
                   type: string
-                  description: '| List of fields that must be filled in the connectors in the selection. By default, all fields are taken ||'
+                  description: '| List of fields to be filled in for the connectors in the selection. Allowed values are the field names from the selection element table and `*`. The `["*"]` value returns all fields and is also used by default ||'
                 filter:
                   type: object
                   description: '| Filter for selecting connectors. Example format:'
@@ -318,7 +354,7 @@ paths:
                   description: '| Sorting parameters. Example format:'
                 page:
                   type: integer
-                  description: '| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number'
+                  description: '| Number of the result page. Numbering starts at one, and the default value is 1. A non-numeric, zero, or negative value causes no error: the method silently returns the first page. The `start` parameter, common to most list methods of the REST API, does not work here ||'
       responses:
         '200':
           description: Successful response
@@ -338,8 +374,8 @@ paths:
         - biconnector
   /biconnector.connector.update:
     post:
-      summary: Update the biconnector.connector.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.connector.update` updates an existing connector.
+      summary: Update Connector biconnector.connector.update
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `biconnector.connector.update` updates an existing connector.'
       operationId: biconnector_connector_update
       tags:
       - BIconnector
@@ -357,10 +393,10 @@ paths:
                   description: '| Connector identifier, can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||'
                 fields:
                   type: object
-                  description: '| An object containing the updated data. The object format:'
+                  description: '| An object containing the data to update. The object format:'
                 title:
                   type: string
-                  description: '| New connector name ||'
+                  description: '| New connector name, maximum length is 512 characters ||'
                 logo:
                   type: string
                   description: '| New connector logo. Can be passed as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||'
@@ -369,26 +405,44 @@ paths:
                   description: '| New connector description ||'
                 urlCheck:
                   type: string
-                  description: '| New endpoint for checking the connector''s availability, (detailed description) ||'
+                  description: '| New endpoint for checking the connector availability, maximum length is 2048 characters, (detailed description) ||'
                 urlTableList:
                   type: string
-                  description: '| New endpoint for obtaining the list of tables, (detailed description) ||'
+                  description: '| New endpoint for retrieving the list of tables, maximum length is 2048 characters, (detailed description) ||'
                 urlTableDescription:
                   type: string
-                  description: '| New endpoint for obtaining the description of a specific table, (detailed description) ||'
+                  description: '| New endpoint for retrieving the description of a specific table, maximum length is 2048 characters, (detailed description) ||'
                 urlData:
                   type: string
-                  description: '| New endpoint for obtaining data from the selected table, (detailed description)  ||'
+                  description: '| New endpoint for retrieving data from the selected table, maximum length is 2048 characters, (detailed description) ||'
                 settings:
                   type: array
                   items: {}
-                  description: '| New list of connection parameters, (detailed description) ||'
+                  description: '| New array of connection parameters. It replaces the previous one entirely (detailed description) ||'
+                supportMapping:
+                  type: boolean
+                  description: '| Support for mapping the table fields to the fields of the external system. If the field is not passed, the connector keeps its previous value.'
+                sourceCode:
+                  type: string
+                  description: '| String code of the external system, maximum length is 64 characters ||'
                 sort:
                   type: integer
                   description: '| New sorting parameter for the connector ||'
+                code:
+                  type: string
+                  description: '| Parameter code. The parameter goes to the external system under this name inside the `connection` object. Maximum length is 512 characters ||'
+                name:
+                  type: string
+                  description: '| Parameter name that the user sees in the Analytics hub section. Maximum length is 512 characters ||'
+                type:
+                  type: string
+                  description: '| Parameter type that determines the input field in the interface. Allowed values: `STRING`, `INT`. The value is case-sensitive: a lowercase `string` causes the `VALIDATION_SETTINGS_INVALID_TYPE` error ||'
               required:
               - id
               - fields
+              - code
+              - name
+              - type
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -398,10 +452,10 @@ paths:
                   description: '| Connector identifier, can be obtained using the methods biconnector.connector.list and biconnector.connector.add ||'
                 fields:
                   type: object
-                  description: '| An object containing the updated data. The object format:'
+                  description: '| An object containing the data to update. The object format:'
                 title:
                   type: string
-                  description: '| New connector name ||'
+                  description: '| New connector name, maximum length is 512 characters ||'
                 logo:
                   type: string
                   description: '| New connector logo. Can be passed as a link to an image or a base64 formatted string, for example `data:image/svg+xml;base64,PHN2ZyB3...` ||'
@@ -410,26 +464,44 @@ paths:
                   description: '| New connector description ||'
                 urlCheck:
                   type: string
-                  description: '| New endpoint for checking the connector''s availability, (detailed description) ||'
+                  description: '| New endpoint for checking the connector availability, maximum length is 2048 characters, (detailed description) ||'
                 urlTableList:
                   type: string
-                  description: '| New endpoint for obtaining the list of tables, (detailed description) ||'
+                  description: '| New endpoint for retrieving the list of tables, maximum length is 2048 characters, (detailed description) ||'
                 urlTableDescription:
                   type: string
-                  description: '| New endpoint for obtaining the description of a specific table, (detailed description) ||'
+                  description: '| New endpoint for retrieving the description of a specific table, maximum length is 2048 characters, (detailed description) ||'
                 urlData:
                   type: string
-                  description: '| New endpoint for obtaining data from the selected table, (detailed description)  ||'
+                  description: '| New endpoint for retrieving data from the selected table, maximum length is 2048 characters, (detailed description) ||'
                 settings:
                   type: array
                   items: {}
-                  description: '| New list of connection parameters, (detailed description) ||'
+                  description: '| New array of connection parameters. It replaces the previous one entirely (detailed description) ||'
+                supportMapping:
+                  type: boolean
+                  description: '| Support for mapping the table fields to the fields of the external system. If the field is not passed, the connector keeps its previous value.'
+                sourceCode:
+                  type: string
+                  description: '| String code of the external system, maximum length is 64 characters ||'
                 sort:
                   type: integer
                   description: '| New sorting parameter for the connector ||'
+                code:
+                  type: string
+                  description: '| Parameter code. The parameter goes to the external system under this name inside the `connection` object. Maximum length is 512 characters ||'
+                name:
+                  type: string
+                  description: '| Parameter name that the user sees in the Analytics hub section. Maximum length is 512 characters ||'
+                type:
+                  type: string
+                  description: '| Parameter type that determines the input field in the interface. Allowed values: `STRING`, `INT`. The value is case-sensitive: a lowercase `string` causes the `VALIDATION_SETTINGS_INVALID_TYPE` error ||'
               required:
               - id
               - fields
+              - code
+              - name
+              - type
       responses:
         '200':
           description: Successful response
@@ -450,7 +522,7 @@ paths:
   /biconnector.dataset.add:
     post:
       summary: Create Dataset biconnector.dataset.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.add` creates a new dataset associated with a data source.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of the method has been discontinued. Use biconnector.table.add.'
       operationId: biconnector_dataset_add
       tags:
       - BIconnector
@@ -465,56 +537,64 @@ paths:
               properties:
                 fields:
                   type: object
-                  description: '| An object containing data to create a new dataset. The object format is:'
+                  description: '| An object containing data to create a new dataset. The object format:'
                 name:
                   type: string
-                  description: '| The name of the dataset. The name must start with a letter and can only use lowercase Latin letters `a-z`, numbers, and the underscore `_`. The maximum length of the name is 230 characters. ||'
+                  description: '| Dataset name. The name must start with a letter and may contain only lowercase Latin letters `a-z`, digits, and the `_` sign. The maximum name length is 230 characters ||'
                 externalName:
                   type: string
-                  description: '| The name of the dataset in the external source, in the application. ||'
+                  description: '| Name of the dataset in the external source, in the application. The maximum length is 512 characters ||'
                 externalCode:
                   type: string
-                  description: '| A unique code for the dataset in the external source, used when retrieving data. ||'
+                  description: '| Unique code of the dataset in the external source, used when selecting data. The maximum length is 512 characters ||'
                 sourceId:
                   type: integer
-                  description: '| The identifier of the source, which can be obtained using the methods biconnector.source.list or biconnector.source.add. ||'
+                  description: '| Source identifier, can be obtained with the biconnector.source.list or biconnector.source.add method. The source must belong to the connector of the current application, otherwise the method returns `SOURCE_NOT_FOUND` ||'
                 description:
                   type: string
-                  description: '| Description of the dataset. ||'
+                  description: '| Description of the dataset ||'
+                type:
+                  type: string
+                  description: '| Data type of the field. Allowed values:'
               required:
               - fields
               - name
               - externalName
               - externalCode
               - sourceId
+              - type
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 fields:
                   type: object
-                  description: '| An object containing data to create a new dataset. The object format is:'
+                  description: '| An object containing data to create a new dataset. The object format:'
                 name:
                   type: string
-                  description: '| The name of the dataset. The name must start with a letter and can only use lowercase Latin letters `a-z`, numbers, and the underscore `_`. The maximum length of the name is 230 characters. ||'
+                  description: '| Dataset name. The name must start with a letter and may contain only lowercase Latin letters `a-z`, digits, and the `_` sign. The maximum name length is 230 characters ||'
                 externalName:
                   type: string
-                  description: '| The name of the dataset in the external source, in the application. ||'
+                  description: '| Name of the dataset in the external source, in the application. The maximum length is 512 characters ||'
                 externalCode:
                   type: string
-                  description: '| A unique code for the dataset in the external source, used when retrieving data. ||'
+                  description: '| Unique code of the dataset in the external source, used when selecting data. The maximum length is 512 characters ||'
                 sourceId:
                   type: integer
-                  description: '| The identifier of the source, which can be obtained using the methods biconnector.source.list or biconnector.source.add. ||'
+                  description: '| Source identifier, can be obtained with the biconnector.source.list or biconnector.source.add method. The source must belong to the connector of the current application, otherwise the method returns `SOURCE_NOT_FOUND` ||'
                 description:
                   type: string
-                  description: '| Description of the dataset. ||'
+                  description: '| Description of the dataset ||'
+                type:
+                  type: string
+                  description: '| Data type of the field. Allowed values:'
               required:
               - fields
               - name
               - externalName
               - externalCode
               - sourceId
+              - type
       responses:
         '200':
           description: Successful response
@@ -535,7 +615,7 @@ paths:
   /biconnector.dataset.delete:
     post:
       summary: Delete dataset biconnector.dataset.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.delete` removes an existing dataset.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of the method has been discontinued. Use biconnector.table.delete.'
       operationId: biconnector_dataset_delete
       tags:
       - BIconnector
@@ -581,8 +661,8 @@ paths:
         - biconnector
   /biconnector.dataset.fields:
     post:
-      summary: Get Fields of the Dataset biconnector.dataset.fields
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.fields` returns a description of the dataset fields. A table with descriptions of standard fields can be found in the article Datasets: Overview of Methods.'
+      summary: Get Dataset Fields biconnector.dataset.fields
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of the method has been discontinued. Use biconnector.table.fields.'
       operationId: biconnector_dataset_fields
       tags:
       - BIconnector
@@ -617,7 +697,7 @@ paths:
   /biconnector.dataset.fields.update:
     post:
       summary: Update Dataset Fields biconnector.dataset.fields.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.fields.update` updates the fields of an existing dataset.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of the method has been discontinued. Use biconnector.table.fields.update.'
       operationId: biconnector_dataset_fields_update
       tags:
       - BIconnector
@@ -634,14 +714,16 @@ paths:
                   type: integer
                   description: '| Identifier of the dataset, can be obtained using the methods biconnector.dataset.list or biconnector.dataset.add ||'
                 add:
-                  type: object
-                  description: '| Object containing an array of fields to be added with the following structure:'
+                  type: array
+                  items: {}
+                  description: '| Array of fields to add. Each element is an object with three required keys:'
                 update:
-                  type: object
-                  description: '| Object containing an array of fields to be updated with the following structure:'
+                  type: array
+                  items: {}
+                  description: '| Array of fields to change. Each element is an object with two required keys:'
                 delete:
                   type: string
-                  description: '| Object containing an array of field identifiers for deletion. Field identifiers can be obtained using the method biconnector.dataset.get ||'
+                  description: '| Array of identifiers of the fields to delete. The identifiers can be obtained with the biconnector.dataset.get method ||'
               required:
               - id
           application/x-www-form-urlencoded:
@@ -652,14 +734,16 @@ paths:
                   type: integer
                   description: '| Identifier of the dataset, can be obtained using the methods biconnector.dataset.list or biconnector.dataset.add ||'
                 add:
-                  type: object
-                  description: '| Object containing an array of fields to be added with the following structure:'
+                  type: array
+                  items: {}
+                  description: '| Array of fields to add. Each element is an object with three required keys:'
                 update:
-                  type: object
-                  description: '| Object containing an array of fields to be updated with the following structure:'
+                  type: array
+                  items: {}
+                  description: '| Array of fields to change. Each element is an object with two required keys:'
                 delete:
                   type: string
-                  description: '| Object containing an array of field identifiers for deletion. Field identifiers can be obtained using the method biconnector.dataset.get ||'
+                  description: '| Array of identifiers of the fields to delete. The identifiers can be obtained with the biconnector.dataset.get method ||'
               required:
               - id
       responses:
@@ -682,7 +766,7 @@ paths:
   /biconnector.dataset.get:
     post:
       summary: Get dataset by id biconnector.dataset.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.get` returns information about a dataset by its identifier.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of the method has been discontinued. Use biconnector.table.get.'
       operationId: biconnector_dataset_get
       tags:
       - BIconnector
@@ -728,8 +812,8 @@ paths:
         - biconnector
   /biconnector.dataset.list:
     post:
-      summary: Get the list of datasets biconnector.dataset.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.list` returns a list of datasets based on a filter. It is an implementation of the listing method for datasets.
+      summary: Get a List of Datasets biconnector.dataset.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of the method has been discontinued. Use biconnector.table.list.'
       operationId: biconnector_dataset_list
       tags:
       - BIconnector
@@ -744,7 +828,7 @@ paths:
               properties:
                 select:
                   type: string
-                  description: '| A list of fields that must be populated in the datasets in the selection. By default, all fields are taken.'
+                  description: '| List of fields to be filled in for the datasets in the selection. Allowed values are the field names from the schema of the biconnector.dataset.fields method and `*`. By default all fields are taken, and an explicit `select: ["*"]` is allowed as well.'
                 filter:
                   type: object
                   description: '| Filter for selecting datasets. Example format:'
@@ -753,14 +837,14 @@ paths:
                   description: '| Sorting parameters. Example format:'
                 page:
                   type: integer
-                  description: '| Controls pagination. The page size of results is 50 records. To navigate through the results, pass the page number. ||'
+                  description: '| Number of the selection page, numbering starts at one, and the default value is 1. The page size is fixed at 50 records. A non-numeric, zero, or negative value causes no error: the method silently returns the first page. The method returns neither the total number of datasets nor a link to the ...'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 select:
                   type: string
-                  description: '| A list of fields that must be populated in the datasets in the selection. By default, all fields are taken.'
+                  description: '| List of fields to be filled in for the datasets in the selection. Allowed values are the field names from the schema of the biconnector.dataset.fields method and `*`. By default all fields are taken, and an explicit `select: ["*"]` is allowed as well.'
                 filter:
                   type: object
                   description: '| Filter for selecting datasets. Example format:'
@@ -769,7 +853,7 @@ paths:
                   description: '| Sorting parameters. Example format:'
                 page:
                   type: integer
-                  description: '| Controls pagination. The page size of results is 50 records. To navigate through the results, pass the page number. ||'
+                  description: '| Number of the selection page, numbering starts at one, and the default value is 1. The page size is fixed at 50 records. A non-numeric, zero, or negative value causes no error: the method silently returns the first page. The method returns neither the total number of datasets nor a link to the ...'
       responses:
         '200':
           description: Successful response
@@ -790,7 +874,7 @@ paths:
   /biconnector.dataset.update:
     post:
       summary: Update Dataset biconnector.dataset.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.dataset.update` updates an existing dataset.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of the method has been discontinued. Use biconnector.table.update.'
       operationId: biconnector_dataset_update
       tags:
       - BIconnector
@@ -851,7 +935,7 @@ paths:
   /biconnector.source.add:
     post:
       summary: Create Source biconnector.source.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.source.add` creates a new data source associated with the connector.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.source.add` method creates a new data source linked to a connector.'
       operationId: biconnector_source_add
       tags:
       - BIconnector
@@ -866,7 +950,7 @@ paths:
               properties:
                 fields:
                   type: object
-                  description: '| An object containing data to create a new source. The object format is:'
+                  description: '| An object containing data to create a new source. The object format:'
                 title:
                   type: string
                   description: '| Source name ||'
@@ -881,7 +965,7 @@ paths:
                   description: '| Connector identifier, can be obtained using the methods biconnector.connector.list or biconnector.connector.add ||'
                 settings:
                   type: object
-                  description: '| A list of parameters for authorization, passed as an object where the key is the `code` of the parameter.'
+                  description: '| Values of the authorization parameters (detailed description) ||'
               required:
               - fields
               - title
@@ -893,7 +977,7 @@ paths:
               properties:
                 fields:
                   type: object
-                  description: '| An object containing data to create a new source. The object format is:'
+                  description: '| An object containing data to create a new source. The object format:'
                 title:
                   type: string
                   description: '| Source name ||'
@@ -908,7 +992,7 @@ paths:
                   description: '| Connector identifier, can be obtained using the methods biconnector.connector.list or biconnector.connector.add ||'
                 settings:
                   type: object
-                  description: '| A list of parameters for authorization, passed as an object where the key is the `code` of the parameter.'
+                  description: '| Values of the authorization parameters (detailed description) ||'
               required:
               - fields
               - title
@@ -934,7 +1018,7 @@ paths:
   /biconnector.source.delete:
     post:
       summary: Delete source biconnector.source.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.source.delete` removes an existing connection. A connection can be deleted if it has no datasets.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.source.delete` method deletes an existing source.'
       operationId: biconnector_source_delete
       tags:
       - BIconnector
@@ -949,7 +1033,7 @@ paths:
               properties:
                 id:
                   type: integer
-                  description: '| Identifier of the connection, can be obtained using the methods biconnector.source.list or biconnector.source.add ||'
+                  description: '| Source identifier, can be obtained with the biconnector.source.list or biconnector.source.add method ||'
               required:
               - id
           application/x-www-form-urlencoded:
@@ -958,7 +1042,7 @@ paths:
               properties:
                 id:
                   type: integer
-                  description: '| Identifier of the connection, can be obtained using the methods biconnector.source.list or biconnector.source.add ||'
+                  description: '| Source identifier, can be obtained with the biconnector.source.list or biconnector.source.add method ||'
               required:
               - id
       responses:
@@ -980,8 +1064,8 @@ paths:
         - biconnector
   /biconnector.source.fields:
     post:
-      summary: Get Source Fields of biconnector.source.fields
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.source.fields` returns a description of the source fields. A table with the description of standard fields can be found in the article Sources: Overview of Methods.'
+      summary: Get Source Fields biconnector.source.fields
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.source.fields` method returns a description of the source fields.'
       operationId: biconnector_source_fields
       tags:
       - BIconnector
@@ -1016,7 +1100,7 @@ paths:
   /biconnector.source.get:
     post:
       summary: Get Source by ID biconnector.source.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.source.get` returns information about the source by its identifier.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `biconnector.source.get` returns information about the source by its identifier.'
       operationId: biconnector_source_get
       tags:
       - BIconnector
@@ -1062,8 +1146,8 @@ paths:
         - biconnector
   /biconnector.source.list:
     post:
-      summary: Get the list of sources biconnector.source.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.source.list` returns a list of sources based on a filter. It is an implementation of the list method for sources.
+      summary: Get a List of Sources biconnector.source.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.source.list` method returns a list of sources by filter.'
       operationId: biconnector_source_list
       tags:
       - BIconnector
@@ -1078,7 +1162,7 @@ paths:
               properties:
                 select:
                   type: string
-                  description: '| List of fields that must be filled in the sources in the selection. By default, all fields are taken ||'
+                  description: '| List of fields to be filled in for the sources in the selection. Allowed values are the field names from the schema of the biconnector.source.fields method and `*`. By default all fields are taken, and the `*` value gives the same result.'
                 filter:
                   type: object
                   description: '| Filter for selecting sources. Example format:'
@@ -1087,14 +1171,14 @@ paths:
                   description: '| Sorting parameters. Example format:'
                 page:
                   type: integer
-                  description: '| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number  ||'
+                  description: '| Number of the result page. Numbering starts at one, and the default value is 1. A non-numeric, zero, or negative value causes no error: the method silently returns the first page. The `start` parameter, common to most list methods of the REST API, does not work here ||'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 select:
                   type: string
-                  description: '| List of fields that must be filled in the sources in the selection. By default, all fields are taken ||'
+                  description: '| List of fields to be filled in for the sources in the selection. Allowed values are the field names from the schema of the biconnector.source.fields method and `*`. By default all fields are taken, and the `*` value gives the same result.'
                 filter:
                   type: object
                   description: '| Filter for selecting sources. Example format:'
@@ -1103,7 +1187,7 @@ paths:
                   description: '| Sorting parameters. Example format:'
                 page:
                   type: integer
-                  description: '| Controls pagination. The page size of results is 50 records. To navigate through results, pass the page number  ||'
+                  description: '| Number of the result page. Numbering starts at one, and the default value is 1. A non-numeric, zero, or negative value causes no error: the method silently returns the first page. The `start` parameter, common to most list methods of the REST API, does not work here ||'
       responses:
         '200':
           description: Successful response
@@ -1123,8 +1207,8 @@ paths:
         - biconnector
   /biconnector.source.update:
     post:
-      summary: Change source biconnector.source.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `biconnector.source.update` updates an existing source.
+      summary: Update Source biconnector.source.update
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `biconnector.source.update` updates an existing source.'
       operationId: biconnector_source_update
       tags:
       - BIconnector
@@ -1151,13 +1235,14 @@ paths:
                   description: '| New description of the source ||'
                 active:
                   type: boolean
-                  description: '| Activity status of the source ||'
+                  description: '| Source activity.'
                 settings:
                   type: object
-                  description: '| List of parameters for authorization, passed as an object where the key is the `code` of the parameter.'
+                  description: '| Values of the authorization parameters (detailed description) ||'
               required:
               - id
               - fields
+              - title
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -1176,10 +1261,424 @@ paths:
                   description: '| New description of the source ||'
                 active:
                   type: boolean
-                  description: '| Activity status of the source ||'
+                  description: '| Source activity.'
                 settings:
                   type: object
-                  description: '| List of parameters for authorization, passed as an object where the key is the `code` of the parameter.'
+                  description: '| Values of the authorization parameters (detailed description) ||'
+              required:
+              - id
+              - fields
+              - title
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.table.add:
+    post:
+      summary: Create Table biconnector.table.add
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.table.add` method creates a new table linked to a data source.'
+      operationId: biconnector_table_add
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/table/biconnector-table-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing data to create a new table. The object format:'
+                name:
+                  type: string
+                  description: '| Table name. The name must start with a letter and may contain only lowercase Latin letters `a-z`, digits, and the `_` sign. The maximum name length is 230 characters ||'
+                externalName:
+                  type: string
+                  description: '| Name of the table in the external source, in the application. The maximum length is 512 characters ||'
+                externalCode:
+                  type: string
+                  description: '| Unique code of the table in the external source, used when selecting data. The maximum length is 512 characters ||'
+                sourceId:
+                  type: integer
+                  description: '| Source identifier, can be obtained with the biconnector.source.list or biconnector.source.add method. The source must belong to the connector of the current application, otherwise the method returns `SOURCE_NOT_FOUND` ||'
+                description:
+                  type: string
+                  description: '| Table description ||'
+                type:
+                  type: string
+                  description: '| Data type of the column. Allowed values:'
+              required:
+              - fields
+              - name
+              - externalName
+              - externalCode
+              - sourceId
+              - type
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  description: '| An object containing data to create a new table. The object format:'
+                name:
+                  type: string
+                  description: '| Table name. The name must start with a letter and may contain only lowercase Latin letters `a-z`, digits, and the `_` sign. The maximum name length is 230 characters ||'
+                externalName:
+                  type: string
+                  description: '| Name of the table in the external source, in the application. The maximum length is 512 characters ||'
+                externalCode:
+                  type: string
+                  description: '| Unique code of the table in the external source, used when selecting data. The maximum length is 512 characters ||'
+                sourceId:
+                  type: integer
+                  description: '| Source identifier, can be obtained with the biconnector.source.list or biconnector.source.add method. The source must belong to the connector of the current application, otherwise the method returns `SOURCE_NOT_FOUND` ||'
+                description:
+                  type: string
+                  description: '| Table description ||'
+                type:
+                  type: string
+                  description: '| Data type of the column. Allowed values:'
+              required:
+              - fields
+              - name
+              - externalName
+              - externalCode
+              - sourceId
+              - type
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.table.delete:
+    post:
+      summary: Delete Table biconnector.table.delete
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.table.delete` method deletes an existing table. Its fields, settings, and link to the source are deleted together with the table.'
+      operationId: biconnector_table_delete
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/table/biconnector-table-delete.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Table identifier, can be obtained with the biconnector.table.list or biconnector.table.add method ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Table identifier, can be obtained with the biconnector.table.list or biconnector.table.add method ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.table.fields:
+    post:
+      summary: Get Table Fields biconnector.table.fields
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.table.fields` method returns the description of the table fields.'
+      operationId: biconnector_table_fields
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/table/biconnector-table-fields.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.table.fields.update:
+    post:
+      summary: Update Table Columns biconnector.table.fields.update
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.table.fields.update` method updates the composition of columns of an existing table. It does not change the field schema of the "table" object itself — that schema is returned by the biconnector.table.fields method.'
+      operationId: biconnector_table_fields_update
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/table/biconnector-table-fields-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Table identifier, can be obtained with the biconnector.table.list or biconnector.table.add method ||'
+                add:
+                  type: array
+                  items: {}
+                  description: '| Array of columns to add. Each element is an object with three required keys:'
+                update:
+                  type: array
+                  items: {}
+                  description: '| Array of columns to change. Each element is an object with two required keys:'
+                delete:
+                  type: string
+                  description: '| Array of identifiers of the columns to delete. The identifiers can be obtained with the biconnector.table.get method ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Table identifier, can be obtained with the biconnector.table.list or biconnector.table.add method ||'
+                add:
+                  type: array
+                  items: {}
+                  description: '| Array of columns to add. Each element is an object with three required keys:'
+                update:
+                  type: array
+                  items: {}
+                  description: '| Array of columns to change. Each element is an object with two required keys:'
+                delete:
+                  type: string
+                  description: '| Array of identifiers of the columns to delete. The identifiers can be obtained with the biconnector.table.get method ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.table.get:
+    post:
+      summary: Get Table by ID biconnector.table.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.table.get` method returns information about a table by its identifier.'
+      operationId: biconnector_table_get
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/table/biconnector-table-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Table identifier, can be obtained with the biconnector.table.list and biconnector.table.add methods ||'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Table identifier, can be obtained with the biconnector.table.list and biconnector.table.add methods ||'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.table.list:
+    post:
+      summary: Get a List of Tables biconnector.table.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.table.list` method returns a list of tables by filter.'
+      operationId: biconnector_table_list
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/table/biconnector-table-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: string
+                  description: '| List of fields to be filled in for the tables in the selection. Allowed values are the field names from the schema of the biconnector.table.fields method and `*`. By default all fields are taken.'
+                filter:
+                  type: object
+                  description: '| Filter for selecting tables. Example format:'
+                order:
+                  type: object
+                  description: '| Sorting parameters. Example format:'
+                page:
+                  type: integer
+                  description: '| Number of the selection page, numbering starts at one, and the default value is 1. The page size is fixed at 50 records. A non-numeric, zero, or negative value causes no error: the method silently returns the first page. The method returns neither the total number of tables nor a link to the ne...'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: string
+                  description: '| List of fields to be filled in for the tables in the selection. Allowed values are the field names from the schema of the biconnector.table.fields method and `*`. By default all fields are taken.'
+                filter:
+                  type: object
+                  description: '| Filter for selecting tables. Example format:'
+                order:
+                  type: object
+                  description: '| Sorting parameters. Example format:'
+                page:
+                  type: integer
+                  description: '| Number of the selection page, numbering starts at one, and the default value is 1. The page size is fixed at 50 records. A non-numeric, zero, or negative value causes no error: the method silently returns the first page. The method returns neither the total number of tables nor a link to the ne...'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - biconnector
+  /biconnector.table.update:
+    post:
+      summary: Update Table biconnector.table.update
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `biconnector.table.update` method updates the description of an existing table — the only field that the method changes.'
+      operationId: biconnector_table_update
+      tags:
+      - BIconnector
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/biconnector/table/biconnector-table-update.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Table identifier, can be obtained with the biconnector.table.list and biconnector.table.add methods ||'
+                fields:
+                  type: object
+                  description: '| An object containing the updated data.'
+                description:
+                  type: string
+                  description: '| Table description ||'
+              required:
+              - id
+              - fields
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Table identifier, can be obtained with the biconnector.table.list and biconnector.table.add methods ||'
+                fields:
+                  type: object
+                  description: '| An object containing the updated data.'
+                description:
+                  type: string
+                  description: '| Table description ||'
               required:
               - id
               - fields
@@ -1217,6 +1716,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -1244,20 +1757,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

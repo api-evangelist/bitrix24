@@ -31,8 +31,8 @@ tags:
 paths:
   /access.name:
     post:
-      summary: Get Access Permission Names access.name
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `access.name` retrieves the names of access permissions.
+      summary: Get Access Code Names access.name
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `access.name` retrieves the names of access codes. Access codes identify users, departments, groups, and other permission subjects, for example, in the user.access method.'
       operationId: access_name
       tags:
       - General Methods
@@ -46,21 +46,15 @@ paths:
               type: object
               properties:
                 ACCESS:
-                  type: array
-                  items: {}
-                  description: '| List of permission identifiers for which names need to be retrieved ||'
-              required:
-              - ACCESS
+                  type: string
+                  description: '| List of access codes for which names need to be retrieved, for example `["U1", "D107"]`.'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 ACCESS:
-                  type: array
-                  items: {}
-                  description: '| List of permission identifiers for which names need to be retrieved ||'
-              required:
-              - ACCESS
+                  type: string
+                  description: '| List of access codes for which names need to be retrieved, for example `["U1", "D107"]`.'
       responses:
         '200':
           description: Successful response
@@ -81,7 +75,7 @@ paths:
   /app.info:
     post:
       summary: Show information about the app app.info
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `app.info` returns information about the application. No parameters.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `app.info` returns information about the application: its status, version, payment period, and Bitrix24 plan. See also the response when called via a webhook.'
       operationId: app_info
       tags:
       - General Methods
@@ -93,29 +87,9 @@ paths:
           application/json:
             schema:
               type: object
-              properties:
-                result:
-                  type: object
-                  description: '| The object contains information about the application:'
-                time:
-                  type: string
-                  description: '| Information about the request execution time ||'
-                Code:
-                  type: string
-                  description: '| Error Message | Description ||'
           application/x-www-form-urlencoded:
             schema:
               type: object
-              properties:
-                result:
-                  type: object
-                  description: '| The object contains information about the application:'
-                time:
-                  type: string
-                  description: '| Information about the request execution time ||'
-                Code:
-                  type: string
-                  description: '| Error Message | Description ||'
       responses:
         '200':
           description: Successful response
@@ -135,8 +109,8 @@ paths:
         - basic
   /app.option.get:
     post:
-      summary: Get Application-Linked Data app.option.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `app.option.get` retrieves data linked to the application. If no input is provided, it will return all properties recorded via app.option.set.
+      summary: Retrieve General Application Settings app.option.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `app.option.get` retrieves general application settings saved via app.option.set. The settings are the same for all Bitrix24 users.'
       operationId: app_option_get
       tags:
       - General Methods
@@ -151,14 +125,14 @@ paths:
               properties:
                 option:
                   type: string
-                  description: '| A string, one of the keys from the property app.option.set. ||'
+                  description: '| One of the keys saved by the app.option.set method.'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 option:
                   type: string
-                  description: '| A string, one of the keys from the property app.option.set. ||'
+                  description: '| One of the keys saved by the app.option.set method.'
       responses:
         '200':
           description: Successful response
@@ -178,8 +152,8 @@ paths:
         - basic
   /app.option.set:
     post:
-      summary: Bind Data to the app.option.set Method
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `app.option.set` method binds data to the application.
+      summary: Save General Application Settings app.option.set
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `app.option.set` method saves general application settings, which are the same for all Bitrix24 users. You can read them with the app.option.get method.'
       operationId: app_option_set
       tags:
       - General Methods
@@ -193,21 +167,15 @@ paths:
               type: object
               properties:
                 options:
-                  type: array
-                  items: {}
-                  description: '| An array where the key is the name of the property to be saved, and the value is the property value. If a value with a new key is passed, the method will write it; if an existing one, it will update it. ||'
-              required:
-              - options
+                  type: object
+                  description: '| An object of settings: the key is the setting name, and the value is its value. Pass `options` as an object. Do not use the keys `next` and `total`: when all settings are read, the REST API returns them in the root of the response rather than in `result`.'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 options:
-                  type: array
-                  items: {}
-                  description: '| An array where the key is the name of the property to be saved, and the value is the property value. If a value with a new key is passed, the method will write it; if an existing one, it will update it. ||'
-              required:
-              - options
+                  type: object
+                  description: '| An object of settings: the key is the setting name, and the value is its value. Pass `options` as an object. Do not use the keys `next` and `total`: when all settings are read, the REST API returns them in the root of the response rather than in `result`.'
       responses:
         '200':
           description: Successful response
@@ -227,8 +195,8 @@ paths:
         - basic
   /feature.get:
     post:
-      summary: Get information about feature availability on the account feature.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `feature.get` returns information about the availability of features on a specific account.
+      summary: Get Information on Feature Availability in Bitrix24 feature.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `feature.get` checks whether a REST API feature is available in a specific Bitrix24. Availability depends on the plan, so check it before using the feature in your application.'
       operationId: feature_get
       tags:
       - General Methods
@@ -243,7 +211,7 @@ paths:
               properties:
                 CODE:
                   type: string
-                  description: '| Available keys:'
+                  description: '| Feature code. Available codes:'
               required:
               - CODE
           application/x-www-form-urlencoded:
@@ -252,7 +220,7 @@ paths:
               properties:
                 CODE:
                   type: string
-                  description: '| Available keys:'
+                  description: '| Feature code. Available codes:'
               required:
               - CODE
       responses:
@@ -274,8 +242,8 @@ paths:
         - basic
   /method.get:
     post:
-      summary: Get a list of available methods method.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `method.get` method returns two parameters `isExisting` and `isAvailable`, which determine the existence of the method on the account and its availability for invocation.
+      summary: Check Method Availability method.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `method.get` method checks whether a method exists in Bitrix24 and whether it can be called with the current scopes.'
       operationId: method_get
       tags:
       - General Methods
@@ -290,14 +258,14 @@ paths:
               properties:
                 name:
                   type: string
-                  description: '| The name of the method to check in lowercase, for example `user.get` ||'
+                  description: '| The name of the method to check, for example `user.get`.'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 name:
                   type: string
-                  description: '| The name of the method to check in lowercase, for example `user.get` ||'
+                  description: '| The name of the method to check, for example `user.get`.'
       responses:
         '200':
           description: Successful response
@@ -318,7 +286,7 @@ paths:
   /methods:
     post:
       summary: Get a List of Available Methods
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `methods` method retrieves a list of available methods. Development of this method has been halted. Please use method.get.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `methods` method retrieves a list of available methods.'
       operationId: methods
       tags:
       - General Methods
@@ -333,20 +301,20 @@ paths:
               properties:
                 full:
                   type: boolean
-                  description: '| If the parameter is set to `true`, the method will return a list of all methods ||'
+                  description: '| If you pass `true`, the method returns the methods of all Bitrix24 scopes, not only those available to the application.'
                 scope:
                   type: string
-                  description: '| Displays methods included in the specified permission. If the parameter is provided without a value (`methods?scope=&auth=xxxxx`), all common methods will be displayed. ||'
+                  description: '| The code of the scope whose methods to retrieve, for example, `user` or `crm`. The codes are listed on the available scopes page.'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 full:
                   type: boolean
-                  description: '| If the parameter is set to `true`, the method will return a list of all methods ||'
+                  description: '| If you pass `true`, the method returns the methods of all Bitrix24 scopes, not only those available to the application.'
                 scope:
                   type: string
-                  description: '| Displays methods included in the specified permission. If the parameter is provided without a value (`methods?scope=&auth=xxxxx`), all common methods will be displayed. ||'
+                  description: '| The code of the scope whose methods to retrieve, for example, `user` or `crm`. The codes are listed on the available scopes page.'
       responses:
         '200':
           description: Successful response
@@ -367,7 +335,7 @@ paths:
   /profile:
     post:
       summary: Get Basic Information About the Current User Profile
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `profile` method allows you to retrieve basic information about the current user without any scopes, unlike user.current. No parameters required.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `profile` method retrieves basic information about the current user. Unlike user.current, it does not require a separate scope.'
       operationId: profile
       tags:
       - General Methods
@@ -379,23 +347,9 @@ paths:
           application/json:
             schema:
               type: object
-              properties:
-                result:
-                  type: object
-                  description: '| The object contains information about the user ||'
-                time:
-                  type: string
-                  description: '| Information about the request execution time ||'
           application/x-www-form-urlencoded:
             schema:
               type: object
-              properties:
-                result:
-                  type: object
-                  description: '| The object contains information about the user ||'
-                time:
-                  type: string
-                  description: '| Information about the request execution time ||'
       responses:
         '200':
           description: Successful response
@@ -416,7 +370,7 @@ paths:
   /scope:
     post:
       summary: Get a List of Available Permissions Scope
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `scope` method returns a list of permissions.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `scope` method returns a list of scopes — the permissions granted to the application or webhook.'
       operationId: scope
       tags:
       - General Methods
@@ -431,14 +385,14 @@ paths:
               properties:
                 full:
                   type: boolean
-                  description: '| If the parameter is set to `true`, the method will return the complete list of permissions ||'
+                  description: '| If you pass `true`, the method returns all scopes available in this Bitrix24, regardless of the application''s permissions. The set depends on the installed modules.'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 full:
                   type: boolean
-                  description: '| If the parameter is set to `true`, the method will return the complete list of permissions ||'
+                  description: '| If you pass `true`, the method returns all scopes available in this Bitrix24, regardless of the application''s permissions. The set depends on the installed modules.'
       responses:
         '200':
           description: Successful response
@@ -459,7 +413,7 @@ paths:
   /server.time:
     post:
       summary: Get Current Server Time server.time
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `server.time` returns the current server time in the format `YYYY-MM-DDThh:mm:ss±hh:mm`. No parameters.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `server.time` returns the current Bitrix24 server time in the ISO 8601 format `YYYY-MM-DDThh:mm:ss±hh:mm`.'
       operationId: server_time
       tags:
       - General Methods
@@ -471,23 +425,9 @@ paths:
           application/json:
             schema:
               type: object
-              properties:
-                result:
-                  type: string
-                  description: '| Server time in the format `YYYY-MM-DDThh:mm:ss±hh:mm` ||'
-                time:
-                  type: string
-                  description: '| Information about the request execution time ||'
           application/x-www-form-urlencoded:
             schema:
               type: object
-              properties:
-                result:
-                  type: string
-                  description: '| Server time in the format `YYYY-MM-DDThh:mm:ss±hh:mm` ||'
-                time:
-                  type: string
-                  description: '| Information about the request execution time ||'
       responses:
         '200':
           description: Successful response
@@ -507,8 +447,8 @@ paths:
         - basic
   /user.access:
     post:
-      summary: Determine the user.access permissions set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `user.access` method checks if the current user has at least one of the permissions specified in the `ACCESS` parameter.
+      summary: Check User Access Codes user.access
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `user.access` method checks if the current user has at least one of the access codes passed in the `ACCESS` parameter.'
       operationId: user_access
       tags:
       - General Methods
@@ -522,21 +462,15 @@ paths:
               type: object
               properties:
                 ACCESS:
-                  type: array
-                  items: {}
-                  description: '| Identifier or list of identifiers of the permissions to check access for ||'
-              required:
-              - ACCESS
+                  type: string
+                  description: \|`string` | List of access codes to check, for example `["D1", "SG1_K"]`. A single code can be passed as a string, for example `"D1"`.
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 ACCESS:
-                  type: array
-                  items: {}
-                  description: '| Identifier or list of identifiers of the permissions to check access for ||'
-              required:
-              - ACCESS
+                  type: string
+                  description: \|`string` | List of access codes to check, for example `["D1", "SG1_K"]`. A single code can be passed as a string, for example `"D1"`.
       responses:
         '200':
           description: Successful response
@@ -556,62 +490,13 @@ paths:
         - basic
   /user.admin:
     post:
-      summary: Determine Access Permissions for Application Settings user.admin
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `user.admin` determines whether the current user has the permissions to manage application settings. No parameters.
+      summary: Check Administrator Permissions user.admin
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `user.admin` checks whether the current user is a Bitrix24 administrator.'
       operationId: user_admin
       tags:
       - General Methods
       externalDocs:
         url: https://apidocs.bitrix24.com/api-reference/common/users/user-admin.html
-        description: Official Documentation
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                result:
-                  type: boolean
-                  description: '| Returns `true` if the current user has permissions to manage application settings, `false` otherwise ||'
-                time:
-                  type: string
-                  description: '| Information about the request execution time ||'
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                result:
-                  type: boolean
-                  description: '| Returns `true` if the current user has permissions to manage application settings, `false` otherwise ||'
-                time:
-                  type: string
-                  description: '| Information about the request execution time ||'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BitrixResponse'
-        4XX:
-          description: Request error (400, 401, 403)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BitrixError'
-      security:
-      - AccessToken: []
-      - OAuth2:
-        - basic
-  /user.option:
-    post:
-      summary: Get data associated with the application and user user.option.*
-      description: Some data may be missing — we will complete it soon. - missing parameters or fields - parameter types not specified - required parameters not specified
-      operationId: user_option
-      tags:
-      - General Methods
-      externalDocs:
-        url: https://apidocs.bitrix24.com/api-reference/common/settings/user-option.html
         description: Official Documentation
       requestBody:
         content:
@@ -640,8 +525,8 @@ paths:
         - basic
   /user.option.get:
     post:
-      summary: Get User Data Associated with the Application user.option.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `user.option.get` retrieves user data associated with the application. If no input is provided, it will return all properties recorded through user.option.set.
+      summary: Retrieve User Settings user.option.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `user.option.get` retrieves the current user''s settings saved by the application via user.option.set. Each user sees only their own values. The method does not return other users'' settings; general application settings are read by the app.option.get method.'
       operationId: user_option_get
       tags:
       - General Methods
@@ -656,14 +541,14 @@ paths:
               properties:
                 option:
                   type: string
-                  description: '| A string, one of the keys from the property user.option.set. ||'
+                  description: '| One of the keys saved by the user.option.set method.'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 option:
                   type: string
-                  description: '| A string, one of the keys from the property user.option.set. ||'
+                  description: '| One of the keys saved by the user.option.set method.'
       responses:
         '200':
           description: Successful response
@@ -683,8 +568,8 @@ paths:
         - basic
   /user.option.set:
     post:
-      summary: Bind Data to User and Application user.option.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `user.option.set` binds data to the application and user. The application can be bound to the user who installed it if it is a headless application or to the user with whom it interacts if it is a UI application.
+      summary: Save User Settings user.option.set
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `user.option.set` saves the current user''s settings for the application. Each user stores their own values. You can read them with the user.option.get method.'
       operationId: user_option_set
       tags:
       - General Methods
@@ -698,21 +583,15 @@ paths:
               type: object
               properties:
                 options:
-                  type: array
-                  items: {}
-                  description: '| An array where the key is the name of the property to be saved, and the value is the property value. If a value with a new key is passed, the method will write it; if an existing one, it will update it. ||'
-              required:
-              - options
+                  type: object
+                  description: '| An object of settings: the key is the setting name, and the value is its value. Pass `options` as an object. Do not use the keys `next` and `total`: when all settings are read, the REST API returns them in the root of the response rather than in `result`.'
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 options:
-                  type: array
-                  items: {}
-                  description: '| An array where the key is the name of the property to be saved, and the value is the property value. If a value with a new key is passed, the method will write it; if an existing one, it will update it. ||'
-              required:
-              - options
+                  type: object
+                  description: '| An object of settings: the key is the setting name, and the value is its value. Pass `options` as an object. Do not use the keys `next` and `total`: when all settings are read, the REST API returns them in the root of the response rather than in `result`.'
       responses:
         '200':
           description: Successful response
@@ -747,6 +626,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -774,20 +667,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

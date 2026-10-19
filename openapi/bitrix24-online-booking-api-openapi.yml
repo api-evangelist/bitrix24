@@ -32,7 +32,7 @@ paths:
   /booking.v1.booking.add:
     post:
       summary: Add Booking booking.v1.booking.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.add` adds a new booking for a resource.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.booking.add` adds a new booking for a resource.'
       operationId: booking_v1_booking_add
       tags:
       - Online Booking
@@ -63,16 +63,24 @@ paths:
                   description: '| An object containing the booking time (detailed description) ||'
                 from:
                   type: object
-                  description: '| The start time of the booking in the format `{"timestamp": "1723446900", "timezone": "Europe/Berlin"}`||'
+                  description: '| Booking start time. The structure is described below ||'
                 to:
                   type: object
-                  description: '| The end time of the booking in the format `{"timestamp": "1723447800", "timezone": "Europe/Berlin"}` ||'
+                  description: '| Booking end time. The structure is described below ||'
+                timestamp:
+                  type: integer
+                  description: '| Date and time as a Unix timestamp. For example, `1723446900` ||'
+                timezone:
+                  type: string
+                  description: '| Time zone as an IANA identifier. For example, `Europe/Berlin` ||'
               required:
               - fields
               - resourceIds
               - datePeriod
               - from
               - to
+              - timestamp
+              - timezone
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -95,16 +103,24 @@ paths:
                   description: '| An object containing the booking time (detailed description) ||'
                 from:
                   type: object
-                  description: '| The start time of the booking in the format `{"timestamp": "1723446900", "timezone": "Europe/Berlin"}`||'
+                  description: '| Booking start time. The structure is described below ||'
                 to:
                   type: object
-                  description: '| The end time of the booking in the format `{"timestamp": "1723447800", "timezone": "Europe/Berlin"}` ||'
+                  description: '| Booking end time. The structure is described below ||'
+                timestamp:
+                  type: integer
+                  description: '| Date and time as a Unix timestamp. For example, `1723446900` ||'
+                timezone:
+                  type: string
+                  description: '| Time zone as an IANA identifier. For example, `Europe/Berlin` ||'
               required:
               - fields
               - resourceIds
               - datePeriod
               - from
               - to
+              - timestamp
+              - timezone
       responses:
         '200':
           description: Successful response
@@ -125,7 +141,7 @@ paths:
   /booking.v1.booking.client.list:
     post:
       summary: Get the list of booking clients booking.v1.booking.client.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.client.list` returns a list of clients for the specified booking.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.booking.client.list` returns a list of clients for the specified booking.'
       operationId: booking_v1_booking_client_list
       tags:
       - Online Booking
@@ -172,7 +188,7 @@ paths:
   /booking.v1.booking.client.set:
     post:
       summary: Add Clients to Booking booking.v1.booking.client.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.client.set` sets clients for the specified booking.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.booking.client.set` sets clients for the specified booking.'
       operationId: booking_v1_booking_client_set
       tags:
       - Online Booking
@@ -245,7 +261,7 @@ paths:
   /booking.v1.booking.client.unset:
     post:
       summary: Remove clients from booking booking.v1.booking.client.unset
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.client.unset` removes clients for the specified booking.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.booking.client.unset` removes clients for the specified booking.'
       operationId: booking_v1_booking_client_unset
       tags:
       - Online Booking
@@ -292,7 +308,7 @@ paths:
   /booking.v1.booking.createfromwaitlist:
     post:
       summary: Create a Booking from the Waitlist booking.v1.booking.createfromwaitlist
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.createfromwaitlist` creates a booking based on an entry from the waitlist.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.booking.createfromwaitlist` creates a booking based on an entry from the waitlist.'
       operationId: booking_v1_booking_createfromwaitlist
       tags:
       - Online Booking
@@ -315,27 +331,30 @@ paths:
                   type: array
                   items: {}
                   description: '| Array of resource identifiers for the booking.'
-                name:
-                  type: string
-                  description: '| Name of the booking.'
-                description:
-                  type: string
-                  description: '| Description of the booking.'
                 datePeriod:
                   type: object
                   description: '| Object containing the booking time (detailed description) ||'
                 from:
                   type: object
-                  description: '| Start time of the booking in the format `{"timestamp": "1723446900", "timezone": "Europe/Berlin"}`||'
+                  description: '| Booking start time. The structure is described below ||'
                 to:
                   type: object
-                  description: '| End time of the booking in the format `{"timestamp": "1723447800", "timezone": "Europe/Berlin"}` ||'
+                  description: '| Booking end time. The structure is described below ||'
+                timestamp:
+                  type: integer
+                  description: '| Date and time as a Unix timestamp. For example, `1723446900` ||'
+                timezone:
+                  type: string
+                  description: '| Time zone as an IANA identifier. For example, `Europe/Berlin` ||'
               required:
               - waitListId
+              - fields
               - resourceIds
               - datePeriod
               - from
               - to
+              - timestamp
+              - timezone
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -350,27 +369,30 @@ paths:
                   type: array
                   items: {}
                   description: '| Array of resource identifiers for the booking.'
-                name:
-                  type: string
-                  description: '| Name of the booking.'
-                description:
-                  type: string
-                  description: '| Description of the booking.'
                 datePeriod:
                   type: object
                   description: '| Object containing the booking time (detailed description) ||'
                 from:
                   type: object
-                  description: '| Start time of the booking in the format `{"timestamp": "1723446900", "timezone": "Europe/Berlin"}`||'
+                  description: '| Booking start time. The structure is described below ||'
                 to:
                   type: object
-                  description: '| End time of the booking in the format `{"timestamp": "1723447800", "timezone": "Europe/Berlin"}` ||'
+                  description: '| Booking end time. The structure is described below ||'
+                timestamp:
+                  type: integer
+                  description: '| Date and time as a Unix timestamp. For example, `1723446900` ||'
+                timezone:
+                  type: string
+                  description: '| Time zone as an IANA identifier. For example, `Europe/Berlin` ||'
               required:
               - waitListId
+              - fields
               - resourceIds
               - datePeriod
               - from
               - to
+              - timestamp
+              - timezone
       responses:
         '200':
           description: Successful response
@@ -391,7 +413,7 @@ paths:
   /booking.v1.booking.delete:
     post:
       summary: Delete Booking booking.v1.booking.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.delete` removes a booking.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.booking.delete` removes a booking.'
       operationId: booking_v1_booking_delete
       tags:
       - Online Booking
@@ -438,7 +460,7 @@ paths:
   /booking.v1.booking.externalData.list:
     post:
       summary: Get Booking Connections booking.v1.booking.externalData.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.externalData.list` returns connections for the specified booking.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.booking.externalData.list` returns all connections for the specified booking.'
       operationId: booking_v1_booking_externalData_list
       tags:
       - Online Booking
@@ -485,7 +507,7 @@ paths:
   /booking.v1.booking.externalData.set:
     post:
       summary: Set Connections for Booking booking.v1.booking.externalData.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.externalData.set` establishes connections for the specified booking.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.booking.externalData.set` replaces the entire set of connections for the specified booking.'
       operationId: booking_v1_booking_externalData_set
       tags:
       - Online Booking
@@ -504,7 +526,7 @@ paths:
                 externalData:
                   type: array
                   items: {}
-                  description: '| Array of objects containing items for binding (detailed description) ||'
+                  description: '| Complete set of booking connections. The new value replaces all existing connections. An empty array removes all connections. The object structure is described below ||'
                 moduleId:
                   type: string
                   description: '| Module identifier, for example `crm` ||'
@@ -530,7 +552,7 @@ paths:
                 externalData:
                   type: array
                   items: {}
-                  description: '| Array of objects containing items for binding (detailed description) ||'
+                  description: '| Complete set of booking connections. The new value replaces all existing connections. An empty array removes all connections. The object structure is described below ||'
                 moduleId:
                   type: string
                   description: '| Module identifier, for example `crm` ||'
@@ -566,7 +588,7 @@ paths:
   /booking.v1.booking.externalData.unset:
     post:
       summary: Remove connections for booking booking.v1.booking.externalData.unset
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.externalData.unset` removes connections for the specified booking.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.booking.externalData.unset` removes all connections for the specified booking. The method does not accept an individual connection identifier, so you cannot remove only one connection.'
       operationId: booking_v1_booking_externalData_unset
       tags:
       - Online Booking
@@ -613,7 +635,7 @@ paths:
   /booking.v1.booking.get:
     post:
       summary: Get Information About Booking booking.v1.booking.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.get` returns information about a booking by its identifier.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.booking.get` returns information about a booking by its identifier.'
       operationId: booking_v1_booking_get
       tags:
       - Online Booking
@@ -660,7 +682,7 @@ paths:
   /booking.v1.booking.list:
     post:
       summary: Get the list of bookings booking.v1.booking.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.list` returns a list of bookings based on the filter. It is an implementation of the listing method for bookings.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.booking.list` returns a filtered list of bookings. Each call returns one page with up to 50 bookings.'
       operationId: booking_v1_booking_list
       tags:
       - Online Booking
@@ -673,18 +695,28 @@ paths:
             schema:
               type: object
               properties:
-                FILTER:
+                filter:
                   type: object
                   description: '| Object for filtering the list of bookings, description of available fields below ||'
-                ORDER:
+                order:
                   type: object
                   description: '| Object for sorting the list of bookings. The sorting direction can take the following values:'
+                start:
+                  type: integer
+                  description: '| Offset for pagination.'
+                resourceId:
+                  type: array
+                  items: {}
+                  description: '| Array of resource identifiers.'
                 within:
                   type: object
                   description: '| Object for filtering by booking time in the format `{"dateFrom": "0", "dateTo": "1739262600"}`, where'
+                createdWithin:
+                  type: object
+                  description: '| Object for filtering by booking creation date with the following required fields:'
                 client:
                   type: object
-                  description: '| Object for filtering by client, accepts an array of `entities` objects with fields'
+                  description: '| Object for filtering by client.'
                 id:
                   type: string
                   description: '| Sort by identifier ||'
@@ -698,18 +730,28 @@ paths:
             schema:
               type: object
               properties:
-                FILTER:
+                filter:
                   type: object
                   description: '| Object for filtering the list of bookings, description of available fields below ||'
-                ORDER:
+                order:
                   type: object
                   description: '| Object for sorting the list of bookings. The sorting direction can take the following values:'
+                start:
+                  type: integer
+                  description: '| Offset for pagination.'
+                resourceId:
+                  type: array
+                  items: {}
+                  description: '| Array of resource identifiers.'
                 within:
                   type: object
                   description: '| Object for filtering by booking time in the format `{"dateFrom": "0", "dateTo": "1739262600"}`, where'
+                createdWithin:
+                  type: object
+                  description: '| Object for filtering by booking creation date with the following required fields:'
                 client:
                   type: object
-                  description: '| Object for filtering by client, accepts an array of `entities` objects with fields'
+                  description: '| Object for filtering by client.'
                 id:
                   type: string
                   description: '| Sort by identifier ||'
@@ -739,7 +781,7 @@ paths:
   /booking.v1.booking.update:
     post:
       summary: Update Booking booking.v1.booking.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.booking.update` updates the booking information.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.booking.update` updates the booking information.'
       operationId: booking_v1_booking_update
       tags:
       - Online Booking
@@ -773,15 +815,23 @@ paths:
                   description: '| Object containing the booking time (detailed description) ||'
                 from:
                   type: object
-                  description: '| Start time of the booking in the format `{"timestamp": "1723446900", "timezone": "Europe/Berlin"}` ||'
+                  description: '| Booking start time. The structure is described below ||'
                 to:
                   type: object
-                  description: '| End time of the booking in the format `{"timestamp": "1723447800", "timezone": "Europe/Berlin"}` ||'
+                  description: '| Booking end time. The structure is described below ||'
+                timestamp:
+                  type: integer
+                  description: '| Date and time as a Unix timestamp. For example, `1723446900` ||'
+                timezone:
+                  type: string
+                  description: '| Time zone as an IANA identifier. For example, `Europe/Berlin` ||'
               required:
               - id
               - fields
               - from
               - to
+              - timestamp
+              - timezone
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -807,15 +857,23 @@ paths:
                   description: '| Object containing the booking time (detailed description) ||'
                 from:
                   type: object
-                  description: '| Start time of the booking in the format `{"timestamp": "1723446900", "timezone": "Europe/Berlin"}` ||'
+                  description: '| Booking start time. The structure is described below ||'
                 to:
                   type: object
-                  description: '| End time of the booking in the format `{"timestamp": "1723447800", "timezone": "Europe/Berlin"}` ||'
+                  description: '| Booking end time. The structure is described below ||'
+                timestamp:
+                  type: integer
+                  description: '| Date and time as a Unix timestamp. For example, `1723446900` ||'
+                timezone:
+                  type: string
+                  description: '| Time zone as an IANA identifier. For example, `Europe/Berlin` ||'
               required:
               - id
               - fields
               - from
               - to
+              - timestamp
+              - timezone
       responses:
         '200':
           description: Successful response
@@ -836,7 +894,7 @@ paths:
   /booking.v1.clienttype.list:
     post:
       summary: Get a list of client types booking.v1.clienttype.list
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.clienttype.list` returns a list of available client types. The method may not return a client type if no bookings have been created with it. By default, two client types are available: contact and company.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.clienttype.list` returns a list of available client types. The method may not return a client type if no bookings have been created with it. By default, two client types are available: contact and company.'
       operationId: booking_v1_clienttype_list
       tags:
       - Online Booking
@@ -871,7 +929,7 @@ paths:
   /booking.v1.resource.add:
     post:
       summary: Add a New Resource booking.v1.resource.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.add` adds a new resource.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resource.add` adds a new resource.'
       operationId: booking_v1_resource_add
       tags:
       - Online Booking
@@ -889,70 +947,79 @@ paths:
                   description: '| An object containing field values for creating a resource (detailed description) ||'
                 name:
                   type: string
-                  description: '| The name of the resource ||'
+                  description: '| Resource name ||'
                 description:
                   type: string
-                  description: '| The description of the resource.'
+                  description: '| Resource description.'
                 typeId:
                   type: integer
-                  description: '| The identifier of the resource type.'
+                  description: '| Resource type identifier.'
                 isMain:
                   type: string
-                  description: '| How to display the resource. Possible values:'
+                  description: '| How the resource is displayed. Possible values:'
                 isInfoNotificationOn:
                   type: string
-                  description: '| Message to the client about the booking. Possible values:'
+                  description: '| Booking message to the client. Possible values:'
                 templateTypeInfo:
                   type: string
-                  description: '| The type of the booking notification message template. Possible values:'
+                  description: '| Message template type for the booking message. Possible values:'
                 isConfirmationNotificationOn:
                   type: string
-                  description: '| Automatic confirmation of the booking. Possible values:'
+                  description: '| Message to the client requesting booking confirmation. Possible values:'
                 templateTypeConfirmation:
                   type: string
-                  description: '| The type of the confirmation message template. Possible values:'
+                  description: '| Message template type for booking confirmation. Possible values:'
                 isReminderNotificationOn:
                   type: string
-                  description: '| Reminder about the booking. Possible values:'
+                  description: '| Booking reminder. Possible values:'
                 templateTypeReminder:
                   type: string
-                  description: '| The type of the reminder message template. Possible values: `base` ||'
+                  description: '| Message template type for the reminder. The only value is `base` ||'
                 isFeedbackNotificationOn:
                   type: string
                   description: '| Feedback request. Possible values:'
                 templateTypeFeedback:
                   type: string
-                  description: '| The type of the feedback request message template. Possible values:'
+                  description: '| Message template type for the feedback request. Possible values:'
                 isDelayedNotificationOn:
                   type: string
-                  description: '| Reminder when the client is late. Possible values:'
+                  description: '| Reminder when the client is running late. Possible values:'
                 templateTypeDelayed:
                   type: string
-                  description: '| The type of the delay message template. Possible values:'
-                infoDelay:
+                  description: '| Message template type for late arrival. Possible values:'
+                isCancellationNotificationOn:
+                  type: string
+                  description: '| Message to the client after a booking is cancelled. Possible values:'
+                cancellationNotificationDelay:
                   type: integer
-                  description: '| The delay after which the client receives a booking message. Specified in seconds.'
-                reminderDelay:
+                  description: '| Time after a booking is cancelled, after which the client receives the cancellation message. Specified in seconds.'
+                infoNotificationDelay:
                   type: integer
-                  description: '| The time before the booking when the client receives a reminder. Specified in seconds.'
-                delayedDelay:
+                  description: '| Time after which the client receives the booking message. Specified in seconds.'
+                reminderNotificationDelay:
                   type: integer
-                  description: '| The time after which to send the client a message about being late. Specified in seconds.'
+                  description: '| Time before the booking, at which the client receives the reminder. Specified in seconds.'
+                delayedNotificationDelay:
+                  type: integer
+                  description: '| Time after which the late arrival message is sent to the client. Specified in seconds.'
                 delayedCounterDelay:
                   type: integer
-                  description: '| The time after which to enable the counter in the calendar. Specified in seconds.'
-                confirmationDelay:
+                  description: '| Time after which the counter is activated in the calendar. Specified in seconds.'
+                confirmationNotificationDelay:
                   type: integer
-                  description: '| The time before the booking when the client receives the first confirmation message. Specified in seconds.'
-                confirmationRepetitions:
+                  description: '| Time before the booking, when the client receives the first confirmation message. Specified in seconds.'
+                confirmationNotificationRepetitions:
                   type: integer
-                  description: '| The number of messages sent to the client for booking confirmation, excluding the first.'
-                confirmationRepetitionsInterval:
+                  description: '| Number of confirmation messages sent to the client, excluding the first one.'
+                confirmationNotificationRepetitionsInterval:
                   type: integer
-                  description: '| The interval between confirmation messages. Specified in seconds.'
+                  description: '| Interval between booking confirmation messages. Specified in seconds.'
                 confirmationCounterDelay:
                   type: integer
-                  description: '| The time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds.'
+                  description: '| Time before the booking, after which the unconfirmed booking counter is activated. Specified in seconds.'
+                senderCode:
+                  type: string
+                  description: '| Code of the service that sends messages to the client. Possible values:'
               required:
               - fields
               - name
@@ -966,70 +1033,79 @@ paths:
                   description: '| An object containing field values for creating a resource (detailed description) ||'
                 name:
                   type: string
-                  description: '| The name of the resource ||'
+                  description: '| Resource name ||'
                 description:
                   type: string
-                  description: '| The description of the resource.'
+                  description: '| Resource description.'
                 typeId:
                   type: integer
-                  description: '| The identifier of the resource type.'
+                  description: '| Resource type identifier.'
                 isMain:
                   type: string
-                  description: '| How to display the resource. Possible values:'
+                  description: '| How the resource is displayed. Possible values:'
                 isInfoNotificationOn:
                   type: string
-                  description: '| Message to the client about the booking. Possible values:'
+                  description: '| Booking message to the client. Possible values:'
                 templateTypeInfo:
                   type: string
-                  description: '| The type of the booking notification message template. Possible values:'
+                  description: '| Message template type for the booking message. Possible values:'
                 isConfirmationNotificationOn:
                   type: string
-                  description: '| Automatic confirmation of the booking. Possible values:'
+                  description: '| Message to the client requesting booking confirmation. Possible values:'
                 templateTypeConfirmation:
                   type: string
-                  description: '| The type of the confirmation message template. Possible values:'
+                  description: '| Message template type for booking confirmation. Possible values:'
                 isReminderNotificationOn:
                   type: string
-                  description: '| Reminder about the booking. Possible values:'
+                  description: '| Booking reminder. Possible values:'
                 templateTypeReminder:
                   type: string
-                  description: '| The type of the reminder message template. Possible values: `base` ||'
+                  description: '| Message template type for the reminder. The only value is `base` ||'
                 isFeedbackNotificationOn:
                   type: string
                   description: '| Feedback request. Possible values:'
                 templateTypeFeedback:
                   type: string
-                  description: '| The type of the feedback request message template. Possible values:'
+                  description: '| Message template type for the feedback request. Possible values:'
                 isDelayedNotificationOn:
                   type: string
-                  description: '| Reminder when the client is late. Possible values:'
+                  description: '| Reminder when the client is running late. Possible values:'
                 templateTypeDelayed:
                   type: string
-                  description: '| The type of the delay message template. Possible values:'
-                infoDelay:
+                  description: '| Message template type for late arrival. Possible values:'
+                isCancellationNotificationOn:
+                  type: string
+                  description: '| Message to the client after a booking is cancelled. Possible values:'
+                cancellationNotificationDelay:
                   type: integer
-                  description: '| The delay after which the client receives a booking message. Specified in seconds.'
-                reminderDelay:
+                  description: '| Time after a booking is cancelled, after which the client receives the cancellation message. Specified in seconds.'
+                infoNotificationDelay:
                   type: integer
-                  description: '| The time before the booking when the client receives a reminder. Specified in seconds.'
-                delayedDelay:
+                  description: '| Time after which the client receives the booking message. Specified in seconds.'
+                reminderNotificationDelay:
                   type: integer
-                  description: '| The time after which to send the client a message about being late. Specified in seconds.'
+                  description: '| Time before the booking, at which the client receives the reminder. Specified in seconds.'
+                delayedNotificationDelay:
+                  type: integer
+                  description: '| Time after which the late arrival message is sent to the client. Specified in seconds.'
                 delayedCounterDelay:
                   type: integer
-                  description: '| The time after which to enable the counter in the calendar. Specified in seconds.'
-                confirmationDelay:
+                  description: '| Time after which the counter is activated in the calendar. Specified in seconds.'
+                confirmationNotificationDelay:
                   type: integer
-                  description: '| The time before the booking when the client receives the first confirmation message. Specified in seconds.'
-                confirmationRepetitions:
+                  description: '| Time before the booking, when the client receives the first confirmation message. Specified in seconds.'
+                confirmationNotificationRepetitions:
                   type: integer
-                  description: '| The number of messages sent to the client for booking confirmation, excluding the first.'
-                confirmationRepetitionsInterval:
+                  description: '| Number of confirmation messages sent to the client, excluding the first one.'
+                confirmationNotificationRepetitionsInterval:
                   type: integer
-                  description: '| The interval between confirmation messages. Specified in seconds.'
+                  description: '| Interval between booking confirmation messages. Specified in seconds.'
                 confirmationCounterDelay:
                   type: integer
-                  description: '| The time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds.'
+                  description: '| Time before the booking, after which the unconfirmed booking counter is activated. Specified in seconds.'
+                senderCode:
+                  type: string
+                  description: '| Code of the service that sends messages to the client. Possible values:'
               required:
               - fields
               - name
@@ -1054,7 +1130,7 @@ paths:
   /booking.v1.resource.delete:
     post:
       summary: Delete Resource booking.v1.resource.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.delete` removes a resource.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resource.delete` removes a resource.'
       operationId: booking_v1_resource_delete
       tags:
       - Online Booking
@@ -1101,7 +1177,7 @@ paths:
   /booking.v1.resource.get:
     post:
       summary: Get resource booking.v1.resource.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.get` returns information about a resource by its identifier.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resource.get` returns information about a resource by its identifier.'
       operationId: booking_v1_resource_get
       tags:
       - Online Booking
@@ -1148,7 +1224,7 @@ paths:
   /booking.v1.resource.list:
     post:
       summary: Get the list of resources booking.v1.resource.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.list` returns a list of resources based on a filter. It is an implementation of the listing method for resources.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resource.list` returns a list of resources based on a filter. It is an implementation of the listing method for resources.'
       operationId: booking_v1_resource_list
       tags:
       - Online Booking
@@ -1161,27 +1237,30 @@ paths:
             schema:
               type: object
               properties:
-                FILTER:
+                filter:
                   type: object
-                  description: '| Object for filtering the list of resources in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
-                ORDER:
+                  description: '| An object for filtering the list of resources in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                order:
                   type: object
-                  description: '| Object for sorting the list of resources in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                  description: '| An object for sorting the list of resources in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                start:
+                  type: integer
+                  description: '| A parameter for managing pagination.'
                 searchQuery:
                   type: string
-                  description: '| Search query. Searches by substring in the resource name ||'
+                  description: '| Search query. The method searches for a case-insensitive substring in the resource name. The resource description is not included in the search ||'
                 isMain:
                   type: string
-                  description: '| Filter by resource display setting. Possible values:'
+                  description: '| Filter by the resource display setting. Possible values:'
                 typeId:
                   type: integer
-                  description: '| Identifier of the resource type.'
+                  description: \| `array` | Resource type identifier or an array of identifiers. For an array, the method returns the resources of all listed types.
                 name:
                   type: string
-                  description: '| Name of the resource ||'
+                  description: '| Resource name. The method searches for an exact match ||'
                 description:
                   type: string
-                  description: '| Description of the resource ||'
+                  description: '| Resource description. The method searches for an exact match ||'
                 id:
                   type: string
                   description: '| Sort by identifier ||'
@@ -1189,27 +1268,30 @@ paths:
             schema:
               type: object
               properties:
-                FILTER:
+                filter:
                   type: object
-                  description: '| Object for filtering the list of resources in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
-                ORDER:
+                  description: '| An object for filtering the list of resources in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                order:
                   type: object
-                  description: '| Object for sorting the list of resources in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                  description: '| An object for sorting the list of resources in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                start:
+                  type: integer
+                  description: '| A parameter for managing pagination.'
                 searchQuery:
                   type: string
-                  description: '| Search query. Searches by substring in the resource name ||'
+                  description: '| Search query. The method searches for a case-insensitive substring in the resource name. The resource description is not included in the search ||'
                 isMain:
                   type: string
-                  description: '| Filter by resource display setting. Possible values:'
+                  description: '| Filter by the resource display setting. Possible values:'
                 typeId:
                   type: integer
-                  description: '| Identifier of the resource type.'
+                  description: \| `array` | Resource type identifier or an array of identifiers. For an array, the method returns the resources of all listed types.
                 name:
                   type: string
-                  description: '| Name of the resource ||'
+                  description: '| Resource name. The method searches for an exact match ||'
                 description:
                   type: string
-                  description: '| Description of the resource ||'
+                  description: '| Resource description. The method searches for an exact match ||'
                 id:
                   type: string
                   description: '| Sort by identifier ||'
@@ -1233,7 +1315,7 @@ paths:
   /booking.v1.resource.slots.list:
     post:
       summary: Get Slot Settings for Resource booking.v1.resource.slots.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.slots.list` returns the configuration of time slots for the specified resource.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resource.slots.list` returns the configuration of time slots for the specified resource.'
       operationId: booking_v1_resource_slots_list
       tags:
       - Online Booking
@@ -1280,7 +1362,7 @@ paths:
   /booking.v1.resource.slots.set:
     post:
       summary: Set Slots for Resource booking.v1.resource.slots.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.slots.set` allows you to set time slots for the specified resource.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resource.slots.set` sets time slots for the specified resource.'
       operationId: booking_v1_resource_slots_set
       tags:
       - Online Booking
@@ -1302,20 +1384,20 @@ paths:
                   description: '| An array of objects containing field values for setting time slots (detailed description) ||'
                 from:
                   type: integer
-                  description: '| The time from which slot booking is available during the day. Value in the range from 0 to 1440. For example, `540` means booking is available from 9:00 AM ||'
+                  description: '| Time in minutes from the start of the day from which booking is available. Value in the range from 0 to 1440. For example, `540` means booking is available from 9:00 AM ||'
                 to:
                   type: integer
-                  description: '| The end time of the slot in minutes. Value in the range from 0 to 1440, greater than or equal to the value of `from`. For example, `1080` means booking is available until 6:00 PM ||'
+                  description: '| Time in minutes from the start of the day until which booking is available. Value in the range from 0 to 1440 and strictly greater than `from`. For example, `1080` means booking is available until 6:00 PM ||'
                 timezone:
                   type: string
-                  description: '| The time zone relative to which the slot time is set ||'
+                  description: '| Time zone in the IANA format relative to which the slot time is set. For example, `Europe/Berlin`.'
                 weekDays:
                   type: array
                   items: {}
                   description: '| An array of available weekdays for the slot. Possible values:'
                 slotSize:
                   type: integer
-                  description: '| Duration of the slot in minutes ||'
+                  description: '| Booking duration in minutes. The value cannot be negative ||'
               required:
               - resourceId
               - slots
@@ -1337,20 +1419,20 @@ paths:
                   description: '| An array of objects containing field values for setting time slots (detailed description) ||'
                 from:
                   type: integer
-                  description: '| The time from which slot booking is available during the day. Value in the range from 0 to 1440. For example, `540` means booking is available from 9:00 AM ||'
+                  description: '| Time in minutes from the start of the day from which booking is available. Value in the range from 0 to 1440. For example, `540` means booking is available from 9:00 AM ||'
                 to:
                   type: integer
-                  description: '| The end time of the slot in minutes. Value in the range from 0 to 1440, greater than or equal to the value of `from`. For example, `1080` means booking is available until 6:00 PM ||'
+                  description: '| Time in minutes from the start of the day until which booking is available. Value in the range from 0 to 1440 and strictly greater than `from`. For example, `1080` means booking is available until 6:00 PM ||'
                 timezone:
                   type: string
-                  description: '| The time zone relative to which the slot time is set ||'
+                  description: '| Time zone in the IANA format relative to which the slot time is set. For example, `Europe/Berlin`.'
                 weekDays:
                   type: array
                   items: {}
                   description: '| An array of available weekdays for the slot. Possible values:'
                 slotSize:
                   type: integer
-                  description: '| Duration of the slot in minutes ||'
+                  description: '| Booking duration in minutes. The value cannot be negative ||'
               required:
               - resourceId
               - slots
@@ -1379,7 +1461,7 @@ paths:
   /booking.v1.resource.slots.unset:
     post:
       summary: Remove slots for resource booking.v1.resource.slots.unset
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.slots.unset` removes the time slot settings for the specified resource.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resource.slots.unset` removes the time slot settings for the specified resource.'
       operationId: booking_v1_resource_slots_unset
       tags:
       - Online Booking
@@ -1426,7 +1508,7 @@ paths:
   /booking.v1.resource.update:
     post:
       summary: Update resource booking.v1.resource.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resource.update` updates an existing resource.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resource.update` updates an existing resource.'
       operationId: booking_v1_resource_update
       tags:
       - Online Booking
@@ -1456,61 +1538,70 @@ paths:
                   description: '| Resource type identifier.'
                 isMain:
                   type: string
-                  description: '| How to display the resource. Possible values:'
+                  description: '| How the resource is displayed. Possible values:'
                 isInfoNotificationOn:
                   type: string
-                  description: '| Message to the client about the booking. Possible values:'
+                  description: '| Booking message to the client. Possible values:'
                 templateTypeInfo:
                   type: string
-                  description: '| Type of the booking message template. Possible values:'
+                  description: '| Message template type for the booking message. Possible values:'
                 isConfirmationNotificationOn:
                   type: string
-                  description: '| Automatic booking confirmation. Possible values:'
+                  description: '| Message to the client requesting booking confirmation. Possible values:'
                 templateTypeConfirmation:
                   type: string
-                  description: '| Type of the confirmation message template. Possible values:'
+                  description: '| Message template type for booking confirmation. Possible values:'
                 isReminderNotificationOn:
                   type: string
-                  description: '| Reminder about the booking. Possible values:'
+                  description: '| Booking reminder. Possible values:'
                 templateTypeReminder:
                   type: string
-                  description: '| Type of the reminder message template. Possible values: `base` ||'
+                  description: '| Message template type for the reminder. The only value is `base` ||'
                 isFeedbackNotificationOn:
                   type: string
-                  description: '| Request for feedback. Possible values:'
+                  description: '| Feedback request. Possible values:'
                 templateTypeFeedback:
                   type: string
-                  description: '| Type of the feedback request message template. Possible values:'
+                  description: '| Message template type for the feedback request. Possible values:'
                 isDelayedNotificationOn:
                   type: string
-                  description: '| Reminder when the client is late. Possible values:'
+                  description: '| Reminder when the client is running late. Possible values:'
                 templateTypeDelayed:
                   type: string
-                  description: '| Type of the delay message template. Possible values:'
-                infoDelay:
+                  description: '| Message template type for late arrival. Possible values:'
+                isCancellationNotificationOn:
+                  type: string
+                  description: '| Message to the client after a booking is cancelled. Possible values:'
+                cancellationNotificationDelay:
                   type: integer
-                  description: '| Delay after which the client receives a booking message. Specified in seconds ||'
-                reminderDelay:
+                  description: '| Time after a booking is cancelled, after which the client receives the cancellation message. Specified in seconds ||'
+                infoNotificationDelay:
                   type: integer
-                  description: '| Time before the booking when the client receives a reminder. Specified in seconds ||'
-                delayedDelay:
+                  description: '| Time after which the client receives the booking message. Specified in seconds ||'
+                reminderNotificationDelay:
                   type: integer
-                  description: '| Time after which to send a delay message to the client. Specified in seconds ||'
+                  description: '| Time before the booking, at which the client receives the reminder. Specified in seconds.'
+                delayedNotificationDelay:
+                  type: integer
+                  description: '| Time after which the late arrival message is sent to the client. Specified in seconds ||'
                 delayedCounterDelay:
                   type: integer
-                  description: '| Time after which to enable the counter in the calendar. Specified in seconds ||'
-                confirmationDelay:
+                  description: '| Time after which the counter is activated in the calendar. Specified in seconds ||'
+                confirmationNotificationDelay:
                   type: integer
-                  description: '| Time before the booking when the client receives the first confirmation message. Specified in seconds ||'
-                confirmationRepetitions:
+                  description: '| Time before the booking, when the client receives the first confirmation message. Specified in seconds ||'
+                confirmationNotificationRepetitions:
                   type: integer
-                  description: '| Number of messages sent to the client for booking confirmation, excluding the first ||'
-                confirmationRepetitionsInterval:
+                  description: '| Number of confirmation messages sent to the client, excluding the first one ||'
+                confirmationNotificationRepetitionsInterval:
                   type: integer
                   description: '| Interval between booking confirmation messages. Specified in seconds ||'
                 confirmationCounterDelay:
                   type: integer
-                  description: '| Time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds ||'
+                  description: '| Time before the booking, after which the unconfirmed booking counter is activated. Specified in seconds ||'
+                senderCode:
+                  type: string
+                  description: '| Code of the service that sends messages to the client. Possible values:'
               required:
               - id
               - fields
@@ -1535,61 +1626,70 @@ paths:
                   description: '| Resource type identifier.'
                 isMain:
                   type: string
-                  description: '| How to display the resource. Possible values:'
+                  description: '| How the resource is displayed. Possible values:'
                 isInfoNotificationOn:
                   type: string
-                  description: '| Message to the client about the booking. Possible values:'
+                  description: '| Booking message to the client. Possible values:'
                 templateTypeInfo:
                   type: string
-                  description: '| Type of the booking message template. Possible values:'
+                  description: '| Message template type for the booking message. Possible values:'
                 isConfirmationNotificationOn:
                   type: string
-                  description: '| Automatic booking confirmation. Possible values:'
+                  description: '| Message to the client requesting booking confirmation. Possible values:'
                 templateTypeConfirmation:
                   type: string
-                  description: '| Type of the confirmation message template. Possible values:'
+                  description: '| Message template type for booking confirmation. Possible values:'
                 isReminderNotificationOn:
                   type: string
-                  description: '| Reminder about the booking. Possible values:'
+                  description: '| Booking reminder. Possible values:'
                 templateTypeReminder:
                   type: string
-                  description: '| Type of the reminder message template. Possible values: `base` ||'
+                  description: '| Message template type for the reminder. The only value is `base` ||'
                 isFeedbackNotificationOn:
                   type: string
-                  description: '| Request for feedback. Possible values:'
+                  description: '| Feedback request. Possible values:'
                 templateTypeFeedback:
                   type: string
-                  description: '| Type of the feedback request message template. Possible values:'
+                  description: '| Message template type for the feedback request. Possible values:'
                 isDelayedNotificationOn:
                   type: string
-                  description: '| Reminder when the client is late. Possible values:'
+                  description: '| Reminder when the client is running late. Possible values:'
                 templateTypeDelayed:
                   type: string
-                  description: '| Type of the delay message template. Possible values:'
-                infoDelay:
+                  description: '| Message template type for late arrival. Possible values:'
+                isCancellationNotificationOn:
+                  type: string
+                  description: '| Message to the client after a booking is cancelled. Possible values:'
+                cancellationNotificationDelay:
                   type: integer
-                  description: '| Delay after which the client receives a booking message. Specified in seconds ||'
-                reminderDelay:
+                  description: '| Time after a booking is cancelled, after which the client receives the cancellation message. Specified in seconds ||'
+                infoNotificationDelay:
                   type: integer
-                  description: '| Time before the booking when the client receives a reminder. Specified in seconds ||'
-                delayedDelay:
+                  description: '| Time after which the client receives the booking message. Specified in seconds ||'
+                reminderNotificationDelay:
                   type: integer
-                  description: '| Time after which to send a delay message to the client. Specified in seconds ||'
+                  description: '| Time before the booking, at which the client receives the reminder. Specified in seconds.'
+                delayedNotificationDelay:
+                  type: integer
+                  description: '| Time after which the late arrival message is sent to the client. Specified in seconds ||'
                 delayedCounterDelay:
                   type: integer
-                  description: '| Time after which to enable the counter in the calendar. Specified in seconds ||'
-                confirmationDelay:
+                  description: '| Time after which the counter is activated in the calendar. Specified in seconds ||'
+                confirmationNotificationDelay:
                   type: integer
-                  description: '| Time before the booking when the client receives the first confirmation message. Specified in seconds ||'
-                confirmationRepetitions:
+                  description: '| Time before the booking, when the client receives the first confirmation message. Specified in seconds ||'
+                confirmationNotificationRepetitions:
                   type: integer
-                  description: '| Number of messages sent to the client for booking confirmation, excluding the first ||'
-                confirmationRepetitionsInterval:
+                  description: '| Number of confirmation messages sent to the client, excluding the first one ||'
+                confirmationNotificationRepetitionsInterval:
                   type: integer
                   description: '| Interval between booking confirmation messages. Specified in seconds ||'
                 confirmationCounterDelay:
                   type: integer
-                  description: '| Time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds ||'
+                  description: '| Time before the booking, after which the unconfirmed booking counter is activated. Specified in seconds ||'
+                senderCode:
+                  type: string
+                  description: '| Code of the service that sends messages to the client. Possible values:'
               required:
               - id
               - fields
@@ -1613,7 +1713,7 @@ paths:
   /booking.v1.resourceType.add:
     post:
       summary: Add a New Resource Type booking.v1.resourceType.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resourceType.add` adds a new resource type.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resourceType.add` adds a new resource type.'
       operationId: booking_v1_resourceType_add
       tags:
       - Online Booking
@@ -1631,64 +1731,70 @@ paths:
                   description: '| An object containing field values for creating a resource type (detailed description) ||'
                 name:
                   type: string
-                  description: '| The name of the resource type ||'
+                  description: '| Resource type name ||'
                 code:
                   type: string
-                  description: '| A unique code for the resource type ||'
+                  description: '| Symbolic code of the resource type. Must be unique among the types of the `booking` module.'
                 isInfoNotificationOn:
                   type: string
-                  description: '| Message to the client about the booking. Possible values:'
-                templateTypeInfo:
-                  type: string
-                  description: '| The type of message template for the booking. Possible values:'
+                  description: '| Booking message to the client. Possible values:'
                 isConfirmationNotificationOn:
                   type: string
-                  description: '| Automatic confirmation of the booking. Possible values:'
+                  description: '| Message to the client requesting booking confirmation. Possible values:'
                 templateTypeConfirmation:
                   type: string
-                  description: '| The type of message template for booking confirmation. Possible values:'
+                  description: '| Message template type for booking confirmation. Possible values:'
                 isReminderNotificationOn:
                   type: string
-                  description: '| Reminder about the booking. Possible values:'
+                  description: '| Booking reminder. Possible values:'
                 templateTypeReminder:
                   type: string
-                  description: '| The type of message template for reminders. Possible values: `base` ||'
+                  description: '| Message template type for the reminder. The only value is `base` ||'
                 isFeedbackNotificationOn:
                   type: string
-                  description: '| Request for feedback. Possible values:'
+                  description: '| Feedback request. Possible values:'
                 templateTypeFeedback:
                   type: string
-                  description: '| The type of message template for feedback requests. Possible values:'
+                  description: '| Message template type for the feedback request. Possible values:'
                 isDelayedNotificationOn:
                   type: string
-                  description: '| Reminder when the client is late. Possible values:'
+                  description: '| Reminder when the client is running late. Possible values:'
                 templateTypeDelayed:
                   type: string
-                  description: '| The type of message template for delays. Possible values:'
-                infoDelay:
+                  description: '| Message template type for late arrival. Possible values:'
+                isCancellationNotificationOn:
+                  type: string
+                  description: '| Message to the client after a booking is cancelled. Possible values:'
+                cancellationNotificationDelay:
                   type: integer
-                  description: '| Delay after which the client receives a booking message. Specified in seconds.'
-                reminderDelay:
+                  description: '| Time after a booking is cancelled, after which the client receives the cancellation message. Specified in seconds.'
+                infoNotificationDelay:
                   type: integer
-                  description: '| Time before the booking when the client receives a reminder. Specified in seconds.'
-                delayedDelay:
+                  description: '| Time after which the client receives the booking message. Specified in seconds.'
+                reminderNotificationDelay:
                   type: integer
-                  description: '| Time after which to send a message about the delay to the client. Specified in seconds.'
+                  description: '| Time before the booking, at which the client receives the reminder. Specified in seconds.'
+                delayedNotificationDelay:
+                  type: integer
+                  description: '| Time after which the late arrival message is sent to the client. Specified in seconds.'
                 delayedCounterDelay:
                   type: integer
-                  description: '| Time after which to enable the counter in the calendar. Specified in seconds.'
-                confirmationDelay:
+                  description: '| Time after which the counter is activated in the calendar. Specified in seconds.'
+                confirmationNotificationDelay:
                   type: integer
-                  description: '| Time before the booking when the client receives the first confirmation message. Specified in seconds.'
-                confirmationRepetitions:
+                  description: '| Time before the booking, when the client receives the first confirmation message. Specified in seconds.'
+                confirmationNotificationRepetitions:
                   type: integer
-                  description: '| The number of messages sent to the client for booking confirmation, excluding the first.'
-                confirmationRepetitionsInterval:
+                  description: '| Number of confirmation messages sent to the client, excluding the first one.'
+                confirmationNotificationRepetitionsInterval:
                   type: integer
-                  description: '| Interval between confirmation messages. Specified in seconds.'
+                  description: '| Interval between booking confirmation messages. Specified in seconds.'
                 confirmationCounterDelay:
                   type: integer
-                  description: '| Time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds.'
+                  description: '| Time before the booking, after which the unconfirmed booking counter is activated. Specified in seconds.'
+                senderCode:
+                  type: string
+                  description: '| Code of the service that sends messages to the client. Possible values:'
               required:
               - fields
               - name
@@ -1702,64 +1808,70 @@ paths:
                   description: '| An object containing field values for creating a resource type (detailed description) ||'
                 name:
                   type: string
-                  description: '| The name of the resource type ||'
+                  description: '| Resource type name ||'
                 code:
                   type: string
-                  description: '| A unique code for the resource type ||'
+                  description: '| Symbolic code of the resource type. Must be unique among the types of the `booking` module.'
                 isInfoNotificationOn:
                   type: string
-                  description: '| Message to the client about the booking. Possible values:'
-                templateTypeInfo:
-                  type: string
-                  description: '| The type of message template for the booking. Possible values:'
+                  description: '| Booking message to the client. Possible values:'
                 isConfirmationNotificationOn:
                   type: string
-                  description: '| Automatic confirmation of the booking. Possible values:'
+                  description: '| Message to the client requesting booking confirmation. Possible values:'
                 templateTypeConfirmation:
                   type: string
-                  description: '| The type of message template for booking confirmation. Possible values:'
+                  description: '| Message template type for booking confirmation. Possible values:'
                 isReminderNotificationOn:
                   type: string
-                  description: '| Reminder about the booking. Possible values:'
+                  description: '| Booking reminder. Possible values:'
                 templateTypeReminder:
                   type: string
-                  description: '| The type of message template for reminders. Possible values: `base` ||'
+                  description: '| Message template type for the reminder. The only value is `base` ||'
                 isFeedbackNotificationOn:
                   type: string
-                  description: '| Request for feedback. Possible values:'
+                  description: '| Feedback request. Possible values:'
                 templateTypeFeedback:
                   type: string
-                  description: '| The type of message template for feedback requests. Possible values:'
+                  description: '| Message template type for the feedback request. Possible values:'
                 isDelayedNotificationOn:
                   type: string
-                  description: '| Reminder when the client is late. Possible values:'
+                  description: '| Reminder when the client is running late. Possible values:'
                 templateTypeDelayed:
                   type: string
-                  description: '| The type of message template for delays. Possible values:'
-                infoDelay:
+                  description: '| Message template type for late arrival. Possible values:'
+                isCancellationNotificationOn:
+                  type: string
+                  description: '| Message to the client after a booking is cancelled. Possible values:'
+                cancellationNotificationDelay:
                   type: integer
-                  description: '| Delay after which the client receives a booking message. Specified in seconds.'
-                reminderDelay:
+                  description: '| Time after a booking is cancelled, after which the client receives the cancellation message. Specified in seconds.'
+                infoNotificationDelay:
                   type: integer
-                  description: '| Time before the booking when the client receives a reminder. Specified in seconds.'
-                delayedDelay:
+                  description: '| Time after which the client receives the booking message. Specified in seconds.'
+                reminderNotificationDelay:
                   type: integer
-                  description: '| Time after which to send a message about the delay to the client. Specified in seconds.'
+                  description: '| Time before the booking, at which the client receives the reminder. Specified in seconds.'
+                delayedNotificationDelay:
+                  type: integer
+                  description: '| Time after which the late arrival message is sent to the client. Specified in seconds.'
                 delayedCounterDelay:
                   type: integer
-                  description: '| Time after which to enable the counter in the calendar. Specified in seconds.'
-                confirmationDelay:
+                  description: '| Time after which the counter is activated in the calendar. Specified in seconds.'
+                confirmationNotificationDelay:
                   type: integer
-                  description: '| Time before the booking when the client receives the first confirmation message. Specified in seconds.'
-                confirmationRepetitions:
+                  description: '| Time before the booking, when the client receives the first confirmation message. Specified in seconds.'
+                confirmationNotificationRepetitions:
                   type: integer
-                  description: '| The number of messages sent to the client for booking confirmation, excluding the first.'
-                confirmationRepetitionsInterval:
+                  description: '| Number of confirmation messages sent to the client, excluding the first one.'
+                confirmationNotificationRepetitionsInterval:
                   type: integer
-                  description: '| Interval between confirmation messages. Specified in seconds.'
+                  description: '| Interval between booking confirmation messages. Specified in seconds.'
                 confirmationCounterDelay:
                   type: integer
-                  description: '| Time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds.'
+                  description: '| Time before the booking, after which the unconfirmed booking counter is activated. Specified in seconds.'
+                senderCode:
+                  type: string
+                  description: '| Code of the service that sends messages to the client. Possible values:'
               required:
               - fields
               - name
@@ -1784,7 +1896,7 @@ paths:
   /booking.v1.resourceType.delete:
     post:
       summary: Delete Resource Type booking.v1.resourceType.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resourceType.delete` removes a resource type.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resourceType.delete` removes a resource type.'
       operationId: booking_v1_resourceType_delete
       tags:
       - Online Booking
@@ -1831,7 +1943,7 @@ paths:
   /booking.v1.resourceType.get:
     post:
       summary: Get Resource Type booking.v1.resourceType.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resourceType.get` returns information about the resource type by its identifier.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resourceType.get` returns information about the resource type by its identifier.'
       operationId: booking_v1_resourceType_get
       tags:
       - Online Booking
@@ -1878,7 +1990,7 @@ paths:
   /booking.v1.resourceType.list:
     post:
       summary: Get a list of resource types booking.v1.resourceType.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resourceType.list` returns a list of resource types based on a filter. It is an implementation of the list method for resource types.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resourceType.list` returns a list of resource types based on a filter. It is an implementation of the list method for resource types.'
       operationId: booking_v1_resourceType_list
       tags:
       - Online Booking
@@ -1891,24 +2003,27 @@ paths:
             schema:
               type: object
               properties:
-                FILTER:
+                filter:
                   type: object
                   description: '| An object for filtering the list of resource types in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
-                ORDER:
+                order:
                   type: object
                   description: '| An object for sorting the list of resource types in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                start:
+                  type: integer
+                  description: '| A parameter for managing pagination.'
                 searchQuery:
                   type: string
-                  description: '| Search query. Searches for a substring in the resource type name ||'
+                  description: '| Search query. The method searches for a case-insensitive substring in the resource type name ||'
                 moduleId:
                   type: string
-                  description: '| Resource type module ||'
+                  description: '| Identifier of the module the resource type belongs to. For types created via REST, the value is `booking`.'
                 name:
                   type: string
-                  description: '| Resource type name ||'
+                  description: '| Resource type name. The method searches for an exact match ||'
                 code:
                   type: string
-                  description: '| Resource type code ||'
+                  description: '| Symbolic code of the resource type. The method searches for an exact match ||'
                 id:
                   type: string
                   description: '| Sort by identifier ||'
@@ -1916,24 +2031,27 @@ paths:
             schema:
               type: object
               properties:
-                FILTER:
+                filter:
                   type: object
                   description: '| An object for filtering the list of resource types in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
-                ORDER:
+                order:
                   type: object
                   description: '| An object for sorting the list of resource types in the format `{"field_1": "value_1", ... "field_N": "value_N"}`, where'
+                start:
+                  type: integer
+                  description: '| A parameter for managing pagination.'
                 searchQuery:
                   type: string
-                  description: '| Search query. Searches for a substring in the resource type name ||'
+                  description: '| Search query. The method searches for a case-insensitive substring in the resource type name ||'
                 moduleId:
                   type: string
-                  description: '| Resource type module ||'
+                  description: '| Identifier of the module the resource type belongs to. For types created via REST, the value is `booking`.'
                 name:
                   type: string
-                  description: '| Resource type name ||'
+                  description: '| Resource type name. The method searches for an exact match ||'
                 code:
                   type: string
-                  description: '| Resource type code ||'
+                  description: '| Symbolic code of the resource type. The method searches for an exact match ||'
                 id:
                   type: string
                   description: '| Sort by identifier ||'
@@ -1957,7 +2075,7 @@ paths:
   /booking.v1.resourceType.update:
     post:
       summary: Update Resource Type booking.v1.resourceType.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.resourceType.update` updates information about an existing resource type.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.resourceType.update` updates information about an existing resource type.'
       operationId: booking_v1_resourceType_update
       tags:
       - Online Booking
@@ -1978,67 +2096,74 @@ paths:
                   description: '| An object containing field values to update the resource type (detailed description) ||'
                 name:
                   type: string
-                  description: '| Name of the resource type ||'
+                  description: '| Resource type name ||'
                 code:
                   type: string
-                  description: '| Code of the resource type ||'
+                  description: '| Symbolic code of the resource type.'
                 isInfoNotificationOn:
                   type: string
-                  description: '| Message to the client about the booking. Possible values:'
-                templateTypeInfo:
-                  type: string
-                  description: '| Type of the booking message template. Possible values:'
+                  description: '| Booking message to the client. Possible values:'
                 isConfirmationNotificationOn:
                   type: string
-                  description: '| Automatic booking confirmation. Possible values:'
+                  description: '| Message to the client requesting booking confirmation. Possible values:'
                 templateTypeConfirmation:
                   type: string
-                  description: '| Type of the confirmation message template. Possible values:'
+                  description: '| Message template type for booking confirmation. Possible values:'
                 isReminderNotificationOn:
                   type: string
-                  description: '| Reminder about the booking. Possible values:'
+                  description: '| Booking reminder. Possible values:'
                 templateTypeReminder:
                   type: string
-                  description: '| Type of the reminder message template. Possible values: `base` ||'
+                  description: '| Message template type for the reminder. The only value is `base` ||'
                 isFeedbackNotificationOn:
                   type: string
-                  description: '| Request for feedback. Possible values:'
+                  description: '| Feedback request. Possible values:'
                 templateTypeFeedback:
                   type: string
-                  description: '| Type of the feedback request message template. Possible values:'
+                  description: '| Message template type for the feedback request. Possible values:'
                 isDelayedNotificationOn:
                   type: string
-                  description: '| Reminder when the client is late. Possible values:'
+                  description: '| Reminder when the client is running late. Possible values:'
                 templateTypeDelayed:
                   type: string
-                  description: '| Type of the delay message template. Possible values:'
-                infoDelay:
+                  description: '| Message template type for late arrival. Possible values:'
+                infoNotificationDelay:
                   type: integer
-                  description: '| Delay after which the client receives a booking message. Specified in seconds ||'
-                reminderDelay:
+                  description: '| Time after which the client receives the booking message. Specified in seconds ||'
+                reminderNotificationDelay:
                   type: integer
-                  description: '| Time before the booking when the client receives a reminder. Specified in seconds ||'
-                delayedDelay:
+                  description: '| Time before the booking, at which the client receives the reminder. Specified in seconds.'
+                delayedNotificationDelay:
                   type: integer
-                  description: '| Time after which to send a delay message to the client. Specified in seconds ||'
+                  description: '| Time after which the late arrival message is sent to the client. Specified in seconds ||'
                 delayedCounterDelay:
                   type: integer
-                  description: '| Time after which to enable the counter in the calendar. Specified in seconds ||'
-                confirmationDelay:
+                  description: '| Time after which the counter is activated in the calendar. Specified in seconds ||'
+                confirmationNotificationDelay:
                   type: integer
-                  description: '| Time before the booking when the client receives the first confirmation message. Specified in seconds ||'
-                confirmationRepetitions:
+                  description: '| Time before the booking, when the client receives the first confirmation message. Specified in seconds ||'
+                confirmationNotificationRepetitions:
                   type: integer
-                  description: '| Number of messages sent to the client for booking confirmation, excluding the first one ||'
-                confirmationRepetitionsInterval:
+                  description: '| Number of confirmation messages sent to the client, excluding the first one ||'
+                confirmationNotificationRepetitionsInterval:
                   type: integer
                   description: '| Interval between booking confirmation messages. Specified in seconds ||'
                 confirmationCounterDelay:
                   type: integer
-                  description: '| Time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds ||'
+                  description: '| Time before the booking, after which the unconfirmed booking counter is activated. Specified in seconds ||'
+                isCancellationNotificationOn:
+                  type: string
+                  description: '| Message to the client after a booking is cancelled. Possible values:'
+                cancellationNotificationDelay:
+                  type: integer
+                  description: '| Time after a booking is cancelled, after which the client receives the cancellation message. Specified in seconds ||'
+                senderCode:
+                  type: string
+                  description: '| Code of the service that sends messages to the client. Possible values:'
               required:
               - id
               - fields
+              - code
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -2051,114 +2176,74 @@ paths:
                   description: '| An object containing field values to update the resource type (detailed description) ||'
                 name:
                   type: string
-                  description: '| Name of the resource type ||'
+                  description: '| Resource type name ||'
                 code:
                   type: string
-                  description: '| Code of the resource type ||'
+                  description: '| Symbolic code of the resource type.'
                 isInfoNotificationOn:
                   type: string
-                  description: '| Message to the client about the booking. Possible values:'
-                templateTypeInfo:
-                  type: string
-                  description: '| Type of the booking message template. Possible values:'
+                  description: '| Booking message to the client. Possible values:'
                 isConfirmationNotificationOn:
                   type: string
-                  description: '| Automatic booking confirmation. Possible values:'
+                  description: '| Message to the client requesting booking confirmation. Possible values:'
                 templateTypeConfirmation:
                   type: string
-                  description: '| Type of the confirmation message template. Possible values:'
+                  description: '| Message template type for booking confirmation. Possible values:'
                 isReminderNotificationOn:
                   type: string
-                  description: '| Reminder about the booking. Possible values:'
+                  description: '| Booking reminder. Possible values:'
                 templateTypeReminder:
                   type: string
-                  description: '| Type of the reminder message template. Possible values: `base` ||'
+                  description: '| Message template type for the reminder. The only value is `base` ||'
                 isFeedbackNotificationOn:
                   type: string
-                  description: '| Request for feedback. Possible values:'
+                  description: '| Feedback request. Possible values:'
                 templateTypeFeedback:
                   type: string
-                  description: '| Type of the feedback request message template. Possible values:'
+                  description: '| Message template type for the feedback request. Possible values:'
                 isDelayedNotificationOn:
                   type: string
-                  description: '| Reminder when the client is late. Possible values:'
+                  description: '| Reminder when the client is running late. Possible values:'
                 templateTypeDelayed:
                   type: string
-                  description: '| Type of the delay message template. Possible values:'
-                infoDelay:
+                  description: '| Message template type for late arrival. Possible values:'
+                infoNotificationDelay:
                   type: integer
-                  description: '| Delay after which the client receives a booking message. Specified in seconds ||'
-                reminderDelay:
+                  description: '| Time after which the client receives the booking message. Specified in seconds ||'
+                reminderNotificationDelay:
                   type: integer
-                  description: '| Time before the booking when the client receives a reminder. Specified in seconds ||'
-                delayedDelay:
+                  description: '| Time before the booking, at which the client receives the reminder. Specified in seconds.'
+                delayedNotificationDelay:
                   type: integer
-                  description: '| Time after which to send a delay message to the client. Specified in seconds ||'
+                  description: '| Time after which the late arrival message is sent to the client. Specified in seconds ||'
                 delayedCounterDelay:
                   type: integer
-                  description: '| Time after which to enable the counter in the calendar. Specified in seconds ||'
-                confirmationDelay:
+                  description: '| Time after which the counter is activated in the calendar. Specified in seconds ||'
+                confirmationNotificationDelay:
                   type: integer
-                  description: '| Time before the booking when the client receives the first confirmation message. Specified in seconds ||'
-                confirmationRepetitions:
+                  description: '| Time before the booking, when the client receives the first confirmation message. Specified in seconds ||'
+                confirmationNotificationRepetitions:
                   type: integer
-                  description: '| Number of messages sent to the client for booking confirmation, excluding the first one ||'
-                confirmationRepetitionsInterval:
+                  description: '| Number of confirmation messages sent to the client, excluding the first one ||'
+                confirmationNotificationRepetitionsInterval:
                   type: integer
                   description: '| Interval between booking confirmation messages. Specified in seconds ||'
                 confirmationCounterDelay:
                   type: integer
-                  description: '| Time before the booking after which the counter for unconfirmed bookings lights up. Specified in seconds ||'
+                  description: '| Time before the booking, after which the unconfirmed booking counter is activated. Specified in seconds ||'
+                isCancellationNotificationOn:
+                  type: string
+                  description: '| Message to the client after a booking is cancelled. Possible values:'
+                cancellationNotificationDelay:
+                  type: integer
+                  description: '| Time after a booking is cancelled, after which the client receives the cancellation message. Specified in seconds ||'
+                senderCode:
+                  type: string
+                  description: '| Code of the service that sends messages to the client. Possible values:'
               required:
               - id
               - fields
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BitrixResponse'
-        4XX:
-          description: Request error (400, 401, 403)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BitrixError'
-      security:
-      - AccessToken: []
-      - OAuth2:
-        - booking
-  /booking.v1.waitList.externalData.list:
-    post:
-      summary: Get External Data Links for Waitlist Entry booking.v1.waitList.externalData.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.waitList.externalData.list` returns links for the specified entry in the waitlist.
-      operationId: booking_v1_waitList_externalData_list
-      tags:
-      - Online Booking
-      externalDocs:
-        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/external-data/booking-v1-waitlist-externaldata-list.html
-        description: Official Documentation
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                waitListId:
-                  type: integer
-                  description: '| Identifier of the waitlist entry.'
-              required:
-              - waitListId
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                waitListId:
-                  type: integer
-                  description: '| Identifier of the waitlist entry.'
-              required:
-              - waitListId
+              - code
       responses:
         '200':
           description: Successful response
@@ -2179,7 +2264,7 @@ paths:
   /booking.v1.waitlist.add:
     post:
       summary: Add to waitlist booking.v1.waitlist.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.add` adds an entry to the waitlist.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.waitlist.add` adds an entry to the waitlist.'
       operationId: booking_v1_waitlist_add
       tags:
       - Online Booking
@@ -2200,7 +2285,6 @@ paths:
                   description: '| Note for the waitlist entry.'
               required:
               - fields
-              - note
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -2213,7 +2297,6 @@ paths:
                   description: '| Note for the waitlist entry.'
               required:
               - fields
-              - note
       responses:
         '200':
           description: Successful response
@@ -2233,8 +2316,8 @@ paths:
         - booking
   /booking.v1.waitlist.client.list:
     post:
-      summary: Get the list of clients for the waitlist booking.v1.waitlist.client.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.client.list` returns a list of clients for the specified entry in the waitlist.
+      summary: Get Clients of a Waitlist Entry booking.v1.waitlist.client.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.waitlist.client.list` returns a list of clients for the specified entry in the waitlist.'
       operationId: booking_v1_waitlist_client_list
       tags:
       - Online Booking
@@ -2280,8 +2363,8 @@ paths:
         - booking
   /booking.v1.waitlist.client.set:
     post:
-      summary: Add Clients to the Waitlist Record in booking.v1.waitlist.client.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.client.set` sets clients for the specified record in the waitlist.
+      summary: Set Clients for a Waitlist Entry booking.v1.waitlist.client.set
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Sets the list of clients for the specified waitlist entry. Clients can be CRM contacts and companies.'
       operationId: booking_v1_waitlist_client_set
       tags:
       - Online Booking
@@ -2296,44 +2379,60 @@ paths:
               properties:
                 waitListId:
                   type: integer
-                  description: '| Identifier of the waitlist record.'
+                  description: '| Identifier of the waitlist entry.'
                 clients:
                   type: array
                   items: {}
-                  description: '| Array of objects containing information about clients (detailed description) ||'
+                  description: '| Complete list of the entry''s clients. Each element is an object with the `id` and `type` fields. Element Structure, Empty Array Behavior ||'
                 id:
                   type: integer
-                  description: '| Client identifier, can be obtained using the method crm.item.list for contacts and companies ||'
+                  description: '| Identifier of a CRM contact or company. You can retrieve it using the crm.item.list method: `entityTypeId: 3` for contacts, `entityTypeId: 4` for companies ||'
                 type:
                   type: object
-                  description: '| Client type in the format `{"module": "crm", "code": "CONTACT"}`.'
+                  description: '| Client type. For example, `{"module": "crm", "code": "CONTACT"}`. Object Structure ||'
+                module:
+                  type: string
+                  description: '| Client module. For contacts and companies, `crm` ||'
+                code:
+                  type: string
+                  description: '| Client type code:'
               required:
               - waitListId
               - clients
               - id
               - type
+              - module
+              - code
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 waitListId:
                   type: integer
-                  description: '| Identifier of the waitlist record.'
+                  description: '| Identifier of the waitlist entry.'
                 clients:
                   type: array
                   items: {}
-                  description: '| Array of objects containing information about clients (detailed description) ||'
+                  description: '| Complete list of the entry''s clients. Each element is an object with the `id` and `type` fields. Element Structure, Empty Array Behavior ||'
                 id:
                   type: integer
-                  description: '| Client identifier, can be obtained using the method crm.item.list for contacts and companies ||'
+                  description: '| Identifier of a CRM contact or company. You can retrieve it using the crm.item.list method: `entityTypeId: 3` for contacts, `entityTypeId: 4` for companies ||'
                 type:
                   type: object
-                  description: '| Client type in the format `{"module": "crm", "code": "CONTACT"}`.'
+                  description: '| Client type. For example, `{"module": "crm", "code": "CONTACT"}`. Object Structure ||'
+                module:
+                  type: string
+                  description: '| Client module. For contacts and companies, `crm` ||'
+                code:
+                  type: string
+                  description: '| Client type code:'
               required:
               - waitListId
               - clients
               - id
               - type
+              - module
+              - code
       responses:
         '200':
           description: Successful response
@@ -2353,8 +2452,8 @@ paths:
         - booking
   /booking.v1.waitlist.client.unset:
     post:
-      summary: Remove clients from the waitlist entry booking.v1.waitlist.client.unset
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.client.unset` removes clients for the specified entry in the waitlist.
+      summary: Remove Client Links from a Waitlist Entry booking.v1.waitlist.client.unset
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Removes all client links from the specified waitlist entry. The contacts and companies remain in the CRM.'
       operationId: booking_v1_waitlist_client_unset
       tags:
       - Online Booking
@@ -2401,7 +2500,7 @@ paths:
   /booking.v1.waitlist.createfrombooking:
     post:
       summary: Create a waitlist entry from booking using booking.v1.waitlist.createfrombooking
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.createfrombooking` creates a waitlist entry based on an existing booking.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.waitlist.createfrombooking` creates a waitlist entry based on an existing booking.'
       operationId: booking_v1_waitlist_createfrombooking
       tags:
       - Online Booking
@@ -2448,7 +2547,7 @@ paths:
   /booking.v1.waitlist.delete:
     post:
       summary: Delete Entry from the Waitlist booking.v1.waitlist.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.delete` removes an entry from the waitlist.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.waitlist.delete` removes an entry from the waitlist.'
       operationId: booking_v1_waitlist_delete
       tags:
       - Online Booking
@@ -2492,10 +2591,57 @@ paths:
       - AccessToken: []
       - OAuth2:
         - booking
+  /booking.v1.waitlist.externalData.list:
+    post:
+      summary: Get External Data Links for Waitlist Entry booking.v1.waitlist.externalData.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.waitlist.externalData.list` returns links for the specified entry in the waitlist.'
+      operationId: booking_v1_waitlist_externalData_list
+      tags:
+      - Online Booking
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/booking/waitlist/external-data/booking-v1-waitlist-externaldata-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the waitlist entry.'
+              required:
+              - waitListId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                waitListId:
+                  type: integer
+                  description: '| Identifier of the waitlist entry.'
+              required:
+              - waitListId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - booking
   /booking.v1.waitlist.externalData.set:
     post:
       summary: Set Connections for Recording in the Waitlist…
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.externalData.set` establishes connections for the specified entry in the waitlist.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.waitlist.externalData.set` establishes links for the specified entry in the waitlist.'
       operationId: booking_v1_waitlist_externalData_set
       tags:
       - Online Booking
@@ -2576,7 +2722,7 @@ paths:
   /booking.v1.waitlist.externalData.unset:
     post:
       summary: Remove connections for the waitlist record…
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.externalData.unset` removes connections for the specified record in the waitlist.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.waitlist.externalData.unset` removes connections for the specified record in the waitlist.'
       operationId: booking_v1_waitlist_externalData_unset
       tags:
       - Online Booking
@@ -2623,7 +2769,7 @@ paths:
   /booking.v1.waitlist.get:
     post:
       summary: Get a Record from the Waitlist booking.v1.waitlist.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.get` returns information about a waitlist record by its identifier.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.waitlist.get` returns information about a waitlist record by its identifier.'
       operationId: booking_v1_waitlist_get
       tags:
       - Online Booking
@@ -2670,7 +2816,7 @@ paths:
   /booking.v1.waitlist.list:
     post:
       summary: Get a list of records from the waitlist booking.v1.waitlist.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.list` returns a list of records from the waitlist based on the filter.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.waitlist.list` returns a list of records from the waitlist based on the filter.'
       operationId: booking_v1_waitlist_list
       tags:
       - Online Booking
@@ -2731,7 +2877,7 @@ paths:
   /booking.v1.waitlist.update:
     post:
       summary: Update a record in the waitlist booking.v1.waitlist.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `booking.v1.waitlist.update` updates the information of a record in the waitlist.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `booking.v1.waitlist.update` updates the information of a record in the waitlist.'
       operationId: booking_v1_waitlist_update
       tags:
       - Online Booking
@@ -2808,6 +2954,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -2835,20 +2995,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

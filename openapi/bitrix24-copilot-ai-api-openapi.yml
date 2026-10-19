@@ -32,7 +32,7 @@ paths:
   /ai.engine.list:
     post:
       summary: Get the List of Services ai.engine.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `ai.engine.list` returns a list of registered AI services.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `ai.engine.list` returns a list of registered AI services.'
       operationId: ai_engine_list
       tags:
       - CoPilot / AI
@@ -46,12 +46,11 @@ paths:
               type: object
               properties:
                 filter:
-                  type: array
-                  items: {}
-                  description: '| An array in the following format:'
+                  type: object
+                  description: '| An object with filter conditions. The key is a field name with an optional operator prefix, and the value is the value to search for. For example:'
                 limit:
                   type: integer
-                  description: '| Maximum number of elements in the response ||'
+                  description: '| Maximum number of elements in the response. The method does not set an upper limit. If the parameter is not passed, the method returns all records found ||'
                 ID:
                   type: integer
                   description: '| Service identifier ||'
@@ -66,7 +65,7 @@ paths:
                   description: '| Symbolic code of the service ||'
                 CATEGORY:
                   type: string
-                  description: '| Service category ||'
+                  description: '| Service category.'
                 COMPLETIONS_URL:
                   type: string
                   description: '| Service endpoint URL ||'
@@ -79,12 +78,11 @@ paths:
               type: object
               properties:
                 filter:
-                  type: array
-                  items: {}
-                  description: '| An array in the following format:'
+                  type: object
+                  description: '| An object with filter conditions. The key is a field name with an optional operator prefix, and the value is the value to search for. For example:'
                 limit:
                   type: integer
-                  description: '| Maximum number of elements in the response ||'
+                  description: '| Maximum number of elements in the response. The method does not set an upper limit. If the parameter is not passed, the method returns all records found ||'
                 ID:
                   type: integer
                   description: '| Service identifier ||'
@@ -99,7 +97,7 @@ paths:
                   description: '| Symbolic code of the service ||'
                 CATEGORY:
                   type: string
-                  description: '| Service category ||'
+                  description: '| Service category.'
                 COMPLETIONS_URL:
                   type: string
                   description: '| Service endpoint URL ||'
@@ -127,7 +125,7 @@ paths:
   /ai.engine.register:
     post:
       summary: Register the Service ai.engine.register
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `ai.engine.register` registers a custom AI service.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `ai.engine.register` registers a custom AI service.'
       operationId: ai_engine_register
       tags:
       - CoPilot / AI
@@ -154,7 +152,7 @@ paths:
                   description: '| The URL endpoint of the handler, which must respond with HTTP status `200` during registration verification (detailed description) ||'
                 settings:
                   type: object
-                  description: '| Additional settings for the service (detailed description) ||'
+                  description: '| Additional settings for the service (detailed description). If the parameter is not passed, an empty settings set is saved ||'
                 code_alias:
                   type: string
                   description: '| The alias of the model.'
@@ -187,7 +185,7 @@ paths:
                   description: '| The URL endpoint of the handler, which must respond with HTTP status `200` during registration verification (detailed description) ||'
                 settings:
                   type: object
-                  description: '| Additional settings for the service (detailed description) ||'
+                  description: '| Additional settings for the service (detailed description). If the parameter is not passed, an empty settings set is saved ||'
                 code_alias:
                   type: string
                   description: '| The alias of the model.'
@@ -222,7 +220,7 @@ paths:
   /ai.engine.unregister:
     post:
       summary: Remove the ai.engine.unregister Service
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `ai.engine.unregister` removes a registered AI service.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `ai.engine.unregister` removes a registered AI service.'
       operationId: ai_engine_unregister
       tags:
       - CoPilot / AI
@@ -237,14 +235,18 @@ paths:
               properties:
                 code:
                   type: string
-                  description: '| Character code of the service to be removed ||'
+                  description: '| Symbolic code of the service to remove. The code must match the code of a service registered by the current application or a service not linked to an application when called through a webhook ||'
+              required:
+              - code
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 code:
                   type: string
-                  description: '| Character code of the service to be removed ||'
+                  description: '| Symbolic code of the service to remove. The code must match the code of a service registered by the current application or a service not linked to an application when called through a webhook ||'
+              required:
+              - code
       responses:
         '200':
           description: Successful response
@@ -279,6 +281,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -306,20 +322,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

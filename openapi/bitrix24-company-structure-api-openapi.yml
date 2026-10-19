@@ -32,7 +32,7 @@ paths:
   /department.add:
     post:
       summary: Create Department department.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `department.add` adds a new department to the company's structure.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `department.add` adds a new department to the company''s structure.'
       operationId: department_add
       tags:
       - Company Structure
@@ -96,11 +96,11 @@ paths:
       - AccessToken: []
       - OAuth2:
         - department
-  /department.department.delete:
+  /department.delete:
     post:
-      summary: Delete department.department.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `department.delete` removes a department from the company structure.
-      operationId: department_department_delete
+      summary: Delete Department department.delete
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `department.delete` removes a department from the company structure.'
+      operationId: department_delete
       tags:
       - Company Structure
       externalDocs:
@@ -146,7 +146,7 @@ paths:
   /department.fields:
     post:
       summary: Get a list of department field names department.fields
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `department.fields` returns a list and description of available department fields. No parameters.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Returns department field names.'
       operationId: department_fields
       tags:
       - Company Structure
@@ -158,23 +158,9 @@ paths:
           application/json:
             schema:
               type: object
-              properties:
-                result:
-                  type: object
-                  description: '| Root element of the response. Contains the list and description of fields ||'
-                time:
-                  type: string
-                  description: '| Information about the execution time of the request ||'
           application/x-www-form-urlencoded:
             schema:
               type: object
-              properties:
-                result:
-                  type: object
-                  description: '| Root element of the response. Contains the list and description of fields ||'
-                time:
-                  type: string
-                  description: '| Information about the execution time of the request ||'
       responses:
         '200':
           description: Successful response
@@ -195,7 +181,7 @@ paths:
   /department.get:
     post:
       summary: Get the list of departments department.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `department.get` method is designed to retrieve a list of departments.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `department.get` method is designed to retrieve a list of departments.'
       operationId: department_get
       tags:
       - Company Structure
@@ -280,7 +266,7 @@ paths:
   /department.update:
     post:
       summary: Update Department department.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `department.update` modifies the department data in the company structure.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `department.update` modifies the department data in the company structure.'
       operationId: department_update
       tags:
       - Company Structure
@@ -348,6 +334,1494 @@ paths:
       - AccessToken: []
       - OAuth2:
         - department
+  /humanresources.employee.count:
+    post:
+      summary: Get the number of employees humanresources.employee.count
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_employee_count
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/employee/humanresources-employee-count.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.employee.field.get:
+    post:
+      summary: Get Employee Field humanresources.employee.field.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_employee_field_get
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/employee/humanresources-employee-field-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description is to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields to return in the response.'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description is to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields to return in the response.'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.employee.field.list:
+    post:
+      summary: Get the list of employee fields humanresources.employee.field.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_employee_field_list
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/employee/humanresources-employee-field-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of field descriptions to return in the response.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of field descriptions to return in the response.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.employee.multidepartment:
+    post:
+      summary: Get Employees in Multiple Departments humanresources.employee.multidepartment
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_employee_multidepartment
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/employee/humanresources-employee-multidepartment.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.employee.search:
+    post:
+      summary: Find Employees humanresources.employee.search
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_employee_search
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/employee/humanresources-employee-search.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| Search string for the employee''s name ||'
+                nodeId:
+                  type: integer
+                  description: '| Identifier of the department or team to limit the search.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of employee fields to return.'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| Search string for the employee''s name ||'
+                nodeId:
+                  type: integer
+                  description: '| Identifier of the department or team to limit the search.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of employee fields to return.'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.employee.subordinates:
+    post:
+      summary: Get Subordinates of Employee humanresources.employee.subordinates
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_employee_subordinates
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/employee/humanresources-employee-subordinates.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the user for whom to get subordinates.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the user for whom to get subordinates.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.add:
+    post:
+      summary: Create Department humanresources.node.add
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_add
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node/humanresources-node-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| The type of the structure element being created.'
+                name:
+                  type: string
+                  description: '| The name of the department or team ||'
+                parentId:
+                  type: integer
+                  description: '| The identifier of the parent department or team.'
+                description:
+                  type: string
+                  description: '| Description of the department or team ||'
+                colorName:
+                  type: string
+                  description: '| The color of the team.'
+                userIds:
+                  type: object
+                  description: '| Users to be added to the department or team. Description of the object structure'
+                moveUsersToNode:
+                  type: boolean
+                  description: '| Determines whether to transfer users from `userIds` to the new department.'
+                createChat:
+                  type: boolean
+                  description: '| Determines whether to create a new chat for the department.'
+                bindingChatIds:
+                  type: array
+                  items: {}
+                  description: '| An array of identifiers of existing chats to be linked to the department.'
+                createChannel:
+                  type: boolean
+                  description: '| Determines whether to create a new channel for the department.'
+                bindingChannelIds:
+                  type: array
+                  items: {}
+                  description: '| An array of identifiers of existing channels to be linked to the department.'
+                createCollab:
+                  type: boolean
+                  description: '| Determines whether to create a new collaboration for the department if collaborations are available in the plan.'
+                bindingCollabIds:
+                  type: array
+                  items: {}
+                  description: '| An array of identifiers of existing collaborations to be linked to the department.'
+                settings:
+                  type: object
+                  description: '| Additional settings for the department or team. Description of the object structure ||'
+                MEMBER_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of department heads ||'
+                MEMBER_DEPUTY_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of deputy heads of the department ||'
+                MEMBER_EMPLOYEE:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of department employees ||'
+                MEMBER_TEAM_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of team leaders ||'
+                MEMBER_TEAM_DEPUTY_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of deputy team leaders ||'
+                MEMBER_TEAM_EMPLOYEE:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of team members ||'
+                BUSINESS_PROC_AUTHORITY:
+                  type: array
+                  items: {}
+                  description: '| Roles allowed to work with the department or team workflows.'
+                REPORTS_AUTHORITY:
+                  type: array
+                  items: {}
+                  description: '| Roles allowed to work with the department or team reports.'
+              required:
+              - type
+              - name
+              - parentId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| The type of the structure element being created.'
+                name:
+                  type: string
+                  description: '| The name of the department or team ||'
+                parentId:
+                  type: integer
+                  description: '| The identifier of the parent department or team.'
+                description:
+                  type: string
+                  description: '| Description of the department or team ||'
+                colorName:
+                  type: string
+                  description: '| The color of the team.'
+                userIds:
+                  type: object
+                  description: '| Users to be added to the department or team. Description of the object structure'
+                moveUsersToNode:
+                  type: boolean
+                  description: '| Determines whether to transfer users from `userIds` to the new department.'
+                createChat:
+                  type: boolean
+                  description: '| Determines whether to create a new chat for the department.'
+                bindingChatIds:
+                  type: array
+                  items: {}
+                  description: '| An array of identifiers of existing chats to be linked to the department.'
+                createChannel:
+                  type: boolean
+                  description: '| Determines whether to create a new channel for the department.'
+                bindingChannelIds:
+                  type: array
+                  items: {}
+                  description: '| An array of identifiers of existing channels to be linked to the department.'
+                createCollab:
+                  type: boolean
+                  description: '| Determines whether to create a new collaboration for the department if collaborations are available in the plan.'
+                bindingCollabIds:
+                  type: array
+                  items: {}
+                  description: '| An array of identifiers of existing collaborations to be linked to the department.'
+                settings:
+                  type: object
+                  description: '| Additional settings for the department or team. Description of the object structure ||'
+                MEMBER_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of department heads ||'
+                MEMBER_DEPUTY_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of deputy heads of the department ||'
+                MEMBER_EMPLOYEE:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of department employees ||'
+                MEMBER_TEAM_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of team leaders ||'
+                MEMBER_TEAM_DEPUTY_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of deputy team leaders ||'
+                MEMBER_TEAM_EMPLOYEE:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of team members ||'
+                BUSINESS_PROC_AUTHORITY:
+                  type: array
+                  items: {}
+                  description: '| Roles allowed to work with the department or team workflows.'
+                REPORTS_AUTHORITY:
+                  type: array
+                  items: {}
+                  description: '| Roles allowed to work with the department or team reports.'
+              required:
+              - type
+              - name
+              - parentId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.children:
+    post:
+      summary: Get Child Departments humanresources.node.children
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_children
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node/humanresources-node-children.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the parent department or team.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of fields of the department or team to return.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the parent department or team.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of fields of the department or team to return.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.communication.edit:
+    post:
+      summary: Edit Communications of the humanresources.node.communication.edit
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_communication_edit
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node-communication/humanresources-node-communication-edit.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nodeId:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+                communicationType:
+                  type: string
+                  description: '| Type of communication.'
+                createDefault:
+                  type: boolean
+                  description: '| Creates a default communication for the department or team.'
+                ids:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of communications to be bound.'
+                removeIds:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of communications to be unbound.'
+                withChildren:
+                  type: boolean
+                  description: '| Applies the change to child departments and teams.'
+              required:
+              - nodeId
+              - communicationType
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                nodeId:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+                communicationType:
+                  type: string
+                  description: '| Type of communication.'
+                createDefault:
+                  type: boolean
+                  description: '| Creates a default communication for the department or team.'
+                ids:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of communications to be bound.'
+                removeIds:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of communications to be unbound.'
+                withChildren:
+                  type: boolean
+                  description: '| Applies the change to child departments and teams.'
+              required:
+              - nodeId
+              - communicationType
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.communication.list:
+    post:
+      summary: Get Communications of the humanresources.node.communication.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_communication_list
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node-communication/humanresources-node-communication-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.count:
+    post:
+      summary: Get the Number of Departments humanresources.node.count
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_count
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node/humanresources-node-count.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.edit:
+    post:
+      summary: Update Department humanresources.node.edit
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_edit
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node/humanresources-node-edit.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+                name:
+                  type: string
+                  description: '| New name of the department or team. ||'
+                description:
+                  type: string
+                  description: '| New description of the department or team. ||'
+                colorName:
+                  type: string
+                  description: '| New color of the team.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+                name:
+                  type: string
+                  description: '| New name of the department or team. ||'
+                description:
+                  type: string
+                  description: '| New description of the department or team. ||'
+                colorName:
+                  type: string
+                  description: '| New color of the team.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.field.get:
+    post:
+      summary: Get the humanresources.node.field.get Field
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_field_get
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node/humanresources-node-field-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description is to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields to return in the response.'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description is to be retrieved.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields to return in the response.'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.field.list:
+    post:
+      summary: Get a List of Fields from the humanresources.node.field.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_field_list
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node/humanresources-node-field-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields to return in the response.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields to return in the response.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.get:
+    post:
+      summary: Get humanresources.node.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_get
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node/humanresources-node-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of department fields to return.'
+              required:
+              - id
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of department fields to return.'
+              required:
+              - id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.list:
+    post:
+      summary: Get a List of Departments humanresources.node.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_list
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node/humanresources-node-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Type of the structure element.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of fields for the department or team to return.'
+                pagination:
+                  type: object
+                  description: '| Pagination parameters:'
+              required:
+              - type
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Type of the structure element.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of fields for the department or team to return.'
+                pagination:
+                  type: object
+                  description: '| Pagination parameters:'
+              required:
+              - type
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.member.add:
+    post:
+      summary: Add Participants to humanresources.node.member.add
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_member_add
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node-member/humanresources-node-member-add.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nodeId:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+                userIds:
+                  type: array
+                  items: {}
+                  description: '| An array of user identifiers to be added to the department or team. If a user is already part of this department or team, the method will update their role.'
+                role:
+                  type: string
+                  description: '| The role to be assigned to all users in `userIds`.'
+              required:
+              - nodeId
+              - userIds
+              - role
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                nodeId:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+                userIds:
+                  type: array
+                  items: {}
+                  description: '| An array of user identifiers to be added to the department or team. If a user is already part of this department or team, the method will update their role.'
+                role:
+                  type: string
+                  description: '| The role to be assigned to all users in `userIds`.'
+              required:
+              - nodeId
+              - userIds
+              - role
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.member.field.get:
+    post:
+      summary: Get a Department or Team Member Field humanresources.node.member.field.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_member_field_get
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node-member/humanresources-node-member-field-get.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be obtained.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields to return in the response.'
+              required:
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: '| The name of the field whose description needs to be obtained.'
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields to return in the response.'
+              required:
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.member.field.list:
+    post:
+      summary: Retrieve a List of Department Member Fields…
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_member_field_list
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node-member/humanresources-node-member-field-list.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields to return in the response.'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                select:
+                  type: array
+                  items: {}
+                  description: '| List of description fields to return in the response.'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.member.move:
+    post:
+      summary: Move Participants to the humanresources.node.member.move Department
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_member_move
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node-member/humanresources-node-member-move.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nodeId:
+                  type: integer
+                  description: '| Identifier of the target department or team.'
+                userIds:
+                  type: array
+                  items: {}
+                  description: '| Array of user identifiers to be transferred.'
+                role:
+                  type: string
+                  description: '| Role to be assigned to the transferred participants.'
+              required:
+              - nodeId
+              - userIds
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                nodeId:
+                  type: integer
+                  description: '| Identifier of the target department or team.'
+                userIds:
+                  type: array
+                  items: {}
+                  description: '| Array of user identifiers to be transferred.'
+                role:
+                  type: string
+                  description: '| Role to be assigned to the transferred participants.'
+              required:
+              - nodeId
+              - userIds
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.member.remove:
+    post:
+      summary: Remove Participants from the Department humanresources.node.member.remove
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_member_remove
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node-member/humanresources-node-member-remove.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nodeId:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+                userIds:
+                  type: array
+                  items: {}
+                  description: '| Array of user identifiers to be removed.'
+              required:
+              - nodeId
+              - userIds
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                nodeId:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+                userIds:
+                  type: array
+                  items: {}
+                  description: '| Array of user identifiers to be removed.'
+              required:
+              - nodeId
+              - userIds
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.member.set:
+    post:
+      summary: Update the Composition of Participants in humanresources.node.member.set
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_member_set
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node-member/humanresources-node-member-set.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nodeId:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+                userIds:
+                  type: object
+                  description: '| An object containing lists of user identifiers in the format `{"User_Role": [User_Identifier]}`. Description of the object structure'
+                MEMBER_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of department heads. ||'
+                MEMBER_DEPUTY_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of deputy department heads. ||'
+                MEMBER_EMPLOYEE:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of department employees. ||'
+                MEMBER_TEAM_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of team leaders. ||'
+                MEMBER_TEAM_DEPUTY_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of deputy team leaders. ||'
+                MEMBER_TEAM_EMPLOYEE:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of team participants. ||'
+              required:
+              - nodeId
+              - userIds
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                nodeId:
+                  type: integer
+                  description: '| Identifier of the department or team.'
+                userIds:
+                  type: object
+                  description: '| An object containing lists of user identifiers in the format `{"User_Role": [User_Identifier]}`. Description of the object structure'
+                MEMBER_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of department heads. ||'
+                MEMBER_DEPUTY_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of deputy department heads. ||'
+                MEMBER_EMPLOYEE:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of department employees. ||'
+                MEMBER_TEAM_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of team leaders. ||'
+                MEMBER_TEAM_DEPUTY_HEAD:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of deputy team leaders. ||'
+                MEMBER_TEAM_EMPLOYEE:
+                  type: array
+                  items: {}
+                  description: '| Identifiers of team participants. ||'
+              required:
+              - nodeId
+              - userIds
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.move:
+    post:
+      summary: Move Department humanresources.node.move
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_move
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node/humanresources-node-move.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the department or team to be moved.'
+                parentId:
+                  type: integer
+                  description: '| Identifier of the new parent department.'
+              required:
+              - id
+              - parentId
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: '| Identifier of the department or team to be moved.'
+                parentId:
+                  type: integer
+                  description: '| Identifier of the new parent department.'
+              required:
+              - id
+              - parentId
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
+  /humanresources.node.search:
+    post:
+      summary: Find Departments humanresources.node.search
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method belongs to REST 3.0. The call specifics and response format of the new API version are described in the REST 3.0 overview.'
+      operationId: humanresources_node_search
+      tags:
+      - Company Structure
+      externalDocs:
+        url: https://apidocs.bitrix24.com/api-reference/departments/node/humanresources-node-search.html
+        description: Official Documentation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Type of the structure element.'
+                name:
+                  type: string
+                  description: '| Search string for part of the department or team name ||'
+                parentId:
+                  type: integer
+                  description: '| Identifier of the parent department to limit the search.'
+                pagination:
+                  type: object
+                  description: '| Pagination parameter.'
+              required:
+              - type
+              - name
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: '| Type of the structure element.'
+                name:
+                  type: string
+                  description: '| Search string for part of the department or team name ||'
+                parentId:
+                  type: integer
+                  description: '| Identifier of the parent department to limit the search.'
+                pagination:
+                  type: object
+                  description: '| Pagination parameter.'
+              required:
+              - type
+              - name
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixResponse'
+        4XX:
+          description: Request error (400, 401, 403)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BitrixError'
+      security:
+      - AccessToken: []
+      - OAuth2:
+        - humanresources
 components:
   schemas:
     BitrixError:
@@ -365,6 +1839,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -392,20 +1880,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

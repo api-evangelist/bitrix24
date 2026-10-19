@@ -32,7 +32,7 @@ paths:
   /calendar.accessibility.get:
     post:
       summary: Get User Availability from calendar.accessibility.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves the availability of users from the list.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method retrieves the availability of users from the list.'
       operationId: calendar_accessibility_get
       tags:
       - Calendar
@@ -101,7 +101,7 @@ paths:
   /calendar.event.add:
     post:
       summary: Add Event calendar.event.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method adds a new event to the calendar.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method adds a new event to the calendar.'
       operationId: calendar_event_add
       tags:
       - Calendar
@@ -178,10 +178,7 @@ paths:
                 attendees:
                   type: array
                   items: {}
-                  description: '| List of identifiers of event participants. This field is mandatory if `is_meeting` = `Y` ||'
-                host:
-                  type: integer
-                  description: '| Identifier of the event organizer. This field is mandatory if `is_meeting` = `Y` ||'
+                  description: '| List of identifiers of event participants.'
                 meeting:
                   type: object
                   description: '| Object with meeting parameters. The structure is described below ||'
@@ -222,8 +219,6 @@ paths:
               - ownerId
               - section
               - name
-              - attendees
-              - host
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -292,10 +287,7 @@ paths:
                 attendees:
                   type: array
                   items: {}
-                  description: '| List of identifiers of event participants. This field is mandatory if `is_meeting` = `Y` ||'
-                host:
-                  type: integer
-                  description: '| Identifier of the event organizer. This field is mandatory if `is_meeting` = `Y` ||'
+                  description: '| List of identifiers of event participants.'
                 meeting:
                   type: object
                   description: '| Object with meeting parameters. The structure is described below ||'
@@ -336,8 +328,6 @@ paths:
               - ownerId
               - section
               - name
-              - attendees
-              - host
       responses:
         '200':
           description: Successful response
@@ -358,7 +348,7 @@ paths:
   /calendar.event.delete:
     post:
       summary: Delete Event calendar.event.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes an event.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method deletes an event.'
       operationId: calendar_event_delete
       tags:
       - Calendar
@@ -404,8 +394,8 @@ paths:
         - calendar
   /calendar.event.get:
     post:
-      summary: Get Calendar Events List calendar.event.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves a list of calendar events.
+      summary: Get a List of Calendar Events calendar.event.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method retrieves a list of calendar events.'
       operationId: calendar_event_get
       tags:
       - Calendar
@@ -436,6 +426,9 @@ paths:
                   type: array
                   items: {}
                   description: '| Array of calendar identifiers ||'
+                modified_since:
+                  type: string
+                  description: '| The moment from which modified events are needed. Format: ISO 8601 with a mandatory time zone, `2026-10-13T09:00:00+03:00` or `2026-10-13T06:00:00Z`. Fractional seconds are accepted and discarded.'
               required:
               - type
               - ownerId
@@ -461,6 +454,9 @@ paths:
                   type: array
                   items: {}
                   description: '| Array of calendar identifiers ||'
+                modified_since:
+                  type: string
+                  description: '| The moment from which modified events are needed. Format: ISO 8601 with a mandatory time zone, `2026-10-13T09:00:00+03:00` or `2026-10-13T06:00:00Z`. Fractional seconds are accepted and discarded.'
               required:
               - type
               - ownerId
@@ -483,8 +479,8 @@ paths:
         - calendar
   /calendar.event.get.nearest:
     post:
-      summary: Get a list of upcoming events calendar.event.get.nearest
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves a list of upcoming events.
+      summary: Get a List of Upcoming Events calendar.event.get.nearest
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method retrieves a list of upcoming events.'
       operationId: calendar_event_get_nearest
       tags:
       - Calendar
@@ -557,7 +553,7 @@ paths:
   /calendar.event.getbyid:
     post:
       summary: Get Event by ID calendar.event.getbyid
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves information about a calendar event by its identifier.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method retrieves information about a calendar event by its identifier.'
       operationId: calendar_event_getbyid
       tags:
       - Calendar
@@ -604,7 +600,7 @@ paths:
   /calendar.event.update:
     post:
       summary: Update Event calendar.event.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method updates an existing event.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method updates an existing event.'
       operationId: calendar_event_update
       tags:
       - Calendar
@@ -688,10 +684,10 @@ paths:
                 attendees:
                   type: array
                   items: {}
-                  description: '| List of participant identifiers for the event. This field is required if `is_meeting` = `Y`. ||'
+                  description: '| List of participant identifiers for the event.'
                 host:
-                  type: string
-                  description: '| Identifier of the event organizer. This field is required if `is_meeting` = `Y`. ||'
+                  type: integer
+                  description: '| Event organizer identifier.'
                 meeting:
                   type: object
                   description: '| Object with meeting parameters. The structure is described below. ||'
@@ -731,9 +727,6 @@ paths:
               - id
               - type
               - ownerId
-              - name
-              - attendees
-              - host
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -809,10 +802,10 @@ paths:
                 attendees:
                   type: array
                   items: {}
-                  description: '| List of participant identifiers for the event. This field is required if `is_meeting` = `Y`. ||'
+                  description: '| List of participant identifiers for the event.'
                 host:
-                  type: string
-                  description: '| Identifier of the event organizer. This field is required if `is_meeting` = `Y`. ||'
+                  type: integer
+                  description: '| Event organizer identifier.'
                 meeting:
                   type: object
                   description: '| Object with meeting parameters. The structure is described below. ||'
@@ -852,9 +845,6 @@ paths:
               - id
               - type
               - ownerId
-              - name
-              - attendees
-              - host
       responses:
         '200':
           description: Successful response
@@ -875,7 +865,7 @@ paths:
   /calendar.meeting.status.get:
     post:
       summary: Get the participation status of the current user in the event…
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves the participation status of the current user in the event.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method retrieves the participation status of the current user in the event.'
       operationId: calendar_meeting_status_get
       tags:
       - Calendar
@@ -922,7 +912,7 @@ paths:
   /calendar.meeting.status.set:
     post:
       summary: Set Participation Status in Event for Current User calendar.meeting.status.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method sets the participation status in an event for the current user.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method sets the participation status in an event for the current user.'
       operationId: calendar_meeting_status_set
       tags:
       - Calendar
@@ -977,7 +967,7 @@ paths:
   /calendar.resource.add:
     post:
       summary: Add a new resource calendar.resource.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method adds a new resource.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method adds a new resource.'
       operationId: calendar_resource_add
       tags:
       - Calendar
@@ -1024,7 +1014,7 @@ paths:
   /calendar.resource.booking.list:
     post:
       summary: Get Resource Bookings by Filter calendar.resource.booking.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves resource bookings based on a filter.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method retrieves resource bookings based on a filter.'
       operationId: calendar_resource_booking_list
       tags:
       - Calendar
@@ -1107,7 +1097,7 @@ paths:
   /calendar.resource.delete:
     post:
       summary: Delete Resource calendar.resource.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes a resource.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method deletes a resource.'
       operationId: calendar_resource_delete
       tags:
       - Calendar
@@ -1154,7 +1144,7 @@ paths:
   /calendar.resource.list:
     post:
       summary: Get a list of all resources calendar.resource.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method retrieves a list of all resources. No parameters.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method retrieves a list of all resources.'
       operationId: calendar_resource_list
       tags:
       - Calendar
@@ -1223,7 +1213,7 @@ paths:
   /calendar.resource.update:
     post:
       summary: Update resource calendar.resource.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method updates a resource.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method updates a resource.'
       operationId: calendar_resource_update
       tags:
       - Calendar
@@ -1278,7 +1268,7 @@ paths:
   /calendar.section.add:
     post:
       summary: Add Calendar calendar.section.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method adds a new calendar. The system will add a new calendar only for the user who executes the method. An administrator can create calendars for other users.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method adds a new calendar.'
       operationId: calendar_section_add
       tags:
       - Calendar
@@ -1377,7 +1367,7 @@ paths:
   /calendar.section.delete:
     post:
       summary: Delete Calendar calendar.section.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method deletes a calendar.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method deletes a calendar.'
       operationId: calendar_section_delete
       tags:
       - Calendar
@@ -1440,7 +1430,7 @@ paths:
   /calendar.section.get:
     post:
       summary: Get Calendar List calendar.section.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves a list of calendars.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method retrieves a list of calendars.'
       operationId: calendar_section_get
       tags:
       - Calendar
@@ -1495,7 +1485,7 @@ paths:
   /calendar.section.update:
     post:
       summary: Update Calendar calendar.section.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method updates the calendar.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method updates the calendar.'
       operationId: calendar_section_update
       tags:
       - Calendar
@@ -1600,7 +1590,7 @@ paths:
   /calendar.settings.get:
     post:
       summary: Get main calendar settings calendar.settings.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves the main calendar settings. Only an administrator of the account can modify the main settings. No parameters.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method retrieves the main calendar settings. Only an administrator of the account can modify the main settings.'
       operationId: calendar_settings_get
       tags:
       - Calendar
@@ -1791,7 +1781,7 @@ paths:
   /calendar.user.settings.get:
     post:
       summary: Get User Calendar Settings calendar.user.settings.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method retrieves user calendar settings. No parameters.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method retrieves user calendar settings.'
       operationId: calendar_user_settings_get
       tags:
       - Calendar
@@ -1988,7 +1978,7 @@ paths:
   /calendar.user.settings.set:
     post:
       summary: Set User Calendar Settings calendar.user.settings.set
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. This method sets user calendar settings for the current user.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This method sets user calendar settings for the current user.'
       operationId: calendar_user_settings_set
       tags:
       - Calendar
@@ -2173,6 +2163,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -2200,20 +2204,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

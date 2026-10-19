@@ -32,7 +32,7 @@ paths:
   /im.v2:
     post:
       summary: Event Formats im.v2
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Description of all events that the user application receives via im.v2.Event.get. The fields of the `message`, `chat`, and `user` objects are described in {#T}. **Quick Navigation:** ONIMV2MESSAGEADD | ONIMV2MESSAGEUPDATE | ONIMV2MESSAGEDELETE | ONIMV2REACTIONCHANGE | ONIMV2JOINCHAT
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation This document describes all events that an application or a user receives via im.v2.Event.get.'
       operationId: im_v2
       tags:
       - Chatbots
@@ -45,21 +45,24 @@ paths:
             schema:
               type: object
               properties:
+                Event:
+                  type: string
+                  description: '| When it arrives ||'
                 Field:
                   type: string
                   description: '| Type | Description ||'
                 message:
                   type: string
-                  description: '| `Message` | The sent message. The description of the object''s fields — Message ||'
+                  description: '| `Message` | The sent message. Field descriptions for the object — Message ||'
                 chat:
                   type: string
-                  description: '| `Chat` | The chat where the message was sent. The description of the object''s fields — Chat ||'
+                  description: '| `Chat` | The chat where the message was sent. Field descriptions for the object — Chat ||'
                 user:
                   type: string
-                  description: '| `User` | The author of the message. The description of the object''s fields — User ||'
+                  description: '| `User` | The author of the message. Field descriptions for the object — User ||'
                 language:
                   type: string
-                  description: '| `string` | The language of the account (e.g., `en`, `de`) ||'
+                  description: '| `string` | The language of Bitrix24 (e.g., `en`, `de`) ||'
                 messageId:
                   type: string
                   description: '| `integer` | ID of the deleted message ||'
@@ -76,21 +79,24 @@ paths:
             schema:
               type: object
               properties:
+                Event:
+                  type: string
+                  description: '| When it arrives ||'
                 Field:
                   type: string
                   description: '| Type | Description ||'
                 message:
                   type: string
-                  description: '| `Message` | The sent message. The description of the object''s fields — Message ||'
+                  description: '| `Message` | The sent message. Field descriptions for the object — Message ||'
                 chat:
                   type: string
-                  description: '| `Chat` | The chat where the message was sent. The description of the object''s fields — Chat ||'
+                  description: '| `Chat` | The chat where the message was sent. Field descriptions for the object — Chat ||'
                 user:
                   type: string
-                  description: '| `User` | The author of the message. The description of the object''s fields — User ||'
+                  description: '| `User` | The author of the message. Field descriptions for the object — User ||'
                 language:
                   type: string
-                  description: '| `string` | The language of the account (e.g., `en`, `de`) ||'
+                  description: '| `string` | The language of Bitrix24 (e.g., `en`, `de`) ||'
                 messageId:
                   type: string
                   description: '| `integer` | ID of the deleted message ||'
@@ -118,10 +124,12 @@ paths:
                 $ref: '#/components/schemas/BitrixError'
       security:
       - AccessToken: []
+      - OAuth2:
+        - im
   /im.v2.Event.get:
     post:
-      summary: Get User Events im.v2.Event.get
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.v2.Event.get` retrieves events for the current user in polling mode. To receive events, the user must be previously subscribed via im.v2.Event.subscribe. Without a subscription, events are not recorded, and the method will return an empty array. The method uses confirmation via `offset`: pass the `nextOffset` from the previous response to get the next batch of events.'
+      summary: Retrieve User Events im.v2.Event.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.v2.Event.get` retrieves events for the current user in polling mode.'
       operationId: im_v2_Event_get
       tags:
       - Chatbots
@@ -136,7 +144,7 @@ paths:
               properties:
                 offset:
                   type: integer
-                  description: '| Confirms processed events and returns events starting from this value. Pass the `nextOffset` from the previous response ||'
+                  description: '| Confirms processed events and returns events starting from this value. Pass `nextOffset` from the previous response ||'
                 limit:
                   type: integer
                   description: '| Maximum number of events returned (1–1000). Default is `100` ||'
@@ -146,7 +154,7 @@ paths:
               properties:
                 offset:
                   type: integer
-                  description: '| Confirms processed events and returns events starting from this value. Pass the `nextOffset` from the previous response ||'
+                  description: '| Confirms processed events and returns events starting from this value. Pass `nextOffset` from the previous response ||'
                 limit:
                   type: integer
                   description: '| Maximum number of events returned (1–1000). Default is `100` ||'
@@ -170,7 +178,7 @@ paths:
   /im.v2.Event.subscribe:
     post:
       summary: Subscribe to Events im.v2.Event.subscribe
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.v2.Event.subscribe` subscribes the current user to event logging. After subscribing, message events are recorded in the log and become accessible through im.v2.Event.get. The method is idempotent: repeated calls are safe and do not result in an error.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.v2.Event.subscribe` subscribes the current user to event logging. After subscribing, new events are logged and become accessible through im.v2.Event.get. Events that occurred before the subscription are not added to the log.'
       operationId: im_v2_Event_subscribe
       tags:
       - Chatbots
@@ -205,7 +213,7 @@ paths:
   /im.v2.Event.unsubscribe:
     post:
       summary: Unsubscribing from Events im.v2.Event.unsubscribe
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.v2.Event.unsubscribe` cancels the current user''s subscription to event logging. It stops recording new events in the log. Already recorded events remain accessible through im.v2.Event.get until the retention period expires (24 hours) or until confirmed via `offset`. The method is idempotent: repeated calls are safe and do not result in an error.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.v2.Event.unsubscribe` cancels the current user''s subscription to event logging. It stops recording new events in the log. Already recorded events remain accessible through im.v2.Event.get until the retention period expires (24 hours) or until confirmed via `offset`.'
       operationId: im_v2_Event_unsubscribe
       tags:
       - Chatbots
@@ -239,8 +247,8 @@ paths:
         - im
   /im.v2.File.download:
     post:
-      summary: Get Download Link for File im.v2.File.download
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.v2.File.download` returns a link to download a file from the chat.
+      summary: Get a Link to Download a File im.v2.File.download
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.v2.File.download` returns a link to download a file from the chat.'
       operationId: im_v2_File_download
       tags:
       - Chatbots
@@ -295,7 +303,7 @@ paths:
   /im.v2.File.upload:
     post:
       summary: Upload File to Chat im.v2.File.upload
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `im.v2.File.upload` uploads a file to the chat on behalf of the current user. It combines three steps of the deprecated API into a single call: uploading the file to the Drive, attaching it to the chat, and sending a message.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `im.v2.File.upload` uploads a file to the chat on behalf of the current user. It combines three steps of the deprecated API into a single call: uploading the file to the Drive, attaching it to the chat, and sending a message.'
       operationId: im_v2_File_upload
       tags:
       - Chatbots
@@ -372,7 +380,7 @@ paths:
   /imbot.bot.list:
     post:
       summary: Get the List of Chat Bots imbot.bot.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Bot.list. The method `imbot.bot.list` returns a list of registered chat bots. No parameters required.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Bot.list.'
       operationId: imbot_bot_list
       tags:
       - Chatbots
@@ -451,7 +459,7 @@ paths:
   /imbot.chat.add:
     post:
       summary: Create a chat on behalf of the chat bot imbot.chat.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.add. The method `imbot.chat.add` creates a chat on behalf of the chat bot.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Chat.add.'
       operationId: imbot_chat_add
       tags:
       - Chatbots
@@ -556,7 +564,7 @@ paths:
   /imbot.chat.get:
     post:
       summary: Get Chat ID imbot.chat.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.get. The method `imbot.chat.get` returns the chat ID. To obtain detailed information about the chat, use the method imbot.dialog.get.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Chat.get.'
       operationId: imbot_chat_get
       tags:
       - Chatbots
@@ -611,7 +619,7 @@ paths:
   /imbot.chat.leave:
     post:
       summary: Chat Bot Exit from Specified Chat imbot.chat.leave
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.leave. The method `imbot.chat.leave` removes the chat bot from the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Chat.leave.'
       operationId: imbot_chat_leave
       tags:
       - Chatbots
@@ -670,7 +678,7 @@ paths:
   /imbot.chat.sendTyping:
     post:
       summary: Send Typing Indicator imbot.chat.sendTyping
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.InputAction.notify. The method `imbot.chat.sendTyping` sends a typing indicator to the dialog. The method returns `true` immediately after the command is sent.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Chat.InputAction.notify.'
       operationId: imbot_chat_sendTyping
       tags:
       - Chatbots
@@ -729,7 +737,7 @@ paths:
   /imbot.chat.setManager:
     post:
       summary: Assign or Revoke Chat Administrator Rights imbot.chat.setManager
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. To assign or revoke administrator rights, use the methods imbot.v2.Chat.Manager.add and imbot.v2.Chat.Manager.delete. The method `imbot.chat.setManager` assigns a chat administrator or revokes administrator rights from a chat participant.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. To assign or revoke administrator rights, use the methods imbot.v2.Chat.Manager.add and imbot.v2.Chat.Manager.delete.'
       operationId: imbot_chat_setManager
       tags:
       - Chatbots
@@ -802,7 +810,7 @@ paths:
   /imbot.chat.setOwner:
     post:
       summary: Change Chat Owner via imbot.chat.setOwner
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use imbot.v2.Chat.setOwner. The method `imbot.chat.setOwner` changes the owner of the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The development of this method has been halted. Please use imbot.v2.Chat.setOwner.'
       operationId: imbot_chat_setOwner
       tags:
       - Chatbots
@@ -869,7 +877,7 @@ paths:
   /imbot.chat.updateAvatar:
     post:
       summary: Change Chat Avatar imbot.chat.updateAvatar
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.update. The method `imbot.chat.updateAvatar` updates the chat avatar.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Chat.update.'
       operationId: imbot_chat_updateAvatar
       tags:
       - Chatbots
@@ -936,7 +944,7 @@ paths:
   /imbot.chat.updateColor:
     post:
       summary: Change Chat Color imbot.chat.updateColor
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.update. The method `imbot.chat.updateColor` updates the chat color for the mobile application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Chat.update.'
       operationId: imbot_chat_updateColor
       tags:
       - Chatbots
@@ -1003,7 +1011,7 @@ paths:
   /imbot.chat.updateTitle:
     post:
       summary: Change Chat Title imbot.chat.updateTitle
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.update. The method `imbot.chat.updateTitle` updates the chat title.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Chat.update.'
       operationId: imbot_chat_updateTitle
       tags:
       - Chatbots
@@ -1070,7 +1078,7 @@ paths:
   /imbot.chat.user.add:
     post:
       summary: Add Participants to Chat imbot.chat.user.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.User.add. The method `imbot.chat.user.add` adds users to a chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Chat.User.add.'
       operationId: imbot_chat_user_add
       tags:
       - Chatbots
@@ -1145,7 +1153,7 @@ paths:
   /imbot.chat.user.delete:
     post:
       summary: Exclude Participants from Chat imbot.chat.user.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use imbot.v2.Chat.User.delete. The method `imbot.chat.user.delete` removes a user from the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The development of this method has been halted. Please use imbot.v2.Chat.User.delete.'
       operationId: imbot_chat_user_delete
       tags:
       - Chatbots
@@ -1212,7 +1220,7 @@ paths:
   /imbot.chat.user.list:
     post:
       summary: Get the List of Chat Participants imbot.chat.user.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.User.list. The method `imbot.chat.user.list` returns a list of identifiers for the chat participants.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Chat.User.list.'
       operationId: imbot_chat_user_list
       tags:
       - Chatbots
@@ -1271,7 +1279,7 @@ paths:
   /imbot.command.answer:
     post:
       summary: Send a response to the command imbot.command.answer
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Command.answer. The method `imbot.command.answer` publishes a response to a chat bot command.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Command.answer.'
       operationId: imbot_command_answer
       tags:
       - Chatbots
@@ -1376,7 +1384,7 @@ paths:
   /imbot.command.register:
     post:
       summary: Add the imbot.command.register Command
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use imbot.v2.Command.register. The `imbot.command.register` method registers a command for the chat bot.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The development of this method has been halted. Please use imbot.v2.Command.register.'
       operationId: imbot_command_register
       tags:
       - Chatbots
@@ -1495,7 +1503,7 @@ paths:
   /imbot.command.unregister:
     post:
       summary: Remove the imbot.command.unregister Command
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Command.unregister. The method `imbot.command.unregister` removes a registered command from the chat bot.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Command.unregister.'
       operationId: imbot_command_unregister
       tags:
       - Chatbots
@@ -1548,7 +1556,7 @@ paths:
   /imbot.command.update:
     post:
       summary: Update the imbot.command.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Command.update. The method `imbot.command.update` updates the parameters of a registered chat bot command.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Command.update.'
       operationId: imbot_command_update
       tags:
       - Chatbots
@@ -1663,7 +1671,7 @@ paths:
   /imbot.dialog.get:
     post:
       summary: Get Data About Chat imbot.dialog.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.get. The method `imbot.dialog.get` returns data about the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Chat.get.'
       operationId: imbot_dialog_get
       tags:
       - Chatbots
@@ -1710,7 +1718,7 @@ paths:
   /imbot.message.add:
     post:
       summary: Send Message imbot.message.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use imbot.v2.Chat.Message.send. The method `imbot.message.add` sends a message from the chat bot.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The development of this method has been halted. Please use imbot.v2.Chat.Message.send.'
       operationId: imbot_message_add
       tags:
       - Chatbots
@@ -1817,7 +1825,7 @@ paths:
   /imbot.message.delete:
     post:
       summary: Delete Message imbot.message.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.Message.delete. The method `imbot.message.delete` removes a message from the chat bot.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Chat.Message.delete.'
       operationId: imbot_message_delete
       tags:
       - Chatbots
@@ -1882,7 +1890,7 @@ paths:
   /imbot.message.like:
     post:
       summary: Set "Like" for the message imbot.message.like
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The development of this method has been halted. Please use the methods imbot.v2.Chat.Message.Reaction.add and imbot.v2.Chat.Message.Reaction.delete. The method `imbot.message.like` sets or removes the "Like" mark for a message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The development of this method has been halted. Please use the methods imbot.v2.Chat.Message.Reaction.add and imbot.v2.Chat.Message.Reaction.delete.'
       operationId: imbot_message_like
       tags:
       - Chatbots
@@ -1947,7 +1955,7 @@ paths:
   /imbot.message.update:
     post:
       summary: Update Sent Message imbot.message.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Chat.Message.update. The method `imbot.message.update` modifies a previously sent message from the chat bot.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Chat.Message.update.'
       operationId: imbot_message_update
       tags:
       - Chatbots
@@ -2036,7 +2044,7 @@ paths:
   /imbot.register:
     post:
       summary: Create a Chat-Bot imbot.register
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Bot.register. The method `imbot.register` registers a chat-bot and binds event handlers of the application.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Bot.register.'
       operationId: imbot_register
       tags:
       - Chatbots
@@ -2209,7 +2217,7 @@ paths:
   /imbot.unregister:
     post:
       summary: Unregister Chat Bot imbot.unregister
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Bot.unregister. The method `imbot.unregister` removes a chat bot. When deleting the bot, personal chats with users will also be deleted.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Bot.unregister.'
       operationId: imbot_unregister
       tags:
       - Chatbots
@@ -2262,7 +2270,7 @@ paths:
   /imbot.update:
     post:
       summary: Update Chat-Bot imbot.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. Development of this method has been halted. Please use imbot.v2.Bot.update. The `imbot.update` method updates the data of the chat-bot and its event handlers.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Development of this method has been halted. Please use imbot.v2.Bot.update.'
       operationId: imbot_update
       tags:
       - Chatbots
@@ -2424,8 +2432,8 @@ paths:
         - imbot
   /imbot.v2:
     post:
-      summary: Change Log for API imbot.v2
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The change log for API `imbot.v2`: new features, fixes, and changes with breaking changes. Entries are listed from newest to oldest.'
+      summary: API Change Log for imbot.v2
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation Change history for the API `imbot.v2`: new features, fixes, and changes with breaking changes. Entries are listed from newest to oldest.'
       operationId: imbot_v2
       tags:
       - Chatbots
@@ -2458,7 +2466,7 @@ paths:
   /imbot.v2.Bot.get:
     post:
       summary: Get Information About the Bot imbot.v2.Bot.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.get` returns information about the bot. It is used to verify the bot's installation. For the owner application, it returns an extended format (including `moduleId`, `appId`, `eventMode`, and counters). For other applications, it returns a brief format.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Bot.get` returns information about the bot. It is used to verify the bot''s installation.'
       operationId: imbot_v2_Bot_get
       tags:
       - Chatbots
@@ -2479,7 +2487,7 @@ paths:
                   description: '| Bot code. Required if `botId` is not specified ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Unique bot authorization token. Required for webhook authorization, not needed for OAuth.'
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -2492,7 +2500,7 @@ paths:
                   description: '| Bot code. Required if `botId` is not specified ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Unique bot authorization token. Required for webhook authorization, not needed for OAuth.'
       responses:
         '200':
           description: Successful response
@@ -2512,8 +2520,8 @@ paths:
         - imbot
   /imbot.v2.Bot.list:
     post:
-      summary: List of Bots for the imbot.v2.Bot.list Application
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.list` returns a list of bots for the current application in an extended format.
+      summary: List of Application Bots imbot.v2.Bot.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `imbot.v2.Bot.list` method returns a list of bots for the current application in an extended format.'
       operationId: imbot_v2_Bot_list
       tags:
       - Chatbots
@@ -2573,8 +2581,8 @@ paths:
         - imbot
   /imbot.v2.Bot.register:
     post:
-      summary: Register a bot imbot.v2.Bot.register
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.register` registers a new chat bot. The method is idempotent: a repeated call with the same `fields.code` from the same application returns the existing bot without updating the data. To update, use imbot.v2.Bot.update.'
+      summary: Register a Bot imbot.v2.Bot.register
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Bot.register` registers a new chat bot.'
       operationId: imbot_v2_Bot_register
       tags:
       - Chatbots
@@ -2589,19 +2597,19 @@ paths:
               properties:
                 fields:
                   type: object
-                  description: '| An object with bot parameters. Parameter descriptions are provided below ||'
+                  description: '| Object with bot parameters. Parameter descriptions — below ||'
                 code:
                   type: string
-                  description: '| Unique code for the bot within the application ||'
+                  description: '| Unique code of the bot within the application ||'
                 botToken:
                   type: string
                   description: '| Unique authorization token for the bot. Required for authorization via webhook, not needed for OAuth.'
                 properties:
                   type: object
-                  description: '| Properties of the bot''s profile. Parameter descriptions are provided below ||'
+                  description: '| Properties of the bot''s profile. Parameter descriptions — below ||'
                 type:
                   type: string
-                  description: '| Type of the bot. Descriptions of types and their behaviors can be found in Bot Types.'
+                  description: '| Type of the bot. Description of types and their behavior — Bot Types.'
                 eventMode:
                   type: string
                   description: '| Event delivery mode.'
@@ -2610,16 +2618,16 @@ paths:
                   description: '| URL of the bot''s event handler. Required when `eventMode = webhook` ||'
                 isHidden:
                   type: boolean
-                  description: '| Hidden bot. Allowed values: `true`, `false`. Default is `false` ||'
+                  description: '| Hidden bot. Allowed values: `true`, `false`. Default `false` ||'
                 isReactionsEnabled:
                   type: boolean
-                  description: '| Enable support for reactions. Allowed values: `true`, `false`. Default is `true` ||'
+                  description: '| Enable support for reactions. Allowed values: `true`, `false`. Default `true` ||'
                 isSupportOpenline:
                   type: boolean
-                  description: '| Enable support for Open Channels. Allowed values: `true`, `false`. Default is `false` ||'
+                  description: '| Enable support for Open Channels. Allowed values: `true`, `false`. Default `false` ||'
                 backgroundId:
                   type: string
-                  description: '| Background of the bot''s chat. Default is `null` — uses the background from user settings. Available values are in the backgrounds table. An invalid value is normalized to `null` ||'
+                  description: '| Background of the bot''s chat. Default `null` — uses the background from user settings. Available values — in backgrounds table. Invalid values are normalized to `null` ||'
                 name:
                   type: string
                   description: '| Name of the bot. Displayed in the chat list and dialog header ||'
@@ -2652,19 +2660,19 @@ paths:
               properties:
                 fields:
                   type: object
-                  description: '| An object with bot parameters. Parameter descriptions are provided below ||'
+                  description: '| Object with bot parameters. Parameter descriptions — below ||'
                 code:
                   type: string
-                  description: '| Unique code for the bot within the application ||'
+                  description: '| Unique code of the bot within the application ||'
                 botToken:
                   type: string
                   description: '| Unique authorization token for the bot. Required for authorization via webhook, not needed for OAuth.'
                 properties:
                   type: object
-                  description: '| Properties of the bot''s profile. Parameter descriptions are provided below ||'
+                  description: '| Properties of the bot''s profile. Parameter descriptions — below ||'
                 type:
                   type: string
-                  description: '| Type of the bot. Descriptions of types and their behaviors can be found in Bot Types.'
+                  description: '| Type of the bot. Description of types and their behavior — Bot Types.'
                 eventMode:
                   type: string
                   description: '| Event delivery mode.'
@@ -2673,16 +2681,16 @@ paths:
                   description: '| URL of the bot''s event handler. Required when `eventMode = webhook` ||'
                 isHidden:
                   type: boolean
-                  description: '| Hidden bot. Allowed values: `true`, `false`. Default is `false` ||'
+                  description: '| Hidden bot. Allowed values: `true`, `false`. Default `false` ||'
                 isReactionsEnabled:
                   type: boolean
-                  description: '| Enable support for reactions. Allowed values: `true`, `false`. Default is `true` ||'
+                  description: '| Enable support for reactions. Allowed values: `true`, `false`. Default `true` ||'
                 isSupportOpenline:
                   type: boolean
-                  description: '| Enable support for Open Channels. Allowed values: `true`, `false`. Default is `false` ||'
+                  description: '| Enable support for Open Channels. Allowed values: `true`, `false`. Default `false` ||'
                 backgroundId:
                   type: string
-                  description: '| Background of the bot''s chat. Default is `null` — uses the background from user settings. Available values are in the backgrounds table. An invalid value is normalized to `null` ||'
+                  description: '| Background of the bot''s chat. Default `null` — uses the background from user settings. Available values — in backgrounds table. Invalid values are normalized to `null` ||'
                 name:
                   type: string
                   description: '| Name of the bot. Displayed in the chat list and dialog header ||'
@@ -2728,8 +2736,8 @@ paths:
         - imbot
   /imbot.v2.Bot.unregister:
     post:
-      summary: Remove the Automation rule imbot.v2.Bot.unregister
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.unregister` removes the bot.
+      summary: Unregister a Bot imbot.v2.Bot.unregister
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Bot.unregister` deletes the bot.'
       operationId: imbot_v2_Bot_unregister
       tags:
       - Chatbots
@@ -2781,8 +2789,8 @@ paths:
         - imbot
   /imbot.v2.Bot.update:
     post:
-      summary: Update the Automation rule imbot.v2.Bot.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Bot.update` updates the properties of the Automation rule.
+      summary: Update a Bot imbot.v2.Bot.update
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Bot.update` updates the properties of the bot.'
       operationId: imbot_v2_Bot_update
       tags:
       - Chatbots
@@ -2797,19 +2805,19 @@ paths:
               properties:
                 botId:
                   type: integer
-                  description: '| ID of the Automation rule ||'
+                  description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the Automation rule. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
                 fields:
                   type: object
                   description: '| Fields to be updated. The structure of the object is described below ||'
                 properties:
                   type: object
-                  description: '| Properties of the Automation rule profile. Description of parameters — below ||'
+                  description: '| Properties of the bot''s profile. Parameter descriptions are below ||'
                 isHidden:
                   type: boolean
-                  description: '| Hidden Automation rule. Acceptable values: `true`, `false` ||'
+                  description: '| Hidden bot. Acceptable values: `true`, `false` ||'
                 isReactionsEnabled:
                   type: boolean
                   description: '| Support for reactions. Acceptable values: `true`, `false` ||'
@@ -2818,7 +2826,7 @@ paths:
                   description: '| Support for Open Channels. Acceptable values: `true`, `false` ||'
                 backgroundId:
                   type: string
-                  description: '| Background of the Automation rule chat. Pass `null` to reset to the user''s background. Available values are in the backgrounds table. Invalid values are normalized to `null` ||'
+                  description: '| Background of the bot''s chat. Pass `null` to reset to the user''s background. Available values are in the backgrounds table. An invalid value is normalized to `null` ||'
                 eventMode:
                   type: string
                   description: '| Event delivery mode: `fetch` or `webhook` ||'
@@ -2827,13 +2835,13 @@ paths:
                   description: '| URL of the event handler (applies when `eventMode = webhook`) ||'
                 name:
                   type: string
-                  description: '| Name of the Automation rule ||'
+                  description: '| Bot''s name ||'
                 lastName:
                   type: string
-                  description: '| Last name of the Automation rule ||'
+                  description: '| Bot''s last name ||'
                 workPosition:
                   type: string
-                  description: '| Position of the Automation rule (displayed in the profile) ||'
+                  description: '| Bot''s position (displayed in the profile) ||'
                 color:
                   type: string
                   description: '| Avatar color, available colors.'
@@ -2852,19 +2860,19 @@ paths:
               properties:
                 botId:
                   type: integer
-                  description: '| ID of the Automation rule ||'
+                  description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the Automation rule. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
                 fields:
                   type: object
                   description: '| Fields to be updated. The structure of the object is described below ||'
                 properties:
                   type: object
-                  description: '| Properties of the Automation rule profile. Description of parameters — below ||'
+                  description: '| Properties of the bot''s profile. Parameter descriptions are below ||'
                 isHidden:
                   type: boolean
-                  description: '| Hidden Automation rule. Acceptable values: `true`, `false` ||'
+                  description: '| Hidden bot. Acceptable values: `true`, `false` ||'
                 isReactionsEnabled:
                   type: boolean
                   description: '| Support for reactions. Acceptable values: `true`, `false` ||'
@@ -2873,7 +2881,7 @@ paths:
                   description: '| Support for Open Channels. Acceptable values: `true`, `false` ||'
                 backgroundId:
                   type: string
-                  description: '| Background of the Automation rule chat. Pass `null` to reset to the user''s background. Available values are in the backgrounds table. Invalid values are normalized to `null` ||'
+                  description: '| Background of the bot''s chat. Pass `null` to reset to the user''s background. Available values are in the backgrounds table. An invalid value is normalized to `null` ||'
                 eventMode:
                   type: string
                   description: '| Event delivery mode: `fetch` or `webhook` ||'
@@ -2882,13 +2890,13 @@ paths:
                   description: '| URL of the event handler (applies when `eventMode = webhook`) ||'
                 name:
                   type: string
-                  description: '| Name of the Automation rule ||'
+                  description: '| Bot''s name ||'
                 lastName:
                   type: string
-                  description: '| Last name of the Automation rule ||'
+                  description: '| Bot''s last name ||'
                 workPosition:
                   type: string
-                  description: '| Position of the Automation rule (displayed in the profile) ||'
+                  description: '| Bot''s position (displayed in the profile) ||'
                 color:
                   type: string
                   description: '| Avatar color, available colors.'
@@ -2921,7 +2929,7 @@ paths:
   /imbot.v2.Chat.InputAction.notify:
     post:
       summary: Send the bot action indicator imbot.v2.Chat.InputAction.notify
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.InputAction.notify` sends a bot action indicator to the chat — for example, "bot is typing".
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.InputAction.notify` sends a bot action indicator in the chat — for example, "bot is typing."'
       operationId: imbot_v2_Chat_InputAction_notify
       tags:
       - Chatbots
@@ -2945,7 +2953,7 @@ paths:
                   description: '| Dialog ID. For group chats — `chat{chatId}`, for personal chats — `{userId}` ||'
                 statusMessageCode:
                   type: string
-                  description: '| Action status code. A list of available codes is described below. If not specified, the standard "typing" indicator is displayed ||'
+                  description: '| Status code of the action. A list of available codes is described below. If not specified, the standard "typing" indicator is displayed ||'
                 duration:
                   type: integer
                   description: '| Duration of the indicator display in seconds (1–600). Default is determined by the server ||'
@@ -2970,7 +2978,7 @@ paths:
                   description: '| Dialog ID. For group chats — `chat{chatId}`, for personal chats — `{userId}` ||'
                 statusMessageCode:
                   type: string
-                  description: '| Action status code. A list of available codes is described below. If not specified, the standard "typing" indicator is displayed ||'
+                  description: '| Status code of the action. A list of available codes is described below. If not specified, the standard "typing" indicator is displayed ||'
                 duration:
                   type: integer
                   description: '| Duration of the indicator display in seconds (1–600). Default is determined by the server ||'
@@ -3000,7 +3008,7 @@ paths:
   /imbot.v2.Chat.Manager.add:
     post:
       summary: Add Chat Managers imbot.v2.Chat.Manager.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Manager.add` adds users to the current list of chat managers. The bot must be the owner of the chat. Users who are not participants in the chat will be ignored without an error.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.Manager.add` adds users to the current list of chat managers.'
       operationId: imbot_v2_Chat_Manager_add
       tags:
       - Chatbots
@@ -3018,13 +3026,13 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 userIds:
                   type: string
-                  description: '| Array of user IDs to be assigned as managers ||'
+                  description: '| Array of user IDs to assign as managers ||'
               required:
               - botId
               - dialogId
@@ -3038,13 +3046,13 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 userIds:
                   type: string
-                  description: '| Array of user IDs to be assigned as managers ||'
+                  description: '| Array of user IDs to assign as managers ||'
               required:
               - botId
               - dialogId
@@ -3069,7 +3077,7 @@ paths:
   /imbot.v2.Chat.Manager.delete:
     post:
       summary: Remove Chat Managers imbot.v2.Chat.Manager.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Manager.delete` removes users from the chat manager list. The bot must be the owner of the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.Manager.delete` removes users from the list of chat managers.'
       operationId: imbot_v2_Chat_Manager_delete
       tags:
       - Chatbots
@@ -3087,10 +3095,10 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 userIds:
                   type: string
                   description: '| Array of user IDs to remove the manager role ||'
@@ -3107,10 +3115,10 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 userIds:
                   type: string
                   description: '| Array of user IDs to remove the manager role ||'
@@ -3138,7 +3146,7 @@ paths:
   /imbot.v2.Chat.Message.Reaction.add:
     post:
       summary: Add Reaction to Message imbot.v2.Chat.Message.Reaction.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.Reaction.add` adds a bot reaction to a message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.Message.Reaction.add` adds a bot reaction to a message.'
       operationId: imbot_v2_Chat_Message_Reaction_add
       tags:
       - Chatbots
@@ -3162,7 +3170,7 @@ paths:
                   description: '| Message ID ||'
                 reaction:
                   type: string
-                  description: '| Reaction code. The list of available codes is described below ||'
+                  description: '| Reaction code. A list of available codes is described below ||'
                 Code:
                   type: string
                   description: '| Description ||'
@@ -3185,7 +3193,7 @@ paths:
                   description: '| Message ID ||'
                 reaction:
                   type: string
-                  description: '| Reaction code. The list of available codes is described below ||'
+                  description: '| Reaction code. A list of available codes is described below ||'
                 Code:
                   type: string
                   description: '| Description ||'
@@ -3213,7 +3221,7 @@ paths:
   /imbot.v2.Chat.Message.Reaction.delete:
     post:
       summary: Remove Reaction from Message imbot.v2.Chat.Message.Reaction.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.Reaction.delete` removes the bot's reaction from a message.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.Message.Reaction.delete` removes the bot''s reaction from a message.'
       operationId: imbot_v2_Chat_Message_Reaction_delete
       tags:
       - Chatbots
@@ -3237,7 +3245,7 @@ paths:
                   description: '| Message ID ||'
                 reaction:
                   type: string
-                  description: '| Reaction code to be removed. List of available codes: imbot.v2.Chat.Message.Reaction.add ||'
+                  description: '| Reaction code to remove. List of available codes: imbot.v2.Chat.Message.Reaction.add ||'
               required:
               - botId
               - messageId
@@ -3257,7 +3265,7 @@ paths:
                   description: '| Message ID ||'
                 reaction:
                   type: string
-                  description: '| Reaction code to be removed. List of available codes: imbot.v2.Chat.Message.Reaction.add ||'
+                  description: '| Reaction code to remove. List of available codes: imbot.v2.Chat.Message.Reaction.add ||'
               required:
               - botId
               - messageId
@@ -3282,7 +3290,7 @@ paths:
   /imbot.v2.Chat.Message.delete:
     post:
       summary: Delete Message imbot.v2.Chat.Message.delete
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.delete` removes a message. The bot can delete its own messages. If the bot is an administrator of the chat, it can delete any message. Messages sent with the parameter `system: true` have `authorId = 0`. The bot will not be able to delete such a message unless it is an administrator of the chat.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.Message.delete` deletes a message. The bot can delete its own messages. If the bot is an administrator of the chat, it can delete any message.'
       operationId: imbot_v2_Chat_Message_delete
       tags:
       - Chatbots
@@ -3306,7 +3314,7 @@ paths:
                   description: '| ID of the message to be deleted ||'
                 complete:
                   type: boolean
-                  description: '| Complete removal from the database. Acceptable values: `true`, `false`. Default is `false` (soft delete) ||'
+                  description: '| Complete deletion from the database. Allowed values: `true`, `false`. Default is `false` (soft delete) ||'
               required:
               - botId
               - messageId
@@ -3325,7 +3333,7 @@ paths:
                   description: '| ID of the message to be deleted ||'
                 complete:
                   type: boolean
-                  description: '| Complete removal from the database. Acceptable values: `true`, `false`. Default is `false` (soft delete) ||'
+                  description: '| Complete deletion from the database. Allowed values: `true`, `false`. Default is `false` (soft delete) ||'
               required:
               - botId
               - messageId
@@ -3349,7 +3357,7 @@ paths:
   /imbot.v2.Chat.Message.get:
     post:
       summary: Get Message imbot.v2.Chat.Message.get
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.get` returns a message by its ID. Typical use-case: the bot received an event with `replyId` and wants to read the original message. The method is available only for `supervisor` and `personal` type bots. For more details, see Bot Types.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.Message.get` returns a message by its ID.'
       operationId: imbot_v2_Chat_Message_get
       tags:
       - Chatbots
@@ -3409,8 +3417,8 @@ paths:
         - imbot
   /imbot.v2.Chat.Message.getContext:
     post:
-      summary: Get Context of Message imbot.v2.Chat.Message.getContext
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.getContext` returns a window of messages surrounding the specified one. It is used for analyzing the dialogue history. The method is only available for `supervisor` and `personal` type bots. For more details, see Bot Types.
+      summary: Get Message Context with imbot.v2.Chat.Message.getContext
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.Message.getContext` returns a window of messages surrounding the specified one. It is used for analyzing the dialogue history.'
       operationId: imbot_v2_Chat_Message_getContext
       tags:
       - Chatbots
@@ -3477,7 +3485,7 @@ paths:
   /imbot.v2.Chat.Message.read:
     post:
       summary: Mark Messages as Read imbot.v2.Chat.Message.read
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.read` marks messages as read on behalf of the bot. It marks all messages up to and including the specified one as read. If `messageId` is not specified, it marks all messages in the chat as read.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.Message.read` marks messages as read on behalf of the bot. It marks all messages up to and including the specified one as read. If `messageId` is not specified, it marks all messages in the chat as read.'
       operationId: imbot_v2_Chat_Message_read
       tags:
       - Chatbots
@@ -3498,10 +3506,10 @@ paths:
                   description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}`, for personal chats — `{userId}` ||'
+                  description: '| Dialog ID. For group chats — `chat{chatId}`, for personal chats — `{userId}`. More details — Format of dialogId ||'
                 messageId:
                   type: integer
-                  description: '| Read all messages up to and including this one. If not specified, it will read all messages in the chat ||'
+                  description: '| Read all messages up to and including this one. If not specified — reads all messages in the chat ||'
               required:
               - botId
               - dialogId
@@ -3517,10 +3525,10 @@ paths:
                   description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}`, for personal chats — `{userId}` ||'
+                  description: '| Dialog ID. For group chats — `chat{chatId}`, for personal chats — `{userId}`. More details — Format of dialogId ||'
                 messageId:
                   type: integer
-                  description: '| Read all messages up to and including this one. If not specified, it will read all messages in the chat ||'
+                  description: '| Read all messages up to and including this one. If not specified — reads all messages in the chat ||'
               required:
               - botId
               - dialogId
@@ -3544,7 +3552,7 @@ paths:
   /imbot.v2.Chat.Message.send:
     post:
       summary: Send Message imbot.v2.Chat.Message.send
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.send` sends a message on behalf of the bot to the specified dialog.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.Message.send` sends a message on behalf of the bot to the specified dialog.'
       operationId: imbot_v2_Chat_Message_send
       tags:
       - Chatbots
@@ -3573,13 +3581,12 @@ paths:
                   type: string
                   description: '| Message text. Maximum length — 20,000 characters. If exceeded, the text is truncated with ` (...)` added ||'
                 attach:
-                  type: array
-                  items: {}
-                  description: '| Attachments. More details: How to use attachments ||'
+                  type: object
+                  description: '\| `array` | An attachment: an object with the `BLOCKS` array or a plain array of blocks. More details: How to use attachments ||'
                 keyboard:
                   type: array
                   items: {}
-                  description: '| Keyboard with buttons. More details: Working with Keyboards ||'
+                  description: '| Keyboard with buttons. More details: Working with keyboards ||'
                 system:
                   type: boolean
                   description: '| System message. Allowed values: `true`, `false`. Default is `false` ||'
@@ -3588,13 +3595,13 @@ paths:
                   description: '| Show link previews. Allowed values: `true`, `false`. Default is `true` ||'
                 replyId:
                   type: integer
-                  description: '| ID of the message being replied to by the bot ||'
+                  description: '| ID of the message the bot is replying to ||'
                 templateId:
                   type: string
                   description: '| UUID of the message template ||'
                 forwardIds:
                   type: object
-                  description: '| Messages to forward. Format: `{uuid: messageId}`, where `uuid` is an arbitrary UUID string as the key, `messageId` is the ID of the original message. In the response, `uuidMap` will return `{uuid: newMessageId}`.'
+                  description: '\| `array` | Messages to forward. Two formats are supported:'
               required:
               - botId
               - dialogId
@@ -3618,13 +3625,12 @@ paths:
                   type: string
                   description: '| Message text. Maximum length — 20,000 characters. If exceeded, the text is truncated with ` (...)` added ||'
                 attach:
-                  type: array
-                  items: {}
-                  description: '| Attachments. More details: How to use attachments ||'
+                  type: object
+                  description: '\| `array` | An attachment: an object with the `BLOCKS` array or a plain array of blocks. More details: How to use attachments ||'
                 keyboard:
                   type: array
                   items: {}
-                  description: '| Keyboard with buttons. More details: Working with Keyboards ||'
+                  description: '| Keyboard with buttons. More details: Working with keyboards ||'
                 system:
                   type: boolean
                   description: '| System message. Allowed values: `true`, `false`. Default is `false` ||'
@@ -3633,13 +3639,13 @@ paths:
                   description: '| Show link previews. Allowed values: `true`, `false`. Default is `true` ||'
                 replyId:
                   type: integer
-                  description: '| ID of the message being replied to by the bot ||'
+                  description: '| ID of the message the bot is replying to ||'
                 templateId:
                   type: string
                   description: '| UUID of the message template ||'
                 forwardIds:
                   type: object
-                  description: '| Messages to forward. Format: `{uuid: messageId}`, where `uuid` is an arbitrary UUID string as the key, `messageId` is the ID of the original message. In the response, `uuidMap` will return `{uuid: newMessageId}`.'
+                  description: '\| `array` | Messages to forward. Two formats are supported:'
               required:
               - botId
               - dialogId
@@ -3663,7 +3669,7 @@ paths:
   /imbot.v2.Chat.Message.update:
     post:
       summary: Update Message imbot.v2.Chat.Message.update
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.Message.update` updates a bot''s message. A bot can only update its own messages. Messages sent with the parameter `system: true` cannot be updated—they have `authorId = 0` and do not belong to the bot in terms of access permissions.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.Message.update` updates a bot''s message. A bot can only update its own messages.'
       operationId: imbot_v2_Chat_Message_update
       tags:
       - Chatbots
@@ -3692,9 +3698,8 @@ paths:
                   type: string
                   description: '| New text of the message. Maximum length—20,000 characters ||'
                 attach:
-                  type: array
-                  items: {}
-                  description: '| New attachments. More details: How to use attachments ||'
+                  type: object
+                  description: '| A new attachment in the full form: an object with the `BLOCKS` array. The method does not accept the short form, an array of blocks, and removes the attachment instead. An empty string removes the attachment. More details: How to use attachments ||'
                 keyboard:
                   type: array
                   items: {}
@@ -3726,9 +3731,8 @@ paths:
                   type: string
                   description: '| New text of the message. Maximum length—20,000 characters ||'
                 attach:
-                  type: array
-                  items: {}
-                  description: '| New attachments. More details: How to use attachments ||'
+                  type: object
+                  description: '| A new attachment in the full form: an object with the `BLOCKS` array. The method does not accept the short form, an array of blocks, and removes the attachment instead. An empty string removes the attachment. More details: How to use attachments ||'
                 keyboard:
                   type: array
                   items: {}
@@ -3760,7 +3764,7 @@ paths:
   /imbot.v2.Chat.TextField.enabled:
     post:
       summary: Managing the Text Input Field imbot.v2.Chat.TextField.enabled
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.TextField.enabled` enables or disables the text input field in the chat. This method works in both group and personal chats with the bot. Access is verified based on the bot's membership in the chat, so `ACCESS_DENIED` is returned only if the bot is not a participant in the specified dialogue.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.TextField.enabled` enables or disables the text input field in the chat.'
       operationId: imbot_v2_Chat_TextField_enabled
       tags:
       - Chatbots
@@ -3827,7 +3831,7 @@ paths:
   /imbot.v2.Chat.User.add:
     post:
       summary: Add Participants to Chat imbot.v2.Chat.User.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.User.add` adds participants to a chat. The bot must be an administrator of the chat. Non-existent or inactive users will be ignored without an error.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.User.add` adds participants to the chat. The bot must be a participant of the chat: by default, any participant can add new users. If this permission is restricted in the chat settings, the bot needs the corresponding role — see Chat Roles.'
       operationId: imbot_v2_Chat_User_add
       tags:
       - Chatbots
@@ -3845,17 +3849,16 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 userIds:
                   type: string
                   description: '| Array of user IDs to add ||'
               required:
               - botId
               - dialogId
-              - userIds
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -3865,17 +3868,16 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 userIds:
                   type: string
                   description: '| Array of user IDs to add ||'
               required:
               - botId
               - dialogId
-              - userIds
       responses:
         '200':
           description: Successful response
@@ -3896,7 +3898,7 @@ paths:
   /imbot.v2.Chat.User.delete:
     post:
       summary: Remove a Participant from the Chat imbot.v2.Chat.User.delete
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.User.delete` removes a participant from the chat. The bot must be an administrator of the chat. If the user is not a participant in the chat, the method will return `true` (idempotent behavior).
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.User.delete` removes a participant from the chat. By default, the bot must be a manager or the owner of the chat — roles are described in Chat Roles.'
       operationId: imbot_v2_Chat_User_delete
       tags:
       - Chatbots
@@ -3914,10 +3916,10 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 userId:
                   type: integer
                   description: '| User ID to be removed ||'
@@ -3934,10 +3936,10 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 userId:
                   type: integer
                   description: '| User ID to be removed ||'
@@ -3964,8 +3966,8 @@ paths:
         - imbot
   /imbot.v2.Chat.User.list:
     post:
-      summary: List of Chat Participants imbot.v2.Chat.User.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.User.list` returns a list of chat participants.
+      summary: Get the List of Chat Participants imbot.v2.Chat.User.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.User.list` returns the list of chat participants. If the bot is a participant of the chat, it is also in the list — it is identified by the `bot: true` field.'
       operationId: imbot_v2_Chat_User_list
       tags:
       - Chatbots
@@ -3983,16 +3985,16 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 order:
                   type: object
                   description: '| Sorting.'
                 limit:
                   type: integer
-                  description: '| Number of records (1–200). Default is `50` ||'
+                  description: '| Number of records, from `1` to `200`. Default is `50`. A value out of range does not cause an error — the method returns up to `50` records ||'
               required:
               - botId
               - dialogId
@@ -4005,16 +4007,16 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 order:
                   type: object
                   description: '| Sorting.'
                 limit:
                   type: integer
-                  description: '| Number of records (1–200). Default is `50` ||'
+                  description: '| Number of records, from `1` to `200`. Default is `50`. A value out of range does not cause an error — the method returns up to `50` records ||'
               required:
               - botId
               - dialogId
@@ -4038,7 +4040,7 @@ paths:
   /imbot.v2.Chat.add:
     post:
       summary: Create a Group Chat imbot.v2.Chat.add
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.add` creates a new group chat on behalf of the bot. If the owner is not specified, the bot becomes the owner.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.add` creates a group chat on behalf of the bot and adds the bot as a participant.'
       operationId: imbot_v2_Chat_add
       tags:
       - Chatbots
@@ -4056,10 +4058,13 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 fields:
                   type: object
-                  description: '| Properties of the chat being created. The structure of the object is described below ||'
+                  description: '| Properties of the chat being created (detailed description) ||'
+                type:
+                  type: string
+                  description: '| Chat type:'
                 title:
                   type: string
                   description: '| Chat title ||'
@@ -4074,13 +4079,10 @@ paths:
                   description: '| Chat avatar in Base64 format ||'
                 userIds:
                   type: string
-                  description: '| Array of participant IDs ||'
+                  description: '| Array of participant IDs. You do not need to pass the bot — it is added to the chat automatically ||'
                 ownerId:
                   type: integer
-                  description: '| ID of the chat owner. If not specified, the bot becomes the owner ||'
-                message:
-                  type: string
-                  description: '| First message in the chat ||'
+                  description: '| ID of the chat owner, the bot by default. The owner is automatically added to the chat as a participant and a manager. The method does not check whether the user exists: with a non-existent ID, the chat is created without an error and is left without an owner ||'
                 Code:
                   type: string
                   description: '| HEX ||'
@@ -4095,10 +4097,13 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 fields:
                   type: object
-                  description: '| Properties of the chat being created. The structure of the object is described below ||'
+                  description: '| Properties of the chat being created (detailed description) ||'
+                type:
+                  type: string
+                  description: '| Chat type:'
                 title:
                   type: string
                   description: '| Chat title ||'
@@ -4113,13 +4118,10 @@ paths:
                   description: '| Chat avatar in Base64 format ||'
                 userIds:
                   type: string
-                  description: '| Array of participant IDs ||'
+                  description: '| Array of participant IDs. You do not need to pass the bot — it is added to the chat automatically ||'
                 ownerId:
                   type: integer
-                  description: '| ID of the chat owner. If not specified, the bot becomes the owner ||'
-                message:
-                  type: string
-                  description: '| First message in the chat ||'
+                  description: '| ID of the chat owner, the bot by default. The owner is automatically added to the chat as a participant and a manager. The method does not check whether the user exists: with a non-existent ID, the chat is created without an error and is left without an owner ||'
                 Code:
                   type: string
                   description: '| HEX ||'
@@ -4145,7 +4147,7 @@ paths:
   /imbot.v2.Chat.get:
     post:
       summary: Get Information About the Chat imbot.v2.Chat.get
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.get` returns information about the chat. The bot must be a participant in the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.get` returns information about a chat the bot is a participant of. The method returns the data of an open chat or an open channel even if the bot is not a participant.'
       operationId: imbot_v2_Chat_get
       tags:
       - Chatbots
@@ -4163,10 +4165,10 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}`, for personal chats — `{userId}` ||'
+                  description: '| Dialog ID in the dialogId format: `chat{chatId}` for a group chat, `{userId}` for a personal chat ||'
               required:
               - botId
               - dialogId
@@ -4179,10 +4181,10 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}`, for personal chats — `{userId}` ||'
+                  description: '| Dialog ID in the dialogId format: `chat{chatId}` for a group chat, `{userId}` for a personal chat ||'
               required:
               - botId
               - dialogId
@@ -4206,7 +4208,7 @@ paths:
   /imbot.v2.Chat.leave:
     post:
       summary: Leave Chat imbot.v2.Chat.leave
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.leave` removes the bot from the chat.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.leave` removes the bot from the chat. The bot must be a participant of the chat.'
       operationId: imbot_v2_Chat_leave
       tags:
       - Chatbots
@@ -4224,10 +4226,10 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
               required:
               - botId
               - dialogId
@@ -4240,10 +4242,10 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
               required:
               - botId
               - dialogId
@@ -4267,7 +4269,7 @@ paths:
   /imbot.v2.Chat.setOwner:
     post:
       summary: Assign Chat Owner imbot.v2.Chat.setOwner
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.setOwner` transfers ownership of the chat to another user. Only the current owner of the chat can transfer ownership.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.setOwner` transfers chat ownership to another user.'
       operationId: imbot_v2_Chat_setOwner
       tags:
       - Chatbots
@@ -4285,13 +4287,13 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 userId:
                   type: integer
-                  description: '| ID of the new chat owner ||'
+                  description: '| ID of the new chat owner. The user must be a participant of the chat — see the warning above ||'
               required:
               - botId
               - dialogId
@@ -4305,13 +4307,13 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 userId:
                   type: integer
-                  description: '| ID of the new chat owner ||'
+                  description: '| ID of the new chat owner. The user must be a participant of the chat — see the warning above ||'
               required:
               - botId
               - dialogId
@@ -4336,7 +4338,7 @@ paths:
   /imbot.v2.Chat.update:
     post:
       summary: Update Chat Properties imbot.v2.Chat.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Chat.update` updates the properties of a chat. It combines the update of the title, description, color, and avatar in a single call.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Chat.update` updates the properties of a group chat: title, description, color, and avatar. Pass in `fields` only the properties you want to change. The bot must be the chat owner — this requirement does not depend on the chat permission settings.'
       operationId: imbot_v2_Chat_update
       tags:
       - Chatbots
@@ -4354,13 +4356,13 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}`, for personal chats — `{userId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 fields:
                   type: object
-                  description: '| Properties of the chat to be updated. The structure of the object is described below ||'
+                  description: '| Chat properties to update (detailed description). Without `fields`, the method changes nothing and returns `true` ||'
                 title:
                   type: string
                   description: '| New chat title ||'
@@ -4369,17 +4371,16 @@ paths:
                   description: '| New chat description ||'
                 color:
                   type: string
-                  description: '| Chat color — available colors ||'
+                  description: '| Chat color — available colors. An unknown color code is ignored without an error, and the color does not change ||'
                 avatar:
                   type: string
-                  description: '| New chat avatar in Base64 format ||'
+                  description: '| New chat avatar in Base64 format. If the string does not contain an image, the current avatar is removed without an error ||'
                 Code:
                   type: string
                   description: '| HEX ||'
               required:
               - botId
               - dialogId
-              - fields
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -4389,13 +4390,13 @@ paths:
                   description: '| Bot ID ||'
                 botToken:
                   type: string
-                  description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
+                  description: '| Bot token. Required for webhook authorization, not needed for OAuth.'
                 dialogId:
                   type: string
-                  description: '| Dialog ID. For group chats — `chat{chatId}`, for personal chats — `{userId}` ||'
+                  description: '| ID of the group chat in the dialogId format: `chat{chatId}` ||'
                 fields:
                   type: object
-                  description: '| Properties of the chat to be updated. The structure of the object is described below ||'
+                  description: '| Chat properties to update (detailed description). Without `fields`, the method changes nothing and returns `true` ||'
                 title:
                   type: string
                   description: '| New chat title ||'
@@ -4404,17 +4405,16 @@ paths:
                   description: '| New chat description ||'
                 color:
                   type: string
-                  description: '| Chat color — available colors ||'
+                  description: '| Chat color — available colors. An unknown color code is ignored without an error, and the color does not change ||'
                 avatar:
                   type: string
-                  description: '| New chat avatar in Base64 format ||'
+                  description: '| New chat avatar in Base64 format. If the string does not contain an image, the current avatar is removed without an error ||'
                 Code:
                   type: string
                   description: '| HEX ||'
               required:
               - botId
               - dialogId
-              - fields
       responses:
         '200':
           description: Successful response
@@ -4435,7 +4435,7 @@ paths:
   /imbot.v2.Command.answer:
     post:
       summary: Responding to the imbot.v2.Command.answer Command
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The `imbot.v2.Command.answer` method sends a bot's response to a slash command invocation. The bot can respond in the chat from which the command originated, even if the bot is not a participant in that chat. Access is granted temporarily based on the command token — `messageId` + `commandId`. If the bot is not a participant in the chat, the message is sent as a system message indicating the bot's name.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The `imbot.v2.Command.answer` method sends the bot''s response to a slash command call.'
       operationId: imbot_v2_Command_answer
       tags:
       - Chatbots
@@ -4470,9 +4470,8 @@ paths:
                   type: string
                   description: '| Response text. Maximum length — 20,000 characters ||'
                 attach:
-                  type: array
-                  items: {}
-                  description: '| Attachments. More details: How to use attachments ||'
+                  type: object
+                  description: '\| `array` | An attachment: an object with the `BLOCKS` array or a plain array of blocks. More details: How to use attachments ||'
                 keyboard:
                   type: array
                   items: {}
@@ -4514,9 +4513,8 @@ paths:
                   type: string
                   description: '| Response text. Maximum length — 20,000 characters ||'
                 attach:
-                  type: array
-                  items: {}
-                  description: '| Attachments. More details: How to use attachments ||'
+                  type: object
+                  description: '\| `array` | An attachment: an object with the `BLOCKS` array or a plain array of blocks. More details: How to use attachments ||'
                 keyboard:
                   type: array
                   items: {}
@@ -4551,8 +4549,8 @@ paths:
         - imbot
   /imbot.v2.Command.list:
     post:
-      summary: Get the List of Commands imbot.v2.Command.list
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.list` returns a list of all commands of the bot.
+      summary: Get a List of Commands imbot.v2.Command.list
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Command.list` returns a list of all bot commands.'
       operationId: imbot_v2_Command_list
       tags:
       - Chatbots
@@ -4605,7 +4603,7 @@ paths:
   /imbot.v2.Command.register:
     post:
       summary: Register the Team imbot.v2.Command.register
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.register` registers a bot''s slash command. The method is idempotent: a repeated call with the same `command` for the same bot from the same application returns the existing command without updating the data. To update, use imbot.v2.Command.update. The method call format has changed: command parameters are now passed in the `fields` object. The old flat format will be supported until 30.09.2026. For more details, see API Change Log for imbot.v2.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Command.register` registers a bot slash command.'
       operationId: imbot_v2_Command_register
       tags:
       - Chatbots
@@ -4632,7 +4630,7 @@ paths:
                   description: '| Command without the `/` symbol. For example: `help` ||'
                 title:
                   type: object
-                  description: '| Title of the command in different languages. An object `{langCode: text}`, where `langCode` is a two-letter lowercase language code: `en`, `de`, etc.'
+                  description: '| Title of the command in different languages. An object `{langCode: text}`, where `langCode` is the two-letter language code in lowercase: `en`, `de`, etc.'
                 params:
                   type: object
                   description: '| Description of command parameters in different languages. An object `{langCode: text}`, similar to `title`. Displayed as a hint next to the command ||'
@@ -4667,7 +4665,7 @@ paths:
                   description: '| Command without the `/` symbol. For example: `help` ||'
                 title:
                   type: object
-                  description: '| Title of the command in different languages. An object `{langCode: text}`, where `langCode` is a two-letter lowercase language code: `en`, `de`, etc.'
+                  description: '| Title of the command in different languages. An object `{langCode: text}`, where `langCode` is the two-letter language code in lowercase: `en`, `de`, etc.'
                 params:
                   type: object
                   description: '| Description of command parameters in different languages. An object `{langCode: text}`, similar to `title`. Displayed as a hint next to the command ||'
@@ -4704,7 +4702,7 @@ paths:
   /imbot.v2.Command.unregister:
     post:
       summary: Remove the imbot.v2.Command.unregister Command
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.unregister` removes a bot's slash command.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Command.unregister` removes the bot''s slash command.'
       operationId: imbot_v2_Command_unregister
       tags:
       - Chatbots
@@ -4764,8 +4762,8 @@ paths:
         - imbot
   /imbot.v2.Command.update:
     post:
-      summary: Update the imbot.v2.Command.update
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Command.update` updates the bot's slash command.
+      summary: Update the imbot.v2.Command.update Team
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Command.update` updates the bot''s slash command.'
       operationId: imbot_v2_Command_update
       tags:
       - Chatbots
@@ -4795,19 +4793,19 @@ paths:
                   description: '| New command (without `/`) ||'
                 title:
                   type: object
-                  description: '| Title of the command in different languages:'
+                  description: '| Command title in different languages:'
                 params:
                   type: object
                   description: '| Description of parameters in different languages. Similar to `title`, applies only to those languages provided in `title` ||'
                 common:
-                  type: string
-                  description: '| Common command. Allowed values: `Y`, `N` ||'
+                  type: boolean
+                  description: '| Common command. Allowed values: `true`, `false` ||'
                 hidden:
-                  type: string
-                  description: '| Hidden command. Allowed values: `Y`, `N` ||'
+                  type: boolean
+                  description: '| Hidden command. Allowed values: `true`, `false` ||'
                 extranetSupport:
-                  type: string
-                  description: '| Extranet support. Allowed values: `Y`, `N` ||'
+                  type: boolean
+                  description: '| Extranet support. Allowed values: `true`, `false` ||'
               required:
               - botId
               - commandId
@@ -4833,19 +4831,19 @@ paths:
                   description: '| New command (without `/`) ||'
                 title:
                   type: object
-                  description: '| Title of the command in different languages:'
+                  description: '| Command title in different languages:'
                 params:
                   type: object
                   description: '| Description of parameters in different languages. Similar to `title`, applies only to those languages provided in `title` ||'
                 common:
-                  type: string
-                  description: '| Common command. Allowed values: `Y`, `N` ||'
+                  type: boolean
+                  description: '| Common command. Allowed values: `true`, `false` ||'
                 hidden:
-                  type: string
-                  description: '| Hidden command. Allowed values: `Y`, `N` ||'
+                  type: boolean
+                  description: '| Hidden command. Allowed values: `true`, `false` ||'
                 extranetSupport:
-                  type: string
-                  description: '| Extranet support. Allowed values: `Y`, `N` ||'
+                  type: boolean
+                  description: '| Extranet support. Allowed values: `true`, `false` ||'
               required:
               - botId
               - commandId
@@ -4870,7 +4868,7 @@ paths:
   /imbot.v2.Event.get:
     post:
       summary: Get Events from imbot.v2.Event.get
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Event.get` retrieves events for the bot in polling agent mode. It is used for bots with `eventMode: "fetch"`. The method confirms the receipt of events with IDs less than the provided `offset`. On the next call, only new events starting from the confirmed ones are returned. Only one application—the one that registered the bot—can receive events for a specific bot. If multiple independent agents are needed, register a separate bot for each.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Event.get` retrieves events for the bot in polling agent mode. It is used for bots with `eventMode: "fetch"`.'
       operationId: imbot_v2_Event_get
       tags:
       - Chatbots
@@ -4940,8 +4938,8 @@ paths:
         - imbot
   /imbot.v2.File.download:
     post:
-      summary: Get Download Link for imbot.v2.File.download
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.File.download` returns a link to download a file from the chat.
+      summary: Get a Link to Download the File imbot.v2.File.download
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.File.download` returns a link to download a file from the chat.'
       operationId: imbot_v2_File_download
       tags:
       - Chatbots
@@ -4962,7 +4960,7 @@ paths:
                   description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
                 fileId:
                   type: integer
-                  description: '| File ID on Drive. Can be obtained from the response of the imbot.v2.File.upload method ||'
+                  description: '| File ID on Drive. Can be obtained from the response of the method imbot.v2.File.upload ||'
               required:
               - botId
               - fileId
@@ -4978,7 +4976,7 @@ paths:
                   description: '| Unique authorization token for the bot. Required for webhook authorization, not needed for OAuth.'
                 fileId:
                   type: integer
-                  description: '| File ID on Drive. Can be obtained from the response of the imbot.v2.File.upload method ||'
+                  description: '| File ID on Drive. Can be obtained from the response of the method imbot.v2.File.upload ||'
               required:
               - botId
               - fileId
@@ -5002,7 +5000,7 @@ paths:
   /imbot.v2.File.upload:
     post:
       summary: Upload File to Chat imbot.v2.File.upload
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.File.upload` uploads a file to the chat on behalf of the bot. It combines three steps of the deprecated API into a single call: uploading the file to the Drive, attaching it to the chat, and sending a message.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.File.upload` uploads a file to the chat on behalf of the bot. It combines three steps of the deprecated API into a single call: uploading the file to the Drive, attaching it to the chat, and sending a message.'
       operationId: imbot_v2_File_upload
       tags:
       - Chatbots
@@ -5035,7 +5033,7 @@ paths:
                   description: '| File content in Base64 encoding. Maximum size — 100 MB ||'
                 message:
                   type: string
-                  description: '| Text message sent along with the file ||'
+                  description: '| Text of the message sent along with the file ||'
               required:
               - botId
               - dialogId
@@ -5066,7 +5064,7 @@ paths:
                   description: '| File content in Base64 encoding. Maximum size — 100 MB ||'
                 message:
                   type: string
-                  description: '| Text message sent along with the file ||'
+                  description: '| Text of the message sent along with the file ||'
               required:
               - botId
               - dialogId
@@ -5092,8 +5090,8 @@ paths:
         - imbot
   /imbot.v2.Revision.get:
     post:
-      summary: Get API Revisions imbot.v2.Revision.get
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `imbot.v2.Revision.get` returns the revision numbers of the REST API and client protocols of the messenger. It is used to check compatibility: which methods and features are supported by a specific Bitrix24.'
+      summary: Get API revisions imbot.v2.Revision.get
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `imbot.v2.Revision.get` returns the revision numbers of the REST API and client protocols of the messenger. It is used to check compatibility: which methods and features are supported by a specific Bitrix24.'
       operationId: imbot_v2_Revision_get
       tags:
       - Chatbots
@@ -5142,6 +5140,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -5169,20 +5181,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey

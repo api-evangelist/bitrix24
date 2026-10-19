@@ -31,8 +31,8 @@ tags:
 paths:
   /landing.repowidget.debug:
     post:
-      summary: Enable Debug Mode landing.repowidget.debug
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repowidget.debug` enables debug mode for all widgets of the current application. In this case, the vue application will report more errors in the js console for developer convenience. By default, the mode is disabled.
+      summary: Enable or Disable Debug Mode landing.repowidget.debug
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `landing.repowidget.debug` enables or disables debug mode for all widgets of the current application.'
       operationId: landing_repowidget_debug
       tags:
       - Vibe
@@ -47,14 +47,18 @@ paths:
               properties:
                 enable:
                   type: boolean
-                  description: '| Debug mode activation flag ||'
+                  description: '| Debug mode. Possible values:'
+              required:
+              - enable
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 enable:
                   type: boolean
-                  description: '| Debug mode activation flag ||'
+                  description: '| Debug mode. Possible values:'
+              required:
+              - enable
       responses:
         '200':
           description: Successful response
@@ -75,7 +79,7 @@ paths:
   /landing.repowidget.getlist:
     post:
       summary: Get the list of widgets landing.repowidget.getlist
-      description: If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repowidget.getlist` returns a list of widgets for the current application, filtered by the specified criteria.
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `landing.repowidget.getlist` returns a list of Vibe widgets of the current application, filtered by the specified criteria. If the method is called via a webhook, it returns the widgets registered without an application.'
       operationId: landing_repowidget_getlist
       tags:
       - Vibe
@@ -90,7 +94,7 @@ paths:
               properties:
                 params:
                   type: object
-                  description: '| Array of fields to retrieve the list of widgets ||'
+                  description: '| Selection parameters (detailed description).'
                 select:
                   type: array
                   items: {}
@@ -105,6 +109,12 @@ paths:
                 order:
                   type: object
                   description: '| Object for sorting the selected records in the format `{"field_1": "order_1", ... "field_N": "order_N"}`.'
+                limit:
+                  type: integer
+                  description: '| Maximum number of records in the selection. The limit applies to all blocks of the application in the repository, including blocks added with the landing.repo.register method. Vibe widgets are selected after that, so with `limit: 10` the method can return fewer than 10 widgets ||'
+                offset:
+                  type: integer
+                  description: '| Number of records to skip from the start of the selection. Used together with `limit` ||'
                 ID:
                   type: integer
                   description: '| Widget identifier ||'
@@ -130,15 +140,12 @@ paths:
                 PREVIEW:
                   type: string
                   description: '| URL of the widget cover image for the widget selection slider ||'
-                WIDGET_PARAMS:
-                  type: object
-                  description: '| Parameters for the Vue template engine ||'
                 CONTENT:
                   type: string
                   description: '| Widget markup using Vue constructs ||'
                 MANIFEST:
                   type: object
-                  description: '| Widget manifest ||'
+                  description: '| Widget manifest. Contains:'
                 CREATED_BY_ID:
                   type: integer
                   description: '| Identifier of the user who created the record ||'
@@ -147,24 +154,20 @@ paths:
                   description: '| Identifier of the user who modified the record ||'
                 DATE_CREATE:
                   type: string
-                  format: date
-                  description: '| Creation date ||'
+                  description: '| Creation date. In the response, a string in the Bitrix24 date and time format, for example, `10.10.2024 15:55:30` ||'
                 DATE_MODIFY:
                   type: string
-                  format: date
-                  description: '| Modification date ||'
+                  description: '| Modification date. Same format as `DATE_CREATE` ||'
                 SITE_TEMPLATE_ID:
                   type: string
                   description: '| Binding of the widget to a specific site template. Only for on-premise Bitrix24! ||'
-              required:
-              - params
           application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
                 params:
                   type: object
-                  description: '| Array of fields to retrieve the list of widgets ||'
+                  description: '| Selection parameters (detailed description).'
                 select:
                   type: array
                   items: {}
@@ -179,6 +182,12 @@ paths:
                 order:
                   type: object
                   description: '| Object for sorting the selected records in the format `{"field_1": "order_1", ... "field_N": "order_N"}`.'
+                limit:
+                  type: integer
+                  description: '| Maximum number of records in the selection. The limit applies to all blocks of the application in the repository, including blocks added with the landing.repo.register method. Vibe widgets are selected after that, so with `limit: 10` the method can return fewer than 10 widgets ||'
+                offset:
+                  type: integer
+                  description: '| Number of records to skip from the start of the selection. Used together with `limit` ||'
                 ID:
                   type: integer
                   description: '| Widget identifier ||'
@@ -204,15 +213,12 @@ paths:
                 PREVIEW:
                   type: string
                   description: '| URL of the widget cover image for the widget selection slider ||'
-                WIDGET_PARAMS:
-                  type: object
-                  description: '| Parameters for the Vue template engine ||'
                 CONTENT:
                   type: string
                   description: '| Widget markup using Vue constructs ||'
                 MANIFEST:
                   type: object
-                  description: '| Widget manifest ||'
+                  description: '| Widget manifest. Contains:'
                 CREATED_BY_ID:
                   type: integer
                   description: '| Identifier of the user who created the record ||'
@@ -221,17 +227,13 @@ paths:
                   description: '| Identifier of the user who modified the record ||'
                 DATE_CREATE:
                   type: string
-                  format: date
-                  description: '| Creation date ||'
+                  description: '| Creation date. In the response, a string in the Bitrix24 date and time format, for example, `10.10.2024 15:55:30` ||'
                 DATE_MODIFY:
                   type: string
-                  format: date
-                  description: '| Modification date ||'
+                  description: '| Modification date. Same format as `DATE_CREATE` ||'
                 SITE_TEMPLATE_ID:
                   type: string
                   description: '| Binding of the widget to a specific site template. Only for on-premise Bitrix24! ||'
-              required:
-              - params
       responses:
         '200':
           description: Successful response
@@ -251,8 +253,8 @@ paths:
         - landing
   /landing.repowidget.register:
     post:
-      summary: 'Add Widget to Start Page: the Vibe landing.repowidget.register'
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repowidget.register` adds a widget for the Start page: the Vibe. It returns an error or the `ID` of the added widget. During the addition, a check is performed. If a widget with the code `code` has already been registered previously, its content will be updated. Widgets already placed on the Vibe will be automatically updated in case of content changes.'
+      summary: Add Widget for Vibe landing.repowidget.register
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `landing.repowidget.register` adds a widget for the Vibe.'
       operationId: landing_repowidget_register
       tags:
       - Vibe
@@ -267,10 +269,10 @@ paths:
               properties:
                 code:
                   type: string
-                  description: '| Unique code for the widget. It is highly recommended to use a unique prefix for your widgets to avoid the risk of code conflicts with widgets from other developers ||'
+                  description: '| Widget code, unique within the application. Widgets of different applications with the same code do not conflict ||'
                 fields:
                   type: object
-                  description: '| Field values for creating the widget ||'
+                  description: '| Field values for creating the widget (detailed description) ||'
                 NAME:
                   type: string
                   description: '| Widget name ||'
@@ -288,7 +290,7 @@ paths:
                   description: '| Code of the section where the widget will be added. List of available sections:'
                 WIDGET_PARAMS:
                   type: object
-                  description: '| Parameters for the Vue templater. If absent, the block will remain as regular HTML code with `{{}}` ||'
+                  description: '| Parameters for the Vue template engine ||'
                 ACTIVE:
                   type: string
                   maxLength: 1
@@ -298,10 +300,10 @@ paths:
                   description: '| Binding the widget to a specific site template. Only for on-premise Bitrix24! ||'
                 rootNode:
                   type: string
-                  description: '| Selector for the root element in the markup that will be turned into a Vue component. The root element must be the only element in the passed template; all other markup will be cleared ||'
+                  description: '| Selector for the root element in the `CONTENT` markup that will be turned into a Vue component. All markup must be inside the root element. If the selector does not find the element in `CONTENT`, the widget is not rendered ||'
                 lang:
-                  type: string
-                  description: '| Array of language phrases used in constructs `{{$Bitrix.Loc.getMessage(''W_EMPTY'')}}` ||'
+                  type: object
+                  description: '| Language phrases for `{{$Bitrix.Loc.getMessage(''W_EMPTY'')}}` constructs in the format `{"language code": {"PHRASE_CODE": "text"}}`, for example, `{"de": {"W_EMPTY": "Keine Daten"}, "en": {"W_EMPTY": "No data"}}`.'
                 handler:
                   type: string
                   description: '| Address of the external handler to which requests will be sent.'
@@ -310,10 +312,15 @@ paths:
                   description: '| Address of styles for the widget. Styles can also be set inline in the markup via the binding `:style="{borderBottom: ''1px solid red''}"` ||'
                 demoData:
                   type: object
-                  description: '| Demo data for the widget that will be used to showcase the widget in the Vibe templates in Bitrix24 Marketplace.'
+                  description: '| Demo data for the widget. It is displayed in the Vibe template preview slider in the Market, so its structure must match the response of the `handler`.'
               required:
               - code
               - fields
+              - NAME
+              - PREVIEW
+              - CONTENT
+              - SECTIONS
+              - WIDGET_PARAMS
               - rootNode
               - handler
               - demoData
@@ -323,10 +330,10 @@ paths:
               properties:
                 code:
                   type: string
-                  description: '| Unique code for the widget. It is highly recommended to use a unique prefix for your widgets to avoid the risk of code conflicts with widgets from other developers ||'
+                  description: '| Widget code, unique within the application. Widgets of different applications with the same code do not conflict ||'
                 fields:
                   type: object
-                  description: '| Field values for creating the widget ||'
+                  description: '| Field values for creating the widget (detailed description) ||'
                 NAME:
                   type: string
                   description: '| Widget name ||'
@@ -344,7 +351,7 @@ paths:
                   description: '| Code of the section where the widget will be added. List of available sections:'
                 WIDGET_PARAMS:
                   type: object
-                  description: '| Parameters for the Vue templater. If absent, the block will remain as regular HTML code with `{{}}` ||'
+                  description: '| Parameters for the Vue template engine ||'
                 ACTIVE:
                   type: string
                   maxLength: 1
@@ -354,10 +361,10 @@ paths:
                   description: '| Binding the widget to a specific site template. Only for on-premise Bitrix24! ||'
                 rootNode:
                   type: string
-                  description: '| Selector for the root element in the markup that will be turned into a Vue component. The root element must be the only element in the passed template; all other markup will be cleared ||'
+                  description: '| Selector for the root element in the `CONTENT` markup that will be turned into a Vue component. All markup must be inside the root element. If the selector does not find the element in `CONTENT`, the widget is not rendered ||'
                 lang:
-                  type: string
-                  description: '| Array of language phrases used in constructs `{{$Bitrix.Loc.getMessage(''W_EMPTY'')}}` ||'
+                  type: object
+                  description: '| Language phrases for `{{$Bitrix.Loc.getMessage(''W_EMPTY'')}}` constructs in the format `{"language code": {"PHRASE_CODE": "text"}}`, for example, `{"de": {"W_EMPTY": "Keine Daten"}, "en": {"W_EMPTY": "No data"}}`.'
                 handler:
                   type: string
                   description: '| Address of the external handler to which requests will be sent.'
@@ -366,10 +373,15 @@ paths:
                   description: '| Address of styles for the widget. Styles can also be set inline in the markup via the binding `:style="{borderBottom: ''1px solid red''}"` ||'
                 demoData:
                   type: object
-                  description: '| Demo data for the widget that will be used to showcase the widget in the Vibe templates in Bitrix24 Marketplace.'
+                  description: '| Demo data for the widget. It is displayed in the Vibe template preview slider in the Market, so its structure must match the response of the `handler`.'
               required:
               - code
               - fields
+              - NAME
+              - PREVIEW
+              - CONTENT
+              - SECTIONS
+              - WIDGET_PARAMS
               - rootNode
               - handler
               - demoData
@@ -393,7 +405,7 @@ paths:
   /landing.repowidget.unregister:
     post:
       summary: Unregister Widget for Vibe landing.repowidget.unregister
-      description: 'If you are developing integrations for Bitrix24 using AI tools (Codex, Claude Code, Cursor), connect to the MCP server so that the assistant can utilize the official REST documentation. The method `landing.repowidget.unregister` removes the widget for Start page: the Vibe. On success, it returns `true`; otherwise, it returns `false` or an error with a description.'
+      description: 'Choose a tool for developing with an AI agent: - use Alaio Vibecode to build an app for Bitrix24 from a task description without knowing any programming language. The agent writes the code and deploys the app to a server, with no manual hosting setup - use the MCP server to develop a REST API integration in your own project. The agent refers to the official REST documentation The method `landing.repowidget.unregister` removes a widget for the Vibe by its code. All instances of the widget placed on Vibe pages are removed along with it.'
       operationId: landing_repowidget_unregister
       tags:
       - Vibe
@@ -408,7 +420,7 @@ paths:
               properties:
                 code:
                   type: string
-                  description: '| Unique code of the widget to be removed ||'
+                  description: '| Unique code of the widget to be removed — the one passed in `code` when registering the widget with the landing.repowidget.register method.'
               required:
               - code
           application/x-www-form-urlencoded:
@@ -417,7 +429,7 @@ paths:
               properties:
                 code:
                   type: string
-                  description: '| Unique code of the widget to be removed ||'
+                  description: '| Unique code of the widget to be removed — the one passed in `code` when registering the widget with the landing.repowidget.register method.'
               required:
               - code
       responses:
@@ -454,6 +466,20 @@ components:
           type: string
           description: Human-readable error description
           example: Access denied.
+    BitrixResponse:
+      type: object
+      description: Standard Bitrix24 REST API response
+      properties:
+        result:
+          description: Method execution result
+        total:
+          type: integer
+          description: Total number of records (for list methods)
+        next:
+          type: integer
+          description: Next offset for pagination
+        time:
+          $ref: '#/components/schemas/BitrixTime'
     BitrixTime:
       type: object
       description: Request execution time information
@@ -481,20 +507,6 @@ components:
         operating:
           type: number
           format: double
-    BitrixResponse:
-      type: object
-      description: Standard Bitrix24 REST API response
-      properties:
-        result:
-          description: Method execution result
-        total:
-          type: integer
-          description: Total number of records (for list methods)
-        next:
-          type: integer
-          description: Next offset for pagination
-        time:
-          $ref: '#/components/schemas/BitrixTime'
   securitySchemes:
     AccessToken:
       type: apiKey
