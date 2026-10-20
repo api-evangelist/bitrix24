@@ -52,3 +52,23 @@ tool_quality:
   scored: false
   note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
     from Glimind's agent-readiness audit.
+tools:
+- name: bitrix-search
+  description: 'Search Bitrix24 REST docs by natural-language query and return a short plain-text list
+    of matches (method/event/article/app doc) with name, type, and brief description. Use the exact name/title
+    from results when calling details tools. Optional filters: `limit` and `doc_type` (method|event|other|app_development_docs).'
+- name: bitrix-app-development-doc-details
+  description: Fetch Bitrix24 app development documentation by exact title (use `bitrix-search` with doc_type
+    app_development_docs). Returns plain text labeled fields (Title, URL, Module, Category, Description,
+    Content) without Markdown.
+- name: bitrix-method-details
+  description: Get details for a Bitrix24 REST method by exact name (use `bitrix-search` first). Returns
+    plain text with labeled sections including parameters, returns, errors, and examples. Optional `field`
+    limits output; `filter` narrows params by entity or examples by language.
+- name: bitrix-article-details
+  description: Fetch a non-method Bitrix24 documentation article by exact title (use `bitrix-search` with
+    doc_type other). Returns Markdown with title, metadata (URL/module/category), description, and content.
+- name: bitrix-event-details
+  description: Fetch Bitrix24 event documentation by exact event name (use `bitrix-search` with doc_type
+    event). Returns Markdown with title, metadata (URL/module/category), description, and content.
+tools_count: 5
